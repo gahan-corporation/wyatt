@@ -120,7 +120,7 @@ def py2exe_options():
 
 
 setup(
-    name='odoo',
+    name='gerp',
     version=version,
     description=description,
     long_description=long_desc,
