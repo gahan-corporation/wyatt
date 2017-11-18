@@ -1,0 +1,166 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Modules &#8212; gerp 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Command-line interface: odoo-bin" href="cmdline.html" />
+    <link rel="prev" title="Views" href="views.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="modules">
+<h1>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="manifest">
+<span id="reference-module-manifest"></span><h2>Manifest<a class="headerlink" href="#manifest" title="Permalink to this headline">¶</a></h2>
+<p>The manifest file serves to declare a python package as an Odoo module
+and to specify module metadata.</p>
+<p>It is a file called <code class="docutils literal"><span class="pre">__manifest__.py</span></code> and contains a single Python
+dictionary, where each key specifies module metadatum.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s2">&quot;A Module&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;depends&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;author&#39;</span><span class="p">:</span> <span class="s2">&quot;Author Name&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;Category&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    Description text</span>
+<span class="s2">    &quot;&quot;&quot;</span><span class="p">,</span>
+    <span class="c1"># data files always loaded at installation</span>
+    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;views/mymodule_view.xml&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="c1"># data files containing optionally loaded demonstration data</span>
+    <span class="s1">&#39;demo&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;demo/demo_data.xml&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Available manifest fields are:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">name</span></code> (<code class="docutils literal"><span class="pre">str</span></code>, required)</dt>
+<dd>the human-readable name of the module</dd>
+<dt><code class="docutils literal"><span class="pre">version</span></code> (<code class="docutils literal"><span class="pre">str</span></code>)</dt>
+<dd>this module’s version, should follow <a class="reference external" href="http://semver.org">semantic versioning</a> rules</dd>
+<dt><code class="docutils literal"><span class="pre">description</span></code> (<code class="docutils literal"><span class="pre">str</span></code>)</dt>
+<dd>extended description for the module, in reStructuredText</dd>
+<dt><code class="docutils literal"><span class="pre">author</span></code> (<code class="docutils literal"><span class="pre">str</span></code>)</dt>
+<dd>name of the module author</dd>
+<dt><code class="docutils literal"><span class="pre">website</span></code> (<code class="docutils literal"><span class="pre">str</span></code>)</dt>
+<dd>website URL for the module author</dd>
+<dt><code class="docutils literal"><span class="pre">license</span></code> (<code class="docutils literal"><span class="pre">str</span></code>, defaults: <code class="docutils literal"><span class="pre">LGPL-3</span></code>)</dt>
+<dd>distribution license for the module</dd>
+<dt><code class="docutils literal"><span class="pre">category</span></code> (<code class="docutils literal"><span class="pre">str</span></code>, default: <code class="docutils literal"><span class="pre">Uncategorized</span></code>)</dt>
+<dd><p class="first">classification category within Odoo, rough business domain for the module.</p>
+<p class="last">Although using <a class="reference external" href="https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml">existing categories</a> is recommended, the field is
+freeform and unknown categories are created on-the-fly. Category
+hierarchies can be created using the separator <code class="docutils literal"><span class="pre">/</span></code> e.g. <code class="docutils literal"><span class="pre">Foo</span> <span class="pre">/</span> <span class="pre">Bar</span></code>
+will create a category <code class="docutils literal"><span class="pre">Foo</span></code>, a category <code class="docutils literal"><span class="pre">Bar</span></code> as child category of
+<code class="docutils literal"><span class="pre">Foo</span></code>, and will set <code class="docutils literal"><span class="pre">Bar</span></code> as the module’s category.</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">depends</span></code> (<code class="docutils literal"><span class="pre">list(str)</span></code>)</dt>
+<dd><p class="first">Odoo modules which must be loaded before this one, either because this
+module uses features they create or because it alters resources they
+define.</p>
+<p class="last">When a module is installed, all of its dependencies are installed before
+it. Likewise dependencies are loaded before a module is loaded.</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">data</span></code> (<code class="docutils literal"><span class="pre">list(str)</span></code>)</dt>
+<dd>List of data files which must always be installed or updated with the
+module. A list of paths from the module root directory</dd>
+<dt><code class="docutils literal"><span class="pre">demo</span></code> (<code class="docutils literal"><span class="pre">list(str)</span></code>)</dt>
+<dd>List of data files which are only installed or updated in <em>demonstration
+mode</em></dd>
+<dt><code class="docutils literal"><span class="pre">auto_install</span></code> (<code class="docutils literal"><span class="pre">bool</span></code>, default: <code class="docutils literal"><span class="pre">False</span></code>)</dt>
+<dd><p class="first">If <code class="docutils literal"><span class="pre">True</span></code>, this module will automatically be installed if all of its
+dependencies are installed.</p>
+<p>It is generally used for “link modules” implementing synergic integration
+between two otherwise independent modules.</p>
+<p class="last">For instance <code class="docutils literal"><span class="pre">sale_crm</span></code> depends on both <code class="docutils literal"><span class="pre">sale</span></code> and <code class="docutils literal"><span class="pre">crm</span></code> and is set
+to <code class="docutils literal"><span class="pre">auto_install</span></code>. When both <code class="docutils literal"><span class="pre">sale</span></code> and <code class="docutils literal"><span class="pre">crm</span></code> are installed, it
+automatically adds CRM campaigns tracking to sale orders without either
+<code class="docutils literal"><span class="pre">sale</span></code> or <code class="docutils literal"><span class="pre">crm</span></code> being aware of one another</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../reference.html">Reference</a><ul>
+      <li>Previous: <a href="views.html" title="previous chapter">Views</a></li>
+      <li>Next: <a href="cmdline.html" title="next chapter">Command-line interface: odoo-bin</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Gahan Corporation.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/reference/module.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
