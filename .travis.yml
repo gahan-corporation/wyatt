@@ -1,4 +1,5 @@
 ---
+language: python
 sudo: required
 script:
 - cd addons/google_drive/models
