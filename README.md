@@ -1,7 +1,4 @@
-[![Build Status](http://runbot.odoo.com/runbot/badge/flat/1/11.0.svg)](http://runbot.odoo.com/runbot)
-[![Tech Doc](http://img.shields.io/badge/11.0-docs-875A7B.svg?style=flat&colorA=8F8F8F)](http://www.odoo.com/documentation/11.0)
-[![Help](http://img.shields.io/badge/11.0-help-875A7B.svg?style=flat&colorA=8F8F8F)](https://www.odoo.com/forum/help-1)
-[![Nightly Builds](http://img.shields.io/badge/11.0-nightly-875A7B.svg?style=flat&colorA=8F8F8F)](http://nightly.odoo.com/)
+[![Build Status](https://travis-ci.org/gahan-corporation/gerp.svg?branch=master)](https://travis-ci.org/gahan-corporation/gerp)
 
 [![Coverage Status](https://coveralls.io/repos/github/gahan-corporation/gerp/badge.svg?branch=master)](https://coveralls.io/github/gahan-corporation/gerp?branch=master)
 

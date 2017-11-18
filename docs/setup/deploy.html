@@ -1,0 +1,570 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Deploying Odoo &#8212; gerp 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Deploying with Content Delivery Networks" href="cdn.html" />
+    <link rel="prev" title="Installing Odoo" href="install.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="deploying-odoo">
+<h1>Deploying Odoo<a class="headerlink" href="#deploying-odoo" title="Permalink to this headline">¶</a></h1>
+<p>This document describes basic steps to set up Odoo in production or on an
+internet-facing server. It follows <a class="reference internal" href="install.html#setup-install"><span class="std std-ref">installation</span></a>, and is
+not generally necessary for a development systems that is not exposed on the
+internet.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If you are setting up a public server, be sure to check our <a class="reference internal" href="#security"><span class="std std-ref">Security</span></a> recommandations!</p>
+</div>
+<div class="section" id="dbfilter">
+<span id="db-filter"></span><h2>dbfilter<a class="headerlink" href="#dbfilter" title="Permalink to this headline">¶</a></h2>
+<p>Odoo is a multi-tenant system: a single Odoo system may run and serve a number
+of database instances. It is also highly customizable, with customizations
+(starting from the modules being loaded) depending on the “current database”.</p>
+<p>This is not an issue when working with the backend (web client) as a logged-in
+company user: the database can be selected when logging in, and customizations
+loaded afterwards.</p>
+<p>However it is an issue for non-logged users (portal, website) which aren’t
+bound to a database: Odoo needs to know which database should be used to load
+the website page or perform the operation. If multi-tenancy is not used that is not an
+issue, there’s only one database to use, but if there are multiple databases
+accessible Odoo needs a rule to know which one it should use.</p>
+<p>That is one of the purposes of <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-db-filter"><code class="xref std std-option docutils literal"><span class="pre">--db-filter</span></code></a>:
+it specifies how the database should be selected based on the hostname (domain)
+that is being requested. The value is a <a class="reference external" href="https://docs.python.org/3/library/re.html">regular expression</a>, possibly
+including the dynamically injected hostname (<code class="docutils literal"><span class="pre">%h</span></code>) or the first subdomain
+(<code class="docutils literal"><span class="pre">%d</span></code>) through which the system is being accessed.</p>
+<p>For servers hosting multiple databases in production, especially if <code class="docutils literal"><span class="pre">website</span></code>
+is used, dbfilter <strong>must</strong> be set, otherwise a number of features will not work
+correctly.</p>
+<div class="section" id="configuration-samples">
+<h3>Configuration samples<a class="headerlink" href="#configuration-samples" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>show only databases with names beginning with ‘mycompany’</li>
+</ul>
+<p>in <code class="docutils literal"><span class="pre">/etc/odoo.conf</span></code> set:</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[options]</span>
+<span class="na">dbfilter</span> <span class="o">=</span> <span class="s">^mycompany.*$</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Show only databases matching the first subdomain after <code class="docutils literal"><span class="pre">www</span></code>: for example
+the database “mycompany” will be shown if the incoming request
+was sent to <code class="docutils literal"><span class="pre">www.mycompany.com</span></code> or <code class="docutils literal"><span class="pre">mycompany.co.uk</span></code>, but not
+for <code class="docutils literal"><span class="pre">www2.mycompany.com</span></code> or <code class="docutils literal"><span class="pre">helpdesk.mycompany.com</span></code>.</li>
+</ul>
+<p>in <code class="docutils literal"><span class="pre">/etc/odoo.conf</span></code> set:</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[options]</span>
+<span class="na">dbfilter</span> <span class="o">=</span> <span class="s">^%d$</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Setting a proper <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-db-filter"><code class="xref std std-option docutils literal"><span class="pre">--db-filter</span></code></a> is an important part
+of securing your deployment.
+Once it is correctly working and only matching a single database per hostname, it
+is strongly recommended to block access to the database manager screens,
+and to use the <code class="docutils literal"><span class="pre">--no-database-list</span></code> startup paramater to prevent listing
+your databases, and to block access to the database management screens.
+See also <a class="reference internal" href="#security">security</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="postgresql">
+<h2>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this headline">¶</a></h2>
+<p>By default, PostgreSQL only allows connection over UNIX sockets and loopback
+connections (from “localhost”, the same machine the PostgreSQL server is
+installed on).</p>
+<p>UNIX socket is fine if you want Odoo and PostgreSQL to execute on the same
+machine, and is the default when no host is provided, but if you want Odoo and
+PostgreSQL to execute on different machines <a class="footnote-reference" href="#different-machines" id="id1">[1]</a> it will
+need to <a class="reference external" href="http://www.postgresql.org/docs/9.3/static/runtime-config-connection.html">listen to network interfaces</a> <a class="footnote-reference" href="#remote-socket" id="id2">[2]</a>, either:</p>
+<ul class="simple">
+<li>only accept loopback connections and <a class="reference external" href="http://www.postgresql.org/docs/9.3/static/ssh-tunnels.html">use an SSH tunnel</a> between the
+machine on which Odoo runs and the one on which PostgreSQL runs, then
+configure Odoo to connect to its end of the tunnel</li>
+<li>accept connections to the machine on which Odoo is installed, possibly
+over ssl (see <a class="reference external" href="http://www.postgresql.org/docs/9.3/static/runtime-config-connection.html">PostgreSQL connection settings</a> for details), then configure
+Odoo to connect over the network</li>
+</ul>
+<div class="section" id="configuration-sample">
+<h3>Configuration sample<a class="headerlink" href="#configuration-sample" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>allow tcp connection on localhost</li>
+<li>allow tcp connection from 192.168.1.x network</li>
+</ul>
+<p>in <code class="docutils literal"><span class="pre">/etc/postgresql/9.5/main/pg_hba.conf</span></code> set:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span># IPv4 local connections:
+host    all             all             127.0.0.1/32            md5
+host    all             all             192.168.1.0/24          md5
+</pre></div>
+</div>
+<p>in <code class="docutils literal"><span class="pre">/etc/postgresql/9.5/main/postgresql.conf</span></code> set:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>listen_addresses = &#39;localhost,192.168.1.2&#39;
+port = 5432
+max_connections = 80
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring-odoo">
+<span id="setup-deploy-odoo"></span><h3>Configuring Odoo<a class="headerlink" href="#configuring-odoo" title="Permalink to this headline">¶</a></h3>
+<p>Out of the box, Odoo connects to a local postgres over UNIX socket via port
+5432. This can be overridden using <a class="reference internal" href="../reference/cmdline.html#reference-cmdline-server-database"><span class="std std-ref">the database options</span></a> when your Postgres deployment is not
+local and/or does not use the installation defaults.</p>
+<p>The <a class="reference internal" href="install.html#setup-install-packaged"><span class="std std-ref">packaged installers</span></a> will automatically
+create a new user (<code class="docutils literal"><span class="pre">odoo</span></code>) and set it as the database user.</p>
+<ul>
+<li><p class="first">The database management screens are protected by the <code class="docutils literal"><span class="pre">admin_passwd</span></code>
+setting. This setting can only be set using configuration files, and is
+simply checked before performing database alterations. It should be set to
+a randomly generated value to ensure third parties can not use this
+interface.</p>
+</li>
+<li><p class="first">all database operations use the <a class="reference internal" href="../reference/cmdline.html#reference-cmdline-server-database"><span class="std std-ref">database options</span></a>, including the database management
+screen. For the database management screen to work requires that the PostgreSQL user
+have <code class="docutils literal"><span class="pre">createdb</span></code> right.</p>
+</li>
+<li><p class="first">users can always drop databases they own. For the database management screen
+to be completely non-functional, the PostgreSQL user needs to be created with
+<code class="docutils literal"><span class="pre">no-createdb</span></code> and the database must be owned by a different PostgreSQL user.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">the PostgreSQL user <em>must not</em> be a superuser</p>
+</div>
+</li>
+</ul>
+<div class="section" id="id3">
+<h4>Configuration sample<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>connect to a PostgreSQL server on 192.168.1.2</li>
+<li>port 5432</li>
+<li>using an ‘odoo’ user account,</li>
+<li>with ‘pwd’ as a password</li>
+<li>filtering only db with a name beginning with ‘mycompany’</li>
+</ul>
+<p>in <code class="docutils literal"><span class="pre">/etc/odoo.conf</span></code> set:</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[options]</span>
+<span class="na">admin_passwd</span> <span class="o">=</span> <span class="s">mysupersecretpassword</span>
+<span class="na">db_host</span> <span class="o">=</span> <span class="s">192.168.1.2</span>
+<span class="na">db_port</span> <span class="o">=</span> <span class="s">5432</span>
+<span class="na">db_user</span> <span class="o">=</span> <span class="s">odoo</span>
+<span class="na">db_password</span> <span class="o">=</span> <span class="s">pwd</span>
+<span class="na">dbfilter</span> <span class="o">=</span> <span class="s">^mycompany.*$</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="builtin-server">
+<span id="id4"></span><h2>Builtin server<a class="headerlink" href="#builtin-server" title="Permalink to this headline">¶</a></h2>
+<p>Odoo includes built-in HTTP servers, using either multithreading or
+multiprocessing.</p>
+<p>For production use, it is recommended to use the multiprocessing server as it
+increases stability, makes somewhat better use of computing resources and can
+be better monitored and resource-restricted.</p>
+<ul class="simple">
+<li>Multiprocessing is enabled by configuring <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-workers"><code class="xref std std-option docutils literal"><span class="pre">a</span> <span class="pre">non-zero</span> <span class="pre">number</span> <span class="pre">of</span>
+<span class="pre">worker</span> <span class="pre">processes</span></code></a>, the number of workers should be based
+on the number of cores in the machine (possibly with some room for cron
+workers depending on how much cron work is predicted)</li>
+<li>Worker limits can be configured based on the hardware configuration to avoid
+resources exhaustion</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">multiprocessing mode currently isn’t available on Windows</p>
+</div>
+<div class="section" id="worker-number-calculation">
+<h3>Worker number calculation<a class="headerlink" href="#worker-number-calculation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Rule of thumb : (#CPU * 2) + 1</li>
+<li>Cron workers need CPU</li>
+<li>1 worker ~= 6 concurrent users</li>
+</ul>
+</div>
+<div class="section" id="memory-size-calculation">
+<h3>memory size calculation<a class="headerlink" href="#memory-size-calculation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>We consider 20% of the requests are heavy requests, while 80% are simpler ones</li>
+<li>A heavy worker, when all computed field are well designed, SQL requests are well designed, … is estimated to consume around 1Go of RAM</li>
+<li>A lighter worker, in the same scenario, is estimated to consume around 150MB of RAM</li>
+</ul>
+<p>Needed RAM = #worker * ( (light_worker_ratio * light_worker_ram_estimation) + (heavy_worker_ratio * heavy_worker_ram_estimation) )</p>
+</div>
+<div class="section" id="livechat">
+<h3>LiveChat<a class="headerlink" href="#livechat" title="Permalink to this headline">¶</a></h3>
+<p>In multiprocessing, a dedicated LiveChat worker is automatically started and
+listening on <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-longpolling-port"><code class="xref std std-option docutils literal"><span class="pre">the</span> <span class="pre">longpolling</span> <span class="pre">port</span></code></a> but
+the client will not connect to it.</p>
+<p>Instead you must have a proxy redirecting requests whose URL starts with
+<code class="docutils literal"><span class="pre">/longpolling/</span></code> to the longpolling port. Other request should be proxied to
+the <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-http-port"><code class="xref std std-option docutils literal"><span class="pre">normal</span> <span class="pre">HTTP</span> <span class="pre">port</span></code></a></p>
+</div>
+<div class="section" id="id5">
+<h3>Configuration sample<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Server with 4 CPU, 8 Thread</li>
+<li>60 concurrent users</li>
+<li>60 users / 6 = 10 &lt;- theorical number of worker needed</li>
+<li>(4 * 2) + 1 = 9 &lt;- theorical maximal number of worker</li>
+<li>We’ll use 8 workers + 1 for cron. We’ll also use a monitoring system to measure cpu load, and check if it’s between 7 and 7.5 .</li>
+<li>RAM = 9 * ((0.8*150) + (0.2*1024)) ~= 3Go RAM for Odoo</li>
+</ul>
+<p>in <code class="docutils literal"><span class="pre">/etc/odoo.conf</span></code>:</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[options]</span>
+<span class="na">limit_memory_hard</span> <span class="o">=</span> <span class="s">1677721600</span>
+<span class="na">limit_memory_soft</span> <span class="o">=</span> <span class="s">629145600</span>
+<span class="na">limit_request</span> <span class="o">=</span> <span class="s">8192</span>
+<span class="na">limit_time_cpu</span> <span class="o">=</span> <span class="s">600</span>
+<span class="na">limit_time_real</span> <span class="o">=</span> <span class="s">1200</span>
+<span class="na">max_cron_threads</span> <span class="o">=</span> <span class="s">1</span>
+<span class="na">workers</span> <span class="o">=</span> <span class="s">8</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="https">
+<span id="https-proxy"></span><h2>HTTPS<a class="headerlink" href="#https" title="Permalink to this headline">¶</a></h2>
+<p>Whether it’s accessed via website/web client or web service, Odoo transmits
+authentication information in cleartext. This means a secure deployment of
+Odoo must use HTTPS<a class="footnote-reference" href="#switching" id="id6">[3]</a>. SSL termination can be implemented via
+just about any SSL termination proxy, but requires the following setup:</p>
+<ul class="simple">
+<li>enable Odoo’s <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-proxy-mode"><code class="xref std std-option docutils literal"><span class="pre">proxy</span> <span class="pre">mode</span></code></a>. This should only be enabled when Odoo is behind a reverse proxy</li>
+<li>set up the SSL termination proxy (<a class="reference external" href="http://nginx.com/resources/admin-guide/nginx-ssl-termination/">Nginx termination example</a>)</li>
+<li>set up the proxying itself (<a class="reference external" href="http://nginx.com/resources/admin-guide/reverse-proxy/">Nginx proxying example</a>)</li>
+<li>your SSL termination proxy should also automatically redirect non-secure
+connections to the secure port</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">In case you are using the Point of Sale module in combination with a <a class="reference external" href="https://www.odoo.com/page/point-of-sale-hardware#part_2">POSBox</a>,
+you must disable the HTTPS configuration for the route <code class="docutils literal"><span class="pre">/pos/web</span></code> to avoid
+mixed-content errors.</p>
+</div>
+<div class="section" id="id7">
+<h3>Configuration sample<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>redirect http requests to https</li>
+<li>proxy requests to odoo</li>
+</ul>
+<p>in <code class="docutils literal"><span class="pre">/etc/odoo.conf</span></code> set:</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="na">proxy_mode</span> <span class="o">=</span> <span class="s">True</span>
+</pre></div>
+</div>
+<p>in <code class="docutils literal"><span class="pre">/etc/nginx/sites-enabled/odoo.conf</span></code> set:</p>
+<div class="highlight-nginx"><div class="highlight"><pre><span></span><span class="c1">#odoo server</span>
+<span class="k">upstream</span> <span class="s">odoo</span> <span class="p">{</span>
+ <span class="kn">server</span> <span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">8069</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">upstream</span> <span class="s">odoochat</span> <span class="p">{</span>
+ <span class="kn">server</span> <span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">8072</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1"># http -&gt; https</span>
+<span class="k">server</span> <span class="p">{</span>
+   <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+   <span class="kn">server_name</span> <span class="s">odoo.mycompany.com</span><span class="p">;</span>
+   <span class="kn">rewrite</span> <span class="s">^(.*)</span> <span class="s">https://</span><span class="nv">$host$1</span> <span class="s">permanent</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">server</span> <span class="p">{</span>
+ <span class="kn">listen</span> <span class="mi">443</span><span class="p">;</span>
+ <span class="kn">server_name</span> <span class="s">odoo.mycompany.com</span><span class="p">;</span>
+ <span class="kn">proxy_read_timeout</span> <span class="s">720s</span><span class="p">;</span>
+ <span class="kn">proxy_connect_timeout</span> <span class="s">720s</span><span class="p">;</span>
+ <span class="kn">proxy_send_timeout</span> <span class="s">720s</span><span class="p">;</span>
+
+ <span class="c1"># Add Headers for odoo proxy mode</span>
+ <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-Host</span> <span class="nv">$host</span><span class="p">;</span>
+ <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-For</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+ <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-Proto</span> <span class="nv">$scheme</span><span class="p">;</span>
+ <span class="kn">proxy_set_header</span> <span class="s">X-Real-IP</span> <span class="nv">$remote_addr</span><span class="p">;</span>
+
+ <span class="c1"># SSL parameters</span>
+ <span class="kn">ssl</span> <span class="no">on</span><span class="p">;</span>
+ <span class="kn">ssl_certificate</span> <span class="s">/etc/ssl/nginx/server.crt</span><span class="p">;</span>
+ <span class="kn">ssl_certificate_key</span> <span class="s">/etc/ssl/nginx/server.key</span><span class="p">;</span>
+ <span class="kn">ssl_session_timeout</span> <span class="mi">30m</span><span class="p">;</span>
+ <span class="kn">ssl_protocols</span> <span class="s">TLSv1</span> <span class="s">TLSv1.1</span> <span class="s">TLSv1.2</span><span class="p">;</span>
+ <span class="kn">ssl_ciphers</span> <span class="s">&#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA&#39;</span><span class="p">;</span>
+ <span class="kn">ssl_prefer_server_ciphers</span> <span class="no">on</span><span class="p">;</span>
+
+ <span class="c1"># log</span>
+ <span class="kn">access_log</span> <span class="s">/var/log/nginx/odoo.access.log</span><span class="p">;</span>
+ <span class="kn">error_log</span> <span class="s">/var/log/nginx/odoo.error.log</span><span class="p">;</span>
+
+ <span class="c1"># Redirect requests to odoo backend server</span>
+ <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+   <span class="kn">proxy_redirect</span> <span class="no">off</span><span class="p">;</span>
+   <span class="kn">proxy_pass</span> <span class="s">http://odoo</span><span class="p">;</span>
+ <span class="p">}</span>
+ <span class="kn">location</span> <span class="s">/longpolling</span> <span class="p">{</span>
+     <span class="kn">proxy_pass</span> <span class="s">http://odoochat</span><span class="p">;</span>
+ <span class="p">}</span>
+
+ <span class="c1"># common gzip</span>
+ <span class="kn">gzip_types</span> <span class="s">text/css</span> <span class="s">text/less</span> <span class="s">text/plain</span> <span class="s">text/xml</span> <span class="s">application/xml</span> <span class="s">application/json</span> <span class="s">application/javascript</span><span class="p">;</span>
+ <span class="kn">gzip</span> <span class="no">on</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="odoo-as-a-wsgi-application">
+<h2>Odoo as a WSGI Application<a class="headerlink" href="#odoo-as-a-wsgi-application" title="Permalink to this headline">¶</a></h2>
+<p>It is also possible to mount Odoo as a standard <a class="reference external" href="http://wsgi.readthedocs.org/">WSGI</a> application. Odoo
+provides the base for a WSGI launcher script as <code class="docutils literal"><span class="pre">odoo-wsgi.example.py</span></code>. That
+script should be customized (possibly after copying it from the setup directory) to correctly set the
+configuration directly in <code class="xref py py-mod docutils literal"><span class="pre">odoo.tools.config</span></code> rather than through the
+command-line or a configuration file.</p>
+<p>However the WSGI server will only expose the main HTTP endpoint for the web
+client, website and webservice API. Because Odoo does not control the creation
+of workers anymore it can not setup cron or livechat workers</p>
+<div class="section" id="cron-workers">
+<h3>Cron Workers<a class="headerlink" href="#cron-workers" title="Permalink to this headline">¶</a></h3>
+<p>To run cron jobs for an Odoo deployment as a WSGI application requires</p>
+<ul class="simple">
+<li>a classical Odoo (run via <code class="docutils literal"><span class="pre">odoo-bin</span></code>)</li>
+<li>connected to the database in which cron jobs have to be run (via
+<a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-d"><code class="xref std std-option docutils literal"><span class="pre">odoo-bin</span> <span class="pre">-d</span></code></a>)</li>
+<li>which should not be exposed to the network. To ensure cron runners are not
+network-accessible, it is possible to disable the built-in HTTP server
+entirely with <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-no-http"><code class="xref std std-option docutils literal"><span class="pre">odoo-bin</span> <span class="pre">--no-http</span></code></a> or setting <code class="docutils literal"><span class="pre">http_enable</span> <span class="pre">=</span> <span class="pre">False</span></code>
+in the configuration file</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>LiveChat<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>The second problematic subsystem for WSGI deployments is the LiveChat: where
+most HTTP connections are relatively short and quickly free up their worker
+process for the next request, LiveChat require a long-lived connection for
+each client in order to implement near-real-time notifications.</p>
+<p>This is in conflict with the process-based worker model, as it will tie
+up worker processes and prevent new users from accessing the system. However,
+those long-lived connections do very little and mostly stay parked waiting for
+notifications.</p>
+<p>The solutions to support livechat/motifications in a WSGI application are:</p>
+<ul class="simple">
+<li>deploy a threaded version of Odoo (instread of a process-based preforking
+one) and redirect only requests to URLs starting with <code class="docutils literal"><span class="pre">/longpolling/</span></code> to
+that Odoo, this is the simplest and the longpolling URL can double up as
+the cron instance.</li>
+<li>deploy an evented Odoo via <code class="docutils literal"><span class="pre">odoo-gevent</span></code> and proxy requests starting
+with <code class="docutils literal"><span class="pre">/longpolling/</span></code> to
+<a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-longpolling-port"><code class="xref std std-option docutils literal"><span class="pre">the</span> <span class="pre">longpolling</span> <span class="pre">port</span></code></a>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="serving-static-files">
+<h2>Serving Static Files<a class="headerlink" href="#serving-static-files" title="Permalink to this headline">¶</a></h2>
+<p>For development convenience, Odoo directly serves all static files in its
+modules. This may not be ideal when it comes to performances, and static
+files should generally be served by a static HTTP server.</p>
+<p>Odoo static files live in each module’s <code class="docutils literal"><span class="pre">static/</span></code> folder, so static files
+can be served by intercepting all requests to <code class="samp docutils literal"><span class="pre">/</span><em><span class="pre">MODULE</span></em><span class="pre">/static/</span><em><span class="pre">FILE</span></em></code>,
+and looking up the right module (and file) in the various addons paths.</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">test whether it would be interesting to serve filestored attachments
+via this, and how (e.g. possibility of mapping ir.attachment id to
+filestore hash in the database?)</p>
+</div>
+</div>
+<div class="section" id="security">
+<span id="id9"></span><h2>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
+<p>For starters, keep in mind that securing an information system is a continuous process,
+not a one-shot operation. At any moment, you will only be as secure as the weakest link
+in your environment.</p>
+<p>So please do not take this section as the ultimate list of measures that will prevent
+all security problems. It’s only intended as a summary of the first important things
+you should be sure to include in your security action plan. The rest will come
+from best security practices for your operating system and distribution,
+best practices in terms of users, passwords, and access control management, etc.</p>
+<p>When deploying an internet-facing server, please be sure to consider the following
+security-related topics:</p>
+<ul class="simple">
+<li>Always set a strong super-admin admin password, and restrict access to the database
+management pages as soon as the system is set up. See <a class="reference internal" href="#db-manager-security"><span class="std std-ref">Database Manager Security</span></a>.</li>
+<li>Choose unique logins and strong passwords for all administrator accounts on all databases.
+Do not use ‘admin’ as the login. Do not use those logins for day-to-day operations,
+only for controlling/managing the installation.
+<em>Never</em> use any default passwords like admin/admin, even for test/staging databases.</li>
+<li>Use appropriate database filters ( <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-db-filter"><code class="xref std std-option docutils literal"><span class="pre">--db-filter</span></code></a>)
+to restrict the visibility of your databases according to the hostname.
+See <a class="reference internal" href="#db-filter"><span class="std std-ref">dbfilter</span></a>.
+You may also use <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-d"><code class="xref std std-option docutils literal"><span class="pre">-d</span></code></a> to provide your own (comma-separated)
+list of available databases to filter from, instead of letting the system fetch
+them all from the database backend.</li>
+<li>Once your <code class="docutils literal"><span class="pre">db_name</span></code> and <code class="docutils literal"><span class="pre">db_filter</span></code> are configured and only match a single database
+per hostname, you should set <code class="docutils literal"><span class="pre">list_db</span></code> configuration option to <code class="docutils literal"><span class="pre">False</span></code>, to prevent
+listing databases entirely, and to block access to the database management screens
+(this is also exposed as the <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-no-database-list"><code class="xref std std-option docutils literal"><span class="pre">--no-database-list</span></code></a>
+command-line option)</li>
+<li>Make sure the PostgreSQL user (<a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-r"><code class="xref std std-option docutils literal"><span class="pre">--db_user</span></code></a>) is <em>not</em> a super-user,
+and that your databases are owned by a different user. For example they could be owned by
+the <code class="docutils literal"><span class="pre">postgres</span></code> super-user if you are using a dedicated non-privileged <code class="docutils literal"><span class="pre">db_user</span></code>.
+See also <a class="reference internal" href="#setup-deploy-odoo"><span class="std std-ref">Configuring Odoo</span></a>.</li>
+<li>Keep installations updated by regularly installing the latest builds,
+either via GitHub or by downloading the latest version from
+<a class="reference external" href="https://www.odoo.com/page/download">https://www.odoo.com/page/download</a> or <a class="reference external" href="http://nightly.odoo.com">http://nightly.odoo.com</a></li>
+<li>Configure your server in multi-process mode with proper limits matching your typical
+usage (memory/CPU/timeouts). See also <a class="reference internal" href="#builtin-server"><span class="std std-ref">Builtin server</span></a>.</li>
+<li>Run Odoo behind a web server providing HTTPS termination with a valid SSL certificate,
+in order to prevent eavesdropping on cleartext communications. SSL certificates are
+cheap, and many free options exist.
+Configure the web proxy to limit the size of requests, set appropriate timeouts,
+and then enable the <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-proxy-mode"><code class="xref std std-option docutils literal"><span class="pre">proxy</span> <span class="pre">mode</span></code></a> option.
+See also <a class="reference internal" href="#https-proxy"><span class="std std-ref">HTTPS</span></a>.</li>
+<li>Whenever possible, host your public-facing demo/test/staging instances on different
+machines than the production ones. And apply the same security precautions as for
+production.</li>
+<li>If you are hosting multiple customers, isolate customer data and files from each other
+using containers or appropriate “jail” techniques.</li>
+<li>Setup daily backups of your databases and filestore data, and copy them to a remote
+archiving server that is not accessible from the server itself.</li>
+</ul>
+<div class="section" id="database-manager-security">
+<span id="db-manager-security"></span><h3>Database Manager Security<a class="headerlink" href="#database-manager-security" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="#setup-deploy-odoo"><span class="std std-ref">Configuring Odoo</span></a> mentioned <code class="docutils literal"><span class="pre">admin_passwd</span></code> in passing.</p>
+<p>This setting is used on all database management screens (to create, delete,
+dump or restore databases).</p>
+<p>If the management screens must not be accessible at all, you should set <code class="docutils literal"><span class="pre">list_db</span></code>
+configuration option to <code class="docutils literal"><span class="pre">False</span></code>, to block access to all the database selection and
+management screens. But be sure to setup an appropriate <code class="docutils literal"><span class="pre">db_name</span></code> parameter
+(and optionally, <code class="docutils literal"><span class="pre">db_filter</span></code> too) so that the system can determine the target database
+for each request, otherwise users will be blocked as they won’t be allowed to choose the
+database themselves.</p>
+<p>If the management screens must only be accessible from a selected set of machines,
+use the proxy server’s features to block access to all routes starting with <code class="docutils literal"><span class="pre">/web/database</span></code>
+except (maybe) <code class="docutils literal"><span class="pre">/web/database/selector</span></code> which displays the database-selection screen.</p>
+<p>If the database-management screen should be left accessible, the
+<code class="docutils literal"><span class="pre">admin_passwd</span></code> setting must be changed from its <code class="docutils literal"><span class="pre">admin</span></code> default: this
+password is checked before allowing database-alteration operations.</p>
+<p>It should be stored securely, and should be generated randomly e.g.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> python3 -c <span class="s1">&#39;import base64, os; print(base64.b64encode(os.urandom(24)))&#39;</span>
+</pre></div>
+</div>
+<p>which will generate a 32 characters pseudorandom printable string.</p>
+</div>
+</div>
+<div class="section" id="supported-browsers">
+<h2>Supported Browsers<a class="headerlink" href="#supported-browsers" title="Permalink to this headline">¶</a></h2>
+<p>Odoo is supported by multiple browsers for each of its versions. No
+distinction is made according to the browser version in order to be
+up-to-date. Odoo is supported on the current browser version. The list
+of the supported browsers by Odoo version is the following:</p>
+<ul class="simple">
+<li><strong>Odoo 9:</strong> IE11, Mozilla Firefox, Google Chrome, Safari, Microsoft Edge</li>
+<li><strong>Odoo 10+:</strong> Mozilla Firefox, Google Chrome, Safari, Microsoft Edge</li>
+</ul>
+<table class="docutils footnote" frame="void" id="different-machines" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>to have multiple Odoo installations use the same PostgreSQL database,
+or to provide more computing resources to both software.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="remote-socket" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>technically a tool like <a class="reference external" href="http://www.dest-unreach.org/socat/">socat</a> can be used to proxy UNIX sockets across
+networks, but that is mostly for software which can only be used over
+UNIX sockets</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="switching" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[3]</a></td><td>or be accessible only over an internal packet-switched network, but that
+requires secured switches, protections against <a class="reference external" href="http://en.wikipedia.org/wiki/ARP_spoofing">ARP spoofing</a> and
+precludes usage of WiFi. Even over secure packet-switched networks,
+deployment over HTTPS is recommended, and possible costs are lowered as
+“self-signed” certificates are easier to deploy on a controlled
+environment than over the internet.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../setup.html">Setting Up</a><ul>
+      <li>Previous: <a href="install.html" title="previous chapter">Installing Odoo</a></li>
+      <li>Next: <a href="cdn.html" title="next chapter">Deploying with Content Delivery Networks</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Gahan Corporation.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/setup/deploy.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

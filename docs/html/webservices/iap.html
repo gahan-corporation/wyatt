@@ -1,0 +1,598 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>In-App Purchases &#8212; gerp 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Database Upgrade" href="upgrade.html" />
+    <link rel="prev" title="External API" href="odoo.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="webservices-iap"></span><div class="section" id="in-app-purchases">
+<h1>In-App Purchases<a class="headerlink" href="#in-app-purchases" title="Permalink to this headline">¶</a></h1>
+<p>IAP allow providers of ongoing services through Odoo apps to be compensated
+for ongoing service use rather than — and possibly instead of — a sole initial
+purchase.</p>
+<p>In that context, Odoo acts mostly as a <em>broker</em> between a client and an Odoo
+App Developer:</p>
+<ul class="simple">
+<li>users purchase service tokens from Odoo</li>
+<li>service providers draw tokens from the user’s Odoo account when service
+is requested</li>
+</ul>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">This document is intended for <em>service providers</em> and presents the latter,
+which can be done either via direct <a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC2</a> or if you are using Odoo
+using the convenience helpers it provides.</p>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center" id="id2">
+<img alt="../_images/players.png" src="../_images/players.png" />
+<p class="caption"><span class="caption-text">The Players</span></p>
+<div class="legend">
+<ul class="simple">
+<li>The Service Provider is (probably) you the reader, you will be providing
+value to the client in the form of a service paid per-use</li>
+<li>The Client installed your Odoo App, and from there will request services</li>
+<li>Odoo brokers crediting, the Client adds credit to their account, and you
+can draw credits from there to provide services</li>
+<li>The External Service is an optional player: <em>you</em> can either provide a
+service directly, or you can delegate the actual service acting as a
+bridge/translator between an Odoo system and the actual service</li>
+</ul>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">in the following explanations we will ignore the External Service,
+they’re just a detail of the service you provide</p>
+</div>
+<div class="figure align-center" id="id3">
+<img alt="../_images/normal.png" src="../_images/normal.png" />
+<p class="caption"><span class="caption-text">A “normal” service flow</span></p>
+<div class="legend">
+<p>If everything goes well, the normal flow is:</p>
+<ol class="arabic simple">
+<li>the Client requests a service of some sort</li>
+<li>the Service Provider asks Odoo if there are enough credits for the
+service in the Client’s account, and creates a transaction over that
+amount</li>
+<li>the Service Provider provides the service (either on their own or
+calling to External Services)</li>
+<li>the Service Provider goes back to Odoo to capture (if the service could
+be provided) or cancel (if the service could not be provided) the
+transaction created at step 2</li>
+<li>finally the Service Provider notifies the Client that the service has
+been rendered, possibly (depending on the service) displaying or
+storing its results in the client’s system</li>
+</ol>
+</div>
+</div>
+<div class="figure align-center" id="id4">
+<img alt="../_images/no-credit.png" src="../_images/no-credit.png" />
+<p class="caption"><span class="caption-text">Insufficient Credits</span></p>
+<div class="legend">
+<p>If the Client’s account lacks credits for the service, however</p>
+<ol class="arabic simple">
+<li>the Client requests a service as previously</li>
+<li>the Service Provider asks Odoo if there are enough credits on the
+Client’s account and gets a negative reply</li>
+<li>this is signaled back to the Client</li>
+<li>who is redirected to their Odoo account to credit it and re-try</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="building-your-service">
+<h2>Building your service<a class="headerlink" href="#building-your-service" title="Permalink to this headline">¶</a></h2>
+<p>For this example, the service we will provide is ~~mining dogecoins~~ burning
+10 seconds of CPU for a credit. For your own services, you could for example:</p>
+<ul class="simple">
+<li>provide an online service yourself (e.g. convert quotations to faxes for
+business in Japan)</li>
+<li>provide an <em>offline</em> service yourself (e.g. provide accountancy service)</li>
+<li>act as intermediary to an other service provider (e.g. bridge to an MMS
+gateway)</li>
+</ul>
+<div class="section" id="register-the-service-on-odoo">
+<h3>Register the service on Odoo<a class="headerlink" href="#register-the-service-on-odoo" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">complete this part with screenshots</p>
+</div>
+<p>The first step is to register your service on the IAP endpoint (production
+and/or test) before you can actually query user accounts. To create a service,
+go to your <em>Portal Account</em> on the IAP endpoint (<a class="reference external" href="https://iap.odoo.com">https://iap.odoo.com</a> for
+production, <a class="reference external" href="http://iap-sandbox.odoo.com">http://iap-sandbox.odoo.com</a> for testing, the endpoints are
+<em>independent</em> and <em>not synchronized</em>).</p>
+<p>Log in then go to <span class="menuselection">My Account ‣ Your InApp Services</span>, click
+Create and provide the name of your service.</p>
+<p>The now created service has <em>two</em> important fields:</p>
+<ul class="simple">
+<li><code class="samp docutils literal"><span class="pre">name</span></code> - <a class="reference internal" href="#ServiceName" title="ServiceName"><code class="xref py py-class docutils literal"><span class="pre">ServiceName</span></code></a>: this will identify your service in the
+client’s <a class="reference internal" href="#iap-odoo-app"><span class="std std-ref">app</span></a> communicates directly with IAP.</li>
+<li><code class="samp docutils literal"><span class="pre">key</span></code> - <a class="reference internal" href="#ServiceKey" title="ServiceKey"><code class="xref py py-class docutils literal"><span class="pre">ServiceKey</span></code></a>: the developer key that identifies you in
+IAP (see <a class="reference internal" href="#iap-service"><span class="std std-ref">your service</span></a>) and allows to draw credits from the client’s account.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The <a class="reference internal" href="#ServiceName" title="ServiceName"><code class="xref py py-class docutils literal"><span class="pre">ServiceName</span></code></a> is unique and should usually match the name of your
+Odoo App.</p>
+</div>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">Your <a class="reference internal" href="#ServiceKey" title="ServiceKey"><code class="xref py py-class docutils literal"><span class="pre">ServiceKey</span></code></a> <em>is a secret</em>, leaking your service key
+allows other application developers to draw credits bought for
+your service(s).</p>
+</div>
+<img alt="../_images/service_select.png" class="align-center" src="../_images/service_select.png" />
+<img alt="../_images/service_create.png" class="align-center" src="../_images/service_create.png" />
+<img alt="../_images/service_packs.png" class="align-center" src="../_images/service_packs.png" />
+<p>You can then create <em>credit packs</em> which clients can purchase in order to
+use your service.</p>
+</div>
+<div class="section" id="odoo-app">
+<span id="iap-odoo-app"></span><h3>Odoo App<a class="headerlink" href="#odoo-app" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">does this actually require apps?</p>
+</div>
+<p>The second step is to develop an <a class="reference external" href="https://www.odoo.com/apps">Odoo App</a> which clients can install in their
+Odoo instance and through which they can <em>request</em> services you will provide.
+Our app will just add a button to the Partners form which lets a user request
+burning some CPU time on the server.</p>
+<p>First, we’ll create an <em>odoo module</em> depending on <code class="docutils literal"><span class="pre">iap</span></code>. IAP is a standard
+V11 module and the dependency ensures a local account is properly set up and
+we will have access to some necessary views and useful helpers</p>
+<p>Second, the “local” side of the integration, here we will only be adding an
+action button to the partners view, but you can of course provide significant
+local value via your application and additional parts via a remote service.</p>
+<img alt="../_images/button.png" class="align-center" src="../_images/button.png" />
+<p>We can now implement the action method/callback. This will <em>call our own
+server</em>.</p>
+<p>There are no requirements when it comes to the server or the communication
+protocol between the app and our server, but <code class="docutils literal"><span class="pre">iap</span></code> provides a
+<code class="xref py py-func docutils literal"><span class="pre">jsonrpc()</span></code> helper to call a <a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC2</a> endpoint on an
+other Odoo instance and transparently re-raise relevant Odoo exceptions
+(<a class="reference internal" href="#odoo.addons.iap.models.iap.InsufficientCreditError" title="odoo.addons.iap.models.iap.InsufficientCreditError"><code class="xref py py-class docutils literal"><span class="pre">InsufficientCreditError</span></code></a>,
+<a class="reference internal" href="#odoo.exceptions.AccessError" title="odoo.exceptions.AccessError"><code class="xref py py-class docutils literal"><span class="pre">odoo.exceptions.AccessError</span></code></a> and <a class="reference internal" href="#odoo.exceptions.UserError" title="odoo.exceptions.UserError"><code class="xref py py-class docutils literal"><span class="pre">odoo.exceptions.UserError</span></code></a>).</p>
+<p>In that call, we will need to provide:</p>
+<ul class="simple">
+<li>any relevant client parameter (none here)</li>
+<li>the <a class="reference internal" href="#UserToken" title="UserToken"><code class="xref py py-class docutils literal"><span class="pre">token</span></code></a> of the current client, this is provided by
+the <code class="docutils literal"><span class="pre">iap.account</span></code> model’s <code class="docutils literal"><span class="pre">account_token</span></code> field. You can retrieve the
+account for your service by calling <code class="samp docutils literal"><span class="pre">env['iap.account'].get(</span><em><span class="pre">service_name</span></em><span class="pre">)</span></code>
+where <a class="reference internal" href="#ServiceName" title="ServiceName"><code class="xref py py-class docutils literal"><span class="pre">service_name</span></code></a> is the name of the service registered
+on IAP endpoint.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><code class="docutils literal"><span class="pre">iap</span></code> automatically handles
+<a class="reference internal" href="#odoo.addons.iap.models.iap.InsufficientCreditError" title="odoo.addons.iap.models.iap.InsufficientCreditError"><code class="xref py py-class docutils literal"><span class="pre">InsufficientCreditError</span></code></a> coming from the action
+and prompts the user to add credits to their account.</p>
+<p class="last"><code class="xref py py-func docutils literal"><span class="pre">jsonrpc()</span></code> takes care of re-raising
+<a class="reference internal" href="#odoo.addons.iap.models.iap.InsufficientCreditError" title="odoo.addons.iap.models.iap.InsufficientCreditError"><code class="xref py py-class docutils literal"><span class="pre">InsufficientCreditError</span></code></a> for you.</p>
+</div>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">If you are not using <code class="xref py py-func docutils literal"><span class="pre">jsonrpc()</span></code> you <em>must</em> be
+careful to re-raise
+<a class="reference internal" href="#odoo.addons.iap.models.iap.InsufficientCreditError" title="odoo.addons.iap.models.iap.InsufficientCreditError"><code class="xref py py-class docutils literal"><span class="pre">InsufficientCreditError</span></code></a> in your handler
+otherwise the user will not be prompted to credit their account, and the
+next call will fail the same way.</p>
+</div>
+</div>
+<div class="section" id="service">
+<span id="iap-service"></span><h3>Service<a class="headerlink" href="#service" title="Permalink to this headline">¶</a></h3>
+<p>Though that is not <em>required</em>, since <code class="docutils literal"><span class="pre">iap</span></code> provides both a client helper
+for <a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC2</a> calls (<code class="xref py py-func docutils literal"><span class="pre">jsonrpc()</span></code>) and a service helper
+for transactions (<a class="reference internal" href="#odoo.addons.iap.models.iap.charge" title="odoo.addons.iap.models.iap.charge"><code class="xref py py-class docutils literal"><span class="pre">charge</span></code></a>) we will also be
+implementing the service side as an Odoo module:</p>
+<p>Since the query from the client comes as <a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC2</a> we will need the
+corresponding controller which can call <a class="reference internal" href="#odoo.addons.iap.models.iap.charge" title="odoo.addons.iap.models.iap.charge"><code class="xref py py-class docutils literal"><span class="pre">charge</span></code></a> and
+perform the service within:</p>
+<div class="admonition-todo admonition" id="index-2">
+<p class="first admonition-title">Todo</p>
+<p class="last">for the actual IAP will the “portal” page be on odoo.com or iap.odoo.com?</p>
+</div>
+<div class="admonition-todo admonition" id="index-3">
+<p class="first admonition-title">Todo</p>
+<p class="last">“My Account” &gt; “Your InApp Services”?</p>
+</div>
+<p>The <a class="reference internal" href="#odoo.addons.iap.models.iap.charge" title="odoo.addons.iap.models.iap.charge"><code class="xref py py-class docutils literal"><span class="pre">charge</span></code></a> helper will:</p>
+<ol class="arabic simple">
+<li>authorize (create) a transaction with the specified number of credits,
+if the account does not have enough credits it will raise the relevant
+error</li>
+<li>execute the body of the <code class="docutils literal"><span class="pre">with</span></code> statement</li>
+<li>if the body of the <code class="docutils literal"><span class="pre">with</span></code> executes succesfully, capture (confirm) the
+transaction</li>
+<li>otherwise if an error is raised from the body of the <code class="docutils literal"><span class="pre">with</span></code> cancel the
+transaction (and release the hold on the credits)</li>
+</ol>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p>By default, <a class="reference internal" href="#odoo.addons.iap.models.iap.charge" title="odoo.addons.iap.models.iap.charge"><code class="xref py py-class docutils literal"><span class="pre">charge</span></code></a> contacts the <em>production</em>
+IAP endpoint, <a class="reference external" href="https://iap.odoo.com">https://iap.odoo.com</a>. While developing and testing your
+service you may want to point it towards the <em>development</em> IAP endpoint
+<a class="reference external" href="https://iap-sandbox.odoo.com">https://iap-sandbox.odoo.com</a>.</p>
+<p class="last">To do so, set the <code class="docutils literal"><span class="pre">iap.endpoint</span></code> config parameter in your service
+Odoo: in debug/developer mode, <span class="menuselection">Setting ‣ Technical ‣
+Parameters ‣ System Parameters</span>, just define an entry for the key
+<code class="docutils literal"><span class="pre">iap.endpoint</span></code> if none already exists).</p>
+</div>
+<p>The <a class="reference internal" href="#odoo.addons.iap.models.iap.charge" title="odoo.addons.iap.models.iap.charge"><code class="xref py py-class docutils literal"><span class="pre">charge</span></code></a> helper has two additional optional
+parameters we can use to make things clearer to the end-user:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">description</span></code></dt>
+<dd>is a message which will be associated with the transaction and will be
+displayed in the user’s dashboard, it is useful to remind the user why
+the charge exists</dd>
+<dt><code class="docutils literal"><span class="pre">credit_template</span></code></dt>
+<dd>is the name of a <a class="reference internal" href="../reference/qweb.html#reference-qweb"><span class="std std-ref">QWeb</span></a> template which will be rendered
+and shown to the user if their account has less credit available than the
+service provider is requesting, its purpose is to tell your users why
+they should be interested in your IAP offers</dd>
+</dl>
+<div class="admonition-todo admonition" id="index-4">
+<p class="first admonition-title">Todo</p>
+<p class="last">how do you test your service?</p>
+</div>
+</div>
+</div>
+<div class="section" id="json-rpc2-transaction-api">
+<h2><a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC2</a> Transaction API<a class="headerlink" href="#json-rpc2-transaction-api" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/flow.png" class="align-center" src="../_images/flow.png" />
+<ul class="simple">
+<li>The IAP transaction API does not require using Odoo when implementing your
+server gateway, calls are standard <a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC2</a>.</li>
+<li>Calls use different <em>endpoints</em> but the same <em>method</em> on all endpoints
+(<code class="docutils literal"><span class="pre">call</span></code>).</li>
+<li>Exceptions are returned as <a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC2</a> errors, the formal exception name is
+available on <code class="docutils literal"><span class="pre">data.name</span></code> for programmatic manipulation.</li>
+</ul>
+<div class="section" id="authorize">
+<h3>Authorize<a class="headerlink" href="#authorize" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt>
+<code class="descname">/iap/1/authorize</code></dt>
+<dd><p>Verifies that the user’s account has at least as <code class="docutils literal"><span class="pre">credit</span></code> available
+<em>and creates a hold (pending transaction) on that amount</em>.</p>
+<p>Any amount currently on hold by a pending transaction is considered
+unavailable to further authorize calls.</p>
+<p>Returns a <a class="reference internal" href="#TransactionToken" title="TransactionToken"><code class="xref py py-class docutils literal"><span class="pre">TransactionToken</span></code></a> identifying the pending transaction
+which can be used to capture (confirm) or cancel said transaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>key</strong> (<a class="reference internal" href="#ServiceKey" title="ServiceKey"><em>ServiceKey</em></a>) – </li>
+<li><strong>account_token</strong> (<a class="reference internal" href="#UserToken" title="UserToken"><em>UserToken</em></a>) – </li>
+<li><strong>credit</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – </li>
+<li><strong>description</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – optional, helps users identify the reason for
+charges on their accounts.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="#TransactionToken" title="TransactionToken"><code class="xref py py-class docutils literal"><span class="pre">TransactionToken</span></code></a> if the authorization succeeded.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference internal" href="#odoo.exceptions.AccessError" title="odoo.exceptions.AccessError"><code class="xref py py-class docutils literal"><span class="pre">AccessError</span></code></a> if the service token is invalid</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference internal" href="#odoo.addons.iap.models.iap.InsufficientCreditError" title="odoo.addons.iap.models.iap.InsufficientCreditError"><code class="xref py py-class docutils literal"><span class="pre">InsufficientCreditError</span></code></a> if the account does</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">TypeError</span></code> if the <code class="docutils literal"><span class="pre">credit</span></code> value is not an integer</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">ODOO</span> <span class="o">+</span> <span class="s1">&#39;/iap/1/authorize&#39;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+    <span class="s1">&#39;jsonrpc&#39;</span><span class="p">:</span> <span class="s1">&#39;2.0&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;call&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;account_token&#39;</span><span class="p">:</span> <span class="n">user_account</span><span class="p">,</span>
+        <span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="n">SERVICE_KEY</span><span class="p">,</span>
+        <span class="s1">&#39;credit&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+        <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s2">&quot;Why this is being charged&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="k">if</span> <span class="s1">&#39;error&#39;</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
+    <span class="c1"># handle authorize error</span>
+<span class="n">tx</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span>
+
+<span class="c1"># provide your service here</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="capture">
+<h3>Capture<a class="headerlink" href="#capture" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt>
+<code class="descname">/iap/1/capture</code></dt>
+<dd><p>Confirms the specified transaction, transferring the reserved credits from
+the user’s account to the service provider’s.</p>
+<p>Capture calls are idempotent: performing capture calls on an already
+captured transaction has no further effect.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>token</strong> (<a class="reference internal" href="#TransactionToken" title="TransactionToken"><em>TransactionToken</em></a>) – </li>
+<li><strong>key</strong> (<a class="reference internal" href="#ServiceKey" title="ServiceKey"><em>ServiceKey</em></a>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#odoo.exceptions.AccessError" title="odoo.exceptions.AccessError"><code class="xref py py-class docutils literal"><span class="pre">AccessError</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">r2</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">ODOO</span> <span class="o">+</span> <span class="s1">&#39;/iap/1/capture&#39;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+    <span class="s1">&#39;jsonrpc&#39;</span><span class="p">:</span> <span class="s1">&#39;2.0&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;call&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;token&#39;</span><span class="p">:</span> <span class="n">tx</span><span class="p">,</span>
+        <span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="n">SERVICE_KEY</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="k">if</span> <span class="s1">&#39;error&#39;</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
+    <span class="c1"># handle capture error</span>
+<span class="c1"># otherwise transaction is captured</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cancel">
+<h3>Cancel<a class="headerlink" href="#cancel" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt>
+<code class="descname">/iap/1/cancel</code></dt>
+<dd><p>Cancels the specified transaction, releasing the hold on the user’s
+credits.</p>
+<p>Cancel calls are idempotent: performing capture calls on an already
+cancelled transaction has no further effect.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>token</strong> (<a class="reference internal" href="#TransactionToken" title="TransactionToken"><em>TransactionToken</em></a>) – </li>
+<li><strong>key</strong> (<a class="reference internal" href="#ServiceKey" title="ServiceKey"><em>ServiceKey</em></a>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#odoo.exceptions.AccessError" title="odoo.exceptions.AccessError"><code class="xref py py-class docutils literal"><span class="pre">AccessError</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">r2</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">ODOO</span> <span class="o">+</span> <span class="s1">&#39;/iap/1/cancel&#39;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+    <span class="s1">&#39;jsonrpc&#39;</span><span class="p">:</span> <span class="s1">&#39;2.0&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;call&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;token&#39;</span><span class="p">:</span> <span class="n">tx</span><span class="p">,</span>
+        <span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="n">SERVICE_KEY</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="k">if</span> <span class="s1">&#39;error&#39;</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
+    <span class="c1"># handle cancel error</span>
+<span class="c1"># otherwise transaction is cancelled</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="types">
+<h3>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h3>
+<p>Exceptions aside, these are <em>abstract types</em> used for clarity, you should not
+care how they are implemented</p>
+<dl class="class">
+<dt id="ServiceName">
+<em class="property">class </em><code class="descname">ServiceName</code><a class="headerlink" href="#ServiceName" title="Permalink to this definition">¶</a></dt>
+<dd><p>String identifying your service on <a class="reference external" href="https://iap.odoo.com">https://iap.odoo.com</a> (production) as well
+as the account related to your service in the client’s database.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ServiceKey">
+<em class="property">class </em><code class="descname">ServiceKey</code><a class="headerlink" href="#ServiceKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifier generated for the provider’s service. Each key (and service)
+matches a token of a fixed value, as generated by the service provide.</p>
+<p>Multiple types of tokens correspond to multiple services e.g. SMS and MMS
+could either be the same service (with an MMS being “worth” multiple SMS)
+or could be separate services at separate price points.</p>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">your service key <em>is a secret</em>, leaking your service key
+allows other application developers to draw credits bought for
+your service(s).</p>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="UserToken">
+<em class="property">class </em><code class="descname">UserToken</code><a class="headerlink" href="#UserToken" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifier for a user account.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="TransactionToken">
+<em class="property">class </em><code class="descname">TransactionToken</code><a class="headerlink" href="#TransactionToken" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transaction identifier, returned by the authorization process and consumed
+by either capturing or cancelling the transaction</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="odoo.addons.iap.models.iap.InsufficientCreditError">
+<em class="property">exception </em><code class="descclassname">odoo.addons.iap.models.iap.</code><code class="descname">InsufficientCreditError</code><a class="headerlink" href="#odoo.addons.iap.models.iap.InsufficientCreditError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised during transaction authorization if the credits requested are not
+currently available on the account (either not enough credits or too many
+pending transactions/existing holds).</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="odoo.exceptions.AccessError">
+<em class="property">exception </em><code class="descclassname">odoo.exceptions.</code><code class="descname">AccessError</code><a class="headerlink" href="#odoo.exceptions.AccessError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised by:</p>
+<ul class="simple">
+<li>any operation to which a service token is required, if the service token is invalid.</li>
+<li>any failure in an inter-server call. (typically, in <code class="xref py py-func docutils literal"><span class="pre">jsonrpc()</span></code>)</li>
+</ul>
+</dd></dl>
+
+<dl class="exception">
+<dt id="odoo.exceptions.UserError">
+<em class="property">exception </em><code class="descclassname">odoo.exceptions.</code><code class="descname">UserError</code><a class="headerlink" href="#odoo.exceptions.UserError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised by any unexpeted behaviour at the discretion of the App developer (<em>you</em>).</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="odoo-helpers">
+<h2>Odoo Helpers<a class="headerlink" href="#odoo-helpers" title="Permalink to this headline">¶</a></h2>
+<p>For convenience, if you are implementing your service using Odoo the <code class="docutils literal"><span class="pre">iap</span></code>
+module provides a few helpers to make IAP flow even simpler:</p>
+<div class="section" id="charging">
+<h3>Charging<a class="headerlink" href="#charging" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="odoo.addons.iap.models.iap.charge">
+<em class="property">class </em><code class="descclassname">odoo.addons.iap.models.iap.</code><code class="descname">charge</code><span class="sig-paren">(</span><em>env</em>, <em>key</em>, <em>account_token</em>, <em>credit</em><span class="optional">[</span>, <em>description</em>, <em>credit_template</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#odoo.addons.iap.models.iap.charge" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <em>context manager</em> for authorizing and automatically capturing or
+cancelling transactions for use in the backend/proxy.</p>
+<p>Works much like e.g. a cursor context manager:</p>
+<ul class="simple">
+<li>immediately authorizes a transaction with the specified parameters</li>
+<li>executes the <code class="docutils literal"><span class="pre">with</span></code> body</li>
+<li>if the body executes in full without error, captures the transaction</li>
+<li>otherwise cancels it</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>env</strong> (<em>odoo.api.Environment</em>) – used to retrieve the <code class="docutils literal"><span class="pre">iap.endpoint</span></code>
+configuration key</li>
+<li><strong>key</strong> (<a class="reference internal" href="#ServiceKey" title="ServiceKey"><em>ServiceKey</em></a>) – </li>
+<li><strong>token</strong> (<a class="reference internal" href="#UserToken" title="UserToken"><em>UserToken</em></a>) – </li>
+<li><strong>credit</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – </li>
+<li><strong>description</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="nd">@route</span><span class="p">(</span><span class="s1">&#39;/deathstar/superlaser&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">superlaser</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_account</span><span class="p">,</span>
+               <span class="n">coordinates</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span>
+               <span class="n">factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :param factor: superlaser power factor,</span>
+<span class="sd">                   0.0 is none, 1.0 is full power</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">credits</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">MAXIMUM_POWER</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">charge</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="n">SERVICE_KEY</span><span class="p">,</span> <span class="n">user_account</span><span class="p">,</span> <span class="n">credits</span><span class="p">):</span>
+        <span class="c1"># TODO: allow other targets</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;systems.planets&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">search</span><span class="p">([</span>
+            <span class="p">(</span><span class="s1">&#39;grid&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;M-10&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;Alderaan&#39;</span><span class="p">),</span>
+        <span class="p">])</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../webservices.html">Web Services</a><ul>
+      <li>Previous: <a href="odoo.html" title="previous chapter">External API</a></li>
+      <li>Next: <a href="upgrade.html" title="next chapter">Database Upgrade</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Gahan Corporation.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/webservices/iap.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

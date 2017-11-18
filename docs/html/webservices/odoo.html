@@ -1,0 +1,615 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>External API &#8212; gerp 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="In-App Purchases" href="iap.html" />
+    <link rel="prev" title="Web Services" href="../webservices.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="external-api">
+<h1>External API<a class="headerlink" href="#external-api" title="Permalink to this headline">¶</a></h1>
+<p>Odoo is usually extended internally via modules, but many of its features and
+all of its data are also available from the outside for external analysis or
+integration with various tools. Part of the <a class="reference internal" href="../reference/orm.html#reference-orm-model"><span class="std std-ref">Model Reference</span></a> API is
+easily available over <a class="reference external" href="http://en.wikipedia.org/wiki/XML-RPC">XML-RPC</a> and accessible from a variety of languages.</p>
+<div class="section" id="connection">
+<h2>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h2>
+<div class="setupcode hidden highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xmlrpclib</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s1">&#39;https://demo.odoo.com/start&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">url</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> \
+    <span class="n">info</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;database&#39;</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span>
+<span class="n">common</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s1">&#39;{}/xmlrpc/2/common&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+<span class="n">uid</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="p">{})</span>
+<span class="n">models</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s1">&#39;{}/xmlrpc/2/object&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="setupcode hidden highlight-ruby"><div class="highlight"><pre><span></span><span class="nb">require</span> <span class="s2">&quot;xmlrpc/client&quot;</span>
+<span class="n">info</span> <span class="o">=</span> <span class="no">XMLRPC</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new2</span><span class="p">(</span><span class="s1">&#39;https://demo.odoo.com/start&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">)</span>
+<span class="n">url</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="p">\</span>
+    <span class="n">info</span><span class="o">[</span><span class="s1">&#39;host&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">info</span><span class="o">[</span><span class="s1">&#39;database&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">info</span><span class="o">[</span><span class="s1">&#39;user&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">info</span><span class="o">[</span><span class="s1">&#39;password&#39;</span><span class="o">]</span>
+<span class="n">common</span> <span class="o">=</span> <span class="no">XMLRPC</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new2</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">url</span><span class="si">}</span><span class="s2">/xmlrpc/2/common&quot;</span><span class="p">)</span>
+<span class="n">uid</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;authenticate&#39;</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="p">{})</span>
+<span class="n">models</span> <span class="o">=</span> <span class="no">XMLRPC</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new2</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">url</span><span class="si">}</span><span class="s2">/xmlrpc/2/object&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">proxy</span>
+</pre></div>
+</div>
+<div class="setupcode hidden highlight-php"><div class="highlight"><pre><span></span><span class="x">require_once(&#39;ripcord.php&#39;);</span>
+<span class="x">$info = ripcord::client(&#39;https://demo.odoo.com/start&#39;)-&gt;start();</span>
+<span class="x">list($url, $db, $username, $password) =</span>
+<span class="x">  array($info[&#39;host&#39;], $info[&#39;database&#39;], $info[&#39;user&#39;], $info[&#39;password&#39;]);</span>
+<span class="x">$common = ripcord::client(&quot;$url/xmlrpc/2/common&quot;);</span>
+<span class="x">$uid = $common-&gt;authenticate($db, $username, $password, array());</span>
+<span class="x">$models = ripcord::client(&quot;$url/xmlrpc/2/object&quot;);</span>
+</pre></div>
+</div>
+<div class="setupcode hidden highlight-java"><div class="highlight"><pre><span></span><span class="kd">final</span> <span class="n">XmlRpcClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XmlRpcClient</span><span class="o">();</span>
+<span class="kd">final</span> <span class="n">XmlRpcClientConfigImpl</span> <span class="n">start_config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XmlRpcClientConfigImpl</span><span class="o">();</span>
+<span class="n">start_config</span><span class="o">.</span><span class="na">setServerURL</span><span class="o">(</span><span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">&quot;https://demo.odoo.com/start&quot;</span><span class="o">));</span>
+<span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">info</span> <span class="o">=</span> <span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;)</span><span class="n">client</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="n">start_config</span><span class="o">,</span> <span class="s">&quot;start&quot;</span><span class="o">,</span> <span class="n">emptyList</span><span class="o">());</span>
+
+<span class="kd">final</span> <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;host&quot;</span><span class="o">),</span>
+              <span class="n">db</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;database&quot;</span><span class="o">),</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;user&quot;</span><span class="o">),</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;password&quot;</span><span class="o">);</span>
+
+<span class="kd">final</span> <span class="n">XmlRpcClientConfigImpl</span> <span class="n">common_config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XmlRpcClientConfigImpl</span><span class="o">();</span>
+<span class="n">common_config</span><span class="o">.</span><span class="na">setServerURL</span><span class="o">(</span><span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;%s/xmlrpc/2/common&quot;</span><span class="o">,</span> <span class="n">url</span><span class="o">)));</span>
+
+<span class="kt">int</span> <span class="n">uid</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">client</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
+    <span class="n">common_config</span><span class="o">,</span> <span class="s">&quot;authenticate&quot;</span><span class="o">,</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
+        <span class="n">db</span><span class="o">,</span> <span class="n">username</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="n">emptyMap</span><span class="o">()));</span>
+
+<span class="kd">final</span> <span class="n">XmlRpcClient</span> <span class="n">models</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XmlRpcClient</span><span class="o">()</span> <span class="o">{{</span>
+    <span class="n">setConfig</span><span class="o">(</span><span class="k">new</span> <span class="n">XmlRpcClientConfigImpl</span><span class="o">()</span> <span class="o">{{</span>
+        <span class="n">setServerURL</span><span class="o">(</span><span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;%s/xmlrpc/2/object&quot;</span><span class="o">,</span> <span class="n">url</span><span class="o">)));</span>
+    <span class="o">}});</span>
+<span class="o">}};</span>
+</pre></div>
+</div>
+<div class="section" id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>If you already have an Odoo server installed, you can just use its
+parameters</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>For Odoo Online instances (&lt;domain&gt;.odoo.com), users are created without a
+<em>local</em> password (as a person you are logged in via the Odoo Online
+authentication system, not by the instance itself). To use XML-RPC on Odoo
+Online instances, you will need to set a password on the user account you
+want to use:</p>
+<ul class="simple">
+<li>Log in your instance with an administrator account</li>
+<li>Go to <span class="menuselection">Settings ‣ Users ‣ Users</span></li>
+<li>Click on the user you want to use for XML-RPC access</li>
+<li>Click the <span class="guilabel">Change Password</span> button</li>
+<li>Set a <span class="guilabel">New Password</span> value then click
+<span class="guilabel">Change Password</span>.</li>
+</ul>
+<p class="last">The <em>server url</em> is the instance’s domain (e.g.
+<em>https://mycompany.odoo.com</em>), the <em>database name</em> is the name of the
+instance (e.g. <em>mycompany</em>). The <em>username</em> is the configured user’s login
+as shown by the <em>Change Password</em> screen.</p>
+</div>
+<div class="setup doc-aside section" id="demo">
+<h4>demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h4>
+<p>To make exploration simpler, you can also ask <a class="reference external" href="https://demo.odoo.com">https://demo.odoo.com</a> for a test
+database:</p>
+</div>
+</div>
+<div class="setup doc-aside section" id="logging-in">
+<h3>Logging in<a class="headerlink" href="#logging-in" title="Permalink to this headline">¶</a></h3>
+<p>Odoo requires users of the API to be authenticated before they can query most
+data.</p>
+<p>The <code class="docutils literal"><span class="pre">xmlrpc/2/common</span></code> endpoint provides meta-calls which don’t require
+authentication, such as the authentication itself or fetching version
+information. To verify if the connection information is correct before trying
+to authenticate, the simplest call is to ask for the server’s version. The
+authentication itself is done through the <code class="docutils literal"><span class="pre">authenticate</span></code> function and
+returns a user identifier (<code class="docutils literal"><span class="pre">uid</span></code>) used in authenticated calls instead of
+the login.</p>
+<div class="setup doc-aside highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;server_version&quot;</span><span class="p">:</span> <span class="s2">&quot;8.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;server_version_info&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;final&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="nt">&quot;server_serie&quot;</span><span class="p">:</span> <span class="s2">&quot;8.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;protocol_version&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="setup doc-aside section" id="calling-methods">
+<h2>Calling methods<a class="headerlink" href="#calling-methods" title="Permalink to this headline">¶</a></h2>
+<p>The second endpoint is <code class="docutils literal"><span class="pre">xmlrpc/2/object</span></code>, is used to call methods of odoo
+models via the <code class="docutils literal"><span class="pre">execute_kw</span></code> RPC function.</p>
+<p>Each call to <code class="docutils literal"><span class="pre">execute_kw</span></code> takes the following parameters:</p>
+<ul class="simple">
+<li>the database to use, a string</li>
+<li>the user id (retrieved through <code class="docutils literal"><span class="pre">authenticate</span></code>), an integer</li>
+<li>the user’s password, a string</li>
+<li>the model name, a string</li>
+<li>the method name, a string</li>
+<li>an array/list of parameters passed by position</li>
+<li>a mapping/dict of parameters to pass by keyword (optional)</li>
+</ul>
+<div class="doc-aside container">
+<p>For instance to see if we can read the <code class="docutils literal"><span class="pre">res.partner</span></code> model we can call
+<code class="docutils literal"><span class="pre">check_access_rights</span></code> with <code class="docutils literal"><span class="pre">operation</span></code> passed by position and
+<code class="docutils literal"><span class="pre">raise_exception</span></code> passed by keyword (in order to get a true/false result
+rather than true/error):</p>
+<div class="setup highlight-json"><div class="highlight"><pre><span></span><span class="kc">true</span>
+</pre></div>
+</div>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">this should be runnable and checked</p>
+</div>
+</div>
+<div class="section" id="list-records">
+<h3>List records<a class="headerlink" href="#list-records" title="Permalink to this headline">¶</a></h3>
+<p>Records can be listed and filtered via <a class="reference internal" href="../reference/orm.html#odoo.models.Model.search" title="odoo.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a>.</p>
+<p><a class="reference internal" href="../reference/orm.html#odoo.models.Model.search" title="odoo.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a> takes a mandatory
+<a class="reference internal" href="../reference/orm.html#reference-orm-domains"><span class="std std-ref">domain</span></a> filter (possibly empty), and returns the
+database identifiers of all records matching the filter. To list customer
+companies for instance:</p>
+<div class="doc-aside container">
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">74</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pagination">
+<h4>Pagination<a class="headerlink" href="#pagination" title="Permalink to this headline">¶</a></h4>
+<p>By default a search will return the ids of all records matching the
+condition, which may be a huge number. <code class="docutils literal"><span class="pre">offset</span></code> and <code class="docutils literal"><span class="pre">limit</span></code> parameters are
+available to only retrieve a subset of all matched records.</p>
+<div class="doc-aside container">
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">29</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="count-records">
+<h3>Count records<a class="headerlink" href="#count-records" title="Permalink to this headline">¶</a></h3>
+<p>Rather than retrieve a possibly gigantic list of records and count them,
+<a class="reference internal" href="../reference/orm.html#odoo.models.Model.search_count" title="odoo.models.Model.search_count"><code class="xref py py-meth docutils literal"><span class="pre">search_count()</span></code></a> can be used to retrieve
+only the number of records matching the query. It takes the same
+<a class="reference internal" href="../reference/orm.html#reference-orm-domains"><span class="std std-ref">domain</span></a> filter as
+<a class="reference internal" href="../reference/orm.html#odoo.models.Model.search" title="odoo.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a> and no other parameter.</p>
+<div class="doc-aside container">
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="mi">19</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">calling <code class="docutils literal"><span class="pre">search</span></code> then <code class="docutils literal"><span class="pre">search_count</span></code> (or the other way around) may not
+yield coherent results if other users are using the server: stored data
+could have changed between the calls</p>
+</div>
+</div>
+<div class="section" id="read-records">
+<h3>Read records<a class="headerlink" href="#read-records" title="Permalink to this headline">¶</a></h3>
+<p>Record data is accessible via the <a class="reference internal" href="../reference/orm.html#odoo.models.Model.read" title="odoo.models.Model.read"><code class="xref py py-meth docutils literal"><span class="pre">read()</span></code></a> method,
+which takes a list of ids (as returned by
+<a class="reference internal" href="../reference/orm.html#odoo.models.Model.search" title="odoo.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a>) and optionally a list of fields to
+fetch. By default, it will fetch all the fields the current user can read,
+which tends to be a huge amount.</p>
+<div class="doc-aside container">
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="mi">121</span>
+</pre></div>
+</div>
+</div>
+<p>Conversedly, picking only three fields deemed interesting.</p>
+<div class="doc-aside container">
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nt">&quot;country_id&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="s2">&quot;Belgium&quot;</span><span class="p">],</span> <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Agrolait&quot;</span><span class="p">}]</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">even if the <code class="docutils literal"><span class="pre">id</span></code> field is not requested, it is always returned</p>
+</div>
+</div>
+<div class="section" id="listing-record-fields">
+<h3>Listing record fields<a class="headerlink" href="#listing-record-fields" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="../reference/orm.html#odoo.models.Model.fields_get" title="odoo.models.Model.fields_get"><code class="xref py py-meth docutils literal"><span class="pre">fields_get()</span></code></a> can be used to inspect
+a model’s fields and check which ones seem to be of interest.</p>
+<p>Because it returns a large amount of meta-information (it is also used by client
+programs) it should be filtered before printing, the most interesting items
+for a human user are <code class="docutils literal"><span class="pre">string</span></code> (the field’s label), <code class="docutils literal"><span class="pre">help</span></code> (a help text if
+available) and <code class="docutils literal"><span class="pre">type</span></code> (to know which values to expect, or to send when
+updating a record):</p>
+<div class="doc-aside container">
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;ean13&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;char&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;help&quot;</span><span class="p">:</span> <span class="s2">&quot;BarCode&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;EAN13&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;property_account_position_id&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;many2one&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;help&quot;</span><span class="p">:</span> <span class="s2">&quot;The fiscal position will determine taxes and accounts used for the partner.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Fiscal Position&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;signup_valid&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;help&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Signup Token is Valid&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;date_localization&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;help&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Geo Localization Date&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;ref_company_ids&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;one2many&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;help&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Companies that refers to partner&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;sale_order_count&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;help&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;# of Sales Order&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;purchase_order_count&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;help&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;# of Purchase Order&quot;</span>
+    <span class="p">},</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="search-and-read">
+<h3>Search and read<a class="headerlink" href="#search-and-read" title="Permalink to this headline">¶</a></h3>
+<p>Because it is a very common task, Odoo provides a
+<code class="xref py py-meth docutils literal"><span class="pre">search_read()</span></code> shortcut which as its name suggests is
+equivalent to a <a class="reference internal" href="../reference/orm.html#odoo.models.Model.search" title="odoo.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a> followed by a
+<a class="reference internal" href="../reference/orm.html#odoo.models.Model.read" title="odoo.models.Model.read"><code class="xref py py-meth docutils literal"><span class="pre">read()</span></code></a>, but avoids having to perform two requests
+and keep ids around.</p>
+<p>Its arguments are similar to <a class="reference internal" href="../reference/orm.html#odoo.models.Model.search" title="odoo.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a>’s, but it
+can also take a list of <code class="docutils literal"><span class="pre">fields</span></code> (like <a class="reference internal" href="../reference/orm.html#odoo.models.Model.read" title="odoo.models.Model.read"><code class="xref py py-meth docutils literal"><span class="pre">read()</span></code></a>,
+if that list is not provided it will fetch all fields of matched records):</p>
+<div class="doc-aside container">
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;country_id&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">21</span><span class="p">,</span> <span class="s2">&quot;Belgium&quot;</span> <span class="p">],</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Agrolait&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;country_id&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">76</span><span class="p">,</span> <span class="s2">&quot;France&quot;</span> <span class="p">],</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Axelor&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;country_id&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">233</span><span class="p">,</span> <span class="s2">&quot;United Kingdom&quot;</span> <span class="p">],</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bank Wealthy and sons&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;country_id&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">105</span><span class="p">,</span> <span class="s2">&quot;India&quot;</span> <span class="p">],</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Best Designers&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;country_id&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">76</span><span class="p">,</span> <span class="s2">&quot;France&quot;</span> <span class="p">],</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Camptocamp&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="create-records">
+<h3>Create records<a class="headerlink" href="#create-records" title="Permalink to this headline">¶</a></h3>
+<p>Records of a model are created using <a class="reference internal" href="../reference/orm.html#odoo.models.Model.create" title="odoo.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a>. The
+method will create a single record and return its database identifier.</p>
+<p><a class="reference internal" href="../reference/orm.html#odoo.models.Model.create" title="odoo.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a> takes a mapping of fields to values, used
+to initialize the record. For any field which has a default value and is not
+set through the mapping argument, the default value will be used.</p>
+<div class="doc-aside container">
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="mi">78</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>while most value types are what would be expected (integer for
+<a class="reference internal" href="../reference/orm.html#odoo.fields.Integer" title="odoo.fields.Integer"><code class="xref py py-class docutils literal"><span class="pre">Integer</span></code></a>, string for <a class="reference internal" href="../reference/orm.html#odoo.fields.Char" title="odoo.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a>
+or <a class="reference internal" href="../reference/orm.html#odoo.fields.Text" title="odoo.fields.Text"><code class="xref py py-class docutils literal"><span class="pre">Text</span></code></a>),</p>
+<ul class="last simple">
+<li><a class="reference internal" href="../reference/orm.html#odoo.fields.Date" title="odoo.fields.Date"><code class="xref py py-class docutils literal"><span class="pre">Date</span></code></a>, <a class="reference internal" href="../reference/orm.html#odoo.fields.Datetime" title="odoo.fields.Datetime"><code class="xref py py-class docutils literal"><span class="pre">Datetime</span></code></a> and
+<code class="xref py py-class docutils literal"><span class="pre">Binary</span></code> fields use string values</li>
+<li><a class="reference internal" href="../reference/orm.html#odoo.fields.One2many" title="odoo.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">One2many</span></code></a> and <a class="reference internal" href="../reference/orm.html#odoo.fields.Many2many" title="odoo.fields.Many2many"><code class="xref py py-class docutils literal"><span class="pre">Many2many</span></code></a>
+use a special command protocol detailed in <a class="reference internal" href="../reference/orm.html#odoo.models.Model.write" title="odoo.models.Model.write"><code class="xref py py-meth docutils literal"><span class="pre">the</span> <span class="pre">documentation</span> <span class="pre">to</span>
+<span class="pre">the</span> <span class="pre">write</span> <span class="pre">method</span></code></a>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="update-records">
+<h3>Update records<a class="headerlink" href="#update-records" title="Permalink to this headline">¶</a></h3>
+<p>Records can be updated using <a class="reference internal" href="../reference/orm.html#odoo.models.Model.write" title="odoo.models.Model.write"><code class="xref py py-meth docutils literal"><span class="pre">write()</span></code></a>, it takes
+a list of records to update and a mapping of updated fields to values similar
+to <a class="reference internal" href="../reference/orm.html#odoo.models.Model.create" title="odoo.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a>.</p>
+<p>Multiple records can be updated simultanously, but they will all get the same
+values for the fields being set. It is not currently possible to perform
+“computed” updates (where the value being set depends on an existing value of
+a record).</p>
+<div class="doc-aside container">
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">78</span><span class="p">,</span> <span class="s2">&quot;Newer partner&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="delete-records">
+<h3>Delete records<a class="headerlink" href="#delete-records" title="Permalink to this headline">¶</a></h3>
+<p>Records can be deleted in bulk by providing their ids to
+<a class="reference internal" href="../reference/orm.html#odoo.models.Model.unlink" title="odoo.models.Model.unlink"><code class="xref py py-meth docutils literal"><span class="pre">unlink()</span></code></a>.</p>
+<div class="doc-aside container">
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="inspection-and-introspection">
+<h3>Inspection and introspection<a class="headerlink" href="#inspection-and-introspection" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last"><code class="docutils literal"><span class="pre">get_external_id</span></code> is kinda crap and may not return an id: it just
+gets a random existing xid but won’t generate one if there is no
+xid currently associated with the record. And operating with xids
+isn’t exactly fun in RPC.</p>
+</div>
+<p>While we previously used <a class="reference internal" href="../reference/orm.html#odoo.models.Model.fields_get" title="odoo.models.Model.fields_get"><code class="xref py py-meth docutils literal"><span class="pre">fields_get()</span></code></a> to query a
+model and have been using an arbitrary model from the start, Odoo stores
+most model metadata inside a few meta-models which allow both querying the
+system and altering models and fields (with some limitations) on the fly over
+XML-RPC.</p>
+<div class="section" id="ir-model">
+<span id="reference-webservice-inspection-models"></span><h4><code class="docutils literal"><span class="pre">ir.model</span></code><a class="headerlink" href="#ir-model" title="Permalink to this headline">¶</a></h4>
+<p>Provides information about Odoo models via its various fields</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">name</span></code></dt>
+<dd>a human-readable description of the model</dd>
+<dt><code class="docutils literal"><span class="pre">model</span></code></dt>
+<dd>the name of each model in the system</dd>
+<dt><code class="docutils literal"><span class="pre">state</span></code></dt>
+<dd>whether the model was generated in Python code (<code class="docutils literal"><span class="pre">base</span></code>) or by creating
+an <code class="docutils literal"><span class="pre">ir.model</span></code> record (<code class="docutils literal"><span class="pre">manual</span></code>)</dd>
+<dt><code class="docutils literal"><span class="pre">field_id</span></code></dt>
+<dd>list of the model’s fields through a <a class="reference internal" href="../reference/orm.html#odoo.fields.One2many" title="odoo.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">One2many</span></code></a> to
+<a class="reference internal" href="#reference-webservice-inspection-fields"><span class="std std-ref">ir.model.fields</span></a></dd>
+<dt><code class="docutils literal"><span class="pre">view_ids</span></code></dt>
+<dd><a class="reference internal" href="../reference/orm.html#odoo.fields.One2many" title="odoo.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">One2many</span></code></a> to the <a class="reference internal" href="../reference/views.html#reference-views"><span class="std std-ref">Views</span></a> defined
+for the model</dd>
+<dt><code class="docutils literal"><span class="pre">access_ids</span></code></dt>
+<dd><a class="reference internal" href="../reference/orm.html#odoo.fields.One2many" title="odoo.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">One2many</span></code></a> relation to the
+<a class="reference internal" href="../reference/security.html#reference-security-acl"><span class="std std-ref">Access Control</span></a> set on the model</dd>
+</dl>
+<p><code class="docutils literal"><span class="pre">ir.model</span></code> can be used to</p>
+<ul class="simple">
+<li>query the system for installed models (as a precondition to operations
+on the model or to explore the system’s content)</li>
+<li>get information about a specific model (generally by listing the fields
+associated with it)</li>
+<li>create new models dynamically over RPC</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<ul class="last simple">
+<li>“custom” model names must start with <code class="docutils literal"><span class="pre">x_</span></code></li>
+<li>the <code class="docutils literal"><span class="pre">state</span></code> must be provided and <code class="docutils literal"><span class="pre">manual</span></code>, otherwise the model will
+not be loaded</li>
+<li>it is not possible to add new <em>methods</em> to a custom model, only fields</li>
+</ul>
+</div>
+<div class="doc-aside container">
+<p>a custom model will initially contain only the “built-in” fields available
+on all models:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;create_uid&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;many2one&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Created by&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;create_date&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Created on&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;__last_update&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Last Modified on&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;write_uid&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;many2one&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Last Updated by&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;write_date&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Last Updated on&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;char&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Display Name&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;string&quot;</span><span class="p">:</span> <span class="s2">&quot;Id&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ir-model-fields">
+<span id="reference-webservice-inspection-fields"></span><h4><code class="docutils literal"><span class="pre">ir.model.fields</span></code><a class="headerlink" href="#ir-model-fields" title="Permalink to this headline">¶</a></h4>
+<p>Provides information about the fields of Odoo models and allows adding
+custom fields without using Python code</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">model_id</span></code></dt>
+<dd><a class="reference internal" href="../reference/orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a> to
+<a class="reference internal" href="#reference-webservice-inspection-models"><span class="std std-ref">ir.model</span></a> to which the field belongs</dd>
+<dt><code class="docutils literal"><span class="pre">name</span></code></dt>
+<dd>the field’s technical name (used in <code class="docutils literal"><span class="pre">read</span></code> or <code class="docutils literal"><span class="pre">write</span></code>)</dd>
+<dt><code class="docutils literal"><span class="pre">field_description</span></code></dt>
+<dd>the field’s user-readable label (e.g. <code class="docutils literal"><span class="pre">string</span></code> in <code class="docutils literal"><span class="pre">fields_get</span></code>)</dd>
+<dt><code class="docutils literal"><span class="pre">ttype</span></code></dt>
+<dd>the <a class="reference internal" href="../reference/orm.html#reference-orm-fields"><span class="std std-ref">type</span></a> of field to create</dd>
+<dt><code class="docutils literal"><span class="pre">state</span></code></dt>
+<dd>whether the field was created via Python code (<code class="docutils literal"><span class="pre">base</span></code>) or via
+<code class="docutils literal"><span class="pre">ir.model.fields</span></code> (<code class="docutils literal"><span class="pre">manual</span></code>)</dd>
+<dt><code class="docutils literal"><span class="pre">required</span></code>, <code class="docutils literal"><span class="pre">readonly</span></code>, <code class="docutils literal"><span class="pre">translate</span></code></dt>
+<dd>enables the corresponding flag on the field</dd>
+<dt><code class="docutils literal"><span class="pre">groups</span></code></dt>
+<dd><a class="reference internal" href="../reference/security.html#reference-security-fields"><span class="std std-ref">field-level access control</span></a>, a
+<a class="reference internal" href="../reference/orm.html#odoo.fields.Many2many" title="odoo.fields.Many2many"><code class="xref py py-class docutils literal"><span class="pre">Many2many</span></code></a> to <code class="docutils literal"><span class="pre">res.groups</span></code></dd>
+<dt><code class="docutils literal"><span class="pre">selection</span></code>, <code class="docutils literal"><span class="pre">size</span></code>, <code class="docutils literal"><span class="pre">on_delete</span></code>, <code class="docutils literal"><span class="pre">relation</span></code>, <code class="docutils literal"><span class="pre">relation_field</span></code>, <code class="docutils literal"><span class="pre">domain</span></code></dt>
+<dd>type-specific properties and customizations, see <a class="reference internal" href="../reference/orm.html#reference-orm-fields"><span class="std std-ref">the fields
+documentation</span></a> for details</dd>
+</dl>
+<p>Like custom models, only new fields created with <code class="docutils literal"><span class="pre">state=&quot;manual&quot;</span></code> are
+activated as actual fields on the model.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">computed fields can not be added via <code class="docutils literal"><span class="pre">ir.model.fields</span></code>, some
+field meta-information (defaults, onchange) can not be set either</p>
+</div>
+<div class="admonition-todo admonition" id="index-2">
+<p class="first admonition-title">Todo</p>
+<p class="last">maybe new-API fields could store constant <code class="docutils literal"><span class="pre">default</span></code> in a new
+column, maybe JSON-encoded?</p>
+</div>
+<div class="doc-aside container">
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;create_uid&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Administrator&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;x_name&quot;</span><span class="p">:</span> <span class="s2">&quot;test record&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;__last_update&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-11-12 16:32:13&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;write_uid&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Administrator&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;write_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-11-12 16:32:13&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;create_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-11-12 16:32:13&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;test record&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="report-printing">
+<h3>Report printing<a class="headerlink" href="#report-printing" title="Permalink to this headline">¶</a></h3>
+<p>Available reports can be listed by searching the <code class="docutils literal"><span class="pre">ir.actions.report</span></code>
+model, fields of interest being</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">model</span></code></dt>
+<dd>the model on which the report applies, can be used to look for available
+reports on a specific model</dd>
+<dt><code class="docutils literal"><span class="pre">name</span></code></dt>
+<dd>human-readable report name</dd>
+<dt><code class="docutils literal"><span class="pre">report_name</span></code></dt>
+<dd>the technical name of the report, used to print it</dd>
+</dl>
+<p>Reports can be printed over RPC with the following information:</p>
+<ul class="simple">
+<li>the name of the report (<code class="docutils literal"><span class="pre">report_name</span></code>)</li>
+<li>the ids of the records to include in the report</li>
+</ul>
+<div class="doc-aside container">
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">the report is sent as PDF binary data encoded in <a class="reference external" href="http://en.wikipedia.org/wiki/Base64">base64</a>, it must be
+decoded and may need to be saved to disk before use</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../webservices.html">Web Services</a><ul>
+      <li>Previous: <a href="../webservices.html" title="previous chapter">Web Services</a></li>
+      <li>Next: <a href="iap.html" title="next chapter">In-App Purchases</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Gahan Corporation.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/webservices/odoo.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

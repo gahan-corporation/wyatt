@@ -1,0 +1,556 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>odoo.tests.common &#8212; gerp 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for odoo.tests.common</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">The module :mod:`odoo.tests.common` provides unittest test cases and a few</span>
+<span class="sd">helpers and classes to write tests.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">errno</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">select</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="k">import</span> <span class="n">contextmanager</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">lxml</span> <span class="k">import</span> <span class="n">etree</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pformat</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="kn">from</span> <span class="nn">odoo.tools</span> <span class="k">import</span> <span class="n">pycompat</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">zip_longest</span> <span class="k">as</span> <span class="n">izip_longest</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">izip_longest</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">xmlrpc</span> <span class="k">import</span> <span class="n">client</span> <span class="k">as</span> <span class="n">xmlrpclib</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="c1"># pylint: disable=bad-python3-import</span>
+    <span class="kn">import</span> <span class="nn">xmlrpclib</span>
+
+<span class="kn">import</span> <span class="nn">odoo</span>
+<span class="kn">from</span> <span class="nn">odoo</span> <span class="k">import</span> <span class="n">api</span>
+
+<span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># The odoo library is supposed already configured.</span>
+<span class="n">ADDONS_PATH</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;addons_path&#39;</span><span class="p">]</span>
+<span class="n">HOST</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span>
+<span class="n">PORT</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;http_port&#39;</span><span class="p">]</span>
+<span class="c1"># Useless constant, tests are aware of the content of demo data</span>
+<span class="n">ADMIN_USER_ID</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">SUPERUSER_ID</span>
+
+
+<span class="k">def</span> <span class="nf">get_db_name</span><span class="p">():</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;db_name&#39;</span><span class="p">]</span>
+    <span class="c1"># If the database name is not provided on the command-line,</span>
+    <span class="c1"># use the one on the thread (which means if it is provided on</span>
+    <span class="c1"># the command-line, this will break when installing another</span>
+    <span class="c1"># database from XML-RPC).</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">db</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">current_thread</span><span class="p">(),</span> <span class="s1">&#39;dbname&#39;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">threading</span><span class="o">.</span><span class="n">current_thread</span><span class="p">()</span><span class="o">.</span><span class="n">dbname</span>
+    <span class="k">return</span> <span class="n">db</span>
+
+
+<span class="c1"># For backwards-compatibility - get_db_name() should be used instead</span>
+<span class="n">DB</span> <span class="o">=</span> <span class="n">get_db_name</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="at_install"><a class="viewcode-back" href="../../../reference/testing.html#odoo.tests.common.at_install">[docs]</a><span class="k">def</span> <span class="nf">at_install</span><span class="p">(</span><span class="n">flag</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Sets the at-install state of a test, the flag is a boolean specifying</span>
+<span class="sd">    whether the test should (``True``) or should not (``False``) run during</span>
+<span class="sd">    module installation.</span>
+
+<span class="sd">    By default, tests are run right after installing the module, before</span>
+<span class="sd">    starting the installation of the next module.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">at_install</span> <span class="o">=</span> <span class="n">flag</span>
+        <span class="k">return</span> <span class="n">obj</span>
+    <span class="k">return</span> <span class="n">decorator</span></div>
+
+<div class="viewcode-block" id="post_install"><a class="viewcode-back" href="../../../reference/testing.html#odoo.tests.common.post_install">[docs]</a><span class="k">def</span> <span class="nf">post_install</span><span class="p">(</span><span class="n">flag</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Sets the post-install state of a test. The flag is a boolean</span>
+<span class="sd">    specifying whether the test should or should not run after a set of</span>
+<span class="sd">    module installations.</span>
+
+<span class="sd">    By default, tests are *not* run after installation of all modules in the</span>
+<span class="sd">    current installation set.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">post_install</span> <span class="o">=</span> <span class="n">flag</span>
+        <span class="k">return</span> <span class="n">obj</span>
+    <span class="k">return</span> <span class="n">decorator</span></div>
+
+<span class="k">class</span> <span class="nc">TreeCase</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">methodName</span><span class="o">=</span><span class="s1">&#39;runTest&#39;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TreeCase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">methodName</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addTypeEqualityFunc</span><span class="p">(</span><span class="n">etree</span><span class="o">.</span><span class="n">_Element</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertTreesEqual</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">assertTreesEqual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">n1</span><span class="o">.</span><span class="n">tag</span><span class="p">,</span> <span class="n">n2</span><span class="o">.</span><span class="n">tag</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="c1"># Because lxml.attrib is an ordereddict for which order is important</span>
+        <span class="c1"># to equality, even though *we* don&#39;t care</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">n1</span><span class="o">.</span><span class="n">attrib</span><span class="p">),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">n2</span><span class="o">.</span><span class="n">attrib</span><span class="p">),</span> <span class="n">msg</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">((</span><span class="n">n1</span><span class="o">.</span><span class="n">text</span> <span class="ow">or</span> <span class="sa">u</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="p">(</span><span class="n">n2</span><span class="o">.</span><span class="n">text</span> <span class="ow">or</span> <span class="sa">u</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">((</span><span class="n">n1</span><span class="o">.</span><span class="n">tail</span> <span class="ow">or</span> <span class="sa">u</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="p">(</span><span class="n">n2</span><span class="o">.</span><span class="n">tail</span> <span class="ow">or</span> <span class="sa">u</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span> <span class="ow">in</span> <span class="n">izip_longest</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">BaseCase</span><span class="p">(</span><span class="n">TreeCase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Subclass of TestCase for common OpenERP-specific code.</span>
+
+<span class="sd">    This class is abstract and expects self.registry, self.cr and self.uid to be</span>
+<span class="sd">    initialized by subclasses.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">longMessage</span> <span class="o">=</span> <span class="kc">True</span>      <span class="c1"># more verbose error message by default: https://www.odoo.com/r/Vmh</span>
+
+    <span class="k">def</span> <span class="nf">cursor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">ref</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xid</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Returns database ID for the provided :term:`external identifier`,</span>
+<span class="sd">        shortcut for ``get_object_reference``</span>
+
+<span class="sd">        :param xid: fully-qualified :term:`external identifier`, in the form</span>
+<span class="sd">                    :samp:`{module}.{identifier}`</span>
+<span class="sd">        :raise: ValueError if not found</span>
+<span class="sd">        :returns: registered id</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">browse_ref</span><span class="p">(</span><span class="n">xid</span><span class="p">)</span><span class="o">.</span><span class="n">id</span>
+
+    <span class="k">def</span> <span class="nf">browse_ref</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xid</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Returns a record object for the provided</span>
+<span class="sd">        :term:`external identifier`</span>
+
+<span class="sd">        :param xid: fully-qualified :term:`external identifier`, in the form</span>
+<span class="sd">                    :samp:`{module}.{identifier}`</span>
+<span class="sd">        :raise: ValueError if not found</span>
+<span class="sd">        :returns: :class:`~odoo.models.BaseModel`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="s2">&quot;.&quot;</span> <span class="ow">in</span> <span class="n">xid</span><span class="p">,</span> <span class="s2">&quot;this method requires a fully qualified parameter, in the following form: &#39;module.identifier&#39;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">xid</span><span class="p">)</span>
+
+    <span class="nd">@contextmanager</span>
+    <span class="k">def</span> <span class="nf">_assertRaises</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exception</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Context manager that clears the environment upon failure. &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">super</span><span class="p">(</span><span class="n">BaseCase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="n">exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">clear_upon_failure</span><span class="p">():</span>
+                <span class="k">yield</span> <span class="n">cm</span>
+
+    <span class="k">def</span> <span class="nf">assertRaises</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exception</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">func</span><span class="p">:</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_assertRaises</span><span class="p">(</span><span class="n">exception</span><span class="p">):</span>
+                <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_assertRaises</span><span class="p">(</span><span class="n">exception</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">shortDescription</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">doc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_testMethodDoc</span>
+        <span class="k">return</span> <span class="n">doc</span> <span class="ow">and</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">l</span><span class="o">.</span><span class="n">isspace</span><span class="p">())</span> <span class="ow">or</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">pycompat</span><span class="o">.</span><span class="n">PY2</span><span class="p">:</span>
+        <span class="c1"># turns out this thing may not be quite as useful as we thought...</span>
+        <span class="k">def</span> <span class="nf">assertItemsEqual</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertCountEqual</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TransactionCase"><a class="viewcode-back" href="../../../reference/testing.html#odoo.tests.common.TransactionCase">[docs]</a><span class="k">class</span> <span class="nc">TransactionCase</span><span class="p">(</span><span class="n">BaseCase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; TestCase in which each test method is run in its own transaction,</span>
+<span class="sd">    and with its own cursor. The transaction is rolled back and the cursor</span>
+<span class="sd">    is closed after each test.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">registry</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">registry</span><span class="p">(</span><span class="n">get_db_name</span><span class="p">())</span>
+        <span class="c1">#: current transaction&#39;s cursor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uid</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">SUPERUSER_ID</span>
+        <span class="c1">#: :class:`~odoo.api.Environment` for the current test case</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">Environment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span> <span class="p">{})</span>
+
+        <span class="nd">@self</span><span class="o">.</span><span class="n">addCleanup</span>
+        <span class="k">def</span> <span class="nf">reset</span><span class="p">():</span>
+            <span class="c1"># rollback and close the cursor, and reset the environments</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">clear_caches</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">reset_changes</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cr</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cr</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;res.partner&#39;</span><span class="p">]),</span> <span class="s1">&#39;_get_gravatar_image&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">a</span><span class="p">:</span> <span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">patch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Do the patch ``setattr(obj, key, val)``, and prepare cleanup. &quot;&quot;&quot;</span>
+        <span class="n">old</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addCleanup</span><span class="p">(</span><span class="nb">setattr</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">old</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">patch_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Patch the order of the given model (name), and prepare cleanup. &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">[</span><span class="n">model</span><span class="p">]),</span> <span class="s1">&#39;_order&#39;</span><span class="p">,</span> <span class="n">order</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SingleTransactionCase"><a class="viewcode-back" href="../../../reference/testing.html#odoo.tests.common.SingleTransactionCase">[docs]</a><span class="k">class</span> <span class="nc">SingleTransactionCase</span><span class="p">(</span><span class="n">BaseCase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; TestCase in which all test methods are run in the same transaction,</span>
+<span class="sd">    the transaction is started with the first test method and rolled back at</span>
+<span class="sd">    the end of the last.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">setUpClass</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">registry</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">registry</span><span class="p">(</span><span class="n">get_db_name</span><span class="p">())</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">cr</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">uid</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">SUPERUSER_ID</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">Environment</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">cr</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span> <span class="p">{})</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">tearDownClass</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="c1"># rollback and close the cursor, and reset the environments</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">clear_caches</span><span class="p">()</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">cr</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">cr</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<span class="n">savepoint_seq</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<div class="viewcode-block" id="SavepointCase"><a class="viewcode-back" href="../../../reference/testing.html#odoo.tests.common.SavepointCase">[docs]</a><span class="k">class</span> <span class="nc">SavepointCase</span><span class="p">(</span><span class="n">SingleTransactionCase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Similar to :class:`SingleTransactionCase` in that all test methods</span>
+<span class="sd">    are run in a single transaction *but* each test case is run inside a</span>
+<span class="sd">    rollbacked savepoint (sub-transaction).</span>
+
+<span class="sd">    Useful for test cases containing fast tests but with significant database</span>
+<span class="sd">    setup common to all cases (complex in-db test data): :meth:`~.setUpClass`</span>
+<span class="sd">    can be used to generate db test data once, then all test cases use the</span>
+<span class="sd">    same data without influencing one another but without having to recreate</span>
+<span class="sd">    the test data either.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_savepoint_id</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">savepoint_seq</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cr</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SAVEPOINT test_</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_savepoint_id</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cr</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;ROLLBACK TO SAVEPOINT test_</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_savepoint_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">clear_caches</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="HttpCase"><a class="viewcode-back" href="../../../reference/testing.html#odoo.tests.common.HttpCase">[docs]</a><span class="k">class</span> <span class="nc">HttpCase</span><span class="p">(</span><span class="n">TransactionCase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Transactional HTTP TestCase with url_open and phantomjs helpers.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">registry_test_mode</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">methodName</span><span class="o">=</span><span class="s1">&#39;runTest&#39;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">HttpCase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">methodName</span><span class="p">)</span>
+        <span class="c1"># v8 api with correct xmlrpc exception handling.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xmlrpc_url</span> <span class="o">=</span> <span class="n">url_8</span> <span class="o">=</span> <span class="s1">&#39;http://</span><span class="si">%s</span><span class="s1">:</span><span class="si">%d</span><span class="s1">/xmlrpc/2/&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xmlrpc_common</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="n">url_8</span> <span class="o">+</span> <span class="s1">&#39;common&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xmlrpc_db</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="n">url_8</span> <span class="o">+</span> <span class="s1">&#39;db&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xmlrpc_object</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="n">url_8</span> <span class="o">+</span> <span class="s1">&#39;object&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">HttpCase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">setUp</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry_test_mode</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">enter_test_mode</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">addCleanup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">leave_test_mode</span><span class="p">)</span>
+        <span class="c1"># setup a magic session_id that will be rollbacked</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">session_store</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">session_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">sid</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">get_db_name</span><span class="p">()</span>
+        <span class="n">odoo</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">session_store</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span>
+        <span class="c1"># setup an url opener helper</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opener</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opener</span><span class="o">.</span><span class="n">cookies</span><span class="p">[</span><span class="s1">&#39;session_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session_id</span>
+
+    <span class="k">def</span> <span class="nf">url_open</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">):</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://</span><span class="si">%s</span><span class="s2">:</span><span class="si">%s%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">opener</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">opener</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="c1"># stay non-authenticated</span>
+        <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">db</span> <span class="o">=</span> <span class="n">get_db_name</span><span class="p">()</span>
+        <span class="n">uid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="s1">&#39;res.users&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">env</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">Environment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cr</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="p">{})</span>
+
+        <span class="c1"># self.session.authenticate(db, user, password, uid=uid)</span>
+        <span class="c1"># OpenERPSession.authenticate accesses the current request, which we</span>
+        <span class="c1"># don&#39;t have, so reimplement it manually...</span>
+        <span class="n">session</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span>
+
+        <span class="n">session</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">db</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">uid</span> <span class="o">=</span> <span class="n">uid</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">login</span> <span class="o">=</span> <span class="n">user</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">password</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="n">env</span><span class="p">[</span><span class="s1">&#39;res.users&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">context_get</span><span class="p">()</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s1">&#39;uid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">uid</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">_fix_lang</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
+
+        <span class="n">odoo</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">session_store</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">phantom_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">phantom</span><span class="p">,</span> <span class="n">timeout</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Phantomjs Test protocol.</span>
+
+<span class="sd">        Use console.log in phantomjs to output test results:</span>
+
+<span class="sd">        - for a success: console.log(&quot;ok&quot;)</span>
+<span class="sd">        - for an error:  console.log(&quot;error&quot;)</span>
+
+<span class="sd">        Other lines are relayed to the test log.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">_logger</span><span class="o">.</span><span class="n">getChild</span><span class="p">(</span><span class="s1">&#39;phantomjs&#39;</span><span class="p">)</span>
+        <span class="n">t0</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">td</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+        <span class="n">buf</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">()</span>
+        <span class="n">pid</span> <span class="o">=</span> <span class="n">phantom</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">fileno</span><span class="p">()</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># timeout</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertLess</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="n">td</span><span class="p">,</span>
+                <span class="s2">&quot;PhantomJS tests should take less than </span><span class="si">%s</span><span class="s2"> seconds&quot;</span> <span class="o">%</span> <span class="n">timeout</span><span class="p">)</span>
+
+            <span class="c1"># read a byte</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">ready</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">select</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="n">pid</span><span class="p">],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="mf">0.5</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">select</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="c1"># In Python 2, select.error has no relation to IOError or</span>
+                <span class="c1"># OSError, and no errno/strerror/filename, only a pair of</span>
+                <span class="c1"># unnamed arguments (matching errno and strerror)</span>
+                <span class="n">err</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span>
+                <span class="k">if</span> <span class="n">err</span> <span class="o">==</span> <span class="n">errno</span><span class="o">.</span><span class="n">EINTR</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">raise</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ready</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">s</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">pid</span><span class="p">,</span> <span class="mi">4096</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span><span class="s2">&quot;Ran out of data to read&quot;</span><span class="p">)</span>
+            <span class="n">buf</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+            <span class="c1"># process lines</span>
+            <span class="k">while</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="ow">in</span> <span class="n">buf</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">buf</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;&lt;phantomLog&gt;&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="sa">b</span><span class="s1">&#39;&lt;/phantomLog&gt;&#39;</span> <span class="ow">in</span> <span class="n">buf</span><span class="p">):</span>
+
+                <span class="k">if</span> <span class="n">buf</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;&lt;phantomLog&gt;&#39;</span><span class="p">):</span>
+                    <span class="n">line</span><span class="p">,</span> <span class="n">buf</span> <span class="o">=</span> <span class="n">buf</span><span class="p">[</span><span class="mi">12</span><span class="p">:]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;&lt;/phantomLog&gt;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">line</span><span class="p">,</span> <span class="n">buf</span> <span class="o">=</span> <span class="n">buf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+
+                <span class="n">lline</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">lline</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="s2">&quot;server application error&quot;</span><span class="p">)):</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="c1"># when errors occur the execution stack may be sent as a JSON</span>
+                        <span class="n">prefix</span> <span class="o">=</span> <span class="n">lline</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">6</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span><span class="n">pformat</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="n">prefix</span><span class="p">:])))</span>
+                    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span><span class="n">lline</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">lline</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;warning&quot;</span><span class="p">):</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="s2">&quot;ok&quot;</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">phantom_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="p">):</span>
+        <span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;phantom_run executing </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cmd</span><span class="p">))</span>
+
+        <span class="n">ls_glob</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/.qws/share/data/Ofi Labs/PhantomJS/http_</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">.*&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">))</span>
+        <span class="n">ls_glob2</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/.local/share/Ofi Labs/PhantomJS/http_</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">.*&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">ls_glob</span><span class="p">)</span> <span class="o">+</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">ls_glob2</span><span class="p">)):</span>
+            <span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;phantomjs unlink localstorage </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">phantom</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">close_fds</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">unittest</span><span class="o">.</span><span class="n">SkipTest</span><span class="p">(</span><span class="s2">&quot;PhantomJS not found&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">phantom_poll</span><span class="p">(</span><span class="n">phantom</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+                <span class="n">result</span><span class="p">,</span>
+                <span class="s2">&quot;PhantomJS test completed without reporting success; &quot;</span>
+                <span class="s2">&quot;the log may contain errors or hints.&quot;</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="c1"># kill phantomjs if phantom.exit() wasn&#39;t called in the test</span>
+            <span class="k">if</span> <span class="n">phantom</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Terminating phantomjs&quot;</span><span class="p">)</span>
+                <span class="n">phantom</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+                <span class="n">phantom</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># if we had to terminate phantomjs its return code is</span>
+                <span class="c1"># always -15 so we don&#39;t care</span>
+                <span class="c1"># check PhantomJS health</span>
+                <span class="kn">from</span> <span class="nn">signal</span> <span class="k">import</span> <span class="n">SIGSEGV</span>
+                <span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Phantom JS return code: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">phantom</span><span class="o">.</span><span class="n">returncode</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">phantom</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="o">-</span><span class="n">SIGSEGV</span><span class="p">:</span>
+                    <span class="n">_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Phantom JS has crashed (segmentation fault) during testing; log may not be relevant&quot;</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_remaining_requests</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_wait_remaining_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">t0</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">thread</span> <span class="ow">in</span> <span class="n">threading</span><span class="o">.</span><span class="n">enumerate</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">thread</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;odoo.service.http.request.&#39;</span><span class="p">):</span>
+                <span class="n">join_retry_count</span> <span class="o">=</span> <span class="mi">10</span>
+                <span class="k">while</span> <span class="n">thread</span><span class="o">.</span><span class="n">isAlive</span><span class="p">():</span>
+                    <span class="c1"># Need a busyloop here as thread.join() masks signals</span>
+                    <span class="c1"># and would prevent the forced shutdown.</span>
+                    <span class="n">thread</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+                    <span class="n">join_retry_count</span> <span class="o">-=</span> <span class="mi">1</span>
+                    <span class="k">if</span> <span class="n">join_retry_count</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Stop waiting for thread </span><span class="si">%s</span><span class="s2"> handling request for url </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+                                        <span class="n">thread</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">thread</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+                        <span class="k">break</span>
+                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+                    <span class="n">t1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+                    <span class="k">if</span> <span class="n">t0</span> <span class="o">!=</span> <span class="n">t1</span><span class="p">:</span>
+                        <span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;remaining requests&#39;</span><span class="p">)</span>
+                        <span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">dumpstacks</span><span class="p">()</span>
+                        <span class="n">t0</span> <span class="o">=</span> <span class="n">t1</span>
+
+<div class="viewcode-block" id="HttpCase.phantom_js"><a class="viewcode-back" href="../../../reference/testing.html#odoo.tests.common.HttpCase.phantom_js">[docs]</a>    <span class="k">def</span> <span class="nf">phantom_js</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url_path</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">ready</span><span class="o">=</span><span class="s2">&quot;window&quot;</span><span class="p">,</span> <span class="n">login</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Test js code running in the browser</span>
+<span class="sd">        - optionnally log as &#39;login&#39;</span>
+<span class="sd">        - load page given by url_path</span>
+<span class="sd">        - wait for ready object to be available</span>
+<span class="sd">        - eval(code) inside the page</span>
+
+<span class="sd">        To signal success test do:</span>
+<span class="sd">        console.log(&#39;ok&#39;)</span>
+
+<span class="sd">        To signal failure do:</span>
+<span class="sd">        console.log(&#39;error&#39;)</span>
+
+<span class="sd">        If neither are done before timeout test fails.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="n">PORT</span><span class="p">,</span>
+            <span class="s1">&#39;db&#39;</span><span class="p">:</span> <span class="n">get_db_name</span><span class="p">(),</span>
+            <span class="s1">&#39;url_path&#39;</span><span class="p">:</span> <span class="n">url_path</span><span class="p">,</span>
+            <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="n">code</span><span class="p">,</span>
+            <span class="s1">&#39;ready&#39;</span><span class="p">:</span> <span class="n">ready</span><span class="p">,</span>
+            <span class="s1">&#39;timeout&#39;</span> <span class="p">:</span> <span class="n">timeout</span><span class="p">,</span>
+            <span class="s1">&#39;session_id&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">session_id</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">options</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kw</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">login</span><span class="p">,</span> <span class="n">login</span><span class="p">)</span>
+
+        <span class="n">phantomtest</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;phantomtest.js&#39;</span><span class="p">)</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;phantomjs&#39;</span><span class="p">,</span> <span class="n">phantomtest</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">options</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phantom_run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span></div></div>
+
+<span class="k">def</span> <span class="nf">can_import</span><span class="p">(</span><span class="n">module</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Checks if &lt;module&gt; can be imported, returns ``True`` if it can be,</span>
+<span class="sd">    ``False`` otherwise.</span>
+
+<span class="sd">    To use with ``unittest.skipUnless`` for tests conditional on *optional*</span>
+<span class="sd">    dependencies, which may or may be present but must still be tested if</span>
+<span class="sd">    possible.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Gahan Corporation.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
