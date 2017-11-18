@@ -3,7 +3,7 @@
 [![Help](http://img.shields.io/badge/11.0-help-875A7B.svg?style=flat&colorA=8F8F8F)](https://www.odoo.com/forum/help-1)
 [![Nightly Builds](http://img.shields.io/badge/11.0-nightly-875A7B.svg?style=flat&colorA=8F8F8F)](http://nightly.odoo.com/)
 
-[![Coverage Status](https://coveralls.io/repos/github/gahan-corporation/gerp/badge.svg?branch=iss1)](https://coveralls.io/github/gahan-corporation/gerp?branch=iss1)
+[![Coverage Status](https://coveralls.io/repos/github/gahan-corporation/gerp/badge.svg?branch=master)](https://coveralls.io/github/gahan-corporation/gerp?branch=master)
 
 GERP
 ----
