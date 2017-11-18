@@ -1,0 +1,7 @@
+---
+sudo: required
+script:
+- cd addons/google_drive/models
+- python -m unittest tests.test_google_drive 
+...
+# vim: ft=ansible:
