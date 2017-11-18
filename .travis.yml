@@ -2,7 +2,7 @@
 language: python3
 sudo: required
 script:
-- cd addons/google_drive/models
+- cd addons/google_drive/models/tests
 - python -m unittest tests.test_google_drive 
 ...
 # vim: ft=ansible:
