@@ -48,7 +48,7 @@ var Dialog = Widget.extend({
         this._opened = $.Deferred();
 
         options = _.defaults(options || {}, {
-            title: _t('Odoo'), subtitle: '',
+            title: _t('Gahan Corporation'), subtitle: '',
             size: 'large',
             dialogClass: '',
             $content: false,
