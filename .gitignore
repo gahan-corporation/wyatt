@@ -1,4 +1,5 @@
 # sphinx build directories
+.coveralls.yml
 _build/
 
 # dotfiles
