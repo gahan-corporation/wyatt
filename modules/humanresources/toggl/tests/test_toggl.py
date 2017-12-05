@@ -1,34 +1,14 @@
 """Module for testting Toggl integration."""
-import configparser
-import requests
-
-import humanresources.toggle.api
+import toggl.api as toggl
 
 
 class TestToggl(object):
     """TestToggl class."""
-    conf = configparser.ConfigParser()
-    headers = {
-        'Content-Type': 'application/json'
-    }
-    toggl_api_me = 'https://www.toggl.com/api/v8/me'
-    token = ()
+    toggl = {}
 
-    def test_valid_config(self):
+    def test_get_user(self):
         """Make sure that there are valid tokens proviided."""
-        self.conf.read('.toggl_tokens')
-        token = self.conf.get('xander.dpone', 'token')
-        user = requests.get(
-            self.toggl_api_me,
-            auth=requests.auth.HTTPBasicAuth(token, 'api_token'))
-        print(user)
-        print(len(token))
-        print(type(token))
-        assert self.conf.sections() is False
-
-    def test_api_token(self):
-        """Ensure the api token works."""
-        assert self.token is True
+        self.toggl = toggl.Toggl(user='xander.dpone')
 
     def test_get_project(self):
         """Test if the correct Toggl project is returend"""

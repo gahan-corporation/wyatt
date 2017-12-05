@@ -1,4 +1,5 @@
 .toggl_tokens
+.toggl.yml
 *egg*
 .cache/
 build/
