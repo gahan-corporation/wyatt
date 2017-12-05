@@ -20,6 +20,7 @@ script:
   - cd modules/humanresources
   - pytest || true
   - nosetests -s -d -v || true
+  - cd ../../
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 ...

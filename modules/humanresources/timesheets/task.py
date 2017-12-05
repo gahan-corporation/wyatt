@@ -7,6 +7,7 @@ from sqlalchemy.ext.declarative import declarative_base
 class Task(declarative_base()):
     """Model class for saving timesheets."""
     __tablename__ = 'project_task'
+    id = sql.Column(sql.types.Integer, primary_key=True)
     children = sql.orm.relationship('timesheet')
 
     def __init__(self):
