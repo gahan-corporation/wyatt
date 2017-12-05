@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from gerp import models, fields, api
 
 
 class StockImmediateTransfer(models.TransientModel):

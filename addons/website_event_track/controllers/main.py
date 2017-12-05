@@ -6,9 +6,9 @@ import collections
 import datetime
 import pytz
 
-from odoo import fields, http
-from odoo.http import request
-from odoo.tools import html_escape as escape, html2plaintext
+from gerp import fields, http
+from gerp.http import request
+from gerp.tools import html_escape as escape, html2plaintext
 
 
 class WebsiteEventTrackController(http.Controller):

@@ -7,9 +7,9 @@ import werkzeug
 from datetime import datetime
 from math import ceil
 
-from odoo import fields, http, SUPERUSER_ID
-from odoo.http import request
-from odoo.tools import ustr
+from gerp import fields, http, SUPERUSER_ID
+from gerp.http import request
+from gerp.tools import ustr
 
 _logger = logging.getLogger(__name__)
 

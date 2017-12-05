@@ -8,11 +8,11 @@ import sys
 import zipfile
 from os.path import join as opj
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.modules import load_information_from_description_file
-from odoo.tools import convert_file, exception_to_unicode
-from odoo.tools.osutil import tempdir
+from gerp import api, fields, models, _
+from gerp.exceptions import UserError
+from gerp.modules import load_information_from_description_file
+from gerp.tools import convert_file, exception_to_unicode
+from gerp.tools.osutil import tempdir
 
 _logger = logging.getLogger(__name__)
 
@@ -113,7 +113,7 @@ class IrModule(models.Model):
                     raise UserError(_("File '%s' exceed maximum allowed file size") % zf.filename)
 
             with tempdir() as module_dir:
-                import odoo.modules.module as module
+                import gerp.modules.module as module
                 try:
                     module.ad_paths.append(module_dir)
                     z.extractall(module_dir)

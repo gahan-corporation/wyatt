@@ -5,8 +5,8 @@ from werkzeug.exceptions import NotFound
 
 import datetime
 
-from odoo import http
-from odoo.http import request
+from gerp import http
+from gerp.http import request
 
 
 class WebsiteRatingProject(http.Controller):

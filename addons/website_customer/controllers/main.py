@@ -3,11 +3,11 @@
 
 import werkzeug.urls
 
-from odoo import http
-from odoo.addons.http_routing.models.ir_http import unslug, slug
-from odoo.addons.website.models.ir_http import sitemap_qs2dom
-from odoo.tools.translate import _
-from odoo.http import request
+from gerp import http
+from gerp.addons.http_routing.models.ir_http import unslug, slug
+from gerp.addons.website.models.ir_http import sitemap_qs2dom
+from gerp.tools.translate import _
+from gerp.http import request
 
 
 class WebsiteCustomer(http.Controller):

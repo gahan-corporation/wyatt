@@ -5,10 +5,10 @@ try:
     from unittest.mock import patch
 except ImportError:
     from mock import patch
-from odoo.exceptions import AccessError
+from gerp.exceptions import AccessError
 
-from odoo.tests.common import TransactionCase
-from odoo.addons.crm.tests.common import TestCrmCases
+from gerp.tests.common import TransactionCase
+from gerp.addons.crm.tests.common import TestCrmCases
 
 
 class TestPartnerAssign(TransactionCase):
@@ -22,11 +22,11 @@ class TestPartnerAssign(TransactionCase):
                 'Cannon Hill Park, B46 3AG Birmingham, United Kingdom': (52.45216, -1.898578),
             }.get(addr)
 
-        patcher = patch('odoo.addons.base_geolocalize.models.res_partner.geo_find', wraps=geo_find)
+        patcher = patch('gerp.addons.base_geolocalize.models.res_partner.geo_find', wraps=geo_find)
         patcher.start()
         self.addCleanup(patcher.stop)
 
-        patcher = patch('odoo.addons.website_crm_partner_assign.models.crm_lead.geo_find',
+        patcher = patch('gerp.addons.website_crm_partner_assign.models.crm_lead.geo_find',
                         wraps=geo_find)
         patcher.start()
         self.addCleanup(patcher.stop)

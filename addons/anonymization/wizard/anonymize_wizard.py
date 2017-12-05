@@ -9,12 +9,12 @@ import random
 from lxml import etree
 from operator import itemgetter
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.release import version_info
-from odoo.tools import pickle
-from odoo.tools.safe_eval import safe_eval
-from odoo.addons.anonymization.models.anonymization import group
+from gerp import api, fields, models, _
+from gerp.exceptions import UserError
+from gerp.release import version_info
+from gerp.tools import pickle
+from gerp.tools.safe_eval import safe_eval
+from gerp.addons.anonymization.models.anonymization import group
 
 WIZARD_ANONYMIZATION_STATES = [('clear', 'Clear'), ('anonymized', 'Anonymized'), ('unstable', 'Unstable')]
 

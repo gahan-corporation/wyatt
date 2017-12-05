@@ -4,10 +4,10 @@
 from collections import deque
 import json
 
-from odoo import http
-from odoo.http import request
-from odoo.tools import ustr
-from odoo.tools.misc import xlwt
+from gerp import http
+from gerp.http import request
+from gerp.tools import ustr
+from gerp.tools.misc import xlwt
 
 
 class TableExporter(http.Controller):

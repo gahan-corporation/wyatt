@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from datetime import timedelta
 
-from odoo import fields
-from odoo.addons.stock.tests.common2 import TestStockCommon
+from gerp import fields
+from gerp.addons.stock.tests.common2 import TestStockCommon
 
 
 class TestPurchase(TestStockCommon):

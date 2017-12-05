@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError, UserError
+from gerp import api, fields, models, _
+from gerp.exceptions import ValidationError, UserError
 
-from odoo.addons import decimal_precision as dp
-from odoo.tools import float_is_zero
+from gerp.addons import decimal_precision as dp
+from gerp.tools import float_is_zero
 
 
 class EventType(models.Model):

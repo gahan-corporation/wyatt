@@ -8,9 +8,9 @@ from os.path import isfile
 from os import listdir
 from threading import Thread, Lock
 
-from odoo import http
+from gerp import http
 
-from odoo.addons.hw_proxy.controllers import main as hw_proxy
+from gerp.addons.hw_proxy.controllers import main as hw_proxy
 
 _logger = logging.getLogger(__name__)
 

@@ -8,9 +8,9 @@ from dateutil import relativedelta
 
 import babel
 
-from odoo import api, fields, models, tools, _
-from odoo.addons import decimal_precision as dp
-from odoo.exceptions import UserError, ValidationError
+from gerp import api, fields, models, tools, _
+from gerp.addons import decimal_precision as dp
+from gerp.exceptions import UserError, ValidationError
 
 class HrPayslip(models.Model):
     _name = 'hr.payslip'

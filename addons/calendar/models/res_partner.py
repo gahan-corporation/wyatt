@@ -3,9 +3,9 @@
 
 from datetime import datetime
 
-from odoo import api, fields, models
+from gerp import api, fields, models
 
-from odoo.addons.calendar.models.calendar import get_real_ids
+from gerp.addons.calendar.models.calendar import get_real_ids
 
 
 class Partner(models.Model):

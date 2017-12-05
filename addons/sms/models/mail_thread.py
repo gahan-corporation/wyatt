@@ -3,9 +3,9 @@
 
 import logging
 
-from odoo import models, _
+from gerp import models, _
 
-from odoo.addons.iap.models.iap import InsufficientCreditError
+from gerp.addons.iap.models.iap import InsufficientCreditError
 
 _logger = logging.getLogger(__name__)
 

@@ -11,13 +11,13 @@ import requests
 from lxml import etree, objectify
 from werkzeug import urls, url_encode
 
-from odoo import api, fields, models, _
-from odoo.addons.payment.models.payment_acquirer import ValidationError
-from odoo.addons.payment_ogone.controllers.main import OgoneController
-from odoo.addons.payment_ogone.data import ogone
-from odoo.tools import float_round, DEFAULT_SERVER_DATE_FORMAT
-from odoo.tools.float_utils import float_compare, float_repr
-from odoo.tools.safe_eval import safe_eval
+from gerp import api, fields, models, _
+from gerp.addons.payment.models.payment_acquirer import ValidationError
+from gerp.addons.payment_ogone.controllers.main import OgoneController
+from gerp.addons.payment_ogone.data import ogone
+from gerp.tools import float_round, DEFAULT_SERVER_DATE_FORMAT
+from gerp.tools.float_utils import float_compare, float_repr
+from gerp.tools.safe_eval import safe_eval
 
 _logger = logging.getLogger(__name__)
 
@@ -64,8 +64,8 @@ class PaymentAcquirerOgone(models.Model):
     def _ogone_generate_shasign(self, inout, values):
         """ Generate the shasign for incoming or outgoing communications.
 
-        :param string inout: 'in' (odoo contacting ogone) or 'out' (ogone
-                             contacting odoo). In this last case only some
+        :param string inout: 'in' (gerp contacting ogone) or 'out' (ogone
+                             contacting gerp). In this last case only some
                              fields should be contained (see e-Commerce basic)
         :param dict values: transaction values
 

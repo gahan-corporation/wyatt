@@ -3,11 +3,11 @@
 import logging
 import werkzeug
 
-from odoo import http, _
-from odoo.addons.auth_signup.models.res_users import SignupError
-from odoo.addons.web.controllers.main import ensure_db, Home
-from odoo.exceptions import UserError
-from odoo.http import request
+from gerp import http, _
+from gerp.addons.auth_signup.models.res_users import SignupError
+from gerp.addons.web.controllers.main import ensure_db, Home
+from gerp.exceptions import UserError
+from gerp.http import request
 
 _logger = logging.getLogger(__name__)
 

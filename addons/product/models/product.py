@@ -3,13 +3,13 @@
 
 import re
 
-from odoo import api, fields, models, tools, _
-from odoo.exceptions import ValidationError
-from odoo.osv import expression
+from gerp import api, fields, models, tools, _
+from gerp.exceptions import ValidationError
+from gerp.osv import expression
 
-from odoo.addons import decimal_precision as dp
+from gerp.addons import decimal_precision as dp
 
-from odoo.tools import pycompat
+from gerp.tools import pycompat
 
 
 class ProductCategory(models.Model):

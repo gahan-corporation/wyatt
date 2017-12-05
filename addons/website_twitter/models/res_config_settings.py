@@ -5,8 +5,8 @@ import logging
 
 import requests
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
+from gerp import api, fields, models, _
+from gerp.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 

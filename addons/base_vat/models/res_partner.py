@@ -14,9 +14,9 @@ except ImportError:
                     "Install it to support more countries, for example with `easy_install vatnumber`.")
     vatnumber = None
 
-from odoo import api, models, _
-from odoo.tools.misc import ustr
-from odoo.exceptions import ValidationError
+from gerp import api, models, _
+from gerp.tools.misc import ustr
+from gerp.exceptions import ValidationError
 
 _eu_country_vat = {
     'GR': 'EL'

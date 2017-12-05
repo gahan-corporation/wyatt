@@ -1,4 +1,4 @@
-from odoo.tests.common import TransactionCase
+from gerp.tests.common import TransactionCase
 
 
 class TestBatchPicking(TransactionCase):

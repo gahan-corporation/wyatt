@@ -2,9 +2,9 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 import json
-from odoo import _
-from odoo import http
-from odoo.http import request
+from gerp import _
+from gerp import http
+from gerp.http import request
 
 
 class Twitter(http.Controller):

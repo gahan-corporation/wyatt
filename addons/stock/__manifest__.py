@@ -6,7 +6,7 @@
     'version': '1.1',
     'summary': 'Inventory, Logistics, Warehousing',
     'description': "",
-    'website': 'https://www.odoo.com/page/warehouse',
+    'website': 'https://www.gerp.com/page/warehouse',
     'depends': ['product', 'barcodes', 'web_planner'],
     'category': 'Warehouse',
     'sequence': 13,

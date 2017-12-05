@@ -4,7 +4,7 @@
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from odoo import fields, models, _
+from gerp import fields, models, _
 
 
 class CrmTeam(models.Model):

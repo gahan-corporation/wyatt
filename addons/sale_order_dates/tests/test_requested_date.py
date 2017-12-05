@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from datetime import timedelta
-from odoo.tests import common
-from odoo import fields
+from gerp.tests import common
+from gerp import fields
 
 
 class TestSaleOrderDates(common.TransactionCase):

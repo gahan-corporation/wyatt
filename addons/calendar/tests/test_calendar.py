@@ -4,8 +4,8 @@ import datetime
 
 from datetime import datetime, timedelta
 
-from odoo import fields
-from odoo.tests.common import TransactionCase
+from gerp import fields
+from gerp.tests.common import TransactionCase
 
 
 class TestCalendar(TransactionCase):

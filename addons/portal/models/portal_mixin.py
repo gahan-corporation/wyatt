@@ -3,7 +3,7 @@
 
 from werkzeug.urls import url_encode
 
-from odoo import api, fields, models
+from gerp import api, fields, models
 
 
 class PortalMixin(models.AbstractModel):

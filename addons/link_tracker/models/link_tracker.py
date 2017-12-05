@@ -11,8 +11,8 @@ from lxml import html
 from werkzeug import urls, utils
 
 
-from odoo import models, fields, api, _
-from odoo.tools import ustr
+from gerp import models, fields, api, _
+from gerp.tools import ustr
 
 URL_REGEX = r'(\bhref=[\'"](?!mailto:|tel:|sms:)([^\'"]+)[\'"])'
 

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.sale_timesheet.tests.common import CommonTest
-from odoo.exceptions import UserError
+from gerp.addons.sale_timesheet.tests.common import CommonTest
+from gerp.exceptions import UserError
 
 
 class TestSaleService(CommonTest):

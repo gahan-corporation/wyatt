@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, fields, api, _
-from odoo.addons import decimal_precision as dp
-from odoo.tools.safe_eval import safe_eval
-from odoo.exceptions import UserError, ValidationError
+from gerp import models, fields, api, _
+from gerp.addons import decimal_precision as dp
+from gerp.tools.safe_eval import safe_eval
+from gerp.exceptions import UserError, ValidationError
 
 
 class PriceRule(models.Model):

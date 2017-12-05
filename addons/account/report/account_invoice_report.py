@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import tools
-from odoo import models, fields, api
+from gerp import tools
+from gerp import models, fields, api
 
 
 class AccountInvoiceReport(models.Model):

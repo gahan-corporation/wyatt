@@ -3,9 +3,9 @@
 
 from datetime import datetime
 
-from odoo import api, fields, models, tools, SUPERUSER_ID
-from odoo.tools.translate import _
-from odoo.exceptions import UserError
+from gerp import api, fields, models, tools, SUPERUSER_ID
+from gerp.tools.translate import _
+from gerp.exceptions import UserError
 
 AVAILABLE_PRIORITIES = [
     ('0', 'Normal'),

@@ -8,9 +8,9 @@ import logging
 import requests
 from werkzeug import urls
 
-from odoo import api, fields, models, registry, _
-from odoo.exceptions import UserError
-from odoo.http import request
+from gerp import api, fields, models, registry, _
+from gerp.exceptions import UserError
+from gerp.http import request
 
 
 _logger = logging.getLogger(__name__)
@@ -80,7 +80,7 @@ class GoogleService(models.TransientModel):
         }
 
         get_param = self.env['ir.config_parameter'].sudo().get_param
-        base_url = get_param('web.base.url', default='http://www.odoo.com?NoBaseUrl')
+        base_url = get_param('web.base.url', default='http://www.gerp.com?NoBaseUrl')
         client_id = get_param('google_%s_client_id' % (service,), default=False)
 
         encoded_params = urls.url_encode({
@@ -100,7 +100,7 @@ class GoogleService(models.TransientModel):
             not be redirected.
         """
         get_param = self.env['ir.config_parameter'].sudo().get_param
-        base_url = get_param('web.base.url', default='http://www.odoo.com?NoBaseUrl')
+        base_url = get_param('web.base.url', default='http://www.gerp.com?NoBaseUrl')
         client_id = get_param('google_%s_client_id' % (service,), default=False)
         client_secret = get_param('google_%s_client_secret' % (service,), default=False)
 

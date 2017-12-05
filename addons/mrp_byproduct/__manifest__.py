@@ -20,7 +20,7 @@ With this module:
 -----------------
     A + B + C -> D + E
     """,
-    'website': 'https://www.odoo.com/page/manufacturing',
+    'website': 'https://www.gerp.com/page/manufacturing',
     'depends': ['base', 'mrp'],
     'data': [
         'security/ir.model.access.csv',

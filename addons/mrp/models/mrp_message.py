@@ -4,8 +4,8 @@
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models
-from odoo.tools import html2plaintext
+from gerp import api, fields, models
+from gerp.tools import html2plaintext
 
 
 class MrpProductionMessage(models.Model):

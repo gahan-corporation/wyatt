@@ -7,9 +7,9 @@ import base64
 import io
 from datetime import datetime
 
-from odoo import api, fields, models, _
-from odoo.exceptions import Warning
-from odoo.tools import pycompat, DEFAULT_SERVER_DATE_FORMAT
+from gerp import api, fields, models, _
+from gerp.exceptions import Warning
+from gerp.tools import pycompat, DEFAULT_SERVER_DATE_FORMAT
 
 
 class AccountFrFec(models.TransientModel):

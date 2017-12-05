@@ -6,10 +6,10 @@ from datetime import date, timedelta
 import requests
 import werkzeug
 
-from odoo import models, api, service
-from odoo.tools.translate import _
-from odoo.exceptions import UserError
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT, misc
+from gerp import models, api, service
+from gerp.tools.translate import _
+from gerp.exceptions import UserError
+from gerp.tools import DEFAULT_SERVER_DATETIME_FORMAT, misc
 
 
 class MercuryTransaction(models.Model):

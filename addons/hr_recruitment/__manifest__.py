@@ -8,7 +8,7 @@
     'sequence': 90,
     'summary': 'Jobs, Recruitment, Applications, Job Interviews',
     'description': "",
-    'website': 'https://www.odoo.com/page/recruitment',
+    'website': 'https://www.gerp.com/page/recruitment',
     'depends': [
         'hr',
         'calendar',

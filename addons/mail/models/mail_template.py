@@ -12,9 +12,9 @@ import functools
 import lxml
 from werkzeug import urls
 
-from odoo import _, api, fields, models, tools
-from odoo.exceptions import UserError
-from odoo.tools import pycompat
+from gerp import _, api, fields, models, tools
+from gerp.exceptions import UserError
+from gerp.tools import pycompat
 
 _logger = logging.getLogger(__name__)
 

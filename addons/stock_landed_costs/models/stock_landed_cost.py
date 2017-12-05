@@ -3,10 +3,10 @@
 
 from collections import defaultdict
 
-from odoo import api, fields, models, tools, _
-from odoo.addons import decimal_precision as dp
-from odoo.addons.stock_landed_costs.models import product
-from odoo.exceptions import UserError
+from gerp import api, fields, models, tools, _
+from gerp.addons import decimal_precision as dp
+from gerp.addons.stock_landed_costs.models import product
+from gerp.exceptions import UserError
 
 
 class StockMove(models.Model):

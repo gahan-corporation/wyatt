@@ -3,9 +3,9 @@
 
 from datetime import datetime, timedelta
 
-from odoo.exceptions import ValidationError
-from odoo.tests.common import TransactionCase
-from odoo.exceptions import AccessError, UserError
+from gerp.exceptions import ValidationError
+from gerp.tests.common import TransactionCase
+from gerp.exceptions import AccessError, UserError
 
 
 class StockQuant(TransactionCase):
@@ -732,7 +732,7 @@ class StockQuant(TransactionCase):
         self.assertEqual(len(quant), 1)
         self.assertEqual(quant.quantity, 1)
         self.assertEqual(quant.lot_id.id, lot1.id)
-        from odoo.fields import Datetime
+        from gerp.fields import Datetime
         self.assertEqual(quant.in_date, Datetime.to_string(in_date1))
 
         in_date2 = datetime.now() - timedelta(days=5)

@@ -3,12 +3,12 @@
 
 from datetime import datetime
 
-from odoo.addons.mail.tests.common import TestMail
-from odoo.tools import mute_logger
+from gerp.addons.mail.tests.common import TestMail
+from gerp.tools import mute_logger
 
 
 class TestSale(TestMail):
-    @mute_logger('odoo.addons.base.ir.ir_model', 'odoo.osv.orm')
+    @mute_logger('gerp.addons.base.ir.ir_model', 'gerp.osv.orm')
     def setUp(self):
         super(TestSale, self).setUp()
 

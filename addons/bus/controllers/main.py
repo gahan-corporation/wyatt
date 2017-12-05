@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from odoo import exceptions
-from odoo.http import Controller, request, route
-from odoo.addons.bus.models.bus import dispatch
+from gerp import exceptions
+from gerp.http import Controller, request, route
+from gerp.addons.bus.models.bus import dispatch
 
-from odoo.tools import pycompat
+from gerp.tools import pycompat
 
 
 class BusController(Controller):

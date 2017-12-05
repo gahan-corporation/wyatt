@@ -13,7 +13,7 @@ This module set the right product on all timesheet lines
 according to the order/contract you work on. This allows to
 have real delivered quantities in sales orders.
 """,
-    'website': 'https://www.odoo.com/page/warehouse',
+    'website': 'https://www.gerp.com/page/warehouse',
     'depends': ['sale_management', 'hr_timesheet'],
     'data': [
         'security/sale_timesheet_security.xml',

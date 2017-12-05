@@ -4,10 +4,10 @@ from ast import literal_eval
 from operator import itemgetter
 import time
 
-from odoo import api, fields, models, _
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
-from odoo.exceptions import ValidationError
-from odoo.addons.base.res.res_partner import WARNING_MESSAGE, WARNING_HELP
+from gerp import api, fields, models, _
+from gerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
+from gerp.exceptions import ValidationError
+from gerp.addons.base.res.res_partner import WARNING_MESSAGE, WARNING_HELP
 
 class AccountFiscalPosition(models.Model):
     _name = 'account.fiscal.position'

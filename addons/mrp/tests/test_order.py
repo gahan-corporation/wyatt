@@ -3,8 +3,8 @@
 
 from datetime import datetime, timedelta
 
-from odoo.fields import Datetime as Dt
-from odoo.addons.mrp.tests.common import TestMrpCommon
+from gerp.fields import Datetime as Dt
+from gerp.addons.mrp.tests.common import TestMrpCommon
 
 
 class TestMrpOrder(TestMrpCommon):

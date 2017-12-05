@@ -1,4 +1,4 @@
-from odoo.tests import common
+from gerp.tests import common
 
 class TestFiscalPosition(common.TransactionCase):
     """Tests for fiscal positions in auto apply (account.fiscal.position).

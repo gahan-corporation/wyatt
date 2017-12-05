@@ -8,7 +8,7 @@
     'sequence': 75,
     'summary': 'Jobs, Departments, Employees Details',
     'description': "",
-    'website': 'https://www.odoo.com/page/employees',
+    'website': 'https://www.gerp.com/page/employees',
     'images': [
         'images/hr_department.jpeg',
         'images/hr_employee.jpeg',

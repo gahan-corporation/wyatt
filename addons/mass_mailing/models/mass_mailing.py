@@ -8,10 +8,10 @@ import logging
 import random
 import threading
 
-from odoo import api, fields, models, tools, _
-from odoo.exceptions import UserError
-from odoo.tools.safe_eval import safe_eval
-from odoo.tools.translate import html_translate
+from gerp import api, fields, models, tools, _
+from gerp.exceptions import UserError
+from gerp.tools.safe_eval import safe_eval
+from gerp.tools.translate import html_translate
 
 _logger = logging.getLogger(__name__)
 

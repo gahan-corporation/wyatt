@@ -5,11 +5,11 @@ import base64
 import logging
 import werkzeug
 
-from odoo import http, _
-from odoo.exceptions import AccessError, UserError
-from odoo.http import request
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.addons.website.models.ir_http import sitemap_qs2dom
+from gerp import http, _
+from gerp.exceptions import AccessError, UserError
+from gerp.http import request
+from gerp.addons.http_routing.models.ir_http import slug
+from gerp.addons.website.models.ir_http import sitemap_qs2dom
 
 _logger = logging.getLogger(__name__)
 

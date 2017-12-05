@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models, _
-from odoo.osv import expression
-from odoo.tools import float_is_zero, pycompat
-from odoo.tools import float_compare, float_round, float_repr
-from odoo.tools.misc import formatLang
-from odoo.exceptions import UserError, ValidationError
+from gerp import api, fields, models, _
+from gerp.osv import expression
+from gerp.tools import float_is_zero, pycompat
+from gerp.tools import float_compare, float_round, float_repr
+from gerp.tools.misc import formatLang
+from gerp.exceptions import UserError, ValidationError
 
 import time
 import math

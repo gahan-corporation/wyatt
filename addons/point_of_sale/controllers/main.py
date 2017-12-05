@@ -3,8 +3,8 @@ import json
 import logging
 import werkzeug.utils
 
-from odoo import http
-from odoo.http import request
+from gerp import http
+from gerp.http import request
 
 _logger = logging.getLogger(__name__)
 

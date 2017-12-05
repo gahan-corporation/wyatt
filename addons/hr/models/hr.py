@@ -3,10 +3,10 @@
 import base64
 import logging
 
-from odoo import api, fields, models
-from odoo import tools, _
-from odoo.exceptions import ValidationError
-from odoo.modules.module import get_module_resource
+from gerp import api, fields, models
+from gerp import tools, _
+from gerp.exceptions import ValidationError
+from gerp.modules.module import get_module_resource
 
 _logger = logging.getLogger(__name__)
 

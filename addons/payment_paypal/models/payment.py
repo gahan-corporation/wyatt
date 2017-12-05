@@ -7,10 +7,10 @@ import dateutil.parser
 import pytz
 from werkzeug import urls
 
-from odoo import api, fields, models, _
-from odoo.addons.payment.models.payment_acquirer import ValidationError
-from odoo.addons.payment_paypal.controllers.main import PaypalController
-from odoo.tools.float_utils import float_compare
+from gerp import api, fields, models, _
+from gerp.addons.payment.models.payment_acquirer import ValidationError
+from gerp.addons.payment_paypal.controllers.main import PaypalController
+from gerp.tools.float_utils import float_compare
 
 
 _logger = logging.getLogger(__name__)

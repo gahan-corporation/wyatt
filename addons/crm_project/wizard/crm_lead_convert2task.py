@@ -1,5 +1,5 @@
 
-from odoo import api, fields, models
+from gerp import api, fields, models
 
 
 class CrmLeadConvert2Task(models.TransientModel):

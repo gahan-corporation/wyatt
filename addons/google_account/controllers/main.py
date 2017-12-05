@@ -4,8 +4,8 @@
 import json
 from werkzeug.utils import redirect
 
-from odoo import http, registry
-from odoo.http import request
+from gerp import http, registry
+from gerp.http import request
 
 
 class GoogleAuth(http.Controller):

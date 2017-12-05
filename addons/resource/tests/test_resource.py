@@ -8,9 +8,9 @@ from datetime import datetime, timedelta, date, time
 from dateutil import rrule
 from dateutil.relativedelta import relativedelta
 
-from odoo.fields import Date, Datetime
-from odoo.addons.resource.models.resource import to_naive_utc, to_naive_user_tz
-from odoo.addons.resource.tests.common import TestResourceCommon
+from gerp.fields import Date, Datetime
+from gerp.addons.resource.models.resource import to_naive_utc, to_naive_user_tz
+from gerp.addons.resource.tests.common import TestResourceCommon
 
 
 class TestIntervals(TestResourceCommon):

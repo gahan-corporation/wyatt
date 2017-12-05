@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo.tests.common import HttpCase
+from gerp.tests.common import HttpCase
 
 
 class AccountingTestTemplConsistency(HttpCase):

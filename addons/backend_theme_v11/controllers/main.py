@@ -3,7 +3,7 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
 import base64
-from odoo.http import Controller, request, route
+from gerp.http import Controller, request, route
 from werkzeug.utils import redirect
 
 DEFAULT_IMAGE = '/backend_theme_v11/static/src/img/material-background.jpg'

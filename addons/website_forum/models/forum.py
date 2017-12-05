@@ -10,9 +10,9 @@ import uuid
 from datetime import datetime
 from werkzeug.exceptions import Forbidden
 
-from odoo import api, fields, models, modules, tools, SUPERUSER_ID, _
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools import pycompat, misc
+from gerp import api, fields, models, modules, tools, SUPERUSER_ID, _
+from gerp.exceptions import UserError, ValidationError
+from gerp.tools import pycompat, misc
 
 _logger = logging.getLogger(__name__)
 

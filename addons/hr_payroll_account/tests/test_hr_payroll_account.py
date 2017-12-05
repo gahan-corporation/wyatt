@@ -6,9 +6,9 @@ import time
 from datetime import datetime, timedelta
 from dateutil import relativedelta
 
-from odoo import fields, tools
-from odoo.modules.module import get_module_resource
-from odoo.tests import common
+from gerp import fields, tools
+from gerp.modules.module import get_module_resource
+from gerp.tests import common
 
 
 class TestHrPayrollAccount(common.TransactionCase):

@@ -3,8 +3,8 @@
 
 from datetime import datetime
 
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
-from odoo.addons.account.tests.account_test_classes import AccountingTestCase
+from gerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
+from gerp.addons.account.tests.account_test_classes import AccountingTestCase
 
 
 class TestPurchaseOrder(AccountingTestCase):

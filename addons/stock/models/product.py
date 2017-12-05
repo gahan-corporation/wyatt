@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
-from odoo.addons import decimal_precision as dp
-from odoo.exceptions import UserError
-from odoo.tools import pycompat
-from odoo.tools.float_utils import float_round
+from gerp import api, fields, models, _
+from gerp.addons import decimal_precision as dp
+from gerp.exceptions import UserError
+from gerp.tools import pycompat
+from gerp.tools.float_utils import float_round
 from datetime import datetime
 import operator as py_operator
 

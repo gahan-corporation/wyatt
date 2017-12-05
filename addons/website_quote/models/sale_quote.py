@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models
-from odoo.tools.translate import html_translate
-from odoo.addons import decimal_precision as dp
+from gerp import api, fields, models
+from gerp.tools.translate import html_translate
+from gerp.addons import decimal_precision as dp
 
 
 class SaleQuoteTemplate(models.Model):

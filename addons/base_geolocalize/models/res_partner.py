@@ -4,8 +4,8 @@ import json
 
 import requests
 
-from odoo import api, fields, models, tools, _
-from odoo.exceptions import UserError
+from gerp import api, fields, models, tools, _
+from gerp.exceptions import UserError
 
 
 def geo_find(addr):

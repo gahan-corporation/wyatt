@@ -5,9 +5,9 @@ import copy
 import logging
 from lxml import etree, html
 
-from odoo.exceptions import AccessError
-from odoo import api, fields, models
-from odoo.tools import pycompat
+from gerp.exceptions import AccessError
+from gerp import api, fields, models
+from gerp.tools import pycompat
 
 _logger = logging.getLogger(__name__)
 

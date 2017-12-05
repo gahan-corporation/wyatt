@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.project.tests.test_access_rights import TestPortalProjectBase
-from odoo.exceptions import AccessError
-from odoo.tools import mute_logger
+from gerp.addons.project.tests.test_access_rights import TestPortalProjectBase
+from gerp.exceptions import AccessError
+from gerp.tools import mute_logger
 
 
 class TestPortalProject(TestPortalProjectBase):
-    @mute_logger('odoo.addons.base.ir.ir_model')
+    @mute_logger('gerp.addons.base.ir.ir_model')
     def test_portal_project_access_rights(self):
         pigs = self.project_pigs
         pigs.write({'privacy_visibility': 'portal'})

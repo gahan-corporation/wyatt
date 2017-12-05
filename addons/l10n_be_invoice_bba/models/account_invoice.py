@@ -6,8 +6,8 @@
 import random
 import re
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError, ValidationError
+from gerp import api, fields, models, _
+from gerp.exceptions import UserError, ValidationError
 
 """
 account.invoice object:

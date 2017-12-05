@@ -2,8 +2,8 @@
 
 import datetime
 
-from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError
+from gerp import _, api, fields, models
+from gerp.exceptions import ValidationError
 
 
 class AccountPayment(models.Model):

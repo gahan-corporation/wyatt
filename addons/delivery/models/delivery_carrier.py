@@ -4,7 +4,7 @@
 import logging
 import psycopg2
 
-from odoo import api, fields, models, registry, SUPERUSER_ID, _
+from gerp import api, fields, models, registry, SUPERUSER_ID, _
 
 _logger = logging.getLogger(__name__)
 

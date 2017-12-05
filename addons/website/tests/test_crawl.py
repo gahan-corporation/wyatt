@@ -7,15 +7,15 @@ import time
 import lxml.html
 from werkzeug import urls
 
-import odoo
+import gerp
 import re
 
-from odoo.tools import pycompat
+from gerp.tools import pycompat
 
 _logger = logging.getLogger(__name__)
 
 
-class Crawler(odoo.tests.HttpCase):
+class Crawler(gerp.tests.HttpCase):
     """ Test suite crawling an Odoo CMS instance and checking that all
     internal links lead to a 200 response.
 

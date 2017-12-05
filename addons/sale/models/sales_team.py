@@ -3,7 +3,7 @@
 
 from datetime import date
 
-from odoo import api, fields, models, _
+from gerp import api, fields, models, _
 
 
 class CrmTeam(models.Model):

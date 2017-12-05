@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.stock.tests.common import TestStockCommon
-from odoo.exceptions import UserError
-from odoo import api, registry
-from odoo.tests.common import TransactionCase
+from gerp.addons.stock.tests.common import TestStockCommon
+from gerp.exceptions import UserError
+from gerp import api, registry
+from gerp.tests.common import TransactionCase
 
 
 class TestPickShip(TestStockCommon):

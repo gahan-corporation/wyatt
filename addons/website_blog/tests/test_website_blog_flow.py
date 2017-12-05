@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.website_blog.tests.common import TestWebsiteBlogCommon
+from gerp.addons.website_blog.tests.common import TestWebsiteBlogCommon
 
 
 class TestWebsiteBlogFlow(TestWebsiteBlogCommon):

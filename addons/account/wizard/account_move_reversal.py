@@ -1,5 +1,5 @@
-from odoo import models, fields, api
-from odoo.tools.translate import _
+from gerp import models, fields, api
+from gerp.tools.translate import _
 
 class AccountMoveReversal(models.TransientModel):
     """

@@ -4,11 +4,11 @@
 import itertools
 import psycopg2
 
-from odoo.addons import decimal_precision as dp
+from gerp.addons import decimal_precision as dp
 
-from odoo import api, fields, models, tools, _
-from odoo.exceptions import ValidationError, RedirectWarning, except_orm
-from odoo.tools import pycompat
+from gerp import api, fields, models, tools, _
+from gerp.exceptions import ValidationError, RedirectWarning, except_orm
+from gerp.tools import pycompat
 
 
 class ProductTemplate(models.Model):
@@ -436,7 +436,7 @@ class ProductTemplate(models.Model):
             # unlink or inactive product
             for variant in variants_to_unlink:
                 try:
-                    with self._cr.savepoint(), tools.mute_logger('odoo.sql_db'):
+                    with self._cr.savepoint(), tools.mute_logger('gerp.sql_db'):
                         variant.unlink()
                 # We catch all kind of exception to be sure that the operation doesn't fail.
                 except (psycopg2.Error, except_orm):

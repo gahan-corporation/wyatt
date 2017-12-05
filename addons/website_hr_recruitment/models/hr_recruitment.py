@@ -3,8 +3,8 @@
 
 from werkzeug import urls
 
-from odoo import api, fields, models
-from odoo.tools.translate import html_translate
+from gerp import api, fields, models
+from gerp.tools.translate import html_translate
 
 
 class RecruitmentSource(models.Model):

@@ -3,7 +3,7 @@
 
 from ast import literal_eval
 
-from odoo import api, models, fields
+from gerp import api, models, fields
 
 class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'

@@ -3,9 +3,9 @@
 
 import json
 
-from odoo import http
-from odoo.http import request
-from odoo.tools import misc
+from gerp import http
+from gerp.http import request
+from gerp.tools import misc
 
 
 class ImportController(http.Controller):

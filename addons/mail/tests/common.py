@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api
-from odoo.tests import common
+from gerp import api
+from gerp.tests import common
 
 
 class BaseFunctionalTest(common.SavepointCase):

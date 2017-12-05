@@ -4,7 +4,7 @@ import base64
 import json
 from ast import literal_eval
 
-from odoo import models, fields, api
+from gerp import models, fields, api
 
 
 class pos_cache(models.Model):

@@ -6,10 +6,10 @@ import random
 
 import itertools
 
-from odoo import api, models, fields, _
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.tools.translate import html_translate
-from odoo.tools import html2plaintext
+from gerp import api, models, fields, _
+from gerp.addons.http_routing.models.ir_http import slug
+from gerp.tools.translate import html_translate
+from gerp.tools import html2plaintext
 
 
 class Blog(models.Model):

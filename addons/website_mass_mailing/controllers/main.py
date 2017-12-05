@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo.http import route, request
-from odoo.addons.mass_mailing.controllers.main import MassMailController
+from gerp.http import route, request
+from gerp.addons.mass_mailing.controllers.main import MassMailController
 
 
 class MassMailController(MassMailController):

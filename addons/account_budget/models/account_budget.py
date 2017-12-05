@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
-from odoo.tools import ustr
-from odoo.exceptions import UserError, ValidationError
+from gerp import api, fields, models, _
+from gerp.tools import ustr
+from gerp.exceptions import UserError, ValidationError
 
 # ---------------------------------------------------------
 # Budgets

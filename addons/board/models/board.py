@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, models
-from odoo.tools import pycompat
+from gerp import api, models
+from gerp.tools import pycompat
 
 
 class Board(models.AbstractModel):

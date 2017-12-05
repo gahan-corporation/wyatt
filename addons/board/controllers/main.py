@@ -3,7 +3,7 @@
 
 from lxml import etree as ElementTree
 
-from odoo.http import Controller, route, request
+from gerp.http import Controller, route, request
 
 
 class Board(Controller):

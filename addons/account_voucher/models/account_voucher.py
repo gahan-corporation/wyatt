@@ -2,9 +2,9 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 
-from odoo import fields, models, api, _
-from odoo.addons import decimal_precision as dp
-from odoo.exceptions import UserError
+from gerp import fields, models, api, _
+from gerp.addons import decimal_precision as dp
+from gerp.exceptions import UserError
 
 
 class AccountVoucher(models.Model):

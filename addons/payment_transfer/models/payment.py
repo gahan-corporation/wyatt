@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models, _
-from odoo.addons.payment.models.payment_acquirer import ValidationError
-from odoo.tools.float_utils import float_compare
+from gerp import api, fields, models, _
+from gerp.addons.payment.models.payment_acquirer import ValidationError
+from gerp.tools.float_utils import float_compare
 
 import logging
 import pprint

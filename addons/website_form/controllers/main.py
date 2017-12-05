@@ -8,12 +8,12 @@ import pytz
 from datetime import datetime
 from psycopg2 import IntegrityError
 
-from odoo import http
-from odoo.http import request
-from odoo.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
-from odoo.tools.translate import _
-from odoo.exceptions import ValidationError
-from odoo.addons.base.ir.ir_qweb.fields import nl2br
+from gerp import http
+from gerp.http import request
+from gerp.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
+from gerp.tools.translate import _
+from gerp.exceptions import ValidationError
+from gerp.addons.base.ir.ir_qweb.fields import nl2br
 
 
 class WebsiteForm(http.Controller):

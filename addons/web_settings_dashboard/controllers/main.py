@@ -3,10 +3,10 @@
 
 from datetime import datetime, timedelta
 
-from odoo import fields, http
-from odoo.exceptions import AccessError
-from odoo.http import request
-from odoo import release
+from gerp import fields, http
+from gerp.exceptions import AccessError
+from gerp.http import request
+from gerp import release
 
 class WebSettingsDashboard(http.Controller):
 

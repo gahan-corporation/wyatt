@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo.addons.product.tests import common
+from gerp.addons.product.tests import common
 
 
 class TestStockCommon(common.TestProductCommon):

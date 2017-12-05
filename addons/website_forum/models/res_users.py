@@ -7,7 +7,7 @@ from datetime import datetime
 
 from werkzeug import urls
 
-from odoo import api, fields, models
+from gerp import api, fields, models
 
 
 class Users(models.Model):

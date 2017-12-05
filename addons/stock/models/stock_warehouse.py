@@ -5,10 +5,10 @@ from collections import namedtuple
 from datetime import datetime
 from dateutil import relativedelta
 
-from odoo import api, fields, models, _
-from odoo.addons import decimal_precision as dp
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
+from gerp import api, fields, models, _
+from gerp.addons import decimal_precision as dp
+from gerp.exceptions import UserError, ValidationError
+from gerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
 
 import logging
 

@@ -9,13 +9,13 @@ from lxml import etree
 from dateutil.relativedelta import relativedelta
 from werkzeug.urls import url_encode
 
-from odoo import api, exceptions, fields, models, _
-from odoo.tools import float_is_zero, float_compare, pycompat
-from odoo.tools.misc import formatLang
+from gerp import api, exceptions, fields, models, _
+from gerp.tools import float_is_zero, float_compare, pycompat
+from gerp.tools.misc import formatLang
 
-from odoo.exceptions import AccessError, UserError, RedirectWarning, ValidationError, Warning
+from gerp.exceptions import AccessError, UserError, RedirectWarning, ValidationError, Warning
 
-from odoo.addons import decimal_precision as dp
+from gerp.addons import decimal_precision as dp
 import logging
 
 _logger = logging.getLogger(__name__)

@@ -10,11 +10,11 @@ import operator
 import os
 import re
 
-from odoo import api, fields, models
-from odoo.tools.translate import _
-from odoo.tools.mimetypes import guess_mimetype
-from odoo.tools.misc import ustr
-from odoo.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT, pycompat
+from gerp import api, fields, models
+from gerp.tools.translate import _
+from gerp.tools.mimetypes import guess_mimetype
+from gerp.tools.misc import ustr
+from gerp.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT, pycompat
 
 FIELDS_RECURSION_LIMIT = 2
 ERROR_PREVIEW_BYTES = 200

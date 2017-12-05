@@ -1,5 +1,5 @@
-from odoo import models, api, _
-from odoo.exceptions import UserError
+from gerp import models, api, _
+from gerp.exceptions import UserError
 
 
 class ValidateAccountMove(models.TransientModel):

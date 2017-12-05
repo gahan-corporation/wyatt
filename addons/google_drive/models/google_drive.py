@@ -6,15 +6,15 @@ import re
 
 import requests
 
-import odoo
-from odoo.exceptions import RedirectWarning, UserError
-from odoo.tools.safe_eval import safe_eval
-from odoo.tools.translate import _
+import gerp
+from gerp.exceptions import RedirectWarning, UserError
+from gerp.tools.safe_eval import safe_eval
+from gerp.tools.translate import _
 
 #   GOOGLE_TOKEN_ENDPOINT, TIMEOUT)
 
 
-class GoogleDrive(odoo.models.Model):
+class GoogleDrive(gerp.models.Model):
     """Class for integration of Google Drive"""
     _name = 'google.drive.config'
     _description = "Google Drive templates config"
@@ -22,7 +22,7 @@ class GoogleDrive(odoo.models.Model):
     word = []
     scope = ''
 
-    @odoo.api.multi
+    @gerp.api.multi
     def get_google_drive_url(self, res_id, template_id):
         """Returns the google drive url."""
         self.ensure_one()
@@ -38,8 +38,8 @@ class GoogleDrive(odoo.models.Model):
         name_gdocs = self.name_template
         try:
             name_gdocs = name_gdocs % record
-        except odoo.exceptions.UserError:
-            raise odoo.exceptions.UserError(_(
+        except gerp.exceptions.UserError:
+            raise gerp.exceptions.UserError(_(
                 "At least one key cannot be "
                 "found in your Google Drive name pattern"))
 
@@ -55,7 +55,7 @@ class GoogleDrive(odoo.models.Model):
                                 name_gdocs, model.model).get('url')
         return url
 
-    @odoo.api.model
+    @gerp.api.model
     def get_access_token(self, scope=None):
         """Get Google Drive access token."""
         config = self.env[
@@ -111,7 +111,7 @@ class GoogleDrive(odoo.models.Model):
                 'Go to the configuration panel'))
         return req.json().get('access_token')
 
-    @odoo.api.model
+    @gerp.api.model
     def copy_doc(self, res_id, template_id, name_gdocs, res_model):
         """Copy a doc."""
         google_web_base_url = self.env[
@@ -197,7 +197,7 @@ class GoogleDrive(odoo.models.Model):
                     pass
         return res
 
-    @odoo.api.model
+    @gerp.api.model
     def get_google_drive_config(self, res_model, res_id):
         """
         Function called by the js, when no google doc are
@@ -241,19 +241,19 @@ class GoogleDrive(odoo.models.Model):
                 config_values.append({'id': config.id, 'name': config.name})
         return config_values
 
-    name = odoo.fields.Char('Template Name', required=True)
-    model_id = odoo.fields.Many2one(
+    name = gerp.fields.Char('Template Name', required=True)
+    model_id = gerp.fields.Many2one(
         'ir.model', 'Model', ondelete='set null', required=True)
-    model = odoo.fields.Char(
+    model = gerp.fields.Char(
         'Related Model', related='model_id.model', readonly=True)
-    filter_id = odoo.fields.Many2one(
+    filter_id = gerp.fields.Many2one(
         'ir.filters', 'Filter', domain="[('model_id', '=', model)]")
-    google_drive_template_url = odoo.fields.Char('Template URL', required=True)
-    google_drive_resource_id = odoo.fields.Char(
+    google_drive_template_url = gerp.fields.Char('Template URL', required=True)
+    google_drive_resource_id = gerp.fields.Char(
         'Resource Id', compute='_compute_ressource_id')
-    google_drive_client_id = odoo.fields.Char(
+    google_drive_client_id = gerp.fields.Char(
         'Google Client', compute='_compute_client_id')
-    name_template = odoo.fields.Char(
+    name_template = gerp.fields.Char(
         'Google Drive Name Pattern',
         default='Document %(name)s',
         help=(
@@ -262,7 +262,7 @@ class GoogleDrive(odoo.models.Model):
             "gdoc_%(field_name)s"
         ),
         required=True)
-    active = odoo.fields.Boolean('Active', default=True)
+    active = gerp.fields.Boolean('Active', default=True)
 
     def _get_key_from_url(self, url):
         """Take access key from url."""
@@ -271,7 +271,7 @@ class GoogleDrive(odoo.models.Model):
             return self.word.group(2)
         return None
 
-    @odoo.api.multi
+    @gerp.api.multi
     def _compute_ressource_id(self):
         result = {}
         for record in self:
@@ -282,14 +282,14 @@ class GoogleDrive(odoo.models.Model):
                 raise UserError(_("Please enter a valid Google Document URL."))
         return result
 
-    @odoo.api.multi
+    @gerp.api.multi
     def _compute_client_id(self):
         google_drive_client_id = self.env['ir.config_parameter'].sudo(
         ).get_param('google_drive_client_id')
         for record in self:
             record.google_drive_client_id = google_drive_client_id
 
-    @odoo.api.onchange('model_id')
+    @gerp.api.onchange('model_id')
     def _onchange_model_id(self):
         if self.model_id:
             self.model = self.model_id.model

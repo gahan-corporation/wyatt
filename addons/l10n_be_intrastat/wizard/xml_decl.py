@@ -5,8 +5,8 @@ import base64
 from xml.etree import ElementTree as ET
 from collections import namedtuple
 
-from odoo import api, exceptions, fields, models, _
-from odoo.tools.pycompat import text_type
+from gerp import api, exceptions, fields, models, _
+from gerp.tools.pycompat import text_type
 
 INTRASTAT_XMLNS = 'http://www.onegate.eu/2010-01-01'
 

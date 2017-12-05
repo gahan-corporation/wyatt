@@ -4,8 +4,8 @@
 import datetime
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
+from gerp import api, fields, models, _
+from gerp.exceptions import UserError
 
 
 class Department(models.Model):

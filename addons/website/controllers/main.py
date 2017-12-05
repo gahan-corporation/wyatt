@@ -12,14 +12,14 @@ import werkzeug.wrappers
 from itertools import islice
 from xml.etree import ElementTree as ET
 
-import odoo
+import gerp
 
-from odoo import http, models, fields, _
-from odoo.http import request
-from odoo.tools import pycompat, OrderedSet
-from odoo.addons.http_routing.models.ir_http import slug, _guess_mimetype
-from odoo.addons.web.controllers.main import WebClient, Binary, Home
-from odoo.addons.portal.controllers.portal import pager as portal_pager
+from gerp import http, models, fields, _
+from gerp.http import request
+from gerp.tools import pycompat, OrderedSet
+from gerp.addons.http_routing.models.ir_http import slug, _guess_mimetype
+from gerp.addons.web.controllers.main import WebClient, Binary, Home
+from gerp.addons.portal.controllers.portal import pager as portal_pager
 
 logger = logging.getLogger(__name__)
 
@@ -198,7 +198,7 @@ class Website(Home):
         values = {
             'apps': apps,
             'modules': modules,
-            'version': odoo.service.common.exp_version()
+            'version': gerp.service.common.exp_version()
         }
         return request.render('website.website_info', values)
 

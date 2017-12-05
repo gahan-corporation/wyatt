@@ -4,9 +4,9 @@
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from odoo import fields
+from gerp import fields
 
-from odoo.addons.hr_timesheet.tests.test_timesheet import TestTimesheet
+from gerp.addons.hr_timesheet.tests.test_timesheet import TestTimesheet
 
 
 class TestTimesheetHolidays(TestTimesheet):

@@ -8,9 +8,9 @@ import string
 
 import requests
 
-from odoo import api, models, _
-from odoo.exceptions import UserError
-from odoo.tools import html2plaintext
+from gerp import api, models, _
+from gerp.exceptions import UserError
+from gerp.tools import html2plaintext
 
 from ..py_etherpad import EtherpadLiteClient
 

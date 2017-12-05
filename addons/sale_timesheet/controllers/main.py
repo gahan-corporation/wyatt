@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import http, _
-from odoo.http import request
-from odoo.osv import expression
+from gerp import http, _
+from gerp.http import request
+from gerp.osv import expression
 
-from odoo.tools import float_round
+from gerp.tools import float_round
 
 
 class SaleTimesheetController(http.Controller):

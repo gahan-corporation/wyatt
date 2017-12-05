@@ -3,7 +3,7 @@
 import datetime
 from dateutil.relativedelta import relativedelta
 
-from odoo.addons.membership.tests.common import TestMembershipCommon
+from gerp.addons.membership.tests.common import TestMembershipCommon
 
 
 class TestMembership(TestMembershipCommon):

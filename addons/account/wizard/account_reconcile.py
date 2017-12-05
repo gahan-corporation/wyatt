@@ -1,5 +1,5 @@
-from odoo import models, fields, api, _
-from odoo.tools.float_utils import float_round
+from gerp import models, fields, api, _
+from gerp.tools.float_utils import float_round
 
 
 class AccountMoveLineReconcile(models.TransientModel):

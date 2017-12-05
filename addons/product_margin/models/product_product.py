@@ -3,7 +3,7 @@
 
 import time
 
-from odoo import api, fields, models
+from gerp import api, fields, models
 
 
 class ProductProduct(models.Model):

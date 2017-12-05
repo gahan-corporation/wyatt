@@ -27,7 +27,7 @@ Three reports are available:
     3. The last one is available from the Analytic Chart of Accounts. It gives
        the spreading, for the selected Analytic Accounts of Budgets.
 """,
-    'website': 'https://www.odoo.com/page/accounting',
+    'website': 'https://www.gerp.com/page/accounting',
     'depends': ['account'],
     'data': [
         'security/ir.model.access.csv',

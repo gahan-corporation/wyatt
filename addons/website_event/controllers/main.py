@@ -6,9 +6,9 @@ import werkzeug
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 
-from odoo import fields, http, _
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.http import request
+from gerp import fields, http, _
+from gerp.addons.http_routing.models.ir_http import slug
+from gerp.http import request
 
 
 class WebsiteEventController(http.Controller):

@@ -3,7 +3,7 @@
 
 import os
 
-from odoo import api, fields, models
+from gerp import api, fields, models
 
 
 class IrModuleModule(models.Model):

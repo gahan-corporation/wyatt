@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, models, _
-from odoo.exceptions import UserError
+from gerp import api, models, _
+from gerp.exceptions import UserError
 
 
 class SaleOrder(models.Model):

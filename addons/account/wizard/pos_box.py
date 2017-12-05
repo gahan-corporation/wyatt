@@ -1,5 +1,5 @@
-from odoo import models, fields, api, _
-from odoo.exceptions import UserError
+from gerp import models, fields, api, _
+from gerp.exceptions import UserError
 
 class CashBox(models.TransientModel):
     _register = False

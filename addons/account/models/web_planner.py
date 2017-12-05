@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import api, models
+from gerp import api, models
 
 
 class PlannerAccount(models.Model):

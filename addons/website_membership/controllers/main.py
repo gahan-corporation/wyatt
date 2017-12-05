@@ -3,12 +3,12 @@
 
 import werkzeug.urls
 
-from odoo import fields
+from gerp import fields
 
-from odoo import http
-from odoo.http import request
-from odoo.addons.http_routing.models.ir_http import unslug
-from odoo.tools.translate import _
+from gerp import http
+from gerp.http import request
+from gerp.addons.http_routing.models.ir_http import unslug
+from gerp.tools.translate import _
 
 
 class WebsiteMembership(http.Controller):

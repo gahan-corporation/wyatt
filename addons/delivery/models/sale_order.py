@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, fields, api, _
-from odoo.exceptions import UserError
-from odoo.addons import decimal_precision as dp
+from gerp import models, fields, api, _
+from gerp.exceptions import UserError
+from gerp.addons import decimal_precision as dp
 
 
 class SaleOrder(models.Model):

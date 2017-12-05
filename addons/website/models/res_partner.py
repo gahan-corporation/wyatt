@@ -3,7 +3,7 @@
 
 import werkzeug
 
-from odoo import api, models
+from gerp import api, models
 
 
 def urlplus(url, params):

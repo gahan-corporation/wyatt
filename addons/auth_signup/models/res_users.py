@@ -5,12 +5,12 @@ import logging
 
 from ast import literal_eval
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.tools.misc import ustr
+from gerp import api, fields, models, _
+from gerp.exceptions import UserError
+from gerp.tools.misc import ustr
 
-from odoo.addons.base.ir.ir_mail_server import MailDeliveryException
-from odoo.addons.auth_signup.models.res_partner import SignupError, now
+from gerp.addons.base.ir.ir_mail_server import MailDeliveryException
+from gerp.addons.auth_signup.models.res_partner import SignupError, now
 
 _logger = logging.getLogger(__name__)
 

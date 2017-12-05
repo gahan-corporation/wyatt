@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models
-from odoo.tools.translate import _, html_translate
-from odoo.addons.http_routing.models.ir_http import slug
+from gerp import api, fields, models
+from gerp.tools.translate import _, html_translate
+from gerp.addons.http_routing.models.ir_http import slug
 
 
 class TrackTag(models.Model):

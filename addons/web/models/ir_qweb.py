@@ -3,9 +3,9 @@
 
 import hashlib
 
-from odoo import api, models
-from odoo.tools import pycompat
-from odoo.tools import html_escape as escape
+from gerp import api, models
+from gerp.tools import pycompat
+from gerp.tools import html_escape as escape
 
 
 class Image(models.AbstractModel):

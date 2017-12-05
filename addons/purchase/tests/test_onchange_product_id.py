@@ -2,8 +2,8 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
-from odoo.tests.common import TransactionCase
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
+from gerp.tests.common import TransactionCase
+from gerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
 
 class TestOnchangeProductId(TransactionCase):
     """Test that when an included tax is mapped by a fiscal position, the included tax must be

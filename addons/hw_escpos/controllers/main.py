@@ -28,9 +28,9 @@ try:
 except ImportError:
     usb = None
 
-from odoo import http, _
+from gerp import http, _
 
-from odoo.addons.hw_proxy.controllers import main as hw_proxy
+from gerp.addons.hw_proxy.controllers import main as hw_proxy
 
 _logger = logging.getLogger(__name__)
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from odoo import http
-from odoo.http import request
-from odoo.addons.website_sale.controllers.main import WebsiteSale
+from gerp import http
+from gerp.http import request
+from gerp.addons.website_sale.controllers.main import WebsiteSale
 import json
 
 

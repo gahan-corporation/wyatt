@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo.exceptions import UserError
-from odoo.tests.common import TransactionCase
+from gerp.exceptions import UserError
+from gerp.tests.common import TransactionCase
 
 
 class TestStockValuation(TransactionCase):

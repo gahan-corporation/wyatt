@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models, tools, api
+from gerp import fields, models, tools, api
 
 
 class ActivityReport(models.Model):

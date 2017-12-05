@@ -3,8 +3,8 @@
 
 from datetime import datetime, timedelta
 
-from odoo.fields import Date
-from odoo.tests.common import TransactionCase
+from gerp.fields import Date
+from gerp.tests.common import TransactionCase
 
 
 class TestPayslipBase(TransactionCase):

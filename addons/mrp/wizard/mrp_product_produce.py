@@ -4,10 +4,10 @@
 from collections import Counter
 from datetime import datetime
 
-from odoo import api, fields, models, _
-from odoo.addons import decimal_precision as dp
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools import float_compare, float_round
+from gerp import api, fields, models, _
+from gerp.addons import decimal_precision as dp
+from gerp.exceptions import UserError, ValidationError
+from gerp.tools import float_compare, float_round
 
 class MrpProductProduce(models.TransientModel):
     _name = "mrp.product.produce"

@@ -3,11 +3,11 @@
 
 from collections import OrderedDict
 
-from odoo import http
-from odoo.exceptions import AccessError
-from odoo.http import request
-from odoo.tools.translate import _
-from odoo.addons.portal.controllers.portal import get_records_pager, pager as portal_pager, CustomerPortal
+from gerp import http
+from gerp.exceptions import AccessError
+from gerp.http import request
+from gerp.tools.translate import _
+from gerp.addons.portal.controllers.portal import get_records_pager, pager as portal_pager, CustomerPortal
 
 
 class CustomerPortal(CustomerPortal):

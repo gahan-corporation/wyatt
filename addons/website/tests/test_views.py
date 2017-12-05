@@ -10,7 +10,7 @@ import unittest
 from lxml import etree as ET, html
 from lxml.html import builder as h
 
-from odoo.tests import common
+from gerp.tests import common
 
 
 def attrs(**kwargs):

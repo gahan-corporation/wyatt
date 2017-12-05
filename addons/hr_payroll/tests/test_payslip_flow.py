@@ -3,8 +3,8 @@
 
 import os
 
-from odoo.tools import config, test_reports
-from odoo.addons.hr_payroll.tests.common import TestPayslipBase
+from gerp.tools import config, test_reports
+from gerp.addons.hr_payroll.tests.common import TestPayslipBase
 
 
 class TestPayslipFlow(TestPayslipBase):

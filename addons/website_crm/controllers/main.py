@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import http
-from odoo.http import request
-from odoo.addons.website_form.controllers.main import WebsiteForm
+from gerp import http
+from gerp.http import request
+from gerp.addons.website_form.controllers.main import WebsiteForm
 
 class WebsiteForm(WebsiteForm):
 

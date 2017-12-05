@@ -5,7 +5,7 @@
 # Please note that these reports are not multi-currency !!!
 #
 
-from odoo import api, fields, models, tools
+from gerp import api, fields, models, tools
 
 
 class PurchaseReport(models.Model):

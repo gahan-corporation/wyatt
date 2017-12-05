@@ -6,9 +6,9 @@ import uuid
 
 from werkzeug import urls
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.tools import pycompat
+from gerp import api, fields, models, _
+from gerp.exceptions import UserError
+from gerp.tools import pycompat
 
 emails_split = re.compile(r"[;,\n\r]+")
 email_validator = re.compile(r"[^@]+@[^@]+\.[^@]+")

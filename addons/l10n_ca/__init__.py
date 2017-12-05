@@ -3,7 +3,7 @@
 
 # Copyright (C) 2010 Savoir-faire Linux (<https://www.savoirfairelinux.com>).
 
-from odoo import api, SUPERUSER_ID
+from gerp import api, SUPERUSER_ID
 
 
 def load_translations(cr, registry):

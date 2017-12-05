@@ -8,7 +8,7 @@
     'sequence': 60,
     'summary': 'Purchase Orders, Receipts, Vendor Bills',
     'description': "",
-    'website': 'https://www.odoo.com/page/purchase',
+    'website': 'https://www.gerp.com/page/purchase',
     'depends': ['stock_account'],
     'data': [
         'security/purchase_security.xml',

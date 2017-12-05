@@ -4,8 +4,8 @@
 from datetime import date
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
+from gerp import api, fields, models, _
+from gerp.exceptions import ValidationError
 
 
 class Employee(models.Model):

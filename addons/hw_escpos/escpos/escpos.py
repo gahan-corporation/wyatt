@@ -12,7 +12,7 @@ from hashlib import md5
 from PIL import Image
 from xml.etree import ElementTree as ET
 
-from odoo.tools import pycompat
+from gerp.tools import pycompat
 
 try:
     import jcconv

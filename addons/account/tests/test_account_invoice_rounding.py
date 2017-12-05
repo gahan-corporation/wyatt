@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo.addons.account.tests.account_test_classes import AccountingTestCase
-from odoo.exceptions import ValidationError
+from gerp.addons.account.tests.account_test_classes import AccountingTestCase
+from gerp.exceptions import ValidationError
 
 import time
 

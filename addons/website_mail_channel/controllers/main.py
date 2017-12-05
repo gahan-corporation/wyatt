@@ -6,9 +6,9 @@ import werkzeug
 from datetime import datetime
 from dateutil import relativedelta
 
-from odoo import http, fields, tools, _
-from odoo.http import request
-from odoo.addons.http_routing.models.ir_http import slug
+from gerp import http, fields, tools, _
+from gerp.http import request
+from gerp.addons.http_routing.models.ir_http import slug
 
 
 class MailGroup(http.Controller):

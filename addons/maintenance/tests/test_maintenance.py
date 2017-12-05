@@ -3,7 +3,7 @@
 
 import time
 
-from odoo.tests.common import TransactionCase
+from gerp.tests.common import TransactionCase
 from dateutil import relativedelta
 import datetime
 

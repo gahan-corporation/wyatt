@@ -1,8 +1,8 @@
-import odoo.tests
+import gerp.tests
 
 
-@odoo.tests.common.at_install(False)
-@odoo.tests.common.post_install(True)
-class TestUi(odoo.tests.HttpCase):
+@gerp.tests.common.at_install(False)
+@gerp.tests.common.post_install(True)
+class TestUi(gerp.tests.HttpCase):
     def test_admin(self):
-        self.phantom_js("/", "odoo.__DEBUG__.services['web_tour.tour'].run('event')", "odoo.__DEBUG__.services['web_tour.tour'].tours.event.ready", login='admin')
+        self.phantom_js("/", "gerp.__DEBUG__.services['web_tour.tour'].run('event')", "gerp.__DEBUG__.services['web_tour.tour'].tours.event.ready", login='admin')

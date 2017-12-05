@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from .common import TestCrmCases
-from odoo import fields
+from gerp import fields
 from datetime import datetime, timedelta
 
 

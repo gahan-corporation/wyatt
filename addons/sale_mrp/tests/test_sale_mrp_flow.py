@@ -3,8 +3,8 @@
 
 from datetime import datetime
 
-from odoo.tests import common
-from odoo.exceptions import UserError
+from gerp.tests import common
+from gerp.exceptions import UserError
 
 
 class TestSaleMrpFlow(common.TransactionCase):

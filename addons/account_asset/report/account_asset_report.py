@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, tools
+from gerp import api, fields, models, tools
 
 class AssetAssetReport(models.Model):
     _name = "asset.asset.report"

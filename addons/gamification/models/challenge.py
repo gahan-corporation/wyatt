@@ -6,9 +6,9 @@ from datetime import date, timedelta
 
 from dateutil.relativedelta import relativedelta, MO
 
-from odoo import api, models, fields, _, exceptions
-from odoo.tools import ustr
-from odoo.tools.safe_eval import safe_eval
+from gerp import api, models, fields, _, exceptions
+from gerp.tools import ustr
+from gerp.tools.safe_eval import safe_eval
 
 _logger = logging.getLogger(__name__)
 

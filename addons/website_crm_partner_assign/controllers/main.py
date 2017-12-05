@@ -7,15 +7,15 @@ import werkzeug
 from collections import OrderedDict
 from werkzeug.exceptions import NotFound
 
-from odoo import fields
-from odoo import http
-from odoo.http import request
-from odoo.addons.http_routing.models.ir_http import slug, unslug
-from odoo.addons.website.models.ir_http import sitemap_qs2dom
-from odoo.addons.portal.controllers.portal import CustomerPortal
-from odoo.addons.website_partner.controllers.main import WebsitePartnerPage
+from gerp import fields
+from gerp import http
+from gerp.http import request
+from gerp.addons.http_routing.models.ir_http import slug, unslug
+from gerp.addons.website.models.ir_http import sitemap_qs2dom
+from gerp.addons.portal.controllers.portal import CustomerPortal
+from gerp.addons.website_partner.controllers.main import WebsitePartnerPage
 
-from odoo.tools.translate import _
+from gerp.tools.translate import _
 
 
 class WebsiteAccount(CustomerPortal):

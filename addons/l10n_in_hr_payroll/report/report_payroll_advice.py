@@ -4,7 +4,7 @@
 import time
 from datetime import datetime
 
-from odoo import api, models
+from gerp import api, models
 
 
 class payroll_advice_report(models.AbstractModel):

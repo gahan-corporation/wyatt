@@ -4,7 +4,7 @@
 import re
 import werkzeug.urls
 
-from odoo import api, fields, models, tools
+from gerp import api, fields, models, tools
 
 from openerp.addons.link_tracker.models.link_tracker import URL_REGEX
 

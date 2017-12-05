@@ -2,8 +2,8 @@
 
 from datetime import datetime, timedelta
 
-from odoo import fields
-from odoo.tests import common
+from gerp import fields
+from gerp.tests import common
 
 
 class TestEventCommon(common.TransactionCase):

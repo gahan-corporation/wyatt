@@ -3,9 +3,9 @@
 
 from psycopg2 import OperationalError, Error
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError, ValidationError
-from odoo.osv import expression
+from gerp import api, fields, models, _
+from gerp.exceptions import UserError, ValidationError
+from gerp.osv import expression
 
 import logging
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo.tests import common
+from gerp.tests import common
 
 
 class TestPointOfSaleCommon(common.TransactionCase):
