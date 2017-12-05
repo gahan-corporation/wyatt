@@ -1,9 +1,14 @@
 """Module for testting Toggl integration."""
+import json
+
 import toggl.toggl as tgl
+
 
 class TestToggl(object):
     """TestToggl class."""
     toggl = {}
+    workspaces = {}
+    ws_json = {}
 
     def test_get_user_auth(self):
         """Test that we can get the correct user from the api."""
@@ -37,5 +42,10 @@ class TestToggl(object):
 
     def test_workspaces_write_results(self):
         """Make sure we can read results we got from the api."""
-        workspaces_raw = self.toggl.load_workspaces()
-        print(type(workspaces_raw))
+        ws_file = open('.workspaces.json', 'r')
+        ws_string = ws_file.read()
+        ws_file.close()
+        ws_dict = json.loads(ws_string)
+        with open('.workspaces.json', 'r') as ws_file:
+            self.ws_json = json.load(ws_file)
+        assert self.ws_json == ws_dict
