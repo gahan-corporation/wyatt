@@ -1,4 +1,5 @@
 """Get time entries from Toggl."""
+import json
 import requests
 import yaml
 
@@ -48,7 +49,7 @@ class Toggl(object):
             url='https://www.toggl.com/api/v8/workspaces',
             auth=(self.token, 'api_token')
         )
-        workspaces_yml = yaml.load(self.workspaces.content)
-        with open('.workspaces.yml', 'w') as ws_yml_file:
-            ws_yml_file.write(workspaces_yml)
+        workspaces = self.workspaces.json()[0]
+        with open('.workspaces.json', 'w') as ws_json_file:
+            ws_json_file.write(json.dumps(workspaces, indent=2))
         return self.workspaces

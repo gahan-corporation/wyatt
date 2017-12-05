@@ -1,0 +1,18 @@
+{
+  "at": "2017-11-18T01:32:57+00:00",
+  "only_admins_may_create_projects": false,
+  "admin": true,
+  "default_currency": "USD",
+  "only_admins_see_billable_rates": false,
+  "name": "Xander's workspace",
+  "projects_billable_by_default": true,
+  "rounding": 0,
+  "premium": false,
+  "id": 2269520,
+  "ical_enabled": true,
+  "default_hourly_rate": 0,
+  "rounding_minutes": 0,
+  "api_token": "aecd74b56426830aceb5a3d6130efc5e",
+  "only_admins_see_team_dashboard": false,
+  "profile": 0
+}
