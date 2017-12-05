@@ -1,18 +1,20 @@
 """Get time entries from Toggl."""
-import configparser
 import requests
+import yaml
 
 
 class Toggl(object):
     """Class for getting and processing Toggl entries."""
-    config = configparser.ConfigParser()
+    config = {}
     entries = {}
     token = ''
     user = {}
 
     def __init__(self, **auth):
-        self.config.read('.toggl_tokens')
-        user = self.config.get('users', auth.get('user'))
+        config_file = open('.toggl.yml', 'r')
+        config = yaml.load(config_file.read())
+        config_file.close()
+        user = config.get('users', auth.get('user'))
         self.token = user.get('token')
 
     def get_user(self):

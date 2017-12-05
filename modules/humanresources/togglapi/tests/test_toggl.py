@@ -1,5 +1,5 @@
 """Module for testting Toggl integration."""
-import toggl.api as toggl
+import toggl.toggl
 
 
 class TestToggl(object):
