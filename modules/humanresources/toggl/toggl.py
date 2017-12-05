@@ -7,8 +7,10 @@ class Toggl(object):
     """Class for getting and processing Toggl entries."""
     config = {}
     entries = {}
+    projects = {}
     token = ''
     user = {}
+    workspaces = {}
 
     def __init__(self, **auth):
         """Load relevant configs."""
@@ -21,13 +23,10 @@ class Toggl(object):
 
     def get_user(self):
         """Get the user who we're interested in."""
-        print(self.token)
-        print(self.config.get('toggl').get('me'))
         self.user = requests.get(
             url=self.config.get('toggl').get('me'),
             auth=(self.token, 'api_token')
         )
-        print(self.user.__dict__)
         return self.user
 
     def get_current_timer(self):
@@ -36,4 +35,17 @@ class Toggl(object):
 
     def get_active_projects(self):
         """Add active projects."""
-        return self.user
+        self.projects = requests.get(
+            url='https://www.toggl.com/api/v8/projects',
+            headers={
+                'Content-Type': 'application/json',
+            })
+        return self.projects
+
+    def get_workspaces(self):
+        """Get the available workspaces."""
+        self.workspaces = requests.get(
+            url='https://www.toggl.com/api/v8/workspaces',
+            auth=(self.token, 'api_token')
+        )
+        return self.workspaces

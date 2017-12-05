@@ -9,13 +9,13 @@ class TestToggl(object):
         """Test that we can get the correct user from the api."""
         self.toggl = tgl.Toggl(user='xander_dp')
         user = self.toggl.get_user()
-        print(user)
+        assert user.status_code == 200
 
     def test_get_user_fail(self):
         """Test that incorrect auth produces a 403."""
         self.toggl = tgl.Toggl(user='nouser')
         user = self.toggl.get_user()
-        print(user)
+        assert user.status_code == 403
 
     def test_get_project(self):
         """Test if the correct Toggl project is returend"""
@@ -29,6 +29,8 @@ class TestToggl(object):
         """Ensure that the database model has all the right fields."""
         assert self.token is True
 
-    def test_triggering_events(self):
-        """Test ability to respond to triggering events."""
-        assert self.token is True
+    def test_get_workspaces_by_status(self):
+        """Make sure we're getting the correct worksapces."""
+        local_toggl = tgl.Toggl(user='xander_dp')
+        workspaces = local_toggl.get_workspaces()
+        assert workspaces.status_code == 200
