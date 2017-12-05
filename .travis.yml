@@ -1,9 +1,15 @@
 ---
 language: python
 sudo: required
+env:
+  global:
+    - CC_TEST_REPORTER_ID=e47e814a3a09d59dce31d36ef15abdcf0702e2d3ac7c0cd8ab9b468e97292788
 cache:
   pip: 'yes'
 before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
   - sudo pip install virtualenv 
   - virtualenv -p /usr/bin/python3 .py
   - .py/bin/pip install pytest
@@ -13,6 +19,8 @@ script:
   - pytest || true
   - cd modules/humanresources
   - pytest || true
-  - nosetests -s -d -v
+  - nosetests -s -d -v || true
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 ...
 # vim: ft=ansible:
