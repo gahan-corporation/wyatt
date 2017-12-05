@@ -24,10 +24,12 @@ script:
   - cd modules/humanresources
   - ../../.py/bin/pytest || true
   - ../../.py/bin/nosetests -s -d -v || true
-  - cd ../../
   - coverage run setup.py test || true
   - coverage xml
+  - cp coverage.xml ../../coverage.xml
+  - cd ../../
 after_script:
   - ./cc-test-reporter after-build -t coverage.py --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter after-build -t coverage.py --exit-code $TRAVIS_TEST_RESULT modules/humanresources/coverage.xml
 ...
 # vim: ft=ansible:
