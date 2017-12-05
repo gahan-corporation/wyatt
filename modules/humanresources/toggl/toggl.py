@@ -11,18 +11,23 @@ class Toggl(object):
     user = {}
 
     def __init__(self, **auth):
+        """Load relevant configs."""
         config_file = open('.toggl.yml', 'r')
-        config = yaml.load(config_file.read())
+        self.config = yaml.load(config_file.read())
         config_file.close()
-        user = config.get('users', auth.get('user'))
+
+        user = self.config.get('users').get(auth.get('user'))
         self.token = user.get('token')
 
     def get_user(self):
         """Get the user who we're interested in."""
+        print(self.token)
+        print(self.config.get('toggl').get('me'))
         self.user = requests.get(
-            self.config.get('toggl', 'me'),
-            requests.auth.HTTPBasicAuth(self.token, 'api_token'))
-        print(self.user)
+            url=self.config.get('toggl').get('me'),
+            auth=(self.token, 'api_token')
+        )
+        print(self.user.__dict__)
         return self.user
 
     def get_current_timer(self):

@@ -1,14 +1,21 @@
 """Module for testting Toggl integration."""
-import toggl.toggl
-
+import toggl.toggl as tgl
 
 class TestToggl(object):
     """TestToggl class."""
     toggl = {}
 
-    def test_get_user(self):
-        """Make sure that there are valid tokens proviided."""
-        self.toggl = toggl.Toggl(user='xander.dpone')
+    def test_get_user_auth(self):
+        """Test that we can get the correct user from the api."""
+        self.toggl = tgl.Toggl(user='xander_dp')
+        user = self.toggl.get_user()
+        print(user)
+
+    def test_get_user_fail(self):
+        """Test that incorrect auth produces a 403."""
+        self.toggl = tgl.Toggl(user='nouser')
+        user = self.toggl.get_user()
+        print(user)
 
     def test_get_project(self):
         """Test if the correct Toggl project is returend"""
