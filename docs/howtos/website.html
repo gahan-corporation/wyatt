@@ -175,7 +175,7 @@ is only useful for testing.</p>
 <p>The last step is to alter model and template to use our demonstration data:</p>
 <ol class="arabic simple">
 <li>fetch the records from the database instead of having a static list</li>
-<li>Because <a class="reference internal" href="../reference/orm.html#odoo.models.Model.search" title="odoo.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a> returns a set of records
+<li>Because <code class="xref py py-meth docutils literal"><span class="pre">search()</span></code> returns a set of records
 matching the filter (“all records” here), alter the template to print each
 teacher’s <code class="docutils literal"><span class="pre">name</span></code></li>
 </ol>
@@ -222,7 +222,7 @@ blocks (snippets) and rich text edition are available</li>
 <div class="section" id="urls-and-routing">
 <h2>URLs and routing<a class="headerlink" href="#urls-and-routing" title="Permalink to this headline">¶</a></h2>
 <p>Controller methods are associated with <em>routes</em> via the
-<a class="reference internal" href="../reference/http.html#odoo.http.route" title="odoo.http.route"><code class="xref py py-func docutils literal"><span class="pre">route()</span></code></a> decorator which takes a routing string and a
+<code class="xref py py-func docutils literal"><span class="pre">route()</span></code> decorator which takes a routing string and a
 number of attributes to customise its behavior or security.</p>
 <p>We’ve seen a “literal” routing string, which matches a URL section exactly,
 but routing strings can also use <a class="reference external" href="http://werkzeug.pocoo.org/docs/routing/#rule-format">converter patterns</a> which match bits
@@ -325,7 +325,7 @@ teach many courses:</p>
 <p>let’s also add views so we can see and edit a course’s teacher:</p>
 <p>It should also be possible to create new courses directly from a teacher’s
 page, or to see all the courses they teach, so add
-<a class="reference internal" href="../reference/orm.html#odoo.fields.One2many" title="odoo.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">the</span> <span class="pre">inverse</span> <span class="pre">relationship</span></code></a> to the <em>teachers</em>
+<code class="xref py py-class docutils literal"><span class="pre">the</span> <span class="pre">inverse</span> <span class="pre">relationship</span></code> to the <em>teachers</em>
 model:</p>
 </div>
 <div class="section" id="discussions-and-notifications">
@@ -335,7 +335,7 @@ but which add capabilities to business objects without having to build
 them by hand.</p>
 <p>One of these is the <em>Chatter</em> system, part of Odoo’s email and messaging
 system, which can add notifications and discussion threads to any model.
-The model simply has to <a class="reference internal" href="../reference/orm.html#odoo.models.Model._inherit" title="odoo.models.Model._inherit"><code class="xref py py-attr docutils literal"><span class="pre">_inherit</span></code></a>
+The model simply has to <code class="xref py py-attr docutils literal"><span class="pre">_inherit</span></code>
 <code class="docutils literal"><span class="pre">mail.thread</span></code>, and add the <code class="docutils literal"><span class="pre">message_ids</span></code> field to its form view to display
 the discussion thread. Discussion threads are per-record.</p>
 <p>For our academy, it makes sense to allow discussing courses to handle e.g.
@@ -365,8 +365,8 @@ though they may have to be looked for.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <ul class="last simple">
-<li>to extend a model in-place, it’s <a class="reference internal" href="../reference/orm.html#odoo.models.Model._inherit" title="odoo.models.Model._inherit"><code class="xref py py-attr docutils literal"><span class="pre">inherited</span></code></a> without giving it a new
-<a class="reference internal" href="../reference/orm.html#odoo.models.Model._name" title="odoo.models.Model._name"><code class="xref py py-attr docutils literal"><span class="pre">_name</span></code></a></li>
+<li>to extend a model in-place, it’s <code class="xref py py-attr docutils literal"><span class="pre">inherited</span></code> without giving it a new
+<code class="xref py py-attr docutils literal"><span class="pre">_name</span></code></li>
 <li><code class="docutils literal"><span class="pre">product.template</span></code> already uses the discussions system, so we can
 remove it from our extension model</li>
 <li>we’re creating our courses as <em>published</em> by default so they can be

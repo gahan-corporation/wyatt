@@ -1162,8 +1162,8 @@ are related to the configuration of the current user in Odoo plus the
 models, Odoo Web provides a helper for simpler and clearer querying of models
 (fetching of records based on various conditions):
 <code class="xref js js-func docutils literal"><span class="pre">query()</span></code> which acts as a shortcut for the common
-combination of <a class="reference internal" href="../reference/orm.html#odoo.models.Model.search" title="odoo.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a> and
-:<a class="reference internal" href="../reference/orm.html#odoo.models.Model.read" title="odoo.models.Model.read"><code class="xref py py-meth docutils literal"><span class="pre">read()</span></code></a>. It provides a clearer syntax to search
+combination of <code class="xref py py-meth docutils literal"><span class="pre">search()</span></code> and
+:<code class="xref py py-meth docutils literal"><span class="pre">read()</span></code>. It provides a clearer syntax to search
 and read models:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">model</span><span class="p">.</span><span class="nx">query</span><span class="p">([</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="s1">&#39;user_email&#39;</span><span class="p">,</span> <span class="s1">&#39;signature&#39;</span><span class="p">])</span>
      <span class="p">.</span><span class="nx">filter</span><span class="p">([[</span><span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;company_id&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="nx">main_company</span><span class="p">]])</span>
@@ -1196,7 +1196,7 @@ so it’s possible to use the original and the new version side-by-side. See
 <p>When the query is set up as desired, simply call
 <code class="xref js js-func docutils literal"><span class="pre">all()</span></code> to execute it and return a
 deferred to its result. The result is the same as
-<a class="reference internal" href="../reference/orm.html#odoo.models.Model.read" title="odoo.models.Model.read"><code class="xref py py-meth docutils literal"><span class="pre">read()</span></code></a>’s, an array of dictionaries where each
+<code class="xref py py-meth docutils literal"><span class="pre">read()</span></code>’s, an array of dictionaries where each
 dictionary is a requested record, with each requested field a dictionary key.</p>
 </div>
 </div>
@@ -1320,7 +1320,7 @@ for handling events and displaying model information.</p>
 handled separately by the web client (as it’s a more permanent fixture and
 can interact with other views, which regular views don’t do).</p>
 <p>A view is responsible for loading its own description XML (using
-<a class="reference internal" href="../reference/orm.html#odoo.models.Model.fields_view_get" title="odoo.models.Model.fields_view_get"><code class="xref py py-class docutils literal"><span class="pre">fields_view_get</span></code></a>) and any other data source
+<code class="xref py py-class docutils literal"><span class="pre">fields_view_get</span></code>) and any other data source
 it needs. To that purpose, views are provided with an optional view
 identifier set as the <code class="xref js js-attr docutils literal"><span class="pre">view_id</span></code> attribute.</p>
 <p>Views are also provided with a <code class="xref js js-class docutils literal"><span class="pre">DataSet()</span></code> instance which
@@ -1339,7 +1339,7 @@ displaying fields.</p>
 form widget may be necessary to correctly interact with a new field type
 (e.g. a <a class="reference internal" href="../glossary.html#term-gis"><span class="xref std std-term">GIS</span></a> field) or to provide new representations and ways to
 interact with existing field types (e.g. validate
-<a class="reference internal" href="../reference/orm.html#odoo.fields.Char" title="odoo.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a> fields which should contain email addresses
+<code class="xref py py-class docutils literal"><span class="pre">Char</span></code> fields which should contain email addresses
 and display them as email links).</p>
 <p>To explicitly specify which form widget should be used to display a field,
 simply use the <code class="docutils literal"><span class="pre">widget</span></code> attribute in the view’s XML description:</p>

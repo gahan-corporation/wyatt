@@ -101,14 +101,14 @@ match) then the record is accessible</li>
 <div class="versionadded">
 <p><span class="versionmodified">New in version 7.0.</span></p>
 </div>
-<p>An ORM <a class="reference internal" href="orm.html#odoo.fields.Field" title="odoo.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">Field</span></code></a> can have a <code class="docutils literal"><span class="pre">groups</span></code> attribute
+<p>An ORM <code class="xref py py-class docutils literal"><span class="pre">Field</span></code> can have a <code class="docutils literal"><span class="pre">groups</span></code> attribute
 providing a list of groups (as a comma-separated string of
 <a class="reference internal" href="../glossary.html#term-external-identifiers"><span class="xref std std-term">external identifiers</span></a>).</p>
 <p>If the current user is not in one of the listed groups, he will not have
 access to the field:</p>
 <ul class="simple">
 <li>restricted fields are automatically removed from requested views</li>
-<li>restricted fields are removed from <a class="reference internal" href="orm.html#odoo.models.Model.fields_get" title="odoo.models.Model.fields_get"><code class="xref py py-meth docutils literal"><span class="pre">fields_get()</span></code></a>
+<li>restricted fields are removed from <code class="xref py py-meth docutils literal"><span class="pre">fields_get()</span></code>
 responses</li>
 <li>attempts to (explicitly) read from or write to restricted fields results in
 an access error</li>

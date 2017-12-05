@@ -757,10 +757,10 @@ translation easier for the community translators.</p>
 </div>
 <div class="section" id="symbols-and-conventions">
 <h3>Symbols and Conventions<a class="headerlink" href="#symbols-and-conventions" title="Permalink to this headline">¶</a></h3>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Model name (using the dot notation, prefix by the module name) :</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>When defining an Odoo Model : use singular form of the name (<em>res.partner</em>
 and <em>sale.order</em> instead of <em>res.partnerS</em> and <em>saleS.orderS</em>)</li>
 <li>When defining an Odoo Transient (wizard) : use <code class="docutils literal"><span class="pre">&lt;related_base_model&gt;.&lt;action&gt;</span></code>
@@ -773,9 +773,8 @@ For instance : <code class="docutils literal"><span class="pre">account.invoice.
 </dd>
 </dl>
 </li>
-<li><p class="first">Odoo Python Class : use camelcase for code in api v8 (Object-oriented style),
-underscore lowercase notation for old api (SQL style).</p>
-</li>
+<li>Odoo Python Class : use camelcase for code in api v8 (Object-oriented style),
+underscore lowercase notation for old api (SQL style).</li>
 </ul>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AccountInvoice</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="o">...</span>
@@ -784,10 +783,10 @@ underscore lowercase notation for old api (SQL style).</p>
     <span class="o">...</span>
 </pre></div>
 </div>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Variable name :</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>use camelcase for model variable</li>
 <li>use underscore lowercase notation for common variable.</li>
 <li>since new API works with record or recordset instead of id list, don’t
@@ -803,14 +802,12 @@ of id.</li>
 <span class="n">partner_id</span> <span class="o">=</span> <span class="n">partners</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span>
 </pre></div>
 </div>
-<ul>
-<li><p class="first"><code class="docutils literal"><span class="pre">One2Many</span></code> and <code class="docutils literal"><span class="pre">Many2Many</span></code> fields should always have <em>_ids</em> as suffix (example: sale_order_line_ids)</p>
-</li>
-<li><p class="first"><code class="docutils literal"><span class="pre">Many2One</span></code> fields should have <em>_id</em> as suffix (example : partner_id, user_id, …)</p>
-</li>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">One2Many</span></code> and <code class="docutils literal"><span class="pre">Many2Many</span></code> fields should always have <em>_ids</em> as suffix (example: sale_order_line_ids)</li>
+<li><code class="docutils literal"><span class="pre">Many2One</span></code> fields should have <em>_id</em> as suffix (example : partner_id, user_id, …)</li>
 <li><dl class="first docutils">
 <dt>Method conventions</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Compute Field : the compute method pattern is <em>_compute_&lt;field_name&gt;</em></li>
 <li>Search method : the search method pattern is <em>_search_&lt;field_name&gt;</em></li>
 <li>Default method : the default method pattern is <em>_default_&lt;field_name&gt;</em></li>
@@ -825,7 +822,7 @@ at the beginning of the method.</li>
 </li>
 <li><dl class="first docutils">
 <dt>In a Model attribute order should be</dt>
-<dd><ol class="first last arabic simple">
+<dd><ol class="first last arabic">
 <li>Private attributes (<code class="docutils literal"><span class="pre">_name</span></code>, <code class="docutils literal"><span class="pre">_description</span></code>, <code class="docutils literal"><span class="pre">_inherit</span></code>, …)</li>
 <li>Default method and <code class="docutils literal"><span class="pre">_default_get</span></code></li>
 <li>Field declarations</li>

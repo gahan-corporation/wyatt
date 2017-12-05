@@ -83,7 +83,7 @@ is the category of the view (tree, form, graph, …) and the first is
 an optional database id (or <code class="docutils literal"><span class="pre">False</span></code>). If no id is provided, the client
 should fetch the default view of the specified type for the requested
 model (this is automatically done by
-<a class="reference internal" href="orm.html#odoo.models.Model.fields_view_get" title="odoo.models.Model.fields_view_get"><code class="xref py py-meth docutils literal"><span class="pre">fields_view_get()</span></code></a>). The first type of the
+<code class="xref py py-meth docutils literal"><span class="pre">fields_view_get()</span></code>). The first type of the
 list is the default view type and will be open by default when the action
 is executed. Each view type should be present at most once in the list</dd>
 <dt><code class="docutils literal"><span class="pre">res_id</span></code> (optional)</dt>
@@ -262,8 +262,8 @@ from the UI, but not from <a class="reference internal" href="data.html#referenc
 </div>
 <div class="section" id="object-create">
 <span id="reference-actions-server-object-create"></span><h3><code class="docutils literal"><span class="pre">object_create</span></code><a class="headerlink" href="#object-create" title="Permalink to this headline">¶</a></h3>
-<p>Creates a new record, from scratch (via <a class="reference internal" href="orm.html#odoo.models.Model.create" title="odoo.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a>)
-or by copying an existing record (via <a class="reference internal" href="orm.html#odoo.models.Model.copy" title="odoo.models.Model.copy"><code class="xref py py-meth docutils literal"><span class="pre">copy()</span></code></a>)</p>
+<p>Creates a new record, from scratch (via <code class="xref py py-meth docutils literal"><span class="pre">create()</span></code>)
+or by copying an existing record (via <code class="xref py py-meth docutils literal"><span class="pre">copy()</span></code>)</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">use_create</span></code></dt>
 <dd><p class="first">the creation policy, one of:</p>
@@ -280,7 +280,7 @@ or by copying an existing record (via <a class="reference internal" href="orm.ht
 </dd>
 <dt><code class="docutils literal"><span class="pre">fields_lines</span></code></dt>
 <dd><p class="first">fields to override when creating or copying the record.
-<a class="reference internal" href="orm.html#odoo.fields.One2many" title="odoo.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">One2many</span></code></a> with the fields:</p>
+<code class="xref py py-class docutils literal"><span class="pre">One2many</span></code> with the fields:</p>
 <dl class="last docutils">
 <dt><code class="docutils literal"><span class="pre">col1</span></code></dt>
 <dd><code class="docutils literal"><span class="pre">ir.model.fields</span></code> to set in the model implied by <code class="docutils literal"><span class="pre">use_create</span></code></dd>
@@ -296,7 +296,7 @@ interpreted as a Python expression and evaluated</dd>
 <dd>model in which to create a new record, if <code class="docutils literal"><span class="pre">use_create</span></code> is set to
 <code class="docutils literal"><span class="pre">new_other</span></code></dd>
 <dt><code class="docutils literal"><span class="pre">ref_object</span></code></dt>
-<dd><a class="reference internal" href="orm.html#odoo.fields.Reference" title="odoo.fields.Reference"><code class="xref py py-class docutils literal"><span class="pre">Reference</span></code></a> to an arbitrary record to copy, used if
+<dd><code class="xref py py-class docutils literal"><span class="pre">Reference</span></code> to an arbitrary record to copy, used if
 <code class="docutils literal"><span class="pre">use_create</span></code> is set to <code class="docutils literal"><span class="pre">copy_other</span></code></dd>
 <dt><code class="docutils literal"><span class="pre">link_new_record</span></code></dt>
 <dd>boolean flag linking the newly created record to the current one via a
@@ -386,10 +386,10 @@ in a list of some sort</dd>
 <dt><code class="docutils literal"><span class="pre">report_name</span></code></dt>
 <dd>the name of your report (which will be the name of the PDF output)</dd>
 <dt><code class="docutils literal"><span class="pre">groups_id</span></code></dt>
-<dd><a class="reference internal" href="orm.html#odoo.fields.Many2many" title="odoo.fields.Many2many"><code class="xref py py-class docutils literal"><span class="pre">Many2many</span></code></a> field to the groups allowed to view/use
+<dd><code class="xref py py-class docutils literal"><span class="pre">Many2many</span></code> field to the groups allowed to view/use
 the current report</dd>
 <dt><code class="docutils literal"><span class="pre">paperformat_id</span></code></dt>
-<dd><a class="reference internal" href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a> field to the paper format you wish to
+<dd><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code> field to the paper format you wish to
 use for this report (if not specified, the company format will be used)</dd>
 <dt><code class="docutils literal"><span class="pre">attachment_use</span></code></dt>
 <dd><p class="first">if set to <code class="docutils literal"><span class="pre">True</span></code>, the report is only generated once the first time it is
