@@ -12,14 +12,17 @@ before_script:
   - ./cc-test-reporter before-build
   - sudo pip install virtualenv 
   - virtualenv -p /usr/bin/python3 .py
+  - source ./py/bin/activate
+  - which pip
   - .py/bin/pip install pytest
   - .py/bin/pip install nose
   - .py/bin/pip install -e modules/humanresources
+  - .py/bin/pip install coverage
 script:
-  - pytest || true
+  - .py/bin/pytest || true
   - cd modules/humanresources
-  - pytest || true
-  - nosetests -s -d -v || true
+  - ../../.py/bin/pytest || true
+  - ../../.py/bin/nosetests -s -d -v || true
   - cd ../../
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
