@@ -3,33 +3,38 @@ language: python
 sudo: required
 env:
   global:
-    - CC_TEST_REPORTER_ID=e47e814a3a09d59dce31d36ef15abdcf0702e2d3ac7c0cd8ab9b468e97292788
+  - CC_TEST_REPORTER_ID=e47e814a3a09d59dce31d36ef15abdcf0702e2d3ac7c0cd8ab9b468e97292788
 cache:
   pip: 'yes'
+before_install:
+  - >
+    openssl aes-256-cbc -K $encrypted_eb33782a0984_key 
+    -iv $encrypted_eb33782a0984_iv
+    -in .toggl.yml.enc -out modules/humanresources/.toggl.yml -d
 before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+    > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
-  - sudo pip install virtualenv 
+  - "./cc-test-reporter before-build"
+  - sudo pip install virtualenv
   - virtualenv -p /usr/bin/python3 .py
   - source .py/bin/activate
-  - pip install requests 
-  - pip install pyyaml 
-  - .py/bin/pip install pytest
-  - .py/bin/pip install nose
-  - .py/bin/pip install -e modules/humanresources
-  - .py/bin/pip install coverage
+  - pip install requests
+  - pip install pyyaml
+  - ".py/bin/pip install pytest"
+  - ".py/bin/pip install nose"
+  - ".py/bin/pip install -e modules/humanresources"
+  - ".py/bin/pip install coverage"
 script:
-  - .py/bin/pytest || true
+  - ".py/bin/pytest || true"
   - cd modules/humanresources
-  - ../../.py/bin/pytest || true
-  - ../../.py/bin/nosetests -s -d -v || true
+  - "../../.py/bin/pytest || true"
+  - "../../.py/bin/nosetests -s -d -v || true"
   - coverage run setup.py test || true
   - coverage xml
   - cp coverage.xml ../../coverage.xml
   - cd ../../
 after_script:
-  - ./cc-test-reporter after-build -t coverage.py --exit-code $TRAVIS_TEST_RESULT
-  - ./cc-test-reporter after-build -t coverage.py --exit-code $TRAVIS_TEST_RESULT modules/humanresources/coverage.xml
+  - "./cc-test-reporter after-build -t coverage.py --exit-code $TRAVIS_TEST_RESULT"
+  - "./cc-test-reporter after-build -t coverage.py --exit-code $TRAVIS_TEST_RESULT modules/humanresources/coverage.xml"
 ...
-# vim: ft=ansible:
