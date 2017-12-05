@@ -1,0 +1,5 @@
+[run]
+source = 
+  modules/human-resources
+omit = 
+  *test*

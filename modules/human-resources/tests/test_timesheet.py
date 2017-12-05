@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-
-from odoo.tests.common import TransactionCase
-from odoo.exceptions import AccessError
+"""Testing for Timesheet objects."""
+import gerp 
 
 
-class TestTimesheet(TransactionCase):
+class TestTimesheet(object):
+    """TestTimesheet class."""
 
     def setUp(self):
+        """Set up the timesheet tests."""
         super(TestTimesheet, self).setUp()
 
         self.project_customer = self.env['project.project'].create({

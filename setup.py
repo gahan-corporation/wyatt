@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """Setup tools config."""
 # -*- coding: utf-8 -*-
 
@@ -12,9 +11,9 @@ setup(
     url='https://github.com/gahan-corporation/gerp',
     author='Gahan Corporation',
     author_email='info@gahan-corporation.com',
-    scripts=['setup/odoo'],
+    # scripts=['setup/odoo'],
     packages=find_packages(),
-    package_dir={'gerp': 'odoo'},
+    package_dir={'gerp': 'packages'},
     include_package_data=True,
     install_requires=[
         'babel >= 1.0',
@@ -57,5 +56,6 @@ setup(
     },
     tests_require=[
         'mock',
+        'pytest-runner',
     ],
 )
