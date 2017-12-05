@@ -8,7 +8,10 @@ before_script:
   - virtualenv -p /usr/bin/python3 .py
   - .py/bin/pip install pytest
   - .py/bin/pip install nose
+  - .py/bin/pip install -e modules/humanresources
 script:
+  - pytest || true
+  - cd modules/humanresources
   - pytest || true
   - cd addons/google_drive/models/tests
   - python -m unittest test_google_drive 
