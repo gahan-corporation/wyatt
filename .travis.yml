@@ -21,6 +21,7 @@ before_script:
   - source .py/bin/activate
   - pip install requests
   - pip install pyyaml
+  - pip install sqlalchemy 
   - ".py/bin/pip install pytest"
   - ".py/bin/pip install nose"
   - ".py/bin/pip install -e modules/humanresources"
