@@ -1,8 +1,16 @@
 ---
-language: python3
+language: python
 sudo: required
+cache:
+  pip: 'yes'
+before_script:
+  - sudo pip install virtualenv 
+  - virtualenv -p /usr/bin/python3 .py
+  - .py/bin/pip install pytest
+  - .py/bin/pip install nose
 script:
-- cd addons/google_drive/models/tests
-- python -m unittest test_google_drive 
+  - pytest || true
+  - cd addons/google_drive/models/tests
+  - python -m unittest test_google_drive 
 ...
 # vim: ft=ansible:
