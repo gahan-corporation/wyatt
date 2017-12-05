@@ -13,7 +13,6 @@ script:
   - pytest || true
   - cd modules/humanresources
   - pytest || true
-  - cd addons/google_drive/models/tests
-  - python -m unittest test_google_drive 
+  - nosetests -s -d -v
 ...
 # vim: ft=ansible:
