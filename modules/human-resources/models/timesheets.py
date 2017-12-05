@@ -1,42 +1,52 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+"""Timesheets with Toggl integration."""
+import gerp
 
-from gerp import api, fields, models
 
-
-class AccountAnalyticLine(models.Model):
+class AccountAnalyticLine(gerp.models.Model):
+    """Analytic accounting."""
     _inherit = 'account.analytic.line'
 
-    @api.model
-    def default_get(self, field_list):
-        result = super(AccountAnalyticLine, self).default_get(field_list)
-        if 'employee_id' in field_list and result.get('user_id'):
-            result['employee_id'] = self.env['hr.employee'].search([('user_id', '=', result['user_id'])], limit=1).id
-        return result
+    task_id = gerp.fields.Many2one('project.task', 'Task')
+    user_Id = gerp.fields.Many2one('res.users', 'User')
+    project_id = gerp.fields.Many2one(
+        'project.project', 'Project', domain=[('allow_timesheets', '=', True)])
+    employee_id = gerp.fields.Many2one('hr.employee', "Employee")
+    department_id = gerp.fields.Many2one(
+        'hr.department',
+        "Department",
+        related='employee_id.department_id',
+        store=True,
+        readonly=True)
 
-    task_id = fields.Many2one('project.task', 'Task')
-    project_id = fields.Many2one('project.project', 'Project', domain=[('allow_timesheets', '=', True)])
-
-    employee_id = fields.Many2one('hr.employee', "Employee")
-    department_id = fields.Many2one('hr.department', "Department", related='employee_id.department_id', store=True, readonly=True)
-
-    @api.onchange('project_id')
+    @gerp.api.onchange('project_id')
     def onchange_project_id(self):
+        """Update project id."""
         self.task_id = False
 
-    @api.onchange('employee_id')
+    @gerp.api.onchange('employee_id')
     def _onchange_employee_id(self):
+        """Update employee id."""
         self.user_id = self.employee_id.user_id
 
-    @api.model
+    @gerp.api.model
     def create(self, vals):
         vals = self._timesheet_preprocess(vals)
         return super(AccountAnalyticLine, self).create(vals)
 
-    @api.multi
+    @gerp.api.multi
     def write(self, vals):
         vals = self._timesheet_preprocess(vals)
         return super(AccountAnalyticLine, self).write(vals)
+
+    @gerp.api.model
+    def default_get(self, field_list):
+        """Get default value."""
+        result = super(AccountAnalyticLine, self).default_get(field_list)
+        if 'employee_id' in field_list and result.get('user_id'):
+            result['employee_id'] = self.env['hr.employee'].search([
+                ('user_id', '=', result['user_id'])], limit=1).id
+        return result
 
     def _timesheet_preprocess(self, vals):
         """ Deduce other field values from the one given.
