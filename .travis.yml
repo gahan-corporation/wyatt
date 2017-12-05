@@ -13,7 +13,8 @@ before_script:
   - sudo pip install virtualenv 
   - virtualenv -p /usr/bin/python3 .py
   - source .py/bin/activate
-  - which pip
+  - pip install requests 
+  - pip install pyyaml 
   - .py/bin/pip install pytest
   - .py/bin/pip install nose
   - .py/bin/pip install -e modules/humanresources
