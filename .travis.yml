@@ -31,7 +31,7 @@ script:
   - ".py/bin/pytest || true"
   - cd modules/humanresources
   - "../../.py/bin/pytest || true"
-  - "../../.py/bin/nosetests -s -d -v || true"
+  - ../../.py/bin/nosetests -s -d -v
   - coverage run setup.py test || true
   - coverage xml
   - cp coverage.xml ../../coverage.xml
