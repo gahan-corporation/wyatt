@@ -6,7 +6,9 @@ import toggl.toggl as tgl
 
 class TestToggl(object):
     """TestToggl class."""
+    projects = {}
     toggl = {}
+    token = ''
     workspaces = {}
     ws_json = {}
 
@@ -22,17 +24,20 @@ class TestToggl(object):
         user = self.toggl.get_user()
         assert user.status_code == 403
 
-    def test_get_project(self):
+    def test_get_active_project(self):
         """Test if the correct Toggl project is returend"""
-        assert self.token is True
+        local_toggl = tgl.Toggl(user='xander_dp')
+        self.projects = local_toggl.get_active_projects()
+        assert isinstance(self.projects, list)
 
-    def test_get_entry(self):
+        for item in self.projects:
+            assert isinstance(item, dict)
+
+    def test_get_token(self):
         """Get a time entry."""
-        assert self.token is True
-
-    def test_model_fields(self):
-        """Ensure that the database model has all the right fields."""
-        assert self.token is True
+        local_toggl = tgl.Toggl(user='xander_dp')
+        self.token = local_toggl.get_token()
+        assert len(self.token) == 32
 
     def test_get_workspaces_by_status(self):
         """Make sure we're getting the correct worksapces."""

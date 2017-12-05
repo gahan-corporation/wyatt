@@ -30,18 +30,32 @@ class Toggl(object):
         )
         return self.user
 
-    def get_current_timer(self):
-        """Check for a running timer."""
-        return self.entries
+    def get_token(self):
+        """Returns the value of the current token."""
+        return self.token
+
+    # def get_current_timer(self):
+    #     """Check for a running timer."""
+    #     return self.entries
 
     def get_active_projects(self):
         """Add active projects."""
+        if not self.workspaces:
+            workspaces = self.get_workspaces()
+            ws_id = workspaces.json()[0].get('id')
+        else:
+            ws_id = self.workspaces.json()[0].get('id')
+
         self.projects = requests.get(
-            url='https://www.toggl.com/api/v8/projects',
+            url=(
+                "https://www.toggl.com/api/v8/workspaces/{ws_id}/projects"
+            ).format(ws_id=ws_id),
             headers={
                 'Content-Type': 'application/json',
-            })
-        return self.projects
+            },
+            auth=(self.token, 'api_token')
+        )
+        return self.projects.json()
 
     def get_workspaces(self):
         """Get the available workspaces."""
