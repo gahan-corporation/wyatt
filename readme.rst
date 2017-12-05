@@ -5,11 +5,17 @@ GERP
 ----
 
 Good Enough Resource Planning
+.............................
 
 Or something like that.
 
 
+.. code-block:: bash 
+
+   find ./* -name '*.py' -type f | xargs sed -i 's/odoo/gerp/g'
+
+
+We think we can do better.
+__________________________
 
 Originaly forked from [Odoo](https://github.com/odoo/odoo)
-
-
