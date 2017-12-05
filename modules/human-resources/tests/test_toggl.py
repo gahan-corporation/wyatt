@@ -1,9 +1,17 @@
 """Module for testting Toggl integration."""
+import configparser
 
 
 class TestToggl(object):
     """TestToggl class."""
+    conf = configparser.ConfigParser()
     token = None
+
+    def test_valid_config(self):
+        """Make sure that there are valid tokens proviided."""
+        tokens = self.conf.read('.toggl_tokens')
+        print(tokens)
+        assert tokens is False
 
     def test_api_token(self):
         """Ensure the api token works."""
