@@ -34,3 +34,8 @@ class TestToggl(object):
         local_toggl = tgl.Toggl(user='xander_dp')
         self.workspaces = local_toggl.get_workspaces()
         assert self.workspaces.status_code == 200
+
+    def test_workspaces_write_results(self):
+        """Make sure we can read results we got from the api."""
+        workspaces_raw = self.toggl.load_workspaces()
+        print(type(workspaces_raw))

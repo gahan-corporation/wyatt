@@ -48,4 +48,7 @@ class Toggl(object):
             url='https://www.toggl.com/api/v8/workspaces',
             auth=(self.token, 'api_token')
         )
+        workspaces_yml = yaml.load(self.workspaces.content)
+        with open('.workspaces.yml', 'w') as ws_yml_file:
+            ws_yml_file.write(workspaces_yml)
         return self.workspaces

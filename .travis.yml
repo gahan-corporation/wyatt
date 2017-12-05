@@ -25,6 +25,8 @@ script:
   - ../../.py/bin/pytest || true
   - ../../.py/bin/nosetests -s -d -v || true
   - cd ../../
+  - coverage run setup.py test || true
+  - coverage xml
 after_script:
   - ./cc-test-reporter after-build -t coverage.py --exit-code $TRAVIS_TEST_RESULT
 ...
