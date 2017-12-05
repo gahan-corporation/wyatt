@@ -3,12 +3,12 @@
 
 import base64
 
-from odoo import http, _
-from odoo.exceptions import AccessError
-from odoo.http import request
-from odoo.tools import consteq
-from odoo.addons.portal.controllers.mail import _message_post_helper
-from odoo.addons.portal.controllers.portal import CustomerPortal, pager as portal_pager, get_records_pager
+from gerp import http, _
+from gerp.exceptions import AccessError
+from gerp.http import request
+from gerp.tools import consteq
+from gerp.addons.portal.controllers.mail import _message_post_helper
+from gerp.addons.portal.controllers.portal import CustomerPortal, pager as portal_pager, get_records_pager
 
 
 class CustomerPortal(CustomerPortal):

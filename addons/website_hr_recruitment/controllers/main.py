@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import http, _
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.http import request
+from gerp import http, _
+from gerp.addons.http_routing.models.ir_http import slug
+from gerp.http import request
 
 
 class WebsiteHrRecruitment(http.Controller):

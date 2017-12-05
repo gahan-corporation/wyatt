@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models, _
-from odoo.exceptions import UserError
+from gerp import fields, models, _
+from gerp.exceptions import UserError
 
 
 class AccountReportGeneralLedger(models.TransientModel):

@@ -3,8 +3,8 @@
 
 from datetime import timedelta
 
-from odoo import api, fields, models
-from odoo.tools import float_utils
+from gerp import api, fields, models
+from gerp.tools import float_utils
 
 class ResourceMixin(models.AbstractModel):
     _name = "resource.mixin"

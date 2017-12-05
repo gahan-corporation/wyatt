@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api
-from odoo.addons.mail.tests.common import TestMail
+from gerp import api
+from gerp.addons.mail.tests.common import TestMail
 
 
 class TestTracking(TestMail):

@@ -12,17 +12,17 @@ try:
 except ImportError:
     slugify_lib = None
 
-import odoo
-from odoo import api, models
-from odoo.addons.base.ir.ir_http import RequestUID, ModelConverter
-from odoo.http import request
-from odoo.tools import config, ustr, pycompat
+import gerp
+from gerp import api, models
+from gerp.addons.base.ir.ir_http import RequestUID, ModelConverter
+from gerp.http import request
+from gerp.tools import config, ustr, pycompat
 
 _logger = logging.getLogger(__name__)
 
 # global resolver (GeoIP API is thread-safe, for multithreaded workers)
 # This avoids blowing up open files limit
-odoo._geoip_resolver = None
+gerp._geoip_resolver = None
 
 
 # ------------------------------------------------------------
@@ -256,7 +256,7 @@ class IrHttp(models.AbstractModel):
     @classmethod
     def _geoip_setup_resolver(cls):
         # Lazy init of GeoIP resolver
-        if odoo._geoip_resolver is not None:
+        if gerp._geoip_resolver is not None:
             return
         try:
             import GeoIP
@@ -264,19 +264,19 @@ class IrHttp(models.AbstractModel):
             # http://dev.maxmind.com/geoip/legacy/install/city/
             geofile = config.get('geoip_database')
             if os.path.exists(geofile):
-                odoo._geoip_resolver = GeoIP.open(geofile, GeoIP.GEOIP_STANDARD)
+                gerp._geoip_resolver = GeoIP.open(geofile, GeoIP.GEOIP_STANDARD)
             else:
-                odoo._geoip_resolver = False
+                gerp._geoip_resolver = False
                 _logger.warning('GeoIP database file %r does not exists, apt-get install geoip-database-contrib or download it from http://dev.maxmind.com/geoip/legacy/install/city/', geofile)
         except ImportError:
-            odoo._geoip_resolver = False
+            gerp._geoip_resolver = False
 
     @classmethod
     def _geoip_resolve(cls):
         if 'geoip' not in request.session:
             record = {}
-            if odoo._geoip_resolver and request.httprequest.remote_addr:
-                record = odoo._geoip_resolver.record_by_addr(request.httprequest.remote_addr) or {}
+            if gerp._geoip_resolver and request.httprequest.remote_addr:
+                record = gerp._geoip_resolver.record_by_addr(request.httprequest.remote_addr) or {}
             request.session['geoip'] = record
 
     @classmethod

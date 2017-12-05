@@ -3,11 +3,11 @@
 
 import re
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.tools import email_split, float_is_zero
+from gerp import api, fields, models, _
+from gerp.exceptions import UserError
+from gerp.tools import email_split, float_is_zero
 
-from odoo.addons import decimal_precision as dp
+from gerp.addons import decimal_precision as dp
 
 
 class HrExpense(models.Model):

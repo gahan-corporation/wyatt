@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import common
-from odoo.addons.calendar.models.calendar import calendar_id2real_id
+from gerp.tests import common
+from gerp.addons.calendar.models.calendar import calendar_id2real_id
 
 
 class TestRecurrentEvent(common.TransactionCase):

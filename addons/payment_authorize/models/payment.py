@@ -8,11 +8,11 @@ import hmac
 import logging
 import time
 
-from odoo import _, api, fields, models
-from odoo.addons.payment.models.payment_acquirer import ValidationError
-from odoo.addons.payment_authorize.controllers.main import AuthorizeController
-from odoo.tools.float_utils import float_compare
-from odoo.tools.safe_eval import safe_eval
+from gerp import _, api, fields, models
+from gerp.addons.payment.models.payment_acquirer import ValidationError
+from gerp.addons.payment_authorize.controllers.main import AuthorizeController
+from gerp.tools.float_utils import float_compare
+from gerp.tools.safe_eval import safe_eval
 
 _logger = logging.getLogger(__name__)
 

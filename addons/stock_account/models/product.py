@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, tools, _
-from odoo.exceptions import UserError
-from odoo.tools import float_is_zero, pycompat
-from odoo.addons import decimal_precision as dp
+from gerp import api, fields, models, tools, _
+from gerp.exceptions import UserError
+from gerp.tools import float_is_zero, pycompat
+from gerp.addons import decimal_precision as dp
 
 
 

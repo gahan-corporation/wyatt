@@ -7,10 +7,10 @@ from datetime import date, datetime
 from dateutil.relativedelta import relativedelta
 import json
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.release import version
-from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DF
+from gerp import api, fields, models, _
+from gerp.exceptions import UserError
+from gerp.release import version
+from gerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 
 
 class CrmTeam(models.Model):

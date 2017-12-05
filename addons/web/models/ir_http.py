@@ -3,10 +3,10 @@
 
 import json
 
-from odoo import models
-from odoo.http import request
+from gerp import models
+from gerp.http import request
 
-import odoo
+import gerp
 
 
 class Http(models.AbstractModel):
@@ -21,7 +21,7 @@ class Http(models.AbstractModel):
     def session_info(self):
         user = request.env.user
         display_switch_company_menu = user.has_group('base.group_multi_company') and len(user.company_ids) > 1
-        version_info = odoo.service.common.exp_version()
+        version_info = gerp.service.common.exp_version()
         return {
             "session_id": request.session.sid,
             "uid": request.session.uid,

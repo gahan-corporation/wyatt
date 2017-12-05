@@ -1,4 +1,4 @@
-from odoo import fields, models
+from gerp import fields, models
 
 class AccountTaxTemplate(models.Model):
     _inherit = 'account.tax.template'

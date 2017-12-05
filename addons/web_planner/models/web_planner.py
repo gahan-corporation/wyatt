@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 from werkzeug import urls
 
-from odoo import api, models, fields
+from gerp import api, models, fields
 
 
 class Planner(models.Model):

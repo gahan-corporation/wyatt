@@ -3,8 +3,8 @@
 
 from lxml import etree
 
-from odoo import api, fields, models, _
-from odoo.osv.orm import setup_modifiers
+from gerp import api, fields, models, _
+from gerp.osv.orm import setup_modifiers
 
 
 class AssetModify(models.TransientModel):

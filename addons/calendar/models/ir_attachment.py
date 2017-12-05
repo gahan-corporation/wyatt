@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, models
+from gerp import api, models
 
-from odoo.addons.calendar.models.calendar import get_real_ids
+from gerp.addons.calendar.models.calendar import get_real_ids
 
-from odoo.tools import pycompat
+from gerp.tools import pycompat
 
 
 class Attachment(models.Model):

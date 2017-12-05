@@ -3,9 +3,9 @@
 
 from datetime import datetime, timedelta
 
-from odoo import api, fields, models, _
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT, float_compare
-from odoo.exceptions import UserError
+from gerp import api, fields, models, _
+from gerp.tools import DEFAULT_SERVER_DATETIME_FORMAT, float_compare
+from gerp.exceptions import UserError
 
 
 class SaleOrder(models.Model):

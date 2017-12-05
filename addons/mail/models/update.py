@@ -9,11 +9,11 @@ import werkzeug.urls
 
 from ast import literal_eval
 
-from odoo import api, release, SUPERUSER_ID
-from odoo.exceptions import UserError
-from odoo.models import AbstractModel
-from odoo.tools.translate import _
-from odoo.tools import config, misc, ustr
+from gerp import api, release, SUPERUSER_ID
+from gerp.exceptions import UserError
+from gerp.models import AbstractModel
+from gerp.tools.translate import _
+from gerp.tools import config, misc, ustr
 
 _logger = logging.getLogger(__name__)
 

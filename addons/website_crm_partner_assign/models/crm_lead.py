@@ -3,8 +3,8 @@
 
 import random
 
-from odoo.addons.base_geolocalize.models.res_partner import geo_find, geo_query_address
-from odoo import api, fields, models, _
+from gerp.addons.base_geolocalize.models.res_partner import geo_find, geo_query_address
+from gerp import api, fields, models, _
 
 
 class CrmLead(models.Model):

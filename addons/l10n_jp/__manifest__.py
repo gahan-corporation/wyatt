@@ -23,7 +23,7 @@ Note:
 requirements which might arise from POS implementation. [1]  You may not \
 need to use these at all under normal circumstances.
 
-[1] See https://github.com/odoo/odoo/pull/6470 for detail.
+[1] See https://github.com/gerp/gerp/pull/6470 for detail.
 
     """,
     'author': 'Rooms For (Hong Kong) Limited T/A OSCG',

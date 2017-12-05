@@ -10,11 +10,11 @@ import werkzeug.wrappers
 
 from datetime import datetime
 
-from odoo import http, modules, SUPERUSER_ID, tools, _
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.addons.web.controllers.main import binary_content
-from odoo.addons.website.models.ir_http import sitemap_qs2dom
-from odoo.http import request
+from gerp import http, modules, SUPERUSER_ID, tools, _
+from gerp.addons.http_routing.models.ir_http import slug
+from gerp.addons.web.controllers.main import binary_content
+from gerp.addons.website.models.ir_http import sitemap_qs2dom
+from gerp.http import request
 
 
 class WebsiteForum(http.Controller):

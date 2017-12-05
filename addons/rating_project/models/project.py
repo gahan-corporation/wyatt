@@ -3,8 +3,8 @@
 
 from datetime import timedelta
 
-from odoo import api, fields, models, _
-from odoo.tools.safe_eval import safe_eval
+from gerp import api, fields, models, _
+from gerp.tools.safe_eval import safe_eval
 
 
 class ProjectTaskType(models.Model):

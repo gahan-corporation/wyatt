@@ -3,9 +3,9 @@
 
 from werkzeug.exceptions import NotFound, Forbidden
 
-from odoo import http
-from odoo.http import request
-from odoo.tools import consteq
+from gerp import http
+from gerp.http import request
+from gerp.tools import consteq
 
 
 def _has_token_access(res_model, res_id, token=''):

@@ -4,7 +4,7 @@
 # Author: Leonardo Pistone
 # Copyright 2015 Camptocamp SA
 
-from odoo.addons.stock.tests.common2 import TestStockCommon
+from gerp.addons.stock.tests.common2 import TestStockCommon
 
 
 class TestVirtualAvailable(TestStockCommon):

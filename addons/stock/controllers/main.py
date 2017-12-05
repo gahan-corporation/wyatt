@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from odoo import http
-from odoo.http import request
-from odoo.addons.web.controllers.main import _serialize_exception
-from odoo.tools import html_escape
+from gerp import http
+from gerp.http import request
+from gerp.addons.web.controllers.main import _serialize_exception
+from gerp.tools import html_escape
 
 import json
 

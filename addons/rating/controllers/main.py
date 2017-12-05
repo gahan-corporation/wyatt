@@ -3,9 +3,9 @@
 
 import werkzeug
 
-from odoo import http
-from odoo.http import request
-from odoo.tools.translate import _
+from gerp import http
+from gerp.http import request
+from gerp.tools.translate import _
 
 
 class Rating(http.Controller):

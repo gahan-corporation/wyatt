@@ -11,8 +11,8 @@ import operator
 import pytz
 from werkzeug import urls
 
-from odoo import api, fields, models, tools, _
-from odoo.tools import exception_to_unicode
+from gerp import api, fields, models, tools, _
+from gerp.tools import exception_to_unicode
 
 _logger = logging.getLogger(__name__)
 
@@ -693,18 +693,18 @@ class GoogleCalendar(models.AbstractModel):
             ])
             my_google_att_ids = my_google_attendees.ids
 
-            my_odoo_attendees = CalendarAttendee.with_context(context_novirtual).search([
+            my_gerp_attendees = CalendarAttendee.with_context(context_novirtual).search([
                 ('partner_id', '=', my_partner_id),
                 ('event_id.oe_update_date', '>', lastSync and fields.Datetime.to_string(lastSync) or self.get_minTime().fields.Datetime.to_string()),
                 ('google_internal_event_id', '!=', False),
             ])
 
-            my_odoo_googleinternal_records = my_odoo_attendees.read(['google_internal_event_id', 'event_id'])
+            my_gerp_googleinternal_records = my_gerp_attendees.read(['google_internal_event_id', 'event_id'])
 
             if self.get_print_log():
-                _logger.info("Calendar Synchro -  \n\nUPDATE IN GOOGLE\n%s\n\nRETRIEVE FROM OE\n%s\n\nUPDATE IN OE\n%s\n\nRETRIEVE FROM GG\n%s\n\n", all_event_from_google, my_google_att_ids, my_odoo_attendees.ids, my_odoo_googleinternal_records)
+                _logger.info("Calendar Synchro -  \n\nUPDATE IN GOOGLE\n%s\n\nRETRIEVE FROM OE\n%s\n\nUPDATE IN OE\n%s\n\nRETRIEVE FROM GG\n%s\n\n", all_event_from_google, my_google_att_ids, my_gerp_attendees.ids, my_gerp_googleinternal_records)
 
-            for gi_record in my_odoo_googleinternal_records:
+            for gi_record in my_gerp_googleinternal_records:
                 active = True  # if not sure, we request google
                 if gi_record.get('event_id'):
                     active = CalendarEvent.with_context(context_novirtual).browse(int(gi_record.get('event_id')[0])).active
@@ -714,7 +714,7 @@ class GoogleCalendar(models.AbstractModel):
                     if one_event:
                         all_event_from_google[one_event['id']] = one_event
 
-            my_attendees = (my_google_attendees | my_odoo_attendees)
+            my_attendees = (my_google_attendees | my_gerp_attendees)
 
         else:
             domain = [
@@ -901,7 +901,7 @@ class GoogleCalendar(models.AbstractModel):
         readonly = '.readonly' if RO else ''
         return 'https://www.googleapis.com/auth/calendar%s' % (readonly)
 
-    def authorize_google_uri(self, from_url='http://www.odoo.com'):
+    def authorize_google_uri(self, from_url='http://www.gerp.com'):
         url = self.env['google.service']._get_authorize_uri(from_url, self.STR_SERVICE, scope=self.get_calendar_scope())
         return url
 

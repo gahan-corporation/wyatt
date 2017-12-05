@@ -3,8 +3,8 @@
 
 import os
 
-from odoo.tools import config
-from odoo.addons.l10n_in_hr_payroll.tests.common import TestPaymentAdviceBase
+from gerp.tools import config
+from gerp.addons.l10n_in_hr_payroll.tests.common import TestPaymentAdviceBase
 
 
 class TestPaymentAdvice(TestPaymentAdviceBase):

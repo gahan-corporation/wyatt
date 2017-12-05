@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import http
-from odoo.addons.web.controllers.main import Home
-from odoo.http import request
+from gerp import http
+from gerp.addons.web.controllers.main import Home
+from gerp.http import request
 
 
 class Home(Home):

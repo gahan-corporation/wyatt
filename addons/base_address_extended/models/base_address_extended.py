@@ -3,8 +3,8 @@
 
 import re
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
+from gerp import api, fields, models, _
+from gerp.exceptions import UserError
 
 STREET_FIELDS = ('street_name', 'street_number', 'street_number2')
 

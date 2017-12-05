@@ -3,8 +3,8 @@
 
 import ast
 
-from odoo import models
-from odoo.http import request
+from gerp import models
+from gerp.http import request
 
 
 class QWeb(models.AbstractModel):

@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, tools
+from gerp import api, fields, models, tools
 
 class DecimalPrecision(models.Model):
     _name = 'decimal.precision'

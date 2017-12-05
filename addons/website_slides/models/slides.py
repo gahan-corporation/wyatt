@@ -11,11 +11,11 @@ import re
 
 from werkzeug import urls
 
-from odoo import api, fields, models, SUPERUSER_ID, _
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.tools import image
-from odoo.tools.translate import html_translate
-from odoo.exceptions import Warning
+from gerp import api, fields, models, SUPERUSER_ID, _
+from gerp.addons.http_routing.models.ir_http import slug
+from gerp.tools import image
+from gerp.tools.translate import html_translate
+from gerp.exceptions import Warning
 
 
 class Channel(models.Model):

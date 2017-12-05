@@ -6,7 +6,7 @@ import PyPDF2
 import xml.dom.minidom
 import zipfile
 
-from odoo import api, models
+from gerp import api, models
 
 _logger = logging.getLogger(__name__)
 FTYPES = ['docx', 'pptx', 'xlsx', 'opendoc', 'pdf']

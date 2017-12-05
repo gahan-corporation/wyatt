@@ -3,7 +3,7 @@
 
 from lxml import etree
 
-from odoo import api, models, fields
+from gerp import api, models, fields
 
 class Partner(models.Model):
     _inherit = 'res.partner'

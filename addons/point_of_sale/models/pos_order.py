@@ -7,11 +7,11 @@ from functools import partial
 import psycopg2
 import pytz
 
-from odoo import api, fields, models, tools, _
-from odoo.tools import float_is_zero
-from odoo.exceptions import UserError
-from odoo.http import request
-from odoo.addons import decimal_precision as dp
+from gerp import api, fields, models, tools, _
+from gerp.tools import float_is_zero
+from gerp.exceptions import UserError
+from gerp.http import request
+from gerp.addons import decimal_precision as dp
 
 _logger = logging.getLogger(__name__)
 

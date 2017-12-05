@@ -4,8 +4,8 @@
 import logging
 import re
 
-from odoo import api, models, tools
-from odoo.tools import decode_smtp_header, decode_message_header
+from gerp import api, models, tools
+from gerp.tools import decode_smtp_header, decode_message_header
 
 _logger = logging.getLogger(__name__)
 

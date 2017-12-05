@@ -8,11 +8,11 @@ from hashlib import sha256
 
 from werkzeug import urls
 
-from odoo import models, fields, api
-from odoo.tools.float_utils import float_compare
-from odoo.tools.translate import _
-from odoo.addons.payment.models.payment_acquirer import ValidationError
-from odoo.addons.payment_sips.controllers.main import SipsController
+from gerp import models, fields, api
+from gerp.tools.float_utils import float_compare
+from gerp.tools.translate import _
+from gerp.addons.payment.models.payment_acquirer import ValidationError
+from gerp.addons.payment_sips.controllers.main import SipsController
 
 _logger = logging.getLogger(__name__)
 

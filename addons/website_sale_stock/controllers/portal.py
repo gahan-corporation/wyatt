@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import exceptions
-from odoo.addons.sale.controllers.portal import CustomerPortal
-from odoo.http import request, route
-from odoo.tools import consteq
+from gerp import exceptions
+from gerp.addons.sale.controllers.portal import CustomerPortal
+from gerp.http import request, route
+from gerp.tools import consteq
 
 
 class SaleStockPortal(CustomerPortal):

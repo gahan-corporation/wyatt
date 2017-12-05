@@ -10,13 +10,13 @@ import werkzeug.urls
 import werkzeug.utils
 from werkzeug.exceptions import BadRequest
 
-from odoo import api, http, SUPERUSER_ID, _
-from odoo.exceptions import AccessDenied
-from odoo.http import request
-from odoo import registry as registry_get
+from gerp import api, http, SUPERUSER_ID, _
+from gerp.exceptions import AccessDenied
+from gerp.http import request
+from gerp import registry as registry_get
 
-from odoo.addons.auth_signup.controllers.main import AuthSignupHome as Home
-from odoo.addons.web.controllers.main import db_monodb, ensure_db, set_cookie_and_redirect, login_and_redirect
+from gerp.addons.auth_signup.controllers.main import AuthSignupHome as Home
+from gerp.addons.web.controllers.main import db_monodb, ensure_db, set_cookie_and_redirect, login_and_redirect
 
 
 _logger = logging.getLogger(__name__)

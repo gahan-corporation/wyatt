@@ -3,7 +3,7 @@
 
 from datetime import datetime
 
-from odoo import api, fields, models, tools
+from gerp import api, fields, models, tools
 
 
 class MailTracking(models.Model):

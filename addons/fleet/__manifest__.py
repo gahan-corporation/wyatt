@@ -5,7 +5,7 @@
     'version' : '0.1',
     'sequence': 165,
     'category': 'Human Resources',
-    'website' : 'https://www.odoo.com/page/fleet',
+    'website' : 'https://www.gerp.com/page/fleet',
     'summary' : 'Vehicle, leasing, insurances, costs',
     'description' : """
 Vehicle, leasing, insurances, cost

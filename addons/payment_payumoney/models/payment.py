@@ -5,9 +5,9 @@ import hashlib
 
 from werkzeug import urls
 
-from odoo import api, fields, models, _
-from odoo.addons.payment.models.payment_acquirer import ValidationError
-from odoo.tools.float_utils import float_compare
+from gerp import api, fields, models, _
+from gerp.addons.payment.models.payment_acquirer import ValidationError
+from gerp.tools.float_utils import float_compare
 
 import logging
 
@@ -31,8 +31,8 @@ class PaymentAcquirerPayumoney(models.Model):
     def _payumoney_generate_sign(self, inout, values):
         """ Generate the shasign for incoming or outgoing communications.
         :param self: the self browse record. It should have a shakey in shakey out
-        :param string inout: 'in' (odoo contacting payumoney) or 'out' (payumoney
-                             contacting odoo).
+        :param string inout: 'in' (gerp contacting payumoney) or 'out' (payumoney
+                             contacting gerp).
         :param dict values: transaction values
 
         :return string: shasign

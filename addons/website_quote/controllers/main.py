@@ -3,10 +3,10 @@
 
 import werkzeug
 
-from odoo import exceptions, fields, http, _
-from odoo.http import request
-from odoo.addons.portal.controllers.portal import CustomerPortal, get_records_pager
-from odoo.addons.portal.controllers.mail import _message_post_helper
+from gerp import exceptions, fields, http, _
+from gerp.http import request
+from gerp.addons.portal.controllers.portal import CustomerPortal, get_records_pager
+from gerp.addons.portal.controllers.mail import _message_post_helper
 
 
 class CustomerPortal(CustomerPortal):

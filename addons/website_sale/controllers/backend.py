@@ -4,9 +4,9 @@ import babel
 
 from datetime import datetime, timedelta, time
 
-from odoo import fields, http, _
-from odoo.addons.website.controllers.backend import WebsiteBackend
-from odoo.http import request
+from gerp import fields, http, _
+from gerp.addons.website.controllers.backend import WebsiteBackend
+from gerp.http import request
 
 
 class WebsiteSaleBackend(WebsiteBackend):

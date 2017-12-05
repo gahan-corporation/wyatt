@@ -9,14 +9,14 @@ import re
 from werkzeug import urls
 from werkzeug.exceptions import NotFound
 
-from odoo import api, fields, models, tools
-from odoo.addons.http_routing.models.ir_http import slugify, _guess_mimetype
-from odoo.addons.website.models.ir_http import sitemap_qs2dom
-from odoo.addons.portal.controllers.portal import pager
-from odoo.tools import pycompat
-from odoo.http import request
-from odoo.osv.expression import FALSE_DOMAIN
-from odoo.tools.translate import _
+from gerp import api, fields, models, tools
+from gerp.addons.http_routing.models.ir_http import slugify, _guess_mimetype
+from gerp.addons.website.models.ir_http import sitemap_qs2dom
+from gerp.addons.portal.controllers.portal import pager
+from gerp.tools import pycompat
+from gerp.http import request
+from gerp.osv.expression import FALSE_DOMAIN
+from gerp.tools.translate import _
 
 logger = logging.getLogger(__name__)
 

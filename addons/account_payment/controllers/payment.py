@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import http, _
-from odoo.addons.portal.controllers.portal import _build_url_w_params
-from odoo.http import request, route
+from gerp import http, _
+from gerp.addons.portal.controllers.portal import _build_url_w_params
+from gerp.http import request, route
 
 
 class PaymentPortal(http.Controller):

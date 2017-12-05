@@ -3,8 +3,8 @@
 
 from datetime import datetime
 
-from odoo import models, fields, api, exceptions, _
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
+from gerp import models, fields, api, exceptions, _
+from gerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
 
 
 class HrAttendance(models.Model):

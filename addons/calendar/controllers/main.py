@@ -3,12 +3,12 @@
 
 import werkzeug
 
-from odoo.api import Environment
-import odoo.http as http
+from gerp.api import Environment
+import gerp.http as http
 
-from odoo.http import request
-from odoo import SUPERUSER_ID
-from odoo import registry as registry_get
+from gerp.http import request
+from gerp import SUPERUSER_ID
+from gerp import registry as registry_get
 
 
 class CalendarController(http.Controller):

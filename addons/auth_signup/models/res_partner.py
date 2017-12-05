@@ -7,7 +7,7 @@ import werkzeug.urls
 from collections import defaultdict
 from datetime import datetime, timedelta
 
-from odoo import api, exceptions, fields, models, _
+from gerp import api, exceptions, fields, models, _
 
 class SignupError(Exception):
     pass

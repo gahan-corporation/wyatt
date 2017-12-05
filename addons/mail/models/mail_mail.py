@@ -10,10 +10,10 @@ import threading
 from collections import defaultdict
 from email.utils import formataddr
 
-from odoo import _, api, fields, models
-from odoo import tools
-from odoo.addons.base.ir.ir_mail_server import MailDeliveryException
-from odoo.tools.safe_eval import safe_eval
+from gerp import _, api, fields, models
+from gerp import tools
+from gerp.addons.base.ir.ir_mail_server import MailDeliveryException
+from gerp.tools.safe_eval import safe_eval
 
 _logger = logging.getLogger(__name__)
 

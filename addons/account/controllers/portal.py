@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import http, _
-from odoo.addons.portal.controllers.portal import CustomerPortal, pager as portal_pager
-from odoo.exceptions import AccessError
-from odoo.http import request
-from odoo.tools import consteq
+from gerp import http, _
+from gerp.addons.portal.controllers.portal import CustomerPortal, pager as portal_pager
+from gerp.exceptions import AccessError
+from gerp.http import request
+from gerp.tools import consteq
 
 
 class PortalAccount(CustomerPortal):

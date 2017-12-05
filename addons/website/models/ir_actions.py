@@ -2,8 +2,8 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 from werkzeug import urls
 
-from odoo import api, fields, models
-from odoo.http import request
+from gerp import api, fields, models
+from gerp.http import request
 
 
 class ServerAction(models.Model):

@@ -4,7 +4,7 @@
 from random import choice
 from string import digits
 
-from odoo import models, fields, api, exceptions, _, SUPERUSER_ID
+from gerp import models, fields, api, exceptions, _, SUPERUSER_ID
 
 
 class HrEmployee(models.Model):

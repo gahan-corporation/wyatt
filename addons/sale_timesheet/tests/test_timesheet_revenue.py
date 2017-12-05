@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.sale.tests.test_sale_common import TestSale
-from odoo.exceptions import UserError
-from odoo.tools import float_repr
+from gerp.addons.sale.tests.test_sale_common import TestSale
+from gerp.exceptions import UserError
+from gerp.tools import float_repr
 
 
 class TestSaleTimesheet(TestSale):

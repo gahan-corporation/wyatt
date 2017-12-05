@@ -7,10 +7,10 @@ import itertools
 import logging
 import psycopg2
 
-from odoo import api, fields, models
-from odoo import SUPERUSER_ID, _
-from odoo.exceptions import ValidationError, UserError
-from odoo.tools import mute_logger
+from gerp import api, fields, models
+from gerp import SUPERUSER_ID, _
+from gerp.exceptions import ValidationError, UserError
+from gerp.tools import mute_logger
 
 _logger = logging.getLogger('base.partner.merge')
 
@@ -141,7 +141,7 @@ class MergePartnerAutomatic(models.TransientModel):
                     self._cr.execute(query, (dst_partner.id, partner.id, dst_partner.id))
             else:
                 try:
-                    with mute_logger('odoo.sql_db'), self._cr.savepoint():
+                    with mute_logger('gerp.sql_db'), self._cr.savepoint():
                         query = 'UPDATE "%(table)s" SET %(column)s = %%s WHERE %(column)s IN %%s' % query_dic
                         self._cr.execute(query, (dst_partner.id, tuple(src_partners.ids),))
 
@@ -180,7 +180,7 @@ class MergePartnerAutomatic(models.TransientModel):
                 return
             records = Model.sudo().search([(field_model, '=', 'res.partner'), (field_id, '=', src.id)])
             try:
-                with mute_logger('odoo.sql_db'), self._cr.savepoint():
+                with mute_logger('gerp.sql_db'), self._cr.savepoint():
                     return records.sudo().write({field_id: dst_partner.id})
             except psycopg2.Error:
                 # updating fails, most likely due to a violated unique constraint

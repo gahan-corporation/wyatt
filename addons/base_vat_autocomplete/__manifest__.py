@@ -12,7 +12,7 @@ Auto-Complete Addresses based on VAT numbers
     This module requires the python library stdnum to work.
     """,
     'depends': ['base_vat'],
-    'website': 'https://www.odoo.com/page/accounting',
+    'website': 'https://www.gerp.com/page/accounting',
     'data': [
         'views/res_partner_views.xml',
         'views/res_company_view.xml',

@@ -3,7 +3,7 @@
 
 import time
 
-from odoo import api, fields, models, _
+from gerp import api, fields, models, _
 
 
 class ProductMargin(models.TransientModel):

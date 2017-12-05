@@ -3,14 +3,14 @@
 import datetime
 from dateutil.relativedelta import relativedelta
 
-from odoo import fields, tools
-from odoo.addons.event.tests.common import TestEventCommon
-from odoo.tools import mute_logger
+from gerp import fields, tools
+from gerp.addons.event.tests.common import TestEventCommon
+from gerp.tools import mute_logger
 
 
 class TestMailSchedule(TestEventCommon):
 
-    @mute_logger('odoo.addons.base.ir.ir_model', 'odoo.models')
+    @mute_logger('gerp.addons.base.ir.ir_model', 'gerp.models')
     def test_00_event_mail_schedule(self):
         """ Test mail scheduling for events """
         now = fields.datetime.now()

@@ -11,10 +11,10 @@ import werkzeug.wrappers
 from PIL import Image, ImageFont, ImageDraw
 from lxml import etree, html
 
-from odoo.http import request
-from odoo import http, tools
-from odoo.tools import pycompat
-from odoo.modules.module import get_resource_path, get_module_path
+from gerp.http import request
+from gerp import http, tools
+from gerp.tools import pycompat
+from gerp.modules.module import get_resource_path, get_module_path
 
 logger = logging.getLogger(__name__)
 

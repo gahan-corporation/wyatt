@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.l10n_in_hr_payroll.tests.common import TestPaymentAdviceBase
+from gerp.addons.l10n_in_hr_payroll.tests.common import TestPaymentAdviceBase
 
 
 class TestPaymentAdviceBatch(TestPaymentAdviceBase):

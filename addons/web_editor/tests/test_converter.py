@@ -7,8 +7,8 @@ import unittest
 from lxml import etree, html
 from lxml.builder import E
 
-from odoo.tests import common
-from odoo.addons.web_editor.models.ir_qweb import html_to_text
+from gerp.tests import common
+from gerp.addons.web_editor.models.ir_qweb import html_to_text
 
 
 class TestHTMLToText(unittest.TestCase):

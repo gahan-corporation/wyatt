@@ -6,8 +6,8 @@ import poplib
 from imaplib import IMAP4, IMAP4_SSL
 from poplib import POP3, POP3_SSL
 
-from odoo import api, fields, models, tools, _
-from odoo.exceptions import UserError
+from gerp import api, fields, models, tools, _
+from gerp.exceptions import UserError
 
 
 _logger = logging.getLogger(__name__)

@@ -5,9 +5,9 @@ import math
 
 from werkzeug import urls
 
-from odoo import fields as odoo_fields, tools, _
-from odoo.exceptions import ValidationError
-from odoo.http import Controller, request, route
+from gerp import fields as gerp_fields, tools, _
+from gerp.exceptions import ValidationError
+from gerp.http import Controller, request, route
 
 # --------------------------------------------------
 # Misc tools
@@ -120,8 +120,8 @@ class CustomerPortal(Controller):
             dates, label = group[groupby]
             date_begin, date_end = dates.split('/')
             groups.append({
-                'date_begin': odoo_fields.Date.to_string(odoo_fields.Date.from_string(date_begin)),
-                'date_end': odoo_fields.Date.to_string(odoo_fields.Date.from_string(date_end)),
+                'date_begin': gerp_fields.Date.to_string(gerp_fields.Date.from_string(date_begin)),
+                'date_end': gerp_fields.Date.to_string(gerp_fields.Date.from_string(date_end)),
                 'name': label,
                 'item_count': group[groupby + '_count']
             })

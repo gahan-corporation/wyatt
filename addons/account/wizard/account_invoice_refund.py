@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api, _
-from odoo.tools.safe_eval import safe_eval
-from odoo.exceptions import UserError
+from gerp import models, fields, api, _
+from gerp.tools.safe_eval import safe_eval
+from gerp.exceptions import UserError
 
 
 class AccountInvoiceRefund(models.TransientModel):

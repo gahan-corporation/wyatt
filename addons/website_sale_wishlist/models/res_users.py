@@ -1,5 +1,5 @@
-from odoo import api, fields, models
-from odoo.http import request
+from gerp import api, fields, models
+from gerp.http import request
 
 
 class ResUsers(models.Model):

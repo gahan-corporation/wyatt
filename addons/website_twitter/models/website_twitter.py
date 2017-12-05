@@ -7,7 +7,7 @@ import logging
 
 import requests
 import werkzeug
-from odoo import api, fields, models
+from gerp import api, fields, models
 
 API_ENDPOINT = 'https://api.twitter.com'
 API_VERSION = '1.1'

@@ -3,9 +3,9 @@
 
 from collections import defaultdict
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.tools import float_compare, float_round, pycompat
+from gerp import api, fields, models, _
+from gerp.exceptions import UserError
+from gerp.tools import float_compare, float_round, pycompat
 
 import logging
 _logger = logging.getLogger(__name__)
@@ -583,7 +583,7 @@ class StockMove(models.Model):
                 self.with_context(force_company=company_from.id)._create_account_move_line(acc_valuation, acc_dest, journal_id)
 
         if self.company_id.anglo_saxon_accounting and self.location_id.usage == 'supplier' and self.location_dest_id.usage == 'customer':
-            # Creates an account entry from stock_input to stock_output on a dropship move. https://github.com/odoo/odoo/issues/12687
+            # Creates an account entry from stock_input to stock_output on a dropship move. https://github.com/gerp/gerp/issues/12687
             journal_id, acc_src, acc_dest, acc_valuation = self._get_accounting_data_for_valuation()
             self.with_context(force_company=self.company_id.id)._create_account_move_line(acc_src, acc_dest, journal_id)
 

@@ -7,10 +7,10 @@ import logging
 import math
 from datetime import timedelta
 
-from odoo import api, fields, models
-from odoo.exceptions import UserError, AccessError, ValidationError
-from odoo.tools import float_compare
-from odoo.tools.translate import _
+from gerp import api, fields, models
+from gerp.exceptions import UserError, AccessError, ValidationError
+from gerp.tools import float_compare
+from gerp.tools.translate import _
 
 _logger = logging.getLogger(__name__)
 

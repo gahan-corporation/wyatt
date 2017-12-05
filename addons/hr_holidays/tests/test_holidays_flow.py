@@ -3,15 +3,15 @@
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from odoo.exceptions import AccessError, ValidationError, UserError
-from odoo.tools import mute_logger, test_reports
+from gerp.exceptions import AccessError, ValidationError, UserError
+from gerp.tools import mute_logger, test_reports
 
-from odoo.addons.hr_holidays.tests.common import TestHrHolidaysBase
+from gerp.addons.hr_holidays.tests.common import TestHrHolidaysBase
 
 
 class TestHolidaysFlow(TestHrHolidaysBase):
 
-    @mute_logger('odoo.addons.base.ir.ir_model', 'odoo.models')
+    @mute_logger('gerp.addons.base.ir.ir_model', 'gerp.models')
     def test_00_leave_request_flow(self):
         """ Testing leave request flow """
         Holidays = self.env['hr.holidays']

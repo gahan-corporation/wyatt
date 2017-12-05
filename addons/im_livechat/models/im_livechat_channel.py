@@ -5,12 +5,12 @@ import random
 import re
 from datetime import datetime, timedelta
 
-from odoo import api, fields, models, modules, tools
+from gerp import api, fields, models, modules, tools
 
 class ImLivechatChannel(models.Model):
     """ Livechat Channel
         Define a communication channel, which can be accessed with 'script_external' (script tag to put on
-        external website), 'script_internal' (code to be integrated with odoo website) or via 'web_page' link.
+        external website), 'script_internal' (code to be integrated with gerp website) or via 'web_page' link.
         It provides rating tools, and access rules for anonymous people.
     """
 

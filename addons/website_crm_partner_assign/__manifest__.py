@@ -4,7 +4,7 @@
 {
     'name': 'Resellers',
     'category': 'Sales',
-    'website': 'https://www.odoo.com/page/website-builder',
+    'website': 'https://www.gerp.com/page/website-builder',
     'summary': 'Publish Your Channel of Resellers',
     'version': '1.0',
     'description': """

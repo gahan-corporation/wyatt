@@ -4,11 +4,11 @@
 import logging
 from itertools import groupby
 
-from odoo import api, fields, models
-from odoo import tools
-from odoo.addons.http_routing.models.ir_http import url_for
-from odoo.http import request
-from odoo.tools import pycompat
+from gerp import api, fields, models
+from gerp import tools
+from gerp.addons.http_routing.models.ir_http import url_for
+from gerp.http import request
+from gerp.tools import pycompat
 
 _logger = logging.getLogger(__name__)
 

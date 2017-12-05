@@ -4,7 +4,7 @@
     'name': 'Product Comparison And Product Attribute Category',
     'description': 'Product Comparison, Product Attribute Category and specification table',
     'author': 'Odoo SA',
-    'website': 'https://www.odoo.com',
+    'website': 'https://www.gerp.com',
     'category': 'Website',
     'version': '1.0',
     'depends': ['website_sale'],

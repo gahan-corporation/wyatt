@@ -40,7 +40,7 @@ The Dashboard for the Sales Manager will include
 * My Quotations
 * Monthly Turnover (Graph)
     """,
-    'website': 'https://www.odoo.com/page/sales',
+    'website': 'https://www.gerp.com/page/sales',
     'depends': ['sale', 'account_invoicing'],
     'data': [
         'views/sale_management_views.xml',

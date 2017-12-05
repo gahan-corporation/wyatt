@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
-from odoo.osv import expression
-from odoo.tools import html2plaintext
-from odoo.exceptions import AccessError
+from gerp import api, fields, models, _
+from gerp.osv import expression
+from gerp.tools import html2plaintext
+from gerp.exceptions import AccessError
 
 
 class MailMessage(models.Model):

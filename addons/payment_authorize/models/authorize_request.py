@@ -5,9 +5,9 @@ from lxml import etree, objectify
 from xml.etree import ElementTree as ET
 from uuid import uuid4
 
-from odoo import _
-from odoo.exceptions import ValidationError, UserError
-from odoo import _
+from gerp import _
+from gerp.exceptions import ValidationError, UserError
+from gerp import _
 
 XMLNS = 'AnetApi/xml/v1/schema/AnetApiSchema.xsd'
 

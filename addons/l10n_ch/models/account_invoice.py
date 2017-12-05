@@ -3,10 +3,10 @@
 
 import re
 
-from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError
-from odoo.tools.float_utils import float_split_str
-from odoo.tools.misc import mod10r
+from gerp import models, fields, api, _
+from gerp.exceptions import ValidationError
+from gerp.tools.float_utils import float_split_str
+from gerp.tools.misc import mod10r
 
 
 l10n_ch_ISR_NUMBER_LENGTH = 27

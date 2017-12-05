@@ -32,7 +32,7 @@ invoice and send propositions for membership renewal.
     'demo': [
         'data/membership_demo.xml',
     ],
-    'website': 'https://www.odoo.com/page/community-builder',
+    'website': 'https://www.gerp.com/page/community-builder',
     'test': [
         '../account/test/account_minimal_test.xml',
     ],

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models
-from odoo.addons.http_routing.models.ir_http import slug
+from gerp import api, fields, models
+from gerp.addons.http_routing.models.ir_http import slug
 
 
 class WebsiteResPartner(models.Model):

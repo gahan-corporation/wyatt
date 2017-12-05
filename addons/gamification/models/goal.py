@@ -5,10 +5,10 @@ import logging
 import time
 from datetime import date, datetime, timedelta
 
-from odoo import api, fields, models, _, exceptions
-from odoo.osv import expression
-from odoo.tools import pycompat
-from odoo.tools.safe_eval import safe_eval
+from gerp import api, fields, models, _, exceptions
+from gerp.osv import expression
+from gerp.tools import pycompat
+from gerp.tools.safe_eval import safe_eval
 
 _logger = logging.getLogger(__name__)
 

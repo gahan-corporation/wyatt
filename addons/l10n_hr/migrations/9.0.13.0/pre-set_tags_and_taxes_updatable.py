@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import odoo
+import gerp
 
 def migrate(cr, version):
-    registry = odoo.registry(cr.dbname)
-    from odoo.addons.account.models.chart_template import migrate_set_tags_and_taxes_updatable
+    registry = gerp.registry(cr.dbname)
+    from gerp.addons.account.models.chart_template import migrate_set_tags_and_taxes_updatable
     migrate_set_tags_and_taxes_updatable(cr, registry, 'l10n_hr')

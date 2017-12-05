@@ -6,7 +6,7 @@ from . import models
 from . import wizard
 from . import report
 
-from odoo import api, SUPERUSER_ID
+from gerp import api, SUPERUSER_ID
 
 SYSCOHADA_LIST = ['BJ', 'BF', 'CM', 'CF', 'KM', 'CG', 'CI', 'GA', 'GN', 'GW', 'GQ', 'ML', 'NE', 'CD', 'SN', 'TD', 'TG']
 

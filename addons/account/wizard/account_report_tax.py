@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models
+from gerp import models
 
 
 class AccountTaxReport(models.TransientModel):

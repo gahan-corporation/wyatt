@@ -5,11 +5,11 @@ import json
 
 import requests
 
-from odoo import api, fields, models
-from odoo.exceptions import AccessDenied, UserError
-from odoo.addons.auth_signup.models.res_users import SignupError
+from gerp import api, fields, models
+from gerp.exceptions import AccessDenied, UserError
+from gerp.addons.auth_signup.models.res_users import SignupError
 
-from odoo.addons import base
+from gerp.addons import base
 base.res.res_users.USER_PRIVATE_FIELDS.append('oauth_access_token')
 
 class ResUsers(models.Model):

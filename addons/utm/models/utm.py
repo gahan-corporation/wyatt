@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, SUPERUSER_ID
-from odoo.http import request
-from odoo.tools import pycompat
+from gerp import api, fields, models, SUPERUSER_ID
+from gerp.http import request
+from gerp.tools import pycompat
 
 
 class UtmMedium(models.Model):
@@ -52,9 +52,9 @@ class UtmMixin(models.AbstractModel):
         # methods of utm.mixin, but will ignore overridden method on crm.lead
         return [
             # ("URL_PARAMETER", "FIELD_NAME_MIXIN", "NAME_IN_COOKIES")
-            ('utm_campaign', 'campaign_id', 'odoo_utm_campaign'),
-            ('utm_source', 'source_id', 'odoo_utm_source'),
-            ('utm_medium', 'medium_id', 'odoo_utm_medium'),
+            ('utm_campaign', 'campaign_id', 'gerp_utm_campaign'),
+            ('utm_source', 'source_id', 'gerp_utm_source'),
+            ('utm_medium', 'medium_id', 'gerp_utm_medium'),
         ]
 
     @api.model

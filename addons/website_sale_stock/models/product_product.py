@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models
-from odoo.http import request
+from gerp import fields, models
+from gerp.http import request
 
 
 class ProductProduct(models.Model):

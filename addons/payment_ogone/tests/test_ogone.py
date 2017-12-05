@@ -3,12 +3,12 @@
 from lxml import objectify
 import time
 
-from odoo.addons.payment.models.payment_acquirer import ValidationError
-from odoo.addons.payment.tests.common import PaymentAcquirerCommon
-from odoo.addons.payment_ogone.controllers.main import OgoneController
+from gerp.addons.payment.models.payment_acquirer import ValidationError
+from gerp.addons.payment.tests.common import PaymentAcquirerCommon
+from gerp.addons.payment_ogone.controllers.main import OgoneController
 from werkzeug import urls
 
-from odoo.tools import mute_logger
+from gerp.tools import mute_logger
 
 
 class OgonePayment(PaymentAcquirerCommon):
@@ -95,7 +95,7 @@ class OgonePayment(PaymentAcquirerCommon):
                 'ogone: wrong value for form input %s: received %s instead of %s' % (form_input.get('name'), form_input.get('value'), form_values[form_input.get('name')])
             )
 
-    @mute_logger('odoo.addons.payment_ogone.models.payment', 'ValidationError')
+    @mute_logger('gerp.addons.payment_ogone.models.payment', 'ValidationError')
     def test_20_ogone_form_management(self):
         # be sure not to do stupid thing
         self.assertEqual(self.ogone.environment, 'test', 'test without test environment')

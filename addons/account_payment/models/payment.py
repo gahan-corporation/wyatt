@@ -3,8 +3,8 @@
 
 import logging
 
-from odoo import fields, models, _
-from odoo.tools import float_compare
+from gerp import fields, models, _
+from gerp.tools import float_compare
 
 _logger = logging.getLogger(__name__)
 

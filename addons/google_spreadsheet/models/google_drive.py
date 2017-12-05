@@ -8,9 +8,9 @@ from lxml import etree
 import re
 import werkzeug.urls
 
-from odoo import api, models
-from odoo.tools import misc
-from odoo.addons.google_account import TIMEOUT
+from gerp import api, models
+from gerp.tools import misc
+from gerp.addons.google_account import TIMEOUT
 
 _logger = logging.getLogger(__name__)
 

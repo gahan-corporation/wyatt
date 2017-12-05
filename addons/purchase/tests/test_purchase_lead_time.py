@@ -3,7 +3,7 @@
 
 from datetime import timedelta
 
-from odoo import fields
+from gerp import fields
 from .common import TestPurchase
 
 

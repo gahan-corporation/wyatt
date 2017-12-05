@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models
+from gerp import api, fields, models
 
 
 class Notification(models.Model):

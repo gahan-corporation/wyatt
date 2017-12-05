@@ -2,10 +2,10 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 import re
-import odoo.tests
+import gerp.tests
 
 
-class WebSuite(odoo.tests.HttpCase):
+class WebSuite(gerp.tests.HttpCase):
 
     post_install = True
     at_install = False

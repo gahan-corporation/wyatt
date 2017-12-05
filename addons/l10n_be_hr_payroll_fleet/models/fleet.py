@@ -3,9 +3,9 @@
 
 import babel.dates
 
-from odoo import api, fields, models
+from gerp import api, fields, models
 
-from odoo.fields import Datetime
+from gerp.fields import Datetime
 
 
 class FleetVehicle(models.Model):

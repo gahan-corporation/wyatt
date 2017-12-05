@@ -3,8 +3,8 @@
 
 import werkzeug
 
-from odoo import http
-from odoo.http import request
+from gerp import http
+from gerp.http import request
 
 
 class LinkTracker(http.Controller):

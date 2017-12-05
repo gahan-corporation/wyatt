@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models
-from odoo.exceptions import UserError
-from odoo.addons.iap.models import iap
+from gerp import api, fields, models
+from gerp.exceptions import UserError
+from gerp.addons.iap.models import iap
 
-DEFAULT_ENDPOINT = 'https://iap-sms.odoo.com'
+DEFAULT_ENDPOINT = 'https://iap-sms.gerp.com'
 
 
 class SmsApi(models.AbstractModel):

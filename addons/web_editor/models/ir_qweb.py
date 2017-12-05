@@ -25,12 +25,12 @@ from lxml import etree, html
 from PIL import Image as I
 from werkzeug import urls
 
-import odoo.modules
+import gerp.modules
 
-from odoo import api, models, fields
-from odoo.tools import ustr, pycompat
-from odoo.tools import html_escape as escape
-from odoo.addons.base.ir import ir_qweb
+from gerp import api, models, fields
+from gerp.tools import ustr, pycompat
+from gerp.tools import html_escape as escape
+from gerp.addons.base.ir import ir_qweb
 
 REMOTE_CONNECTION_TIMEOUT = 2.5
 
@@ -332,7 +332,7 @@ class Image(models.AbstractModel):
             if sep and sep != '/':
                 rest.replace(sep, '/')
 
-        path = odoo.modules.get_module_resource(
+        path = gerp.modules.get_module_resource(
             match.group('module'), 'static', *(rest.split('/')))
 
         if not path:

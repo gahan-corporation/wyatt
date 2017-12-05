@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models
-from odoo.addons.bus.models.bus_presence import AWAY_TIMER
-from odoo.addons.bus.models.bus_presence import DISCONNECTION_TIMER
+from gerp import api, fields, models
+from gerp.addons.bus.models.bus_presence import AWAY_TIMER
+from gerp.addons.bus.models.bus_presence import DISCONNECTION_TIMER
 
 
 class ResUsers(models.Model):

@@ -3,8 +3,8 @@
 
 import itertools
 
-from odoo import models, fields, api
-from odoo.http import request
+from gerp import models, fields, api
+from gerp.http import request
 
 
 class website_form_config(models.Model):

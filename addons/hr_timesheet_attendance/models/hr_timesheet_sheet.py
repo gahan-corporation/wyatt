@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models
-from odoo.tools.translate import _
-from odoo.exceptions import UserError
+from gerp import api, fields, models
+from gerp.tools.translate import _
+from gerp.exceptions import UserError
 
 
 class HrTimesheetSheet(models.Model):

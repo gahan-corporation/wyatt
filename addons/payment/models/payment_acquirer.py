@@ -4,10 +4,10 @@ import hmac
 import logging
 import datetime
 
-from odoo import api, exceptions, fields, models, _
-from odoo.tools import consteq, float_round, image_resize_images, image_resize_image, ustr
-from odoo.addons.base.module import module
-from odoo.exceptions import ValidationError
+from gerp import api, exceptions, fields, models, _
+from gerp.tools import consteq, float_round, image_resize_images, image_resize_image, ustr
+from gerp.addons.base.module import module
+from gerp.exceptions import ValidationError
 
 _logger = logging.getLogger(__name__)
 

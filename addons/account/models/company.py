@@ -3,10 +3,10 @@
 from datetime import timedelta, datetime
 import calendar
 
-from odoo import fields, models, api, _
-from odoo.exceptions import ValidationError
-from odoo.exceptions import UserError
-from odoo.tools.float_utils import float_round, float_is_zero
+from gerp import fields, models, api, _
+from gerp.exceptions import ValidationError
+from gerp.exceptions import UserError
+from gerp.tools.float_utils import float_round, float_is_zero
 
 
 class ResCompany(models.Model):

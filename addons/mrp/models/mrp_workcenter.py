@@ -4,7 +4,7 @@
 from dateutil import relativedelta
 import datetime
 
-from odoo import api, exceptions, fields, models, _
+from gerp import api, exceptions, fields, models, _
 
 
 class MrpWorkcenter(models.Model):

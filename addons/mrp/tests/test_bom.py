@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import exceptions
-from odoo.addons.mrp.tests.common import TestMrpCommon
+from gerp import exceptions
+from gerp.addons.mrp.tests.common import TestMrpCommon
 
 
 class TestBoM(TestMrpCommon):

@@ -3,9 +3,9 @@
 import base64
 import uuid
 
-from odoo import api, fields, models, tools, _
+from gerp import api, fields, models, tools, _
 
-from odoo.modules.module import get_resource_path
+from gerp.modules.module import get_resource_path
 
 RATING_LIMIT_SATISFIED = 7
 RATING_LIMIT_OK = 3

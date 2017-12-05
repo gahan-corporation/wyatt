@@ -4,9 +4,9 @@
 import base64
 import re
 
-from odoo import _, api, fields, models, SUPERUSER_ID, tools
-from odoo.tools import pycompat
-from odoo.tools.safe_eval import safe_eval
+from gerp import _, api, fields, models, SUPERUSER_ID, tools
+from gerp.tools import pycompat
+from gerp.tools.safe_eval import safe_eval
 
 
 # main mako-like expression pattern

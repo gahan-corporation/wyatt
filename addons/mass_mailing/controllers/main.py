@@ -4,9 +4,9 @@ import base64
 
 import werkzeug
 
-from odoo import _, exceptions, http
-from odoo.http import request
-from odoo.tools import consteq
+from gerp import _, exceptions, http
+from gerp.http import request
+from gerp.tools import consteq
 
 
 class MassMailController(http.Controller):

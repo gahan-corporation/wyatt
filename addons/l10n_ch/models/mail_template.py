@@ -3,8 +3,8 @@
 
 import base64
 
-from odoo import api, models
-from odoo.tools import pycompat
+from gerp import api, models
+from gerp.tools import pycompat
 
 
 class MailTemplate(models.Model):

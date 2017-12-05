@@ -6,9 +6,9 @@ from collections import OrderedDict
 import json
 import datetime
 
-from odoo import api, fields, models, _
-from odoo.exceptions import AccessError, ValidationError
-from odoo.addons import decimal_precision as dp
+from gerp import api, fields, models, _
+from gerp.exceptions import AccessError, ValidationError
+from gerp.addons import decimal_precision as dp
 
 
 class LunchOrder(models.Model):

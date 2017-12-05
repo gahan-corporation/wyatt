@@ -9,9 +9,9 @@ from collections import Counter, OrderedDict
 from itertools import product
 from werkzeug import urls
 
-from odoo import api, fields, models, tools, SUPERUSER_ID, _
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.exceptions import UserError, ValidationError
+from gerp import api, fields, models, tools, SUPERUSER_ID, _
+from gerp.addons.http_routing.models.ir_http import slug
+from gerp.exceptions import UserError, ValidationError
 email_validator = re.compile(r"[^@]+@[^@]+\.[^@]+")
 _logger = logging.getLogger(__name__)
 

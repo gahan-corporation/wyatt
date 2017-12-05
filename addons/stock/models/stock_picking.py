@@ -6,11 +6,11 @@ import json
 import time
 
 from itertools import groupby
-from odoo import api, fields, models, _
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
-from odoo.tools.float_utils import float_compare, float_round
-from odoo.exceptions import UserError
-from odoo.addons.stock.models.stock_move import PROCUREMENT_PRIORITIES
+from gerp import api, fields, models, _
+from gerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
+from gerp.tools.float_utils import float_compare, float_round
+from gerp.exceptions import UserError
+from gerp.addons.stock.models.stock_move import PROCUREMENT_PRIORITIES
 from operator import itemgetter
 
 

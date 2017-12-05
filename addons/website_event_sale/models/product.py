@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models
+from gerp import fields, models
 
 
 # defined for access rules

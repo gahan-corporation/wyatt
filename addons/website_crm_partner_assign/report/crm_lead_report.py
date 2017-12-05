@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models
-from odoo import tools
-from odoo.addons.crm.models import crm_stage
+from gerp import api, fields, models
+from gerp import tools
+from gerp.addons.crm.models import crm_stage
 
 
 class CrmLeadReportAssign(models.Model):

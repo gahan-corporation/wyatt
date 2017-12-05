@@ -8,12 +8,12 @@ import pytz
 import babel.dates
 from collections import OrderedDict
 
-from odoo import http, fields, _
-from odoo.addons.http_routing.models.ir_http import slug, unslug
-from odoo.addons.website.controllers.main import QueryURL
-from odoo.exceptions import UserError
-from odoo.http import request
-from odoo.tools import html2plaintext
+from gerp import http, fields, _
+from gerp.addons.http_routing.models.ir_http import slug, unslug
+from gerp.addons.website.controllers.main import QueryURL
+from gerp.exceptions import UserError
+from gerp.http import request
+from gerp.tools import html2plaintext
 
 
 class WebsiteBlog(http.Controller):

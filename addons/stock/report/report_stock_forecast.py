@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models, tools
+from gerp import api, fields, models, tools
 
 
 class ReportStockForecat(models.Model):

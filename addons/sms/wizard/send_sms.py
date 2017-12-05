@@ -3,9 +3,9 @@
 import logging
 
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.addons.iap.models import iap
+from gerp import api, fields, models, _
+from gerp.exceptions import UserError
+from gerp.addons.iap.models import iap
 
 _logger = logging.getLogger(__name__)
 

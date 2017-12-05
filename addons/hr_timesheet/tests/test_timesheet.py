@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests.common import TransactionCase
-from odoo.exceptions import AccessError
+from gerp.tests.common import TransactionCase
+from gerp.exceptions import AccessError
 
 
 class TestTimesheet(TransactionCase):

@@ -4,9 +4,9 @@
 from itertools import groupby
 from operator import itemgetter
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.tools import pycompat
+from gerp import api, fields, models, _
+from gerp.exceptions import UserError
+from gerp.tools import pycompat
 
 FIELD_STATES = [('clear', 'Clear'), ('anonymized', 'Anonymized'), ('not_existing', 'Not Existing'), ('new', 'New')]
 ANONYMIZATION_HISTORY_STATE = [('started', 'Started'), ('done', 'Done'), ('in_exception', 'Exception occured')]

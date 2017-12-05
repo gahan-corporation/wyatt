@@ -8,7 +8,7 @@
     'sequence': 5,
     'summary': 'Leads, Opportunities, Activities',
     'description': "",
-    'website': 'https://www.odoo.com/page/crm',
+    'website': 'https://www.gerp.com/page/crm',
     'depends': [
         'base_setup',
         'sales_team',

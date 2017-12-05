@@ -6,7 +6,7 @@
     'version': '1.0',
     'category': 'Tools',
     'description': "",
-    'website': 'https://www.odoo.com/page/notes',
+    'website': 'https://www.gerp.com/page/notes',
     'summary': 'Sticky notes, Collaborative, Memos',
     'sequence': 45,
     'depends': [

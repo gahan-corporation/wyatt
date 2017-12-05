@@ -5,7 +5,7 @@
 {
     'name': 'Manufacturing',
     'version': '2.0',
-    'website': 'https://www.odoo.com/page/manufacturing',
+    'website': 'https://www.gerp.com/page/manufacturing',
     'category': 'Manufacturing',
     'sequence': 14,
     'summary': 'Manufacturing Orders, Bill of Materials, Routings',

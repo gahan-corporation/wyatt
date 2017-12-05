@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo.api import Environment
-import odoo.tests
+from gerp.api import Environment
+import gerp.tests
 
-@odoo.tests.common.at_install(False)
-@odoo.tests.common.post_install(True)
-class TestWebsiteHrRecruitmentForm(odoo.tests.HttpCase):
+@gerp.tests.common.at_install(False)
+@gerp.tests.common.post_install(True)
+class TestWebsiteHrRecruitmentForm(gerp.tests.HttpCase):
     def test_tour(self):
-        self.phantom_js("/", "odoo.__DEBUG__.services['web_tour.tour'].run('website_hr_recruitment_tour')", "odoo.__DEBUG__.services['web_tour.tour'].tours.website_hr_recruitment_tour.ready")
+        self.phantom_js("/", "gerp.__DEBUG__.services['web_tour.tour'].run('website_hr_recruitment_tour')", "gerp.__DEBUG__.services['web_tour.tour'].tours.website_hr_recruitment_tour.ready")
 
         # get test cursor to read from same transaction browser is writing to
         cr = self.registry.cursor()

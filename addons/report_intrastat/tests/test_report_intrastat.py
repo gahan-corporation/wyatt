@@ -2,9 +2,9 @@
 
 import os
 
-from odoo import tools
-from odoo.tests import common
-from odoo.modules.module import get_module_resource
+from gerp import tools
+from gerp.tests import common
+from gerp.modules.module import get_module_resource
 
 
 class RepoortIntrastatTest(common.TransactionCase):

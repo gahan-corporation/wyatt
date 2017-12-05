@@ -13,7 +13,7 @@ from docutils import nodes
 from sphinx import addnodes, util
 from sphinx.locale import admonitionlabels
 
-from odoo.tools import pycompat
+from gerp.tools import pycompat
 
 
 def _parents(node):
@@ -642,11 +642,11 @@ class BootstrapTranslator(nodes.NodeVisitor, object):
                 baseuri = self.builder.get_target_uri(node['parent'])
 
                 if subref in env.metadata:
-                    cover = env.metadata[subref].get('banner', conf.odoo_cover_default)
-                elif subref in conf.odoo_cover_external:
-                    cover = conf.odoo_cover_external[subref]
+                    cover = env.metadata[subref].get('banner', conf.gerp_cover_default)
+                elif subref in conf.gerp_cover_external:
+                    cover = conf.gerp_cover_external[subref]
                 else:
-                    cover = conf.odoo_cover_default_external
+                    cover = conf.gerp_cover_default_external
 
                 if cover:
                     banner = '_static/' + cover

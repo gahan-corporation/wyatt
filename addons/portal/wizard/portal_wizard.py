@@ -3,11 +3,11 @@
 
 import logging
 
-from odoo.tools.translate import _
-from odoo.tools import email_split
-from odoo.exceptions import UserError
+from gerp.tools.translate import _
+from gerp.tools import email_split
+from gerp.exceptions import UserError
 
-from odoo import api, fields, models
+from gerp import api, fields, models
 
 
 _logger = logging.getLogger(__name__)

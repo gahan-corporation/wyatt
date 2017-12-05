@@ -2,8 +2,8 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 import logging
 
-from odoo.addons.mail.controllers.main import MailController
-from odoo import http
+from gerp.addons.mail.controllers.main import MailController
+from gerp import http
 
 _logger = logging.getLogger(__name__)
 

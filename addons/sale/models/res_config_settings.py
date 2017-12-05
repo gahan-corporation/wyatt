@@ -3,7 +3,7 @@
 
 from ast import literal_eval
 
-from odoo import api, fields, models
+from gerp import api, fields, models
 
 
 class ResConfigSettings(models.TransientModel):

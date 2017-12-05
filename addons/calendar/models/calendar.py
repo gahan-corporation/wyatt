@@ -15,11 +15,11 @@ import re
 import time
 import uuid
 
-from odoo import api, fields, models
-from odoo import tools
-from odoo.tools.translate import _
-from odoo.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT, pycompat
-from odoo.exceptions import UserError, ValidationError
+from gerp import api, fields, models
+from gerp import tools
+from gerp.tools.translate import _
+from gerp.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT, pycompat
+from gerp.exceptions import UserError, ValidationError
 
 
 _logger = logging.getLogger(__name__)
@@ -1243,7 +1243,7 @@ class Meeting(models.Model):
             data['month_by'] = 'date'
             data['rrule_type'] = 'monthly'
 
-        #repeat yearly but for odoo it's monthly, take same information as monthly but interval is 12 times
+        #repeat yearly but for gerp it's monthly, take same information as monthly but interval is 12 times
         if rule._bymonth:
             data['interval'] = data['interval'] * 12
 

@@ -2,8 +2,8 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 import logging
 
-from odoo import api, fields, models, _
-from odoo.tools import float_compare
+from gerp import api, fields, models, _
+from gerp.tools import float_compare
 
 _logger = logging.getLogger(__name__)
 

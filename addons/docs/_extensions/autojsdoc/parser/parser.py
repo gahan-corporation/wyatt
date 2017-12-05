@@ -13,7 +13,7 @@ DECLARATOR_INIT_TO_REF = ('Literal', 'Identifier', 'MemberExpression')
 class ModuleMatcher(Visitor):
     """Looks for structures of the form::
 
-        odoo.define($string, function ($name) {
+        gerp.define($string, function ($name) {
 
     These are *Odoo module definitions*, upon encountering one the
     matcher:
@@ -32,7 +32,7 @@ class ModuleMatcher(Visitor):
         # we're interested in expression statements (toplevel call)
         if utils.match(node, {'expression': {
             'callee': {
-                'object': {'name': 'odoo'},
+                'object': {'name': 'gerp'},
                 'property': {'name': 'define'},
             },
         }}):
@@ -191,8 +191,8 @@ BASE_SCOPE = BaseScope(None, {
             })),
         ]
     }),
-    'odoo': jsdoc.UnknownNS({
-        'name': u'odoo',
+    'gerp': jsdoc.UnknownNS({
+        'name': u'gerp',
         'doc': u"Odoo",
         '_members': [
             ('name', jsdoc.PropertyDoc({'name': u'csrf_token', 'type': u'{String}'})),

@@ -4,7 +4,7 @@
 import random
 import unittest
 
-from odoo.tools import topological_sort
+from gerp.tools import topological_sort
 
 
 def sample(population):

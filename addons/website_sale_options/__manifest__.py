@@ -5,7 +5,7 @@
     'name': 'eCommerce Optional Products',
     'category': 'Website',
     'version': '1.0',
-    'website': 'https://www.odoo.com/page/e-commerce',
+    'website': 'https://www.gerp.com/page/e-commerce',
     'description': """
 Odoo E-Commerce
 ==================

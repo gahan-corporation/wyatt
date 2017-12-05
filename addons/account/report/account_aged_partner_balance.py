@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import time
-from odoo import api, models, _
-from odoo.exceptions import UserError
-from odoo.tools import float_is_zero
+from gerp import api, models, _
+from gerp.exceptions import UserError
+from gerp.tools import float_is_zero
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 

@@ -6,9 +6,9 @@ import os
 import subprocess
 import threading
 
-from odoo import http
+from gerp import http
 
-from odoo.addons.hw_proxy.controllers import main as hw_proxy
+from gerp.addons.hw_proxy.controllers import main as hw_proxy
 
 _logger = logging.getLogger(__name__)
 
@@ -68,9 +68,9 @@ upgrade_template = """
 	internet. 
 	<p></p>
         However the preferred method to upgrade the posbox is to flash the sd-card with
-        the <a href='http://nightly.odoo.com/trunk/posbox/'>latest image</a>. The upgrade
+        the <a href='http://nightly.gerp.com/trunk/posbox/'>latest image</a>. The upgrade
         procedure is explained into to the
-        <a href='https://www.odoo.com/documentation/user/point_of_sale/posbox/index.html'>PosBox manual</a>
+        <a href='https://www.gerp.com/documentation/user/point_of_sale/posbox/index.html'>PosBox manual</a>
         </p>
         <p>
         To upgrade the posbox, click on the upgrade button. The upgrade will take a few minutes. <b>Do not reboot</b> the PosBox during the upgrade.
@@ -80,7 +80,7 @@ upgrade_template = """
         </p>
         <pre>
 """
-upgrade_template += subprocess.check_output("git --work-tree=/home/pi/odoo/ --git-dir=/home/pi/odoo/.git log -1", shell=True).replace("\n", "<br/>")
+upgrade_template += subprocess.check_output("git --work-tree=/home/pi/gerp/ --git-dir=/home/pi/gerp/.git log -1", shell=True).replace("\n", "<br/>")
 upgrade_template += """
         </pre>
         <div class='centering'>
@@ -104,7 +104,7 @@ class PosboxUpgrader(hw_proxy.Proxy):
     def perform_upgrade(self):
         self.upgrading.acquire()
 
-        os.system('/home/pi/odoo/addons/point_of_sale/tools/posbox/configuration/posbox_update.sh')
+        os.system('/home/pi/gerp/addons/point_of_sale/tools/posbox/configuration/posbox_update.sh')
         
         self.upgrading.release()
         return 'SUCCESS'

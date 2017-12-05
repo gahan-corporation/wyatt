@@ -8,10 +8,10 @@ from itertools import product
 
 from werkzeug import urls
 
-from odoo import _
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.exceptions import UserError
-from odoo.tests.common import TransactionCase
+from gerp import _
+from gerp.addons.http_routing.models.ir_http import slug
+from gerp.exceptions import UserError
+from gerp.tests.common import TransactionCase
 
 class TestSurvey(TransactionCase):
 

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import http
-from odoo.tools import config
-from odoo.addons.web.controllers import main as web
+from gerp import http
+from gerp.tools import config
+from gerp.addons.web.controllers import main as web
 from openerp.addons.hw_posbox_homepage.controllers import main as homepage
 
 import logging

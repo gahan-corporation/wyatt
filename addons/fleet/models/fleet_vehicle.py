@@ -3,7 +3,7 @@
 
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models, _
+from gerp import api, fields, models, _
 
 
 class FleetVehicle(models.Model):

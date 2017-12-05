@@ -4,7 +4,7 @@
 {
     'name': 'Project',
     'version': '1.1',
-    'website': 'https://www.odoo.com/page/project-management',
+    'website': 'https://www.gerp.com/page/project-management',
     'category': 'Project',
     'sequence': 10,
     'summary': 'Projects, Tasks',

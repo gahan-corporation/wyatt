@@ -24,9 +24,9 @@ from email.utils import formataddr
 from lxml import etree
 from werkzeug import url_encode
 
-from odoo import _, api, exceptions, fields, models, tools
-from odoo.tools import pycompat
-from odoo.tools.safe_eval import safe_eval
+from gerp import _, api, exceptions, fields, models, tools
+from gerp.tools import pycompat
+from gerp.tools.safe_eval import safe_eval
 
 
 _logger = logging.getLogger(__name__)
@@ -986,7 +986,7 @@ class MailThread(models.AbstractModel):
            message model/thread_id pair and ignore custom_value as no creation will
            take place
          * if the message replies to an existing thread by having In-Reply-To or
-           References matching odoo model/thread_id Message-Id and if this thread
+           References matching gerp model/thread_id Message-Id and if this thread
            has messages without message_id, take this model/thread_id pair and
            ignore custom_value as no creation will take place (6.1 compatibility)
          * look for a mail.alias entry matching the message recipients and use the
@@ -1921,7 +1921,7 @@ class MailThread(models.AbstractModel):
         handle ir ui views. """
         values = kwargs.pop('values', None) or dict()
         try:
-            from odoo.addons.http_routing.models.ir_http import slug
+            from gerp.addons.http_routing.models.ir_http import slug
             values['slug'] = slug
         except ImportError:
             values['slug'] = lambda self: self.id

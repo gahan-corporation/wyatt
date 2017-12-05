@@ -5,7 +5,7 @@ import datetime
 
 from werkzeug import urls
 
-from odoo import api, fields, models, tools
+from gerp import api, fields, models, tools
 
 
 class ResConfigSettings(models.TransientModel):

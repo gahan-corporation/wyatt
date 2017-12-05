@@ -4,10 +4,10 @@
 import logging
 import threading
 
-from odoo.tools.misc import split_every
+from gerp.tools.misc import split_every
 
-from odoo import _, api, fields, models, registry, SUPERUSER_ID
-from odoo.osv import expression
+from gerp import _, api, fields, models, registry, SUPERUSER_ID
+from gerp.osv import expression
 
 _logger = logging.getLogger(__name__)
 

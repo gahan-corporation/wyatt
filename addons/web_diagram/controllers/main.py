@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-import odoo.http as http
+import gerp.http as http
 
-from odoo.tools.safe_eval import safe_eval
+from gerp.tools.safe_eval import safe_eval
 
 
 class DiagramView(http.Controller):

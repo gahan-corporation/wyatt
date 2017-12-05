@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See ICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
-from odoo.addons import decimal_precision as dp
-from odoo.exceptions import UserError
+from gerp import api, fields, models, _
+from gerp.addons import decimal_precision as dp
+from gerp.exceptions import UserError
 
 
 class ReturnPickingLine(models.TransientModel):

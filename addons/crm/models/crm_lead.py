@@ -5,10 +5,10 @@ import logging
 from datetime import datetime, timedelta, date
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models, tools, SUPERUSER_ID
-from odoo.tools.translate import _
-from odoo.tools import email_re, email_split
-from odoo.exceptions import UserError, AccessError
+from gerp import api, fields, models, tools, SUPERUSER_ID
+from gerp.tools.translate import _
+from gerp.tools import email_re, email_split
+from gerp.exceptions import UserError, AccessError
 
 from . import crm_stage
 

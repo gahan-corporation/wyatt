@@ -6,9 +6,9 @@ import re
 
 from email.utils import formataddr
 
-from odoo import _, api, fields, models, modules, SUPERUSER_ID, tools
-from odoo.exceptions import UserError, AccessError
-from odoo.osv import expression
+from gerp import _, api, fields, models, modules, SUPERUSER_ID, tools
+from gerp.exceptions import UserError, AccessError
+from gerp.osv import expression
 
 _logger = logging.getLogger(__name__)
 _image_dataurl = re.compile(r'(data:image/[a-z]+?);base64,([a-z0-9+/]{3,}=*)([\'"])', re.I)

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models
-from odoo.exceptions import UserError
+from gerp import api, fields, models
+from gerp.exceptions import UserError
 
 LANG_CODE_MAPPING = {
     'ar_SY': ('ar', 'Arabic'),

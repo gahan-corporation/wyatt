@@ -1,7 +1,7 @@
-from odoo.addons.account.tests.account_test_classes import AccountingTestCase
-from odoo.osv.orm import except_orm
+from gerp.addons.account.tests.account_test_classes import AccountingTestCase
+from gerp.osv.orm import except_orm
 from datetime import datetime, timedelta
-from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
+from gerp.tools import DEFAULT_SERVER_DATE_FORMAT
 
 class TestPeriodState(AccountingTestCase):
     """

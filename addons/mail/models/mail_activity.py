@@ -3,7 +3,7 @@
 
 from datetime import date, datetime, timedelta
 
-from odoo import api, exceptions, fields, models, _
+from gerp import api, exceptions, fields, models, _
 
 
 class MailActivityType(models.Model):

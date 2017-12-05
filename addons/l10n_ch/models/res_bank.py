@@ -3,8 +3,8 @@
 
 import re
 
-from odoo import api, fields, models
-from odoo.tools.misc import mod10r
+from gerp import api, fields, models
+from gerp.tools.misc import mod10r
 
 
 def _is_l10n_ch_postal(account_ref):

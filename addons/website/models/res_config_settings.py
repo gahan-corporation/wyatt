@@ -3,8 +3,8 @@
 
 from ast import literal_eval
 
-from odoo import api, fields, models
-from odoo.exceptions import AccessDenied
+from gerp import api, fields, models
+from gerp.exceptions import AccessDenied
 
 
 class ResConfigSettings(models.TransientModel):

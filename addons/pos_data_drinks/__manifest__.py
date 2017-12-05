@@ -18,6 +18,6 @@
     'qweb': [
     ],
     'installable': True,
-    'website': 'https://www.odoo.com/page/point-of-sale',
+    'website': 'https://www.gerp.com/page/point-of-sale',
     'auto_install': False,
 }

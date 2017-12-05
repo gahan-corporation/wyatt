@@ -3,7 +3,7 @@
 
 import json
 
-from odoo.http import Controller, Response, request, route
+from gerp.http import Controller, Response, request, route
 
 
 class website_gengo(Controller):

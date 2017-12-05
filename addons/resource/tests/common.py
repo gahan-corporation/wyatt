@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo.fields import Datetime
-from odoo.tests.common import TransactionCase
+from gerp.fields import Datetime
+from gerp.tests.common import TransactionCase
 
 
 class TestResourceCommon(TransactionCase):

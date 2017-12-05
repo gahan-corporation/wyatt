@@ -3,10 +3,10 @@
 import logging
 import requests
 
-from odoo import api, fields, models, _
-from odoo.addons.payment.models.payment_acquirer import ValidationError
-from odoo.exceptions import UserError
-from odoo.tools.safe_eval import safe_eval
+from gerp import api, fields, models, _
+from gerp.addons.payment.models.payment_acquirer import ValidationError
+from gerp.exceptions import UserError
+from gerp.tools.safe_eval import safe_eval
 
 _logger = logging.getLogger(__name__)
 

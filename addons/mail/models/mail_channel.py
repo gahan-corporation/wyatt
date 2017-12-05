@@ -6,11 +6,11 @@ from email.utils import formataddr
 import re
 import uuid
 
-from odoo import _, api, fields, models, modules, tools
-from odoo.exceptions import UserError
-from odoo.osv import expression
-from odoo.tools import ormcache
-from odoo.tools.safe_eval import safe_eval
+from gerp import _, api, fields, models, modules, tools
+from gerp.exceptions import UserError
+from gerp.osv import expression
+from gerp.tools import ormcache
+from gerp.tools.safe_eval import safe_eval
 
 
 class ChannelPartner(models.Model):

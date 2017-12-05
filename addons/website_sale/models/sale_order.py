@@ -5,10 +5,10 @@ import random
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, models, fields, _
-from odoo.http import request
-from odoo.osv import expression
-from odoo.exceptions import UserError, ValidationError
+from gerp import api, models, fields, _
+from gerp.http import request
+from gerp.osv import expression
+from gerp.exceptions import UserError, ValidationError
 
 _logger = logging.getLogger(__name__)
 

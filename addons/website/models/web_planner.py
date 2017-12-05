@@ -3,7 +3,7 @@
 
 import json
 
-from odoo import api, models
+from gerp import api, models
 
 
 class WebsitePlanner(models.Model):

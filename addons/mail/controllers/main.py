@@ -8,11 +8,11 @@ import werkzeug
 
 from werkzeug import url_encode
 
-from odoo import api, http, registry, SUPERUSER_ID, _
-from odoo.addons.web.controllers.main import binary_content
-from odoo.exceptions import AccessError
-from odoo.http import request
-from odoo.tools import consteq, pycompat
+from gerp import api, http, registry, SUPERUSER_ID, _
+from gerp.addons.web.controllers.main import binary_content
+from gerp.exceptions import AccessError
+from gerp.http import request
+from gerp.tools import consteq, pycompat
 
 _logger = logging.getLogger(__name__)
 

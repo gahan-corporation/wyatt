@@ -5,8 +5,8 @@ import ldap
 import logging
 from ldap.filter import filter_format
 
-from odoo import api, fields, models, tools
-from odoo.tools.pycompat import to_native
+from gerp import api, fields, models, tools
+from gerp.tools.pycompat import to_native
 
 _logger = logging.getLogger(__name__)
 

@@ -3,10 +3,10 @@
 
 import werkzeug
 
-from odoo.addons.mail.controllers.main import MailController
-from odoo.exceptions import AccessError
-from odoo.http import request
-from odoo.tools.misc import consteq
+from gerp.addons.mail.controllers.main import MailController
+from gerp.exceptions import AccessError
+from gerp.http import request
+from gerp.tools.misc import consteq
 
 
 class MailController(MailController):

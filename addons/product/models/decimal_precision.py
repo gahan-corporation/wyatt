@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, models, tools, _
-from odoo.exceptions import ValidationError
+from gerp import api, models, tools, _
+from gerp.exceptions import ValidationError
 
 
 class DecimalPrecision(models.Model):

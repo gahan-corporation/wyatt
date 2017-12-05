@@ -3,11 +3,11 @@
 
 from collections import OrderedDict
 
-from odoo import http, _
-from odoo.http import request
-from odoo.addons.portal.controllers.portal import get_records_pager, CustomerPortal, pager as portal_pager
+from gerp import http, _
+from gerp.http import request
+from gerp.addons.portal.controllers.portal import get_records_pager, CustomerPortal, pager as portal_pager
 
-from odoo.osv.expression import OR
+from gerp.osv.expression import OR
 
 
 class CustomerPortal(CustomerPortal):

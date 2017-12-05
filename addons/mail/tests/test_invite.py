@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.mail.tests.common import TestMail
-from odoo.tools import mute_logger
+from gerp.addons.mail.tests.common import TestMail
+from gerp.tools import mute_logger
 
 
 class TestInvite(TestMail):
 
-    @mute_logger('odoo.addons.mail.models.mail_mail')
+    @mute_logger('gerp.addons.mail.models.mail_mail')
     def test_invite_email(self):
         mail_invite = self.env['mail.wizard.invite'].with_context({
             'default_res_model': 'mail.test',

@@ -5,10 +5,10 @@ import base64
 import io
 from werkzeug.utils import redirect
 
-from odoo import http
-from odoo.http import request
-from odoo.addons.sale.controllers.portal import CustomerPortal
-from odoo.addons.website_sale.controllers.main import WebsiteSale
+from gerp import http
+from gerp.http import request
+from gerp.addons.sale.controllers.portal import CustomerPortal
+from gerp.addons.website_sale.controllers.main import WebsiteSale
 
 
 class WebsiteSaleDigitalConfirmation(WebsiteSale):
