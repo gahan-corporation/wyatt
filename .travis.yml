@@ -25,6 +25,6 @@ script:
   - ../../.py/bin/nosetests -s -d -v || true
   - cd ../../
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter after-build -t coverage.py --exit-code $TRAVIS_TEST_RESULT
 ...
 # vim: ft=ansible:

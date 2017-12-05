@@ -32,5 +32,5 @@ class TestToggl(object):
     def test_get_workspaces_by_status(self):
         """Make sure we're getting the correct worksapces."""
         local_toggl = tgl.Toggl(user='xander_dp')
-        workspaces = local_toggl.get_workspaces()
-        assert workspaces.status_code == 200
+        self.workspaces = local_toggl.get_workspaces()
+        assert self.workspaces.status_code == 200
