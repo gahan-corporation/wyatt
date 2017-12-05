@@ -2,7 +2,7 @@
 import configparser
 import requests
 
-import humanresources.toggl as toggl
+import humanresources.toggle.api
 
 
 class TestToggl(object):
