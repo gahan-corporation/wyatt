@@ -9,7 +9,9 @@ Good Enough Resource Planning
 
 Or something like that.
 
-Perhaps Graceful and Elegant Resource Planning
+Graceful and Elegant Resource Planning
+
+Genteel Equine Roman Plebs
 
 
 .. code-block:: bash 
