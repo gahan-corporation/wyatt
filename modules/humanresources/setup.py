@@ -15,6 +15,8 @@ setuptools.setup(
 
     license='The Unlicense',
 
+    setup_requires=['pytest-runner'],
+    tests_require=['pytest'],
     packages=['timesheets', 'toggl'],
     zip_safe=True,
 )

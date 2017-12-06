@@ -1,9 +1,9 @@
 """Setup tools config."""
 # -*- coding: utf-8 -*-
+import setuptools
 
-from setuptools import find_packages, setup
 
-setup(
+setuptools.setup(
     name='gerp',
     version='0.0.1',
     description='gerp',
@@ -12,8 +12,7 @@ setup(
     author='Gahan Corporation',
     author_email='info@gahan-corporation.com',
     # scripts=['setup/odoo'],
-    packages=find_packages(),
-    package_dir={'gerp': 'packages'},
+    packages=['modules/humanresources'],
     include_package_data=True,
     install_requires=[
         'babel >= 1.0',

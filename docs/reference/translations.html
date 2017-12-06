@@ -87,7 +87,7 @@ attributes</li>
 exported except inside <code class="docutils literal"><span class="pre">t-translation=&quot;off&quot;</span></code> blocks, the content of the
 <code class="docutils literal"><span class="pre">title</span></code>, <code class="docutils literal"><span class="pre">alt</span></code>, <code class="docutils literal"><span class="pre">label</span></code> and <code class="docutils literal"><span class="pre">placeholder</span></code> attributes are also
 exported</li>
-<li>for <a class="reference internal" href="orm.html#odoo.fields.Field" title="odoo.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">Field</span></code></a>, unless their model is marked with
+<li>for <code class="xref py py-class docutils literal"><span class="pre">Field</span></code>, unless their model is marked with
 <code class="docutils literal"><span class="pre">_translate</span> <span class="pre">=</span> <span class="pre">False</span></code>:<ul>
 <li>their <code class="docutils literal"><span class="pre">string</span></code> and <code class="docutils literal"><span class="pre">help</span></code> attributes are exported</li>
 <li>if <code class="docutils literal"><span class="pre">selection</span></code> is present and a list (or tuple), it’s exported</li>
@@ -95,8 +95,8 @@ exported</li>
 values (across all records) are exported</li>
 </ul>
 </li>
-<li>help/error messages of <a class="reference internal" href="orm.html#odoo.models.Model._constraints" title="odoo.models.Model._constraints"><code class="xref py py-attr docutils literal"><span class="pre">_constraints</span></code></a> and
-<a class="reference internal" href="orm.html#odoo.models.Model._sql_constraints" title="odoo.models.Model._sql_constraints"><code class="xref py py-attr docutils literal"><span class="pre">_sql_constraints</span></code></a> are exported</li>
+<li>help/error messages of <code class="xref py py-attr docutils literal"><span class="pre">_constraints</span></code> and
+<code class="xref py py-attr docutils literal"><span class="pre">_sql_constraints</span></code> are exported</li>
 </ul>
 </div>
 <div class="section" id="explicit-exports">

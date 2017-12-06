@@ -373,30 +373,30 @@ system for notifications, allowing subscribers to a document to customize the
 subtype of notifications they wish to receive.</p>
 <p>Subtypes are created as data in your module; the model has the following fields:</p>
 <dl class="docutils">
-<dt><code class="docutils literal"><span class="pre">name</span></code> (mandatory) - <a class="reference internal" href="orm.html#odoo.fields.Char" title="odoo.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a></dt>
+<dt><code class="docutils literal"><span class="pre">name</span></code> (mandatory) - <code class="xref py py-class docutils literal"><span class="pre">Char</span></code></dt>
 <dd>name of the subtype, will be displayed in the notification customization
 popup</dd>
-<dt><code class="docutils literal"><span class="pre">description</span></code> - <a class="reference internal" href="orm.html#odoo.fields.Char" title="odoo.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a></dt>
+<dt><code class="docutils literal"><span class="pre">description</span></code> - <code class="xref py py-class docutils literal"><span class="pre">Char</span></code></dt>
 <dd>description that will be added in the message posted for this
 subtype. If void, the name will be added instead</dd>
-<dt><code class="docutils literal"><span class="pre">internal</span></code> - <a class="reference internal" href="orm.html#odoo.fields.Boolean" title="odoo.fields.Boolean"><code class="xref py py-class docutils literal"><span class="pre">Boolean</span></code></a></dt>
+<dt><code class="docutils literal"><span class="pre">internal</span></code> - <code class="xref py py-class docutils literal"><span class="pre">Boolean</span></code></dt>
 <dd>messages with internal subtypes will be visible only by employees,
 aka members of the <code class="docutils literal"><span class="pre">base.group_user</span></code> group</dd>
-<dt><code class="docutils literal"><span class="pre">parent_id</span></code> - <a class="reference internal" href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a></dt>
+<dt><code class="docutils literal"><span class="pre">parent_id</span></code> - <code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></dt>
 <dd>link subtypes for automatic subscription; for example project subtypes are
 linked to task subtypes through this link. When someone is subscribed to
 a project, he will be subscribed to all tasks of this project with
 subtypes found using the parent subtype</dd>
-<dt><code class="docutils literal"><span class="pre">relation_field</span></code> - <a class="reference internal" href="orm.html#odoo.fields.Char" title="odoo.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a></dt>
+<dt><code class="docutils literal"><span class="pre">relation_field</span></code> - <code class="xref py py-class docutils literal"><span class="pre">Char</span></code></dt>
 <dd>as an example, when linking project and tasks subtypes, the relation
 field is the project_id field of tasks</dd>
-<dt><code class="docutils literal"><span class="pre">res_model</span></code> - <a class="reference internal" href="orm.html#odoo.fields.Char" title="odoo.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a></dt>
+<dt><code class="docutils literal"><span class="pre">res_model</span></code> - <code class="xref py py-class docutils literal"><span class="pre">Char</span></code></dt>
 <dd>model the subtype applies to; if False, this subtype applies to all models</dd>
-<dt><code class="docutils literal"><span class="pre">default</span></code> - <a class="reference internal" href="orm.html#odoo.fields.Boolean" title="odoo.fields.Boolean"><code class="xref py py-class docutils literal"><span class="pre">Boolean</span></code></a></dt>
+<dt><code class="docutils literal"><span class="pre">default</span></code> - <code class="xref py py-class docutils literal"><span class="pre">Boolean</span></code></dt>
 <dd>wether the subtype is activated by default when subscribing</dd>
-<dt><code class="docutils literal"><span class="pre">sequence</span></code> - <a class="reference internal" href="orm.html#odoo.fields.Integer" title="odoo.fields.Integer"><code class="xref py py-class docutils literal"><span class="pre">Integer</span></code></a></dt>
+<dt><code class="docutils literal"><span class="pre">sequence</span></code> - <code class="xref py py-class docutils literal"><span class="pre">Integer</span></code></dt>
 <dd>used to order subtypes in the notification customization popup</dd>
-<dt><code class="docutils literal"><span class="pre">hidden</span></code> - <a class="reference internal" href="orm.html#odoo.fields.Boolean" title="odoo.fields.Boolean"><code class="xref py py-class docutils literal"><span class="pre">Boolean</span></code></a></dt>
+<dt><code class="docutils literal"><span class="pre">hidden</span></code> - <code class="xref py py-class docutils literal"><span class="pre">Boolean</span></code></dt>
 <dd>wether the subtype is hidden in the notification customization popup</dd>
 </dl>
 <p>Interfacing subtypes with field tracking allows to subscribe to different kind
@@ -655,7 +655,7 @@ that can sometimes be boring, I choose the former instead of the latter.</p>
 <p>There are several ways you can customize the behaviour of <code class="docutils literal"><span class="pre">mail.thread</span></code> models,
 including (but not limited to):</p>
 <dl class="docutils">
-<dt><code class="docutils literal"><span class="pre">_mail_post_access</span></code> - <a class="reference internal" href="orm.html#odoo.models.Model" title="odoo.models.Model"><code class="xref py py-class docutils literal"><span class="pre">Model</span></code></a>  attribute</dt>
+<dt><code class="docutils literal"><span class="pre">_mail_post_access</span></code> - <code class="xref py py-class docutils literal"><span class="pre">Model</span></code>  attribute</dt>
 <dd>the required access rights to be able to post a message on the model; by
 default a <code class="docutils literal"><span class="pre">write</span></code> access is needed, can be set to <code class="docutils literal"><span class="pre">read</span></code> as well</dd>
 <dt>Context keys:</dt>
@@ -694,10 +694,10 @@ database without needing to connect to Odoo directly.</p>
 a correctly configured mail gateway to use aliases, however a single
 catchall domain will be sufficient since all routing will be done inside Odoo.
 Aliases have several advantages over Mail Gateways:</p>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Easier to configure</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>A single incoming gateway can be used by many aliases; this avoids having
 to configure multiple emails on your domain name (all configuration is done
 inside Odoo)</li>
@@ -708,7 +708,7 @@ inside Odoo)</li>
 </li>
 <li><dl class="first docutils">
 <dt>More coherent</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Configurable on the related record, not in a Settings submenu</li>
 </ul>
 </dd>
@@ -716,7 +716,7 @@ inside Odoo)</li>
 </li>
 <li><dl class="first docutils">
 <dt>Easier to override server-side</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Mixin model is built to be extended from the start, allowing you to
 extract useful data from incoming e-mails more easily than with a mail
 gateway.</li>
@@ -743,7 +743,7 @@ record initialized on creation).</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Aliases can also be created manually and supported by a simple
-<a class="reference internal" href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a> field. This guide assumes you wish a
+<code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code> field. This guide assumes you wish a
 more complete integration with automatic creation of the alias, record-specific
 default values, etc.</p>
 </div>
@@ -797,22 +797,22 @@ default values in the alias’ <code class="docutils literal"><span class="pre">
 to modify the behaviour of your aliases easily. Among the fields that can be set
 on the alias, the following are of particular interest:</p>
 <dl class="docutils">
-<dt><code class="docutils literal"><span class="pre">alias_name</span></code> - <a class="reference internal" href="orm.html#odoo.fields.Char" title="odoo.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a></dt>
+<dt><code class="docutils literal"><span class="pre">alias_name</span></code> - <code class="xref py py-class docutils literal"><span class="pre">Char</span></code></dt>
 <dd>name of the email alias, e.g. ‘jobs’ if you want to catch emails for
 &lt;<a class="reference external" href="mailto:jobs&#37;&#52;&#48;example&#46;odoo&#46;com">jobs<span>&#64;</span>example<span>&#46;</span>odoo<span>&#46;</span>com</a>&gt;</dd>
-<dt><code class="docutils literal"><span class="pre">alias_user_id</span></code> - <a class="reference internal" href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a> (<code class="docutils literal"><span class="pre">res.users</span></code>)</dt>
+<dt><code class="docutils literal"><span class="pre">alias_user_id</span></code> - <code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code> (<code class="docutils literal"><span class="pre">res.users</span></code>)</dt>
 <dd>owner of records created upon receiving emails on this alias;
 if this field is not set the system will attempt to find the right owner
 based on the sender (From) address, or will use the Administrator account
 if no system user is found for that address</dd>
-<dt><code class="docutils literal"><span class="pre">alias_defaults</span></code> - <a class="reference internal" href="orm.html#odoo.fields.Text" title="odoo.fields.Text"><code class="xref py py-class docutils literal"><span class="pre">Text</span></code></a></dt>
+<dt><code class="docutils literal"><span class="pre">alias_defaults</span></code> - <code class="xref py py-class docutils literal"><span class="pre">Text</span></code></dt>
 <dd>Python dictionary that will be evaluated to provide
 default values when creating new records for this alias</dd>
-<dt><code class="docutils literal"><span class="pre">alias_force_thread_id</span></code> - <a class="reference internal" href="orm.html#odoo.fields.Integer" title="odoo.fields.Integer"><code class="xref py py-class docutils literal"><span class="pre">Integer</span></code></a></dt>
+<dt><code class="docutils literal"><span class="pre">alias_force_thread_id</span></code> - <code class="xref py py-class docutils literal"><span class="pre">Integer</span></code></dt>
 <dd>optional ID of a thread (record) to which all incoming messages will be
 attached, even if they did not reply to it; if set, this will disable the
 creation of new records completely</dd>
-<dt><code class="docutils literal"><span class="pre">alias_contact</span></code> - <a class="reference internal" href="orm.html#odoo.fields.Selection" title="odoo.fields.Selection"><code class="xref py py-class docutils literal"><span class="pre">Selection</span></code></a></dt>
+<dt><code class="docutils literal"><span class="pre">alias_contact</span></code> - <code class="xref py py-class docutils literal"><span class="pre">Selection</span></code></dt>
 <dd><p class="first">Policy to post a message on the document using the mailgateway</p>
 <ul class="last simple">
 <li><em>everyone</em>: everyone can post</li>
@@ -994,11 +994,11 @@ in the message history of our trip.</p>
 campaigns through arguments in links to specified resources. The mixin adds
 3 fields to your model:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">campaign_id</span></code>: <a class="reference internal" href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a> field to a <code class="docutils literal"><span class="pre">utm.campaign</span></code>
+<li><code class="docutils literal"><span class="pre">campaign_id</span></code>: <code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code> field to a <code class="docutils literal"><span class="pre">utm.campaign</span></code>
 object (i.e. Christmas_Special, Fall_Collection, etc.)</li>
-<li><code class="docutils literal"><span class="pre">source_id</span></code>: <a class="reference internal" href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a> field to a <code class="docutils literal"><span class="pre">utm.source</span></code>
+<li><code class="docutils literal"><span class="pre">source_id</span></code>: <code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code> field to a <code class="docutils literal"><span class="pre">utm.source</span></code>
 object (i.e. Search Engine, mailing list, etc.)</li>
-<li><code class="docutils literal"><span class="pre">medium_id</span></code>: <a class="reference internal" href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a> field to a <code class="docutils literal"><span class="pre">utm.medium</span></code>
+<li><code class="docutils literal"><span class="pre">medium_id</span></code>: <code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code> field to a <code class="docutils literal"><span class="pre">utm.medium</span></code>
 object (i.e. Snail Mail, e-Mail, social network update, etc.)</li>
 </ul>
 <p>These models have a single field <code class="docutils literal"><span class="pre">name</span></code> (i.e. they are simply there to
@@ -1068,9 +1068,9 @@ and only publish it when you’re satisfied.</p>
 </div>
 <p>This mixin adds 2 fields on your model:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">website_published</span></code>: <a class="reference internal" href="orm.html#odoo.fields.Boolean" title="odoo.fields.Boolean"><code class="xref py py-class docutils literal"><span class="pre">Boolean</span></code></a> field which represents
+<li><code class="docutils literal"><span class="pre">website_published</span></code>: <code class="xref py py-class docutils literal"><span class="pre">Boolean</span></code> field which represents
 the status of the publication</li>
-<li><code class="docutils literal"><span class="pre">website_url</span></code>: <a class="reference internal" href="orm.html#odoo.fields.Char" title="odoo.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a> field which represents
+<li><code class="docutils literal"><span class="pre">website_url</span></code>: <code class="xref py py-class docutils literal"><span class="pre">Char</span></code> field which represents
 the URL through which the object is accessed</li>
 </ul>
 <p>Note that this last field is a computed field and must be implemented for your class:</p>
@@ -1127,11 +1127,11 @@ pages.</p>
 </div>
 <p>This mixin adds 3 fields on your model:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">website_meta_title</span></code>: <a class="reference internal" href="orm.html#odoo.fields.Char" title="odoo.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a> field that allow you to set
+<li><code class="docutils literal"><span class="pre">website_meta_title</span></code>: <code class="xref py py-class docutils literal"><span class="pre">Char</span></code> field that allow you to set
 an additional title to your page</li>
-<li><code class="docutils literal"><span class="pre">website_meta_description</span></code>: <a class="reference internal" href="orm.html#odoo.fields.Char" title="odoo.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a> field that contains a
+<li><code class="docutils literal"><span class="pre">website_meta_description</span></code>: <code class="xref py py-class docutils literal"><span class="pre">Char</span></code> field that contains a
 short description of the page (sometimes used in search engines results)</li>
-<li><code class="docutils literal"><span class="pre">website_meta_keywords</span></code>: <a class="reference internal" href="orm.html#odoo.fields.Char" title="odoo.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a> field that contains some
+<li><code class="docutils literal"><span class="pre">website_meta_keywords</span></code>: <code class="xref py py-class docutils literal"><span class="pre">Char</span></code> field that contains some
 keywords to help your page to be classified more precisely by search engines; the
 “Promote” tool will help you select lexically-related keywords easily</li>
 </ul>
