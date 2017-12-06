@@ -9,6 +9,8 @@ Good Enough Resource Planning
 
 Or something like that.
 
+Perhaps Graceful and Elegant Resource Planning
+
 
 .. code-block:: bash 
 
