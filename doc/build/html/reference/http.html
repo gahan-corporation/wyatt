@@ -1,0 +1,142 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Web Controllers &#8212; gerp v0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'v0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="web-controllers">
+<h1>Web Controllers<a class="headerlink" href="#web-controllers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="routing">
+<span id="reference-http-routing"></span><h2>Routing<a class="headerlink" href="#routing" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="request">
+<span id="reference-http-request"></span><h2>Request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h2>
+<p>The request object is automatically set on <code class="xref py py-data docutils literal"><span class="pre">gerp.http.request</span></code> at
+the start of the request</p>
+</div>
+<div class="section" id="response">
+<h2>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="controllers">
+<span id="reference-http-controllers"></span><h2>Controllers<a class="headerlink" href="#controllers" title="Permalink to this headline">¶</a></h2>
+<p>Controllers need to provide extensibility, much like
+<code class="xref py py-class docutils literal"><span class="pre">Model</span></code>, but can’t use the same mechanism as the
+pre-requisites (a database with loaded modules) may not be available yet (e.g.
+no database created, or no database selected).</p>
+<p>Controllers thus provide their own extension mechanism, separate from that of
+models:</p>
+<p>Controllers are created by <span class="xref std std-ref">inheriting</span> from</p>
+<p>and defining methods decorated with <code class="xref py py-func docutils literal"><span class="pre">route()</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">gerp</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
+    <span class="nd">@route</span><span class="p">(</span><span class="s1">&#39;/some_url&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s1">&#39;public&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">stuff</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>To <em>override</em> a controller, <span class="xref std std-ref">inherit</span> from its
+class and override relevant methods, re-exposing them if necessary:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Extension</span><span class="p">(</span><span class="n">MyController</span><span class="p">):</span>
+    <span class="nd">@route</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">do_before</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Extension</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">handler</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">decorating with <code class="xref py py-func docutils literal"><span class="pre">route()</span></code> is necessary to keep the method
+(and route) visible: if the method is redefined without decorating, it
+will be “unpublished”</p>
+</li>
+<li><p class="first">the decorators of all methods are combined, if the overriding method’s
+decorator has no argument all previous ones will be kept, any provided
+argument will override previously defined ones e.g.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restrict</span><span class="p">(</span><span class="n">MyController</span><span class="p">):</span>
+    <span class="nd">@route</span><span class="p">(</span><span class="n">auth</span><span class="o">=</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Restrict</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">handler</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>will change <code class="docutils literal"><span class="pre">/some_url</span></code> from public authentication to user (requiring a
+log-in)</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Gahan Corporation.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/reference/http.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

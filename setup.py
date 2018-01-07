@@ -4,15 +4,12 @@ import setuptools
 
 
 setuptools.setup(
-    name='gerp',
-    version='0.0.1',
-    description='gerp',
-    long_description='gerp',
-    url='https://github.com/gahan-corporation/gerp',
     author='Gahan Corporation',
     author_email='info@gahan-corporation.com',
-    # scripts=['setup/odoo'],
-    packages=['modules/humanresources'],
+    description='gerp',
+    extras_require={
+        'SSL': ['pyopenssl'],
+    },
     include_package_data=True,
     install_requires=[
         'babel >= 1.0',
@@ -49,12 +46,20 @@ setuptools.setup(
         'xlsxwriter',
         'xlwt',
     ],
+    long_description='gerp',
+    name='gerp',
+    packages=[
+        'addons/account',
+        'addons/backend_theme_v11',
+        'addons/hr',
+        'addons/sale',
+        'addons/web',
+        'gerp/addons/base',
+    ],
     python_requires='>=3.5',
-    extras_require={
-        'SSL': ['pyopenssl'],
-    },
     tests_require=[
-        'mock',
         'pytest-runner',
     ],
+    url='https://github.com/gahan-corporation/gerp',
+    version='0.0.1',
 )

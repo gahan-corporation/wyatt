@@ -1,0 +1,730 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>QWeb &#8212; gerp v0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'v0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="qweb">
+<span id="reference-qweb"></span><h1>QWeb<a class="headerlink" href="#qweb" title="Permalink to this headline">¶</a></h1>
+<p>QWeb is the primary <a class="reference external" href="http://en.wikipedia.org/wiki/Template_processor">templating</a> engine used by Odoo<a class="footnote-reference" href="#othertemplates" id="id1">[2]</a>. It
+is an XML templating engine<a class="footnote-reference" href="#genshif" id="id2">[1]</a> and used mostly to generate <a class="reference external" href="http://en.wikipedia.org/wiki/HTML">HTML</a>
+fragments and pages.</p>
+<p>Template directives are specified as XML attributes prefixed with <code class="docutils literal"><span class="pre">t-</span></code>,
+for instance <code class="docutils literal"><span class="pre">t-if</span></code> for <a class="reference internal" href="#reference-qweb-conditionals"><span class="std std-ref">conditionals</span></a>, with elements
+and other attributes being rendered directly.</p>
+<p>To avoid element rendering, a placeholder element <code class="docutils literal"><span class="pre">&lt;t&gt;</span></code> is also available,
+which executes its directive but doesn’t generate any output in and of
+itself:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-if=</span><span class="s">&quot;condition&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Test<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+<p>will result in:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;p&gt;</span>Test<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+</div>
+<p>if <code class="docutils literal"><span class="pre">condition</span></code> is true, but:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;div</span> <span class="na">t-if=</span><span class="s">&quot;condition&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Test<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p>will result in:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Test<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="data-output">
+<span id="reference-qweb-output"></span><h2>data output<a class="headerlink" href="#data-output" title="Permalink to this headline">¶</a></h2>
+<p>QWeb has a primary output directive which automatically HTML-escape its
+content limiting <a class="reference external" href="http://en.wikipedia.org/wiki/Cross-site_scripting">XSS</a> risks when displaying user-provided content: <code class="docutils literal"><span class="pre">esc</span></code>.</p>
+<p><code class="docutils literal"><span class="pre">esc</span></code> takes an expression, evaluates it and prints the content:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;p&gt;&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;value&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+</pre></div>
+</div>
+<p>rendered with the value <code class="docutils literal"><span class="pre">value</span></code> set to <code class="docutils literal"><span class="pre">42</span></code> yields:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;p&gt;</span>42<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+</div>
+<p>There is one other output directive <code class="docutils literal"><span class="pre">raw</span></code> which behaves the same as
+respectively <code class="docutils literal"><span class="pre">esc</span></code> but <em>does not HTML-escape its output</em>. It can be useful
+to display separately constructed markup (e.g. from functions) or already
+sanitized user-provided markup.</p>
+</div>
+<div class="section" id="conditionals">
+<span id="reference-qweb-conditionals"></span><h2>conditionals<a class="headerlink" href="#conditionals" title="Permalink to this headline">¶</a></h2>
+<p>QWeb has a conditional directive <code class="docutils literal"><span class="pre">if</span></code>, which evaluates an expression given
+as attribute value:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-if=</span><span class="s">&quot;condition&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>ok<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p>The element is rendered if the condition is true:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;p&gt;</span>ok<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p>but if the condition is false it is removed from the result:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p>The conditional rendering applies to the bearer of the directive, which does
+not have to be <code class="docutils literal"><span class="pre">&lt;t&gt;</span></code>:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">t-if=</span><span class="s">&quot;condition&quot;</span><span class="nt">&gt;</span>ok<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p>will give the same results as the previous example.</p>
+<p>Extra conditional branching directives <code class="docutils literal"><span class="pre">t-elif</span></code> and <code class="docutils literal"><span class="pre">t-else</span></code> are also
+available:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">t-if=</span><span class="s">&quot;user.birthday == today()&quot;</span><span class="nt">&gt;</span>Happy bithday!<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">t-elif=</span><span class="s">&quot;user.login == &#39;root&#39;&quot;</span><span class="nt">&gt;</span>Welcome master!<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">t-else=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>Welcome!<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="loops">
+<span id="reference-qweb-loops"></span><h2>loops<a class="headerlink" href="#loops" title="Permalink to this headline">¶</a></h2>
+<p>QWeb has an iteration directive <code class="docutils literal"><span class="pre">foreach</span></code> which take an expression returning
+the collection to iterate on, and a second parameter <code class="docutils literal"><span class="pre">t-as</span></code> providing the
+name to use for the “current item” of the iteration:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-foreach=</span><span class="s">&quot;[1, 2, 3]&quot;</span> <span class="na">t-as=</span><span class="s">&quot;i&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;i&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+<p>will be rendered as:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;p&gt;</span>1<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>2<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>3<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+</div>
+<p>Like conditions, <code class="docutils literal"><span class="pre">foreach</span></code> applies to the element bearing the directive’s
+attribute, and</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;p</span> <span class="na">t-foreach=</span><span class="s">&quot;[1, 2, 3]&quot;</span> <span class="na">t-as=</span><span class="s">&quot;i&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;i&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+</div>
+<p>is equivalent to the previous example.</p>
+<p><code class="docutils literal"><span class="pre">foreach</span></code> can iterate on an array (the current item will be the current
+value), a mapping (the current item will be the current key) or an integer
+(equivalent to iterating on an array between 0 inclusive and the provided
+integer exclusive).</p>
+<p>In addition to the name passed via <code class="docutils literal"><span class="pre">t-as</span></code>, <code class="docutils literal"><span class="pre">foreach</span></code> provides a few other
+variables for various data points:</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><code class="docutils literal"><span class="pre">$as</span></code> will be replaced by the name passed to <code class="docutils literal"><span class="pre">t-as</span></code></p>
+</div>
+<dl class="docutils">
+<dt><code class="samp docutils literal"><em><span class="pre">$as</span></em><span class="pre">_all</span></code></dt>
+<dd>the object being iterated over</dd>
+<dt><code class="samp docutils literal"><em><span class="pre">$as</span></em><span class="pre">_value</span></code></dt>
+<dd>the current iteration value, identical to <code class="docutils literal"><span class="pre">$as</span></code> for lists and integers,
+but for mappings it provides the value (where <code class="docutils literal"><span class="pre">$as</span></code> provides the key)</dd>
+<dt><code class="samp docutils literal"><em><span class="pre">$as</span></em><span class="pre">_index</span></code></dt>
+<dd>the current iteration index (the first item of the iteration has index 0)</dd>
+<dt><code class="samp docutils literal"><em><span class="pre">$as</span></em><span class="pre">_size</span></code></dt>
+<dd>the size of the collection if it is available</dd>
+<dt><code class="samp docutils literal"><em><span class="pre">$as</span></em><span class="pre">_first</span></code></dt>
+<dd>whether the current item is the first of the iteration (equivalent to
+<code class="samp docutils literal"><em><span class="pre">$as</span></em><span class="pre">_index</span> <span class="pre">==</span> <span class="pre">0</span></code>)</dd>
+<dt><code class="samp docutils literal"><em><span class="pre">$as</span></em><span class="pre">_last</span></code></dt>
+<dd>whether the current item is the last of the iteration (equivalent to
+<code class="samp docutils literal"><em><span class="pre">$as</span></em><span class="pre">_index</span> <span class="pre">+</span> <span class="pre">1</span> <span class="pre">==</span> <em><span class="pre">$as</span></em><span class="pre">_size</span></code>), requires the iteratee’s size be
+available</dd>
+<dt><code class="samp docutils literal"><em><span class="pre">$as</span></em><span class="pre">_parity</span></code></dt>
+<dd>either <code class="docutils literal"><span class="pre">&quot;even&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;odd&quot;</span></code>, the parity of the current iteration round</dd>
+<dt><code class="samp docutils literal"><em><span class="pre">$as</span></em><span class="pre">_even</span></code></dt>
+<dd>a boolean flag indicating that the current iteration round is on an even
+index</dd>
+<dt><code class="samp docutils literal"><em><span class="pre">$as</span></em><span class="pre">_odd</span></code></dt>
+<dd>a boolean flag indicating that the current iteration round is on an odd
+index</dd>
+</dl>
+<p>These extra variables provided and all new variables created into the
+<code class="docutils literal"><span class="pre">foreach</span></code> are only available in the scope of the``foreach``. If the
+variable exists outside the context of the <code class="docutils literal"><span class="pre">foreach</span></code>, the value is copied
+at the end of the foreach into the global context.</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;existing_variable&quot;</span> <span class="na">t-value=</span><span class="s">&quot;False&quot;</span><span class="nt">/&gt;</span>
+<span class="c">&lt;!-- existing_variable now False --&gt;</span>
+
+<span class="nt">&lt;p</span> <span class="na">t-foreach=</span><span class="s">&quot;[1, 2, 3]&quot;</span> <span class="na">t-as=</span><span class="s">&quot;i&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;existing_variable&quot;</span> <span class="na">t-value=</span><span class="s">&quot;True&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;new_variable&quot;</span> <span class="na">t-value=</span><span class="s">&quot;True&quot;</span><span class="nt">/&gt;</span>
+    <span class="c">&lt;!-- existing_variable and new_variable now True --&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+
+<span class="c">&lt;!-- existing_variable always True --&gt;</span>
+<span class="c">&lt;!-- new_variable undefined --&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="attributes">
+<span id="reference-qweb-attributes"></span><h2>attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<p>QWeb can compute attributes on-the-fly and set the result of the computation
+on the output node. This is done via the <code class="docutils literal"><span class="pre">t-att</span></code> (attribute) directive which
+exists in 3 different forms:</p>
+<dl class="docutils">
+<dt><code class="samp docutils literal"><span class="pre">t-att-</span><em><span class="pre">$name</span></em></code></dt>
+<dd><p class="first">an attribute called <code class="docutils literal"><span class="pre">$name</span></code> is created, the attribute value is evaluated
+and the result is set as the attribute’s value:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;div</span> <span class="na">t-att-a=</span><span class="s">&quot;42&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>will be rendered as:</p>
+<div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;div</span> <span class="na">a=</span><span class="s">&quot;42&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="samp docutils literal"><span class="pre">t-attf-</span><em><span class="pre">$name</span></em></code></dt>
+<dd><p class="first">same as previous, but the parameter is a <a class="reference internal" href="../glossary.html#term-format-string"><span class="xref std std-term">format string</span></a>
+instead of just an expression, often useful to mix literal and non-literal
+string (e.g. classes):</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-foreach=</span><span class="s">&quot;[1, 2, 3]&quot;</span> <span class="na">t-as=</span><span class="s">&quot;item&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">t-attf-class=</span><span class="s">&quot;row {{ item_parity }}&quot;</span><span class="nt">&gt;&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;item&quot;</span><span class="nt">/&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+<p>will be rendered as:</p>
+<div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;row even&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;row odd&quot;</span><span class="nt">&gt;</span>2<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;row even&quot;</span><span class="nt">&gt;</span>3<span class="nt">&lt;/li&gt;</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="samp docutils literal"><span class="pre">t-att=mapping</span></code></dt>
+<dd><p class="first">if the parameter is a mapping, each (key, value) pair generates a new
+attribute and its value:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;div</span> <span class="na">t-att=</span><span class="s">&quot;{&#39;a&#39;: 1, &#39;b&#39;: 2}&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>will be rendered as:</p>
+<div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;div</span> <span class="na">a=</span><span class="s">&quot;1&quot;</span> <span class="na">b=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="samp docutils literal"><span class="pre">t-att=pair</span></code></dt>
+<dd><p class="first">if the parameter is a pair (tuple or array of 2 element), the first
+item of the pair is the name of the attribute and the second item is the
+value:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;div</span> <span class="na">t-att=</span><span class="s">&quot;[&#39;a&#39;, &#39;b&#39;]&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>will be rendered as:</p>
+<div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;div</span> <span class="na">a=</span><span class="s">&quot;b&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="setting-variables">
+<h2>setting variables<a class="headerlink" href="#setting-variables" title="Permalink to this headline">¶</a></h2>
+<p>QWeb allows creating variables from within the template, to memoize a
+computation (to use it multiple times), give a piece of data a clearer name,
+…</p>
+<p>This is done via the <code class="docutils literal"><span class="pre">set</span></code> directive, which takes the name of the variable
+to create. The value to set can be provided in two ways:</p>
+<ul>
+<li><p class="first">a <code class="docutils literal"><span class="pre">t-value</span></code> attribute containing an expression, and the result of its
+evaluation will be set:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;foo&quot;</span> <span class="na">t-value=</span><span class="s">&quot;2 + 1&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;foo&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>will print <code class="docutils literal"><span class="pre">3</span></code></p>
+</li>
+<li><p class="first">if there is no <code class="docutils literal"><span class="pre">t-value</span></code> attribute, the node’s body is rendered and set
+as the variable’s value:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;foo&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li&gt;</span>ok<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;t</span> <span class="na">t-esc=</span><span class="s">&quot;foo&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>will generate <code class="docutils literal"><span class="pre">&amp;lt;li&amp;gt;ok&amp;lt;/li&amp;gt;</span></code> (the content is escaped as we
+used the <code class="docutils literal"><span class="pre">esc</span></code> directive)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">using the result of this operation is a significant use-case for
+the <code class="docutils literal"><span class="pre">raw</span></code> directive.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="calling-sub-templates">
+<h2>calling sub-templates<a class="headerlink" href="#calling-sub-templates" title="Permalink to this headline">¶</a></h2>
+<p>QWeb templates can be used for top-level rendering, but they can also be used
+from within another template (to avoid duplication or give names to parts of
+templates) using the <code class="docutils literal"><span class="pre">t-call</span></code> directive:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;other-template&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>This calls the named template with the execution context of the parent, if
+<code class="docutils literal"><span class="pre">other_template</span></code> is defined as:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;p&gt;&lt;t</span> <span class="na">t-value=</span><span class="s">&quot;var&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+</pre></div>
+</div>
+<p>the call above will be rendered as <code class="docutils literal"><span class="pre">&lt;p/&gt;</span></code> (no content), but:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;var&quot;</span> <span class="na">t-value=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;other-template&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>will be rendered as <code class="docutils literal"><span class="pre">&lt;p&gt;1&lt;/p&gt;</span></code>.</p>
+<p>However this has the problem of being visible from outside the <code class="docutils literal"><span class="pre">t-call</span></code>.
+Alternatively, content set in the body of the <code class="docutils literal"><span class="pre">call</span></code> directive will be
+evaluated <em>before</em> calling the sub-template, and can alter a local context:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;other-template&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;var&quot;</span> <span class="na">t-value=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+<span class="c">&lt;!-- &quot;var&quot; does not exist here --&gt;</span>
+</pre></div>
+</div>
+<p>The body of the <code class="docutils literal"><span class="pre">call</span></code> directive can be arbitrarily complex (not just
+<code class="docutils literal"><span class="pre">set</span></code> directives), and its rendered form will be available within the called
+template as a magical <code class="docutils literal"><span class="pre">0</span></code> variable:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;div&gt;</span>
+    This template was called with content:
+    <span class="nt">&lt;t</span> <span class="na">t-raw=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p>being called thus:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;other-template&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;em&gt;</span>content<span class="nt">&lt;/em&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+<p>will result in:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;div&gt;</span>
+    This template was called with content:
+    <span class="nt">&lt;em&gt;</span>content<span class="nt">&lt;/em&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exclusive-directives">
+<h3>Exclusive directives<a class="headerlink" href="#exclusive-directives" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="asset-bundles">
+<h4>asset bundles<a class="headerlink" href="#asset-bundles" title="Permalink to this headline">¶</a></h4>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">have fme write these up because I’ve no idea how they work</p>
+</div>
+</div>
+<div class="section" id="smart-records-fields-formatting">
+<h4>“smart records” fields formatting<a class="headerlink" href="#smart-records-fields-formatting" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal"><span class="pre">t-field</span></code> directive can only be used when performing field access
+(<code class="docutils literal"><span class="pre">a.b</span></code>) on a “smart” record (result of the <code class="docutils literal"><span class="pre">browse</span></code> method). It is able
+to automatically format based on field type, and is integrated in the
+website’s rich text edition.</p>
+<p><code class="docutils literal"><span class="pre">t-options</span></code> can be used to customize fields, the most common option
+is <code class="docutils literal"><span class="pre">widget</span></code>, other options are field- or widget-dependent.</p>
+</div>
+</div>
+<div class="section" id="debugging">
+<h3>debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">t-debug</span></code></dt>
+<dd><p class="first">invokes a debugger using PDB’s <code class="docutils literal"><span class="pre">set_trace</span></code> API. The parameter should
+be the name of a module, on which a <code class="docutils literal"><span class="pre">set_trace</span></code> method is called:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-debug=</span><span class="s">&quot;pdb&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p class="last">is equivalent to <code class="docutils literal"><span class="pre">importlib.import_module(&quot;pdb&quot;).set_trace()</span></code></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="helpers">
+<h3>Helpers<a class="headerlink" href="#helpers" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="request-based">
+<h4>Request-based<a class="headerlink" href="#request-based" title="Permalink to this headline">¶</a></h4>
+<p>Most Python-side uses of QWeb are in controllers (and during HTTP requests),
+in which case templates stored in the database (as
+<a class="reference internal" href="views.html#reference-views-qweb"><span class="std std-ref">views</span></a>) can be trivially rendered by calling
+<code class="xref py py-meth docutils literal"><span class="pre">gerp.http.HttpRequest.render()</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s1">&#39;my-template&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s1">&#39;context_value&#39;</span><span class="p">:</span> <span class="mi">42</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>This automatically creates a <code class="xref py py-class docutils literal"><span class="pre">Response</span></code> object which can
+be returned from the controller (or further customized to suit).</p>
+</div>
+<div class="section" id="view-based">
+<h4>View-based<a class="headerlink" href="#view-based" title="Permalink to this headline">¶</a></h4>
+<p>At a deeper level than the previous helper is the <code class="docutils literal"><span class="pre">render</span></code> method on
+<code class="docutils literal"><span class="pre">ir.ui.view</span></code>:</p>
+<dl class="method">
+<dt id="render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>cr, uid, id[, values][, engine='ir.qweb][, context]</em><span class="sig-paren">)</span><a class="headerlink" href="#render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renders a QWeb view/template by database id or <a class="reference internal" href="../glossary.html#term-external-id"><span class="xref std std-term">external id</span></a>.
+Templates are automatically loaded from <code class="docutils literal"><span class="pre">ir.ui.view</span></code> records.</p>
+<p>Sets up a number of default values in the rendering context:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">request</span></code></dt>
+<dd>the current <code class="xref py py-class docutils literal"><span class="pre">WebRequest</span></code> object, if any</dd>
+<dt><code class="docutils literal"><span class="pre">debug</span></code></dt>
+<dd>whether the current request (if any) is in <code class="docutils literal"><span class="pre">debug</span></code> mode</dd>
+<dt><code class="xref py py-func docutils literal"><span class="pre">quote_plus</span></code></dt>
+<dd>url-encoding utility function</dd>
+<dt><a class="reference external" href="https://docs.python.org/2/library/json.html#module-json" title="(in Python v2.7)"><code class="xref py py-mod docutils literal"><span class="pre">json</span></code></a></dt>
+<dd>the corresponding standard library module</dd>
+<dt><a class="reference external" href="https://docs.python.org/2/library/time.html#module-time" title="(in Python v2.7)"><code class="xref py py-mod docutils literal"><span class="pre">time</span></code></a></dt>
+<dd>the corresponding standard library module</dd>
+<dt><a class="reference external" href="https://docs.python.org/2/library/datetime.html#module-datetime" title="(in Python v2.7)"><code class="xref py py-mod docutils literal"><span class="pre">datetime</span></code></a></dt>
+<dd>the corresponding standard library module</dd>
+<dt><a class="reference external" href="https://labix.org/python-dateutil#head-ba5ffd4df8111d1b83fc194b97ebecf837add454">relativedelta</a></dt>
+<dd>see module</dd>
+<dt><code class="docutils literal"><span class="pre">keep_query</span></code></dt>
+<dd>the <code class="docutils literal"><span class="pre">keep_query</span></code> helper function</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>values</strong> – context values to pass to QWeb for rendering</li>
+<li><strong>engine</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – name of the Odoo model to use for rendering, can be
+used to expand or customize QWeb locally (by creating
+a “new” qweb based on <code class="docutils literal"><span class="pre">ir.qweb</span></code> with alterations)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="admonition-todo admonition" id="index-1">
+<span id="reference-qweb-javascript"></span><p class="first admonition-title">Todo</p>
+<p class="last">the members below are no longer relevant, section to rewrite</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="javascript">
+<h2>Javascript<a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>Exclusive directives<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="defining-templates">
+<h4>defining templates<a class="headerlink" href="#defining-templates" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal"><span class="pre">t-name</span></code> directive can only be placed at the top-level of a template
+file (direct children to the document root):</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;templates&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-name=</span><span class="s">&quot;template-name&quot;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- template code --&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;/templates&gt;</span>
+</pre></div>
+</div>
+<p>It takes no other parameter, but can be used with a <code class="docutils literal"><span class="pre">&lt;t&gt;</span></code> element or any
+other. With a <code class="docutils literal"><span class="pre">&lt;t&gt;</span></code> element, the <code class="docutils literal"><span class="pre">&lt;t&gt;</span></code> should have a single child.</p>
+<p>The template name is an arbitrary string, although when multiple templates
+are related (e.g. called sub-templates) it is customary to use dot-separated
+names to indicate hierarchical relationships.</p>
+</div>
+<div class="section" id="template-inheritance">
+<h4>template inheritance<a class="headerlink" href="#template-inheritance" title="Permalink to this headline">¶</a></h4>
+<p>Template inheritance is used to alter existing templates in-place, e.g. to
+add information to templates created by an other modules.</p>
+<p>Template inheritance is performed via the <code class="docutils literal"><span class="pre">t-extend</span></code> directive which takes
+the name of the template to alter as parameter.</p>
+<p>The alteration is then performed with any number of <code class="docutils literal"><span class="pre">t-jquery</span></code>
+sub-directives:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-extend=</span><span class="s">&quot;base.template&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-jquery=</span><span class="s">&quot;ul&quot;</span> <span class="na">t-operation=</span><span class="s">&quot;append&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li&gt;</span>new element<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">t-jquery</span></code> directives takes a <a class="reference external" href="http://api.jquery.com/category/selectors/">CSS selector</a>. This selector is used
+on the extended template to select <em>context nodes</em> to which the specified
+<code class="docutils literal"><span class="pre">t-operation</span></code> is applied:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">append</span></code></dt>
+<dd>the node’s body is appended at the end of the context node (after the
+context node’s last child)</dd>
+<dt><code class="docutils literal"><span class="pre">prepend</span></code></dt>
+<dd>the node’s body is prepended to the context node (inserted before the
+context node’s first child)</dd>
+<dt><code class="docutils literal"><span class="pre">before</span></code></dt>
+<dd>the node’s body is inserted right before the context node</dd>
+<dt><code class="docutils literal"><span class="pre">after</span></code></dt>
+<dd>the node’s body is inserted right after the context node</dd>
+<dt><code class="docutils literal"><span class="pre">inner</span></code></dt>
+<dd>the node’s body replaces the context node’s children</dd>
+<dt><code class="docutils literal"><span class="pre">replace</span></code></dt>
+<dd>the node’s body is used to replace the context node itself</dd>
+<dt>No operation</dt>
+<dd><p class="first">if no <code class="docutils literal"><span class="pre">t-operation</span></code> is specified, the template body is interpreted as
+javascript code and executed with the context node as <code class="docutils literal"><span class="pre">this</span></code></p>
+<div class="last admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">while much more powerful than other operations, this mode is
+also much harder to debug and maintain, it is recommended to
+avoid it</p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>debugging<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>The javascript QWeb implementation provides a few debugging hooks:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">t-log</span></code></dt>
+<dd><p class="first">takes an expression parameter, evaluates the expression during rendering
+and logs its result with <code class="docutils literal"><span class="pre">console.log</span></code>:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;foo&quot;</span> <span class="na">t-value=</span><span class="s">&quot;42&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;t</span> <span class="na">t-log=</span><span class="s">&quot;foo&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p class="last">will print <code class="docutils literal"><span class="pre">42</span></code> to the console</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">t-debug</span></code></dt>
+<dd><p class="first">triggers a debugger breakpoint during template rendering:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-if=</span><span class="s">&quot;a_test&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-debug=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+<p class="last">will stop execution if debugging is active (exact condition depend on the
+browser and its development tools)</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">t-js</span></code></dt>
+<dd><p class="first">the node’s body is javascript code executed during template rendering.
+Takes a <code class="docutils literal"><span class="pre">context</span></code> parameter, which is the name under which the rendering
+context will be available in the <code class="docutils literal"><span class="pre">t-js</span></code>’s body:</p>
+<div class="last highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;foo&quot;</span> <span class="na">t-value=</span><span class="s">&quot;42&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;t</span> <span class="na">t-js=</span><span class="s">&quot;ctx&quot;</span><span class="nt">&gt;</span>
+    console.log(&quot;Foo is&quot;, ctx.foo);
+<span class="nt">&lt;/t&gt;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="id5">
+<h3>Helpers<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<dl class="attribute">
+<dt id="core.qweb">
+<code class="descclassname">core.</code><code class="descname">qweb</code><a class="headerlink" href="#core.qweb" title="Permalink to this definition">¶</a></dt>
+<dd><p>(core is the <code class="docutils literal"><span class="pre">web.core</span></code> module) An instance of <a class="reference internal" href="#QWeb2.Engine" title="QWeb2.Engine"><code class="xref js js-class docutils literal"><span class="pre">QWeb2.Engine()</span></code></a> with all module-defined template
+files loaded, and references to standard helper objects <code class="docutils literal"><span class="pre">_</span></code>
+(underscore), <code class="docutils literal"><span class="pre">_t</span></code> (translation function) and <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON">JSON</a>.</p>
+<p><code class="xref js js-func docutils literal"><span class="pre">core.qweb.render</span></code> can be used to
+easily render basic module templates</p>
+</dd></dl>
+
+</div>
+<div class="section" id="api">
+<h3>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="QWeb2.Engine">
+<em class="property">class </em><code class="descclassname">QWeb2.</code><code class="descname">Engine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#QWeb2.Engine" title="Permalink to this definition">¶</a></dt>
+<dd><p>The QWeb “renderer”, handles most of QWeb’s logic (loading,
+parsing, compiling and rendering templates).</p>
+<p>OpenERP Web instantiates one for the user in the core module, and
+exports it to <code class="docutils literal"><span class="pre">core.qweb</span></code>. It also loads all the template files
+of the various modules into that QWeb instance.</p>
+<p>A <a class="reference internal" href="#QWeb2.Engine" title="QWeb2.Engine"><code class="xref js js-class docutils literal"><span class="pre">QWeb2.Engine()</span></code></a> also serves as a “template namespace”.</p>
+<dl class="function">
+<dt id="QWeb2.Engine.QWeb2.Engine.render">
+<code class="descclassname">QWeb2.Engine.QWeb2.Engine.</code><code class="descname">render</code><span class="sig-paren">(</span><em>template</em><span class="optional">[</span>, <em>context</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#QWeb2.Engine.QWeb2.Engine.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renders a previously loaded template to a String, using
+<code class="docutils literal"><span class="pre">context</span></code> (if provided) to find the variables accessed
+during template rendering (e.g. strings to display).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>template</strong> (<em>String</em>) – the name of the template to render</li>
+<li><strong>context</strong> (<em>Object</em>) – the basic namespace to use for template
+rendering</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">String</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>The engine exposes an other method which may be useful in some
+cases (e.g. if you need a separate template namespace with, in
+OpenERP Web, Kanban views get their own <a class="reference internal" href="#QWeb2.Engine" title="QWeb2.Engine"><code class="xref js js-class docutils literal"><span class="pre">QWeb2.Engine()</span></code></a>
+instance so their templates don’t collide with more general
+“module” templates):</p>
+<dl class="function">
+<dt id="QWeb2.Engine.QWeb2.Engine.add_template">
+<code class="descclassname">QWeb2.Engine.QWeb2.Engine.</code><code class="descname">add_template</code><span class="sig-paren">(</span><em>templates</em><span class="sig-paren">)</span><a class="headerlink" href="#QWeb2.Engine.QWeb2.Engine.add_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a template file (a collection of templates) in the QWeb
+instance. The templates can be specified as:</p>
+<dl class="docutils">
+<dt>An XML string</dt>
+<dd>QWeb will attempt to parse it to an XML document then load
+it.</dd>
+<dt>A URL</dt>
+<dd>QWeb will attempt to download the URL content, then load
+the resulting XML string.</dd>
+<dt>A <code class="docutils literal"><span class="pre">Document</span></code> or <code class="docutils literal"><span class="pre">Node</span></code></dt>
+<dd>QWeb will traverse the first level of the document (the
+child nodes of the provided root) and load any named
+template or template override.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+</tbody>
+</table>
+</dd></dl>
+
+<p>A <a class="reference internal" href="#QWeb2.Engine" title="QWeb2.Engine"><code class="xref js js-class docutils literal"><span class="pre">QWeb2.Engine()</span></code></a> also exposes various attributes for
+behavior customization:</p>
+<dl class="attribute">
+<dt id="QWeb2.Engine.QWeb2.Engine.prefix">
+<code class="descclassname">QWeb2.Engine.QWeb2.Engine.</code><code class="descname">prefix</code><a class="headerlink" href="#QWeb2.Engine.QWeb2.Engine.prefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prefix used to recognize directives during parsing. A string. By
+default, <code class="docutils literal"><span class="pre">t</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="QWeb2.Engine.QWeb2.Engine.debug">
+<code class="descclassname">QWeb2.Engine.QWeb2.Engine.</code><code class="descname">debug</code><a class="headerlink" href="#QWeb2.Engine.QWeb2.Engine.debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Boolean flag putting the engine in “debug mode”. Normally,
+QWeb intercepts any error raised during template execution. In
+debug mode, it leaves all exceptions go through without
+intercepting them.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="QWeb2.Engine.QWeb2.Engine.jQuery">
+<code class="descclassname">QWeb2.Engine.QWeb2.Engine.</code><code class="descname">jQuery</code><a class="headerlink" href="#QWeb2.Engine.QWeb2.Engine.jQuery" title="Permalink to this definition">¶</a></dt>
+<dd><p>The jQuery instance used during template inheritance processing.
+Defaults to <code class="docutils literal"><span class="pre">window.jQuery</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="QWeb2.Engine.QWeb2.Engine.preprocess_node">
+<code class="descclassname">QWeb2.Engine.QWeb2.Engine.</code><code class="descname">preprocess_node</code><a class="headerlink" href="#QWeb2.Engine.QWeb2.Engine.preprocess_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <code class="docutils literal"><span class="pre">Function</span></code>. If present, called before compiling each DOM
+node to template code. In OpenERP Web, this is used to
+automatically translate text content and some attributes in
+templates. Defaults to <code class="docutils literal"><span class="pre">null</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<table class="docutils footnote" frame="void" id="genshif" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>it is similar in that to <a class="reference external" href="http://genshi.edgewall.org">Genshi</a>, although it does not use (and
+has no support for) <a class="reference external" href="http://en.wikipedia.org/wiki/XML_namespace">XML namespaces</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="othertemplates" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[2]</a></td><td>although it uses a few others, either for historical
+reasons or because they remain better fits for the
+use case. Odoo 9.0 still depends on <a class="reference external" href="http://jinja.pocoo.org">Jinja</a> and <a class="reference external" href="http://www.makotemplates.org">Mako</a>.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Gahan Corporation.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/reference/qweb.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

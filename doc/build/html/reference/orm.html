@@ -1,0 +1,1020 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ORM API &#8212; gerp v0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'v0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="orm-api">
+<span id="reference-orm"></span><h1>ORM API<a class="headerlink" href="#orm-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="recordsets">
+<h2>Recordsets<a class="headerlink" href="#recordsets" title="Permalink to this headline">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 8.0: </span>This page documents the New API added in Odoo 8.0 which should be the
+primary development API going forward. It also provides information about
+porting from or bridging with the “old API” of versions 7 and earlier, but
+does not explicitly document that API. See the old documentation for that.</p>
+</div>
+<p>Interaction with models and records is performed through recordsets, a sorted
+set of records of the same model.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">contrary to what the name implies, it is currently possible for
+recordsets to contain duplicates. This may change in the future.</p>
+</div>
+<p>Methods defined on a model are executed on a recordset, and their <code class="docutils literal"><span class="pre">self</span></code> is
+a recordset:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;a.model&#39;</span>
+    <span class="k">def</span> <span class="nf">a_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># self can be anywhere between 0 records and all records in the</span>
+        <span class="c1"># database</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">do_operation</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Iterating on a recordset will yield new sets of <em>a single record</em>
+(“singletons”), much like iterating on a Python string yields strings of a
+single characters:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="bp">self</span> <span class="c1"># =&gt; a.model(1, 2, 3, 4, 5)</span>
+    <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="n">record</span> <span class="c1"># =&gt; a.model(1), then a.model(2), then a.model(3), ...</span>
+</pre></div>
+</div>
+<div class="section" id="field-access">
+<h3>Field access<a class="headerlink" href="#field-access" title="Permalink to this headline">¶</a></h3>
+<p>Recordsets provide an “Active Record” interface: model fields can be read and
+written directly from the record as attributes, but only on singletons
+(single-record recordsets).
+Field values can also be accessed like dict items, which is more elegant and
+safer than <code class="docutils literal"><span class="pre">getattr()</span></code> for dynamic field names.
+Setting a field’s value triggers an update to the database:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">record</span><span class="o">.</span><span class="n">name</span>
+<span class="go">Example Name</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">record</span><span class="o">.</span><span class="n">company_id</span><span class="o">.</span><span class="n">name</span>
+<span class="go">Company Name</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">record</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Bob&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">field</span> <span class="o">=</span> <span class="s2">&quot;name&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">record</span><span class="p">[</span><span class="n">field</span><span class="p">]</span>
+<span class="go">Bob</span>
+</pre></div>
+</div>
+<p>Trying to read or write a field on multiple records will raise an error.</p>
+<p>Accessing a relational field (<code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code>,
+<code class="xref py py-class docutils literal"><span class="pre">One2many</span></code>, <code class="xref py py-class docutils literal"><span class="pre">Many2many</span></code>)
+<em>always</em> returns a recordset, empty if the field is not set.</p>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p>each assignment to a field triggers a database update, when setting
+multiple fields at the same time or setting fields on multiple records
+(to the same value), use <code class="xref py py-meth docutils literal"><span class="pre">write()</span></code>:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="c1"># 3 * len(records) database updates</span>
+<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">records</span><span class="p">:</span>
+    <span class="n">record</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">record</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">record</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># len(records) database updates</span>
+<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">records</span><span class="p">:</span>
+    <span class="n">record</span><span class="o">.</span><span class="n">write</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
+
+<span class="c1"># 1 database update</span>
+<span class="n">records</span><span class="o">.</span><span class="n">write</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="record-cache-and-prefetching">
+<h3>Record cache and prefetching<a class="headerlink" href="#record-cache-and-prefetching" title="Permalink to this headline">¶</a></h3>
+<p>Odoo maintains a cache for the fields of the records, so that not every field
+access issues a database request, which would be terrible for performance. The
+following example queries the database only for the first statement:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">record</span><span class="o">.</span><span class="n">name</span>             <span class="c1"># first access reads value from database</span>
+<span class="n">record</span><span class="o">.</span><span class="n">name</span>             <span class="c1"># second access gets value from cache</span>
+</pre></div>
+</div>
+<p>To avoid reading one field on one record at a time, Odoo <em>prefetches</em> records
+and fields following some heuristics to get good performance. Once a field must
+be read on a given record, the ORM actually reads that field on a larger
+recordset, and stores the returned values in cache for later use. The prefetched
+recordset is usually the recordset from which the record comes by iteration.
+Moreover, all simple stored fields (boolean, integer, float, char, text, date,
+datetime, selection, many2one) are fetched altogether; they correspond to the
+columns of the model’s table, and are fetched efficiently in the same query.</p>
+<p>Consider the following example, where <code class="docutils literal"><span class="pre">partners</span></code> is a recordset of 1000
+records. Without prefetching, the loop would make 2000 queries to the database.
+With prefetching, only one query is made:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">partner</span> <span class="ow">in</span> <span class="n">partners</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="n">partner</span><span class="o">.</span><span class="n">name</span>          <span class="c1"># first pass prefetches &#39;name&#39; and &#39;lang&#39;</span>
+                                <span class="c1"># (and other fields) on all &#39;partners&#39;</span>
+    <span class="nb">print</span> <span class="n">partner</span><span class="o">.</span><span class="n">lang</span>
+</pre></div>
+</div>
+<p>The prefetching also works on <em>secondary records</em>: when relational fields are
+read, their values (which are records) are  subscribed for future prefetching.
+Accessing one of those secondary records prefetches all secondary records from
+the same model. This makes the following example generate only two queries, one
+for partners and one for countries:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">partner</span> <span class="ow">in</span> <span class="n">partners</span><span class="p">:</span>
+    <span class="n">country</span> <span class="o">=</span> <span class="n">partner</span><span class="o">.</span><span class="n">country_id</span>        <span class="c1"># first pass prefetches all partners</span>
+    <span class="n">countries</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">country</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>         <span class="c1"># first pass prefetches all countries</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="set-operations">
+<h3>Set operations<a class="headerlink" href="#set-operations" title="Permalink to this headline">¶</a></h3>
+<p>Recordsets are immutable, but sets of the same model can be combined using
+various set operations, returning new recordsets. Set operations do <em>not</em>
+preserve order.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">record</span> <span class="pre">in</span> <span class="pre">set</span></code> returns whether <code class="docutils literal"><span class="pre">record</span></code> (which must be a 1-element
+recordset) is present in <code class="docutils literal"><span class="pre">set</span></code>. <code class="docutils literal"><span class="pre">record</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">set</span></code> is the inverse
+operation</li>
+<li><code class="docutils literal"><span class="pre">set1</span> <span class="pre">&lt;=</span> <span class="pre">set2</span></code> and <code class="docutils literal"><span class="pre">set1</span> <span class="pre">&lt;</span> <span class="pre">set2</span></code> return whether <code class="docutils literal"><span class="pre">set1</span></code> is a subset
+of <code class="docutils literal"><span class="pre">set2</span></code> (resp. strict)</li>
+<li><code class="docutils literal"><span class="pre">set1</span> <span class="pre">&gt;=</span> <span class="pre">set2</span></code> and <code class="docutils literal"><span class="pre">set1</span> <span class="pre">&gt;</span> <span class="pre">set2</span></code> return whether <code class="docutils literal"><span class="pre">set1</span></code> is a superset
+of <code class="docutils literal"><span class="pre">set2</span></code> (resp. strict)</li>
+<li><code class="docutils literal"><span class="pre">set1</span> <span class="pre">|</span> <span class="pre">set2</span></code> returns the union of the two recordsets, a new recordset
+containing all records present in either source</li>
+<li><code class="docutils literal"><span class="pre">set1</span> <span class="pre">&amp;</span> <span class="pre">set2</span></code> returns the intersection of two recordsets, a new recordset
+containing only records present in both sources</li>
+<li><code class="docutils literal"><span class="pre">set1</span> <span class="pre">-</span> <span class="pre">set2</span></code> returns a new recordset containing only records of <code class="docutils literal"><span class="pre">set1</span></code>
+which are <em>not</em> in <code class="docutils literal"><span class="pre">set2</span></code></li>
+</ul>
+</div>
+<div class="section" id="other-recordset-operations">
+<h3>Other recordset operations<a class="headerlink" href="#other-recordset-operations" title="Permalink to this headline">¶</a></h3>
+<p>Recordsets are iterable so the usual Python tools are available for
+transformation (<code class="xref py py-func docutils literal"><span class="pre">python:map()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">python:sorted()</span></code>,
+<code class="xref py py-func docutils literal"><span class="pre">ifilter()</span></code>, …) however these return either a
+<code class="xref py py-class docutils literal"><span class="pre">python:list</span></code> or an <span class="xref std std-term">python:iterator</span>, removing the ability to
+call methods on their result, or to use set operations.</p>
+<p>Recordsets therefore provide these operations returning recordsets themselves
+(when possible):</p>
+<dl class="docutils">
+<dt><code class="xref py py-meth docutils literal"><span class="pre">filtered()</span></code></dt>
+<dd><p class="first">returns a recordset containing only records satisfying the provided
+predicate function. The predicate can also be a string to filter by a
+field being true or false:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="c1"># only keep records whose company is the current user&#39;s</span>
+<span class="n">records</span><span class="o">.</span><span class="n">filtered</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">company_id</span> <span class="o">==</span> <span class="n">user</span><span class="o">.</span><span class="n">company_id</span><span class="p">)</span>
+
+<span class="c1"># only keep records whose partner is a company</span>
+<span class="n">records</span><span class="o">.</span><span class="n">filtered</span><span class="p">(</span><span class="s2">&quot;partner_id.is_company&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="xref py py-meth docutils literal"><span class="pre">sorted()</span></code></dt>
+<dd><p class="first">returns a recordset sorted by the provided key function. If no key
+is provided, use the model’s default sort order:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="c1"># sort records by name</span>
+<span class="n">records</span><span class="o">.</span><span class="n">sorted</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="xref py py-meth docutils literal"><span class="pre">mapped()</span></code></dt>
+<dd><p class="first">applies the provided function to each record in the recordset, returns
+a recordset if the results are recordsets:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># returns a list of summing two fields for each record in the set</span>
+<span class="n">records</span><span class="o">.</span><span class="n">mapped</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">field1</span> <span class="o">+</span> <span class="n">r</span><span class="o">.</span><span class="n">field2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The provided function can be a string to get field values:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="c1"># returns a list of names</span>
+<span class="n">records</span><span class="o">.</span><span class="n">mapped</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+
+<span class="c1"># returns a recordset of partners</span>
+<span class="n">record</span><span class="o">.</span><span class="n">mapped</span><span class="p">(</span><span class="s1">&#39;partner_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># returns the union of all partner banks, with duplicates removed</span>
+<span class="n">record</span><span class="o">.</span><span class="n">mapped</span><span class="p">(</span><span class="s1">&#39;partner_id.bank_ids&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="environment">
+<h2>Environment<a class="headerlink" href="#environment" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="xref py py-class docutils literal"><span class="pre">Environment</span></code> stores various contextual data used by
+the ORM: the database cursor (for database queries), the current user
+(for access rights checking) and the current context (storing arbitrary
+metadata). The environment also stores caches.</p>
+<p>All recordsets have an environment, which is immutable, can be accessed
+using <code class="xref py py-attr docutils literal"><span class="pre">env</span></code> and gives access to the current user
+(<code class="xref py py-attr docutils literal"><span class="pre">user</span></code>), the cursor
+(<code class="xref py py-attr docutils literal"><span class="pre">cr</span></code>) or the context
+(<code class="xref py py-attr docutils literal"><span class="pre">context</span></code>):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">records</span><span class="o">.</span><span class="n">env</span>
+<span class="go">&lt;Environment object ...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">records</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">user</span>
+<span class="go">res.user(3)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">records</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">cr</span>
+<span class="go">&lt;Cursor object ...)</span>
+</pre></div>
+</div>
+<p>When creating a recordset from an other recordset, the environment is
+inherited. The environment can be used to get an empty recordset in an
+other model, and query that model:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;res.partner&#39;</span><span class="p">]</span>
+<span class="go">res.partner</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;res.partner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">search</span><span class="p">([[</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
+<span class="go">res.partner(7, 18, 12, 14, 17, 19, 8, 31, 26, 16, 13, 20, 30, 22, 29, 15, 23, 28, 74)</span>
+</pre></div>
+</div>
+<div class="section" id="altering-the-environment">
+<h3>Altering the environment<a class="headerlink" href="#altering-the-environment" title="Permalink to this headline">¶</a></h3>
+<p>The environment can be customized from a recordset. This returns a new
+version of the recordset using the altered environment.</p>
+<dl class="docutils">
+<dt><code class="xref py py-meth docutils literal"><span class="pre">sudo()</span></code></dt>
+<dd><p class="first">creates a new environment with the provided user set, uses the
+administrator if none is provided (to bypass access rights/rules in safe
+contexts), returns a copy of the recordset it is called on using the
+new environment:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="c1"># create partner object as administrator</span>
+<span class="n">env</span><span class="p">[</span><span class="s1">&#39;res.partner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sudo</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s2">&quot;A Partner&quot;</span><span class="p">})</span>
+
+<span class="c1"># list partners visible by the &quot;public&quot; user</span>
+<span class="n">public</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="s1">&#39;base.public_user&#39;</span><span class="p">)</span>
+<span class="n">env</span><span class="p">[</span><span class="s1">&#39;res.partner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sudo</span><span class="p">(</span><span class="n">public</span><span class="p">)</span><span class="o">.</span><span class="n">search</span><span class="p">([])</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="xref py py-meth docutils literal"><span class="pre">with_context()</span></code></dt>
+<dd><ol class="first arabic simple">
+<li>can take a single positional parameter, which replaces the current
+environment’s context</li>
+<li>can take any number of parameters by keyword, which are added to either
+the current environment’s context or the context set during step 1</li>
+</ol>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="c1"># look for partner, or create one with specified timezone if none is</span>
+<span class="c1"># found</span>
+<span class="n">env</span><span class="p">[</span><span class="s1">&#39;res.partner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">with_context</span><span class="p">(</span><span class="n">tz</span><span class="o">=</span><span class="n">a_tz</span><span class="p">)</span><span class="o">.</span><span class="n">find_or_create</span><span class="p">(</span><span class="n">email_address</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="xref py py-meth docutils literal"><span class="pre">with_env()</span></code></dt>
+<dd>replaces the existing environment entirely</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="common-orm-methods">
+<h2>Common ORM methods<a class="headerlink" href="#common-orm-methods" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></dt>
+<dd><p class="first">Takes a <a class="reference internal" href="#reference-orm-domains"><span class="std std-ref">search domain</span></a>, returns a recordset
+of matching records. Can return a subset of matching records (<code class="docutils literal"><span class="pre">offset</span></code>
+and <code class="docutils literal"><span class="pre">limit</span></code> parameters) and be ordered (<code class="docutils literal"><span class="pre">order</span></code> parameter):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># searches the current model</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">search</span><span class="p">([(</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;customer&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)])</span>
+<span class="go">res.partner(7, 18, 12, 14, 17, 19, 8, 31, 26, 16, 13, 20, 30, 22, 29, 15, 23, 28, 74)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">search</span><span class="p">([(</span><span class="s1">&#39;is_company&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)],</span> <span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+<span class="go">&#39;Agrolait&#39;</span>
+</pre></div>
+</div>
+<div class="last admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">to just check if any record matches a domain, or count the number
+of records which do, use
+<code class="xref py py-meth docutils literal"><span class="pre">search_count()</span></code></p>
+</div>
+</dd>
+<dt><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></dt>
+<dd><p class="first">Takes a number of field values, and returns a recordset containing the
+record created:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s2">&quot;New Name&quot;</span><span class="p">})</span>
+<span class="go">res.partner(78)</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="xref py py-meth docutils literal"><span class="pre">write()</span></code></dt>
+<dd><p class="first">Takes a number of field values, writes them to all the records in its
+recordset. Does not return anything:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s2">&quot;Newer Name&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="xref py py-meth docutils literal"><span class="pre">browse()</span></code></dt>
+<dd><p class="first">Takes a database id or a list of ids and returns a recordset, useful when
+record ids are obtained from outside Odoo (e.g. round-trip through
+external system) or <a class="reference internal" href="#reference-orm-oldapi"><span class="std std-ref">when calling methods in the old API</span></a>:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">browse</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
+<span class="go">res.partner(7, 18, 12)</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="xref py py-meth docutils literal"><span class="pre">exists()</span></code></dt>
+<dd><p class="first">Returns a new recordset containing only the records which exist in the
+database. Can be used to check whether a record (e.g. obtained externally)
+still exists:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">record</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;The record has been deleted&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or after calling a method which could have removed some records:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="n">records</span><span class="o">.</span><span class="n">may_remove_some</span><span class="p">()</span>
+<span class="c1"># only keep records which were not deleted</span>
+<span class="n">records</span> <span class="o">=</span> <span class="n">records</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="xref py py-meth docutils literal"><span class="pre">ref()</span></code></dt>
+<dd><p class="first">Environment method returning the record matching a provided
+<a class="reference internal" href="../glossary.html#term-external-id"><span class="xref std std-term">external id</span></a>:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">env</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="s1">&#39;base.group_public&#39;</span><span class="p">)</span>
+<span class="go">res.groups(2)</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="xref py py-meth docutils literal"><span class="pre">ensure_one()</span></code></dt>
+<dd><p class="first">checks that the recordset is a singleton (only contains a single record),
+raises an error otherwise:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="n">records</span><span class="o">.</span><span class="n">ensure_one</span><span class="p">()</span>
+<span class="c1"># is equivalent to but clearer than:</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Expected singleton&quot;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="creating-models">
+<h2>Creating Models<a class="headerlink" href="#creating-models" title="Permalink to this headline">¶</a></h2>
+<p>Model fields are defined as attributes on the model itself:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gerp</span> <span class="k">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fields</span>
+<span class="k">class</span> <span class="nc">AModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;a.model.name&#39;</span>
+
+    <span class="n">field1</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">this means you can not define a field and a method with the same
+name, they will conflict</p>
+</div>
+<p>By default, the field’s label (user-visible name) is a capitalized version of
+the field name, this can be overridden with the <code class="docutils literal"><span class="pre">string</span></code> parameter:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">field2</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s2">&quot;an other field&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For the various field types and parameters, see <a class="reference internal" href="#reference-orm-fields"><span class="std std-ref">the fields reference</span></a>.</p>
+<p>Default values are defined as parameters on fields, either a value:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">a_field</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;a value&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or a function called to compute the default value, which should return that
+value:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_default_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span>
+<span class="n">a_field</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">compute_default_value</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="computed-fields">
+<h3>Computed fields<a class="headerlink" href="#computed-fields" title="Permalink to this headline">¶</a></h3>
+<p>Fields can be computed (instead of read straight from the database) using the
+<code class="docutils literal"><span class="pre">compute</span></code> parameter. <strong>It must assign the computed value to the field</strong>. If
+it uses the values of other <em>fields</em>, it should specify those fields using
+<code class="xref py py-func docutils literal"><span class="pre">depends()</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gerp</span> <span class="k">import</span> <span class="n">api</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="n">compute</span><span class="o">=</span><span class="s1">&#39;_compute_total&#39;</span><span class="p">)</span>
+
+<span class="nd">@api</span><span class="o">.</span><span class="n">depends</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;tax&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_compute_total</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+        <span class="n">record</span><span class="o">.</span><span class="n">total</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">record</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">record</span><span class="o">.</span><span class="n">tax</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">dependencies can be dotted paths when using sub-fields:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@api</span><span class="o">.</span><span class="n">depends</span><span class="p">(</span><span class="s1">&#39;line_ids.value&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_compute_total</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+        <span class="n">record</span><span class="o">.</span><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">record</span><span class="o">.</span><span class="n">line_ids</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">computed fields are not stored by default, they are computed and
+returned when requested. Setting <code class="docutils literal"><span class="pre">store=True</span></code> will store them in the
+database and automatically enable searching</p>
+</li>
+<li><p class="first">searching on a computed field can also be enabled by setting the <code class="docutils literal"><span class="pre">search</span></code>
+parameter. The value is a method name returning a
+<a class="reference internal" href="#reference-orm-domains"><span class="std std-ref">Domains</span></a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">upper_name</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">Char</span><span class="p">(</span><span class="n">compute</span><span class="o">=</span><span class="s1">&#39;_compute_upper&#39;</span><span class="p">,</span> <span class="n">search</span><span class="o">=</span><span class="s1">&#39;_search_upper&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_search_upper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">operator</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">operator</span> <span class="o">==</span> <span class="s1">&#39;like&#39;</span><span class="p">:</span>
+        <span class="n">operator</span> <span class="o">=</span> <span class="s1">&#39;ilike&#39;</span>
+    <span class="k">return</span> <span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">operator</span><span class="p">,</span> <span class="n">value</span><span class="p">)]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">to allow <em>setting</em> values on a computed field, use the <code class="docutils literal"><span class="pre">inverse</span></code>
+parameter. It is the name of a function reversing the computation and
+setting the relevant fields:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">document</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">(</span><span class="n">compute</span><span class="o">=</span><span class="s1">&#39;_get_document&#39;</span><span class="p">,</span> <span class="n">inverse</span><span class="o">=</span><span class="s1">&#39;_set_document&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_get_document</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">get_document_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">record</span><span class="o">.</span><span class="n">document</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">_set_document</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">record</span><span class="o">.</span><span class="n">document</span><span class="p">:</span> <span class="k">continue</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">get_document_path</span><span class="p">())</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">document</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">multiple fields can be computed at the same time by the same method, just
+use the same method on all fields and set all of them:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">discount_value</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="n">compute</span><span class="o">=</span><span class="s1">&#39;_apply_discount&#39;</span><span class="p">)</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="n">compute</span><span class="o">=</span><span class="s1">&#39;_apply_discount&#39;</span><span class="p">)</span>
+
+<span class="nd">@depends</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;discount&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_apply_discount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+        <span class="c1"># compute actual discount from discount percentage</span>
+        <span class="n">discount</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">record</span><span class="o">.</span><span class="n">discount</span>
+        <span class="n">record</span><span class="o">.</span><span class="n">discount_value</span> <span class="o">=</span> <span class="n">discount</span>
+        <span class="n">record</span><span class="o">.</span><span class="n">total</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">value</span> <span class="o">-</span> <span class="n">discount</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="section" id="related-fields">
+<h4>Related fields<a class="headerlink" href="#related-fields" title="Permalink to this headline">¶</a></h4>
+<p>A special case of computed fields are <em>related</em> (proxy) fields, which provide
+the value of a sub-field on the current record. They are defined by setting
+the <code class="docutils literal"><span class="pre">related</span></code> parameter and like regular computed fields they can be
+stored:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">nickname</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">(</span><span class="n">related</span><span class="o">=</span><span class="s1">&#39;user_id.partner_id.name&#39;</span><span class="p">,</span> <span class="n">store</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="onchange-updating-ui-on-the-fly">
+<h3>onchange: updating UI on the fly<a class="headerlink" href="#onchange-updating-ui-on-the-fly" title="Permalink to this headline">¶</a></h3>
+<p>When a user changes a field’s value in a form (but hasn’t saved the form yet),
+it can be useful to automatically update other fields based on that value
+e.g. updating a final total when the tax is changed or a new invoice line is
+added.</p>
+<ul>
+<li><p class="first">computed fields are automatically checked and recomputed, they do not need
+an <code class="docutils literal"><span class="pre">onchange</span></code></p>
+</li>
+<li><p class="first">for non-computed fields, the <code class="xref py py-func docutils literal"><span class="pre">onchange()</span></code> decorator is used
+to provide new field values:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@api</span><span class="o">.</span><span class="n">onchange</span><span class="p">(</span><span class="s1">&#39;field1&#39;</span><span class="p">,</span> <span class="s1">&#39;field2&#39;</span><span class="p">)</span> <span class="c1"># if these fields are changed, call method</span>
+<span class="k">def</span> <span class="nf">check_change</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">field1</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">field2</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field3</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>the changes performed during the method are then sent to the client program
+and become visible to the user</p>
+</li>
+<li><p class="first">Both computed fields and new-API onchanges are automatically called by the
+client without having to add them in views</p>
+</li>
+<li><p class="first">It is possible to suppress the trigger from a specific field by adding
+<code class="docutils literal"><span class="pre">on_change=&quot;0&quot;</span></code> in a view:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">field</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span> <span class="n">on_change</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="o">/&gt;</span>
+</pre></div>
+</div>
+<p>will not trigger any interface update when the field is edited by the user,
+even if there are function fields or explicit onchange depending on that
+field.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal"><span class="pre">onchange</span></code> methods work on virtual records assignment on these records
+is not written to the database, just used to know which value to send back
+to the client</p>
+</div>
+</div>
+<div class="section" id="low-level-sql">
+<h3>Low-level SQL<a class="headerlink" href="#low-level-sql" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="xref py py-attr docutils literal"><span class="pre">cr</span></code> attribute on environments is the
+cursor for the current database transaction and allows executing SQL directly,
+either for queries which are difficult to express using the ORM (e.g. complex
+joins) or for performance reasons:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">cr</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;some_sql&quot;</span><span class="p">,</span> <span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">,</span> <span class="n">param3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Because models use the same cursor and the <code class="xref py py-class docutils literal"><span class="pre">Environment</span></code>
+holds various caches, these caches must be invalidated when <em>altering</em> the
+database in raw SQL, or further uses of models may become incoherent. It is
+necessary to clear caches when using <code class="docutils literal"><span class="pre">CREATE</span></code>, <code class="docutils literal"><span class="pre">UPDATE</span></code> or <code class="docutils literal"><span class="pre">DELETE</span></code> in
+SQL, but not <code class="docutils literal"><span class="pre">SELECT</span></code> (which simply reads the database).</p>
+<p>Clearing caches can be performed using the
+<code class="xref py py-meth docutils literal"><span class="pre">invalidate_all()</span></code> method of the
+<code class="xref py py-class docutils literal"><span class="pre">Environment</span></code> object.</p>
+</div>
+</div>
+<div class="section" id="compatibility-between-new-api-and-old-api">
+<span id="reference-orm-oldapi"></span><h2>Compatibility between new API and old API<a class="headerlink" href="#compatibility-between-new-api-and-old-api" title="Permalink to this headline">¶</a></h2>
+<p>Odoo is currently transitioning from an older (less regular) API, it can be
+necessary to manually bridge from one to the other manually:</p>
+<ul class="simple">
+<li>RPC layers (both XML-RPC and JSON-RPC) are expressed in terms of the old
+API, methods expressed purely in the new API are not available over RPC</li>
+<li>overridable methods may be called from older pieces of code still written
+in the old API style</li>
+</ul>
+<p>The big differences between the old and new APIs are:</p>
+<ul class="simple">
+<li>values of the <code class="xref py py-class docutils literal"><span class="pre">Environment</span></code> (cursor, user id and
+context) are passed explicitly to methods instead</li>
+<li>record data (<code class="xref py py-attr docutils literal"><span class="pre">ids</span></code>) are passed explicitly to
+methods, and possibly not passed at all</li>
+<li>methods tend to work on lists of ids instead of recordsets</li>
+</ul>
+<p>By default, methods are assumed to use the new API style and are not callable
+from the old API style.</p>
+<div class="aphorism admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>calls from the new API to the old API are bridged</p>
+<p>when using the new API style, calls to methods defined using the old API
+are automatically converted on-the-fly, there should be no need to do
+anything special:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># method in the old API style</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">old_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cr</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="gp">... </span>   <span class="nb">print</span> <span class="n">ids</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># method in the new API style</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">new_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="c1"># system automatically infers how to call the old-style</span>
+<span class="gp">... </span>    <span class="c1"># method from the new-style method</span>
+<span class="gp">... </span>    <span class="bp">self</span><span class="o">.</span><span class="n">old_method</span><span class="p">()</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">env</span><span class="p">[</span><span class="n">model</span><span class="p">]</span><span class="o">.</span><span class="n">browse</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">new_method</span><span class="p">()</span>
+<span class="go">[1, 2, 3, 4]</span>
+</pre></div>
+</div>
+</div>
+<p>Two decorators can expose a new-style method to the old API:</p>
+<dl class="docutils">
+<dt><code class="xref py py-func docutils literal"><span class="pre">model()</span></code></dt>
+<dd><p class="first">the method is exposed as not using ids, its recordset will generally be
+empty. Its “old API” signature is <code class="docutils literal"><span class="pre">cr,</span> <span class="pre">uid,</span> <span class="pre">*arguments,</span> <span class="pre">context</span></code>:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="nd">@api</span><span class="o">.</span><span class="n">model</span>
+<span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a_value</span><span class="p">):</span>
+    <span class="k">pass</span>
+<span class="c1"># can be called as</span>
+<span class="n">old_style_model</span><span class="o">.</span><span class="n">some_method</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">a_value</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="xref py py-func docutils literal"><span class="pre">multi()</span></code></dt>
+<dd><p class="first">the method is exposed as taking a list of ids (possibly empty), its
+“old API” signature is <code class="docutils literal"><span class="pre">cr,</span> <span class="pre">uid,</span> <span class="pre">ids,</span> <span class="pre">*arguments,</span> <span class="pre">context</span></code>:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="nd">@api</span><span class="o">.</span><span class="n">multi</span>
+<span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a_value</span><span class="p">):</span>
+    <span class="k">pass</span>
+<span class="c1"># can be called as</span>
+<span class="n">old_style_model</span><span class="o">.</span><span class="n">some_method</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="p">[</span><span class="n">id1</span><span class="p">,</span> <span class="n">id2</span><span class="p">],</span> <span class="n">a_value</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>Because new-style APIs tend to return recordsets and old-style APIs tend to
+return lists of ids, there is also a decorator managing this:</p>
+<dl class="docutils">
+<dt><code class="xref py py-func docutils literal"><span class="pre">returns()</span></code></dt>
+<dd><p class="first">the function is assumed to return a recordset, the first parameter should
+be the name of the recordset’s model or <code class="docutils literal"><span class="pre">self</span></code> (for the current model).</p>
+<p>No effect if the method is called in new API style, but transforms the
+recordset into a list of ids when called from the old API style:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@api</span><span class="o">.</span><span class="n">multi</span>
+<span class="gp">... </span><span class="nd">@api</span><span class="o">.</span><span class="n">returns</span><span class="p">(</span><span class="s1">&#39;self&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="bp">self</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_style_model</span> <span class="o">=</span> <span class="n">env</span><span class="p">[</span><span class="s1">&#39;a.model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">browse</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_style_model</span><span class="o">.</span><span class="n">some_method</span><span class="p">()</span>
+<span class="go">a.model(1, 2, 3)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">old_style_model</span> <span class="o">=</span> <span class="n">pool</span><span class="p">[</span><span class="s1">&#39;a.model&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">old_style_model</span><span class="o">.</span><span class="n">some_method</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+<span class="go">[1, 2, 3]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="model-reference">
+<span id="reference-orm-model"></span><h2>Model Reference<a class="headerlink" href="#model-reference" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="method-decorators">
+<span id="reference-orm-decorators"></span><h2>Method decorators<a class="headerlink" href="#method-decorators" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="fields">
+<span id="reference-orm-fields"></span><h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basic-fields">
+<span id="reference-orm-fields-basic"></span><h3>Basic fields<a class="headerlink" href="#basic-fields" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="relational-fields">
+<span id="reference-orm-fields-relational"></span><h3>Relational fields<a class="headerlink" href="#relational-fields" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="inheritance-and-extension">
+<span id="reference-orm-inheritance"></span><h2>Inheritance and extension<a class="headerlink" href="#inheritance-and-extension" title="Permalink to this headline">¶</a></h2>
+<p>Odoo provides three different mechanisms to extend models in a modular way:</p>
+<ul class="simple">
+<li>creating a new model from an existing one, adding new information to the
+copy but leaving the original module as-is</li>
+<li>extending models defined in other modules in-place, replacing the previous
+version</li>
+<li>delegating some of the model’s fields to records it contains</li>
+</ul>
+<img alt="../_images/inheritance_methods1.png" class="align-center" src="../_images/inheritance_methods1.png" />
+<div class="section" id="classical-inheritance">
+<h3>Classical inheritance<a class="headerlink" href="#classical-inheritance" title="Permalink to this headline">¶</a></h3>
+<p>When using the <code class="xref py py-attr docutils literal"><span class="pre">_inherit</span></code> and
+<code class="xref py py-attr docutils literal"><span class="pre">_name</span></code> attributes together, Odoo creates a new
+model using the existing one (provided via
+<code class="xref py py-attr docutils literal"><span class="pre">_inherit</span></code>) as a base. The new model gets all the
+fields, methods and meta-information (defaults &amp; al) from its base.</p>
+<p>and using them:</p>
+<p>will yield:</p>
+<p>the second model has inherited from the first model’s <code class="docutils literal"><span class="pre">check</span></code> method and its
+<code class="docutils literal"><span class="pre">name</span></code> field, but overridden the <code class="docutils literal"><span class="pre">call</span></code> method, as when using standard
+<span class="xref std std-ref">Python inheritance</span>.</p>
+</div>
+<div class="section" id="extension">
+<h3>Extension<a class="headerlink" href="#extension" title="Permalink to this headline">¶</a></h3>
+<p>When using <code class="xref py py-attr docutils literal"><span class="pre">_inherit</span></code> but leaving out
+<code class="xref py py-attr docutils literal"><span class="pre">_name</span></code>, the new model replaces the existing one,
+essentially extending it in-place. This is useful to add new fields or methods
+to existing models (created in other modules), or to customize or reconfigure
+them (e.g. to change their default sort order):</p>
+<p>will yield:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">it will also yield the various <span class="xref std std-ref">automatic fields</span> unless they’ve been disabled</p>
+</div>
+</div>
+<div class="section" id="delegation">
+<h3>Delegation<a class="headerlink" href="#delegation" title="Permalink to this headline">¶</a></h3>
+<p>The third inheritance mechanism provides more flexibility (it can be altered
+at runtime) but less power: using the <code class="xref py py-attr docutils literal"><span class="pre">_inherits</span></code>
+a model <em>delegates</em> the lookup of any field not found on the current model
+to “children” models. The delegation is performed via
+<code class="xref py py-class docutils literal"><span class="pre">Reference</span></code> fields automatically set up on the parent
+model:</p>
+<p>will result in:</p>
+<p>and it’s possible to write directly on the delegated field:</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">when using delegation inheritance, methods are <em>not</em> inherited,
+only fields</p>
+</div>
+</div>
+</div>
+<div class="section" id="domains">
+<span id="reference-orm-domains"></span><h2>Domains<a class="headerlink" href="#domains" title="Permalink to this headline">¶</a></h2>
+<p>A domain is a list of criteria, each criterion being a triple (either a
+<code class="docutils literal"><span class="pre">list</span></code> or a <code class="docutils literal"><span class="pre">tuple</span></code>) of <code class="docutils literal"><span class="pre">(field_name,</span> <span class="pre">operator,</span> <span class="pre">value)</span></code> where:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">field_name</span></code> (<code class="docutils literal"><span class="pre">str</span></code>)</dt>
+<dd>a field name of the current model, or a relationship traversal through
+a <code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code> using dot-notation e.g. <code class="docutils literal"><span class="pre">'street'</span></code>
+or <code class="docutils literal"><span class="pre">'partner_id.country'</span></code></dd>
+<dt><code class="docutils literal"><span class="pre">operator</span></code> (<code class="docutils literal"><span class="pre">str</span></code>)</dt>
+<dd><p class="first">an operator used to compare the <code class="docutils literal"><span class="pre">field_name</span></code> with the <code class="docutils literal"><span class="pre">value</span></code>. Valid
+operators are:</p>
+<dl class="last docutils">
+<dt><code class="docutils literal"><span class="pre">=</span></code></dt>
+<dd>equals to</dd>
+<dt><code class="docutils literal"><span class="pre">!=</span></code></dt>
+<dd>not equals to</dd>
+<dt><code class="docutils literal"><span class="pre">&gt;</span></code></dt>
+<dd>greater than</dd>
+<dt><code class="docutils literal"><span class="pre">&gt;=</span></code></dt>
+<dd>greater than or equal to</dd>
+<dt><code class="docutils literal"><span class="pre">&lt;</span></code></dt>
+<dd>less than</dd>
+<dt><code class="docutils literal"><span class="pre">&lt;=</span></code></dt>
+<dd>less than or equal to</dd>
+<dt><code class="docutils literal"><span class="pre">=?</span></code></dt>
+<dd>unset or equals to (returns true if <code class="docutils literal"><span class="pre">value</span></code> is either <code class="docutils literal"><span class="pre">None</span></code> or
+<code class="docutils literal"><span class="pre">False</span></code>, otherwise behaves like <code class="docutils literal"><span class="pre">=</span></code>)</dd>
+<dt><code class="docutils literal"><span class="pre">=like</span></code></dt>
+<dd>matches <code class="docutils literal"><span class="pre">field_name</span></code> against the <code class="docutils literal"><span class="pre">value</span></code> pattern. An underscore
+<code class="docutils literal"><span class="pre">_</span></code> in the pattern stands for (matches) any single character; a
+percent sign <code class="docutils literal"><span class="pre">%</span></code> matches any string of zero or more characters.</dd>
+<dt><code class="docutils literal"><span class="pre">like</span></code></dt>
+<dd>matches <code class="docutils literal"><span class="pre">field_name</span></code> against the <code class="docutils literal"><span class="pre">%value%</span></code> pattern. Similar to
+<code class="docutils literal"><span class="pre">=like</span></code> but wraps <code class="docutils literal"><span class="pre">value</span></code> with ‘%’ before matching</dd>
+<dt><code class="docutils literal"><span class="pre">not</span> <span class="pre">like</span></code></dt>
+<dd>doesn’t match against the <code class="docutils literal"><span class="pre">%value%</span></code> pattern</dd>
+<dt><code class="docutils literal"><span class="pre">ilike</span></code></dt>
+<dd>case insensitive <code class="docutils literal"><span class="pre">like</span></code></dd>
+<dt><code class="docutils literal"><span class="pre">not</span> <span class="pre">ilike</span></code></dt>
+<dd>case insensitive <code class="docutils literal"><span class="pre">not</span> <span class="pre">like</span></code></dd>
+<dt><code class="docutils literal"><span class="pre">=ilike</span></code></dt>
+<dd>case insensitive <code class="docutils literal"><span class="pre">=like</span></code></dd>
+<dt><code class="docutils literal"><span class="pre">in</span></code></dt>
+<dd>is equal to any of the items from <code class="docutils literal"><span class="pre">value</span></code>, <code class="docutils literal"><span class="pre">value</span></code> should be a
+list of items</dd>
+<dt><code class="docutils literal"><span class="pre">not</span> <span class="pre">in</span></code></dt>
+<dd>is unequal to all of the items from <code class="docutils literal"><span class="pre">value</span></code></dd>
+<dt><code class="docutils literal"><span class="pre">child_of</span></code></dt>
+<dd><p class="first">is a child (descendant) of a <code class="docutils literal"><span class="pre">value</span></code> record.</p>
+<p class="last">Takes the semantics of the model into account (i.e following the
+relationship field named by
+<code class="xref py py-attr docutils literal"><span class="pre">_parent_name</span></code>).</p>
+</dd>
+</dl>
+</dd>
+<dt><code class="docutils literal"><span class="pre">value</span></code></dt>
+<dd>variable type, must be comparable (through <code class="docutils literal"><span class="pre">operator</span></code>) to the named
+field</dd>
+</dl>
+<p>Domain criteria can be combined using logical operators in <em>prefix</em> form:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">'&amp;'</span></code></dt>
+<dd>logical <em>AND</em>, default operation to combine criteria following one
+another. Arity 2 (uses the next 2 criteria or combinations).</dd>
+<dt><code class="docutils literal"><span class="pre">'|'</span></code></dt>
+<dd>logical <em>OR</em>, arity 2.</dd>
+<dt><code class="docutils literal"><span class="pre">'!'</span></code></dt>
+<dd><p class="first">logical <em>NOT</em>, arity 1.</p>
+<div class="aphorism last admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Mostly to negate combinations of criteria</p>
+<p class="last">Individual criterion generally have a negative form (e.g. <code class="docutils literal"><span class="pre">=</span></code> -&gt;
+<code class="docutils literal"><span class="pre">!=</span></code>, <code class="docutils literal"><span class="pre">&lt;</span></code> -&gt; <code class="docutils literal"><span class="pre">&gt;=</span></code>) which is simpler than negating the positive.</p>
+</div>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="first admonition-title">Example</p>
+<p>To search for partners named <em>ABC</em>, from belgium or germany, whose language
+is not english:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="s1">&#39;ABC&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;language.code&#39;</span><span class="p">,</span><span class="s1">&#39;!=&#39;</span><span class="p">,</span><span class="s1">&#39;en_US&#39;</span><span class="p">),</span>
+ <span class="s1">&#39;|&#39;</span><span class="p">,(</span><span class="s1">&#39;country_id.code&#39;</span><span class="p">,</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="s1">&#39;be&#39;</span><span class="p">),</span>
+     <span class="p">(</span><span class="s1">&#39;country_id.code&#39;</span><span class="p">,</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="s1">&#39;de&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>This domain is interpreted as:</p>
+<div class="last highlight-text"><div class="highlight"><pre><span></span>    (name is &#39;ABC&#39;)
+AND (language is NOT english)
+AND (country is Belgium OR Germany)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="porting-from-the-old-api-to-the-new-api">
+<h2>Porting from the old API to the new API<a class="headerlink" href="#porting-from-the-old-api-to-the-new-api" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">bare lists of ids are to be avoided in the new API, use recordsets instead</p>
+</li>
+<li><p class="first">methods still written in the old API should be automatically bridged by the
+ORM, no need to switch to the old API, just call them as if they were a new
+API method. See <a class="reference internal" href="#reference-orm-oldapi-bridging"><span class="std std-ref">Automatic bridging of old API methods</span></a> for more details.</p>
+</li>
+<li><p class="first"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code> returns a recordset, no point in e.g.
+browsing its result</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">fields.related</span></code> and <code class="docutils literal"><span class="pre">fields.function</span></code> are replaced by using a normal
+field type with either a <code class="docutils literal"><span class="pre">related=</span></code> or a <code class="docutils literal"><span class="pre">compute=</span></code> parameter</p>
+</li>
+<li><p class="first"><code class="xref py py-func docutils literal"><span class="pre">depends()</span></code> on <code class="docutils literal"><span class="pre">compute=</span></code> methods <strong>must be complete</strong>,
+it must list <strong>all</strong> the fields and sub-fields which the compute method
+uses. It is better to have too many dependencies (will recompute the field
+in cases where that is not needed) than not enough (will forget to recompute
+the field and then values will be incorrect)</p>
+</li>
+<li><p class="first"><strong>remove</strong> all <code class="docutils literal"><span class="pre">onchange</span></code> methods on computed fields. Computed fields are
+automatically re-computed when one of their dependencies is changed, and
+that is used to auto-generate <code class="docutils literal"><span class="pre">onchange</span></code> by the client</p>
+</li>
+<li><p class="first">the decorators <code class="xref py py-func docutils literal"><span class="pre">model()</span></code> and <code class="xref py py-func docutils literal"><span class="pre">multi()</span></code> are
+for bridging <em>when calling from the old API context</em>, for internal or pure
+new-api (e.g. compute) they are useless</p>
+</li>
+<li><p class="first">remove <code class="xref py py-attr docutils literal"><span class="pre">_default</span></code>, replace by <code class="docutils literal"><span class="pre">default=</span></code>
+parameter on corresponding fields</p>
+</li>
+<li><p class="first">if a field’s <code class="docutils literal"><span class="pre">string=</span></code> is the titlecased version of the field name:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Char</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s2">&quot;Name&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>it is useless and should be removed</p>
+</li>
+<li><p class="first">the <code class="docutils literal"><span class="pre">multi=</span></code> parameter does not do anything on new API fields use the same
+<code class="docutils literal"><span class="pre">compute=</span></code> methods on all relevant fields for the same result</p>
+</li>
+<li><p class="first">provide <code class="docutils literal"><span class="pre">compute=</span></code>, <code class="docutils literal"><span class="pre">inverse=</span></code> and <code class="docutils literal"><span class="pre">search=</span></code> methods by name (as a
+string), this makes them overridable (removes the need for an intermediate
+“trampoline” function)</p>
+</li>
+<li><p class="first">double check that all fields and methods have different names, there is no
+warning in case of collision (because Python handles it before Odoo sees
+anything)</p>
+</li>
+<li><p class="first">the normal new-api import is <code class="docutils literal"><span class="pre">from</span> <span class="pre">gerp</span> <span class="pre">import</span> <span class="pre">fields,</span> <span class="pre">models</span></code>. If
+compatibility decorators are necessary, use <code class="docutils literal"><span class="pre">from</span> <span class="pre">gerp</span> <span class="pre">import</span> <span class="pre">api,</span>
+<span class="pre">fields,</span> <span class="pre">models</span></code></p>
+</li>
+<li><p class="first">avoid the <code class="xref py py-func docutils literal"><span class="pre">one()</span></code> decorator, it probably does not do what
+you expect</p>
+</li>
+<li><p class="first">remove explicit definition of <code class="xref py py-attr docutils literal"><span class="pre">create_uid</span></code>,
+<code class="xref py py-attr docutils literal"><span class="pre">create_date</span></code>,
+<code class="xref py py-attr docutils literal"><span class="pre">write_uid</span></code> and
+<code class="xref py py-attr docutils literal"><span class="pre">write_date</span></code> fields: they are now created as
+regular “legitimate” fields, and can be read and written like any other
+field out-of-the-box</p>
+</li>
+<li><p class="first">when straight conversion is impossible (semantics can not be bridged) or the
+“old API” version is not desirable and could be improved for the new API, it
+is possible to use completely different “old API” and “new API”
+implementations for the same method name using <code class="xref py py-func docutils literal"><span class="pre">v7()</span></code> and
+<code class="xref py py-func docutils literal"><span class="pre">v8()</span></code>. The method should first be defined using the
+old-API style and decorated with <code class="xref py py-func docutils literal"><span class="pre">v7()</span></code>, it should then be
+re-defined using the exact same name but the new-API style and decorated
+with <code class="xref py py-func docutils literal"><span class="pre">v8()</span></code>. Calls from an old-API context will be
+dispatched to the first implementation and calls from a new-API context will
+be dispatched to the second implementation. One implementation can call (and
+frequently does) call the other by switching context.</p>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">using these decorators makes methods extremely difficult to
+override and harder to understand and document</p>
+</div>
+</li>
+<li><p class="first">uses of <code class="xref py py-attr docutils literal"><span class="pre">_columns</span></code> or
+<code class="xref py py-attr docutils literal"><span class="pre">_all_columns</span></code> should be replaced by
+<code class="xref py py-attr docutils literal"><span class="pre">_fields</span></code>, which provides access to instances of
+new-style <code class="xref py py-class docutils literal"><span class="pre">gerp.fields.Field</span></code> instances (rather than old-style
+<code class="xref py py-class docutils literal"><span class="pre">gerp.osv.fields._column</span></code>).</p>
+<p>Non-stored computed fields created using the new API style are <em>not</em>
+available in <code class="xref py py-attr docutils literal"><span class="pre">_columns</span></code> and can only be
+inspected through <code class="xref py py-attr docutils literal"><span class="pre">_fields</span></code></p>
+</li>
+<li><p class="first">reassigning <code class="docutils literal"><span class="pre">self</span></code> in a method is probably unnecessary and may break
+translation introspection</p>
+</li>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">Environment</span></code> objects rely on some threadlocal state,
+which has to be set up before using them. It is necessary to do so using the
+<code class="xref py py-meth docutils literal"><span class="pre">gerp.api.Environment.manage()</span></code> context manager when trying to use
+the new API in contexts where it hasn’t been set up yet, such as new threads
+or a Python interactive environment:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gerp</span> <span class="k">import</span> <span class="n">api</span><span class="p">,</span> <span class="n">modules</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">modules</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">RegistryManager</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cr</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">env</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">Environment</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{})</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">AttributeError</span>: <span class="n">environments</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">api</span><span class="o">.</span><span class="n">Environment</span><span class="o">.</span><span class="n">manage</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">env</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">Environment</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{})</span>
+<span class="gp">... </span>    <span class="nb">print</span> <span class="n">env</span><span class="p">[</span><span class="s1">&#39;res.partner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">browse</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">res.partner(1,)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="section" id="automatic-bridging-of-old-api-methods">
+<span id="reference-orm-oldapi-bridging"></span><h3>Automatic bridging of old API methods<a class="headerlink" href="#automatic-bridging-of-old-api-methods" title="Permalink to this headline">¶</a></h3>
+<p>When models are initialized, all methods are automatically scanned and bridged
+if they look like models declared in the old API style. This bridging makes
+them transparently callable from new-API-style methods.</p>
+<p>Methods are matched as “old-API style” if their second positional parameter
+(after <code class="docutils literal"><span class="pre">self</span></code>) is called either <code class="docutils literal"><span class="pre">cr</span></code> or <code class="docutils literal"><span class="pre">cursor</span></code>. The system also
+recognizes the third positional parameter being called <code class="docutils literal"><span class="pre">uid</span></code> or <code class="docutils literal"><span class="pre">user</span></code> and
+the fourth being called <code class="docutils literal"><span class="pre">id</span></code> or <code class="docutils literal"><span class="pre">ids</span></code>. It also recognizes the presence of
+any parameter called <code class="docutils literal"><span class="pre">context</span></code>.</p>
+<p>When calling such methods from a new API context, the system will
+automatically fill matched parameters from the current
+<code class="xref py py-class docutils literal"><span class="pre">Environment</span></code> (for <code class="xref py py-attr docutils literal"><span class="pre">cr</span></code>,
+<code class="xref py py-attr docutils literal"><span class="pre">user</span></code> and
+<code class="xref py py-attr docutils literal"><span class="pre">context</span></code>) or the current recordset (for <code class="docutils literal"><span class="pre">id</span></code>
+and <code class="docutils literal"><span class="pre">ids</span></code>).</p>
+<p>In the rare cases where it is necessary, the bridging can be customized by
+decorating the old-style method:</p>
+<ul>
+<li><p class="first">disabling it entirely, by decorating a method with
+<code class="xref py py-func docutils literal"><span class="pre">noguess()</span></code> there will be no bridging and methods will be
+called the exact same way from the new and old API styles</p>
+</li>
+<li><p class="first">defining the bridge explicitly, this is mostly for methods which are matched
+incorrectly (because parameters are named in unexpected ways):</p>
+<dl class="docutils">
+<dt><code class="xref py py-func docutils literal"><span class="pre">cr()</span></code></dt>
+<dd><p class="first last">will automatically prepend the current cursor to explicitly provided
+parameters, positionally</p>
+</dd>
+<dt><code class="xref py py-func docutils literal"><span class="pre">cr_uid()</span></code></dt>
+<dd><p class="first last">will automatically prepend the current cursor and user’s id to explictly
+provided parameters</p>
+</dd>
+<dt><code class="xref py py-func docutils literal"><span class="pre">cr_uid_ids()</span></code></dt>
+<dd><p class="first last">will automatically prepend the current cursor, user’s id and recordset’s
+ids to explicitly provided parameters</p>
+</dd>
+<dt><code class="xref py py-func docutils literal"><span class="pre">cr_uid_id()</span></code></dt>
+<dd><p class="first">will loop over the current recordset and call the method once for each
+record, prepending the current cursor, user’s id and record’s id to
+explicitly provided parameters.</p>
+<div class="last admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">the result of this wrapper is <em>always a list</em> when calling
+from a new-API context</p>
+</div>
+</dd>
+</dl>
+<p>All of these methods have a <code class="docutils literal"><span class="pre">_context</span></code>-suffixed version
+(e.g. <code class="xref py py-func docutils literal"><span class="pre">cr_uid_context()</span></code>) which also passes the current
+context <em>by keyword</em>.</p>
+</li>
+<li><p class="first">dual implementations using <code class="xref py py-func docutils literal"><span class="pre">v7()</span></code> and
+<code class="xref py py-func docutils literal"><span class="pre">v8()</span></code> will be ignored as they provide their own “bridging”</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Gahan Corporation.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/reference/orm.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

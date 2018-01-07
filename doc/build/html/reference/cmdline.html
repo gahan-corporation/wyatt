@@ -1,0 +1,545 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Command-line interface: gerp-bin &#8212; gerp v0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'v0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="command-line-interface-gerp-bin">
+<span id="reference-cmdline"></span><h1>Command-line interface: gerp-bin<a class="headerlink" href="#command-line-interface-gerp-bin" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="running-the-server">
+<span id="reference-cmdline-server"></span><h2>Running the server<a class="headerlink" href="#running-the-server" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-gerp-bin-d">
+<code class="descname">-d</code><code class="descclassname"> &lt;database&gt;</code><code class="descclassname">, </code><code class="descname">--database</code><code class="descclassname"> &lt;database&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-d" title="Permalink to this definition">¶</a></dt>
+<dd><p>database used when installing or updating modules.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-i">
+<code class="descname">-i</code><code class="descclassname"> &lt;modules&gt;</code><code class="descclassname">, </code><code class="descname">--init</code><code class="descclassname"> &lt;modules&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-i" title="Permalink to this definition">¶</a></dt>
+<dd><p>comma-separated list of modules to install before running the server
+(requires <a class="reference internal" href="#cmdoption-gerp-bin-d"><code class="xref std std-option docutils literal"><span class="pre">-d</span></code></a>).</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-u">
+<code class="descname">-u</code><code class="descclassname"> &lt;modules&gt;</code><code class="descclassname">, </code><code class="descname">--update</code><code class="descclassname"> &lt;modules&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-u" title="Permalink to this definition">¶</a></dt>
+<dd><p>comma-separated list of modules to update before running the server
+(requires <a class="reference internal" href="#cmdoption-gerp-bin-d"><code class="xref std std-option docutils literal"><span class="pre">-d</span></code></a>).</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-addons-path">
+<code class="descname">--addons-path</code><code class="descclassname"> &lt;directories&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-addons-path" title="Permalink to this definition">¶</a></dt>
+<dd><p>comma-separated list of directories in which modules are stored. These
+directories are scanned for modules (nb: when and why?)</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-workers">
+<code class="descname">--workers</code><code class="descclassname"> &lt;count&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-workers" title="Permalink to this definition">¶</a></dt>
+<dd><p>if <code class="docutils literal"><span class="pre">count</span></code> is not 0 (the default), enables multiprocessing and sets up
+the specified number of HTTP workers (sub-processes processing HTTP
+and RPC requests).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">multiprocessing mode is only available on Unix-based systems</p>
+</div>
+<p>A number of options allow limiting and recycling workers:</p>
+<dl class="option">
+<dt id="cmdoption-gerp-bin-limit-request">
+<code class="descname">--limit-request</code><code class="descclassname"> &lt;limit&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-limit-request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of requests a worker will process before being recycled and
+restarted.</p>
+<p>Defaults to 8196.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-limit-memory-soft">
+<code class="descname">--limit-memory-soft</code><code class="descclassname"> &lt;limit&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-limit-memory-soft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum allowed virtual memory per worker. If the limit is exceeded,
+the worker is killed and recycled at the end of the current request.</p>
+<p>Defaults to 640MB.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-limit-memory-hard">
+<code class="descname">--limit-memory-hard</code><code class="descclassname"> &lt;limit&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-limit-memory-hard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hard limit on virtual memory, any worker exceeding the limit will be
+immediately killed without waiting for the end of the current request
+processing.</p>
+<p>Defaults to 768MB.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-limit-time-cpu">
+<code class="descname">--limit-time-cpu</code><code class="descclassname"> &lt;limit&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-limit-time-cpu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prevents the worker from using more than &lt;limit&gt; CPU seconds for each
+request. If the limit is exceeded, the worker is killed.</p>
+<p>Defaults to 60.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-limit-time-real">
+<code class="descname">--limit-time-real</code><code class="descclassname"> &lt;limit&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-limit-time-real" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prevents the worker from taking longer than &lt;limit&gt; seconds to process
+a request. If the limit is exceeded, the worker is killed.</p>
+<p>Differs from <a class="reference internal" href="#cmdoption-gerp-bin-limit-time-cpu"><code class="xref std std-option docutils literal"><span class="pre">--limit-time-cpu</span></code></a> in that this is a “wall time”
+limit including e.g. SQL queries.</p>
+<p>Defaults to 120.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-max-cron-threads">
+<code class="descname">--max-cron-threads</code><code class="descclassname"> &lt;count&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-max-cron-threads" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of workers dedicated to cron jobs. Defaults to 2. The workers are
+threads in multi-threading mode and processes in multi-processing mode.</p>
+<p>For multi-processing mode, this is in addition to the HTTP worker
+processes.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-c">
+<code class="descname">-c</code><code class="descclassname"> &lt;config&gt;</code><code class="descclassname">, </code><code class="descname">--config</code><code class="descclassname"> &lt;config&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-c" title="Permalink to this definition">¶</a></dt>
+<dd><p>provide an alternate configuration file</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-s">
+<code class="descname">-s</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--save</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-gerp-bin-s" title="Permalink to this definition">¶</a></dt>
+<dd><p>saves the server configuration to the current configuration file
+(<code class="file docutils literal"><em><span class="pre">$HOME</span></em><span class="pre">/.gerprc</span></code> by default, and can be overridden using
+<a class="reference internal" href="#cmdoption-gerp-bin-c"><code class="xref std std-option docutils literal"><span class="pre">-c</span></code></a>)</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-proxy-mode">
+<code class="descname">--proxy-mode</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-gerp-bin-proxy-mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>enables the use of <code class="docutils literal"><span class="pre">X-Forwarded-*</span></code> headers through <a class="reference external" href="http://werkzeug.pocoo.org/docs/contrib/fixers/#werkzeug.contrib.fixers.ProxyFix">Werkzeug’s proxy
+support</a>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">proxy mode <em>must not</em> be enabled outside of a reverse proxy
+scenario</p>
+</div>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-test-enable">
+<code class="descname">--test-enable</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-gerp-bin-test-enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>runs tests after installing modules</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-dev">
+<code class="descname">--dev</code><code class="descclassname"> &lt;feature,feature,...,feature&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-dev" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><code class="docutils literal"><span class="pre">all</span></code>: all the features below are activated</li>
+<li><code class="docutils literal"><span class="pre">xml</span></code>: read template qweb from xml file directly instead of database.
+Once a template has been modified in database, it will be not be read from
+the xml file until the next update/init.</li>
+<li><code class="docutils literal"><span class="pre">reload</span></code>: restart server when python file are updated (may not be detected
+depending on the text editor used)</li>
+<li><code class="docutils literal"><span class="pre">qweb</span></code>: break in the evaluation of qweb template when a node contains <code class="docutils literal"><span class="pre">t-debug='debugger'</span></code></li>
+<li><code class="docutils literal"><span class="pre">(i)p(u)db</span></code>: start the chosen python debugger in the code when an
+unexpected error is raised before logging and returning the error.</li>
+</ul>
+</dd></dl>
+
+<div class="section" id="database">
+<span id="reference-cmdline-server-database"></span><h3>database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h3>
+<dl class="option">
+<dt id="cmdoption-gerp-bin-r">
+<code class="descname">-r</code><code class="descclassname"> &lt;user&gt;</code><code class="descclassname">, </code><code class="descname">--db_user</code><code class="descclassname"> &lt;user&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-r" title="Permalink to this definition">¶</a></dt>
+<dd><p>database username, used to connect to PostgreSQL.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-w">
+<code class="descname">-w</code><code class="descclassname"> &lt;password&gt;</code><code class="descclassname">, </code><code class="descname">--db_password</code><code class="descclassname"> &lt;password&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-w" title="Permalink to this definition">¶</a></dt>
+<dd><p>database password, if using <a class="reference external" href="http://www.postgresql.org/docs/9.3/static/auth-methods.html#AUTH-PASSWORD">password authentication</a>.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-db-host">
+<code class="descname">--db_host</code><code class="descclassname"> &lt;hostname&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-db-host" title="Permalink to this definition">¶</a></dt>
+<dd><p>host for the database server</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">localhost</span></code> on Windows</li>
+<li>UNIX socket otherwise</li>
+</ul>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-db-port">
+<code class="descname">--db_port</code><code class="descclassname"> &lt;port&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-db-port" title="Permalink to this definition">¶</a></dt>
+<dd><p>port the database listens on, defaults to 5432</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-db-filter">
+<code class="descname">--db-filter</code><code class="descclassname"> &lt;filter&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-db-filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>hides databases that do not match <code class="docutils literal"><span class="pre">&lt;filter&gt;</span></code>. The filter is a
+<a class="reference external" href="https://docs.python.org/2/library/re.html">regular expression</a>, with the additions that:</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">%h</span></code> is replaced by the whole hostname the request is made on.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">%d</span></code> is replaced by the subdomain the request is made on, with the
+exception of <code class="docutils literal"><span class="pre">www</span></code> (so domain <code class="docutils literal"><span class="pre">gerp.com</span></code> and <code class="docutils literal"><span class="pre">www.gerp.com</span></code> both
+match the database <code class="docutils literal"><span class="pre">gerp</span></code>).</p>
+<p>These operations are case sensitive. Add option <code class="docutils literal"><span class="pre">(?i)</span></code> to match all
+databases (so domain <code class="docutils literal"><span class="pre">gerp.com</span></code> using <code class="docutils literal"><span class="pre">(?i)%d</span></code> matches the database
+<code class="docutils literal"><span class="pre">Odoo</span></code>).</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-db-template">
+<code class="descname">--db-template</code><code class="descclassname"> &lt;template&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-db-template" title="Permalink to this definition">¶</a></dt>
+<dd><p>when creating new databases from the database-management screens, use the
+specified <a class="reference external" href="http://www.postgresql.org/docs/9.3/static/manage-ag-templatedbs.html">template database</a>. Defaults to <code class="docutils literal"><span class="pre">template1</span></code>.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-no-database-list">
+<code class="descname">--no-database-list</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-gerp-bin-no-database-list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Suppresses the ability to list databases available on the system</p>
+</dd></dl>
+
+</div>
+<div class="section" id="built-in-http">
+<h3>built-in HTTP<a class="headerlink" href="#built-in-http" title="Permalink to this headline">¶</a></h3>
+<dl class="option">
+<dt id="cmdoption-gerp-bin-no-http">
+<code class="descname">--no-http</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-gerp-bin-no-http" title="Permalink to this definition">¶</a></dt>
+<dd><p>do not start the HTTP or long-polling workers (may still start cron
+workers)</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">has no effect if <a class="reference internal" href="#cmdoption-gerp-bin-test-enable"><code class="xref std std-option docutils literal"><span class="pre">--test-enable</span></code></a> is set, as tests
+require an accessible HTTP server</p>
+</div>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-http-interface">
+<code class="descname">--http-interface</code><code class="descclassname"> &lt;interface&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-http-interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>TCP/IP address on which the HTTP server listens, defaults to <code class="docutils literal"><span class="pre">0.0.0.0</span></code>
+(all addresses)</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-http-port">
+<code class="descname">--http-port</code><code class="descclassname"> &lt;port&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-http-port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port on which the HTTP server listens, defaults to 8069.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-longpolling-port">
+<code class="descname">--longpolling-port</code><code class="descclassname"> &lt;port&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-longpolling-port" title="Permalink to this definition">¶</a></dt>
+<dd><p>TCP port for long-polling connections in multiprocessing or gevent mode,
+defaults to 8072. Not used in default (threaded) mode.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="logging">
+<h3>logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h3>
+<p>By default, Odoo displays all logging of <a class="reference external" href="https://docs.python.org/2/library/logging.html#logging.Logger.setLevel">level</a> <code class="docutils literal"><span class="pre">info</span></code> except for workflow
+logging (<code class="docutils literal"><span class="pre">warning</span></code> only), and log output is sent to <code class="docutils literal"><span class="pre">stdout</span></code>. Various
+options are available to redirect logging to other destinations and to
+customize the amount of logging output</p>
+<dl class="option">
+<dt id="cmdoption-gerp-bin-logfile">
+<code class="descname">--logfile</code><code class="descclassname"> &lt;file&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-logfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>sends logging output to the specified file instead of stdout. On Unix, the
+file <a class="reference external" href="https://docs.python.org/2/library/logging.handlers.html#watchedfilehandler">can be managed by external log rotation programs</a>
+and will automatically be reopened when replaced</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-logrotate">
+<code class="descname">--logrotate</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-gerp-bin-logrotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>enables <a class="reference external" href="https://docs.python.org/2/library/logging.handlers.html#timedrotatingfilehandler">log rotation</a>
+daily, keeping 30 backups. Log rotation frequency and number of backups is
+not configurable.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-syslog">
+<code class="descname">--syslog</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-gerp-bin-syslog" title="Permalink to this definition">¶</a></dt>
+<dd><p>logs to the system’s event logger: <a class="reference external" href="https://docs.python.org/2/library/logging.handlers.html#sysloghandler">syslog on unices</a>
+and <a class="reference external" href="https://docs.python.org/2/library/logging.handlers.html#nteventloghandler">the Event Log on Windows</a>.</p>
+<p>Neither is configurable</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-log-db">
+<code class="descname">--log-db</code><code class="descclassname"> &lt;dbname&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-log-db" title="Permalink to this definition">¶</a></dt>
+<dd><p>logs to the <code class="docutils literal"><span class="pre">ir.logging</span></code> model (<code class="docutils literal"><span class="pre">ir_logging</span></code> table) of the specified
+database. The database can be the name of a database in the “current”
+PostgreSQL, or <a class="reference external" href="http://www.postgresql.org/docs/9.2/static/libpq-connect.html#AEN38208">a PostgreSQL URI</a> for e.g. log aggregation</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-log-handler">
+<code class="descname">--log-handler</code><code class="descclassname"> &lt;handler-spec&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-log-handler" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="samp docutils literal"><em><span class="pre">LOGGER</span></em><span class="pre">:</span><em><span class="pre">LEVEL</span></em></code>, enables <code class="docutils literal"><span class="pre">LOGGER</span></code> at the provided <code class="docutils literal"><span class="pre">LEVEL</span></code>
+e.g. <code class="docutils literal"><span class="pre">gerp.models:DEBUG</span></code> will enable all logging messages at or above
+<code class="docutils literal"><span class="pre">DEBUG</span></code> level in the models.</p>
+<ul class="simple">
+<li>The colon <code class="docutils literal"><span class="pre">:</span></code> is mandatory</li>
+<li>The logger can be omitted to configure the root (default) handler</li>
+<li>If the level is omitted, the logger is set to <code class="docutils literal"><span class="pre">INFO</span></code></li>
+</ul>
+<p>The option can be repeated to configure multiple loggers e.g.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> gerp-bin --log-handler :DEBUG --log-handler werkzeug:CRITICAL --log-handler gerp.fields:WARNING
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-log-request">
+<code class="descname">--log-request</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-gerp-bin-log-request" title="Permalink to this definition">¶</a></dt>
+<dd><p>enable DEBUG logging for RPC requests, equivalent to
+<code class="docutils literal"><span class="pre">--log-handler=gerp.http.rpc.request:DEBUG</span></code></p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-log-response">
+<code class="descname">--log-response</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-gerp-bin-log-response" title="Permalink to this definition">¶</a></dt>
+<dd><p>enable DEBUG logging for RPC responses, equivalent to
+<code class="docutils literal"><span class="pre">--log-handler=gerp.http.rpc.response:DEBUG</span></code></p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-log-web">
+<code class="descname">--log-web</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-gerp-bin-log-web" title="Permalink to this definition">¶</a></dt>
+<dd><p>enables DEBUG logging of HTTP requests and responses, equivalent to
+<code class="docutils literal"><span class="pre">--log-handler=gerp.http:DEBUG</span></code></p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-log-sql">
+<code class="descname">--log-sql</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-gerp-bin-log-sql" title="Permalink to this definition">¶</a></dt>
+<dd><p>enables DEBUG logging of SQL querying, equivalent to
+<code class="docutils literal"><span class="pre">--log-handler=gerp.sql_db:DEBUG</span></code></p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-log-level">
+<code class="descname">--log-level</code><code class="descclassname"> &lt;level&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-log-level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shortcut to more easily set predefined levels on specific loggers. “real”
+levels (<code class="docutils literal"><span class="pre">critical</span></code>, <code class="docutils literal"><span class="pre">error</span></code>, <code class="docutils literal"><span class="pre">warn</span></code>, <code class="docutils literal"><span class="pre">debug</span></code>) are set on the
+<code class="docutils literal"><span class="pre">gerp</span></code> and <code class="docutils literal"><span class="pre">werkzeug</span></code> loggers (except for <code class="docutils literal"><span class="pre">debug</span></code> which is only
+set on <code class="docutils literal"><span class="pre">gerp</span></code>).</p>
+<p>Odoo also provides debugging pseudo-levels which apply to different sets
+of loggers:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">debug_sql</span></code></dt>
+<dd><p class="first">sets the SQL logger to <code class="docutils literal"><span class="pre">debug</span></code></p>
+<p class="last">equivalent to <code class="docutils literal"><span class="pre">--log-sql</span></code></p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">debug_rpc</span></code></dt>
+<dd><p class="first">sets the <code class="docutils literal"><span class="pre">gerp</span></code> and HTTP request loggers to <code class="docutils literal"><span class="pre">debug</span></code></p>
+<p class="last">equivalent to <code class="docutils literal"><span class="pre">--log-level</span> <span class="pre">debug</span> <span class="pre">--log-request</span></code></p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">debug_rpc_answer</span></code></dt>
+<dd><p class="first">sets the <code class="docutils literal"><span class="pre">gerp</span></code> and HTTP request and response loggers to
+<code class="docutils literal"><span class="pre">debug</span></code></p>
+<p class="last">equivalent to <code class="docutils literal"><span class="pre">--log-level</span> <span class="pre">debug</span> <span class="pre">--log-request</span> <span class="pre">--log-response</span></code></p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In case of conflict between <a class="reference internal" href="#cmdoption-gerp-bin-log-level"><code class="xref std std-option docutils literal"><span class="pre">--log-level</span></code></a> and
+<a class="reference internal" href="#cmdoption-gerp-bin-log-handler"><code class="xref std std-option docutils literal"><span class="pre">--log-handler</span></code></a>, the latter is used</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="translations">
+<h3>translations<a class="headerlink" href="#translations" title="Permalink to this headline">¶</a></h3>
+<dl class="option">
+<dt id="cmdoption-gerp-bin-i18n-import">
+<code class="descname">--i18n-import</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-gerp-bin-i18n-import" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-i18n-export">
+<code class="descname">--i18n-export</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-gerp-bin-i18n-export" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="emails">
+<h3>emails<a class="headerlink" href="#emails" title="Permalink to this headline">¶</a></h3>
+<dl class="option">
+<dt id="cmdoption-gerp-bin-email-from">
+<code class="descname">--email-from</code><code class="descclassname"> &lt;address&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-email-from" title="Permalink to this definition">¶</a></dt>
+<dd><p>Email address used as &lt;FROM&gt; when Odoo needs to send mails</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-smtp">
+<code class="descname">--smtp</code><code class="descclassname"> &lt;server&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-smtp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Address of the SMTP server to connect to in order to send mails</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-smtp-port">
+<code class="descname">--smtp-port</code><code class="descclassname"> &lt;port&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-smtp-port" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-smtp-ssl">
+<code class="descname">--smtp-ssl</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-gerp-bin-smtp-ssl" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set, gerp should use SSL/STARTSSL SMTP connections</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-smtp-user">
+<code class="descname">--smtp-user</code><code class="descclassname"> &lt;name&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-smtp-user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Username to connect to the SMTP server</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-smtp-password">
+<code class="descname">--smtp-password</code><code class="descclassname"> &lt;password&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-smtp-password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Password to connect to the SMTP server</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="scaffolding">
+<span id="reference-cmdline-scaffold"></span><h2>Scaffolding<a class="headerlink" href="#scaffolding" title="Permalink to this headline">¶</a></h2>
+<p>Scaffolding is the automated creation of a skeleton structure to simplify
+bootstrapping (of new modules, in the case of Odoo). While not necessary it
+avoids the tedium of setting up basic structures and looking up what all
+starting requirements are.</p>
+<p>Scaffolding is available via the <strong class="command">gerp-bin scaffold</strong> subcommand.</p>
+<dl class="option">
+<dt id="cmdoption-gerp-bin-scaffold-t">
+<code class="descname">-t</code><code class="descclassname"> &lt;template&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-scaffold-t" title="Permalink to this definition">¶</a></dt>
+<dd><p>a template directory, files are passed through <a class="reference external" href="http://jinja.pocoo.org">jinja2</a> then copied to
+the <code class="docutils literal"><span class="pre">destination</span></code> directory</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-scaffold-arg-name">
+<code class="descname">name</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-gerp-bin-scaffold-arg-name" title="Permalink to this definition">¶</a></dt>
+<dd><p>the name of the module to create, may munged in various manners to
+generate programmatic names (e.g. module directory name, model names, …)</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gerp-bin-scaffold-arg-destination">
+<code class="descname">destination</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-gerp-bin-scaffold-arg-destination" title="Permalink to this definition">¶</a></dt>
+<dd><p>directory in which to create the new module, defaults to the current
+directory</p>
+</dd></dl>
+
+</div>
+<div class="section" id="configuration-file">
+<span id="reference-cmdline-config"></span><h2>Configuration file<a class="headerlink" href="#configuration-file" title="Permalink to this headline">¶</a></h2>
+<p>Most of the command-line options can also be specified via a configuration
+file. Most of the time, they use similar names with the prefix <code class="docutils literal"><span class="pre">-</span></code> removed
+and other <code class="docutils literal"><span class="pre">-</span></code> are replaced by <code class="docutils literal"><span class="pre">_</span></code> e.g. <a class="reference internal" href="#cmdoption-gerp-bin-db-template"><code class="xref std std-option docutils literal"><span class="pre">--db-template</span></code></a> becomes
+<code class="docutils literal"><span class="pre">db_template</span></code>.</p>
+<p>Some conversions don’t match the pattern:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#cmdoption-gerp-bin-db-filter"><code class="xref std std-option docutils literal"><span class="pre">--db-filter</span></code></a> becomes <code class="docutils literal"><span class="pre">dbfilter</span></code></li>
+<li><a class="reference internal" href="#cmdoption-gerp-bin-no-http"><code class="xref std std-option docutils literal"><span class="pre">--no-http</span></code></a> corresponds to the <code class="docutils literal"><span class="pre">http_enable</span></code> boolean</li>
+<li>logging presets (all options starting with <code class="docutils literal"><span class="pre">--log-</span></code> except for
+<a class="reference internal" href="#cmdoption-gerp-bin-log-handler"><code class="xref std std-option docutils literal"><span class="pre">--log-handler</span></code></a> and <a class="reference internal" href="#cmdoption-gerp-bin-log-db"><code class="xref std std-option docutils literal"><span class="pre">--log-db</span></code></a>) just add content to
+<code class="docutils literal"><span class="pre">log_handler</span></code>, use that directly in the configuration file</li>
+<li><a class="reference internal" href="#cmdoption-gerp-bin-smtp"><code class="xref std std-option docutils literal"><span class="pre">--smtp</span></code></a> is stored as <code class="docutils literal"><span class="pre">smtp_server</span></code></li>
+<li><a class="reference internal" href="#cmdoption-gerp-bin-d"><code class="xref std std-option docutils literal"><span class="pre">--database</span></code></a> is stored as <code class="docutils literal"><span class="pre">db_name</span></code></li>
+<li><a class="reference internal" href="#cmdoption-gerp-bin-i18n-import"><code class="xref std std-option docutils literal"><span class="pre">--i18n-import</span></code></a> and <a class="reference internal" href="#cmdoption-gerp-bin-i18n-export"><code class="xref std std-option docutils literal"><span class="pre">--i18n-export</span></code></a> aren’t available at all
+from configuration files</li>
+</ul>
+<p>The default configuration file is <code class="file docutils literal"><em><span class="pre">$HOME</span></em><span class="pre">/.gerprc</span></code> which
+can be overridden using <a class="reference internal" href="#cmdoption-gerp-bin-c"><code class="xref std std-option docutils literal"><span class="pre">--config</span></code></a>. Specifying
+<a class="reference internal" href="#cmdoption-gerp-bin-s"><code class="xref std std-option docutils literal"><span class="pre">--save</span></code></a> will save the current configuration state back
+to that file.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Gahan Corporation.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/reference/cmdline.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

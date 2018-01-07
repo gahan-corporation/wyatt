@@ -1,0 +1,453 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Asynchronous Operations &#8212; gerp v0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'v0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="asynchronous-operations">
+<span id="reference-async"></span><h1>Asynchronous Operations<a class="headerlink" href="#asynchronous-operations" title="Permalink to this headline">¶</a></h1>
+<p>As a language (and runtime), javascript is fundamentally
+single-threaded. This means any blocking request or computation will
+block the whole page (and, in older browsers, the software itself
+even preventing users from switching to another tab): a javascript
+environment can be seen as an event-based runloop where application
+developers have no control over the runloop itself.</p>
+<p>As a result, performing long-running synchronous network requests or
+other types of complex and expensive accesses is frowned upon and
+asynchronous APIs are used instead.</p>
+<p>The goal of this guide is to provide some tools to deal with
+asynchronous systems, and warn against systemic issues or dangers.</p>
+<div class="section" id="deferreds">
+<h2>Deferreds<a class="headerlink" href="#deferreds" title="Permalink to this headline">¶</a></h2>
+<p>Deferreds are a form of <a class="reference external" href="http://en.wikipedia.org/wiki/Promise_(programming)">promises</a>. OpenERP Web currently uses
+<a class="reference external" href="http://api.jquery.com/category/deferred-object/">jQuery’s deferred</a>.</p>
+<p>The core idea of deferreds is that potentially asynchronous methods
+will return a <a class="reference internal" href="#Deferred" title="Deferred"><code class="xref js js-class docutils literal"><span class="pre">Deferred()</span></code></a> object instead of an arbitrary
+value or (most commonly) nothing.</p>
+<p>This object can then be used to track the end of the asynchronous
+operation by adding callbacks onto it, either success callbacks or
+error callbacks.</p>
+<p>A great advantage of deferreds over simply passing callback functions
+directly to asynchronous methods is the ability to <a class="reference internal" href="#reference-async-composition"><span class="std std-ref">compose them</span></a>.</p>
+<div class="section" id="using-deferreds">
+<h3>Using deferreds<a class="headerlink" href="#using-deferreds" title="Permalink to this headline">¶</a></h3>
+<p>Deferreds’s most important method is <code class="xref js js-func docutils literal"><span class="pre">Deferred.then()</span></code>. It is
+used to attach new callbacks to the deferred object.</p>
+<ul class="simple">
+<li>the first parameter attaches a success callback, called when the
+deferred object is successfully resolved and provided with the
+resolved value(s) for the asynchronous operation.</li>
+<li>the second parameter attaches a failure callback, called when the
+deferred object is rejected and provided with rejection values
+(often some sort of error message).</li>
+</ul>
+<p>Callbacks attached to deferreds are never “lost”: if a callback is
+attached to an already resolved or rejected deferred, the callback
+will be called (or ignored) immediately. A deferred is also only ever
+resolved or rejected once, and is either resolved or rejected: a given
+deferred can not call a single success callback twice, or call both a
+success and a failure callbacks.</p>
+<p><code class="xref js js-func docutils literal"><span class="pre">then()</span></code> should be the method you’ll use most often
+when interacting with deferred objects (and thus asynchronous APIs).</p>
+</div>
+<div class="section" id="building-deferreds">
+<h3>Building deferreds<a class="headerlink" href="#building-deferreds" title="Permalink to this headline">¶</a></h3>
+<p>After using asynchronous APIs may come the time to build them: for
+<a class="reference external" href="http://en.wikipedia.org/wiki/Mock_object">mocks</a>, to compose deferreds from multiple source in a complex
+manner, in order to let the current operations repaint the screen or
+give other events the time to unfold, …</p>
+<p>This is easy using jQuery’s deferred objects.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">this section is an implementation detail of jQuery Deferred
+objects, the creation of promises is not part of any
+standard (even tentative) that I know of. If you are using
+deferred objects which are not jQuery’s, their API may (and
+often will) be completely different.</p>
+</div>
+<p>Deferreds are created by invoking their constructor <a class="footnote-reference" href="#id3" id="id1">[1]</a> without any
+argument. This creates a <a class="reference internal" href="#Deferred" title="Deferred"><code class="xref js js-class docutils literal"><span class="pre">Deferred()</span></code></a> instance object with the
+following methods:</p>
+<p><code class="xref js js-func docutils literal"><span class="pre">Deferred.resolve()</span></code></p>
+<blockquote>
+<div>As its name indicates, this method moves the deferred to the
+“Resolved” state. It can be provided as many arguments as
+necessary, these arguments will be provided to any pending success
+callback.</div></blockquote>
+<p><code class="xref js js-func docutils literal"><span class="pre">Deferred.reject()</span></code></p>
+<blockquote>
+<div>Similar to <code class="xref js js-func docutils literal"><span class="pre">resolve()</span></code>, but moves the deferred to
+the “Rejected” state and calls pending failure handlers.</div></blockquote>
+<p><code class="xref js js-func docutils literal"><span class="pre">Deferred.promise()</span></code></p>
+<blockquote>
+<div>Creates a readonly view of the deferred object. It is generally a
+good idea to return a promise view of the deferred to prevent
+callers from resolving or rejecting the deferred in your stead.</div></blockquote>
+<p><code class="xref js js-func docutils literal"><span class="pre">reject()</span></code> and <code class="xref js js-func docutils literal"><span class="pre">resolve()</span></code> are used
+to inform callers that the asynchronous operation has failed (or
+succeeded). These methods should simply be called when the
+asynchronous operation has ended, to notify anybody interested in its
+result(s).</p>
+</div>
+<div class="section" id="composing-deferreds">
+<span id="reference-async-composition"></span><h3>Composing deferreds<a class="headerlink" href="#composing-deferreds" title="Permalink to this headline">¶</a></h3>
+<p>What we’ve seen so far is pretty nice, but mostly doable by passing
+functions to other functions (well adding functions post-facto would
+probably be a chore… still, doable).</p>
+<p>Deferreds truly shine when code needs to compose asynchronous
+operations in some way or other, as they can be used as a basis for
+such composition.</p>
+<p>There are two main forms of compositions over deferred: multiplexing
+and piping/cascading.</p>
+<div class="section" id="deferred-multiplexing">
+<h4>Deferred multiplexing<a class="headerlink" href="#deferred-multiplexing" title="Permalink to this headline">¶</a></h4>
+<p>The most common reason for multiplexing deferred is simply performing
+multiple asynchronous operations and wanting to wait until all of them are
+done before moving on (and executing more stuff).</p>
+<p>The jQuery multiplexing function for promises is <a class="reference internal" href="#when" title="when"><code class="xref js js-func docutils literal"><span class="pre">when()</span></code></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">the multiplexing behavior of jQuery’s <a class="reference internal" href="#when" title="when"><code class="xref js js-func docutils literal"><span class="pre">when()</span></code></a> is an
+(incompatible, mostly) extension of the behavior defined in
+<a class="reference external" href="http://wiki.commonjs.org/wiki/Promises/B">CommonJS Promises/B</a>.</p>
+</div>
+<p>This function can take any number of promises <a class="footnote-reference" href="#id4" id="id2">[2]</a> and will return a
+promise.</p>
+<p>The returned promise will be resolved when <em>all</em> multiplexed promises
+are resolved, and will be rejected as soon as one of the multiplexed
+promises is rejected (it behaves like Python’s <code class="docutils literal"><span class="pre">all()</span></code>, but with
+promise objects instead of boolean-ish).</p>
+<p>The resolved values of the various promises multiplexed via
+<a class="reference internal" href="#when" title="when"><code class="xref js js-func docutils literal"><span class="pre">when()</span></code></a> are mapped to the arguments of <a class="reference internal" href="#when" title="when"><code class="xref js js-func docutils literal"><span class="pre">when()</span></code></a>’s
+success callback, if they are needed. The resolved values of a promise
+are at the same index in the callback’s arguments as the promise in
+the <a class="reference internal" href="#when" title="when"><code class="xref js js-func docutils literal"><span class="pre">when()</span></code></a> call so you will have:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="nx">p0</span><span class="p">,</span> <span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">,</span> <span class="nx">p3</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
+        <span class="kd">function</span> <span class="p">(</span><span class="nx">results0</span><span class="p">,</span> <span class="nx">results1</span><span class="p">,</span> <span class="nx">results2</span><span class="p">,</span> <span class="nx">results3</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// code</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>in a normal mapping, each parameter to the callback would be an
+array: each promise is conceptually resolved with an array of 0..n
+values and these values are passed to <a class="reference internal" href="#when" title="when"><code class="xref js js-func docutils literal"><span class="pre">when()</span></code></a>’s
+callback. But jQuery treats deferreds resolving a single value
+specially, and “unwraps” that value.</p>
+<p class="last">For instance, in the code block above if the index of each promise
+is the number of values it resolves (0 to 3), <code class="docutils literal"><span class="pre">results0</span></code> is an
+empty array, <code class="docutils literal"><span class="pre">results2</span></code> is an array of 2 elements (a pair) but
+<code class="docutils literal"><span class="pre">results1</span></code> is the actual value resolved by <code class="docutils literal"><span class="pre">p1</span></code>, not an array.</p>
+</div>
+</div>
+<div class="section" id="deferred-chaining">
+<h4>Deferred chaining<a class="headerlink" href="#deferred-chaining" title="Permalink to this headline">¶</a></h4>
+<p>A second useful composition is starting an asynchronous operation as
+the result of an other asynchronous operation, and wanting the result
+of both: with the tools described so far, handling e.g. OpenERP’s
+search/read sequence with this would require something along the lines
+of:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">Deferred</span><span class="p">();</span>
+<span class="nx">Model</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">condition</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ids</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Model</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">ids</span><span class="p">,</span> <span class="nx">fields</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">records</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">result</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">records</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+<span class="k">return</span> <span class="nx">result</span><span class="p">.</span><span class="nx">promise</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>While it doesn’t look too bad for trivial code, this quickly gets
+unwieldy.</p>
+<p>But <code class="xref js js-func docutils literal"><span class="pre">then()</span></code> also allows handling this kind of
+chains: it returns a new promise object, not the one it was called
+with, and the return values of the callbacks is important to this behavior:
+whichever callback is called,</p>
+<ul>
+<li><p class="first">If the callback is not set (not provided or left to null), the
+resolution or rejection value(s) is simply forwarded to
+<code class="xref js js-func docutils literal"><span class="pre">then()</span></code>’s promise (it’s essentially a noop)</p>
+</li>
+<li><p class="first">If the callback is set and does not return an observable object (a
+deferred or a promise), the value it returns (<code class="docutils literal"><span class="pre">undefined</span></code> if it
+does not return anything) will replace the value it was given, e.g.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">promise</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;called&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>will resolve with the sole value <code class="docutils literal"><span class="pre">undefined</span></code>.</p>
+</li>
+<li><p class="first">If the callback is set and returns an observable object, that object
+will be the actual resolution (and result) of the pipe. This means a
+resolved promise from the failure callback will resolve the pipe,
+and a failure promise from the success callback will reject the
+pipe.</p>
+<p>This provides an easy way to chain operation successes, and the
+previous piece of code can now be rewritten:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="nx">Model</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">condition</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ids</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">Model</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">ids</span><span class="p">,</span> <span class="nx">fields</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>the result of the whole expression will encode failure if either
+<code class="docutils literal"><span class="pre">search</span></code> or <code class="docutils literal"><span class="pre">read</span></code> fails (with the right rejection values), and
+will be resolved with <code class="docutils literal"><span class="pre">read</span></code>’s resolution values if the chain
+executes correctly.</p>
+</li>
+</ul>
+<p><code class="xref js js-func docutils literal"><span class="pre">then()</span></code> is also useful to adapt third-party
+promise-based APIs, in order to filter their resolution value counts
+for instance (to take advantage of <a class="reference internal" href="#when" title="when"><code class="xref js js-func docutils literal"><span class="pre">when()</span></code></a> ‘s special
+treatment of single-value promises).</p>
+</div>
+</div>
+<div class="section" id="jquery-deferred-api">
+<h3>jQuery.Deferred API<a class="headerlink" href="#jquery-deferred-api" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="when">
+<code class="descname">when</code><span class="sig-paren">(</span><em>deferreds…</em><span class="sig-paren">)</span><a class="headerlink" href="#when" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>deferreds</strong> – deferred objects to multiplex</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a multiplexed deferred</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#Deferred" title="Deferred"><code class="xref js js-class docutils literal"><span class="pre">Deferred()</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="Deferred">
+<em class="property">class </em><code class="descname">Deferred</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Deferred" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="function">
+<dt id="Deferred.Deferred.then">
+<code class="descclassname">Deferred.Deferred.</code><code class="descname">then</code><span class="sig-paren">(</span><em>doneCallback</em><span class="optional">[</span>, <em>failCallback</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Deferred.Deferred.then" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attaches new callbacks to the resolution or rejection of the
+deferred object. Callbacks are executed in the order they are
+attached to the deferred.</p>
+<p>To provide only a failure callback, pass <code class="docutils literal"><span class="pre">null</span></code> as the
+<code class="docutils literal"><span class="pre">doneCallback</span></code>, to provide only a success callback the
+second argument can just be ignored (and not passed at all).</p>
+<p>Returns a new deferred which resolves to the result of the
+corresponding callback, if a callback returns a deferred
+itself that new deferred will be used as the resolution of the
+chain.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>doneCallback</strong> – function called when the deferred is resolved</li>
+<li><strong>failCallback</strong> – function called when the deferred is rejected</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the deferred object on which it was called</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#Deferred" title="Deferred"><code class="xref js js-class docutils literal"><span class="pre">Deferred()</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Deferred.Deferred.done">
+<code class="descclassname">Deferred.Deferred.</code><code class="descname">done</code><span class="sig-paren">(</span><em>doneCallback</em><span class="sig-paren">)</span><a class="headerlink" href="#Deferred.Deferred.done" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attaches a new success callback to the deferred, shortcut for
+<code class="docutils literal"><span class="pre">deferred.then(doneCallback)</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">a difference is the result of <code class="xref js js-func docutils literal"><span class="pre">Deferred.done()</span></code>’s
+is ignored rather than forwarded through the chain</p>
+</div>
+<p>This is a jQuery extension to <a class="reference external" href="http://wiki.commonjs.org/wiki/Promises/A">CommonJS Promises/A</a> providing
+little value over calling <code class="xref js js-func docutils literal"><span class="pre">then()</span></code> directly,
+it should be avoided.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>doneCallback</strong> (<em>Function</em>) – function called when the deferred is resolved</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the deferred object on which it was called</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#Deferred" title="Deferred"><code class="xref js js-class docutils literal"><span class="pre">Deferred()</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Deferred.Deferred.fail">
+<code class="descclassname">Deferred.Deferred.</code><code class="descname">fail</code><span class="sig-paren">(</span><em>failCallback</em><span class="sig-paren">)</span><a class="headerlink" href="#Deferred.Deferred.fail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attaches a new failure callback to the deferred, shortcut for
+<code class="docutils literal"><span class="pre">deferred.then(null,</span> <span class="pre">failCallback)</span></code>.</p>
+<p>A second jQuery extension to <a class="reference external" href="CommonJSPromises/A">Promises/A</a>. Although it provides more value than
+<code class="xref js js-func docutils literal"><span class="pre">done()</span></code>, it still is not much and should be
+avoided as well.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>failCallback</strong> (<em>Function</em>) – function called when the deferred is rejected</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the deferred object on which it was called</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#Deferred" title="Deferred"><code class="xref js js-class docutils literal"><span class="pre">Deferred()</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Deferred.Deferred.promise">
+<code class="descclassname">Deferred.Deferred.</code><code class="descname">promise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Deferred.Deferred.promise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a read-only view of the deferred object, with all
+mutators (resolve and reject) methods removed.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Deferred.Deferred.resolve">
+<code class="descclassname">Deferred.Deferred.</code><code class="descname">resolve</code><span class="sig-paren">(</span><em>value…</em><span class="sig-paren">)</span><a class="headerlink" href="#Deferred.Deferred.resolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to resolve a deferred, any value provided will be
+passed onto the success handlers of the deferred object.</p>
+<p>Resolving a deferred which has already been resolved or
+rejected has no effect.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Deferred.Deferred.reject">
+<code class="descclassname">Deferred.Deferred.</code><code class="descname">reject</code><span class="sig-paren">(</span><em>value…</em><span class="sig-paren">)</span><a class="headerlink" href="#Deferred.Deferred.reject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called to reject (fail) a deferred, any value provided will be
+passed onto the failure handler of the deferred object.</p>
+<p>Rejecting a deferred which has already been resolved or
+rejected has no effect.</p>
+</dd></dl>
+
+</dd></dl>
+
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>or simply calling <a class="reference internal" href="#Deferred" title="Deferred"><code class="xref js js-class docutils literal"><span class="pre">Deferred()</span></code></a> as a function, the
+result is the same</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><p class="first">or not-promises, the <a class="reference external" href="http://wiki.commonjs.org/wiki/Promises/B">CommonJS Promises/B</a> role of
+<a class="reference internal" href="#when" title="when"><code class="xref js js-func docutils literal"><span class="pre">when()</span></code></a> is to be able to treat values and promises
+uniformly: <a class="reference internal" href="#when" title="when"><code class="xref js js-func docutils literal"><span class="pre">when()</span></code></a> will pass promises through directly,
+but non-promise values and objects will be transformed into a
+resolved promise (resolving themselves with the value itself).</p>
+<p class="last">jQuery’s <a class="reference internal" href="#when" title="when"><code class="xref js js-func docutils literal"><span class="pre">when()</span></code></a> keeps this behavior making deferreds
+easy to build from “static” values, or allowing defensive code
+where expected promises are wrapped in <a class="reference internal" href="#when" title="when"><code class="xref js js-func docutils literal"><span class="pre">when()</span></code></a> just in
+case.</p>
+</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Gahan Corporation.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/reference/async.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

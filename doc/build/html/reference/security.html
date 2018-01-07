@@ -1,0 +1,164 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Security in Odoo &#8212; gerp v0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'v0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="security-in-gerp">
+<span id="reference-security"></span><h1>Security in Odoo<a class="headerlink" href="#security-in-gerp" title="Permalink to this headline">¶</a></h1>
+<p>Aside from manually managing access using custom code, Odoo provides two main
+data-driven mechanisms to manage or restrict access to data.</p>
+<p>Both mechanisms are linked to specific users through <em>groups</em>: a user belongs
+to any number of groups, and security mechanisms are associated to groups,
+thus applying security mechamisms to users.</p>
+<div class="section" id="access-control">
+<span id="reference-security-acl"></span><h2>Access Control<a class="headerlink" href="#access-control" title="Permalink to this headline">¶</a></h2>
+<p>Managed by the <code class="docutils literal"><span class="pre">ir.model.access</span></code> records, defines access to a whole model.</p>
+<p>Each access control has a model to which it grants permissions, the
+permissions it grants and optionally a group.</p>
+<p>Access controls are additive, for a given model a user has access all
+permissions granted to any of its groups: if the user belongs to one group
+which allows writing and another which allows deleting, they can both write
+and delete.</p>
+<p>If no group is specified, the access control applies to all users, otherwise
+it only applies to the members of the given group.</p>
+<p>Available permissions are creation (<code class="docutils literal"><span class="pre">perm_create</span></code>), searching and reading
+(<code class="docutils literal"><span class="pre">perm_read</span></code>), updating existing records (<code class="docutils literal"><span class="pre">perm_write</span></code>) and deleting
+existing records (<code class="docutils literal"><span class="pre">perm_unlink</span></code>)</p>
+</div>
+<div class="section" id="record-rules">
+<span id="reference-security-rules"></span><h2>Record Rules<a class="headerlink" href="#record-rules" title="Permalink to this headline">¶</a></h2>
+<p>Record rules are conditions that records must satisfy for an operation
+(create, read, update or delete) to be allowed. It is applied record-by-record
+after access control has been applied.</p>
+<p>A record rule has:</p>
+<ul class="simple">
+<li>a model on which it applies</li>
+<li>a set of permissions to which it applies (e.g. if <code class="docutils literal"><span class="pre">perm_read</span></code> is set, the
+rule will only be checked when reading a record)</li>
+<li>a set of user groups to which the rule applies, if no group is specified
+the rule is <em>global</em></li>
+<li>a <a class="reference internal" href="orm.html#reference-orm-domains"><span class="std std-ref">domain</span></a> used to check whether a given record
+matches the rule (and is accessible) or does not (and is not accessible).
+The domain is evaluated with two variables in context: <code class="docutils literal"><span class="pre">user</span></code> is the
+current user’s record and <code class="docutils literal"><span class="pre">time</span></code> is the <a class="reference external" href="https://docs.python.org/2/library/time.html">time module</a></li>
+</ul>
+<p>Global rules and group rules (rules restricted to specific groups versus
+groups applying to all users) are used quite differently:</p>
+<ul class="simple">
+<li>Global rules are subtractive, they <em>must all</em> be matched for a record to be
+accessible</li>
+<li>Group rules are additive, if <em>any</em> of them matches (and all global rules
+match) then the record is accessible</li>
+</ul>
+<p>This means the first <em>group rule</em> restricts access, but any further
+<em>group rule</em> expands it, while <em>global rules</em> can only ever restrict access
+(or have no effect).</p>
+<div class="aphorism admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>record rules do not apply to the Administrator user</p>
+<p class="last">although access rules do</p>
+</div>
+</div>
+<div class="section" id="field-access">
+<span id="reference-security-fields"></span><h2>Field Access<a class="headerlink" href="#field-access" title="Permalink to this headline">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 7.0.</span></p>
+</div>
+<p>An ORM <code class="xref py py-class docutils literal"><span class="pre">Field</span></code> can have a <code class="docutils literal"><span class="pre">groups</span></code> attribute
+providing a list of groups (as a comma-separated string of
+<a class="reference internal" href="../glossary.html#term-external-identifiers"><span class="xref std std-term">external identifiers</span></a>).</p>
+<p>If the current user is not in one of the listed groups, he will not have
+access to the field:</p>
+<ul class="simple">
+<li>restricted fields are automatically removed from requested views</li>
+<li>restricted fields are removed from <code class="xref py py-meth docutils literal"><span class="pre">fields_get()</span></code>
+responses</li>
+<li>attempts to (explicitly) read from or write to restricted fields results in
+an access error</li>
+</ul>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">field access groups apply to administrator in fields_get but not in
+read/write…</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Gahan Corporation.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/reference/security.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
