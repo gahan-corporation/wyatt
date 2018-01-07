@@ -17,9 +17,9 @@ before_script:
   - source .py/bin/activate
   - ".py/bin/pip install requests pyyaml pytest coverage sqlalchemy psycopg2 codacy-coverage"
 script:
-  - ".py/bin/pytest || true"
-  - ".py/bin/coverage run setup.py test || true"
-  - ".py/bin/coverage xml"
+  - "pytest || true"
+  - "coverage run setup.py test || true"
+  - "coverage xml"
 after_script:
   - ".py/bin/python-codacy-coverage -r coverage.xml"
   - "./cc-test-reporter after-build -t coverage.py --exit-code $TRAVIS_TEST_RESULT"
