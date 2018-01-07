@@ -1,0 +1,553 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Python 3 compatibility/conversions &#8212; gerp v0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'v0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="python-3-compatibility-conversions">
+<h1>Python 3 compatibility/conversions<a class="headerlink" href="#python-3-compatibility-conversions" title="Permalink to this headline">¶</a></h1>
+<p>Official compatibility: Odoo 11 will be the first LTS release to introduce
+Python 3 compatibility, starting with Python 3.5. It will also be the first
+LTS release to drop official support for Python 2.</p>
+<p>Rationale: Python 3 has been around since 2008, and all Python libraries
+used by the official Odoo distribution have been ported and are considered
+stable. Most supported platforms have a Python 3.5 package, or a similar
+way to deploy it. Preserving dual compatibility is therefore considered
+unnecessary, and would represent a significant overhead in testing for the
+lifetime of Odoo 11.</p>
+<p>Python 2 and Python 3 are somewhat different language, but following
+backports, forward ports and cross-compatibility library it is possible to
+use a subset of Python 2 and Python 3 in order to have a system compatible
+with both.</p>
+<p>Here are a few useful steps or reminders to make Python 2 code compatible
+with Python 3.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">This is not a general-purpose guide for porting Python 2 to Python 3, it’s
+a guide to write 2/3-compatible Odoo code. It does not go through all the
+changes in Python but rather through issues which have been found in the
+standard Odoo distribution in order to show how to evolve such code such
+that it works on both Python 2 and Python 3.</p>
+</div>
+<p>References/useful documents:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3.0/whatsnew/3.0.html">What’s new in Python 3?</a>
+covers many of the changes between Python 2 and Python 3, though it is
+missing a number of changes which <a class="reference external" href="https://docs.python.org/2.7/whatsnew/2.7.html#python-3-1-features">were backported to Python 2.7</a>
+as well as <a class="reference internal" href="#p3support"><span class="std std-ref">some feature reintroductions</span></a> of later Python 3
+revisions</li>
+<li><a class="reference external" href="https://eev.ee/blog/2016/07/31/python-faq-how-do-i-port-to-python-3/">How do I port to Python 3?</a></li>
+<li><a class="reference external" href="http://python-future.org/index.html">Python-Future</a></li>
+<li><a class="reference external" href="https://docs.python.org/3/howto/pyporting.html">Porting Python 2 code to Python 3</a></li>
+<li><a class="reference external" href="http://lucumr.pocoo.org/2010/2/11/porting-to-python-3-a-guide/">Porting to Python 3: A Guide</a> (a bit outdated but useful for the extensive comments on strings and IO)</li>
+</ul>
+<div class="section" id="versions-support">
+<span id="p3support"></span><h2>Versions Support<a class="headerlink" href="#versions-support" title="Permalink to this headline">¶</a></h2>
+<p>A cross compatible Odoo would only support Python 2.7 and Python 3.5 and
+above: Python 2.7 backported some Python 3 features, and Python 2 features
+were reintroduced in various Python 3 in order to make conversion easier.
+Python 3.6 adds great features (f-strings, …) and performance improvements
+(ordered compact dicts) but does not seem to reintroduce compatibility
+features whereas:</p>
+<ul class="simple">
+<li>Python 3.5 reintroduced <code class="docutils literal"><span class="pre">%</span></code> for bytes/bytestrings (<span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0461"><strong>PEP 461</strong></a>)</li>
+<li>Python 3.4 has no specific compatibility improvement but is the lowest P3
+version for PyLint</li>
+<li>Python 3.3 reintroduced the “u” prefix for proper (unicode) strings</li>
+<li>Python 3.2 made <code class="docutils literal"><span class="pre">range</span></code> views more list-like (backported to 2.7)and
+reintroduced <code class="docutils literal"><span class="pre">callable</span></code></li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">While Python 3 adds plenty of great features (keyword-only parameters,
+generator delegation, pathlib, …), you must <em>not</em> use them in Odoo
+until Python 2 support is dropped</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In the <em>very rare</em> cases where you <em>need</em> to differentiate between
+Python 2 and Python 3, use the <code class="xref py py-data docutils literal"><span class="pre">odoo.tools.pycompat.PY2</span></code> flag.</p>
+</div>
+</div>
+<div class="section" id="semantics-changes">
+<h2>Semantics changes<a class="headerlink" href="#semantics-changes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dict-set-iteration-order-hash-randomisation">
+<h3>Dict &amp; set iteration order (“Hash Randomisation”)<a class="headerlink" href="#dict-set-iteration-order-hash-randomisation" title="Permalink to this headline">¶</a></h3>
+<p>In Python 2, the iteration order depends on the value’s hash (modulo the
+collection’s capacity and conflict resolution), which provides a
+spec-undefined but implementation-defined order. While that’s not supposed to
+happen, it turns out code may depend on the specific order of iteration over
+a hash collection (<code class="docutils literal"><span class="pre">dict</span></code> or <code class="docutils literal"><span class="pre">set</span></code>).</p>
+<p>Python 3.3 enables <a class="reference external" href="http://bugs.python.org/issue13703">hash randomisation</a> by default (this can be optionally
+enabled on previous versions including Python 2 by providing the <code class="docutils literal"><span class="pre">-R</span></code>
+command-line parameter), which means <em>the order of iteration changes from one
+run to the next</em>.</p>
+<p>When discovered, this can be fixed by one of:</p>
+<ul class="simple">
+<li>making iteration steps properly independent (removing the dependency of
+order of iteration)</li>
+<li>using different checking method (e.g. when serialising sets or dictionaries
+and checking against the specific serialised value)</li>
+<li>fixing dependencies</li>
+<li>using a <code class="docutils literal"><span class="pre">collections.OrderedDict</span></code> or <code class="docutils literal"><span class="pre">odoo.tools.misc.OrderedSet</span></code> instead
+of a regular one, they guarantee order of iteration is order of insertion</li>
+<li>sorting the collection’s items before iterating over them (this may require
+adding some sort of iteration key to the items)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="moved-and-removed">
+<h2>Moved and removed<a class="headerlink" href="#moved-and-removed" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="standard-library-modules">
+<h3>Standard Library Modules<a class="headerlink" href="#standard-library-modules" title="Permalink to this headline">¶</a></h3>
+<p>Python 3 reorganised, moved or removed a number of modules in the standard
+library:</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">StringIO</span></code> and <code class="docutils literal"><span class="pre">cStringIO</span></code> were removed, you can use <code class="docutils literal"><span class="pre">io.BytesIO</span></code> and
+<code class="docutils literal"><span class="pre">io.StringIO</span></code> to replace them in a cross-version manner (<code class="docutils literal"><span class="pre">io.BytesIO</span></code>
+for binary data, <code class="docutils literal"><span class="pre">io.StringIO</span></code> for text/unicode data).</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">urllib</span></code>, <code class="docutils literal"><span class="pre">urllib2</span></code> and <code class="docutils literal"><span class="pre">urlparse</span></code> were redistributed across
+<code class="docutils literal"><span class="pre">urllib.parse</span></code> and <code class="docutils literal"><span class="pre">urllib.request</span></code>.</p>
+<p>Since <a class="reference external" href="http://docs.python-requests.org/">requests</a> and <a class="reference external" href="http://werkzeug.pocoo.org/docs/urls/">werkzeug</a> are already hard dependencies of Odoo,
+replace <code class="docutils literal"><span class="pre">urllib[2].urlopen</span></code>/<code class="docutils literal"><span class="pre">urllib2.Request</span></code> uses by <a class="reference external" href="http://docs.python-requests.org/">requests</a>, and
+<code class="docutils literal"><span class="pre">urlparse</span></code> and a few utilty functions (<code class="docutils literal"><span class="pre">urllib.quote</span></code>,
+<code class="docutils literal"><span class="pre">urllib.urlencode</span></code>) are available through <code class="docutils literal"><span class="pre">werkzeug.urls</span></code>, a backport
+of Python 3’s <code class="docutils literal"><span class="pre">urllib.parse</span></code>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><a class="reference external" href="http://docs.python-requests.org/">requests</a> does not raise by default on non-200 responses</p>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">cgi.escape</span></code> (HTML escaping) is deprecated in Python 3, prefer Odoo’s own
+<code class="xref py py-func docutils literal"><span class="pre">odoo.tools.misc.html_encode()</span></code>.</p>
+</li>
+<li><p class="first">Most of <code class="docutils literal"><span class="pre">types</span></code>’s content has been stripped out in Python 3: only
+“internal” interpreter types (e.g. CodeType, FrameType, …) have been left
+in, other types can be obtained directly from the corresponding builtin or
+by getting the <code class="docutils literal"><span class="pre">type()</span></code> of a literal value.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="absolute-imports-pep-328">
+<h3>Absolute Imports (<span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0328"><strong>PEP 328</strong></a>)<a class="headerlink" href="#absolute-imports-pep-328" title="Permalink to this headline">¶</a></h3>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">In Python 3, <code class="docutils literal"><span class="pre">import</span> <span class="pre">foo</span></code> can only import from a “top-level” library
+(absolute path). If trying to import a sibling or sub-module you <em>must</em>
+use an explicitly <em>relative import</em> e.g. <code class="docutils literal"><span class="pre">from</span> <span class="pre">.</span> <span class="pre">import</span> <span class="pre">foo</span></code> or
+<code class="docutils literal"><span class="pre">from</span> <span class="pre">.foo</span> <span class="pre">import</span> <span class="pre">bar</span></code>.</p>
+</div>
+<p>In Python 2 <code class="docutils literal"><span class="pre">import</span></code> statements are ambiguous: if a file <code class="docutils literal"><span class="pre">a.py</span></code> contains
+<code class="docutils literal"><span class="pre">import</span> <span class="pre">b</span></code>, the import system will first check if there’s a <code class="docutils literal"><span class="pre">b.py</span></code> file
+next to it before checking if there is a package called that on the
+PYTHONPATH.</p>
+<p>Furthermore if a sibling file is named the same as top-level package, the
+library becomes inaccessible to both the file itself ans siblings, this has
+actually happened in Odoo with <code class="xref py py-mod docutils literal"><span class="pre">odoo.tools.mimetypes</span></code>.</p>
+<p>Additionally, relative imports allow navigating “up” the tree by using
+multiple leading <code class="docutils literal"><span class="pre">.</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Explicitly relative imports are always available in Python 2, and should
+be used everywhere.</p>
+<p class="last">You can ensure you are not using any implicitly relative import by adding
+<code class="docutils literal"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">absolute_import</span></code> at the top of your files, or by
+running the <code class="docutils literal"><span class="pre">relative-import</span></code> PyLint.</p>
+</div>
+</div>
+<div class="section" id="exception-handlers">
+<h3>Exception Handlers<a class="headerlink" href="#exception-handlers" title="Permalink to this headline">¶</a></h3>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>All exception handlers must be converted to <code class="docutils literal"><span class="pre">except</span> <span class="pre">...</span> <span class="pre">as</span> <span class="pre">..</span></code>. Valid
+forms are:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<span class="k">except</span> <span class="p">(</span><span class="n">Exception1</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">name</span><span class="p">:</span>
+<span class="k">except</span> <span class="p">(</span><span class="n">Exception1</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="k">as</span> <span class="n">name</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+<p>In Python 2, <code class="docutils literal"><span class="pre">except</span></code> statements are of the form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">except</span> <span class="ne">Exception</span><span class="p">[,</span> <span class="n">name</span><span class="p">]:</span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">except</span> <span class="p">(</span><span class="n">Exception1</span><span class="p">,</span> <span class="n">Exception2</span><span class="p">)[,</span> <span class="n">name</span><span class="p">]:</span>
+</pre></div>
+</div>
+<p>But because the name is optional, this gets confusing and people can stumble
+into the first form when trying for the second and write:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">except</span> <span class="n">Exception1</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>which will <em>not</em> yield the expected result.</p>
+<p>Python 3 changes this syntax to:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">except</span> <span class="ne">Exception</span><span class="p">[</span> <span class="k">as</span> <span class="n">name</span><span class="p">]:</span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">except</span> <span class="p">(</span><span class="n">Exception1</span><span class="p">,</span> <span class="n">Exception2</span><span class="p">)[</span> <span class="k">as</span> <span class="n">name</span><span class="p">]:</span>
+</pre></div>
+</div>
+<p>This form was implemented in Python 2.5 and is thus compatible across the
+board.</p>
+</div>
+<div class="section" id="operators-keywords">
+<h3>Operators &amp; keywords<a class="headerlink" href="#operators-keywords" title="Permalink to this headline">¶</a></h3>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">The backtick operator <code class="docutils literal"><span class="pre">`foo`</span></code> must be converted to an
+explicit call to the <code class="docutils literal"><span class="pre">repr()</span></code> builtin</p>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">The <code class="docutils literal"><span class="pre">&lt;&gt;</span></code> operator must be replaced by <code class="docutils literal"><span class="pre">!=</span></code></p>
+</div>
+<p>These two operators were long recommended against/deprecated in Python 2,
+Python 3 removed them from the language.</p>
+<div class="admonition important" id="changed-exec">
+<p class="first admonition-title">Important</p>
+<p class="last"><code class="docutils literal"><span class="pre">exec</span></code> is now a builtin</p>
+</div>
+<p>In Python 2, <code class="docutils literal"><span class="pre">exec</span></code> is a statement/keyword. Much like <code class="docutils literal"><span class="pre">print</span></code>, it’s been
+converted to a builtin function in Python 3. However because the Python 2
+version can take a tuple parameter it is easy to convert the odd <code class="docutils literal"><span class="pre">exec</span></code>
+statement to the following cross-language forms:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">exec</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+<span class="n">exec</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">globals</span><span class="p">)</span>
+<span class="n">exec</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">globals</span><span class="p">,</span> <span class="nb">locals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-iteration-builtins-and-methods">
+<h3>List/iteration builtins and methods<a class="headerlink" href="#list-iteration-builtins-and-methods" title="Permalink to this headline">¶</a></h3>
+<p>In Python 3, a number of builtins and methods formerly returning <em>lists</em> were
+converted to return <em>iterators</em> or <em>views</em>, with the corresponding redundant
+methods or functions having been <em>removed entirely</em>:</p>
+<ul>
+<li><p class="first">In Python 3, <code class="docutils literal"><span class="pre">map</span></code>, <code class="docutils literal"><span class="pre">filter</span></code> and <code class="docutils literal"><span class="pre">zip</span></code> return iterators,
+<code class="docutils literal"><span class="pre">itertools.imap</span></code>, <code class="docutils literal"><span class="pre">itertools.ifilter</span></code> and <code class="docutils literal"><span class="pre">itertools.izip</span></code> have been
+removed.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">When possible, use comprehensions (list, generator, …) rather than
+<code class="docutils literal"><span class="pre">map</span></code> or <code class="docutils literal"><span class="pre">filter</span></code>.</p>
+</div>
+</li>
+<li><p class="first">In Python 3, <code class="docutils literal"><span class="pre">dict.keys</span></code>, <code class="docutils literal"><span class="pre">dict.values</span></code> and <code class="docutils literal"><span class="pre">dict.items</span></code> return
+<em>views</em> rather than lists, and the <code class="docutils literal"><span class="pre">iter*</span></code> and <code class="docutils literal"><span class="pre">view*</span></code> methods have
+been removed.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">When the result of the above methods is used for more than a one-shot
+loop (e.g. to be included in returned value), or when the dict needs
+to be modified during iteration, wrap the calls in a <code class="docutils literal"><span class="pre">list()</span></code>.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="builtins">
+<h3>builtins<a class="headerlink" href="#builtins" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="cmp">
+<h4><code class="docutils literal"><span class="pre">cmp</span></code><a class="headerlink" href="#cmp" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal"><span class="pre">cmp</span></code> builtin function has been removed from Python 3.</p>
+<ul class="simple">
+<li>Most of its uses are in <code class="docutils literal"><span class="pre">cmp=</span></code> parameters to sort functions where it can
+usually be replaced by a key function.</li>
+<li>Other uses found were obtaining the sign of an item (<code class="docutils literal"><span class="pre">cmp(item,</span> <span class="pre">0)</span></code>), this
+can be replicated using the standard library’s <code class="docutils literal"><span class="pre">math.copysign</span></code> e.g.
+<code class="docutils literal"><span class="pre">math.copysign(1,</span> <span class="pre">item)</span></code> will return <code class="docutils literal"><span class="pre">1.0</span></code> if <code class="docutils literal"><span class="pre">item</span></code> is positive and
+<code class="docutils literal"><span class="pre">-1.0</span></code> if <code class="docutils literal"><span class="pre">item</span></code> is negative.</li>
+</ul>
+</div>
+<div class="section" id="execfile">
+<h4><code class="docutils literal"><span class="pre">execfile</span></code><a class="headerlink" href="#execfile" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal"><span class="pre">execfile(path)</span></code> has been removed completely from Python 3 but it is
+trivially replaceable in all cases by:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>of a variant thereof (see <a class="reference internal" href="#changed-exec"><span class="std std-ref">exec changes</span></a> for details)</p>
+</div>
+<div class="section" id="file">
+<h4><code class="docutils literal"><span class="pre">file</span></code><a class="headerlink" href="#file" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal"><span class="pre">file</span></code> builtin has been removed in Python 3. Generally, it can just
+be replaced by the <code class="docutils literal"><span class="pre">open</span></code> builtin, although you may want to use <code class="docutils literal"><span class="pre">io.open</span></code>
+which is more flexible and better handles the binary/text dichotomy,
+<a class="reference internal" href="#changed-strings"><span class="std std-ref">a big issue in cross-version Python</span></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In Python 3, the <code class="docutils literal"><span class="pre">open</span></code> builtin is actually an alias for <code class="docutils literal"><span class="pre">io.open</span></code>.</p>
+</div>
+</div>
+<div class="section" id="long">
+<h4><code class="docutils literal"><span class="pre">long</span></code><a class="headerlink" href="#long" title="Permalink to this headline">¶</a></h4>
+<p>In Python 2, integers can be either <code class="docutils literal"><span class="pre">int</span></code> or <code class="docutils literal"><span class="pre">long</span></code>. Python 3 unifies this
+under the single <code class="docutils literal"><span class="pre">int</span></code> type.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<ul class="last simple">
+<li>the <code class="docutils literal"><span class="pre">L</span></code> suffix for integer literals must be removed</li>
+<li>calls to <code class="docutils literal"><span class="pre">long</span></code> must be replaced by calls to <code class="docutils literal"><span class="pre">int</span></code></li>
+<li><code class="docutils literal"><span class="pre">(int,</span> <span class="pre">long)</span></code> for type-checking purposes must be replaced by
+<code class="xref py py-data docutils literal"><span class="pre">odoo.tools.pycompat.integer_types</span></code></li>
+</ul>
+</div>
+<ul>
+<li><p class="first">the <code class="docutils literal"><span class="pre">L</span></code> suffix on numbers is unsupported in Python 3, and unnecessary in
+Python 2 as “overflowing” integer literals will implicitly instantiate long.</p>
+</li>
+<li><p class="first">in Python 2, a call to <code class="docutils literal"><span class="pre">int()</span></code> will implicitly create a <code class="docutils literal"><span class="pre">long</span></code> object if
+necessary.</p>
+</li>
+<li><p class="first">type-testing is the last and bigger issue as in Python 2 <code class="docutils literal"><span class="pre">long</span></code> is not a
+subtype of <code class="docutils literal"><span class="pre">int</span></code> (nor the reverse), and <code class="docutils literal"><span class="pre">isinstance(value,</span> <span class="pre">(int,</span> <span class="pre">long))</span></code>
+is thus generally necessary to catch all integrals.</p>
+<p>For that case, Odoo 11 now provides a compatibility module with an
+<code class="xref py py-data docutils literal"><span class="pre">integer_types</span></code> definition which can be used
+for type-testing.</p>
+<p>It is a tuple of types so when used with <code class="docutils literal"><span class="pre">isinstance</span></code> it can be provided
+directly or inside an other tuple alongside other types e.g.
+<code class="docutils literal"><span class="pre">isinstance(value,</span> <span class="pre">(BaseModel,</span> <span class="pre">integer_types))</span></code>.</p>
+<p>However when used with <code class="docutils literal"><span class="pre">type</span></code> directly (which should be avoided) you
+should use the <code class="docutils literal"><span class="pre">in</span></code> operator, and if you need other types you need to
+concatenate <code class="docutils literal"><span class="pre">integer_types</span></code> to an other tuple.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="reduce">
+<h4><code class="docutils literal"><span class="pre">reduce</span></code><a class="headerlink" href="#reduce" title="Permalink to this headline">¶</a></h4>
+<p>In Python 3, <code class="docutils literal"><span class="pre">reduce</span></code> has been demoted from builtin to <code class="docutils literal"><span class="pre">functools.reduce</span></code>.
+However this is because <em>most uses of ``reduce`` can be replaced by ``sum``,
+``all``, ``any``</em> or a list comprehension for a more readable and faster
+result.</p>
+<p>It is easy enough to just add <code class="docutils literal"><span class="pre">from</span> <span class="pre">functools</span> <span class="pre">import</span> <span class="pre">reduce</span></code> to the file
+and compatible with Python 2.6 and later, but consider whether you get better
+code by replacing it with some other method altogether.</p>
+</div>
+<div class="section" id="xrange">
+<h4><code class="docutils literal"><span class="pre">xrange</span></code><a class="headerlink" href="#xrange" title="Permalink to this headline">¶</a></h4>
+<p>In Python 3, <code class="docutils literal"><span class="pre">range()</span></code> behaves the same as Python 2’s <code class="docutils literal"><span class="pre">xrange</span></code>.</p>
+<p>For cross-version code, you can just use <code class="docutils literal"><span class="pre">range()</span></code> everywhere: while this
+will incur a slight allocation cost on Python 2, Python 3’s <code class="docutils literal"><span class="pre">range</span></code> supports
+the entire Sequence protocol and thus behaves very much like a regular
+list or tuple.</p>
+</div>
+</div>
+<div class="section" id="removed-renamed-methods">
+<h3>Removed/renamed methods<a class="headerlink" href="#removed-renamed-methods" title="Permalink to this headline">¶</a></h3>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<ul class="last simple">
+<li>the <code class="docutils literal"><span class="pre">has_key</span></code> method on dicts must be replaced by use of the <code class="docutils literal"><span class="pre">in</span></code>
+operator e.g. <code class="docutils literal"><span class="pre">foo.has_key(bar)</span></code> becomes <code class="docutils literal"><span class="pre">bar</span> <span class="pre">in</span> <span class="pre">foo</span></code>.</li>
+</ul>
+</div>
+<p><code class="docutils literal"><span class="pre">in</span></code> for dicts was introduced in Python 2.3, leading to <code class="docutils literal"><span class="pre">has_key</span></code> being
+redundant, and removed in Python 3.</p>
+</div>
+<div class="section" id="minor-syntax-changes">
+<h3>Minor syntax changes<a class="headerlink" href="#minor-syntax-changes" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">the ability to unpack a parameter (in the parameter declaration list) has
+been removed in Python 3 e.g.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>def foo((bar, baz), qux):
+    …
+</pre></div>
+</div>
+<p>is now invalid</p>
+</li>
+<li><p class="first">octal literals must be prefixed by <code class="docutils literal"><span class="pre">0o</span></code> (or <code class="docutils literal"><span class="pre">0O</span></code>). Following the C
+family, in Python 2 an octal literal simply has a leading 0, which can be
+confusing and easy to get wrong when e.g. padding for readability (e.g.
+<code class="docutils literal"><span class="pre">0013</span></code> would be the decimal 11 rather than 13).</p>
+<p>In Python 3, leading zeroes followed by neither a 0 nor a period is an
+error, octal literals now follow the hexadecimal convention with a <code class="docutils literal"><span class="pre">0o</span></code>
+prefix.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="bytes-string-text-the-big-one">
+<span id="changed-strings"></span><h2>Bytes/String/Text: The Big One<a class="headerlink" href="#bytes-string-text-the-big-one" title="Permalink to this headline">¶</a></h2>
+<p>The most impactful Python 3 change by far is to the text model: for historical
+reasons the distinction Python 2’s bytestrings (<code class="docutils literal"><span class="pre">bytes</span></code>/<code class="docutils literal"><span class="pre">str</span></code>) and text
+strings (<code class="docutils literal"><span class="pre">unicode</span></code>) is fuzzy and it will try to implicitly convert between
+one and the other using the ASCII encoding.</p>
+<p>Python 3 changes this, it removes the implicit conversions, removes APIs which
+contribute to the fuzz and tends to strictly segregate other to work on either
+bytes or text.</p>
+<p>This is fundamentally good and mostly sensible, but it means lots of breakage:</p>
+<div class="section" id="the-builtins">
+<h3>the builtins<a class="headerlink" href="#the-builtins" title="Permalink to this headline">¶</a></h3>
+<p>Python 3 removes both <code class="docutils literal"><span class="pre">unicode</span></code> and <code class="docutils literal"><span class="pre">basestring</span></code>, and <code class="docutils literal"><span class="pre">str</span></code> now
+corresponds to <em>text</em> strings (the old <code class="docutils literal"><span class="pre">unicode</span></code>) with <code class="docutils literal"><span class="pre">bytes</span></code> being
+bytestrings in both languages <a class="footnote-reference" href="#bytes" id="id1">[1]</a>.</p>
+<p>Both versions have the following prefixes for string literals:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">b'foo'</span></code> is a bytestring (<code class="docutils literal"><span class="pre">bytes</span></code> object).</li>
+<li><code class="docutils literal"><span class="pre">'foo'</span></code> is that version’s <code class="docutils literal"><span class="pre">str</span></code> type, which may be either a bytestring
+or a text string <a class="footnote-reference" href="#native-string" id="id2">[2]</a>.</li>
+<li><code class="docutils literal"><span class="pre">u'foo'</span></code> is that version’s text string.</li>
+</ul>
+<p>For best cross-version compatibility you should avoid unprefixed string
+literals unless you <em>specifically</em> need a “native string” <a class="footnote-reference" href="#native-string" id="id3">[2]</a>.</p>
+<p>For easier type-testing, <code class="xref py py-mod docutils literal"><span class="pre">odoo.tools.pycompat</span></code> provides the following
+constants:</p>
+<ul class="simple">
+<li><code class="xref py py-data docutils literal"><span class="pre">string_types</span></code> is an alias/type tuple for testing
+string types, essentially a replacement of testing for <code class="docutils literal"><span class="pre">basestring</span></code> or
+<code class="docutils literal"><span class="pre">(str,</span> <span class="pre">unicode)</span></code>.</li>
+<li><code class="xref py py-data docutils literal"><span class="pre">text_type</span></code> is the proper <em>text</em> type for the
+current version, it should mostly be used for converting non-bytes objects
+to text.</li>
+<li><code class="docutils literal"><span class="pre">bytes</span></code> should be avoided for type conversions, though it can be used to
+check if an object is a bytestring.</li>
+</ul>
+</div>
+<div class="section" id="open">
+<h3><code class="docutils literal"><span class="pre">open</span></code><a class="headerlink" href="#open" title="Permalink to this headline">¶</a></h3>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>the <code class="docutils literal"><span class="pre">open</span></code> builtin should always be explicitly used in binary mode
+(<code class="docutils literal"><span class="pre">rb</span></code>, <code class="docutils literal"><span class="pre">wb</span></code>, …)</p>
+<p class="last">To read <em>text</em> files, use <code class="docutils literal"><span class="pre">io.open</span></code>.</p>
+</div>
+<p>On both P2 and P3, <code class="docutils literal"><span class="pre">open</span></code> defaults to returning <em>native strings</em> in default
+(“text”) mode, however in P3 that means it actually decodes the file’s bytes
+using whatever encoding was set up (default: UTF-8) while on Python 2 it has
+no concept of encoding.</p>
+<p>Using <code class="docutils literal"><span class="pre">open</span></code> in binary mode provides bytestrings on both versions and works
+fine. To read <em>text</em> files, use <code class="docutils literal"><span class="pre">io.open</span></code> and provide an explicit encoding.</p>
+</div>
+<div class="section" id="base64">
+<h3>base64<a class="headerlink" href="#base64" title="Permalink to this headline">¶</a></h3>
+<p>base64 is a bytes-&gt;bytes conversion. bytes-&gt;bytes codecs were removed from the
+“native” encoding/decoding system which is now exclusively for bytes&lt;-&gt;text
+conversions: text is <em>encoded</em> to bytes and bytes are <em>decoded</em> to text.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">both <code class="docutils literal"><span class="pre">bytes.encode('base64')</span></code> and <code class="docutils literal"><span class="pre">bytes.decode('base64')</span></code> must be
+migrated to using <code class="docutils literal"><span class="pre">base64.b64encode</span></code> and <code class="docutils literal"><span class="pre">base64.b64decode</span></code>
+respectively.</p>
+</div>
+</div>
+<div class="section" id="csv">
+<h3>csv<a class="headerlink" href="#csv" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">csv</span></code> is a fairly vicious one: not only is it not a very good format, the
+Python 2 and Python 3 versions of the library are text-model incompatible in
+significant ways:</p>
+<ul class="simple">
+<li>Python 2’s CSV only works on <em>ascii-compatible byte streams</em> (it has no
+encoding support at all) and extracts bytestring values</li>
+<li>Python 3’s CSV only works on <em>text streams</em> and extract text values</li>
+<li>And <code class="docutils literal"><span class="pre">io</span></code> doesn’t provide “native string” streaming facilities.</li>
+</ul>
+<p>However with respect to Odoo it turns out most or all uses of <code class="docutils literal"><span class="pre">csv</span></code> fit
+inside a model of <em>byte stream to and from text values</em>.</p>
+<p>The latter is thus a model implemented by cross-version wrappers
+<code class="xref py py-func docutils literal"><span class="pre">odoo.tools.pycompat.csv_reader()</span></code> and
+<code class="xref py py-func docutils literal"><span class="pre">odoo.tools.pycompat.csv_writer()</span></code>: they take a <em>UTF-8 byte stream</em> and
+read or write <em>text</em> values.</p>
+<table class="docutils footnote" frame="void" id="bytes" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>with the caveat that Python 3 makes them less text-y and more byte-y e.g.
+in Python 2 <code class="docutils literal"><span class="pre">b&quot;foo&quot;[0]</span></code> is <code class="docutils literal"><span class="pre">b&quot;f&quot;</span></code>, but in Python 3 it’s <code class="docutils literal"><span class="pre">102</span></code> (the
+value of the first byte), you’ll want to <em>slice</em> bytestrings for
+compatibility.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="native-string" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> this is important because some API/contexts take a <em>native string</em> rather
+than either bytes or text. The <code class="docutils literal"><span class="pre">csv</span></code> module of the standard library is
+one such problematic API (it is also notoriously problematic for its
+terrible support of non-ascii-compatible encodings in Python 2).
+<code class="docutils literal"><span class="pre">email.message_from_string</span></code> is an other one.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Gahan Corporation.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/python3.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
