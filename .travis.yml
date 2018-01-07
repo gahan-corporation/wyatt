@@ -22,8 +22,8 @@ before_script:
   - ".py/bin/pip install requests pyyaml pytest coverage sqlalchemy psycopg2"
 script:
   - ".py/bin/pytest || true"
-  - coverage run setup.py test 
-  - coverage xml
+  - ".py/bin/coverage run setup.py test || true"
+  - ".py/bin/coverage xml"
 after_script:
   - "./cc-test-reporter after-build -t coverage.py --exit-code $TRAVIS_TEST_RESULT"
   - "./cc-test-reporter after-build -t coverage.py --exit-code $TRAVIS_TEST_RESULT modules/humanresources/coverage.xml"
