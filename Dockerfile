@@ -5,6 +5,8 @@ RUN apk add freetype-dev libjpeg-turbo-dev libpng-dev
 RUN pip3 install lxml==4.1.1
 RUN apk add linux-headers openldap-dev bash curl
 RUN pip3 install https://github.com/gahan-corporation/gerp/archive/v0.0.1.tar.gz 
+EXPOSE 8072
+EXPOSE 8069
 ENV ACCESS_TOKEN=02938974c7dd4aec835dcd86d427f93a
 ENV ENVIRONMENT=production
 ENV LOCAL_USERNAME=`whoami`
