@@ -1,4 +1,6 @@
+"""Sphinx configuration file."""
 # -*- coding: utf-8 -*-
+# pylint: disable-msg=C0103,W0622
 #
 # gerp documentation build configuration file, created by
 # sphinx-quickstart on Sun Jan  7 21:16:11 2018.
@@ -30,7 +32,9 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.autodoc',
+
+extensions = [
+    'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
@@ -38,7 +42,8 @@ extensions = ['sphinx.ext.autodoc',
     'sphinx.ext.imgmath',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
-    'sphinx.ext.githubpages']
+    'sphinx.ext.githubpages'
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -172,8 +177,6 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
-
-
 # -- Options for Epub output ----------------------------------------------
 
 # Bibliographic Dublin Core info.
@@ -193,8 +196,6 @@ epub_copyright = copyright
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
-
-
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {'https://docs.python.org/': None}
