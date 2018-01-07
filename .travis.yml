@@ -4,6 +4,7 @@ sudo: required
 env:
   global:
   - CC_TEST_REPORTER_ID=e47e814a3a09d59dce31d36ef15abdcf0702e2d3ac7c0cd8ab9b468e97292788
+  - CODACY_PROJECT_TOKEN=54b92bda8e5c48b8bb2b8503535fad4f
 cache:
   pip: 'yes'
 before_install:
@@ -19,12 +20,13 @@ before_script:
   - sudo pip install virtualenv
   - virtualenv -p /usr/bin/python3 .py
   - source .py/bin/activate
-  - ".py/bin/pip install requests pyyaml pytest coverage sqlalchemy psycopg2"
+  - ".py/bin/pip install requests pyyaml pytest coverage sqlalchemy psycopg2 codacy-coverage"
 script:
   - ".py/bin/pytest || true"
   - ".py/bin/coverage run setup.py test || true"
   - ".py/bin/coverage xml"
 after_script:
+  - ".py/bin/python-codacy-coverage -r coverage.xml"
   - "./cc-test-reporter after-build -t coverage.py --exit-code $TRAVIS_TEST_RESULT"
   - "./cc-test-reporter after-build -t coverage.py --exit-code $TRAVIS_TEST_RESULT modules/humanresources/coverage.xml"
 ...
