@@ -1,7 +1,0 @@
-.toggl_tokens
-.workspaces.json
-.toggl.yml
-*egg*
-.cache/
-build/
-dist/
