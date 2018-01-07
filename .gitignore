@@ -1,4 +1,5 @@
 # sphinx build directories
+.py3/
 .cache/
 .coveralls.yml
 _build/
