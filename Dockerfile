@@ -11,4 +11,4 @@ ENV ACCESS_TOKEN=02938974c7dd4aec835dcd86d427f93a
 ENV ENVIRONMENT=production
 ENV LOCAL_USERNAME=`whoami`
 ENV REVISION=`v0.0.1`
-RUN curl https://api.rollbar.com/api/1/deploy/ -F access_token=$ACCESS_TOKEN -F environment=$ENVIRONMENT \ -F revision=$REVISION \ -F local_username=$LOCAL_USERNAME
+RUN curl https://api.rollbar.com/api/1/deploy/ -F access_token=$ACCESS_TOKEN -F environment=$ENVIRONMENT -F revision=$REVISION -F local_username=$LOCAL_USERNAME
