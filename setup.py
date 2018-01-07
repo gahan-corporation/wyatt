@@ -12,7 +12,14 @@ setuptools.setup(
     author='Gahan Corporation',
     author_email='info@gahan-corporation.com',
     # scripts=['setup/odoo'],
-    packages=['modules/humanresources'],
+    packages=[
+        'addons/account',
+        'addons/backend_theme_v11',
+        'addons/hr',
+        'addons/sale',
+        'addons/web',
+        'gerp/addons/base',
+    ],
     include_package_data=True,
     install_requires=[
         'babel >= 1.0',
