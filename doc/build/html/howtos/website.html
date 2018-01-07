@@ -55,7 +55,7 @@ behaviors or by altering existing ones (including behaviors added by other
 modules).</p>
 <p><a class="reference internal" href="../reference/cmdline.html#reference-cmdline-scaffold"><span class="std std-ref">Odoo’s scaffolding</span></a> can setup a basic
 module. To quickly get started simply invoke:</p>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ./odoo-bin scaffold Academy my-modules
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ./gerp-bin scaffold Academy my-modules
 </pre></div>
 </div>
 <p>This will automatically create a <code class="docutils literal"><span class="pre">my-modules</span></code> <em>module directory</em> with an
@@ -68,7 +68,7 @@ if you want, but the module name must be unique within the directory.</p>
 <p>Although it does absolutely nothing we can install it:</p>
 <ul>
 <li><p class="first">start the Odoo server</p>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ./odoo-bin --addons-path addons,my-modules
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ./gerp-bin --addons-path addons,my-modules
 </pre></div>
 </div>
 </li>
@@ -92,7 +92,7 @@ send data back.</p>
 <p>Add a simple controller and ensure it is imported by <code class="docutils literal"><span class="pre">__init__.py</span></code> (so
 Odoo can find it):</p>
 <p>Shut down your server (<code class="kbd docutils literal"><span class="pre">^C</span></code>) then restart it:</p>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ./odoo-bin --addons-path addons,my-modules
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ./gerp-bin --addons-path addons,my-modules
 </pre></div>
 </div>
 <p>and open a page to <a class="reference external" href="http://localhost:8069/academy/academy/">http://localhost:8069/academy/academy/</a>, you should see your
@@ -117,17 +117,17 @@ by going to <span class="menuselection">Settings ‣ Modules ‣ Modules ‣
 Academy</span> and clicking <span class="guilabel">Upgrade</span>.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p>Alternatively, Odoo can be restarted <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-u"><code class="xref std std-option docutils literal"><span class="pre">and</span> <span class="pre">update</span> <span class="pre">modules</span> <span class="pre">at</span>
+<p>Alternatively, Odoo can be restarted <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-u"><code class="xref std std-option docutils literal"><span class="pre">and</span> <span class="pre">update</span> <span class="pre">modules</span> <span class="pre">at</span>
 <span class="pre">the</span> <span class="pre">same</span> <span class="pre">time</span></code></a>:</p>
-<div class="last highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> odoo-bin --addons-path addons,my-modules -d academy -u academy
+<div class="last highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> gerp-bin --addons-path addons,my-modules -d academy -u academy
 </pre></div>
 </div>
 </div>
 <p>Going to <a class="reference external" href="http://localhost:8069/academy/academy/">http://localhost:8069/academy/academy/</a> should now result in:</p>
 <img alt="../_images/basic-list.png" src="../_images/basic-list.png" />
 </div>
-<div class="section" id="storing-data-in-odoo">
-<h2>Storing data in Odoo<a class="headerlink" href="#storing-data-in-odoo" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="storing-data-in-gerp">
+<h2>Storing data in Odoo<a class="headerlink" href="#storing-data-in-gerp" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="../reference/orm.html#reference-orm-model"><span class="std std-ref">Odoo models</span></a> map to database tables.</p>
 <p>In the previous section we just displayed a list of string entered statically
 in the Python code. This doesn’t allow modifications or persistent storage
@@ -275,8 +275,8 @@ ask for a human-readable version:</p>
 </div>
 <div class="section" id="administration-and-erp-integration">
 <h2>Administration and ERP integration<a class="headerlink" href="#administration-and-erp-integration" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="a-brief-and-incomplete-introduction-to-the-odoo-administration">
-<h3>A brief and incomplete introduction to the Odoo administration<a class="headerlink" href="#a-brief-and-incomplete-introduction-to-the-odoo-administration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="a-brief-and-incomplete-introduction-to-the-gerp-administration">
+<h3>A brief and incomplete introduction to the Odoo administration<a class="headerlink" href="#a-brief-and-incomplete-introduction-to-the-gerp-administration" title="Permalink to this headline">¶</a></h3>
 <p>The Odoo administration was briefly seen during the <a class="reference internal" href="#website-support">website support</a> section.
 We can go back to it using <span class="menuselection">Administrator ‣ Administrator</span> in
 the menu (or <span class="guilabel">Sign In</span> if you’re signed out).</p>
@@ -292,8 +292,8 @@ a graph, a calendar) and an <em>architecture</em> which customises the way the
 model is displayed inside the view.</li>
 </ol>
 </div>
-<div class="section" id="editing-in-the-odoo-administration">
-<h3>Editing in the Odoo administration<a class="headerlink" href="#editing-in-the-odoo-administration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="editing-in-the-gerp-administration">
+<h3>Editing in the Odoo administration<a class="headerlink" href="#editing-in-the-gerp-administration" title="Permalink to this headline">¶</a></h3>
 <p>By default, an Odoo model is essentially invisible to a user. To make it
 visible it must be available through an action, which itself needs to be
 reachable, generally through a menu.</p>

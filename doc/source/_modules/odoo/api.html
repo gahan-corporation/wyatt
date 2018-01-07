@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>odoo.api &#8212; gerp 0.0.1 documentation</title>
+    <title>gerp.api &#8212; gerp 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -38,7 +38,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <h1>Source code for odoo.api</h1><div class="highlight"><pre>
+  <h1>Source code for gerp.api</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="c1"># Part of Odoo. See LICENSE file for full copyright and licensing details.</span>
 
@@ -96,7 +96,7 @@
 <span class="kn">from</span> <span class="nn">decorator</span> <span class="k">import</span> <span class="n">decorator</span>
 <span class="kn">from</span> <span class="nn">werkzeug.local</span> <span class="k">import</span> <span class="n">Local</span><span class="p">,</span> <span class="n">release_local</span>
 
-<span class="kn">from</span> <span class="nn">odoo.tools</span> <span class="k">import</span> <span class="n">frozendict</span><span class="p">,</span> <span class="n">classproperty</span>
+<span class="kn">from</span> <span class="nn">gerp.tools</span> <span class="k">import</span> <span class="n">frozendict</span><span class="p">,</span> <span class="n">classproperty</span>
 
 <span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
@@ -176,7 +176,7 @@
     <span class="k">return</span> <span class="n">method2</span>
 
 
-<div class="viewcode-block" id="constrains"><a class="viewcode-back" href="../../reference/orm.html#odoo.api.constrains">[docs]</a><span class="k">def</span> <span class="nf">constrains</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="constrains"><a class="viewcode-back" href="../../reference/orm.html#gerp.api.constrains">[docs]</a><span class="k">def</span> <span class="nf">constrains</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Decorates a constraint checker. Each argument must be a field name</span>
 <span class="sd">    used in the check::</span>
 
@@ -188,7 +188,7 @@
 
 <span class="sd">    Invoked on the records on which one of the named fields has been modified.</span>
 
-<span class="sd">    Should raise :class:`~odoo.exceptions.ValidationError` if the</span>
+<span class="sd">    Should raise :class:`~gerp.exceptions.ValidationError` if the</span>
 <span class="sd">    validation failed.</span>
 
 <span class="sd">    .. warning::</span>
@@ -208,7 +208,7 @@
     <span class="k">return</span> <span class="n">attrsetter</span><span class="p">(</span><span class="s1">&#39;_constrains&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="onchange"><a class="viewcode-back" href="../../reference/orm.html#odoo.api.onchange">[docs]</a><span class="k">def</span> <span class="nf">onchange</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="onchange"><a class="viewcode-back" href="../../reference/orm.html#gerp.api.onchange">[docs]</a><span class="k">def</span> <span class="nf">onchange</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Return a decorator to decorate an onchange method for given fields.</span>
 <span class="sd">        Each argument must be a field name::</span>
 
@@ -239,7 +239,7 @@
     <span class="k">return</span> <span class="n">attrsetter</span><span class="p">(</span><span class="s1">&#39;_onchange&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="depends"><a class="viewcode-back" href="../../reference/orm.html#odoo.api.depends">[docs]</a><span class="k">def</span> <span class="nf">depends</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="depends"><a class="viewcode-back" href="../../reference/orm.html#gerp.api.depends">[docs]</a><span class="k">def</span> <span class="nf">depends</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Return a decorator that specifies the field dependencies of a &quot;compute&quot;</span>
 <span class="sd">        method (for new-style function fields). Each argument must be a string</span>
 <span class="sd">        that consists in a dot-separated sequence of field names::</span>
@@ -264,7 +264,7 @@
     <span class="k">return</span> <span class="n">attrsetter</span><span class="p">(</span><span class="s1">&#39;_depends&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="returns"><a class="viewcode-back" href="../../reference/orm.html#odoo.api.returns">[docs]</a><span class="k">def</span> <span class="nf">returns</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">downgrade</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">upgrade</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="returns"><a class="viewcode-back" href="../../reference/orm.html#gerp.api.returns">[docs]</a><span class="k">def</span> <span class="nf">returns</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">downgrade</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">upgrade</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Return a decorator for methods that return instances of ``model``.</span>
 
 <span class="sd">        :param model: a model name, or ``&#39;self&#39;`` for the current model</span>
@@ -339,7 +339,7 @@
         <span class="k">return</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;context&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span>
 
 
-<div class="viewcode-block" id="model"><a class="viewcode-back" href="../../reference/orm.html#odoo.api.model">[docs]</a><span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">method</span><span class="p">):</span>
+<div class="viewcode-block" id="model"><a class="viewcode-back" href="../../reference/orm.html#gerp.api.model">[docs]</a><span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">method</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Decorate a record-style method where ``self`` is a recordset, but its</span>
 <span class="sd">        contents is not relevant, only the model is. Such a method::</span>
 
@@ -360,7 +360,7 @@
     <span class="k">return</span> <span class="n">method</span></div>
 
 
-<div class="viewcode-block" id="multi"><a class="viewcode-back" href="../../reference/orm.html#odoo.api.multi">[docs]</a><span class="k">def</span> <span class="nf">multi</span><span class="p">(</span><span class="n">method</span><span class="p">):</span>
+<div class="viewcode-block" id="multi"><a class="viewcode-back" href="../../reference/orm.html#gerp.api.multi">[docs]</a><span class="k">def</span> <span class="nf">multi</span><span class="p">(</span><span class="n">method</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Decorate a record-style method where ``self`` is a recordset. The method</span>
 <span class="sd">        typically defines an operation on records. Such a method::</span>
 
@@ -379,7 +379,7 @@
     <span class="k">return</span> <span class="n">method</span></div>
 
 
-<div class="viewcode-block" id="one"><a class="viewcode-back" href="../../reference/orm.html#odoo.api.one">[docs]</a><span class="k">def</span> <span class="nf">one</span><span class="p">(</span><span class="n">method</span><span class="p">):</span>
+<div class="viewcode-block" id="one"><a class="viewcode-back" href="../../reference/orm.html#gerp.api.one">[docs]</a><span class="k">def</span> <span class="nf">one</span><span class="p">(</span><span class="n">method</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Decorate a record-style method where ``self`` is expected to be a</span>
 <span class="sd">        singleton instance. The decorated method automatically loops on records,</span>
 <span class="sd">        and makes a list with the results. In case the method is decorated with</span>
@@ -404,7 +404,7 @@
 
 <span class="sd">            It is strongly recommended to use :func:`~.multi` and either</span>
 <span class="sd">            iterate on the ``self`` recordset or ensure that the recordset</span>
-<span class="sd">            is a single record with :meth:`~odoo.models.Model.ensure_one`.</span>
+<span class="sd">            is a single record with :meth:`~gerp.models.Model.ensure_one`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">loop</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">method</span><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">]</span>
@@ -594,7 +594,7 @@
     <span class="k">return</span> <span class="n">method</span>
 
 
-<div class="viewcode-block" id="v7"><a class="viewcode-back" href="../../reference/orm.html#odoo.api.v7">[docs]</a><span class="k">def</span> <span class="nf">v7</span><span class="p">(</span><span class="n">method_v7</span><span class="p">):</span>
+<div class="viewcode-block" id="v7"><a class="viewcode-back" href="../../reference/orm.html#gerp.api.v7">[docs]</a><span class="k">def</span> <span class="nf">v7</span><span class="p">(</span><span class="n">method_v7</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Decorate a method that supports the old-style api only. A new-style api</span>
 <span class="sd">        may be provided by redefining a method with the same name and decorated</span>
 <span class="sd">        with :func:`~.v8`::</span>
@@ -624,7 +624,7 @@
     <span class="k">return</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_locals</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">method_v7</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">method_v7</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="v8"><a class="viewcode-back" href="../../reference/orm.html#odoo.api.v8">[docs]</a><span class="k">def</span> <span class="nf">v8</span><span class="p">(</span><span class="n">method_v8</span><span class="p">):</span>
+<div class="viewcode-block" id="v8"><a class="viewcode-back" href="../../reference/orm.html#gerp.api.v8">[docs]</a><span class="k">def</span> <span class="nf">v8</span><span class="p">(</span><span class="n">method_v8</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Decorate a method that supports the new-style api only. An old-style api</span>
 <span class="sd">        may be provided by redefining a method with the same name and decorated</span>
 <span class="sd">        with :func:`~.v7`::</span>
@@ -1108,9 +1108,9 @@
 
 
 <span class="c1"># keep those imports here in order to handle cyclic dependencies correctly</span>
-<span class="kn">from</span> <span class="nn">odoo</span> <span class="k">import</span> <span class="n">SUPERUSER_ID</span>
-<span class="kn">from</span> <span class="nn">odoo.exceptions</span> <span class="k">import</span> <span class="n">UserError</span><span class="p">,</span> <span class="n">AccessError</span><span class="p">,</span> <span class="n">MissingError</span>
-<span class="kn">from</span> <span class="nn">odoo.modules.registry</span> <span class="k">import</span> <span class="n">Registry</span>
+<span class="kn">from</span> <span class="nn">gerp</span> <span class="k">import</span> <span class="n">SUPERUSER_ID</span>
+<span class="kn">from</span> <span class="nn">gerp.exceptions</span> <span class="k">import</span> <span class="n">UserError</span><span class="p">,</span> <span class="n">AccessError</span><span class="p">,</span> <span class="n">MissingError</span>
+<span class="kn">from</span> <span class="nn">gerp.modules.registry</span> <span class="k">import</span> <span class="n">Registry</span>
 </pre></div>
 
           </div>

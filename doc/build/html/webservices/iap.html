@@ -126,23 +126,23 @@ business in Japan)</li>
 <li>act as intermediary to an other service provider (e.g. bridge to an MMS
 gateway)</li>
 </ul>
-<div class="section" id="register-the-service-on-odoo">
-<h3>Register the service on Odoo<a class="headerlink" href="#register-the-service-on-odoo" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="register-the-service-on-gerp">
+<h3>Register the service on Odoo<a class="headerlink" href="#register-the-service-on-gerp" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Todo</p>
 <p class="last">complete this part with screenshots</p>
 </div>
 <p>The first step is to register your service on the IAP endpoint (production
 and/or test) before you can actually query user accounts. To create a service,
-go to your <em>Portal Account</em> on the IAP endpoint (<a class="reference external" href="https://iap.odoo.com">https://iap.odoo.com</a> for
-production, <a class="reference external" href="http://iap-sandbox.odoo.com">http://iap-sandbox.odoo.com</a> for testing, the endpoints are
+go to your <em>Portal Account</em> on the IAP endpoint (<a class="reference external" href="https://iap.gerp.com">https://iap.gerp.com</a> for
+production, <a class="reference external" href="http://iap-sandbox.gerp.com">http://iap-sandbox.gerp.com</a> for testing, the endpoints are
 <em>independent</em> and <em>not synchronized</em>).</p>
 <p>Log in then go to <span class="menuselection">My Account ‣ Your InApp Services</span>, click
 Create and provide the name of your service.</p>
 <p>The now created service has <em>two</em> important fields:</p>
 <ul class="simple">
 <li><code class="samp docutils literal"><span class="pre">name</span></code> - <a class="reference internal" href="#ServiceName" title="ServiceName"><code class="xref py py-class docutils literal"><span class="pre">ServiceName</span></code></a>: this will identify your service in the
-client’s <a class="reference internal" href="#iap-odoo-app"><span class="std std-ref">app</span></a> communicates directly with IAP.</li>
+client’s <a class="reference internal" href="#iap-gerp-app"><span class="std std-ref">app</span></a> communicates directly with IAP.</li>
 <li><code class="samp docutils literal"><span class="pre">key</span></code> - <a class="reference internal" href="#ServiceKey" title="ServiceKey"><code class="xref py py-class docutils literal"><span class="pre">ServiceKey</span></code></a>: the developer key that identifies you in
 IAP (see <a class="reference internal" href="#iap-service"><span class="std std-ref">your service</span></a>) and allows to draw credits from the client’s account.</li>
 </ul>
@@ -163,17 +163,17 @@ your service(s).</p>
 <p>You can then create <em>credit packs</em> which clients can purchase in order to
 use your service.</p>
 </div>
-<div class="section" id="odoo-app">
-<span id="iap-odoo-app"></span><h3>Odoo App<a class="headerlink" href="#odoo-app" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="gerp-app">
+<span id="iap-gerp-app"></span><h3>Odoo App<a class="headerlink" href="#gerp-app" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-1">
 <p class="first admonition-title">Todo</p>
 <p class="last">does this actually require apps?</p>
 </div>
-<p>The second step is to develop an <a class="reference external" href="https://www.odoo.com/apps">Odoo App</a> which clients can install in their
+<p>The second step is to develop an <a class="reference external" href="https://www.gerp.com/apps">Odoo App</a> which clients can install in their
 Odoo instance and through which they can <em>request</em> services you will provide.
 Our app will just add a button to the Partners form which lets a user request
 burning some CPU time on the server.</p>
-<p>First, we’ll create an <em>odoo module</em> depending on <code class="docutils literal"><span class="pre">iap</span></code>. IAP is a standard
+<p>First, we’ll create an <em>gerp module</em> depending on <code class="docutils literal"><span class="pre">iap</span></code>. IAP is a standard
 V11 module and the dependency ensures a local account is properly set up and
 we will have access to some necessary views and useful helpers</p>
 <p>Second, the “local” side of the integration, here we will only be adding an
@@ -186,8 +186,8 @@ server</em>.</p>
 protocol between the app and our server, but <code class="docutils literal"><span class="pre">iap</span></code> provides a
 <code class="xref py py-func docutils literal"><span class="pre">jsonrpc()</span></code> helper to call a <a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC2</a> endpoint on an
 other Odoo instance and transparently re-raise relevant Odoo exceptions
-(<a class="reference internal" href="#odoo.addons.iap.models.iap.InsufficientCreditError" title="odoo.addons.iap.models.iap.InsufficientCreditError"><code class="xref py py-class docutils literal"><span class="pre">InsufficientCreditError</span></code></a>,
-<a class="reference internal" href="#odoo.exceptions.AccessError" title="odoo.exceptions.AccessError"><code class="xref py py-class docutils literal"><span class="pre">odoo.exceptions.AccessError</span></code></a> and <a class="reference internal" href="#odoo.exceptions.UserError" title="odoo.exceptions.UserError"><code class="xref py py-class docutils literal"><span class="pre">odoo.exceptions.UserError</span></code></a>).</p>
+(<a class="reference internal" href="#gerp.addons.iap.models.iap.InsufficientCreditError" title="gerp.addons.iap.models.iap.InsufficientCreditError"><code class="xref py py-class docutils literal"><span class="pre">InsufficientCreditError</span></code></a>,
+<a class="reference internal" href="#gerp.exceptions.AccessError" title="gerp.exceptions.AccessError"><code class="xref py py-class docutils literal"><span class="pre">gerp.exceptions.AccessError</span></code></a> and <a class="reference internal" href="#gerp.exceptions.UserError" title="gerp.exceptions.UserError"><code class="xref py py-class docutils literal"><span class="pre">gerp.exceptions.UserError</span></code></a>).</p>
 <p>In that call, we will need to provide:</p>
 <ul class="simple">
 <li>any relevant client parameter (none here)</li>
@@ -200,16 +200,16 @@ on IAP endpoint.</li>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p><code class="docutils literal"><span class="pre">iap</span></code> automatically handles
-<a class="reference internal" href="#odoo.addons.iap.models.iap.InsufficientCreditError" title="odoo.addons.iap.models.iap.InsufficientCreditError"><code class="xref py py-class docutils literal"><span class="pre">InsufficientCreditError</span></code></a> coming from the action
+<a class="reference internal" href="#gerp.addons.iap.models.iap.InsufficientCreditError" title="gerp.addons.iap.models.iap.InsufficientCreditError"><code class="xref py py-class docutils literal"><span class="pre">InsufficientCreditError</span></code></a> coming from the action
 and prompts the user to add credits to their account.</p>
 <p class="last"><code class="xref py py-func docutils literal"><span class="pre">jsonrpc()</span></code> takes care of re-raising
-<a class="reference internal" href="#odoo.addons.iap.models.iap.InsufficientCreditError" title="odoo.addons.iap.models.iap.InsufficientCreditError"><code class="xref py py-class docutils literal"><span class="pre">InsufficientCreditError</span></code></a> for you.</p>
+<a class="reference internal" href="#gerp.addons.iap.models.iap.InsufficientCreditError" title="gerp.addons.iap.models.iap.InsufficientCreditError"><code class="xref py py-class docutils literal"><span class="pre">InsufficientCreditError</span></code></a> for you.</p>
 </div>
 <div class="admonition danger">
 <p class="first admonition-title">Danger</p>
 <p class="last">If you are not using <code class="xref py py-func docutils literal"><span class="pre">jsonrpc()</span></code> you <em>must</em> be
 careful to re-raise
-<a class="reference internal" href="#odoo.addons.iap.models.iap.InsufficientCreditError" title="odoo.addons.iap.models.iap.InsufficientCreditError"><code class="xref py py-class docutils literal"><span class="pre">InsufficientCreditError</span></code></a> in your handler
+<a class="reference internal" href="#gerp.addons.iap.models.iap.InsufficientCreditError" title="gerp.addons.iap.models.iap.InsufficientCreditError"><code class="xref py py-class docutils literal"><span class="pre">InsufficientCreditError</span></code></a> in your handler
 otherwise the user will not be prompted to credit their account, and the
 next call will fail the same way.</p>
 </div>
@@ -218,20 +218,20 @@ next call will fail the same way.</p>
 <span id="iap-service"></span><h3>Service<a class="headerlink" href="#service" title="Permalink to this headline">¶</a></h3>
 <p>Though that is not <em>required</em>, since <code class="docutils literal"><span class="pre">iap</span></code> provides both a client helper
 for <a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC2</a> calls (<code class="xref py py-func docutils literal"><span class="pre">jsonrpc()</span></code>) and a service helper
-for transactions (<a class="reference internal" href="#odoo.addons.iap.models.iap.charge" title="odoo.addons.iap.models.iap.charge"><code class="xref py py-class docutils literal"><span class="pre">charge</span></code></a>) we will also be
+for transactions (<a class="reference internal" href="#gerp.addons.iap.models.iap.charge" title="gerp.addons.iap.models.iap.charge"><code class="xref py py-class docutils literal"><span class="pre">charge</span></code></a>) we will also be
 implementing the service side as an Odoo module:</p>
 <p>Since the query from the client comes as <a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC2</a> we will need the
-corresponding controller which can call <a class="reference internal" href="#odoo.addons.iap.models.iap.charge" title="odoo.addons.iap.models.iap.charge"><code class="xref py py-class docutils literal"><span class="pre">charge</span></code></a> and
+corresponding controller which can call <a class="reference internal" href="#gerp.addons.iap.models.iap.charge" title="gerp.addons.iap.models.iap.charge"><code class="xref py py-class docutils literal"><span class="pre">charge</span></code></a> and
 perform the service within:</p>
 <div class="admonition-todo admonition" id="index-2">
 <p class="first admonition-title">Todo</p>
-<p class="last">for the actual IAP will the “portal” page be on odoo.com or iap.odoo.com?</p>
+<p class="last">for the actual IAP will the “portal” page be on gerp.com or iap.gerp.com?</p>
 </div>
 <div class="admonition-todo admonition" id="index-3">
 <p class="first admonition-title">Todo</p>
 <p class="last">“My Account” &gt; “Your InApp Services”?</p>
 </div>
-<p>The <a class="reference internal" href="#odoo.addons.iap.models.iap.charge" title="odoo.addons.iap.models.iap.charge"><code class="xref py py-class docutils literal"><span class="pre">charge</span></code></a> helper will:</p>
+<p>The <a class="reference internal" href="#gerp.addons.iap.models.iap.charge" title="gerp.addons.iap.models.iap.charge"><code class="xref py py-class docutils literal"><span class="pre">charge</span></code></a> helper will:</p>
 <ol class="arabic simple">
 <li>authorize (create) a transaction with the specified number of credits,
 if the account does not have enough credits it will raise the relevant
@@ -244,16 +244,16 @@ transaction (and release the hold on the credits)</li>
 </ol>
 <div class="admonition danger">
 <p class="first admonition-title">Danger</p>
-<p>By default, <a class="reference internal" href="#odoo.addons.iap.models.iap.charge" title="odoo.addons.iap.models.iap.charge"><code class="xref py py-class docutils literal"><span class="pre">charge</span></code></a> contacts the <em>production</em>
-IAP endpoint, <a class="reference external" href="https://iap.odoo.com">https://iap.odoo.com</a>. While developing and testing your
+<p>By default, <a class="reference internal" href="#gerp.addons.iap.models.iap.charge" title="gerp.addons.iap.models.iap.charge"><code class="xref py py-class docutils literal"><span class="pre">charge</span></code></a> contacts the <em>production</em>
+IAP endpoint, <a class="reference external" href="https://iap.gerp.com">https://iap.gerp.com</a>. While developing and testing your
 service you may want to point it towards the <em>development</em> IAP endpoint
-<a class="reference external" href="https://iap-sandbox.odoo.com">https://iap-sandbox.odoo.com</a>.</p>
+<a class="reference external" href="https://iap-sandbox.gerp.com">https://iap-sandbox.gerp.com</a>.</p>
 <p class="last">To do so, set the <code class="docutils literal"><span class="pre">iap.endpoint</span></code> config parameter in your service
 Odoo: in debug/developer mode, <span class="menuselection">Setting ‣ Technical ‣
 Parameters ‣ System Parameters</span>, just define an entry for the key
 <code class="docutils literal"><span class="pre">iap.endpoint</span></code> if none already exists).</p>
 </div>
-<p>The <a class="reference internal" href="#odoo.addons.iap.models.iap.charge" title="odoo.addons.iap.models.iap.charge"><code class="xref py py-class docutils literal"><span class="pre">charge</span></code></a> helper has two additional optional
+<p>The <a class="reference internal" href="#gerp.addons.iap.models.iap.charge" title="gerp.addons.iap.models.iap.charge"><code class="xref py py-class docutils literal"><span class="pre">charge</span></code></a> helper has two additional optional
 parameters we can use to make things clearer to the end-user:</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">description</span></code></dt>
@@ -310,10 +310,10 @@ charges on their accounts.</li>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="#TransactionToken" title="TransactionToken"><code class="xref py py-class docutils literal"><span class="pre">TransactionToken</span></code></a> if the authorization succeeded.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference internal" href="#odoo.exceptions.AccessError" title="odoo.exceptions.AccessError"><code class="xref py py-class docutils literal"><span class="pre">AccessError</span></code></a> if the service token is invalid</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference internal" href="#gerp.exceptions.AccessError" title="gerp.exceptions.AccessError"><code class="xref py py-class docutils literal"><span class="pre">AccessError</span></code></a> if the service token is invalid</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference internal" href="#odoo.addons.iap.models.iap.InsufficientCreditError" title="odoo.addons.iap.models.iap.InsufficientCreditError"><code class="xref py py-class docutils literal"><span class="pre">InsufficientCreditError</span></code></a> if the account does</p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference internal" href="#gerp.addons.iap.models.iap.InsufficientCreditError" title="gerp.addons.iap.models.iap.InsufficientCreditError"><code class="xref py py-class docutils literal"><span class="pre">InsufficientCreditError</span></code></a> if the account does</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">TypeError</span></code> if the <code class="docutils literal"><span class="pre">credit</span></code> value is not an integer</p>
@@ -361,7 +361,7 @@ captured transaction has no further effect.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#odoo.exceptions.AccessError" title="odoo.exceptions.AccessError"><code class="xref py py-class docutils literal"><span class="pre">AccessError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#gerp.exceptions.AccessError" title="gerp.exceptions.AccessError"><code class="xref py py-class docutils literal"><span class="pre">AccessError</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -402,7 +402,7 @@ cancelled transaction has no further effect.</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#odoo.exceptions.AccessError" title="odoo.exceptions.AccessError"><code class="xref py py-class docutils literal"><span class="pre">AccessError</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#gerp.exceptions.AccessError" title="gerp.exceptions.AccessError"><code class="xref py py-class docutils literal"><span class="pre">AccessError</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -431,7 +431,7 @@ care how they are implemented</p>
 <dl class="class">
 <dt id="ServiceName">
 <em class="property">class </em><code class="descname">ServiceName</code><a class="headerlink" href="#ServiceName" title="Permalink to this definition">¶</a></dt>
-<dd><p>String identifying your service on <a class="reference external" href="https://iap.odoo.com">https://iap.odoo.com</a> (production) as well
+<dd><p>String identifying your service on <a class="reference external" href="https://iap.gerp.com">https://iap.gerp.com</a> (production) as well
 as the account related to your service in the client’s database.</p>
 </dd></dl>
 
@@ -465,16 +465,16 @@ by either capturing or cancelling the transaction</p>
 </dd></dl>
 
 <dl class="exception">
-<dt id="odoo.addons.iap.models.iap.InsufficientCreditError">
-<em class="property">exception </em><code class="descclassname">odoo.addons.iap.models.iap.</code><code class="descname">InsufficientCreditError</code><a class="headerlink" href="#odoo.addons.iap.models.iap.InsufficientCreditError" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.addons.iap.models.iap.InsufficientCreditError">
+<em class="property">exception </em><code class="descclassname">gerp.addons.iap.models.iap.</code><code class="descname">InsufficientCreditError</code><a class="headerlink" href="#gerp.addons.iap.models.iap.InsufficientCreditError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raised during transaction authorization if the credits requested are not
 currently available on the account (either not enough credits or too many
 pending transactions/existing holds).</p>
 </dd></dl>
 
 <dl class="exception">
-<dt id="odoo.exceptions.AccessError">
-<em class="property">exception </em><code class="descclassname">odoo.exceptions.</code><code class="descname">AccessError</code><a class="headerlink" href="#odoo.exceptions.AccessError" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.exceptions.AccessError">
+<em class="property">exception </em><code class="descclassname">gerp.exceptions.</code><code class="descname">AccessError</code><a class="headerlink" href="#gerp.exceptions.AccessError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raised by:</p>
 <ul class="simple">
 <li>any operation to which a service token is required, if the service token is invalid.</li>
@@ -483,22 +483,22 @@ pending transactions/existing holds).</p>
 </dd></dl>
 
 <dl class="exception">
-<dt id="odoo.exceptions.UserError">
-<em class="property">exception </em><code class="descclassname">odoo.exceptions.</code><code class="descname">UserError</code><a class="headerlink" href="#odoo.exceptions.UserError" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.exceptions.UserError">
+<em class="property">exception </em><code class="descclassname">gerp.exceptions.</code><code class="descname">UserError</code><a class="headerlink" href="#gerp.exceptions.UserError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raised by any unexpeted behaviour at the discretion of the App developer (<em>you</em>).</p>
 </dd></dl>
 
 </div>
 </div>
-<div class="section" id="odoo-helpers">
-<h2>Odoo Helpers<a class="headerlink" href="#odoo-helpers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gerp-helpers">
+<h2>Odoo Helpers<a class="headerlink" href="#gerp-helpers" title="Permalink to this headline">¶</a></h2>
 <p>For convenience, if you are implementing your service using Odoo the <code class="docutils literal"><span class="pre">iap</span></code>
 module provides a few helpers to make IAP flow even simpler:</p>
 <div class="section" id="charging">
 <h3>Charging<a class="headerlink" href="#charging" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
-<dt id="odoo.addons.iap.models.iap.charge">
-<em class="property">class </em><code class="descclassname">odoo.addons.iap.models.iap.</code><code class="descname">charge</code><span class="sig-paren">(</span><em>env</em>, <em>key</em>, <em>account_token</em>, <em>credit</em><span class="optional">[</span>, <em>description</em>, <em>credit_template</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#odoo.addons.iap.models.iap.charge" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.addons.iap.models.iap.charge">
+<em class="property">class </em><code class="descclassname">gerp.addons.iap.models.iap.</code><code class="descname">charge</code><span class="sig-paren">(</span><em>env</em>, <em>key</em>, <em>account_token</em>, <em>credit</em><span class="optional">[</span>, <em>description</em>, <em>credit_template</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#gerp.addons.iap.models.iap.charge" title="Permalink to this definition">¶</a></dt>
 <dd><p>A <em>context manager</em> for authorizing and automatically capturing or
 cancelling transactions for use in the backend/proxy.</p>
 <p>Works much like e.g. a cursor context manager:</p>
@@ -513,7 +513,7 @@ cancelling transactions for use in the backend/proxy.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>env</strong> (<em>odoo.api.Environment</em>) – used to retrieve the <code class="docutils literal"><span class="pre">iap.endpoint</span></code>
+<li><strong>env</strong> (<em>gerp.api.Environment</em>) – used to retrieve the <code class="docutils literal"><span class="pre">iap.endpoint</span></code>
 configuration key</li>
 <li><strong>key</strong> (<a class="reference internal" href="#ServiceKey" title="ServiceKey"><em>ServiceKey</em></a>) – </li>
 <li><strong>token</strong> (<a class="reference internal" href="#UserToken" title="UserToken"><em>UserToken</em></a>) – </li>

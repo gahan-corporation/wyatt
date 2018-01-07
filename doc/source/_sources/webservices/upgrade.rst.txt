@@ -17,7 +17,7 @@ This document describes the API used to upgrade an Odoo database to a
 higher version.
 
 It allows a database to be upgraded without ressorting to the html form at
-https://upgrade.odoo.com
+https://upgrade.gerp.com
 Although the database will follow the same process described on that form.
 
 
@@ -49,7 +49,7 @@ This action creates a database request with the following information:
 The ``create`` method
 ---------------------
 
-.. py:function:: https://upgrade.odoo.com/database/v1/create
+.. py:function:: https://upgrade.gerp.com/database/v1/create
 
     Creates a database upgrade request
 
@@ -150,7 +150,7 @@ Here are 2 examples of database upgrade request creation using:
         import pycurl
         import json
 
-        CREATE_URL = "https://upgrade.odoo.com/database/v1/create"
+        CREATE_URL = "https://upgrade.gerp.com/database/v1/create"
         CONTRACT = "M123456-abcdef"
         AIM = "test"
         TARGET = "8.0"
@@ -187,7 +187,7 @@ Here are 2 examples of database upgrade request creation using:
         TARGET=8.0
         EMAIL=john.doe@example.com
         FILENAME=db_name.dump
-        CREATE_URL="https://upgrade.odoo.com/database/v1/create"
+        CREATE_URL="https://upgrade.gerp.com/database/v1/create"
         URL_PARAMS="contract=${CONTRACT}&aim=${AIM}&target=${TARGET}&email=${EMAIL}&filename=${FILENAME}"
         curl -sS "${CREATE_URL}?${URL_PARAMS}" > create_result.json
 
@@ -214,7 +214,7 @@ The ``upload`` method
 It's the most simple and most straightforward way of uploading your database dump.
 It uses the HTTPS protocol.
 
-.. py:function:: https://upgrade.odoo.com/database/v1/upload
+.. py:function:: https://upgrade.gerp.com/database/v1/upload
 
     Uploads a database dump
 
@@ -239,7 +239,7 @@ should be empty if everything went fine.
         import pycurl
         from urllib import urlencode
 
-        UPLOAD_URL = "https://upgrade.odoo.com/database/v1/upload"
+        UPLOAD_URL = "https://upgrade.gerp.com/database/v1/upload"
         DUMPFILE = "openchs.70.cdump"
 
         fields = dict([
@@ -265,7 +265,7 @@ should be empty if everything went fine.
 
     .. code-block:: bash
 
-        UPLOAD_URL="https://upgrade.odoo.com/database/v1/upload"
+        UPLOAD_URL="https://upgrade.gerp.com/database/v1/upload"
         DUMPFILE="openchs.70.cdump"
         KEY="Aw7pItGVKFuZ_FOR3U8VFQ=="
         REQUEST_ID="10534"
@@ -284,7 +284,7 @@ It uses the SFTP protocol and supports resuming.
 It will create a temporary SFTP server where you can connect to and allow you
 to upload your database dump using an SFTP client.
 
-.. py:function:: https://upgrade.odoo.com/database/v1/request_sftp_access
+.. py:function:: https://upgrade.gerp.com/database/v1/request_sftp_access
 
     Creates an SFTP server
 
@@ -315,7 +315,7 @@ The ``request_sftp_access`` method returns a JSON dictionary containing the foll
         import pycurl
         from urllib import urlencode
 
-        UPLOAD_URL = "https://upgrade.odoo.com/database/v1/request_sftp_access"
+        UPLOAD_URL = "https://upgrade.gerp.com/database/v1/request_sftp_access"
         SSH_KEYS="/path/to/your/authorized_keys"
 
         fields = dict([
@@ -337,7 +337,7 @@ The ``request_sftp_access`` method returns a JSON dictionary containing the foll
 
     .. code-block:: bash
 
-        REQUEST_SFTP_ACCESS_URL="https://upgrade.odoo.com/database/v1/request_sftp_access"
+        REQUEST_SFTP_ACCESS_URL="https://upgrade.gerp.com/database/v1/request_sftp_access"
         SSH_KEYS=/path/to/your/authorized_keys
         KEY="Aw7pItGVKFuZ_FOR3U8VFQ=="
         REQUEST_ID="10534"
@@ -386,8 +386,8 @@ your database dump. Here is a sample session using the 'sftp' client:
 
 ::
 
-    $ sftp -P 2200 user_10534@upgrade.odoo.com
-    Connected to upgrade.odoo.com.
+    $ sftp -P 2200 user_10534@upgrade.gerp.com
+    Connected to upgrade.gerp.com.
     sftp> put /path/to/openchs.70.cdump openchs.70.cdump
     Uploading /path/to/openchs.70.cdump to /openchs.70.cdump
     sftp> ls -l openchs.70.cdump
@@ -406,7 +406,7 @@ database upgrade using a script, you can use a batch file or pipe your commands 
 
 ::
 
-  echo "put /path/to/openchs.70.cdump openchs.70.cdump" | sftp -b - -P 2200 user_10534@upgrade.odoo.com
+  echo "put /path/to/openchs.70.cdump openchs.70.cdump" | sftp -b - -P 2200 user_10534@upgrade.gerp.com
 
 The ``-b`` parameter takes a filename. If the filename is ``-``, it reads the commands from standard input.
 
@@ -421,7 +421,7 @@ This action ask the Upgrade Platform to process your database dump.
 The ``process`` method
 ----------------------
 
-.. py:function:: https://upgrade.odoo.com/database/v1/process
+.. py:function:: https://upgrade.gerp.com/database/v1/process
 
     Process a database dump
 
@@ -447,7 +447,7 @@ should be empty if everything went fine.
         import pycurl
         import json
 
-        PROCESS_URL = "https://upgrade.odoo.com/database/v1/process"
+        PROCESS_URL = "https://upgrade.gerp.com/database/v1/process"
 
         fields = dict([
             ('request', '10534'),
@@ -471,7 +471,7 @@ should be empty if everything went fine.
 
     .. code-block:: bash
 
-        PROCESS_URL="https://upgrade.odoo.com/database/v1/process"
+        PROCESS_URL="https://upgrade.gerp.com/database/v1/process"
         KEY="Aw7pItGVKFuZ_FOR3U8VFQ=="
         REQUEST_ID="10534"
         URL_PARAMS="key=${KEY}&request=${REQUEST_ID}"
@@ -487,7 +487,7 @@ This action ask the status of your database upgrade request.
 The ``status`` method
 ---------------------
 
-.. py:function:: https://upgrade.odoo.com/database/v1/status
+.. py:function:: https://upgrade.gerp.com/database/v1/status
 
     Ask the status of a database upgrade request
 
@@ -513,7 +513,7 @@ database upgrade request.
         import pycurl
         import json
 
-        STATUS_URL = "https://upgrade.odoo.com/database/v1/status"
+        STATUS_URL = "https://upgrade.gerp.com/database/v1/status"
 
         fields = dict([
             ('request', '10534'),
@@ -535,7 +535,7 @@ database upgrade request.
 
     .. code-block:: bash
 
-        STATUS_URL="https://upgrade.odoo.com/database/v1/status"
+        STATUS_URL="https://upgrade.gerp.com/database/v1/status"
         KEY="Aw7pItGVKFuZ_FOR3U8VFQ=="
         REQUEST_ID="10534"
         URL_PARAMS="key=${KEY}&request=${REQUEST_ID}"
@@ -622,13 +622,13 @@ The ``request`` key contains various useful information about your request:
             "state": "draft",
             "issue_stage": "new",
             "issue": 648398,
-            "status_url": "https://upgrade.odoo.com/database/eu1/10534/Aw7pItGVKFuZ_FOR3U8VFQ==/status",
-            "notes_url": "https://upgrade.odoo.com/database/eu1/10534/Aw7pItGVKFuZ_FOR3U8VFQ==/upgraded/notes",
-            "original_sql_url": "https://upgrade.odoo.com/database/eu1/10534/Aw7pItGVKFuZ_FOR3U8VFQ==/original/sql",
-            "original_dump_url": "https://upgrade.odoo.com/database/eu1/10534/Aw7pItGVKFuZ_FOR3U8VFQ==/original/archive",
-            "upgraded_sql_url": "https://upgrade.odoo.com/database/eu1/10534/Aw7pItGVKFuZ_FOR3U8VFQ==/upgraded/sql",
-            "upgraded_dump_url": "https://upgrade.odoo.com/database/eu1/10534/Aw7pItGVKFuZ_FOR3U8VFQ==/upgraded/archive",
-            "modules_url": "https://upgrade.odoo.com/database/eu1/10534/Aw7pItGVKFuZ_FOR3U8VFQ==/modules/archive",
+            "status_url": "https://upgrade.gerp.com/database/eu1/10534/Aw7pItGVKFuZ_FOR3U8VFQ==/status",
+            "notes_url": "https://upgrade.gerp.com/database/eu1/10534/Aw7pItGVKFuZ_FOR3U8VFQ==/upgraded/notes",
+            "original_sql_url": "https://upgrade.gerp.com/database/eu1/10534/Aw7pItGVKFuZ_FOR3U8VFQ==/original/sql",
+            "original_dump_url": "https://upgrade.gerp.com/database/eu1/10534/Aw7pItGVKFuZ_FOR3U8VFQ==/original/archive",
+            "upgraded_sql_url": "https://upgrade.gerp.com/database/eu1/10534/Aw7pItGVKFuZ_FOR3U8VFQ==/upgraded/sql",
+            "upgraded_dump_url": "https://upgrade.gerp.com/database/eu1/10534/Aw7pItGVKFuZ_FOR3U8VFQ==/upgraded/archive",
+            "modules_url": "https://upgrade.gerp.com/database/eu1/10534/Aw7pItGVKFuZ_FOR3U8VFQ==/modules/archive",
             "filesize": "912.99 Kb",
             "database_uuid": null,
             "created_at": "2015-09-09 07:13:49",
@@ -666,8 +666,8 @@ your database dump. Here is a sample session using the 'sftp' client:
 
 ::
 
-    $ sftp -P 2200 user_10534@upgrade.odoo.com
-    Connected to upgrade.odoo.com.
+    $ sftp -P 2200 user_10534@upgrade.gerp.com
+    Connected to upgrade.gerp.com.
     sftp> get upgraded_openchs.70.cdump /path/to/upgraded_openchs.70.cdump
     Downloading /upgraded_openchs.70.cdump to /path/to/upgraded_openchs.70.cdump
 

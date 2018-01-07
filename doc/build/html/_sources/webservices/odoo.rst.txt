@@ -15,7 +15,7 @@ easily available over XML-RPC_ and accessible from a variety of languages.
 
 .. Odoo XML-RPC idiosyncracies:
    * uses multiple endpoint and a nested call syntax instead of a
-     "hierarchical" server structure (e.g. ``odoo.res.partner.read()``)
+     "hierarchical" server structure (e.g. ``gerp.res.partner.read()``)
    * uses its own own manual auth system instead of basic auth or sessions
      (basic is directly supported the Python and Ruby stdlibs as well as
      ws-xmlrpc, not sure about ripcord)
@@ -35,7 +35,7 @@ Connection
         .. code-block:: python
 
             import xmlrpclib
-            info = xmlrpclib.ServerProxy('https://demo.odoo.com/start').start()
+            info = xmlrpclib.ServerProxy('https://demo.gerp.com/start').start()
             url, db, username, password = \
                 info['host'], info['database'], info['user'], info['password']
             common = xmlrpclib.ServerProxy('{}/xmlrpc/2/common'.format(url))
@@ -45,7 +45,7 @@ Connection
         .. code-block:: ruby
 
             require "xmlrpc/client"
-            info = XMLRPC::Client.new2('https://demo.odoo.com/start').call('start')
+            info = XMLRPC::Client.new2('https://demo.gerp.com/start').call('start')
             url, db, username, password = \
                 info['host'], info['database'], info['user'], info['password']
             common = XMLRPC::Client.new2("#{url}/xmlrpc/2/common")
@@ -55,7 +55,7 @@ Connection
         .. code-block:: php
 
             require_once('ripcord.php');
-            $info = ripcord::client('https://demo.odoo.com/start')->start();
+            $info = ripcord::client('https://demo.gerp.com/start')->start();
             list($url, $db, $username, $password) =
               array($info['host'], $info['database'], $info['user'], $info['password']);
             $common = ripcord::client("$url/xmlrpc/2/common");
@@ -66,7 +66,7 @@ Connection
 
             final XmlRpcClient client = new XmlRpcClient();
             final XmlRpcClientConfigImpl start_config = new XmlRpcClientConfigImpl();
-            start_config.setServerURL(new URL("https://demo.odoo.com/start"));
+            start_config.setServerURL(new URL("https://demo.gerp.com/start"));
             final Map<String, String> info = (Map<String, String>)client.execute(
                 start_config, "start", emptyList());
 
@@ -96,7 +96,7 @@ parameters
 
 .. warning::
 
-    For Odoo Online instances (<domain>.odoo.com), users are created without a
+    For Odoo Online instances (<domain>.gerp.com), users are created without a
     *local* password (as a person you are logged in via the Odoo Online
     authentication system, not by the instance itself). To use XML-RPC on Odoo
     Online instances, you will need to set a password on the user account you
@@ -110,7 +110,7 @@ parameters
       :guilabel:`Change Password`.
 
     The *server url* is the instance's domain (e.g.
-    *https://mycompany.odoo.com*), the *database name* is the name of the
+    *https://mycompany.gerp.com*), the *database name* is the name of the
     instance (e.g. *mycompany*). The *username* is the configured user's login
     as shown by the *Change Password* screen.
 
@@ -149,7 +149,7 @@ parameters
 demo
 ''''
 
-To make exploration simpler, you can also ask https://demo.odoo.com for a test
+To make exploration simpler, you can also ask https://demo.gerp.com for a test
 database:
 
 .. rst-class:: setup doc-aside
@@ -159,14 +159,14 @@ database:
     .. code-block:: python
 
         import xmlrpclib
-        info = xmlrpclib.ServerProxy('https://demo.odoo.com/start').start()
+        info = xmlrpclib.ServerProxy('https://demo.gerp.com/start').start()
         url, db, username, password = \
             info['host'], info['database'], info['user'], info['password']
 
     .. code-block:: ruby
 
         require "xmlrpc/client"
-        info = XMLRPC::Client.new2('https://demo.odoo.com/start').call('start')
+        info = XMLRPC::Client.new2('https://demo.gerp.com/start').call('start')
         url, db, username, password = \
             info['host'], info['database'], info['user'], info['password']
 
@@ -175,7 +175,7 @@ database:
         .. code-block:: php
 
             require_once('ripcord.php');
-            $info = ripcord::client('https://demo.odoo.com/start')->start();
+            $info = ripcord::client('https://demo.gerp.com/start')->start();
             list($url, $db, $username, $password) =
               array($info['host'], $info['database'], $info['user'], $info['password']);
 
@@ -199,7 +199,7 @@ database:
             final XmlRpcClient client = new XmlRpcClient();
 
             final XmlRpcClientConfigImpl start_config = new XmlRpcClientConfigImpl();
-            start_config.setServerURL(new URL("https://demo.odoo.com/start"));
+            start_config.setServerURL(new URL("https://demo.gerp.com/start"));
             final Map<String, String> info = (Map<String, String>)client.execute(
                 start_config, "start", emptyList());
 
@@ -292,7 +292,7 @@ the login.
 Calling methods
 ===============
 
-The second endpoint is ``xmlrpc/2/object``, is used to call methods of odoo
+The second endpoint is ``xmlrpc/2/object``, is used to call methods of gerp
 models via the ``execute_kw`` RPC function.
 
 Each call to ``execute_kw`` takes the following parameters:
@@ -360,9 +360,9 @@ Each call to ``execute_kw`` takes the following parameters:
 List records
 ------------
 
-Records can be listed and filtered via :meth:`~odoo.models.Model.search`.
+Records can be listed and filtered via :meth:`~gerp.models.Model.search`.
 
-:meth:`~odoo.models.Model.search` takes a mandatory
+:meth:`~gerp.models.Model.search` takes a mandatory
 :ref:`domain <reference/orm/domains>` filter (possibly empty), and returns the
 database identifiers of all records matching the filter. To list customer
 companies for instance:
@@ -456,10 +456,10 @@ Count records
 -------------
 
 Rather than retrieve a possibly gigantic list of records and count them,
-:meth:`~odoo.models.Model.search_count` can be used to retrieve
+:meth:`~gerp.models.Model.search_count` can be used to retrieve
 only the number of records matching the query. It takes the same
 :ref:`domain <reference/orm/domains>` filter as
-:meth:`~odoo.models.Model.search` and no other parameter.
+:meth:`~gerp.models.Model.search` and no other parameter.
 
 .. container:: doc-aside
 
@@ -507,9 +507,9 @@ only the number of records matching the query. It takes the same
 Read records
 ------------
 
-Record data is accessible via the :meth:`~odoo.models.Model.read` method,
+Record data is accessible via the :meth:`~gerp.models.Model.read` method,
 which takes a list of ids (as returned by
-:meth:`~odoo.models.Model.search`) and optionally a list of fields to
+:meth:`~gerp.models.Model.search`) and optionally a list of fields to
 fetch. By default, it will fetch all the fields the current user can read,
 which tends to be a huge amount.
 
@@ -620,7 +620,7 @@ Conversedly, picking only three fields deemed interesting.
 Listing record fields
 ---------------------
 
-:meth:`~odoo.models.Model.fields_get` can be used to inspect
+:meth:`~gerp.models.Model.fields_get` can be used to inspect
 a model's fields and check which ones seem to be of interest.
 
 Because it returns a large amount of meta-information (it is also used by client
@@ -705,13 +705,13 @@ Search and read
 ---------------
 
 Because it is a very common task, Odoo provides a
-:meth:`~odoo.models.Model.search_read` shortcut which as its name suggests is
-equivalent to a :meth:`~odoo.models.Model.search` followed by a
-:meth:`~odoo.models.Model.read`, but avoids having to perform two requests
+:meth:`~gerp.models.Model.search_read` shortcut which as its name suggests is
+equivalent to a :meth:`~gerp.models.Model.search` followed by a
+:meth:`~gerp.models.Model.read`, but avoids having to perform two requests
 and keep ids around.
 
-Its arguments are similar to :meth:`~odoo.models.Model.search`'s, but it
-can also take a list of ``fields`` (like :meth:`~odoo.models.Model.read`,
+Its arguments are similar to :meth:`~gerp.models.Model.search`'s, but it
+can also take a list of ``fields`` (like :meth:`~gerp.models.Model.read`,
 if that list is not provided it will fetch all fields of matched records):
 
 .. container:: doc-aside
@@ -793,10 +793,10 @@ if that list is not provided it will fetch all fields of matched records):
 Create records
 --------------
 
-Records of a model are created using :meth:`~odoo.models.Model.create`. The
+Records of a model are created using :meth:`~gerp.models.Model.create`. The
 method will create a single record and return its database identifier.
 
-:meth:`~odoo.models.Model.create` takes a mapping of fields to values, used
+:meth:`~gerp.models.Model.create` takes a mapping of fields to values, used
 to initialize the record. For any field which has a default value and is not
 set through the mapping argument, the default value will be used.
 
@@ -837,21 +837,21 @@ set through the mapping argument, the default value will be used.
 .. warning::
 
     while most value types are what would be expected (integer for
-    :class:`~odoo.fields.Integer`, string for :class:`~odoo.fields.Char`
-    or :class:`~odoo.fields.Text`),
+    :class:`~gerp.fields.Integer`, string for :class:`~gerp.fields.Char`
+    or :class:`~gerp.fields.Text`),
 
-    * :class:`~odoo.fields.Date`, :class:`~odoo.fields.Datetime` and
-      :class:`~odoo.fields.Binary` fields use string values
-    * :class:`~odoo.fields.One2many` and :class:`~odoo.fields.Many2many`
+    * :class:`~gerp.fields.Date`, :class:`~gerp.fields.Datetime` and
+      :class:`~gerp.fields.Binary` fields use string values
+    * :class:`~gerp.fields.One2many` and :class:`~gerp.fields.Many2many`
       use a special command protocol detailed in :meth:`the documentation to
-      the write method <odoo.models.Model.write>`.
+      the write method <gerp.models.Model.write>`.
 
 Update records
 --------------
 
-Records can be updated using :meth:`~odoo.models.Model.write`, it takes
+Records can be updated using :meth:`~gerp.models.Model.write`, it takes
 a list of records to update and a mapping of updated fields to values similar
-to :meth:`~odoo.models.Model.create`.
+to :meth:`~gerp.models.Model.create`.
 
 Multiple records can be updated simultanously, but they will all get the same
 values for the fields being set. It is not currently possible to perform
@@ -911,7 +911,7 @@ Delete records
 --------------
 
 Records can be deleted in bulk by providing their ids to 
-:meth:`~odoo.models.Model.unlink`.
+:meth:`~gerp.models.Model.unlink`.
 
 .. container:: doc-aside
 
@@ -966,7 +966,7 @@ Inspection and introspection
           xid currently associated with the record. And operating with xids
           isn't exactly fun in RPC.
 
-While we previously used :meth:`~odoo.models.Model.fields_get` to query a
+While we previously used :meth:`~gerp.models.Model.fields_get` to query a
 model and have been using an arbitrary model from the start, Odoo stores
 most model metadata inside a few meta-models which allow both querying the
 system and altering models and fields (with some limitations) on the fly over
@@ -987,13 +987,13 @@ Provides information about Odoo models via its various fields
     whether the model was generated in Python code (``base``) or by creating
     an ``ir.model`` record (``manual``)
 ``field_id``
-    list of the model's fields through a :class:`~odoo.fields.One2many` to
+    list of the model's fields through a :class:`~gerp.fields.One2many` to
     :ref:`reference/webservice/inspection/fields`
 ``view_ids``
-    :class:`~odoo.fields.One2many` to the :ref:`reference/views` defined
+    :class:`~gerp.fields.One2many` to the :ref:`reference/views` defined
     for the model
 ``access_ids``
-    :class:`~odoo.fields.One2many` relation to the
+    :class:`~gerp.fields.One2many` relation to the
     :ref:`reference/security/acl` set on the model
 
 ``ir.model`` can be used to
@@ -1126,7 +1126,7 @@ Provides information about the fields of Odoo models and allows adding
 custom fields without using Python code
 
 ``model_id``
-    :class:`~odoo.fields.Many2one` to
+    :class:`~gerp.fields.Many2one` to
     :ref:`reference/webservice/inspection/models` to which the field belongs
 ``name``
     the field's technical name (used in ``read`` or ``write``)
@@ -1141,7 +1141,7 @@ custom fields without using Python code
     enables the corresponding flag on the field
 ``groups``
     :ref:`field-level access control <reference/security/fields>`, a
-    :class:`~odoo.fields.Many2many` to ``res.groups``
+    :class:`~gerp.fields.Many2many` to ``res.groups``
 ``selection``, ``size``, ``on_delete``, ``relation``, ``relation_field``, ``domain``
     type-specific properties and customizations, see :ref:`the fields
     documentation <reference/orm/fields>` for details

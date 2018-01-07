@@ -1,6 +1,7 @@
 # sphinx build directories
-.eggs/
+.coverage
 .py3/
+.eggs/
 .cache/
 .coveralls.yml
 _build/

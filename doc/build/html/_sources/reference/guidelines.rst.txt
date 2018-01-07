@@ -1,4 +1,4 @@
-:banner: banners/odoo_guideline.jpg
+:banner: banners/gerp_guideline.jpg
 
 .. highlight:: python
 
@@ -16,7 +16,7 @@ These guidelines should be applied to every new module, and new development.
     modifying existing files, the original style of the file strictly supersedes
     any other style guidelines. In other words, never modify existing files in
     order to apply these guidelines, to avoid disrupting the revision history of
-    each line. For more details, see our `pull request guide <https://odoo.com/submit-pr>`_.
+    each line. For more details, see our `pull request guide <https://gerp.com/submit-pr>`_.
 
 Module structure
 ================
@@ -165,7 +165,7 @@ To declare a record in XML, the **record** notation (using *<record>*) is recomm
 - Use naming convention defined at the next point
 - The tag *<data>* is only used to set not-updatable data with ``noupdate=1``.
   If there is only not-updatable data in the file, the ``noupdate=1`` can be
-  set on the ``<odoo>`` tag and do not set a ``<data>`` tag.
+  set on the ``<gerp>`` tag and do not set a ``<data>`` tag.
 
 .. code-block:: xml
 
@@ -308,7 +308,7 @@ Imports
 The imports are ordered as
 
 #. External libraries (one per line sorted and split in python stdlib)
-#. Imports of ``odoo``
+#. Imports of ``gerp``
 #. Imports from Odoo modules (rarely, and only if necessary)
 
 Inside these 3 groups, the imported lines are alphabetically sorted.
@@ -320,14 +320,14 @@ Inside these 3 groups, the imported lines are alphabetically sorted.
     import re
     import time
     from datetime import datetime
-    # 2 :  imports of odoo
-    import odoo
-    from odoo import api, fields, models # alphabetically ordered
-    from odoo.tools.safe_eval import safe_eval as eval
-    from odoo.tools.translate import _
-    # 3 :  imports from odoo modules
-    from odoo.addons.website.models.website import slug
-    from odoo.addons.web.controllers.main import login_redirect
+    # 2 :  imports of gerp
+    import gerp
+    from gerp import api, fields, models # alphabetically ordered
+    from gerp.tools.safe_eval import safe_eval as eval
+    from gerp.tools.translate import _
+    # 3 :  imports from gerp modules
+    from gerp.addons.website.models.website import slug
+    from gerp.addons.web.controllers.main import login_redirect
 
 
 Idiomatics Python Programming
@@ -700,7 +700,7 @@ importing as follows:
 
 .. code-block:: python
 
-    from odoo.tools.translate import _
+    from gerp.tools.translate import _
 
 A few very important rules must be followed when using it, in order for it to
 work and to avoid filling the translations with useless junk.
@@ -894,7 +894,7 @@ Javascript and CSS
 
 .. code-block:: javascript
 
-    odoo.website.if_dom_contains('.jquery_class_selector', function () {
+    gerp.website.if_dom_contains('.jquery_class_selector', function () {
         /*your code here*/
     });
 

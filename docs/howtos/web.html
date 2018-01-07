@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Building Interface Extensions &#8212; gerp v0.0.1 documentation</title>
+    <title>Building Interface Extensions &#8212; gerp 0.0.1 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v0.0.1',
+        VERSION:     '0.0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -23,6 +23,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Web Services" href="../webservices.html" />
+    <link rel="prev" title="Building a Module" href="backend.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -1184,12 +1186,12 @@ and read models:</p>
 <ul class="simple">
 <li><code class="xref js js-func docutils literal"><span class="pre">query()</span></code> takes an optional list of fields as
 parameter (if no field is provided, all fields of the model are fetched). It
-returns a <a class="reference internal" href="../reference/javascript.html#odoo.web.Query" title="odoo.web.Query"><code class="xref js js-class docutils literal"><span class="pre">odoo.web.Query()</span></code></a> which can be further customized before
+returns a <code class="xref js js-class docutils literal"><span class="pre">odoo.web.Query()</span></code> which can be further customized before
 being executed</li>
-<li><a class="reference internal" href="../reference/javascript.html#odoo.web.Query" title="odoo.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> represents the query being built. It is
+<li><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code> represents the query being built. It is
 immutable, methods to customize the query actually return a modified copy,
 so it’s possible to use the original and the new version side-by-side. See
-<a class="reference internal" href="../reference/javascript.html#odoo.web.Query" title="odoo.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> for its customization options.</li>
+<code class="xref js js-class docutils literal"><span class="pre">Query()</span></code> for its customization options.</li>
 </ul>
 <p>When the query is set up as desired, simply call
 <code class="xref js js-func docutils literal"><span class="pre">all()</span></code> to execute it and return a
@@ -1611,6 +1613,10 @@ this has become less necessary over time</td></tr>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../tutorials.html">Tutorials</a><ul>
+      <li>Previous: <a href="backend.html" title="previous chapter">Building a Module</a></li>
+      <li>Next: <a href="../webservices.html" title="next chapter">Web Services</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -1629,7 +1635,7 @@ this has become less necessary over time</td></tr>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2018, Gahan Corporation.
+      &copy;2017, Gahan Corporation.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>

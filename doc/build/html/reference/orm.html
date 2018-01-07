@@ -375,7 +375,7 @@ raises an error otherwise:</p>
 <div class="section" id="creating-models">
 <h2>Creating Models<a class="headerlink" href="#creating-models" title="Permalink to this headline">¶</a></h2>
 <p>Model fields are defined as attributes on the model itself:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odoo</span> <span class="k">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fields</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gerp</span> <span class="k">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fields</span>
 <span class="k">class</span> <span class="nc">AModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;a.model.name&#39;</span>
 
@@ -410,7 +410,7 @@ value:</p>
 <code class="docutils literal"><span class="pre">compute</span></code> parameter. <strong>It must assign the computed value to the field</strong>. If
 it uses the values of other <em>fields</em>, it should specify those fields using
 <code class="xref py py-func docutils literal"><span class="pre">depends()</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odoo</span> <span class="k">import</span> <span class="n">api</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gerp</span> <span class="k">import</span> <span class="n">api</span>
 <span class="n">total</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="n">compute</span><span class="o">=</span><span class="s1">&#39;_compute_total&#39;</span><span class="p">)</span>
 
 <span class="nd">@api</span><span class="o">.</span><span class="n">depends</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;tax&#39;</span><span class="p">)</span>
@@ -850,8 +850,8 @@ string), this makes them overridable (removes the need for an intermediate
 warning in case of collision (because Python handles it before Odoo sees
 anything)</p>
 </li>
-<li><p class="first">the normal new-api import is <code class="docutils literal"><span class="pre">from</span> <span class="pre">odoo</span> <span class="pre">import</span> <span class="pre">fields,</span> <span class="pre">models</span></code>. If
-compatibility decorators are necessary, use <code class="docutils literal"><span class="pre">from</span> <span class="pre">odoo</span> <span class="pre">import</span> <span class="pre">api,</span>
+<li><p class="first">the normal new-api import is <code class="docutils literal"><span class="pre">from</span> <span class="pre">gerp</span> <span class="pre">import</span> <span class="pre">fields,</span> <span class="pre">models</span></code>. If
+compatibility decorators are necessary, use <code class="docutils literal"><span class="pre">from</span> <span class="pre">gerp</span> <span class="pre">import</span> <span class="pre">api,</span>
 <span class="pre">fields,</span> <span class="pre">models</span></code></p>
 </li>
 <li><p class="first">avoid the <code class="xref py py-func docutils literal"><span class="pre">one()</span></code> decorator, it probably does not do what
@@ -884,8 +884,8 @@ override and harder to understand and document</p>
 <li><p class="first">uses of <code class="xref py py-attr docutils literal"><span class="pre">_columns</span></code> or
 <code class="xref py py-attr docutils literal"><span class="pre">_all_columns</span></code> should be replaced by
 <code class="xref py py-attr docutils literal"><span class="pre">_fields</span></code>, which provides access to instances of
-new-style <code class="xref py py-class docutils literal"><span class="pre">odoo.fields.Field</span></code> instances (rather than old-style
-<code class="xref py py-class docutils literal"><span class="pre">odoo.osv.fields._column</span></code>).</p>
+new-style <code class="xref py py-class docutils literal"><span class="pre">gerp.fields.Field</span></code> instances (rather than old-style
+<code class="xref py py-class docutils literal"><span class="pre">gerp.osv.fields._column</span></code>).</p>
 <p>Non-stored computed fields created using the new API style are <em>not</em>
 available in <code class="xref py py-attr docutils literal"><span class="pre">_columns</span></code> and can only be
 inspected through <code class="xref py py-attr docutils literal"><span class="pre">_fields</span></code></p>
@@ -895,10 +895,10 @@ translation introspection</p>
 </li>
 <li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">Environment</span></code> objects rely on some threadlocal state,
 which has to be set up before using them. It is necessary to do so using the
-<code class="xref py py-meth docutils literal"><span class="pre">odoo.api.Environment.manage()</span></code> context manager when trying to use
+<code class="xref py py-meth docutils literal"><span class="pre">gerp.api.Environment.manage()</span></code> context manager when trying to use
 the new API in contexts where it hasn’t been set up yet, such as new threads
 or a Python interactive environment:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">odoo</span> <span class="k">import</span> <span class="n">api</span><span class="p">,</span> <span class="n">modules</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gerp</span> <span class="k">import</span> <span class="n">api</span><span class="p">,</span> <span class="n">modules</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">modules</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">RegistryManager</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cr</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">env</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">Environment</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{})</span>

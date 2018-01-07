@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Odoo Guidelines &#8212; gerp v0.0.1 documentation</title>
+    <title>Odoo Guidelines &#8212; gerp 0.0.1 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v0.0.1',
+        VERSION:     '0.0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -23,6 +23,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Mobile JavaScript" href="mobile.html" />
+    <link rel="prev" title="Mixins and Useful Classes" href="mixins.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -41,7 +43,7 @@
   <div class="section" id="odoo-guidelines">
 <h1>Odoo Guidelines<a class="headerlink" href="#odoo-guidelines" title="Permalink to this headline">¶</a></h1>
 <p>This page introduces the new Odoo Coding Guidelines. Those aim to improve the quality of the code (e.g. better readability of source) and Odoo Apps. Indeed, proper code eases maintenance, aids debugging, lowers complexity and promotes reliability.</p>
-<p>These guidelines should be applied to every new module, and new development.</p>
+<p>These guidelines should be applied to every new module, and new developpment. These guidelines will be applied to old module <strong>only</strong> in case of code refactoring (migration to new API, big refactoring, …).</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">These guidelines are written with new modules and new files in mind. When
@@ -54,7 +56,7 @@ each line. For more details, see our <a class="reference external" href="https:/
 <h2>Module structure<a class="headerlink" href="#module-structure" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="directories">
 <h3>Directories<a class="headerlink" href="#directories" title="Permalink to this headline">¶</a></h3>
-<p>A module is organised in important directories. Those contain the business logic; having a look at them should make you understand the purpose of the module.</p>
+<p>A module is organised in important directories. Those contain the business logic; having a look at them should make understand the purpose of the module.</p>
 <ul class="simple">
 <li><em>data/</em> : demo and data xml</li>
 <li><em>models/</em> : models definition</li>
@@ -499,11 +501,12 @@ the Odoo API.</li>
 <li>As in python, use <code class="docutils literal"><span class="pre">filtered</span></code>, <code class="docutils literal"><span class="pre">mapped</span></code>, <code class="docutils literal"><span class="pre">sorted</span></code>, … methods to
 ease code reading and performance.</li>
 </ul>
-<div class="section" id="make-your-method-work-in-batch">
-<h4>Make your method work in batch<a class="headerlink" href="#make-your-method-work-in-batch" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="make-your-method-works-in-batch">
+<h4>Make your method works in batch<a class="headerlink" href="#make-your-method-works-in-batch" title="Permalink to this headline">¶</a></h4>
 <p>When adding a function, make sure it can process multiple records. Typically,
-such methods are decorated with the <code class="docutils literal"><span class="pre">api.multi</span></code> decorator. Then you will have
-to iterate on <code class="docutils literal"><span class="pre">self</span></code> to treat each record.</p>
+such method is decorated with <code class="docutils literal"><span class="pre">api.multi</span></code> decorator (or takes a list of <em>id</em>,
+if written in old api). Then you will have to iterate on <code class="docutils literal"><span class="pre">self</span></code> to treat each
+record.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="nd">@api.multi</span>
 <span class="k">def</span> <span class="nf">my_method</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
@@ -528,8 +531,8 @@ is recommended to use <code class="docutils literal"><span class="pre">read_grou
 </div>
 <div class="section" id="propagate-the-context">
 <h4>Propagate the context<a class="headerlink" href="#propagate-the-context" title="Permalink to this headline">¶</a></h4>
-<p>The context is a <code class="docutils literal"><span class="pre">frozendict</span></code> that cannot be modified. To call a method with
-a different context, the <code class="docutils literal"><span class="pre">with_context</span></code> method should be used :</p>
+<p>In new API, the context is a <code class="docutils literal"><span class="pre">frozendict</span></code> that cannot be modified. To call
+a method with a different context, the <code class="docutils literal"><span class="pre">with_context</span></code> method should be used :</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">records</span><span class="o">.</span><span class="n">with_context</span><span class="p">(</span><span class="n">new_context</span><span class="p">)</span><span class="o">.</span><span class="n">do_stuff</span><span class="p">()</span> <span class="c1"># all the context is replaced</span>
 <span class="n">records</span><span class="o">.</span><span class="n">with_context</span><span class="p">(</span><span class="o">**</span><span class="n">additionnal_context</span><span class="p">)</span><span class="o">.</span><span class="n">do_other_stuff</span><span class="p">()</span> <span class="c1"># additionnal_context values override native context ones</span>
 </pre></div>
@@ -770,9 +773,13 @@ For instance : <code class="docutils literal"><span class="pre">account.invoice.
 </dd>
 </dl>
 </li>
-<li>Odoo Python Class : use camelcase for code.</li>
+<li>Odoo Python Class : use camelcase for code in api v8 (Object-oriented style),
+underscore lowercase notation for old api (SQL style).</li>
 </ul>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AccountInvoice</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="o">...</span>
+
+<span class="k">class</span> <span class="nc">account_invoice</span><span class="p">(</span><span class="n">osv</span><span class="o">.</span><span class="n">osv</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
 </div>
@@ -782,8 +789,9 @@ For instance : <code class="docutils literal"><span class="pre">account.invoice.
 <dd><ul class="first last">
 <li>use camelcase for model variable</li>
 <li>use underscore lowercase notation for common variable.</li>
-<li>Odoo works with a record or a recordset, don’t suffix variable names with
-<em>_id</em> or <em>_ids</em> if they don’t contain an id or a list of ids.</li>
+<li>since new API works with record or recordset instead of id list, don’t
+suffix variable name with <em>_id</em> or <em>_ids</em> if they not contain id or list
+of id.</li>
 </ul>
 </dd>
 </dl>
@@ -969,6 +977,10 @@ Instead of using global ...
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../reference.html">Reference</a><ul>
+      <li>Previous: <a href="mixins.html" title="previous chapter">Mixins and Useful Classes</a></li>
+      <li>Next: <a href="mobile.html" title="next chapter">Mobile JavaScript</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -987,7 +999,7 @@ Instead of using global ...
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2018, Gahan Corporation.
+      &copy;2017, Gahan Corporation.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>

@@ -1,0 +1,378 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>QWeb Reports &#8212; gerp 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Mixins and Useful Classes" href="mixins.html" />
+    <link rel="prev" title="Translating Modules" href="translations.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="qweb-reports">
+<h1>QWeb Reports<a class="headerlink" href="#qweb-reports" title="Permalink to this headline">¶</a></h1>
+<p>Reports are written in HTML/QWeb, like all regular views in Odoo. You can use
+the usual <a class="reference internal" href="qweb.html#reference-qweb"><span class="std std-ref">QWeb control flow tools</span></a>. The PDF rendering
+itself is performed by <a class="reference external" href="http://wkhtmltopdf.org">wkhtmltopdf</a>.</p>
+<p>If you want to create a report on a certain model, you will need to define
+this <a class="reference internal" href="#reference-reports-report"><span class="std std-ref">Report</span></a> and the
+<a class="reference internal" href="#reference-reports-templates"><span class="std std-ref">Report template</span></a> it will use. If you wish, you can also
+specify a specific <a class="reference internal" href="#reference-reports-paper-formats"><span class="std std-ref">Paper Format</span></a> for this
+report. Finally, if you need access to more than your model, you can define a
+<a class="reference internal" href="#reference-reports-custom-reports"><span class="std std-ref">Custom Reports</span></a> class that gives you access to more
+models and records in the template.</p>
+<div class="section" id="report">
+<span id="reference-reports-report"></span><h2>Report<a class="headerlink" href="#report" title="Permalink to this headline">¶</a></h2>
+<p>Every report must be declared by a <a class="reference internal" href="actions.html#reference-actions-report"><span class="std std-ref">report action</span></a>.</p>
+<p>For simplicity, a shortcut <code class="docutils literal"><span class="pre">&lt;report&gt;</span></code> element is available to define a
+report, rather than have to set up <a class="reference internal" href="actions.html#reference-actions-report"><span class="std std-ref">the action</span></a> and its surroundings manually. That <code class="docutils literal"><span class="pre">&lt;report&gt;</span></code>
+can take the following attributes:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">id</span></code></dt>
+<dd>the generated record’s <a class="reference internal" href="../glossary.html#term-external-id"><span class="xref std std-term">external id</span></a></dd>
+<dt><code class="docutils literal"><span class="pre">name</span></code> (mandatory)</dt>
+<dd>only useful as a mnemonic/description of the report when looking for one
+in a list of some sort</dd>
+<dt><code class="docutils literal"><span class="pre">model</span></code> (mandatory)</dt>
+<dd>the model your report will be about</dd>
+<dt><code class="docutils literal"><span class="pre">report_type</span></code> (mandatory)</dt>
+<dd>either <code class="docutils literal"><span class="pre">qweb-pdf</span></code> for PDF reports or <code class="docutils literal"><span class="pre">qweb-html</span></code> for HTML</dd>
+<dt><code class="docutils literal"><span class="pre">report_name</span></code></dt>
+<dd>the name of your report (which will be the name of the PDF output)</dd>
+<dt><code class="docutils literal"><span class="pre">groups</span></code></dt>
+<dd><a class="reference internal" href="orm.html#odoo.fields.Many2many" title="odoo.fields.Many2many"><code class="xref py py-class docutils literal"><span class="pre">Many2many</span></code></a> field to the groups allowed to view/use
+the current report</dd>
+<dt><code class="docutils literal"><span class="pre">attachment_use</span></code></dt>
+<dd>if set to True, the report will be stored as an attachment of the record
+using the name generated by the <code class="docutils literal"><span class="pre">attachment</span></code> expression; you can use
+this if you need your report to be generated only once (for legal reasons,
+for example)</dd>
+<dt><code class="docutils literal"><span class="pre">attachment</span></code></dt>
+<dd>python expression that defines the name of the report; the record is
+acessible as the variable <code class="docutils literal"><span class="pre">object</span></code></dd>
+<dt><code class="docutils literal"><span class="pre">paperformat</span></code></dt>
+<dd>external id of the paperformat you wish to use (defaults to the company’s
+paperformat if not specified)</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;report</span>
+    <span class="na">id=</span><span class="s">&quot;account_invoices&quot;</span>
+    <span class="na">model=</span><span class="s">&quot;account.invoice&quot;</span>
+    <span class="na">string=</span><span class="s">&quot;Invoices&quot;</span>
+    <span class="na">report_type=</span><span class="s">&quot;qweb-pdf&quot;</span>
+    <span class="na">name=</span><span class="s">&quot;account.report_invoice&quot;</span>
+    <span class="na">file=</span><span class="s">&quot;account.report_invoice&quot;</span>
+    <span class="na">attachment_use=</span><span class="s">&quot;True&quot;</span>
+    <span class="na">attachment=</span><span class="s">&quot;(object.state in (&#39;open&#39;,&#39;paid&#39;)) and</span>
+<span class="s">        (&#39;INV&#39;+(object.number or &#39;&#39;).replace(&#39;/&#39;,&#39;&#39;)+&#39;.pdf&#39;)&quot;</span>
+<span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="report-template">
+<span id="reference-reports-templates"></span><h2>Report template<a class="headerlink" href="#report-template" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="minimal-viable-template">
+<h3>Minimal viable template<a class="headerlink" href="#minimal-viable-template" title="Permalink to this headline">¶</a></h3>
+<p>A minimal template would look like:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;report_invoice&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;web.html_container&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;t</span> <span class="na">t-foreach=</span><span class="s">&quot;docs&quot;</span> <span class="na">t-as=</span><span class="s">&quot;o&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;web.external_layout&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;page&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;h2&gt;</span>Report title<span class="nt">&lt;/h2&gt;</span>
+                    <span class="nt">&lt;p&gt;</span>This object&#39;s name is <span class="nt">&lt;span</span> <span class="na">t-field=</span><span class="s">&quot;o.name&quot;</span><span class="nt">/&gt;&lt;/p&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/t&gt;</span>
+        <span class="nt">&lt;/t&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</pre></div>
+</div>
+<p>Calling <code class="docutils literal"><span class="pre">external_layout</span></code> will add the default header and footer on your
+report. The PDF body will be the content inside the <code class="docutils literal"><span class="pre">&lt;div</span>
+<span class="pre">class=&quot;page&quot;&gt;</span></code>. The template’s <code class="docutils literal"><span class="pre">id</span></code> must be the name specified in the
+report declaration; for example <code class="docutils literal"><span class="pre">account.report_invoice</span></code> for the above
+report. Since this is a QWeb template, you can access all the fields of the
+<code class="docutils literal"><span class="pre">docs</span></code> objects received by the template.</p>
+<p>There are some specific variables accessible in reports, mainly:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">docs</span></code></dt>
+<dd>records for the current report</dd>
+<dt><code class="docutils literal"><span class="pre">doc_ids</span></code></dt>
+<dd>list of ids for the <code class="docutils literal"><span class="pre">docs</span></code> records</dd>
+<dt><code class="docutils literal"><span class="pre">doc_model</span></code></dt>
+<dd>model for the <code class="docutils literal"><span class="pre">docs</span></code> records</dd>
+<dt><code class="docutils literal"><span class="pre">time</span></code></dt>
+<dd>a reference to <code class="xref py py-mod docutils literal"><span class="pre">python:time</span></code> from the Python standard library</dd>
+<dt><code class="docutils literal"><span class="pre">user</span></code></dt>
+<dd><code class="docutils literal"><span class="pre">res.user</span></code> record for the user printing the report</dd>
+<dt><code class="docutils literal"><span class="pre">res_company</span></code></dt>
+<dd>record for the current <code class="docutils literal"><span class="pre">user</span></code>’s company</dd>
+</dl>
+<p>If you wish to access other records/models in the template, you will need
+<a class="reference internal" href="#reference-reports-custom-reports"><span class="std std-ref">a custom report</span></a>.</p>
+</div>
+<div class="section" id="translatable-templates">
+<h3>Translatable Templates<a class="headerlink" href="#translatable-templates" title="Permalink to this headline">¶</a></h3>
+<p>If you wish to translate reports (to the language of a partner, for example),
+you need to define two templates:</p>
+<ul class="simple">
+<li>The main report template</li>
+<li>The translatable document</li>
+</ul>
+<p>You can then call the translatable document from your main template with the attribute
+<code class="docutils literal"><span class="pre">t-lang</span></code> set to a language code (for example <code class="docutils literal"><span class="pre">fr</span></code> or <code class="docutils literal"><span class="pre">en_US</span></code>) or to a record field.
+You will also need to re-browse the related records with the proper context if you use
+fields that are translatable (like country names, sales conditions, etc.)</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If your report template does not use translatable record fields, re-browsing the record
+in another language is <em>not</em> necessary and will impact performances.</p>
+</div>
+<p>For example, let’s look at the Sale Order report from the Sale module:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Main template --&gt;</span>
+<span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;report_saleorder&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;web.html_container&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;t</span> <span class="na">t-foreach=</span><span class="s">&quot;docs&quot;</span> <span class="na">t-as=</span><span class="s">&quot;doc&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;sale.report_saleorder_document&quot;</span> <span class="na">t-lang=</span><span class="s">&quot;doc.partner_id.lang&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/t&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+
+<span class="c">&lt;!-- Translatable template --&gt;</span>
+<span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;report_saleorder_document&quot;</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- Re-browse of the record with the partner lang --&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-set=</span><span class="s">&quot;doc&quot;</span> <span class="na">t-value=</span><span class="s">&quot;doc.with_context({&#39;lang&#39;:doc.partner_id.lang})&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;web.external_layout&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;page&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-xs-6&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;strong</span> <span class="na">t-if=</span><span class="s">&quot;doc.partner_shipping_id == doc.partner_invoice_id&quot;</span><span class="nt">&gt;</span>Invoice and shipping address:<span class="nt">&lt;/strong&gt;</span>
+                    <span class="nt">&lt;strong</span> <span class="na">t-if=</span><span class="s">&quot;doc.partner_shipping_id != doc.partner_invoice_id&quot;</span><span class="nt">&gt;</span>Invoice address:<span class="nt">&lt;/strong&gt;</span>
+                    <span class="nt">&lt;div</span> <span class="na">t-field=</span><span class="s">&quot;doc.partner_invoice_id&quot;</span> <span class="na">t-options=</span><span class="s">&quot;{&amp;quot;no_marker&amp;quot;: True}&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;...&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/t&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</pre></div>
+</div>
+<p>The main template calls the translatable template with <code class="docutils literal"><span class="pre">doc.partner_id.lang</span></code> as a
+<code class="docutils literal"><span class="pre">t-lang</span></code> parameter, so it will be rendered in the language of the partner. This way,
+each Sale Order will be printed in the language of the corresponding customer. If you wish
+to translate only the body of the document, but keep the header and footer in a default
+language, you could call the report’s external layout this way:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;web.external_layout&quot;</span> <span class="na">t-lang=</span><span class="s">&quot;en_US&quot;</span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Please take note that this works only when calling external templates, you will not be
+able to translate part of a document by setting a <code class="docutils literal"><span class="pre">t-lang</span></code> attribute on an xml node other
+than <code class="docutils literal"><span class="pre">t-call</span></code>. If you wish to translate part of a template, you can create an external
+template with this partial template and call it from the main one with the <code class="docutils literal"><span class="pre">t-lang</span></code>
+attribute.</p>
+</div>
+</div>
+<div class="section" id="barcodes">
+<h3>Barcodes<a class="headerlink" href="#barcodes" title="Permalink to this headline">¶</a></h3>
+<p>Barcodes are images returned by a controller and can easily be embedded in
+reports thanks to the QWeb syntax:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">t-att-src</span><span class="o">=</span><span class="s">&quot;&#39;/report/barcode/QR/%s&#39; % &#39;My text in qr code&#39;&quot;</span><span class="p">/&gt;</span>
+</pre></div>
+</div>
+<p>More parameters can be passed as a query string</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">t-att-src</span><span class="o">=</span><span class="s">&quot;&#39;/report/barcode/?</span>
+<span class="s">    type=%s&amp;value=%s&amp;width=%s&amp;height=%s&#39;%(&#39;QR&#39;, &#39;text&#39;, 200, 200)&quot;</span><span class="p">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="useful-remarks">
+<h3>Useful Remarks<a class="headerlink" href="#useful-remarks" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Twitter Bootstrap and FontAwesome classes can be used in your report
+template</p>
+</li>
+<li><p class="first">Local CSS can be put directly in the template</p>
+</li>
+<li><p class="first">Global CSS can be inserted in the main report layout by inheriting its
+template and inserting your CSS:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;report_saleorder_style&quot;</span> <span class="na">inherit_id=</span><span class="s">&quot;report.style&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;.&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;t&gt;</span>
+      .example-css-class {
+        background-color: red;
+      }
+    <span class="nt">&lt;/t&gt;</span>
+  <span class="nt">&lt;/xpath&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">If it appears that your PDF report is missing the styles, please check
+<a class="reference internal" href="../howtos/backend.html#reference-backend-reporting-printed-reports-pdf-without-styles"><span class="std std-ref">these instructions</span></a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="paper-format">
+<span id="reference-reports-paper-formats"></span><h2>Paper Format<a class="headerlink" href="#paper-format" title="Permalink to this headline">¶</a></h2>
+<p>Paper formats are records of <code class="docutils literal"><span class="pre">report.paperformat</span></code> and can contain the
+following attributes:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">name</span></code> (mandatory)</dt>
+<dd>only useful as a mnemonic/description of the report when looking for one
+in a list of some sort</dd>
+<dt><code class="docutils literal"><span class="pre">description</span></code></dt>
+<dd>a small description of your format</dd>
+<dt><code class="docutils literal"><span class="pre">format</span></code></dt>
+<dd>either a predefined format (A0 to A9, B0 to B10, Legal, Letter,
+Tabloid,…) or <code class="docutils literal"><span class="pre">custom</span></code>; A4 by default. You cannot use a non-custom
+format if you define the page dimensions.</dd>
+<dt><code class="docutils literal"><span class="pre">dpi</span></code></dt>
+<dd>output DPI; 90 by default</dd>
+<dt><code class="docutils literal"><span class="pre">margin_top</span></code>, <code class="docutils literal"><span class="pre">margin_bottom</span></code>, <code class="docutils literal"><span class="pre">margin_left</span></code>, <code class="docutils literal"><span class="pre">margin_right</span></code></dt>
+<dd>margin sizes in mm</dd>
+<dt><code class="docutils literal"><span class="pre">page_height</span></code>, <code class="docutils literal"><span class="pre">page_width</span></code></dt>
+<dd>page dimensions in mm</dd>
+<dt><code class="docutils literal"><span class="pre">orientation</span></code></dt>
+<dd>Landscape or Portrait</dd>
+<dt><code class="docutils literal"><span class="pre">header_line</span></code></dt>
+<dd>boolean to display a header line</dd>
+<dt><code class="docutils literal"><span class="pre">header_spacing</span></code></dt>
+<dd>header spacing in mm</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;paperformat_frenchcheck&quot;</span> <span class="na">model=</span><span class="s">&quot;report.paperformat&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>French Bank Check<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;default&quot;</span> <span class="na">eval=</span><span class="s">&quot;True&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;format&quot;</span><span class="nt">&gt;</span>custom<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;page_height&quot;</span><span class="nt">&gt;</span>80<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;page_width&quot;</span><span class="nt">&gt;</span>175<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;orientation&quot;</span><span class="nt">&gt;</span>Portrait<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;margin_top&quot;</span><span class="nt">&gt;</span>3<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;margin_bottom&quot;</span><span class="nt">&gt;</span>3<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;margin_left&quot;</span><span class="nt">&gt;</span>3<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;margin_right&quot;</span><span class="nt">&gt;</span>3<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;header_line&quot;</span> <span class="na">eval=</span><span class="s">&quot;False&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;header_spacing&quot;</span><span class="nt">&gt;</span>3<span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;dpi&quot;</span><span class="nt">&gt;</span>80<span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="custom-reports">
+<span id="reference-reports-custom-reports"></span><h2>Custom Reports<a class="headerlink" href="#custom-reports" title="Permalink to this headline">¶</a></h2>
+<p>The report model has a default <code class="docutils literal"><span class="pre">get_html</span></code> function that looks for a model
+named <code class="samp docutils literal"><span class="pre">report.</span><em><span class="pre">module.report_name</span></em></code>. If it exists, it will use it to
+call the QWeb engine; otherwise a generic function will be used. If you wish
+to customize your reports by including more things in the template (like
+records of others models, for example), you can define this model, overwrite
+the function <code class="docutils literal"><span class="pre">render_html</span></code> and pass objects in the <code class="docutils literal"><span class="pre">docargs</span></code> dictionary:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odoo</span> <span class="kn">import</span> <span class="n">api</span><span class="p">,</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">ParticularReport</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">AbstractModel</span><span class="p">):</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;report.module.report_name&#39;</span>
+    <span class="nd">@api.model</span>
+    <span class="k">def</span> <span class="nf">render_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">docids</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">report_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;report&#39;</span><span class="p">]</span>
+        <span class="n">report</span> <span class="o">=</span> <span class="n">report_obj</span><span class="o">.</span><span class="n">_get_report_from_name</span><span class="p">(</span><span class="s1">&#39;module.report_name&#39;</span><span class="p">)</span>
+        <span class="n">docargs</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;doc_ids&#39;</span><span class="p">:</span> <span class="n">docids</span><span class="p">,</span>
+            <span class="s1">&#39;doc_model&#39;</span><span class="p">:</span> <span class="n">report</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+            <span class="s1">&#39;docs&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">report_obj</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s1">&#39;module.report_name&#39;</span><span class="p">,</span> <span class="n">docargs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reports-are-web-pages">
+<h2>Reports are web pages<a class="headerlink" href="#reports-are-web-pages" title="Permalink to this headline">¶</a></h2>
+<p>Reports are dynamically generated by the report module and can be accessed
+directly via URL:</p>
+<p>For example, you can access a Sale Order report in html mode by going to
+http://&lt;server-address&gt;/report/html/sale.report_saleorder/38</p>
+<p>Or you can access the pdf version at
+http://&lt;server-address&gt;/report/pdf/sale.report_saleorder/38</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../reference.html">Reference</a><ul>
+      <li>Previous: <a href="translations.html" title="previous chapter">Translating Modules</a></li>
+      <li>Next: <a href="mixins.html" title="next chapter">Mixins and Useful Classes</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Gahan Corporation.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/reference/reports.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -62,8 +62,8 @@ In any case the basic guidelines are:</p>
 <ul>
 <li><p class="first">Backup your community database</p>
 </li>
-<li><p class="first">Stop the odoo service</p>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo service odoo stop
+<li><p class="first">Stop the gerp service</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo service gerp stop
 </pre></div>
 </div>
 </li>
@@ -73,7 +73,7 @@ In any case the basic guidelines are:</p>
 </div>
 </li>
 <li><p class="first">Update your database to the enterprise packages using</p>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> python3 /usr/bin/odoo.py -d &lt;database_name&gt; -i web_enterprise --stop-after-init
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> python3 /usr/bin/gerp.py -d &lt;database_name&gt; -i web_enterprise --stop-after-init
 </pre></div>
 </div>
 </li>
@@ -123,7 +123,7 @@ Uncheck <code class="docutils literal"><span class="pre">Start</span> <span clas
 </li>
 <li><p class="first">Using a command window, update your Odoo Database using this command (from the Odoo
 installation path, in the server subfolder)</p>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> odoo.exe -d &lt;database_name&gt; -i web_enterprise --stop-after-init
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> gerp.exe -d &lt;database_name&gt; -i web_enterprise --stop-after-init
 </pre></div>
 </div>
 </li>

@@ -529,8 +529,8 @@ all of them will return <a class="reference external" href="http://api.jquery.co
 values or not). Understanding how those work before before moving on is
 probably necessary.</p>
 </div>
-<div class="section" id="high-level-api-calling-into-odoo-models">
-<h2>High-level API: calling into Odoo models<a class="headerlink" href="#high-level-api-calling-into-odoo-models" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="high-level-api-calling-into-gerp-models">
+<h2>High-level API: calling into Odoo models<a class="headerlink" href="#high-level-api-calling-into-gerp-models" title="Permalink to this headline">¶</a></h2>
 <p>Access to Odoo object methods (made available through XML-RPC from the server)
 is done via <a class="reference internal" href="#Model" title="Model"><code class="xref js js-class docutils literal"><span class="pre">Model()</span></code></a>. It maps onto the Odoo server objects via two primary
 methods, <code class="xref js js-func docutils literal"><span class="pre">call()</span></code> (exported in <code class="docutils literal"><span class="pre">web.Model</span></code>) and <code class="xref js js-func docutils literal"><span class="pre">query()</span></code>
@@ -562,8 +562,8 @@ not fetched from an other (somewhat global) object:</p>
 </ul>
 <p><code class="xref js js-func docutils literal"><span class="pre">query()</span></code> is a shortcut for a builder-style
 interface to searches (<code class="docutils literal"><span class="pre">search</span></code> + <code class="docutils literal"><span class="pre">read</span></code> in Odoo RPC terms). It
-returns a <a class="reference internal" href="#odoo.web.Query" title="odoo.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> object which is immutable but
-allows building new <a class="reference internal" href="#odoo.web.Query" title="odoo.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> instances from the
+returns a <a class="reference internal" href="#gerp.web.Query" title="gerp.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> object which is immutable but
+allows building new <a class="reference internal" href="#gerp.web.Query" title="gerp.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> instances from the
 first one, adding new properties or modifiying the parent object’s:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">Users</span><span class="p">.</span><span class="nx">query</span><span class="p">([</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="s1">&#39;user_email&#39;</span><span class="p">,</span> <span class="s1">&#39;signature&#39;</span><span class="p">])</span>
      <span class="p">.</span><span class="nx">filter</span><span class="p">([[</span><span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;company_id&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="nx">main_company</span><span class="p">]])</span>
@@ -627,7 +627,7 @@ the search</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a <a class="reference internal" href="#odoo.web.Query" title="odoo.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> object
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a <a class="reference internal" href="#gerp.web.Query" title="gerp.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> object
 representing the search to perform</p>
 </td>
 </tr>
@@ -638,15 +638,15 @@ representing the search to perform</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="odoo.web.Query">
-<em class="property">class </em><code class="descclassname">odoo.web.</code><code class="descname">Query</code><span class="sig-paren">(</span><em>fields</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.web.Query" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.web.Query">
+<em class="property">class </em><code class="descclassname">gerp.web.</code><code class="descname">Query</code><span class="sig-paren">(</span><em>fields</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.web.Query" title="Permalink to this definition">¶</a></dt>
 <dd><p>The first set of methods is the “fetching” methods. They perform
 RPC queries using the internal data of the object they’re called
 on.</p>
 <dl class="function">
-<dt id="odoo.web.Query.odoo.web.Query.all">
-<code class="descclassname">odoo.web.Query.odoo.web.Query.</code><code class="descname">all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#odoo.web.Query.odoo.web.Query.all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fetches the result of the current <a class="reference internal" href="#odoo.web.Query" title="odoo.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> object’s
+<dt id="gerp.web.Query.gerp.web.Query.all">
+<code class="descclassname">gerp.web.Query.gerp.web.Query.</code><code class="descname">all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gerp.web.Query.gerp.web.Query.all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetches the result of the current <a class="reference internal" href="#gerp.web.Query" title="gerp.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> object’s
 search.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -659,11 +659,11 @@ search.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.web.Query.odoo.web.Query.first">
-<code class="descclassname">odoo.web.Query.odoo.web.Query.</code><code class="descname">first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#odoo.web.Query.odoo.web.Query.first" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.web.Query.gerp.web.Query.first">
+<code class="descclassname">gerp.web.Query.gerp.web.Query.</code><code class="descname">first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gerp.web.Query.gerp.web.Query.first" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fetches the <strong>first</strong> result of the current
-<a class="reference internal" href="#odoo.web.Query" title="odoo.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a>, or <code class="docutils literal"><span class="pre">null</span></code> if the current
-<a class="reference internal" href="#odoo.web.Query" title="odoo.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> does have any result.</p>
+<a class="reference internal" href="#gerp.web.Query" title="gerp.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a>, or <code class="docutils literal"><span class="pre">null</span></code> if the current
+<a class="reference internal" href="#gerp.web.Query" title="gerp.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> does have any result.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -675,10 +675,10 @@ search.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.web.Query.odoo.web.Query.count">
-<code class="descclassname">odoo.web.Query.odoo.web.Query.</code><code class="descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#odoo.web.Query.odoo.web.Query.count" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.web.Query.gerp.web.Query.count">
+<code class="descclassname">gerp.web.Query.gerp.web.Query.</code><code class="descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gerp.web.Query.gerp.web.Query.count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fetches the number of records the current
-<a class="reference internal" href="#odoo.web.Query" title="odoo.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> would retrieve.</p>
+<a class="reference internal" href="#gerp.web.Query" title="gerp.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> would retrieve.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -690,8 +690,8 @@ search.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.web.Query.odoo.web.Query.group_by">
-<code class="descclassname">odoo.web.Query.odoo.web.Query.</code><code class="descname">group_by</code><span class="sig-paren">(</span><em>grouping...</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.web.Query.odoo.web.Query.group_by" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.web.Query.gerp.web.Query.group_by">
+<code class="descclassname">gerp.web.Query.gerp.web.Query.</code><code class="descname">group_by</code><span class="sig-paren">(</span><em>grouping...</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.web.Query.gerp.web.Query.group_by" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fetches the groups for the query, using the first specified
 grouping parameter</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -706,7 +706,7 @@ varargs.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Deferred&lt;Array&lt;odoo.web.QueryGroup&gt;&gt; | null</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Deferred&lt;Array&lt;gerp.web.QueryGroup&gt;&gt; | null</p>
 </td>
 </tr>
 </tbody>
@@ -714,39 +714,39 @@ varargs.</li>
 </dd></dl>
 
 <p>The second set of methods is the “mutator” methods, they create a
-<strong>new</strong> <a class="reference internal" href="#odoo.web.Query" title="odoo.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> object with the relevant
+<strong>new</strong> <a class="reference internal" href="#gerp.web.Query" title="gerp.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> object with the relevant
 (internal) attribute either augmented or replaced.</p>
 <dl class="function">
-<dt id="odoo.web.Query.odoo.web.Query.context">
-<code class="descclassname">odoo.web.Query.odoo.web.Query.</code><code class="descname">context</code><span class="sig-paren">(</span><em>ctx</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.web.Query.odoo.web.Query.context" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.web.Query.gerp.web.Query.context">
+<code class="descclassname">gerp.web.Query.gerp.web.Query.</code><code class="descname">context</code><span class="sig-paren">(</span><em>ctx</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.web.Query.gerp.web.Query.context" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds the provided <code class="docutils literal"><span class="pre">ctx</span></code> to the query, on top of any existing
 context</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.web.Query.odoo.web.Query.filter">
-<code class="descclassname">odoo.web.Query.odoo.web.Query.</code><code class="descname">filter</code><span class="sig-paren">(</span><em>domain</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.web.Query.odoo.web.Query.filter" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.web.Query.gerp.web.Query.filter">
+<code class="descclassname">gerp.web.Query.gerp.web.Query.</code><code class="descname">filter</code><span class="sig-paren">(</span><em>domain</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.web.Query.gerp.web.Query.filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds the provided domain to the query, this domain is
 <code class="docutils literal"><span class="pre">AND</span></code>-ed to the existing query domain.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.web.Query.opeenrp.web.Query.offset">
-<code class="descclassname">odoo.web.Query.opeenrp.web.Query.</code><code class="descname">offset</code><span class="sig-paren">(</span><em>offset</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.web.Query.opeenrp.web.Query.offset" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.web.Query.opeenrp.web.Query.offset">
+<code class="descclassname">gerp.web.Query.opeenrp.web.Query.</code><code class="descname">offset</code><span class="sig-paren">(</span><em>offset</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.web.Query.opeenrp.web.Query.offset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the provided offset on the query. The new offset
 <em>replaces</em> the old one.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.web.Query.odoo.web.Query.limit">
-<code class="descclassname">odoo.web.Query.odoo.web.Query.</code><code class="descname">limit</code><span class="sig-paren">(</span><em>limit</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.web.Query.odoo.web.Query.limit" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.web.Query.gerp.web.Query.limit">
+<code class="descclassname">gerp.web.Query.gerp.web.Query.</code><code class="descname">limit</code><span class="sig-paren">(</span><em>limit</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.web.Query.gerp.web.Query.limit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the provided limit on the query. The new limit <em>replaces</em>
 the old one.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.web.Query.odoo.web.Query.order_by">
-<code class="descclassname">odoo.web.Query.odoo.web.Query.</code><code class="descname">order_by</code><span class="sig-paren">(</span><em>fields…</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.web.Query.odoo.web.Query.order_by" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.web.Query.gerp.web.Query.order_by">
+<code class="descclassname">gerp.web.Query.gerp.web.Query.</code><code class="descname">order_by</code><span class="sig-paren">(</span><em>fields…</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.web.Query.gerp.web.Query.order_by" title="Permalink to this definition">¶</a></dt>
 <dd><p>Overrides the model’s natural order with the provided field
 specifications. Behaves much like Django’s <code class="xref py py-meth docutils literal"><span class="pre">QuerySet.order_by</span></code>:</p>
 <ul class="simple">
@@ -769,10 +769,10 @@ for sorting.</p>
 <p>Odoo has powerful grouping capacities, but they are kind-of strange
 in that they’re recursive, and level n+1 relies on data provided
 directly by the grouping at level n. As a result, while
-<code class="xref py py-meth docutils literal"><span class="pre">odoo.models.Model.read_group()</span></code> works it’s not a very intuitive
+<code class="xref py py-meth docutils literal"><span class="pre">gerp.models.Model.read_group()</span></code> works it’s not a very intuitive
 API.</p>
 <p>Odoo Web eschews direct calls to <code class="xref py py-meth docutils literal"><span class="pre">read_group()</span></code>
-in favor of calling a method of <a class="reference internal" href="#odoo.web.Query" title="odoo.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a>, <code class="xref py py-meth docutils literal"><span class="pre">much</span>
+in favor of calling a method of <a class="reference internal" href="#gerp.web.Query" title="gerp.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a>, <code class="xref py py-meth docutils literal"><span class="pre">much</span>
 <span class="pre">in</span> <span class="pre">the</span> <span class="pre">way</span> <span class="pre">it</span> <span class="pre">is</span> <span class="pre">done</span> <span class="pre">in</span> <span class="pre">SQLAlchemy</span></code>
 <a class="footnote-reference" href="#terminal" id="id2">[2]</a>:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">some_query</span><span class="p">.</span><span class="nx">group_by</span><span class="p">([</span><span class="s1">&#39;field1&#39;</span><span class="p">,</span> <span class="s1">&#39;field2&#39;</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">groups</span><span class="p">)</span> <span class="p">{</span>
@@ -816,13 +816,13 @@ coerce values into deferreds:</p>
 </li>
 </ul>
 <p>The result of a (successful) <code class="xref js js-func docutils literal"><span class="pre">group_by()</span></code> is
-an array of <a class="reference internal" href="#odoo.web.QueryGroup" title="odoo.web.QueryGroup"><code class="xref js js-class docutils literal"><span class="pre">QueryGroup()</span></code></a>:</p>
+an array of <a class="reference internal" href="#gerp.web.QueryGroup" title="gerp.web.QueryGroup"><code class="xref js js-class docutils literal"><span class="pre">QueryGroup()</span></code></a>:</p>
 <dl class="class">
-<dt id="odoo.web.QueryGroup">
-<em class="property">class </em><code class="descclassname">odoo.web.</code><code class="descname">QueryGroup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#odoo.web.QueryGroup" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.web.QueryGroup">
+<em class="property">class </em><code class="descclassname">gerp.web.</code><code class="descname">QueryGroup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gerp.web.QueryGroup" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="function">
-<dt id="odoo.web.QueryGroup.odoo.web.QueryGroup.get">
-<code class="descclassname">odoo.web.QueryGroup.odoo.web.QueryGroup.</code><code class="descname">get</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.web.QueryGroup.odoo.web.QueryGroup.get" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.web.QueryGroup.gerp.web.QueryGroup.get">
+<code class="descclassname">gerp.web.QueryGroup.gerp.web.QueryGroup.</code><code class="descname">get</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.web.QueryGroup.gerp.web.QueryGroup.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns the group’s attribute <code class="docutils literal"><span class="pre">key</span></code>. Known attributes are:</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">grouped_on</span></code></dt>
@@ -837,18 +837,18 @@ an array of <a class="reference internal" href="#odoo.web.QueryGroup" title="odo
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.web.QueryGroup.odoo.web.QueryGroup.query">
-<code class="descclassname">odoo.web.QueryGroup.odoo.web.QueryGroup.</code><code class="descname">query</code><span class="sig-paren">(</span><span class="optional">[</span><em>fields...</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#odoo.web.QueryGroup.odoo.web.QueryGroup.query" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.web.QueryGroup.gerp.web.QueryGroup.query">
+<code class="descclassname">gerp.web.QueryGroup.gerp.web.QueryGroup.</code><code class="descname">query</code><span class="sig-paren">(</span><span class="optional">[</span><em>fields...</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#gerp.web.QueryGroup.gerp.web.QueryGroup.query" title="Permalink to this definition">¶</a></dt>
 <dd><p>equivalent to <code class="xref js js-func docutils literal"><span class="pre">Model.query()</span></code> but pre-filtered to
 only include the records within this group. Returns a
-<a class="reference internal" href="#odoo.web.Query" title="odoo.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> which can be further manipulated as
+<a class="reference internal" href="#gerp.web.Query" title="gerp.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> which can be further manipulated as
 usual.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.web.QueryGroup.odoo.web.QueryGroup.subgroups">
-<code class="descclassname">odoo.web.QueryGroup.odoo.web.QueryGroup.</code><code class="descname">subgroups</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#odoo.web.QueryGroup.odoo.web.QueryGroup.subgroups" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a deferred to an array of <a class="reference internal" href="#odoo.web.QueryGroup" title="odoo.web.QueryGroup"><code class="xref js js-class docutils literal"><span class="pre">QueryGroup()</span></code></a>
+<dt id="gerp.web.QueryGroup.gerp.web.QueryGroup.subgroups">
+<code class="descclassname">gerp.web.QueryGroup.gerp.web.QueryGroup.</code><code class="descname">subgroups</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gerp.web.QueryGroup.gerp.web.QueryGroup.subgroups" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a deferred to an array of <a class="reference internal" href="#gerp.web.QueryGroup" title="gerp.web.QueryGroup"><code class="xref js js-class docutils literal"><span class="pre">QueryGroup()</span></code></a>
 below this one</p>
 </dd></dl>
 
@@ -897,17 +897,17 @@ makes refactoring much simpler, and less risky.</li>
 <p>It has also some disadvantages:</p>
 <ul class="simple">
 <li>files are required to use the module system if they want to interact
-with odoo, since the various objects are only available in the module
+with gerp, since the various objects are only available in the module
 system, and not in global variables</li>
 <li>circular dependencies are not supported.  It makes sense, but it means
 that one needs to be careful.</li>
 </ul>
 <p>This is obviously a very large change and will require everyone to
-adopt new habits.  For example, the variable odoo does not exist
+adopt new habits.  For example, the variable gerp does not exist
 anymore.  The new way of doing things is to import explicitely the module
 you need, and declaring explicitely the objects you export.  Here is a
 simple example:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">odoo</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;addon_name.service&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">require</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">gerp</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;addon_name.service&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">require</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">utils</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.utils&#39;</span><span class="p">);</span>
     <span class="kd">var</span> <span class="nx">Model</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web.Model&#39;</span><span class="p">);</span>
 
@@ -920,7 +920,7 @@ simple example:</p>
 </pre></div>
 </div>
 <p>This snippet shows a module named <code class="docutils literal"><span class="pre">addon_name.service</span></code>.  It is defined
-with the <code class="docutils literal"><span class="pre">odoo.define</span></code> function.  <code class="docutils literal"><span class="pre">odoo.define</span></code> takes a name and a
+with the <code class="docutils literal"><span class="pre">gerp.define</span></code> function.  <code class="docutils literal"><span class="pre">gerp.define</span></code> takes a name and a
 function for arguments:</p>
 <ul class="simple">
 <li>The name is the concatenation of the name of the addon it is defined in
@@ -969,7 +969,7 @@ objects and functions, such as <code class="docutils literal"><span class="pre">
 <li><code class="docutils literal"><span class="pre">web.Widget</span></code> contains the widget class</li>
 <li><code class="docutils literal"><span class="pre">web.Model</span></code> is an abstraction over <code class="docutils literal"><span class="pre">web.ajax</span></code> to make
 calls to the server model methods</li>
-<li><code class="docutils literal"><span class="pre">web.session</span></code> is the former <code class="docutils literal"><span class="pre">odoo.session</span></code></li>
+<li><code class="docutils literal"><span class="pre">web.session</span></code> is the former <code class="docutils literal"><span class="pre">gerp.session</span></code></li>
 <li><code class="docutils literal"><span class="pre">web.utils</span></code> for useful code snippets</li>
 <li><code class="docutils literal"><span class="pre">web.time</span></code> for every time-related generic functions</li>
 </ul>
@@ -988,8 +988,8 @@ calls to the server model methods</li>
 <p>The two other files are <code class="docutils literal"><span class="pre">tour.js</span></code> for the tours and <code class="docutils literal"><span class="pre">compatibility.js</span></code>.
 The latter file is a compatibility layer bridging the old system to the
 new module system.  This is where every module names are exported to the
-global variable <code class="docutils literal"><span class="pre">odoo</span></code>.  In theory, our addons should work without
-ever using the variable <code class="docutils literal"><span class="pre">odoo</span></code>, and the compatibility module can be
+global variable <code class="docutils literal"><span class="pre">gerp</span></code>.  In theory, our addons should work without
+ever using the variable <code class="docutils literal"><span class="pre">gerp</span></code>, and the compatibility module can be
 disabled safely.</p>
 </div>
 <div class="section" id="javascript-conventions">
@@ -1047,19 +1047,19 @@ consider that the module has no javascript tests.</p>
 and allow running all of its (0 so far) tests:</p>
 <img alt="../_images/runner2.png" class="align-center" src="../_images/runner2.png" />
 <p>The next step is to create a test case:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">odoo</span><span class="p">.</span><span class="nx">testing</span><span class="p">.</span><span class="nx">section</span><span class="p">(</span><span class="s1">&#39;basic section&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">test</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">gerp</span><span class="p">.</span><span class="nx">testing</span><span class="p">.</span><span class="nx">section</span><span class="p">(</span><span class="s1">&#39;basic section&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">test</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;my first test&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="nx">ok</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="s2">&quot;this test has run&quot;</span><span class="p">);</span>
     <span class="p">});</span>
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>All testing helpers and structures live in the <code class="docutils literal"><span class="pre">odoo.testing</span></code>
-module. Odoo tests live in a <a class="reference internal" href="#odoo.testing.section" title="odoo.testing.section"><code class="xref js js-func docutils literal"><span class="pre">section()</span></code></a>,
+<p>All testing helpers and structures live in the <code class="docutils literal"><span class="pre">gerp.testing</span></code>
+module. Odoo tests live in a <a class="reference internal" href="#gerp.testing.section" title="gerp.testing.section"><code class="xref js js-func docutils literal"><span class="pre">section()</span></code></a>,
 which is itself part of a module. The first argument to a section is
 the name of the section, the second one is the section body.</p>
-<p><a class="reference internal" href="#odoo.testing.case" title="odoo.testing.case"><code class="xref js js-func docutils literal"><span class="pre">test</span></code></a>, provided by the
-<a class="reference internal" href="#odoo.testing.section" title="odoo.testing.section"><code class="xref js js-func docutils literal"><span class="pre">section()</span></code></a> to the callback, is used to
+<p><a class="reference internal" href="#gerp.testing.case" title="gerp.testing.case"><code class="xref js js-func docutils literal"><span class="pre">test</span></code></a>, provided by the
+<a class="reference internal" href="#gerp.testing.section" title="gerp.testing.section"><code class="xref js js-func docutils literal"><span class="pre">section()</span></code></a> to the callback, is used to
 register a given test case which will be run whenever the test runner
 actually does its job. Odoo Web test case use standard <a class="reference external" href="http://api.qunitjs.com/category/assert/">QUnit
 assertions</a> within them.</p>
@@ -1147,8 +1147,8 @@ the <code class="docutils literal"><span class="pre">==</span></code> operator a
 </dd></dl>
 
 </div>
-<div class="section" id="getting-an-odoo-instance">
-<h2>Getting an Odoo instance<a class="headerlink" href="#getting-an-odoo-instance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="getting-an-gerp-instance">
+<h2>Getting an Odoo instance<a class="headerlink" href="#getting-an-gerp-instance" title="Permalink to this headline">¶</a></h2>
 <p>The Odoo instance is the base through which most Odoo Web
 modules behaviors (functions, objects, …) are accessed. As a result,
 the test framework automatically builds one, and loads the module
@@ -1166,7 +1166,7 @@ test module:</p>
 </pre></div>
 </div>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// src/js/demo.js</span>
-<span class="nx">odoo</span><span class="p">.</span><span class="nx">web_tests_demo</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">gerp</span><span class="p">.</span><span class="nx">web_tests_demo</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">instance</span><span class="p">.</span><span class="nx">web_tests_demo</span> <span class="o">=</span> <span class="p">{</span>
         <span class="nx">value_true</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
         <span class="nx">SomeType</span><span class="o">:</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
@@ -1224,7 +1224,7 @@ cases can add text or DOM children but shoud not alter
 <p>To avoid the corresponding processing costs, by default templates are
 not loaded into QWeb. If you need to render e.g. widgets making use of
 QWeb templates, you can request their loading through the
-<code class="xref js js-attr docutils literal"><span class="pre">templates</span></code> option to the <a class="reference internal" href="#odoo.testing.case" title="odoo.testing.case"><code class="xref js js-func docutils literal"><span class="pre">test</span> <span class="pre">case</span>
+<code class="xref js js-attr docutils literal"><span class="pre">templates</span></code> option to the <a class="reference internal" href="#gerp.testing.case" title="gerp.testing.case"><code class="xref js js-func docutils literal"><span class="pre">test</span> <span class="pre">case</span>
 <span class="pre">function</span></code></a>.</p>
 <p>This will automatically load all relevant templates in the instance’s
 qweb before running the test case:</p>
@@ -1321,7 +1321,7 @@ first parameter:</p>
 <li><p class="first">If it matches the pattern <code class="docutils literal"><span class="pre">model:method</span></code> (if it contains a
 colon, essentially) the call will set up the mocking of an RPC
 call straight to the Odoo server (through XMLRPC) as
-performed via e.g. <code class="xref js js-func docutils literal"><span class="pre">odoo.web.Model.call()</span></code>.</p>
+performed via e.g. <code class="xref js js-func docutils literal"><span class="pre">gerp.web.Model.call()</span></code>.</p>
 <p>In that case, <code class="docutils literal"><span class="pre">handler</span></code> should be a function taking two
 arguments <code class="docutils literal"><span class="pre">args</span></code> and <code class="docutils literal"><span class="pre">kwargs</span></code>, matching the corresponding
 arguments on the server side and should simply return the value
@@ -1367,7 +1367,7 @@ as if returned by the original JSON-RPC handler:</p>
     <span class="p">});</span>
 
     <span class="c1">// widget needs that or it blows up</span>
-    <span class="nx">instance</span><span class="p">.</span><span class="nx">webclient</span> <span class="o">=</span> <span class="p">{</span><span class="nx">toggle_bars</span><span class="o">:</span> <span class="nx">odoo</span><span class="p">.</span><span class="nx">testing</span><span class="p">.</span><span class="nx">noop</span><span class="p">};</span>
+    <span class="nx">instance</span><span class="p">.</span><span class="nx">webclient</span> <span class="o">=</span> <span class="p">{</span><span class="nx">toggle_bars</span><span class="o">:</span> <span class="nx">gerp</span><span class="p">.</span><span class="nx">testing</span><span class="p">.</span><span class="nx">noop</span><span class="p">};</span>
     <span class="kd">var</span> <span class="nx">dbm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">DatabaseManager</span><span class="p">({});</span>
     <span class="k">return</span> <span class="nx">dbm</span><span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">$s</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="nx">ok</span><span class="p">(</span><span class="nx">fetched_dbs</span><span class="p">,</span> <span class="s2">&quot;should have fetched databases&quot;</span><span class="p">);</span>
@@ -1392,8 +1392,8 @@ of assertions).</p>
 <div class="section" id="testing-api">
 <h2>Testing API<a class="headerlink" href="#testing-api" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="odoo.testing.section">
-<code class="descclassname">odoo.testing.</code><code class="descname">section</code><span class="sig-paren">(</span><em>name</em>, <span class="optional">[</span><em>options</em>, <span class="optional">]</span><em>body</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.testing.section" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.testing.section">
+<code class="descclassname">gerp.testing.</code><code class="descname">section</code><span class="sig-paren">(</span><em>name</em>, <span class="optional">[</span><em>options</em>, <span class="optional">]</span><em>body</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.testing.section" title="Permalink to this definition">¶</a></dt>
 <dd><p>A test section, serves as shared namespace for related tests (for
 constants or values to only set up once). The <code class="docutils literal"><span class="pre">body</span></code> function
 should contain the tests themselves.</p>
@@ -1406,7 +1406,7 @@ undefined, do <em>not</em> rely on it.</p>
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
 <li><strong>name</strong> (<em>String</em>) – </li>
 <li><strong>options</strong> (<a class="reference internal" href="#TestOptions" title="TestOptions"><em>TestOptions</em></a>) – </li>
-<li><strong>body</strong> (Function&lt;<a class="reference internal" href="#odoo.testing.case" title="odoo.testing.case"><code class="xref js js-func docutils literal"><span class="pre">case()</span></code></a>, void&gt;) – </li>
+<li><strong>body</strong> (Function&lt;<a class="reference internal" href="#gerp.testing.case" title="gerp.testing.case"><code class="xref js js-func docutils literal"><span class="pre">case()</span></code></a>, void&gt;) – </li>
 </ul>
 </td>
 </tr>
@@ -1415,8 +1415,8 @@ undefined, do <em>not</em> rely on it.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.testing.case">
-<code class="descclassname">odoo.testing.</code><code class="descname">case</code><span class="sig-paren">(</span><em>name</em>, <span class="optional">[</span><em>options</em>, <span class="optional">]</span><em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.testing.case" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.testing.case">
+<code class="descclassname">gerp.testing.</code><code class="descname">case</code><span class="sig-paren">(</span><em>name</em>, <span class="optional">[</span><em>options</em>, <span class="optional">]</span><em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.testing.case" title="Permalink to this definition">¶</a></dt>
 <dd><p>Registers a test case callback in the test runner, the callback
 will only be run once the runner is started (or maybe not at all,
 if the test is filtered out).</p>
@@ -1439,16 +1439,16 @@ if the test is filtered out).</p>
 <dt id="TestOptions">
 <em class="property">class </em><code class="descname">TestOptions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#TestOptions" title="Permalink to this definition">¶</a></dt>
 <dd><p>the various options which can be passed to
-<a class="reference internal" href="#odoo.testing.section" title="odoo.testing.section"><code class="xref js js-func docutils literal"><span class="pre">section()</span></code></a> or
-<a class="reference internal" href="#odoo.testing.case" title="odoo.testing.case"><code class="xref js js-func docutils literal"><span class="pre">case()</span></code></a>. Except for
+<a class="reference internal" href="#gerp.testing.section" title="gerp.testing.section"><code class="xref js js-func docutils literal"><span class="pre">section()</span></code></a> or
+<a class="reference internal" href="#gerp.testing.case" title="gerp.testing.case"><code class="xref js js-func docutils literal"><span class="pre">case()</span></code></a>. Except for
 <a class="reference internal" href="#TestOptions.TestOptions.setup" title="TestOptions.TestOptions.setup"><code class="xref js js-attr docutils literal"><span class="pre">setup</span></code></a> and
 <a class="reference internal" href="#TestOptions.TestOptions.teardown" title="TestOptions.TestOptions.teardown"><code class="xref js js-attr docutils literal"><span class="pre">teardown</span></code></a>, an option on
-<a class="reference internal" href="#odoo.testing.case" title="odoo.testing.case"><code class="xref js js-func docutils literal"><span class="pre">case()</span></code></a> will overwrite the corresponding
-option on <a class="reference internal" href="#odoo.testing.section" title="odoo.testing.section"><code class="xref js js-func docutils literal"><span class="pre">section()</span></code></a> so
+<a class="reference internal" href="#gerp.testing.case" title="gerp.testing.case"><code class="xref js js-func docutils literal"><span class="pre">case()</span></code></a> will overwrite the corresponding
+option on <a class="reference internal" href="#gerp.testing.section" title="gerp.testing.section"><code class="xref js js-func docutils literal"><span class="pre">section()</span></code></a> so
 e.g. <a class="reference internal" href="#TestOptions.TestOptions.rpc" title="TestOptions.TestOptions.rpc"><code class="xref js js-attr docutils literal"><span class="pre">rpc</span></code></a> can be set for a
-<a class="reference internal" href="#odoo.testing.section" title="odoo.testing.section"><code class="xref js js-func docutils literal"><span class="pre">section()</span></code></a> and then differently set for
-some <a class="reference internal" href="#odoo.testing.case" title="odoo.testing.case"><code class="xref js js-func docutils literal"><span class="pre">case()</span></code></a> of that
-<a class="reference internal" href="#odoo.testing.section" title="odoo.testing.section"><code class="xref js js-func docutils literal"><span class="pre">section()</span></code></a></p>
+<a class="reference internal" href="#gerp.testing.section" title="gerp.testing.section"><code class="xref js js-func docutils literal"><span class="pre">section()</span></code></a> and then differently set for
+some <a class="reference internal" href="#gerp.testing.case" title="gerp.testing.case"><code class="xref js js-func docutils literal"><span class="pre">case()</span></code></a> of that
+<a class="reference internal" href="#gerp.testing.section" title="gerp.testing.section"><code class="xref js js-func docutils literal"><span class="pre">section()</span></code></a></p>
 <dl class="attribute">
 <dt id="TestOptions.TestOptions.asserts">
 <code class="descclassname">TestOptions.TestOptions.</code><code class="descname">asserts</code><a class="headerlink" href="#TestOptions.TestOptions.asserts" title="Permalink to this definition">¶</a></dt>
@@ -1576,9 +1576,9 @@ the tests in all the modules, which may or may not work.</p>
 <p>If everything went correctly, you should now see a list of tests with
 (hopefully) <code class="docutils literal"><span class="pre">ok</span></code> next to their names, closing with a report of the
 number of tests run and the time it took:</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>test_empty_find (odoo.addons.web.tests.test_dataset.TestDataSetController) ... ok
-test_ids_shortcut (odoo.addons.web.tests.test_dataset.TestDataSetController) ... ok
-test_regular_find (odoo.addons.web.tests.test_dataset.TestDataSetController) ... ok
+<div class="highlight-text"><div class="highlight"><pre><span></span>test_empty_find (gerp.addons.web.tests.test_dataset.TestDataSetController) ... ok
+test_ids_shortcut (gerp.addons.web.tests.test_dataset.TestDataSetController) ... ok
+test_regular_find (gerp.addons.web.tests.test_dataset.TestDataSetController) ... ok
 web.testing.stack: direct, value, success ... ok
 web.testing.stack: direct, deferred, success ... ok
 web.testing.stack: direct, value, error ... ok
@@ -1589,12 +1589,12 @@ web.testing.stack: successful setup and teardown ... ok
 
 [snip ~150 lines]
 
-test_convert_complex_context (odoo.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
-test_convert_complex_domain (odoo.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
-test_convert_literal_context (odoo.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
-test_convert_literal_domain (odoo.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
-test_retrieve_nonliteral_context (odoo.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
-test_retrieve_nonliteral_domain (odoo.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
+test_convert_complex_context (gerp.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
+test_convert_complex_domain (gerp.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
+test_convert_literal_context (gerp.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
+test_convert_literal_domain (gerp.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
+test_retrieve_nonliteral_context (gerp.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
+test_retrieve_nonliteral_domain (gerp.addons.web.tests.test_view.DomainsAndContextsTest) ... ok
 
 ----------------------------------------------------------------------
 Ran 181 tests in 15.706s

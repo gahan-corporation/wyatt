@@ -389,7 +389,7 @@ be the name of a module, on which a <code class="docutils literal"><span class="
 <p>Most Python-side uses of QWeb are in controllers (and during HTTP requests),
 in which case templates stored in the database (as
 <a class="reference internal" href="views.html#reference-views-qweb"><span class="std std-ref">views</span></a>) can be trivially rendered by calling
-<code class="xref py py-meth docutils literal"><span class="pre">odoo.http.HttpRequest.render()</span></code>:</p>
+<code class="xref py py-meth docutils literal"><span class="pre">gerp.http.HttpRequest.render()</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s1">&#39;my-template&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="s1">&#39;context_value&#39;</span><span class="p">:</span> <span class="mi">42</span>
 <span class="p">})</span>
