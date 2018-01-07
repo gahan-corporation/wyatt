@@ -7,11 +7,6 @@ env:
   - CODACY_PROJECT_TOKEN=54b92bda8e5c48b8bb2b8503535fad4f
 cache:
   pip: 'yes'
-before_install:
-  - >
-    openssl aes-256-cbc -K $encrypted_eb33782a0984_key 
-    -iv $encrypted_eb33782a0984_iv
-    -in .toggl.yml.enc -out modules/humanresources/.toggl.yml -d
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
     > ./cc-test-reporter
