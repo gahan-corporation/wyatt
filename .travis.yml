@@ -19,23 +19,11 @@ before_script:
   - sudo pip install virtualenv
   - virtualenv -p /usr/bin/python3 .py
   - source .py/bin/activate
-  - pip install requests
-  - pip install pyyaml
-  - pip install sqlalchemy 
-  - pip install psycopg2 
-  - ".py/bin/pip install pytest"
-  - ".py/bin/pip install nose"
-  - ".py/bin/pip install -e modules/humanresources"
-  - ".py/bin/pip install coverage"
+  - ".py/bin/pip install requests pyyaml pytest coverage sqlalchemy psycopg2"
 script:
   - ".py/bin/pytest || true"
-  - cd modules/humanresources
-  - "../../.py/bin/pytest || true"
-  - ../../.py/bin/nosetests -s -d -v
   - coverage run setup.py test 
   - coverage xml
-  - cp coverage.xml ../../coverage.xml
-  - cd ../../
 after_script:
   - "./cc-test-reporter after-build -t coverage.py --exit-code $TRAVIS_TEST_RESULT"
   - "./cc-test-reporter after-build -t coverage.py --exit-code $TRAVIS_TEST_RESULT modules/humanresources/coverage.xml"
