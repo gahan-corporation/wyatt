@@ -1,4 +1,6 @@
 # sphinx build directories
+coverage.xml
+.coveragerc
 .coverage
 .py3/
 .eggs/

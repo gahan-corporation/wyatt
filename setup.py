@@ -11,7 +11,6 @@ setuptools.setup(
     url='https://github.com/gahan-corporation/gerp',
     author='Gahan Corporation',
     author_email='info@gahan-corporation.com',
-    # scripts=['setup/odoo'],
     packages=[
         'addons/account',
         'addons/backend_theme_v11',
@@ -61,7 +60,6 @@ setuptools.setup(
         'SSL': ['pyopenssl'],
     },
     tests_require=[
-        'mock',
         'pytest-runner',
     ],
 )
