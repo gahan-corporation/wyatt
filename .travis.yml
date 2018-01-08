@@ -1,6 +1,8 @@
 ---
 language: python
 sudo: required
+services:
+  - docker
 env:
   global:
   - CC_TEST_REPORTER_ID=e47e814a3a09d59dce31d36ef15abdcf0702e2d3ac7c0cd8ab9b468e97292788
@@ -16,6 +18,7 @@ before_script:
   - virtualenv -p /usr/bin/python3 .py
   - source .py/bin/activate
   - ".py/bin/pip install requests pyyaml pytest coverage sqlalchemy psycopg2 codacy-coverage"
+  - docker build .
 script:
   - "pytest || true"
   - "coverage run setup.py test || true"
