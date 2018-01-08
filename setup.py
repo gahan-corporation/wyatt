@@ -55,8 +55,10 @@ setuptools.setup(
         'addons/sale',
         'addons/web',
         'gerp/addons/base',
-    
     ],
+    package_dir={
+        '': 'gerp'
+    },
     python_requires='>=3.5',
     tests_require=[
         'pytest-runner',
