@@ -49,17 +49,14 @@ setuptools.setup(
     long_description='gerp',
     name='gerp',
     packages=[
-        'cli',
-        'modules',
-        'osv',
-        'tools',
-        'service',
-        'conf',
-        'addons/base',
+        'gerp/cli',
+        'gerp/modules',
+        'gerp/osv',
+        'gerp/tools',
+        'gerp/service',
+        'gerp/conf',
+        'gerp/addons/base',
     ],
-    package_dir={
-        '': 'gerp'
-    },
     python_requires='>=3.5',
     tests_require=[
         'pytest-runner',
