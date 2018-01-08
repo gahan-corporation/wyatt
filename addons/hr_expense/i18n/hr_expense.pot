@@ -17,7 +17,7 @@ msgstr ""
 
 #. module: hr_expense
 #: model:ir.ui.view,arch_db:hr_expense.hr_expense_planner
-msgid "(e.g. expenses@mycompany.odoo.com)"
+msgid "(e.g. expenses@mycompany.gerp.com)"
 msgstr ""
 
 #. module: hr_expense

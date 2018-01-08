@@ -1,4 +1,4 @@
-odoo.define('website_blog.website_blog', function (require) {
+gerp.define('website_blog.website_blog', function (require) {
 "use strict";
 
 function page_transist(event) {

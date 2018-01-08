@@ -1,4 +1,4 @@
-odoo.define('web_kanban.Many2ManyKanbanView', function (require) {
+gerp.define('web_kanban.Many2ManyKanbanView', function (require) {
 "use strict";
 
 var common = require('web.form_common');

@@ -1,4 +1,4 @@
-odoo.define('website_sale.tracking', function(require) {
+gerp.define('website_sale.tracking', function(require) {
 
 var ajax = require('web.ajax');
 

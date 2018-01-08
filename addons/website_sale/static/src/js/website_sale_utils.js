@@ -1,4 +1,4 @@
-odoo.define('website_sale.utils', function (require) {
+gerp.define('website_sale.utils', function (require) {
     "use strict";
 
     var animate_clone =  function(cart, $elem, offset_top, offset_left) {

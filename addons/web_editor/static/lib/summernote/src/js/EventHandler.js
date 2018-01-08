@@ -350,7 +350,7 @@ define([
         var eventName = keyMap[keyString];
 
         // ODOO: (start_modification
-        // odoo change: add visible event to overwrite the browser comportment
+        // gerp change: add visible event to overwrite the browser comportment
         var keycode = event.keyCode;
         if (!eventName &&
             !event.ctrlKey && !event.metaKey && ( // special code/command

@@ -1,4 +1,4 @@
-odoo.define('website_slides.upload', function (require) {
+gerp.define('website_slides.upload', function (require) {
 "use strict";
 
 var ajax = require('web.ajax');

@@ -1,4 +1,4 @@
-odoo.define('web.Widget', function (require) {
+gerp.define('web.Widget', function (require) {
 "use strict";
 
 var ajax = require('web.ajax');

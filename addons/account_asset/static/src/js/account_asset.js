@@ -1,4 +1,4 @@
-odoo.define('account_asset.widget', function(require) {
+gerp.define('account_asset.widget', function(require) {
 "use strict";
 
 /**

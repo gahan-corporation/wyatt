@@ -1,4 +1,4 @@
-odoo.define('crm.tour', function(require) {
+gerp.define('crm.tour', function(require) {
 "use strict";
 
 var core = require('web.core');

@@ -1,4 +1,4 @@
-odoo.define('web_editor.translate', function (require) {
+gerp.define('web_editor.translate', function (require) {
 'use strict';
 
 var core = require('web.core');
@@ -239,7 +239,7 @@ var TranslatorMenuBar = Widget.extend({
             ],
             styleWithSpan: false,
             inlinemedia : ['p'],
-            lang: 'odoo',
+            lang: 'gerp',
             onChange: function (html, $editable) {
                 $editable.trigger('content_changed');
             },

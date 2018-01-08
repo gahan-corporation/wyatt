@@ -1,4 +1,4 @@
-odoo.define('project.update_kanban', function (require) {
+gerp.define('project.update_kanban', function (require) {
 'use strict';
 
 var core = require('web.core');

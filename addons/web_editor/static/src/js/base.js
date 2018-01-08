@@ -1,4 +1,4 @@
-odoo.define('web_editor.base', function (require) {
+gerp.define('web_editor.base', function (require) {
 'use strict';
 
 var ajax = require('web.ajax');
@@ -29,7 +29,7 @@ return {
 
 //==============================================================================
 
-odoo.define('web_editor.context', function (require) {
+gerp.define('web_editor.context', function (require) {
 'use strict';
 
 function getContext(context) {
@@ -55,7 +55,7 @@ return {
 
 //==============================================================================
 
-odoo.define('web_editor.ready', function (require) {
+gerp.define('web_editor.ready', function (require) {
 'use strict';
 
 var base = require('web_editor.base');

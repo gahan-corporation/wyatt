@@ -16,8 +16,8 @@ msgstr ""
 "POT-Creation-Date: 2017-10-02 11:25+0000\n"
 "PO-Revision-Date: 2016-07-21 00:18+0000\n"
 "Last-Translator: Gustavo Valverde\n"
-"Language-Team: Spanish (Dominican Republic) (http://www.transifex.com/odoo/"
-"odoo-9/language/es_DO/)\n"
+"Language-Team: Spanish (Dominican Republic) (http://www.transifex.com/gerp/"
+"gerp-9/language/es_DO/)\n"
 "Language: es_DO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -155,16 +155,16 @@ msgid ""
 "top:0pt;margin-bottom:8pt;\">\n"
 "                                <span>We would be delighted to assist you "
 "along the way. Contact us through our\n"
-"                                <a href=\"https://www.odoo.com/help"
+"                                <a href=\"https://www.gerp.com/help"
 "\">support form</a> if you have any question.\n"
 "                                You can also discover how to get the best "
 "out of Odoo CRM with our </span>\n"
-"                                <a target=\"_blank\" href=\"https://www.odoo."
+"                                <a target=\"_blank\" href=\"https://www.gerp."
 "com/documentation/user/10.0/crm.html\">\n"
 "                                <span style=\"text-decoration:underline;"
 "\">User Documentation</span></a>\n"
 "                                </span><span> or with our </span>\n"
-"                                <a target=\"_blank\" href=\"https://www.odoo."
+"                                <a target=\"_blank\" href=\"https://www.gerp."
 "com/documentation\">\n"
 "                                <span style=\"text-decoration:underline;"
 "\">API Documentation</span></a>\n"
@@ -179,7 +179,7 @@ msgid ""
 "            <div dir=\"ltr\" style=\"font-size:13px;margin-top:0pt;margin-"
 "bottom:8pt;color:grey\">\n"
 "                <span><br/>-- <br/>The Odoo Team<br/>PS: People love Odoo, "
-"check </span><a target=\"_blank\" href=\"https://twitter.com/odoo/favorites"
+"check </span><a target=\"_blank\" href=\"https://twitter.com/gerp/favorites"
 "\"><span style=\"text-decoration:underline;\">what they say about it.</"
 "span></a></span>\n"
 "            </div>\n"
@@ -350,33 +350,33 @@ msgstr ""
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Incoming email</"
+"<span class=\"label label-default text-center gerp_purple\">Incoming email</"
 "span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Correo entrante</"
+"<span class=\"label label-default text-center gerp_purple\">Correo entrante</"
 "span>"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
-msgid "<span class=\"label label-default text-center odoo_purple\">Lead</span>"
+msgid "<span class=\"label label-default text-center gerp_purple\">Lead</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Iniciativa</span>"
-
-#. module: crm
-#: model:ir.ui.view,arch_db:crm.crm_planner
-msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Opportunity</"
-"span>"
-msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Oportunidad</"
-"span>"
+"<span class=\"label label-default text-center gerp_purple\">Iniciativa</span>"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Quotation</span>"
+"<span class=\"label label-default text-center gerp_purple\">Opportunity</"
+"span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Cotización</span>"
+"<span class=\"label label-default text-center gerp_purple\">Oportunidad</"
+"span>"
+
+#. module: crm
+#: model:ir.ui.view,arch_db:crm.crm_planner
+msgid ""
+"<span class=\"label label-default text-center gerp_purple\">Quotation</span>"
+msgstr ""
+"<span class=\"label label-default text-center gerp_purple\">Cotización</span>"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_case_form_view_oppor
@@ -4010,10 +4010,10 @@ msgstr ""
 #: model:ir.model.fields,help:crm.field_crm_team_alias_name
 msgid ""
 "The name of the email alias, e.g. 'jobs' if you want to catch emails for "
-"<jobs@example.odoo.com>"
+"<jobs@example.gerp.com>"
 msgstr ""
 "El nombre del alias de correo, ej. 'trabajos' si quiere capturar los correos "
-"para <trabajos@demo.odoo.com>"
+"para <trabajos@demo.gerp.com>"
 
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_lead_partner_name
@@ -4751,7 +4751,7 @@ msgstr "ej. Precios de los Productos"
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_case_form_view_leads
 #: model:ir.ui.view,arch_db:crm.crm_case_form_view_oppor
-msgid "e.g. www.odoo.com"
+msgid "e.g. www.gerp.com"
 msgstr ""
 
 #. module: crm

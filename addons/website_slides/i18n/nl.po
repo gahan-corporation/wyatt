@@ -5,17 +5,17 @@
 # Translators:
 # Eric Geens <ericgeens@yahoo.com>, 2017
 # Yenthe Van Ginneken <yenthespam@gmail.com>, 2017
-# Erwin van der Ploeg <erwin@odooexperts.nl>, 2017
+# Erwin van der Ploeg <erwin@gerpexperts.nl>, 2017
 # Cas Vissers <casvissers@brahoo.nl>, 2017
-# Martin Trigaux <mat@odoo.com>, 2017
+# Martin Trigaux <mat@gerp.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:27+0000\n"
 "PO-Revision-Date: 2017-10-02 11:27+0000\n"
-"Last-Translator: Martin Trigaux <mat@odoo.com>, 2017\n"
-"Language-Team: Dutch (https://www.transifex.com/odoo/teams/41243/nl/)\n"
+"Last-Translator: Martin Trigaux <mat@gerp.com>, 2017\n"
+"Language-Team: Dutch (https://www.transifex.com/gerp/teams/41243/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -533,28 +533,28 @@ msgstr "Ontdek hoe gemakkelijk het is om uw bedrijf te adverteren met Odoo"
 msgid ""
 "Discover how you can integrate MRP, PLM, Quality and Maintenance in a single application to maximize the efficiency of your manufacturing operations.\n"
 "\n"
-"Read more about the features at: https://www.odoo.com/page/manufacturing-features\n"
+"Read more about the features at: https://www.gerp.com/page/manufacturing-features\n"
 "\n"
-"Discover Odoo MRP: https://www.odoo.com/page/manufacturing"
+"Discover Odoo MRP: https://www.gerp.com/page/manufacturing"
 msgstr ""
 
 #. module: website_slides
 #: model:slide.slide,description:website_slides.slide_1
-msgid "Discover the CRM sales people love https://www.odoo.com/page/crm"
+msgid "Discover the CRM sales people love https://www.gerp.com/page/crm"
 msgstr ""
 "Ontdek de CRM voor verkopen waar mensen van houden op "
-"https://www.odoo.com/page/crm"
+"https://www.gerp.com/page/crm"
 
 #. module: website_slides
 #: model:slide.slide,description:website_slides.slide_2
 msgid ""
 "Discover the all-in-one business management software solution that fits any business size and use case.\n"
 "\n"
-"Learn more at https://odoo.com"
+"Learn more at https://gerp.com"
 msgstr ""
 "Ontdek de all-in-one business management software-oplossing voor elke bedrijfsgrootte en use case.\n"
 "\n"
-"Meer informatie op https://odoo.com"
+"Meer informatie op https://gerp.com"
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide_dislikes
@@ -819,8 +819,8 @@ msgstr "Laatste publicatie"
 
 #. module: website_slides
 #: model:slide.slide,description:website_slides.slide_8
-msgid "Learn more at https://www.odoo.com/page/sales"
-msgstr "Leer meer op https://www.odoo.com/page/sales"
+msgid "Learn more at https://www.gerp.com/page/sales"
+msgstr "Leer meer op https://www.gerp.com/page/sales"
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide_likes
@@ -1206,11 +1206,11 @@ msgstr "Sorry, maar deze zoekopdracht leverde geen resultaten op"
 msgid ""
 "Stop doing manual printing and scanning. Move to electronic signature with Odoo Sign!\n"
 "\n"
-"Discover more at https://www.odoo.com/page/sign"
+"Discover more at https://www.gerp.com/page/sign"
 msgstr ""
 "Stop met het handmatig afdrukken en scannen. Gebruik elektronische handtekening met Odoo ondertekenen! \n"
 "\n"
-"Ontdek meer op https://www.odoo.com/page/sign"
+"Ontdek meer op https://www.gerp.com/page/sign"
 
 #. module: website_slides
 #: model:ir.ui.view,arch_db:website_slides.view_slide_tag_form
@@ -1411,11 +1411,11 @@ msgstr "Wacht op bevestiging"
 msgid ""
 "Warehouse management software for the 21st century.\n"
 "\n"
-"Discover Odoo Inventory: https://www.odoo.com/page/warehouse"
+"Discover Odoo Inventory: https://www.gerp.com/page/warehouse"
 msgstr ""
 "Voorraad beheer software voor de 21ste eeuw.\n"
 "\n"
-"Ontdek Odoo Magazijn: https://www.odoo.com/page/warehouse"
+"Ontdek Odoo Magazijn: https://www.gerp.com/page/warehouse"
 
 #. module: website_slides
 #: model:ir.ui.view,arch_db:website_slides.view_slide_slide_form

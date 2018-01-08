@@ -1,4 +1,4 @@
-odoo.define('web.local_storage', function (require) {
+gerp.define('web.local_storage', function (require) {
 'use strict';
 
 var Class = require('web.Class');

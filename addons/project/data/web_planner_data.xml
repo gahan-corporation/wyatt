@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<gerp>
 
     <template id="project_planner">
         <t t-call="web_planner.pages">
@@ -217,8 +217,8 @@
 
                     <div class="well well-lg">
                         <strong>Need help with defining your Projects? Contact us now.</strong><br/>
-                        <a href="https://www.odoo.com/page/live-chat" target="_blank" style="margin-right:10px"><span class="fa fa-comment-o"></span> Website Live Chat</a>
-                        <a href="https://www.odoo.com/help"><span class="fa fa-envelope-o"></span> Email Our Project Expert</a>
+                        <a href="https://www.gerp.com/page/live-chat" target="_blank" style="margin-right:10px"><span class="fa fa-comment-o"></span> Website Live Chat</a>
+                        <a href="https://www.gerp.com/help"><span class="fa fa-envelope-o"></span> Email Our Project Expert</a>
                     </div>
                 </t>
 
@@ -331,8 +331,8 @@
                         <div class="col-md-6 col-xs-12">
                             <div class="well well-lg">
                                 <strong>Need help to structure your projects?</strong><br/>
-                                <a href="https://www.odoo.com/page/live-chat" target="_blank" style="margin-right:10px"><span class="fa fa-comment-o"></span> Website Live Chat on</a><br/>
-                                <a href="https://www.odoo.com/help"><span class="fa fa-envelope-o"></span> Email Our Project Expert</a>
+                                <a href="https://www.gerp.com/page/live-chat" target="_blank" style="margin-right:10px"><span class="fa fa-comment-o"></span> Website Live Chat on</a><br/>
+                                <a href="https://www.gerp.com/help"><span class="fa fa-envelope-o"></span> Email Our Project Expert</a>
                             </div>
                         </div>
                     </div>
@@ -469,7 +469,7 @@
                                         <li> Plan your activities for the day</li>
                                         <li> View statistics for the week</li>
                                         <li> Get full synchronization with Odoo</li><br/>
-                                        <a href="http://www.odoo.com/timesheet-app?platform=chrome" target="_blank">
+                                        <a href="http://www.gerp.com/timesheet-app?platform=chrome" target="_blank">
                                             <img width="100%" src="/project/static/src/img/chrome_store.png"/>
                                         </a>
                                     </div>
@@ -486,10 +486,10 @@
                                     <div class="panel-body">
                                         <p>The same features as the Chrome extension, but on your mobile phone!</p>
                                         <p>Extra useful for when you're with a customer or in a meeting.</p>
-                                        <a href="http://www.odoo.com/timesheet-app?platform=android" target="_blank">
+                                        <a href="http://www.gerp.com/timesheet-app?platform=android" target="_blank">
                                             <img alt="Get it on Google Play" src="/project/static/src/img/play_store.png"/>
                                         </a>
-                                        <a href="http://www.odoo.com/timesheet-app?platform=ios" target="_blank">
+                                        <a href="http://www.gerp.com/timesheet-app?platform=ios" target="_blank">
                                             <img alt="Available on the Apple Store" src="/project/static/src/img/app_store.png"/>
                                         </a>
                                     </div>
@@ -521,10 +521,10 @@
                         </ul>
                         <div class="well well-lg">
                             <strong>Need help with Timesheets management? Contact us now:</strong><br/>
-                            <a href="https://www.odoo.com/page/live-chat" target="_blank" style="margin-right:10px">
+                            <a href="https://www.gerp.com/page/live-chat" target="_blank" style="margin-right:10px">
                                 <span class="fa fa-comment-o"></span> Website Live Chat on
                             </a>
-                            <a href="https://www.odoo.com/help"><span class="fa fa-envelope-o"></span> Email Our Project Expert</a>
+                            <a href="https://www.gerp.com/help"><span class="fa fa-envelope-o"></span> Email Our Project Expert</a>
                         </div>
                     </section>
                 </t>
@@ -602,8 +602,8 @@
                             <div class="col-md-4 col-xs-12">
                                 <div class="well well-lg">
                                     <strong>Contact us now:</strong><br/>
-                                    <a href="https://www.odoo.com/page/live-chat" target="_blank" style="margin-right:10px"><span class="fa fa-comment-o"></span> Website Live Chat on</a><br/>
-                                    <a href="https://www.odoo.com/help"><span class="fa fa-envelope-o"></span> Email Our Project Expert</a>
+                                    <a href="https://www.gerp.com/page/live-chat" target="_blank" style="margin-right:10px"><span class="fa fa-comment-o"></span> Website Live Chat on</a><br/>
+                                    <a href="https://www.gerp.com/help"><span class="fa fa-envelope-o"></span> Email Our Project Expert</a>
                                 </div>
                             </div>
                         </div>
@@ -622,7 +622,7 @@
                                 <h3><strong>Billing</strong></h3>
                                 <p>Create bills automatically based on Time &amp; Material.</p>
                                 <a t-att-href="prepare_backend_url('base.open_module_tree', 'form', 'account')"
-                                   class="btn odoo_purple">
+                                   class="btn gerp_purple">
                                     <span class="fa fa-arrow-circle-o-down"></span> Install now
                                 </a>
                             </div>
@@ -631,7 +631,7 @@
                                 <h3><strong>Notes</strong></h3>
                                 <p>Organize your company, from personal tasks to collaborative meeting minutes.</p>
                                 <a t-att-href="prepare_backend_url('base.open_module_tree', 'form', 'note')"
-                                   class="btn odoo_purple">
+                                   class="btn gerp_purple">
                                     <span class="fa fa-arrow-circle-o-down"></span> Install now
                                 </a>
                             </div>
@@ -998,8 +998,8 @@
                             <div class="col-md-4 col-xs-12">
                                 <div class="well well-lg">
                                     <strong>Contact us now:</strong><br/>
-                                    <a href="https://www.odoo.com/page/live-chat" target="_blank" style="margin-right:10px"><span class="fa fa-comment-o"></span> Website Live Chat on</a><br/>
-                                    <a href="https://www.odoo.com/help"><span class="fa fa-envelope-o"></span> Email Our Project Expert</a>
+                                    <a href="https://www.gerp.com/page/live-chat" target="_blank" style="margin-right:10px"><span class="fa fa-comment-o"></span> Website Live Chat on</a><br/>
+                                    <a href="https://www.gerp.com/help"><span class="fa fa-envelope-o"></span> Email Our Project Expert</a>
                                 </div>
                             </div>
                         </div>
@@ -1016,9 +1016,9 @@
                 <div class="text-center">
                     <h1>Congratulations, you're done !</h1>
                     <h3>We hope this process helped you implement our project management application.</h3>
-                    <h4>Don't hesitate to <a href="mailto:info@odoo.com?subject=Project%20Planner">send us an email</a> to describe<br/> your experience or to suggest improvements !</h4>
+                    <h4>Don't hesitate to <a href="mailto:info@gerp.com?subject=Project%20Planner">send us an email</a> to describe<br/> your experience or to suggest improvements !</h4>
                     <p>- The Odoo Team</p>
-                    <img src="/web_planner/static/src/img/odoo_logo.png"/>
+                    <img src="/web_planner/static/src/img/gerp_logo.png"/>
                 </div>
             </t>
         </t>
@@ -1036,4 +1036,4 @@
         </field>
     </record>
 
-</odoo>
+</gerp>

@@ -1,4 +1,4 @@
-odoo.define('web.calendar_tests', function (require) {
+gerp.define('web.calendar_tests', function (require) {
 "use strict";
 
 var CalendarView = require('web.CalendarView');

@@ -3,7 +3,7 @@
 # * iap
 # 
 # Translators:
-# Raquel Iciarte <ric@odoo.com>, 2017
+# Raquel Iciarte <ric@gerp.com>, 2017
 # e2f_es_ t6 <e2f_es_t6@outlook.com>, 2017
 # Pedro M. Baeza <pedro.baeza@gmail.com>, 2017
 # e2f_EPV Translator <e2f_EPV@outlook.com>, 2017
@@ -14,7 +14,7 @@ msgstr ""
 "POT-Creation-Date: 2017-10-10 11:35+0000\n"
 "PO-Revision-Date: 2017-10-10 11:35+0000\n"
 "Last-Translator: e2f_EPV Translator <e2f_EPV@outlook.com>, 2017\n"
-"Language-Team: Spanish (https://www.transifex.com/odoo/teams/41243/es/)\n"
+"Language-Team: Spanish (https://www.transifex.com/gerp/teams/41243/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"

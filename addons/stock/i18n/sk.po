@@ -14,7 +14,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:06+0000\n"
 "PO-Revision-Date: 2016-05-22 08:02+0000\n"
 "Last-Translator: Jaroslav Bosansky <jaro.bosansky@ekoenergo.sk>\n"
-"Language-Team: Slovak (http://www.transifex.com/odoo/odoo-9/language/sk/)\n"
+"Language-Team: Slovak (http://www.transifex.com/gerp/gerp-9/language/sk/)\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -246,81 +246,81 @@ msgstr "- Odoo Tím"
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">'Available'</"
+"<span class=\"label label-default text-center gerp_purple\">'Available'</"
 "span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">'Dostupné'</span>"
+"<span class=\"label label-default text-center gerp_purple\">'Dostupné'</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Click on <span "
+"<span class=\"label label-default text-center gerp_purple\">Click on <span "
 "class=\"fa fa-truck\"/> Delivery</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Kliknite na "
+"<span class=\"label label-default text-center gerp_purple\">Kliknite na "
 "<span class=\"fa fa-truck\"/> Dodanie</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Click on <span "
+"<span class=\"label label-default text-center gerp_purple\">Click on <span "
 "class=\"fa fa-truck\"/> Shipment</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Kliknite na "
+"<span class=\"label label-default text-center gerp_purple\">Kliknite na "
 "<span class=\"fa fa-truck\"/> Zásielka</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Confirm Order</"
+"<span class=\"label label-default text-center gerp_purple\">Confirm Order</"
 "span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Potvrdiť "
+"<span class=\"label label-default text-center gerp_purple\">Potvrdiť "
 "objednávku</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Confirm Sale</"
+"<span class=\"label label-default text-center gerp_purple\">Confirm Sale</"
 "span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Potvrdiť predaj</"
+"<span class=\"label label-default text-center gerp_purple\">Potvrdiť predaj</"
 "span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Find Incoming "
+"<span class=\"label label-default text-center gerp_purple\">Find Incoming "
 "Shipments</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Nájsť príchodzie "
+"<span class=\"label label-default text-center gerp_purple\">Nájsť príchodzie "
 "zásielky</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Process the "
+"<span class=\"label label-default text-center gerp_purple\">Process the "
 "products</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Spracovať "
+"<span class=\"label label-default text-center gerp_purple\">Spracovať "
 "produkty</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Validate the "
+"<span class=\"label label-default text-center gerp_purple\">Validate the "
 "Delivery</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Potvrdiť "
+"<span class=\"label label-default text-center gerp_purple\">Potvrdiť "
 "dodanie</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Validate the "
+"<span class=\"label label-default text-center gerp_purple\">Validate the "
 "Receipt Order</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Potvrdiť "
+"<span class=\"label label-default text-center gerp_purple\">Potvrdiť "
 "prijatie objednávky</span>"
 
 #. module: stock
@@ -7653,8 +7653,8 @@ msgstr ""
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "feedback@mail.odoo.com"
-msgstr "feedback@mail.odoo.com"
+msgid "feedback@mail.gerp.com"
+msgstr "feedback@mail.gerp.com"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner

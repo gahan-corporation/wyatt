@@ -1,4 +1,4 @@
-odoo.define('pos_reprint.pos_reprint', function (require) {
+gerp.define('pos_reprint.pos_reprint', function (require) {
 "use strict";
 
 var screens = require('point_of_sale.screens');

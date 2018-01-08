@@ -1,4 +1,4 @@
-odoo.define('pos_mercury.pos_mercury', function (require) {
+gerp.define('pos_mercury.pos_mercury', function (require) {
 "use strict";
 
 var core    = require('web.core');
@@ -266,7 +266,7 @@ ScreenWidget.include({
 
 // On Payment screen, allow electronic payments
 PaymentScreenWidget.include({
-    // How long we wait for the odoo server to deliver the response of
+    // How long we wait for the gerp server to deliver the response of
     // a Mercury transaction
     server_timeout_in_ms: 95000,
 

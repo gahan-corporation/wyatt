@@ -6,7 +6,7 @@
     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 -->
 
-<odoo>
+<gerp>
     <data>
 		<template id="assets_backend" name="Backend Theme" inherit_id="web.assets_backend">
 			<xpath expr=".">
@@ -21,4 +21,4 @@
 			</xpath>
 		</template>
     </data>
-</odoo>
+</gerp>

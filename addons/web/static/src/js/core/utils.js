@@ -1,4 +1,4 @@
-odoo.define('web.utils', function (require) {
+gerp.define('web.utils', function (require) {
 "use strict";
 
 /**

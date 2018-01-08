@@ -1,4 +1,4 @@
-odoo.define('website_event_questions.website_event_questions', function (require) {
+gerp.define('website_event_questions.website_event_questions', function (require) {
 'use strict';
 
 var EventRegistrationForm = require('website_event.website_event');

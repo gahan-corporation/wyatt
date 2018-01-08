@@ -11,7 +11,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2016-02-16 06:55+0000\n"
 "Last-Translator: Rick Hunter <rick_hunter_ec@yahoo.com>\n"
-"Language-Team: Spanish (Ecuador) (http://www.transifex.com/odoo/odoo-9/"
+"Language-Team: Spanish (Ecuador) (http://www.transifex.com/gerp/gerp-9/"
 "language/es_EC/)\n"
 "Language: es_EC\n"
 "MIME-Version: 1.0\n"
@@ -243,8 +243,8 @@ msgstr "e.g. Motor de búsqueda, página de sitio web"
 
 #. module: website_links
 #: model:ir.ui.view,arch_db:website_links.create_shorten_url
-msgid "e.g. https://www.odoo.com/page/contactus"
-msgstr "ejemplo. https://www.odoo.com/page/contactus"
+msgid "e.g. https://www.gerp.com/page/contactus"
+msgstr "ejemplo. https://www.gerp.com/page/contactus"
 
 #. module: website_links
 #. openerp-web

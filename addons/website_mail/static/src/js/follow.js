@@ -1,4 +1,4 @@
-odoo.define('website_mail.follow', function (require) {
+gerp.define('website_mail.follow', function (require) {
 'use strict';
 
 var sAnimation = require('website.content.snippets.animation');

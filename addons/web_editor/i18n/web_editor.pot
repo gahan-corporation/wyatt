@@ -1592,7 +1592,7 @@ msgstr ""
 #. openerp-web
 #: code:addons/web_editor/static/src/xml/editor.xml:113
 #, python-format
-msgid "https://www.odoo.com/logo.png"
+msgid "https://www.gerp.com/logo.png"
 msgstr ""
 
 #. module: web_editor

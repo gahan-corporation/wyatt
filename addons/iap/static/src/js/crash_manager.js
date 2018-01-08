@@ -1,4 +1,4 @@
-odoo.define('iap.CrashManager', function (require) {
+gerp.define('iap.CrashManager', function (require) {
 "use strict";
 
 var ajax = require('web.ajax');
@@ -14,7 +14,7 @@ CrashManager.include({
      * @override
      */
     rpc_error: function (error) {
-        if (error.data.name === "odoo.addons.iap.models.iap.InsufficientCreditError") {
+        if (error.data.name === "gerp.addons.iap.models.iap.InsufficientCreditError") {
             var error_data = JSON.parse(error.data.message);
             ajax.jsonRpc('/web/dataset/call_kw', 'call', {
                 model:  'iap.account',
@@ -29,7 +29,7 @@ CrashManager.include({
                 new Dialog(this, {
                     size: 'large',
                     title: error_data.title || _t("Insufficient Balance"),
-                    $content: $(QWeb.render('iap.redirect_to_odoo_credit', {
+                    $content: $(QWeb.render('iap.redirect_to_gerp_credit', {
                         data: error_data,
                     })).css('padding', 0),
                     buttons: [

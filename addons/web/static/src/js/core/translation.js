@@ -1,5 +1,5 @@
 
-odoo.define('web.translation', function (require) {
+gerp.define('web.translation', function (require) {
 "use strict";
 
 var Class = require('web.Class');

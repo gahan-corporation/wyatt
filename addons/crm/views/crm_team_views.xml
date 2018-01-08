@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<gerp>
 
         <!-- CRM lead search by Salesteams -->
         <record id="crm_case_form_view_salesteams_lead" model="ir.actions.act_window">
@@ -261,4 +261,4 @@
             <field name="domain">['|', ('res_model_id', '=', False), ('res_model_id.model', 'in', ['crm.lead', 'res.partner'])]</field>
         </record>
 
-</odoo>
+</gerp>

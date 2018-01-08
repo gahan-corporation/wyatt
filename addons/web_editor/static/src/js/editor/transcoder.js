@@ -1,4 +1,4 @@
-odoo.define('web_editor.transcoder', function (require) {
+gerp.define('web_editor.transcoder', function (require) {
 'use strict';
 
 var widget = require('web_editor.widget');

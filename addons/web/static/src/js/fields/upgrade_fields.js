@@ -1,4 +1,4 @@
-odoo.define('web.upgrade_widgets', function (require) {
+gerp.define('web.upgrade_widgets', function (require) {
 "use strict";
 
 /**
@@ -31,7 +31,7 @@ var AbstractFieldUpgrade = {
     //--------------------------------------------------------------------------
 
     /**
-     * Redirects the user to the odoo-enterprise/uprade page
+     * Redirects the user to the gerp-enterprise/uprade page
      *
      * @private
      * @returns {Deferred}
@@ -43,7 +43,7 @@ var AbstractFieldUpgrade = {
                 args: [[["share", "=", false]]],
             })
             .then(function (data) {
-                framework.redirect("https://www.odoo.com/odoo-enterprise/upgrade?num_users=" + data);
+                framework.redirect("https://www.gerp.com/gerp-enterprise/upgrade?num_users=" + data);
             });
     },
     /**

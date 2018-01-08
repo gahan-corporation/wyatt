@@ -1,4 +1,4 @@
-odoo.define('web.time_tests', function (require) {
+gerp.define('web.time_tests', function (require) {
 "use strict";
 
 var time = require('web.time');

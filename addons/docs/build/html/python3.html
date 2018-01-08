@@ -100,7 +100,7 @@ until Python 2 support is dropped</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">In the <em>very rare</em> cases where you <em>need</em> to differentiate between
-Python 2 and Python 3, use the <code class="xref py py-data docutils literal"><span class="pre">odoo.tools.pycompat.PY2</span></code> flag.</p>
+Python 2 and Python 3, use the <code class="xref py py-data docutils literal"><span class="pre">gerp.tools.pycompat.PY2</span></code> flag.</p>
 </div>
 </div>
 <div class="section" id="semantics-changes">
@@ -123,7 +123,7 @@ order of iteration)</li>
 <li>using different checking method (e.g. when serialising sets or dictionaries
 and checking against the specific serialised value)</li>
 <li>fixing dependencies</li>
-<li>using a <code class="docutils literal"><span class="pre">collections.OrderedDict</span></code> or <code class="docutils literal"><span class="pre">odoo.tools.misc.OrderedSet</span></code> instead
+<li>using a <code class="docutils literal"><span class="pre">collections.OrderedDict</span></code> or <code class="docutils literal"><span class="pre">gerp.tools.misc.OrderedSet</span></code> instead
 of a regular one, they guarantee order of iteration is order of insertion</li>
 <li>sorting the collection’s items before iterating over them (this may require
 adding some sort of iteration key to the items)</li>
@@ -154,7 +154,7 @@ of Python 3’s <code class="docutils literal"><span class="pre">urllib.parse</s
 </div>
 </li>
 <li><p class="first"><code class="docutils literal"><span class="pre">cgi.escape</span></code> (HTML escaping) is deprecated in Python 3, prefer Odoo’s own
-<code class="xref py py-func docutils literal"><span class="pre">odoo.tools.misc.html_encode()</span></code>.</p>
+<code class="xref py py-func docutils literal"><span class="pre">gerp.tools.misc.html_encode()</span></code>.</p>
 </li>
 <li><p class="first">Most of <code class="docutils literal"><span class="pre">types</span></code>’s content has been stripped out in Python 3: only
 “internal” interpreter types (e.g. CodeType, FrameType, …) have been left
@@ -178,7 +178,7 @@ next to it before checking if there is a package called that on the
 PYTHONPATH.</p>
 <p>Furthermore if a sibling file is named the same as top-level package, the
 library becomes inaccessible to both the file itself ans siblings, this has
-actually happened in Odoo with <code class="xref py py-mod docutils literal"><span class="pre">odoo.tools.mimetypes</span></code>.</p>
+actually happened in Odoo with <code class="xref py py-mod docutils literal"><span class="pre">gerp.tools.mimetypes</span></code>.</p>
 <p>Additionally, relative imports allow navigating “up” the tree by using
 multiple leading <code class="docutils literal"><span class="pre">.</span></code>.</p>
 <div class="admonition note">
@@ -326,7 +326,7 @@ under the single <code class="docutils literal"><span class="pre">int</span></co
 <li>the <code class="docutils literal"><span class="pre">L</span></code> suffix for integer literals must be removed</li>
 <li>calls to <code class="docutils literal"><span class="pre">long</span></code> must be replaced by calls to <code class="docutils literal"><span class="pre">int</span></code></li>
 <li><code class="docutils literal"><span class="pre">(int,</span> <span class="pre">long)</span></code> for type-checking purposes must be replaced by
-<code class="xref py py-data docutils literal"><span class="pre">odoo.tools.pycompat.integer_types</span></code></li>
+<code class="xref py py-data docutils literal"><span class="pre">gerp.tools.pycompat.integer_types</span></code></li>
 </ul>
 </div>
 <ul>
@@ -428,7 +428,7 @@ or a text string <a class="footnote-reference" href="#native-string" id="id2">[2
 </ul>
 <p>For best cross-version compatibility you should avoid unprefixed string
 literals unless you <em>specifically</em> need a “native string” <a class="footnote-reference" href="#native-string" id="id3">[2]</a>.</p>
-<p>For easier type-testing, <code class="xref py py-mod docutils literal"><span class="pre">odoo.tools.pycompat</span></code> provides the following
+<p>For easier type-testing, <code class="xref py py-mod docutils literal"><span class="pre">gerp.tools.pycompat</span></code> provides the following
 constants:</p>
 <ul class="simple">
 <li><code class="xref py py-data docutils literal"><span class="pre">string_types</span></code> is an alias/type tuple for testing
@@ -482,8 +482,8 @@ encoding support at all) and extracts bytestring values</li>
 <p>However with respect to Odoo it turns out most or all uses of <code class="docutils literal"><span class="pre">csv</span></code> fit
 inside a model of <em>byte stream to and from text values</em>.</p>
 <p>The latter is thus a model implemented by cross-version wrappers
-<code class="xref py py-func docutils literal"><span class="pre">odoo.tools.pycompat.csv_reader()</span></code> and
-<code class="xref py py-func docutils literal"><span class="pre">odoo.tools.pycompat.csv_writer()</span></code>: they take a <em>UTF-8 byte stream</em> and
+<code class="xref py py-func docutils literal"><span class="pre">gerp.tools.pycompat.csv_reader()</span></code> and
+<code class="xref py py-func docutils literal"><span class="pre">gerp.tools.pycompat.csv_writer()</span></code>: they take a <em>UTF-8 byte stream</em> and
 read or write <em>text</em> values.</p>
 <table class="docutils footnote" frame="void" id="bytes" rules="none">
 <colgroup><col class="label" /><col /></colgroup>

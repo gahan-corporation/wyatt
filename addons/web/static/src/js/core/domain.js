@@ -1,4 +1,4 @@
-odoo.define("web.Domain", function (require) {
+gerp.define("web.Domain", function (require) {
 "use strict";
 
 var collections = require("web.collections");

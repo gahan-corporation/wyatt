@@ -1,4 +1,4 @@
-odoo.define('website_forum.share', function (require) {
+gerp.define('website_forum.share', function (require) {
 'use strict';
 
 require('web.dom_ready');

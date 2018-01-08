@@ -1,4 +1,4 @@
-odoo.define('website_sale.payment', function (require) {
+gerp.define('website_sale.payment', function (require) {
 "use strict";
 
 $(document).ready(function () {

@@ -1,4 +1,4 @@
-odoo.define('web.basic_fields', function (require) {
+gerp.define('web.basic_fields', function (require) {
 "use strict";
 
 /**
@@ -2370,7 +2370,7 @@ var FieldDomain = AbstractField.extend({
 var AceEditor = DebouncedField.extend({
     template: "AceEditor",
     jsLibs: [
-        '/web/static/lib/ace/ace.odoo-custom.js',
+        '/web/static/lib/ace/ace.gerp-custom.js',
         [
             '/web/static/lib/ace/mode-python.js',
             '/web/static/lib/ace/mode-xml.js'

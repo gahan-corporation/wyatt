@@ -1,5 +1,5 @@
 /*global $, _, PDFJS */
-odoo.define('website_slides.slides', function (require) {
+gerp.define('website_slides.slides', function (require) {
 "use strict";
 
 var ajax = require('web.ajax');

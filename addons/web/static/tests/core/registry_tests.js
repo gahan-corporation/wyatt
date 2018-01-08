@@ -1,4 +1,4 @@
-odoo.define('web.registry_tests', function (require) {
+gerp.define('web.registry_tests', function (require) {
 "use strict";
 
 var Registry = require('web.Registry');

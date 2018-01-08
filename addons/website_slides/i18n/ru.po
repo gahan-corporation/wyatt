@@ -6,7 +6,7 @@
 # Masha Koc <mariya.kos.ua@gmail.com>, 2017
 # Эдуард Манятовский <manyatovskiy@gmail.com>, 2017
 # Evgeny <transingularity@gmail.com>, 2017
-# Martin Trigaux <mat@odoo.com>, 2017
+# Martin Trigaux <mat@gerp.com>, 2017
 # SV <sv@grimmette.ru>, 2017
 # Viola Green <violamakarova@hotmail.com>, 2017
 # Vladimir Lukianov <lvm.mobile@gmail.com>, 2017
@@ -20,7 +20,7 @@ msgstr ""
 "POT-Creation-Date: 2017-10-02 11:27+0000\n"
 "PO-Revision-Date: 2017-10-02 11:27+0000\n"
 "Last-Translator: Владимир Куряев <istercul@gmail.com>, 2017\n"
-"Language-Team: Russian (https://www.transifex.com/odoo/teams/41243/ru/)\n"
+"Language-Team: Russian (https://www.transifex.com/gerp/teams/41243/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -552,14 +552,14 @@ msgstr ""
 msgid ""
 "Discover how you can integrate MRP, PLM, Quality and Maintenance in a single application to maximize the efficiency of your manufacturing operations.\n"
 "\n"
-"Read more about the features at: https://www.odoo.com/page/manufacturing-features\n"
+"Read more about the features at: https://www.gerp.com/page/manufacturing-features\n"
 "\n"
-"Discover Odoo MRP: https://www.odoo.com/page/manufacturing"
+"Discover Odoo MRP: https://www.gerp.com/page/manufacturing"
 msgstr ""
 
 #. module: website_slides
 #: model:slide.slide,description:website_slides.slide_1
-msgid "Discover the CRM sales people love https://www.odoo.com/page/crm"
+msgid "Discover the CRM sales people love https://www.gerp.com/page/crm"
 msgstr ""
 
 #. module: website_slides
@@ -567,11 +567,11 @@ msgstr ""
 msgid ""
 "Discover the all-in-one business management software solution that fits any business size and use case.\n"
 "\n"
-"Learn more at https://odoo.com"
+"Learn more at https://gerp.com"
 msgstr ""
 "Откройте для себя программное решение для управления бизнес-все-в-одном, который подходит для любого размера бизнеса и случай использования.\n"
 "\n"
-" Узнайте больше на https://odoo.com"
+" Узнайте больше на https://gerp.com"
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide_dislikes
@@ -836,7 +836,7 @@ msgstr "Последние опубликованные"
 
 #. module: website_slides
 #: model:slide.slide,description:website_slides.slide_8
-msgid "Learn more at https://www.odoo.com/page/sales"
+msgid "Learn more at https://www.gerp.com/page/sales"
 msgstr ""
 
 #. module: website_slides
@@ -1221,11 +1221,11 @@ msgstr "Извините, но ничего не соответствует ва
 msgid ""
 "Stop doing manual printing and scanning. Move to electronic signature with Odoo Sign!\n"
 "\n"
-"Discover more at https://www.odoo.com/page/sign"
+"Discover more at https://www.gerp.com/page/sign"
 msgstr ""
 "Прекратите делать ручной печати и сканирования. Переход к электронной подписи с Odoo знак!\n"
 "\n"
-"Узнайте больше на сайте https://www.odoo.com/page/sign"
+"Узнайте больше на сайте https://www.gerp.com/page/sign"
 
 #. module: website_slides
 #: model:ir.ui.view,arch_db:website_slides.view_slide_tag_form
@@ -1426,7 +1426,7 @@ msgstr "Ожидание проверки"
 msgid ""
 "Warehouse management software for the 21st century.\n"
 "\n"
-"Discover Odoo Inventory: https://www.odoo.com/page/warehouse"
+"Discover Odoo Inventory: https://www.gerp.com/page/warehouse"
 msgstr ""
 
 #. module: website_slides

@@ -11,7 +11,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2016-05-29 19:38+0000\n"
 "Last-Translator: Virginia Castro <castrovirginia88@gmail.com>\n"
-"Language-Team: Spanish (Argentina) (http://www.transifex.com/odoo/odoo-9/"
+"Language-Team: Spanish (Argentina) (http://www.transifex.com/gerp/gerp-9/"
 "language/es_AR/)\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
@@ -3004,7 +3004,7 @@ msgstr ""
 
 #. module: website_forum
 #: model:ir.ui.view,arch_db:website_forum.new_link
-msgid "e.g. https://www.odoo.com"
+msgid "e.g. https://www.gerp.com"
 msgstr ""
 
 #. module: website_forum

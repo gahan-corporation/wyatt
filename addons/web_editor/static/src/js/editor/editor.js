@@ -1,4 +1,4 @@
-odoo.define('web_editor.editor', function (require) {
+gerp.define('web_editor.editor', function (require) {
 'use strict';
 
 var Dialog = require('web.Dialog');

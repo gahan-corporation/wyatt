@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<gerp>
 
         <!-- add google drive config field in user form -->
         <record id="view_google_drive_config_tree" model="ir.ui.view">
@@ -100,4 +100,4 @@
             </field>
         </record>
 
-</odoo>
+</gerp>

@@ -1,4 +1,4 @@
-odoo.define('web.relational_fields', function (require) {
+gerp.define('web.relational_fields', function (require) {
 "use strict";
 
 /**

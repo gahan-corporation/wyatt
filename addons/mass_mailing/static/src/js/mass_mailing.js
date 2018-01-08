@@ -1,4 +1,4 @@
-odoo.define('mass_mailing.mass_mailing', function (require) {
+gerp.define('mass_mailing.mass_mailing', function (require) {
 
 var FieldTextHtml = require('web_editor.backend').FieldTextHtml;
 var KanbanRecord = require('web.KanbanRecord');

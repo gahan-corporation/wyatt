@@ -1,4 +1,4 @@
-odoo.define('website_sale.cart', function (require) {
+gerp.define('website_sale.cart', function (require) {
     "use strict";
 
     require('web.dom_ready');
@@ -46,7 +46,7 @@ odoo.define('website_sale.cart', function (require) {
     });
 });
 
-odoo.define('website_sale.website_sale_category', function (require) {
+gerp.define('website_sale.website_sale_category', function (require) {
     "use strict";
 
     require('web.dom_ready');
@@ -67,7 +67,7 @@ odoo.define('website_sale.website_sale_category', function (require) {
     });
 });
 
-odoo.define('website_sale.website_sale', function (require) {
+gerp.define('website_sale.website_sale', function (require) {
     "use strict";
 
     require('web.dom_ready');
@@ -76,7 +76,7 @@ odoo.define('website_sale.website_sale', function (require) {
     var utils = require('web.utils');
     var core = require('web.core');
     var config = require('web.config');
-    require("website.content.zoomodoo");
+    require("website.content.zoomgerp");
     var _t = core._t;
 
     if(!$('.oe_website_sale').length) {

@@ -1,4 +1,4 @@
-odoo.define('pos_restaurant.multiprint', function (require) {
+gerp.define('pos_restaurant.multiprint', function (require) {
 "use strict";
 
 var models = require('point_of_sale.models');

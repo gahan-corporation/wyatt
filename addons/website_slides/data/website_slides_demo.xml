@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<gerp>
     <data>
 
         <record id="category_1" model="slide.category">
@@ -37,9 +37,9 @@
             <field name="image" type="base64" file="website_slides/data/demo-thumbnails/QtIU0p8daAo.jpg"/>
             <field name="description">Discover how you can integrate MRP, PLM, Quality and Maintenance in a single application to maximize the efficiency of your manufacturing operations.
 
-Read more about the features at: https://www.odoo.com/page/manufacturing-features
+Read more about the features at: https://www.gerp.com/page/manufacturing-features
 
-Discover Odoo MRP: https://www.odoo.com/page/manufacturing</field>
+Discover Odoo MRP: https://www.gerp.com/page/manufacturing</field>
         </record>
         <record id="slide_1" model="slide.slide">
             <field name="name">Odoo CRM</field>
@@ -51,7 +51,7 @@ Discover Odoo MRP: https://www.odoo.com/page/manufacturing</field>
             <field name="website_published" eval="True"/>
             <field name="tag_ids" eval="[(4, ref('tag1'))]"/>
             <field name="image" type="base64" file="website_slides/data/demo-thumbnails/fgdz8MH2YHY.jpg"/>
-            <field name="description">Discover the CRM sales people love https://www.odoo.com/page/crm</field>
+            <field name="description">Discover the CRM sales people love https://www.gerp.com/page/crm</field>
         </record>
         <record id="slide_2" model="slide.slide">
             <field name="name">Odoo All-in-One Software Demonstration</field>
@@ -65,7 +65,7 @@ Discover Odoo MRP: https://www.odoo.com/page/manufacturing</field>
             <field name="image" type="base64" file="website_slides/data/demo-thumbnails/tUx39vAENy0.jpg"/>
             <field name="description">Discover the all-in-one business management software solution that fits any business size and use case.
 
-Learn more at https://odoo.com</field>
+Learn more at https://gerp.com</field>
         </record>
         <record id="slide_3" model="slide.slide">
             <field name="name">Odoo Sign Demonstration</field>
@@ -79,7 +79,7 @@ Learn more at https://odoo.com</field>
             <field name="image" type="base64" file="website_slides/data/demo-thumbnails/8DBabYQ1nUE.jpg"/>
             <field name="description">Stop doing manual printing and scanning. Move to electronic signature with Odoo Sign!
 
-Discover more at https://www.odoo.com/page/sign</field>
+Discover more at https://www.gerp.com/page/sign</field>
         </record>
         <record id="slide_5" model="slide.slide">
             <field name="name">Awesome Timesheet by Odoo</field>
@@ -120,7 +120,7 @@ iOS: http://bit.ly/1ZUZsZD</field>
             <field name="image" type="base64" file="website_slides/data/demo-thumbnails/Vp5xqQOWLzE.jpg"/>
             <field name="description">Warehouse management software for the 21st century.
 
-Discover Odoo Inventory: https://www.odoo.com/page/warehouse</field>
+Discover Odoo Inventory: https://www.gerp.com/page/warehouse</field>
         </record>
         <record id="slide_8" model="slide.slide">
             <field name="name">Odoo Sales</field>
@@ -132,7 +132,7 @@ Discover Odoo Inventory: https://www.odoo.com/page/warehouse</field>
             <field name="website_published" eval="True"/>
             <field name="tag_ids" eval="[(4, ref('tag1')), (4, ref('tag2'))]"/>
             <field name="image" type="base64" file="website_slides/data/demo-thumbnails/VMuCr5_arsY.jpg"/>
-            <field name="description">Learn more at https://www.odoo.com/page/sales</field>
+            <field name="description">Learn more at https://www.gerp.com/page/sales</field>
         </record>
 
         <record id="slide_9" model="slide.slide">
@@ -163,8 +163,8 @@ Discover Odoo Inventory: https://www.odoo.com/page/warehouse</field>
 
         <record id="slide_11" model="slide.slide">
             <field name="name">OpenSource CMS, A performance comparison - Mantavya Gajjar</field>
-            <field name="datas" type="base64" file="website_slides/static/src/img/odoo-cms-comparision.pdf"/>
-            <field name="image" type="base64" file="website_slides/static/src/img/odoo-cms-comparision.png"/>
+            <field name="datas" type="base64" file="website_slides/static/src/img/gerp-cms-comparision.pdf"/>
+            <field name="image" type="base64" file="website_slides/static/src/img/gerp-cms-comparision.png"/>
             <field name="slide_type">presentation</field>
             <field name="channel_id" ref="channel_public"/>
             <field name="category_id" ref="category_2"/>
@@ -233,14 +233,14 @@ Discover Odoo Inventory: https://www.odoo.com/page/warehouse</field>
 60. W3C Check Odoo's main problem o Element meta is missing one or more of the following attributes: content, property. o An img element must have an alt attribute, except under certain conditions o The width attribute on the table element is obsolete. Use CSS instead. Team is working on those issues , will be fxed soon
 61. Maintainability lines of code and contributors
 62. Test 1 : Source Code Comparision between : o Odoo : includes all modules. I.e accounting, wms, mrp, websites, etc... o Drupal, Magento and Prestashop : only core modules Odoo is : o 1.3x times smaller then the drupal o 5.5x times smaller then the magento o 1.9x times smaller then the prestashop
-63. Odoo Statistic provided by ohloh.net available at https://www.ohloh.net/p/odoo
+63. Odoo Statistic provided by ohloh.net available at https://www.ohloh.net/p/gerp
 64. Drupal Statistic provided by ohloh.net available at https://www.ohloh.net/p/drupal
 65. Magento Statistic provided by ohloh.net available at https://www.ohloh.net/p/magento
 66. Prestashop Statistic provided by ohloh.net available at https://www.ohloh.net/p/PrestaShop
 67. Conclusion
 68. Conclusion Performance : o Odoo is 3x times faster than the Drupal o Odoo is 6x times faster than the Magento o Odoo is 2x times faster than the Prestashop Scalability : o Odoo timeout at 198 users o Drupal timeout at 125 users o Magento timeout at 148 users o Prestashop timeout at 104 users Maintainability : o 1.3x times smaller then the drupal o 5.5x times smaller then the magento o 1.9x times smaller then the prestashop
 69. Questions ?
-70. Odoo sales@odoo.com +32 (0) 2 290 34 90 www.odoo.com R&amp;D and services offce Chaussée de Namur 40 B-1367 Grand Rosière Sales offce Avenue Van Nieuwenhuyse 6 B-1160 Brussels Thank You</field>
+70. Odoo sales@gerp.com +32 (0) 2 290 34 90 www.gerp.com R&amp;D and services offce Chaussée de Namur 40 B-1367 Grand Rosière Sales offce Avenue Van Nieuwenhuyse 6 B-1160 Brussels Thank You</field>
         </record>
 
         <record model="slide.channel" id="channel_public">
@@ -249,5 +249,5 @@ Discover Odoo Inventory: https://www.odoo.com/page/warehouse</field>
         </record>
 
   </data>
-</odoo>
+</gerp>
 

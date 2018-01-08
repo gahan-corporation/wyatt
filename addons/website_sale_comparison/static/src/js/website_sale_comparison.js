@@ -1,4 +1,4 @@
-odoo.define('website_sale_comparison.comparison', function (require) {
+gerp.define('website_sale_comparison.comparison', function (require) {
 "use strict";
 
 require('web.dom_ready')

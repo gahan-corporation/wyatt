@@ -1,4 +1,4 @@
-odoo.define('web_kanban.KanbanView', function (require) {
+gerp.define('web_kanban.KanbanView', function (require) {
 "use strict";
 
 var core = require('web.core');

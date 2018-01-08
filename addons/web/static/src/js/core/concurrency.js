@@ -1,4 +1,4 @@
-odoo.define('web.concurrency', function (require) {
+gerp.define('web.concurrency', function (require) {
 "use strict";
 
 /**

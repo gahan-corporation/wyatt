@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<gerp>
     <act_window
         context="{'location': active_id, 'search_default_real_stock_available': 1, 'search_default_virtual_stock_available': 1,
                     'search_default_virtual_stock_negative': 1, 'search_default_real_stock_negative': 1}"
@@ -309,4 +309,4 @@
 
         <menuitem id="menu_routes_config" action="action_routes_form" name="Routes" parent="menu_warehouse_config" sequence="3" groups="stock.group_adv_location"/>
 
-</odoo>
+</gerp>

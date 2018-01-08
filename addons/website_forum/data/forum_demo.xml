@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<gerp>
     <data>
 
         <!-- Set demo karma for test tour as demo user-->
@@ -62,7 +62,7 @@ In simple words does Odoo became CMS+ERP platform?</p>]]></field>
         <record id="answer_1" model="forum.post">
             <field name="forum_id" ref="website_forum.forum_help"/>
             <field name="content"><![CDATA[
-<p>Odoo v8 (next release) provides a web module and an e-commerce module: www.odoo.com/page/website-builder
+<p>Odoo v8 (next release) provides a web module and an e-commerce module: www.gerp.com/page/website-builder
 The CMS editor in Odoo web is nice but I prefer Drupal for customization and there is a Drupal module for Odoo. I think WP is better than Odoo web too.
 </p>]]></field>
             <field name="parent_id" ref="question_1"/>
@@ -71,7 +71,7 @@ The CMS editor in Odoo web is nice but I prefer Drupal for customization and the
 
         <!-- Article-->
         <record id="article_0" model="forum.post">
-            <field name="content_link">https://www.odoo.com</field>
+            <field name="content_link">https://www.gerp.com</field>
             <field name="name">Discover Odoo, an open source ERP.</field>
             <field name="forum_id" ref="website_forum.forum_help"/>
             <field name="post_type">link</field>
@@ -130,4 +130,4 @@ Are there any automation scripts available I might use?
         <function model="gamification.challenge" name="_cron_update"/>
 
     </data>
-</odoo>
+</gerp>

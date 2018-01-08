@@ -1,4 +1,4 @@
-:banner: banners/deploying_odoo.jpg
+:banner: banners/deploying_gerp.jpg
 
 ==============
 Deploying Odoo
@@ -31,7 +31,7 @@ the website page or perform the operation. If multi-tenancy is not used that is 
 issue, there's only one database to use, but if there are multiple databases
 accessible Odoo needs a rule to know which one it should use.
 
-That is one of the purposes of :option:`--db-filter <odoo-bin --db-filter>`:
+That is one of the purposes of :option:`--db-filter <gerp-bin --db-filter>`:
 it specifies how the database should be selected based on the hostname (domain)
 that is being requested. The value is a `regular expression`_, possibly
 including the dynamically injected hostname (``%h``) or the first subdomain
@@ -46,7 +46,7 @@ Configuration samples
 
 * show only databases with names beginning with 'mycompany'
 
-in ``/etc/odoo.conf`` set:
+in ``/etc/gerp.conf`` set:
 
 .. code-block:: ini
 
@@ -58,7 +58,7 @@ in ``/etc/odoo.conf`` set:
   was sent to ``www.mycompany.com`` or ``mycompany.co.uk``, but not
   for ``www2.mycompany.com`` or ``helpdesk.mycompany.com``.
 
-in ``/etc/odoo.conf`` set:
+in ``/etc/gerp.conf`` set:
 
 .. code-block:: ini
 
@@ -66,7 +66,7 @@ in ``/etc/odoo.conf`` set:
   dbfilter = ^%d$
 
 .. note::
-  Setting a proper :option:`--db-filter <odoo-bin --db-filter>` is an important part
+  Setting a proper :option:`--db-filter <gerp-bin --db-filter>` is an important part
   of securing your deployment.
   Once it is correctly working and only matching a single database per hostname, it
   is strongly recommended to block access to the database manager screens,
@@ -116,7 +116,7 @@ in ``/etc/postgresql/9.5/main/postgresql.conf`` set:
   port = 5432
   max_connections = 80
 
-.. _setup/deploy/odoo:
+.. _setup/deploy/gerp:
 
 Configuring Odoo
 ----------------
@@ -127,7 +127,7 @@ Out of the box, Odoo connects to a local postgres over UNIX socket via port
 local and/or does not use the installation defaults.
 
 The :ref:`packaged installers <setup/install/packaged>` will automatically
-create a new user (``odoo``) and set it as the database user.
+create a new user (``gerp``) and set it as the database user.
 
 * The database management screens are protected by the ``admin_passwd``
   setting. This setting can only be set using configuration files, and is
@@ -149,11 +149,11 @@ Configuration sample
 
 * connect to a PostgreSQL server on 192.168.1.2
 * port 5432
-* using an 'odoo' user account,
+* using an 'gerp' user account,
 * with 'pwd' as a password
 * filtering only db with a name beginning with 'mycompany'
 
-in ``/etc/odoo.conf`` set:
+in ``/etc/gerp.conf`` set:
 
 .. code-block:: ini
 
@@ -161,7 +161,7 @@ in ``/etc/odoo.conf`` set:
   admin_passwd = mysupersecretpassword
   db_host = 192.168.1.2
   db_port = 5432
-  db_user = odoo
+  db_user = gerp
   db_password = pwd
   dbfilter = ^mycompany.*$
 
@@ -178,7 +178,7 @@ increases stability, makes somewhat better use of computing resources and can
 be better monitored and resource-restricted.
 
 * Multiprocessing is enabled by configuring :option:`a non-zero number of
-  worker processes <odoo-bin --workers>`, the number of workers should be based
+  worker processes <gerp-bin --workers>`, the number of workers should be based
   on the number of cores in the machine (possibly with some room for cron
   workers depending on how much cron work is predicted)
 * Worker limits can be configured based on the hardware configuration to avoid
@@ -207,12 +207,12 @@ LiveChat
 --------
 
 In multiprocessing, a dedicated LiveChat worker is automatically started and
-listening on :option:`the longpolling port <odoo-bin --longpolling-port>` but
+listening on :option:`the longpolling port <gerp-bin --longpolling-port>` but
 the client will not connect to it.
 
 Instead you must have a proxy redirecting requests whose URL starts with
 ``/longpolling/`` to the longpolling port. Other request should be proxied to
-the :option:`normal HTTP port <odoo-bin --http-port>`
+the :option:`normal HTTP port <gerp-bin --http-port>`
 
 Configuration sample
 --------------------
@@ -225,7 +225,7 @@ Configuration sample
 * We'll use 8 workers + 1 for cron. We'll also use a monitoring system to measure cpu load, and check if it's between 7 and 7.5 .
 * RAM = 9 * ((0.8*150) + (0.2*1024)) ~= 3Go RAM for Odoo
 
-in ``/etc/odoo.conf``:
+in ``/etc/gerp.conf``:
 
 .. code-block:: ini
 
@@ -248,7 +248,7 @@ authentication information in cleartext. This means a secure deployment of
 Odoo must use HTTPS\ [#switching]_. SSL termination can be implemented via
 just about any SSL termination proxy, but requires the following setup:
 
-* enable Odoo's :option:`proxy mode <odoo-bin --proxy-mode>`. This should only be enabled when Odoo is behind a reverse proxy
+* enable Odoo's :option:`proxy mode <gerp-bin --proxy-mode>`. This should only be enabled when Odoo is behind a reverse proxy
 * set up the SSL termination proxy (`Nginx termination example`_)
 * set up the proxying itself (`Nginx proxying example`_)
 * your SSL termination proxy should also automatically redirect non-secure
@@ -264,41 +264,41 @@ Configuration sample
 --------------------
 
 * redirect http requests to https
-* proxy requests to odoo
+* proxy requests to gerp
 
-in ``/etc/odoo.conf`` set:
+in ``/etc/gerp.conf`` set:
 
 .. code-block:: ini
 
   proxy_mode = True
 
-in ``/etc/nginx/sites-enabled/odoo.conf`` set:
+in ``/etc/nginx/sites-enabled/gerp.conf`` set:
 
 .. code-block:: nginx
 
-  #odoo server
-  upstream odoo {
+  #gerp server
+  upstream gerp {
    server 127.0.0.1:8069;
   }
-  upstream odoochat {
+  upstream gerpchat {
    server 127.0.0.1:8072;
   }
   
   # http -> https
   server {
      listen 80;
-     server_name odoo.mycompany.com;
+     server_name gerp.mycompany.com;
      rewrite ^(.*) https://$host$1 permanent;
   }
   
   server {
    listen 443;
-   server_name odoo.mycompany.com;
+   server_name gerp.mycompany.com;
    proxy_read_timeout 720s;
    proxy_connect_timeout 720s;
    proxy_send_timeout 720s;
    
-   # Add Headers for odoo proxy mode
+   # Add Headers for gerp proxy mode
    proxy_set_header X-Forwarded-Host $host;
    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
    proxy_set_header X-Forwarded-Proto $scheme;
@@ -314,16 +314,16 @@ in ``/etc/nginx/sites-enabled/odoo.conf`` set:
    ssl_prefer_server_ciphers on;
    
    # log
-   access_log /var/log/nginx/odoo.access.log;
-   error_log /var/log/nginx/odoo.error.log;
+   access_log /var/log/nginx/gerp.access.log;
+   error_log /var/log/nginx/gerp.error.log;
    
-   # Redirect requests to odoo backend server
+   # Redirect requests to gerp backend server
    location / {
      proxy_redirect off;
-     proxy_pass http://odoo;
+     proxy_pass http://gerp;
    }
    location /longpolling {
-       proxy_pass http://odoochat;
+       proxy_pass http://gerpchat;
    }
  
    # common gzip
@@ -335,9 +335,9 @@ Odoo as a WSGI Application
 ==========================
 
 It is also possible to mount Odoo as a standard WSGI_ application. Odoo
-provides the base for a WSGI launcher script as ``odoo-wsgi.example.py``. That
+provides the base for a WSGI launcher script as ``gerp-wsgi.example.py``. That
 script should be customized (possibly after copying it from the setup directory) to correctly set the
-configuration directly in :mod:`odoo.tools.config` rather than through the
+configuration directly in :mod:`gerp.tools.config` rather than through the
 command-line or a configuration file.
 
 However the WSGI server will only expose the main HTTP endpoint for the web
@@ -349,12 +349,12 @@ Cron Workers
 
 To run cron jobs for an Odoo deployment as a WSGI application requires
 
-* a classical Odoo (run via ``odoo-bin``)
+* a classical Odoo (run via ``gerp-bin``)
 * connected to the database in which cron jobs have to be run (via
-  :option:`odoo-bin -d`)
+  :option:`gerp-bin -d`)
 * which should not be exposed to the network. To ensure cron runners are not
   network-accessible, it is possible to disable the built-in HTTP server
-  entirely with :option:`odoo-bin --no-http` or setting ``http_enable = False``
+  entirely with :option:`gerp-bin --no-http` or setting ``http_enable = False``
   in the configuration file
 
 LiveChat
@@ -376,9 +376,9 @@ The solutions to support livechat/motifications in a WSGI application are:
   one) and redirect only requests to URLs starting with ``/longpolling/`` to
   that Odoo, this is the simplest and the longpolling URL can double up as
   the cron instance.
-* deploy an evented Odoo via ``odoo-gevent`` and proxy requests starting
+* deploy an evented Odoo via ``gerp-gevent`` and proxy requests starting
   with ``/longpolling/`` to
-  :option:`the longpolling port <odoo-bin --longpolling-port>`.
+  :option:`the longpolling port <gerp-bin --longpolling-port>`.
 
 Serving Static Files
 ====================
@@ -421,27 +421,27 @@ security-related topics:
   only for controlling/managing the installation.
   *Never* use any default passwords like admin/admin, even for test/staging databases.
 
-- Use appropriate database filters ( :option:`--db-filter <odoo-bin --db-filter>`)
+- Use appropriate database filters ( :option:`--db-filter <gerp-bin --db-filter>`)
   to restrict the visibility of your databases according to the hostname.
   See :ref:`db_filter`.
-  You may also use :option:`-d <odoo-bin -d>` to provide your own (comma-separated)
+  You may also use :option:`-d <gerp-bin -d>` to provide your own (comma-separated)
   list of available databases to filter from, instead of letting the system fetch
   them all from the database backend.
 
 - Once your ``db_name`` and ``db_filter`` are configured and only match a single database
   per hostname, you should set ``list_db`` configuration option to ``False``, to prevent
   listing databases entirely, and to block access to the database management screens
-  (this is also exposed as the :option:`--no-database-list <odoo-bin --no-database-list>`
+  (this is also exposed as the :option:`--no-database-list <gerp-bin --no-database-list>`
   command-line option)
 
-- Make sure the PostgreSQL user (:option:`--db_user <odoo-bin --db_user>`) is *not* a super-user,
+- Make sure the PostgreSQL user (:option:`--db_user <gerp-bin --db_user>`) is *not* a super-user,
   and that your databases are owned by a different user. For example they could be owned by
   the ``postgres`` super-user if you are using a dedicated non-privileged ``db_user``.
-  See also :ref:`setup/deploy/odoo`.
+  See also :ref:`setup/deploy/gerp`.
 
 - Keep installations updated by regularly installing the latest builds,
   either via GitHub or by downloading the latest version from
-  https://www.odoo.com/page/download or http://nightly.odoo.com
+  https://www.gerp.com/page/download or http://nightly.gerp.com
 
 - Configure your server in multi-process mode with proper limits matching your typical
   usage (memory/CPU/timeouts). See also :ref:`builtin_server`.
@@ -450,7 +450,7 @@ security-related topics:
   in order to prevent eavesdropping on cleartext communications. SSL certificates are
   cheap, and many free options exist.
   Configure the web proxy to limit the size of requests, set appropriate timeouts,
-  and then enable the :option:`proxy mode <odoo-bin --proxy-mode>` option.
+  and then enable the :option:`proxy mode <gerp-bin --proxy-mode>` option.
   See also :ref:`https_proxy`.
 
 - Whenever possible, host your public-facing demo/test/staging instances on different
@@ -469,7 +469,7 @@ security-related topics:
 Database Manager Security
 -------------------------
 
-:ref:`setup/deploy/odoo` mentioned ``admin_passwd`` in passing.
+:ref:`setup/deploy/gerp` mentioned ``admin_passwd`` in passing.
 
 This setting is used on all database management screens (to create, delete,
 dump or restore databases).
@@ -536,4 +536,4 @@ of the supported browsers by Odoo version is the following:
 .. _use an SSH tunnel:
     http://www.postgresql.org/docs/9.3/static/ssh-tunnels.html
 .. _WSGI: http://wsgi.readthedocs.org/
-.. _POSBox: https://www.odoo.com/page/point-of-sale-hardware#part_2
+.. _POSBox: https://www.gerp.com/page/point-of-sale-hardware#part_2

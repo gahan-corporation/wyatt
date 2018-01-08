@@ -1,4 +1,4 @@
-odoo.define('web.Class', function () {
+gerp.define('web.Class', function () {
 "use strict";
 /**
  * Improved John Resig's inheritance, based on:

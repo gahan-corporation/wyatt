@@ -11,7 +11,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2016-06-13 17:56+0000\n"
 "Last-Translator: Carlos Eduardo Rodriguez Rossi <crodriguez@samemotion.com>\n"
-"Language-Team: Spanish (Peru) (http://www.transifex.com/odoo/odoo-9/language/"
+"Language-Team: Spanish (Peru) (http://www.transifex.com/gerp/gerp-9/language/"
 "es_PE/)\n"
 "Language: es_PE\n"
 "MIME-Version: 1.0\n"
@@ -242,8 +242,8 @@ msgstr "ejem. Motor de Búsqueda, Página de Sitio Web, .."
 
 #. module: website_links
 #: model:ir.ui.view,arch_db:website_links.create_shorten_url
-msgid "e.g. https://www.odoo.com/page/contactus"
-msgstr "ejem. https://www.odoo.com/page/contactus"
+msgid "e.g. https://www.gerp.com/page/contactus"
+msgstr "ejem. https://www.gerp.com/page/contactus"
 
 #. module: website_links
 #. openerp-web

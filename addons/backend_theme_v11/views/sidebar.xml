@@ -5,7 +5,7 @@
   License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). */
 -->
 
-<odoo>
+<gerp>
     <template id="app_sidebar" inherit_id="web.webclient_bootstrap" name="Apps Sidebar">
         <xpath expr="//div[@class='o_main']//div[@class='o_main_content']" position="before">
             <div id="app-sidebar" class="app-sidebar-panel">
@@ -30,4 +30,4 @@
             </div>
         </xpath>
     </template>
-</odoo>
+</gerp>

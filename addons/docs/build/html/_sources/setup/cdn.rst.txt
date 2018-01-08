@@ -32,14 +32,14 @@ Once done, you'll have to wait a bit while KeyCDN_ is crawling your website.
 .. note:: a new URL has been generated for your Zone, in this case it is
           ``http://pulltest-b49.kxcdn.com``
 
-Step 2: Configure the odoo instance with your zone
+Step 2: Configure the gerp instance with your zone
 --------------------------------------------------
 
 In the Odoo back end, go to the :guilabel:`Website Settings`: menu, then
 activate the CDN support and copy/paste your zone URL in the
 :guilabel:`CDN Base URL` field.
 
-.. image:: cdn/odoo_cdn_base_url.png
+.. image:: cdn/gerp_cdn_base_url.png
    :class: img-responsive
 
 Now your website is using the CDN for the resources matching the
@@ -48,7 +48,7 @@ Now your website is using the CDN for the resources matching the
 You can have a look to the HTML of your website in order to check if the CDN
 integration is properly working.
 
-.. image:: cdn/odoo_check_your_html.png
+.. image:: cdn/gerp_check_your_html.png
    :class: img-responsive
 
 
@@ -66,12 +66,12 @@ the remote server.
 
 Here's what you would see on your homepage in such a case:
 
-.. image:: cdn/odoo_font_file_not_loaded.png
+.. image:: cdn/gerp_font_file_not_loaded.png
    :class: img-responsive
 
 A security error message will also appear in the browser's console:
 
-.. image:: cdn/odoo_security_message.png
+.. image:: cdn/gerp_security_message.png
    :class: img-responsive
 
 Enabling the CORS option in the CDN fixes this issue.

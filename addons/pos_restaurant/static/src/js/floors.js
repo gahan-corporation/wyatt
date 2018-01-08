@@ -1,4 +1,4 @@
-odoo.define('pos_restaurant.floors', function (require) {
+gerp.define('pos_restaurant.floors', function (require) {
 "use strict";
 
 var PosBaseWidget = require('point_of_sale.BaseWidget');

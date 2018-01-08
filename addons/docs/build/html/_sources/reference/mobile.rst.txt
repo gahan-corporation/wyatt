@@ -53,7 +53,7 @@ How to use it?
 As Odoo Web Framework, Mobile api can be used anywhere by getting object of
 **web_mobile.rpc**
 
-.. image:: images/odoo_mobile_api.png
+.. image:: images/gerp_mobile_api.png
 
 Mobile rpc object provide list of methods available (Works only with Mobile
 App). 

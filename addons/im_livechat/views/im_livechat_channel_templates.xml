@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<gerp>
     <data>
 
         <!--
@@ -160,14 +160,14 @@
             </t>
                 document.addEventListener("DOMContentLoaded", function(event) {
                     <t t-if="web_session_required">
-                    odoo.define('web.session', function (require) {
+                    gerp.define('web.session', function (require) {
                         var Session = require('web.Session');
-                        var modules = odoo._modules;
+                        var modules = gerp._modules;
                         return new Session(undefined, "<t t-esc="info['server_url']"/>", {modules:modules, use_cors: false});
                     });
                     </t>
 
-                    odoo.define('im_livechat.livesupport', function (require) {
+                    gerp.define('im_livechat.livesupport', function (require) {
             <t t-if="info['available']" t-translation="off">
                         var im_livechat = require('im_livechat.im_livechat');
                         var button = new im_livechat.LivechatButton(
@@ -185,4 +185,4 @@
 
 
     </data>
-</odoo>
+</gerp>

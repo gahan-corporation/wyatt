@@ -1,4 +1,4 @@
-odoo.define('payment.payment_form', function (require) {
+gerp.define('payment.payment_form', function (require) {
     "use strict";
 
     var ajax = require('web.ajax');

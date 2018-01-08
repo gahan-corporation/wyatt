@@ -7,7 +7,7 @@
 # Gideoni Willian da Silva <gd.willian@gmail.com>, 2016
 # danimaribeiro <danimaribeiro@gmail.com>, 2016
 # Luiz Carlos de Lima <luiz.carlos@akretion.com.br>, 2016
-# Planeta Odoo <planetaodoo@gmail.com>, 2016
+# Planeta Odoo <planetagerp@gmail.com>, 2016
 # Mateus Lopes <mateus1@gmail.com>, 2016
 msgid ""
 msgstr ""
@@ -16,7 +16,7 @@ msgstr ""
 "POT-Creation-Date: 2015-08-21 14:56+0000\n"
 "PO-Revision-Date: 2015-08-21 14:56+0000\n"
 "Last-Translator: Mateus Lopes <mateus1@gmail.com>, 2016\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/odoo/teams/41243/pt_BR/)\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/gerp/teams/41243/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"

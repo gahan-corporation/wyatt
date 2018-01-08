@@ -6,8 +6,8 @@
 # Morten Schou <ms@msteknik.dk>, 2017
 # Ejner Sønniksen <ejner@vkdata.dk>, 2017
 # Sanne Kristensen <sanne@vkdata.dk>, 2017
-# Martin Trigaux <mat@odoo.com>, 2017
-# Jesper Carstensen <jc@danodoo.dk>, 2017
+# Martin Trigaux <mat@gerp.com>, 2017
+# Jesper Carstensen <jc@dangerp.dk>, 2017
 # jonas jensen <j.jensen@tcomp.dk>, 2017
 msgid ""
 msgstr ""
@@ -16,7 +16,7 @@ msgstr ""
 "POT-Creation-Date: 2017-10-24 09:00+0000\n"
 "PO-Revision-Date: 2017-10-24 09:00+0000\n"
 "Last-Translator: jonas jensen <j.jensen@tcomp.dk>, 2017\n"
-"Language-Team: Danish (https://www.transifex.com/odoo/teams/41243/da/)\n"
+"Language-Team: Danish (https://www.transifex.com/gerp/teams/41243/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
+<gerp>
     <data>
         <!-- TAGS -->
         <record id="blog_tag_1" model="blog.tag">
@@ -221,4 +221,4 @@
             </field>
         </record>
     </data>
-</odoo>
+</gerp>

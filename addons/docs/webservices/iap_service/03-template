@@ -24,7 +24,7 @@ Index: coalroller_service/coalroller_service/views/no-credit.xml
 --- /dev/null
 +++ coalroller_service/coalroller_service/views/no-credit.xml
 @@ -0,0 +1,18 @@
-+<odoo>
++<gerp>
 +  <template id="no_credit" name="No credit warning">
 +    <div>
 +      <div class="container-fluid">
@@ -41,7 +41,7 @@ Index: coalroller_service/coalroller_service/views/no-credit.xml
 +      </div>
 +    </div>
 +  </template>
-+</odoo>
++</gerp>
 Index: coalroller_service/coalroller_service/__manifest__.py
 ===================================================================
 --- coalroller_service.orig/coalroller_service/__manifest__.py

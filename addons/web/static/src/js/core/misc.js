@@ -1,4 +1,4 @@
-odoo.define('web.framework', function (require) {
+gerp.define('web.framework', function (require) {
 "use strict";
 
 var core = require('web.core');

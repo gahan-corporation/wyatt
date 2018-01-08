@@ -1,4 +1,4 @@
-odoo.define('website_sale_wishlist.wishlist', function (require) {
+gerp.define('website_sale_wishlist.wishlist', function (require) {
 "use strict";
 
 require('web.dom_ready');

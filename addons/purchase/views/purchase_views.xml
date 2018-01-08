@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<gerp>
 
         <!-- Top menu item -->
         <menuitem name="Purchases"
@@ -628,4 +628,4 @@
                 </field>
             </field>
         </record>
-</odoo>
+</gerp>

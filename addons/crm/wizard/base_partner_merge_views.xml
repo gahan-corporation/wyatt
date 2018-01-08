@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
+<gerp>
         <record id="action_partner_deduplicate" model="ir.actions.act_window">
             <field name="name">Deduplicate Contacts</field>
             <field name="res_model">base.partner.merge.automatic.wizard</field>
@@ -108,4 +108,4 @@
             key2="client_action_multi"
             view_mode="form"
             name="Merge Selected Contacts"/>
-</odoo>
+</gerp>

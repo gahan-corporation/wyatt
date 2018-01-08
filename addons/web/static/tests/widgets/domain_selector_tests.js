@@ -1,4 +1,4 @@
-odoo.define('web.domain_selector_tests', function (require) {
+gerp.define('web.domain_selector_tests', function (require) {
 "use strict";
 
 var DomainSelector = require("web.DomainSelector");

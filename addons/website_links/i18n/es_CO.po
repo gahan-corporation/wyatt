@@ -12,7 +12,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2016-02-12 14:27+0000\n"
 "Last-Translator: ANDRES FELIPE NEGRETE GOMEZ <psi@nubark.com>\n"
-"Language-Team: Spanish (Colombia) (http://www.transifex.com/odoo/odoo-9/"
+"Language-Team: Spanish (Colombia) (http://www.transifex.com/gerp/gerp-9/"
 "language/es_CO/)\n"
 "Language: es_CO\n"
 "MIME-Version: 1.0\n"
@@ -244,7 +244,7 @@ msgstr "ej. Motor de Búsqueda, Página del sitio web, ..."
 
 #. module: website_links
 #: model:ir.ui.view,arch_db:website_links.create_shorten_url
-msgid "e.g. https://www.odoo.com/page/contactus"
+msgid "e.g. https://www.gerp.com/page/contactus"
 msgstr "ej. https://www.nubark.com/page/contactus"
 
 #. module: website_links

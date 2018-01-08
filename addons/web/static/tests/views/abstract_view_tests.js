@@ -1,4 +1,4 @@
-odoo.define('web.abstract_view_tests', function (require) {
+gerp.define('web.abstract_view_tests', function (require) {
 "use strict";
 
 var AbstractView = require('web.AbstractView');

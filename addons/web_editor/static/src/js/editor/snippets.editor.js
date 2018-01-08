@@ -1,4 +1,4 @@
-odoo.define('web_editor.snippet.editor', function (require) {
+gerp.define('web_editor.snippet.editor', function (require) {
 'use strict';
 
 var core = require('web.core');
@@ -1128,7 +1128,7 @@ var SnippetsMenu = Widget.extend({
      * @returns {string}
      */
     _getSnippetURL: function () {
-        return odoo.snippetsURL || '/web_editor/snippets';
+        return gerp.snippetsURL || '/web_editor/snippets';
     },
     /**
      * Make given snippets be draggable/droppable thanks to their thumbnail.

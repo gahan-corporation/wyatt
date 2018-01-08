@@ -1,4 +1,4 @@
-odoo.define('web_tour.TourManager', function(require) {
+gerp.define('web_tour.TourManager', function(require) {
 "use strict";
 
 var core = require('web.core');

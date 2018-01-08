@@ -1,4 +1,4 @@
-odoo.define('web.test_utils', function (require) {
+gerp.define('web.test_utils', function (require) {
 "use strict";
 
 /**
@@ -231,7 +231,7 @@ function createAsyncView(params) {
  * @param {string} [params.currentDate] a string representation of the current
  *   date. It is given to the mock server.
  * @param {Object} params.data the data given to the created mock server. It is
- *   used to generate mock answers for every kind of routes supported by odoo
+ *   used to generate mock answers for every kind of routes supported by gerp
  * @param {number} [params.logLevel] the log level. If it is 0, no logging is
  *   done, if 1, some light logging is done, if 2, detailed logs will be
  *   displayed for all rpcs.  Most of the time, when working on a test, it is

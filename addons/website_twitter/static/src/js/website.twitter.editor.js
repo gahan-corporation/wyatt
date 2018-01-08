@@ -1,4 +1,4 @@
-odoo.define('website_twitter.editor', function (require) {
+gerp.define('website_twitter.editor', function (require) {
 'use strict';
 
 var ajax = require('web.ajax');

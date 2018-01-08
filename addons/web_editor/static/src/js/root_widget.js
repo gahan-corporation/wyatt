@@ -1,4 +1,4 @@
-odoo.define('web_editor.root_widget', function (require) {
+gerp.define('web_editor.root_widget', function (require) {
 'use strict';
 
 var Class = require('web.Class');

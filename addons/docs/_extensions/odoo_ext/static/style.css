@@ -9119,8 +9119,8 @@ main.has_code_col:after,
   background: transparent;
 }
 .o_logo {
-  background-image: url("img/logos/odoo_logo.png");
-  background-image: url("img/logos/odoo_logo.svg");
+  background-image: url("img/logos/gerp_logo.png");
+  background-image: url("img/logos/gerp_logo.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
   display: inline-block;
@@ -10397,8 +10397,8 @@ article.doc-toc .toctree-wrapper > ul > li > span {
   color: #21313a;
 }
 .o_main_header > .o_sub_nav > .container .navbar-header .o_app_name_logo {
-  background-image: url("img/logos/odoo_logo.png");
-  background-image: url("img/logos/odoo_logo.svg");
+  background-image: url("img/logos/gerp_logo.png");
+  background-image: url("img/logos/gerp_logo.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
   display: inline-block;
@@ -10927,7 +10927,7 @@ body > footer .o_footer_bottom .social-links .fa {
   width: 90%;
   margin: auto auto 10px 5%;
   height: 50px;
-  background-image: url('img/odoo_logo_rgb.png');
+  background-image: url('img/gerp_logo_rgb.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;

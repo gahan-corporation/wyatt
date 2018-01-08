@@ -1,9 +1,9 @@
 (function() {
 "use strict";
 
-odoo.__DEBUG__.didLogInfo.then(function() {
+gerp.__DEBUG__.didLogInfo.then(function() {
 
-    var modulesInfo = odoo.__DEBUG__.js_modules;
+    var modulesInfo = gerp.__DEBUG__.js_modules;
 
     QUnit.module('Odoo JS Modules');
 

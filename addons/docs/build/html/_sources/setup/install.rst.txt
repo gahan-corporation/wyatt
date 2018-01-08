@@ -1,4 +1,4 @@
-:banner: banners/installing_odoo.jpg
+:banner: banners/installing_gerp.jpg
 
 .. _setup/install:
 
@@ -136,9 +136,9 @@ following commands as root:
 
 .. code-block:: console
 
-    # wget -O - https://nightly.odoo.com/odoo.key | apt-key add -
-    # echo "deb http://nightly.odoo.com/11.0/nightly/deb/ ./" >> /etc/apt/sources.list.d/odoo.list
-    # apt-get update && apt-get install odoo
+    # wget -O - https://nightly.gerp.com/gerp.key | apt-key add -
+    # echo "deb http://nightly.gerp.com/11.0/nightly/deb/ ./" >> /etc/apt/sources.list.d/gerp.list
+    # apt-get update && apt-get install gerp
 
 You can then use the usual ``apt-get upgrade`` command to keep your installation up-to-date.
 
@@ -231,10 +231,10 @@ commands:
 
 .. code-block:: console
 
-    $ sudo dnf config-manager --add-repo=https://nightly.odoo.com/11.0/nightly/rpm/odoo.repo
-    $ sudo dnf install -y odoo
-    $ sudo systemctl enable odoo
-    $ sudo systemctl start odoo
+    $ sudo dnf config-manager --add-repo=https://nightly.gerp.com/11.0/nightly/rpm/gerp.repo
+    $ sudo dnf install -y gerp
+    $ sudo systemctl enable gerp
+    $ sudo systemctl start gerp
 
 RPM package
 ^^^^^^^^^^^
@@ -249,9 +249,9 @@ Once downloaded, the package can be installed using the 'dnf' package manager:
 
 .. code-block:: console
 
-    $ sudo dnf localinstall odoo_11.0.latest.noarch.rpm
-    $ sudo systemctl enable odoo
-    $ sudo systemctl start odoo
+    $ sudo dnf localinstall gerp_11.0.latest.noarch.rpm
+    $ sudo systemctl enable gerp
+    $ sudo systemctl start gerp
 
 .. _setup/install/source:
 
@@ -321,12 +321,12 @@ Source installation requires manually installing dependencies:
     - create a postgres user with a password using the pg admin gui: open
       pgAdminIII, double-click the server to create a connection, select
       :menuselection:`Edit --> New Object --> New Login Role`, enter the
-      usename in the :guilabel:`Role Name` field (e.g. ``odoo``), then open
-      the :guilabel:`Definition` tab and enter the password (e.g. ``odoo``),
+      usename in the :guilabel:`Role Name` field (e.g. ``gerp``), then open
+      the :guilabel:`Definition` tab and enter the password (e.g. ``gerp``),
       then click :guilabel:`OK`.
 
       The user and password must be passed to Odoo using either the
-      :option:`-w <odoo-bin -w>` and :option:`-r <odoo-bin -r>` options or
+      :option:`-w <gerp-bin -w>` and :option:`-r <gerp-bin -r>` options or
       :ref:`the configuration file <reference/cmdline/config>`
 
 * Python dependencies listed in the :file:`requirements.txt` file.
@@ -436,7 +436,7 @@ There are two ways to obtain the Odoo source code: zip or git.
 Community Edition
 '''''''''''''''''
 
-The git repository is https://github.com/odoo/odoo.git for the Community
+The git repository is https://github.com/gerp/gerp.git for the Community
 edition.
 
 Downloading it requires a `git client <http://git-scm.com/download/>`_
@@ -445,7 +445,7 @@ using the following command:
 
 .. code-block:: console
 
-    $ git clone https://github.com/odoo/odoo.git
+    $ git clone https://github.com/gerp/gerp.git
 
 Enterprise Edition
 ''''''''''''''''''
@@ -455,7 +455,7 @@ if you wish to get access), you can use this command to fetch the addons:
 
 .. code-block:: console
 
-  $ git clone https://github.com/odoo/enterprise.git
+  $ git clone https://github.com/gerp/enterprise.git
 
 .. note:: The Enterprise git repository **does not contain the full Odoo
     source code**. It is only a collection of extra add-ons. The main server
@@ -469,7 +469,7 @@ if you wish to get access), you can use this command to fetch the addons:
 Running Odoo
 ------------
 
-Once all dependencies are set up, Odoo can be launched by running ``odoo-bin``.
+Once all dependencies are set up, Odoo can be launched by running ``gerp-bin``.
 
 .. tip:: For the Enterprise edition, you must specify the :file:`enterprise`
     addons folder when starting your server. You can do so by providing the path
@@ -493,21 +493,21 @@ Common necessary configurations are:
 
 * Custom addons path beyond the defaults, to load your own modules
 
-Under Windows a typical way to execute odoo would be:
+Under Windows a typical way to execute gerp would be:
 
 .. code-block:: doscon
 
-    C:\YourOdooPath> python3 odoo-bin -w odoo -r odoo --addons-path=addons,../mymodules --db-filter=mydb$
+    C:\YourOdooPath> python3 gerp-bin -w gerp -r gerp --addons-path=addons,../mymodules --db-filter=mydb$
 
-Where ``odoo``, ``odoo`` are the postgresql login and password,
+Where ``gerp``, ``gerp`` are the postgresql login and password,
 ``../mymodules`` a directory with additional addons and ``mydb`` the default
 db to serve on localhost:8069
 
-Under Unix a typical way to execute odoo would be:
+Under Unix a typical way to execute gerp would be:
 
 .. code-block:: console
 
-    $ ./odoo-bin --addons-path=addons,../mymodules --db-filter=mydb$
+    $ ./gerp-bin --addons-path=addons,../mymodules --db-filter=mydb$
 
 Where ``../mymodules`` is a directory with additional addons and ``mydb`` the
 default db to serve on localhost:8069
@@ -553,10 +553,10 @@ Now we can create a virtual environment for Odoo like this:
 
 .. code-block:: console
 
-  $ mkvirtualenv -p /usr/bin/python3 odoo-venv
+  $ mkvirtualenv -p /usr/bin/python3 gerp-venv
 
 With this command, we ask for an isolated Python3 environment that will be named
-"odoo-env". If the command works as expected, your shell is now using this
+"gerp-env". If the command works as expected, your shell is now using this
 environment. Your prompt should have changed to remind you that you are using
 an isolated environment. You can verify with this command:
 
@@ -571,10 +571,10 @@ Now let's install the Odoo required python packages:
 
 .. code-block:: console
 
-  $ cd your_odoo_sources_path
+  $ cd your_gerp_sources_path
   $ pip install -r requirements.txt
 
-After a little while, you should be ready to run odoo from the command line as
+After a little while, you should be ready to run gerp from the command line as
 explained above.
 
 When you you want to leave the virtual environment, just issue this command:
@@ -583,11 +583,11 @@ When you you want to leave the virtual environment, just issue this command:
 
   $ deactivate
 
-Whenever you want to work again with your 'odoo-venv' environment:
+Whenever you want to work again with your 'gerp-venv' environment:
 
 .. code-block:: console
 
-  $ workon odoo-venv
+  $ workon gerp-venv
 
 .. _setup/install/docker:
 
@@ -595,11 +595,11 @@ Docker
 ======
 
 The full documentation on how to use Odoo with Docker can be found on the
-offcial Odoo `docker image <https://registry.hub.docker.com/_/odoo/>`_ page.
+offcial Odoo `docker image <https://registry.hub.docker.com/_/gerp/>`_ page.
 
-.. _demo: https://demo.odoo.com
+.. _demo: https://demo.gerp.com
 .. _docker: https://www.docker.com
-.. _Download: https://www.odoo.com/page/download
+.. _Download: https://www.gerp.com/page/download
 .. _Debian Stretch: https://www.debian.org/releases/stretch/
 .. _Ubuntu Xenial: http://releases.ubuntu.com/16.04/
 .. _Ubuntu Zesty: http://releases.ubuntu.com/17.04/
@@ -612,7 +612,7 @@ offcial Odoo `docker image <https://registry.hub.docker.com/_/odoo/>`_ page.
 .. _PostgreSQL for windows:
     http://www.enterprisedb.com/products-services-training/pgdownload
 .. _Quilt: http://en.wikipedia.org/wiki/Quilt_(software)
-.. _saas: https://www.odoo.com/page/start
+.. _saas: https://www.gerp.com/page/start
 .. _the wkhtmltopdf download page: https://github.com/wkhtmltopdf/wkhtmltopdf/releases/tag/0.12.1
 .. _UAC: http://en.wikipedia.org/wiki/User_Account_Control
 .. _wkhtmltopdf: http://wkhtmltopdf.org
@@ -623,8 +623,8 @@ offcial Odoo `docker image <https://registry.hub.docker.com/_/odoo/>`_ page.
 .. _virtualenv: https://pypi.python.org/pypi/virtualenv
 .. _virtualenvwrapper: https://virtualenvwrapper.readthedocs.io/en/latest/
 .. _pywin32: http://sourceforge.net/projects/pywin32/files/pywin32/
-.. _the repository: https://github.com/odoo/odoo
+.. _the repository: https://github.com/gerp/gerp
 .. _git: http://git-scm.com
-.. _Editions: https://www.odoo.com/pricing#pricing_table_features
-.. _nightly: https://nightly.odoo.com/11.0/nightly/
-.. _extra: https://nightly.odoo.com/extra/
+.. _Editions: https://www.gerp.com/pricing#pricing_table_features
+.. _nightly: https://nightly.gerp.com/11.0/nightly/
+.. _extra: https://nightly.gerp.com/extra/

@@ -1,4 +1,4 @@
-odoo.define('website_event.geolocation', function (require) {
+gerp.define('website_event.geolocation', function (require) {
 'use strict';
 
 var sAnimation = require('website.content.snippets.animation');

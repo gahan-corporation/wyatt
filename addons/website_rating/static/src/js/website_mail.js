@@ -1,4 +1,4 @@
-odoo.define('website_rating.thread', function(require) {
+gerp.define('website_rating.thread', function(require) {
     'use strict';
 
     var ajax = require('web.ajax');

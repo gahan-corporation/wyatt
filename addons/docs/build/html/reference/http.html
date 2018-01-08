@@ -47,7 +47,7 @@
 </div>
 <div class="section" id="request">
 <span id="reference-http-request"></span><h2>Request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h2>
-<p>The request object is automatically set on <code class="xref py py-data docutils literal"><span class="pre">odoo.http.request</span></code> at
+<p>The request object is automatically set on <code class="xref py py-data docutils literal"><span class="pre">gerp.http.request</span></code> at
 the start of the request</p>
 </div>
 <div class="section" id="response">
@@ -63,7 +63,7 @@ no database created, or no database selected).</p>
 models:</p>
 <p>Controllers are created by <span class="xref std std-ref">inheriting</span> from</p>
 <p>and defining methods decorated with <code class="xref py py-func docutils literal"><span class="pre">route()</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">odoo</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">gerp</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
     <span class="nd">@route</span><span class="p">(</span><span class="s1">&#39;/some_url&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s1">&#39;public&#39;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">stuff</span><span class="p">()</span>

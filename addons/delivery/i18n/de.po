@@ -3,14 +3,14 @@
 # * delivery
 # 
 # Translators:
-# Martin Trigaux <mat@odoo.com>, 2017
+# Martin Trigaux <mat@gerp.com>, 2017
 # Ermin Trevisan <trevi@twanda.com>, 2017
 # Tina Rittmüller <tr@ife.de>, 2017
 # Andi <flimflam@salasar.de>, 2017
 # Stefan Hartenfels <stefan.hartenfels@camptocamp.com>, 2017
 # Wolfgang Taferner <wolfgang.transifex@service.wt-io-it.at>, 2017
 # Thorsten Vocks <thorsten.vocks@openbig.org>, 2017
-# Gab_Odoo <gab@odoo.com>, 2017
+# Gab_Odoo <gab@gerp.com>, 2017
 # Dejan Dinic <dejan.dinic@bluewin.ch>, 2017
 # Henry Mineehen <info@mineehen.de>, 2017
 # darenkster <inactive+darenkster@transifex.com>, 2017
@@ -24,7 +24,7 @@
 # Rudolf Schnapka <rs@techno-flex.de>, 2017
 # Philipp Hug <philipp@hug.cx>, 2017
 # Niki Waibel <niki.waibel@gmail.com>, 2017
-# Christopher Bendlin <inactive+cbeodoo@transifex.com>, 2017
+# Christopher Bendlin <inactive+cbegerp@transifex.com>, 2017
 # DE T1 <e2f8846@yahoo.com>, 2017
 # Katharina Moritz <kmo@e2f.com>, 2017
 msgid ""
@@ -34,7 +34,7 @@ msgstr ""
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
 "Last-Translator: Katharina Moritz <kmo@e2f.com>, 2017\n"
-"Language-Team: German (https://www.transifex.com/odoo/teams/41243/de/)\n"
+"Language-Team: German (https://www.transifex.com/gerp/teams/41243/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -145,7 +145,7 @@ msgid ""
 "              </td>\n"
 "            </tr>\n"
 "            <tr>\n"
-"              <td align=\"center\">Powered by <a href=\"https://www.odoo.com\">Odoo</a>.</td>\n"
+"              <td align=\"center\">Powered by <a href=\"https://www.gerp.com\">Odoo</a>.</td>\n"
 "            </tr>\n"
 "          </tbody>\n"
 "        </table>\n"
@@ -198,7 +198,7 @@ msgstr ""
 "              </td>\n"
 "            </tr>\n"
 "            <tr>\n"
-"              <td align=\"center\">Unterstützt durch <a href=\"https://www.odoo.com\">Odoo</a>.</td>\n"
+"              <td align=\"center\">Unterstützt durch <a href=\"https://www.gerp.com\">Odoo</a>.</td>\n"
 "            </tr>\n"
 "          </tbody>\n"
 "        </table>\n"

@@ -1,4 +1,4 @@
-odoo.define('web_tour.tour', function(require) {
+gerp.define('web_tour.tour', function(require) {
 "use strict";
 
 var ajax = require('web.ajax');

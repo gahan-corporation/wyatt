@@ -1,4 +1,4 @@
-odoo.define('im_livechat.chat_client_action', function (require) {
+gerp.define('im_livechat.chat_client_action', function (require) {
 "use strict";
 
 require('mail.chat_client_action');

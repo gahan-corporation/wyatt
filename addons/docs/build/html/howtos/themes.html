@@ -54,8 +54,8 @@ This introduction will outline the basics of Odoo theme creation.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">Odoo’s team has created a framework that’s powerful and easy to use. There’s no need to know special syntaxes to use this set of tools.</p>
 </div>
-<div class="section" id="from-common-cms-to-odoo">
-<h3>From common CMS to Odoo<a class="headerlink" href="#from-common-cms-to-odoo" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="from-common-cms-to-gerp">
+<h3>From common CMS to Odoo<a class="headerlink" href="#from-common-cms-to-gerp" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">If you always think and work in the same way, you’ll probably get the same results. If you want something completely new,  then try something different.</p>
@@ -75,8 +75,8 @@ This introduction will outline the basics of Odoo theme creation.</p>
 <p class="last">We think that theme design should be simple (and powerful). When we created our Website Builder, we decided to start from scratch instead of relying on what already existed. This approach gave us the freedom to focus on the things that are really important for designers: styles, content and the logic behind them. No more struggling with technical stuff.</p>
 </div>
 </div>
-<div class="section" id="odoo-default-theme-structure">
-<h3>Odoo default theme structure<a class="headerlink" href="#odoo-default-theme-structure" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="gerp-default-theme-structure">
+<h3>Odoo default theme structure<a class="headerlink" href="#gerp-default-theme-structure" title="Permalink to this headline">¶</a></h3>
 <div class="col-sm-8 docutils container">
 <p>Odoo comes with a default theme structure.
 It is a very basic “theme” that provides minimal structure and layout. When you create a new theme, you are actually extending this.
@@ -141,17 +141,17 @@ Styles are defined using standard CSS files (or Less/Sass). You can define a sty
 <div class="legend">
 Thanks to Odoo’s modularity, everything can be personalized even more. This means there are endless possibilities for your creativity. Adding functionalities is easy and it’s simple to provide the end user with customizable options.</div>
 </div>
-<div class="section" id="odoo-s-xml-files-an-overview">
-<h3>Odoo’s XML files, an overview<a class="headerlink" href="#odoo-s-xml-files-an-overview" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="gerp-s-xml-files-an-overview">
+<h3>Odoo’s XML files, an overview<a class="headerlink" href="#gerp-s-xml-files-an-overview" title="Permalink to this headline">¶</a></h3>
 <p>Any Odoo XML file starts with encoding specifications.
-After that, you have to write your code inside a <code class="docutils literal"><span class="pre">&lt;odoo&gt;</span></code> tag.</p>
+After that, you have to write your code inside a <code class="docutils literal"><span class="pre">&lt;gerp&gt;</span></code> tag.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span>[XML]
 <span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
-<span class="nt">&lt;odoo&gt;</span>
+<span class="nt">&lt;gerp&gt;</span>
 
     ## YOUR CODE HERE
 
-<span class="nt">&lt;/odoo&gt;</span>
+<span class="nt">&lt;/gerp&gt;</span>
 </pre></div>
 </div>
 <p>Almost every element and option that you create has to be placed inside a <code class="docutils literal"><span class="pre">&lt;template&gt;</span></code> tag, like in this example.</p>
@@ -209,7 +209,7 @@ images and custom js code.</dd>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">Use two underscore characters at the beginning
-and two at the end of odoo and init file names.</p>
+and two at the end of gerp and init file names.</p>
 </div>
 <p>The final result should be something like this:</p>
 <img alt="../_images/folder.jpg" src="../_images/folder.jpg" />
@@ -232,7 +232,7 @@ and two at the end of odoo and init file names.</p>
 <p>Replace the first four property’s values with anything you like.
 These values will be used to identify your new theme in Odoo’s backend.</p>
 <p>The <code class="docutils literal"><span class="pre">data</span></code> property will contain the xml files list. Right now it’s empty, but we will add any new files created.</p>
-<p><code class="docutils literal"><span class="pre">category</span></code> defines your module category (always “Theme”) and, after a slash, the subcategory. You can use one subcategory from the Odoo Apps categories list. (<a class="reference external" href="https://www.odoo.com/apps/themes">https://www.odoo.com/apps/themes</a>)</p>
+<p><code class="docutils literal"><span class="pre">category</span></code> defines your module category (always “Theme”) and, after a slash, the subcategory. You can use one subcategory from the Odoo Apps categories list. (<a class="reference external" href="https://www.gerp.com/apps/themes">https://www.gerp.com/apps/themes</a>)</p>
 <p><code class="docutils literal"><span class="pre">depends</span></code> specifies the modules needed by our theme to work properly. For our tutorial theme, we only need website. If you need blogging or eCommerce features as well, you have to add those modules too.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="o">...</span>
 <span class="s1">&#39;depends&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;website&#39;</span><span class="p">,</span> <span class="s1">&#39;website_blog&#39;</span><span class="p">,</span> <span class="s1">&#39;sale&#39;</span><span class="p">],</span>
@@ -246,8 +246,8 @@ These values will be used to identify your new theme in Odoo’s backend.</p>
 <p>After that, navigate to the Settings page, look for your theme and click on the install button.</p>
 </div>
 </div>
-<div class="section" id="structure-of-an-odoo-page">
-<h2>Structure of an Odoo page<a class="headerlink" href="#structure-of-an-odoo-page" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="structure-of-an-gerp-page">
+<h2>Structure of an Odoo page<a class="headerlink" href="#structure-of-an-gerp-page" title="Permalink to this headline">¶</a></h2>
 <p>An Odoo page is the visual result of a combination of 2 kind of elements, <strong>cross-pages</strong> and <strong>unique</strong>.
 By default, Odoo provides you with a <strong>Header</strong> and a <strong>Footer</strong> (cross-pages) and a unique main element that contains the content that makes your page unique.</p>
 <div class="admonition note">
@@ -270,14 +270,14 @@ add a page name.  Inspect the page using your browser.</p>
 <p>By default, Odoo header contains a responsive navigation menu and the company’s logo. You can easily add new elements or style the existing one.</p>
 <p>To do so, create a <strong>layout.xml</strong> file in your <strong>views</strong> folder and add the default Odoo xml markup.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
-<span class="nt">&lt;odoo&gt;</span>
+<span class="nt">&lt;gerp&gt;</span>
 
 
 
-<span class="nt">&lt;/odoo&gt;</span>
+<span class="nt">&lt;/gerp&gt;</span>
 </pre></div>
 </div>
-<p>Create a new template into the <code class="docutils literal"><span class="pre">&lt;odoo&gt;</span></code> tag, copy-pasting the following
+<p>Create a new template into the <code class="docutils literal"><span class="pre">&lt;gerp&gt;</span></code> tag, copy-pasting the following
 code.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Customize header  --&gt;</span>
 <span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;custom_header&quot;</span> <span class="na">inherit_id=</span><span class="s">&quot;website.layout&quot;</span> <span class="na">name=</span><span class="s">&quot;Custom Header&quot;</span><span class="nt">&gt;</span>
@@ -324,10 +324,10 @@ applied to each page of the website.</p>
 <p>Imagine that we want to create a specific layout for a Services page.
 For this page, we need to add a list of services to the top and give the client the possibility of setting the rest of the page’s layout using snippets.</p>
 <p>Inside your <em>views</em> folder, create a <strong>pages.xml</strong> file and add the
-default Odoo markup.  Inside <code class="docutils literal"><span class="pre">&lt;odoo&gt;</span></code> create a <code class="docutils literal"><span class="pre">&lt;template&gt;</span></code> tag, set the
+default Odoo markup.  Inside <code class="docutils literal"><span class="pre">&lt;gerp&gt;</span></code> create a <code class="docutils literal"><span class="pre">&lt;template&gt;</span></code> tag, set the
 <code class="docutils literal"><span class="pre">page</span></code> attribute to <code class="docutils literal"><span class="pre">True</span></code> and add your code into it.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
-<span class="nt">&lt;odoo&gt;</span>
+<span class="nt">&lt;gerp&gt;</span>
 
     <span class="c">&lt;!-- === Services Page === --&gt;</span>
     <span class="nt">&lt;template</span> <span class="na">name=</span><span class="s">&quot;Services page&quot;</span> <span class="na">id=</span><span class="s">&quot;website.services&quot;</span> <span class="na">page=</span><span class="s">&quot;True&quot;</span><span class="nt">&gt;</span>
@@ -339,7 +339,7 @@ default Odoo markup.  Inside <code class="docutils literal"><span class="pre">&l
         <span class="nt">&lt;/ul&gt;</span>
       <span class="nt">&lt;/template&gt;</span>
 
-  <span class="nt">&lt;/odoo&gt;</span>
+  <span class="nt">&lt;/gerp&gt;</span>
 </pre></div>
 </div>
 <p>The page title will be the template ID. In our case <em>Services</em> (from <code class="docutils literal"><span class="pre">website.services</span></code>)</p>
@@ -370,7 +370,7 @@ default page layout with our code.</p>
 can fill with snippets. To achieve this, just create a <code class="docutils literal"><span class="pre">div</span></code> with
 <code class="docutils literal"><span class="pre">oe_structure</span></code> class just before closing the <code class="docutils literal"><span class="pre">div#wrap</span></code> element.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
-<span class="nt">&lt;odoo&gt;</span>
+<span class="nt">&lt;gerp&gt;</span>
 
 <span class="c">&lt;!-- === Services Page === --&gt;</span>
 <span class="nt">&lt;template</span> <span class="na">name=</span><span class="s">&quot;Services page&quot;</span> <span class="na">id=</span><span class="s">&quot;website.services&quot;</span> <span class="na">page=</span><span class="s">&quot;True&quot;</span><span class="nt">&gt;</span>
@@ -390,7 +390,7 @@ can fill with snippets. To achieve this, just create a <code class="docutils lit
   <span class="nt">&lt;/t&gt;</span>
 <span class="nt">&lt;/template&gt;</span>
 
-<span class="nt">&lt;/odoo&gt;</span>
+<span class="nt">&lt;/gerp&gt;</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -664,16 +664,16 @@ it <strong>tutorial_editor.js</strong> and place it into the <strong>static</str
 the following code</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">website</span> <span class="o">=</span> <span class="nx">odoo</span><span class="p">.</span><span class="nx">website</span><span class="p">;</span>
-    <span class="nx">website</span><span class="p">.</span><span class="nx">odoo_website</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="kd">var</span> <span class="nx">website</span> <span class="o">=</span> <span class="nx">gerp</span><span class="p">.</span><span class="nx">website</span><span class="p">;</span>
+    <span class="nx">website</span><span class="p">.</span><span class="nx">gerp_website</span> <span class="o">=</span> <span class="p">{};</span>
 <span class="p">})();</span>
 </pre></div>
 </div>
 <p>Great, we successfully created our javascript editor file. This file will contain all the javascript functions used by our snippets in edit mode. Let’s create a new function for our testimonial snippet using the <code class="docutils literal"><span class="pre">snippet_testimonial_options</span></code> method that we created before.</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">website</span> <span class="o">=</span> <span class="nx">odoo</span><span class="p">.</span><span class="nx">website</span><span class="p">;</span>
-    <span class="nx">website</span><span class="p">.</span><span class="nx">odoo_website</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="kd">var</span> <span class="nx">website</span> <span class="o">=</span> <span class="nx">gerp</span><span class="p">.</span><span class="nx">website</span><span class="p">;</span>
+    <span class="nx">website</span><span class="p">.</span><span class="nx">gerp_website</span> <span class="o">=</span> <span class="p">{};</span>
 
     <span class="nx">website</span><span class="p">.</span><span class="nx">snippet</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">snippet_testimonial_options</span> <span class="o">=</span> <span class="nx">website</span><span class="p">.</span><span class="nx">snippet</span><span class="p">.</span><span class="nx">Option</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
         <span class="nx">onFocus</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>

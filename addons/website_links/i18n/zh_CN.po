@@ -15,7 +15,7 @@ msgstr ""
 "POT-Creation-Date: 2017-09-20 09:54+0000\n"
 "PO-Revision-Date: 2017-09-20 09:54+0000\n"
 "Last-Translator: Talway <9010446@qq.com>, 2017\n"
-"Language-Team: Chinese (China) (https://www.transifex.com/odoo/teams/41243/zh_CN/)\n"
+"Language-Team: Chinese (China) (https://www.transifex.com/gerp/teams/41243/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -199,7 +199,7 @@ msgstr ""
 msgid ""
 "Those trackers can be used in Google Analytics to track clicks and visitors,"
 " or in Odoo reports to track opportunities and related revenues."
-msgstr "这些跟踪器可以被谷歌分析去跟踪点击和访问，或者在odoo的报表里跟踪机会和相关收益。"
+msgstr "这些跟踪器可以被谷歌分析去跟踪点击和访问，或者在gerp的报表里跟踪机会和相关收益。"
 
 #. module: website_links
 #: model:ir.ui.view,arch_db:website_links.create_shorten_url
@@ -275,8 +275,8 @@ msgstr "例如：搜索引擎，网站页面，..."
 
 #. module: website_links
 #: model:ir.ui.view,arch_db:website_links.create_shorten_url
-msgid "e.g. https://www.odoo.com/page/contactus"
-msgstr "例如：https://www.odoo.com/page/contactus"
+msgid "e.g. https://www.gerp.com/page/contactus"
+msgstr "例如：https://www.gerp.com/page/contactus"
 
 #. module: website_links
 #. openerp-web

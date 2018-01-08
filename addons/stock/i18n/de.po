@@ -4,7 +4,7 @@
 # 
 # Translators:
 # aNj <anj2j@yahoo.de>, 2017
-# Martin Trigaux <mat@odoo.com>, 2017
+# Martin Trigaux <mat@gerp.com>, 2017
 # Wolfgang Taferner <wolfgang.transifex@service.wt-io-it.at>, 2017
 # Alexander Klockhaus <a.klockhaus@gmail.com>, 2017
 # Bülent Tiknas <btiknas@googlemail.com>, 2017
@@ -20,7 +20,7 @@
 # Ermin Trevisan <trevi@twanda.com>, 2017
 # Renzo Meister <info@jamotion.ch>, 2017
 # Ralf Hilgenstock <rh@dialoge.info>, 2017
-# Gab_Odoo <gab@odoo.com>, 2017
+# Gab_Odoo <gab@gerp.com>, 2017
 # David Lehov <KHottend@gmx.de>, 2017
 # BT_astauder <andreas.stauder@brain-tec.ch>, 2017
 # Krakataua Katarajtu <shlok@hotmail.de>, 2017
@@ -45,7 +45,7 @@ msgstr ""
 "POT-Creation-Date: 2017-10-10 11:34+0000\n"
 "PO-Revision-Date: 2017-10-10 11:34+0000\n"
 "Last-Translator: DE T1 <e2f8846@yahoo.com>, 2017\n"
-"Language-Team: German (https://www.transifex.com/odoo/teams/41243/de/)\n"
+"Language-Team: German (https://www.transifex.com/gerp/teams/41243/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -142,81 +142,81 @@ msgstr ""
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
 "<span class=\"label label-default text-center "
-"odoo_purple\">'Available'</span>"
+"gerp_purple\">'Available'</span>"
 msgstr ""
 "<span class=\"label label-default text-center "
-"odoo_purple\">'Verfügbar'</span>"
+"gerp_purple\">'Verfügbar'</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Click on <span "
+"<span class=\"label label-default text-center gerp_purple\">Click on <span "
 "class=\"fa fa-truck\"/> Delivery</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Klicken Sie auf "
+"<span class=\"label label-default text-center gerp_purple\">Klicken Sie auf "
 "<span class=\"fa fa-truck\"/> Lieferung</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Click on <span "
+"<span class=\"label label-default text-center gerp_purple\">Click on <span "
 "class=\"fa fa-truck\"/> Shipment</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Klicken Sie "
+"<span class=\"label label-default text-center gerp_purple\">Klicken Sie "
 "<span class=\"fa fa-truck\"/> Lieferung</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Confirm "
+"<span class=\"label label-default text-center gerp_purple\">Confirm "
 "Order</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Auftrag "
+"<span class=\"label label-default text-center gerp_purple\">Auftrag "
 "bestätigen</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Confirm "
+"<span class=\"label label-default text-center gerp_purple\">Confirm "
 "Sale</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Verkauf "
+"<span class=\"label label-default text-center gerp_purple\">Verkauf "
 "bestätigen</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Find Incoming "
+"<span class=\"label label-default text-center gerp_purple\">Find Incoming "
 "Shipments</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Eingehende "
+"<span class=\"label label-default text-center gerp_purple\">Eingehende "
 "Lieferungen suchen</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Process the "
+"<span class=\"label label-default text-center gerp_purple\">Process the "
 "products</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Warenbewegung "
+"<span class=\"label label-default text-center gerp_purple\">Warenbewegung "
 "bearbeiten</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Validate the "
+"<span class=\"label label-default text-center gerp_purple\">Validate the "
 "Delivery</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Die Auslieferung"
+"<span class=\"label label-default text-center gerp_purple\">Die Auslieferung"
 " freigeben</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Validate the "
+"<span class=\"label label-default text-center gerp_purple\">Validate the "
 "Receipt Order</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Den Wareneingang"
+"<span class=\"label label-default text-center gerp_purple\">Den Wareneingang"
 " bestätigen</span>"
 
 #. module: stock
@@ -7740,8 +7740,8 @@ msgstr ""
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "feedback@mail.odoo.com"
-msgstr "feedback@mail.odoo.com"
+msgid "feedback@mail.gerp.com"
+msgstr "feedback@mail.gerp.com"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner

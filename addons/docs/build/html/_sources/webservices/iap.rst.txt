@@ -132,8 +132,8 @@ Register the service on Odoo
 
 The first step is to register your service on the IAP endpoint (production 
 and/or test) before you can actually query user accounts. To create a service,
-go to your *Portal Account* on the IAP endpoint (https://iap.odoo.com for
-production, http://iap-sandbox.odoo.com for testing, the endpoints are
+go to your *Portal Account* on the IAP endpoint (https://iap.gerp.com for
+production, http://iap-sandbox.gerp.com for testing, the endpoints are
 *independent* and *not synchronized*). 
 
 Log in then go to :menuselection:`My Account --> Your InApp Services`, click 
@@ -143,7 +143,7 @@ Create and provide the name of your service.
 The now created service has *two* important fields:
 
 * :samp:`name` - :class:`ServiceName`: this will identify your service in the
-  client's :ref:`app <iap-odoo-app>` communicates directly with IAP.
+  client's :ref:`app <iap-gerp-app>` communicates directly with IAP.
 * :samp:`key` - :class:`ServiceKey`: the developer key that identifies you in 
   IAP (see :ref:`your service <iap-service>`) and allows to draw credits from the client's account.
 
@@ -168,7 +168,7 @@ The now created service has *two* important fields:
 You can then create *credit packs* which clients can purchase in order to
 use your service.
 
-.. _iap-odoo-app:
+.. _iap-gerp-app:
 
 Odoo App
 --------
@@ -182,7 +182,7 @@ Odoo instance and through which they can *request* services you will provide.
 Our app will just add a button to the Partners form which lets a user request
 burning some CPU time on the server.
 
-First, we'll create an *odoo module* depending on ``iap``. IAP is a standard
+First, we'll create an *gerp module* depending on ``iap``. IAP is a standard
 V11 module and the dependency ensures a local account is properly set up and
 we will have access to some necessary views and useful helpers
 
@@ -202,10 +202,10 @@ server*.
 
 There are no requirements when it comes to the server or the communication
 protocol between the app and our server, but ``iap`` provides a
-:func:`~odoo.addons.iap.jsonrpc` helper to call a JSON-RPC2_ endpoint on an
+:func:`~gerp.addons.iap.jsonrpc` helper to call a JSON-RPC2_ endpoint on an
 other Odoo instance and transparently re-raise relevant Odoo exceptions
-(:class:`~odoo.addons.iap.models.iap.InsufficientCreditError`,
-:class:`odoo.exceptions.AccessError` and :class:`odoo.exceptions.UserError`).
+(:class:`~gerp.addons.iap.models.iap.InsufficientCreditError`,
+:class:`gerp.exceptions.AccessError` and :class:`gerp.exceptions.UserError`).
 
 In that call, we will need to provide:
 
@@ -221,17 +221,17 @@ In that call, we will need to provide:
 .. note::
 
     ``iap`` automatically handles
-    :class:`~odoo.addons.iap.models.iap.InsufficientCreditError` coming from the action
+    :class:`~gerp.addons.iap.models.iap.InsufficientCreditError` coming from the action
     and prompts the user to add credits to their account.
 
-    :func:`~odoo.addons.iap.jsonrpc` takes care of re-raising
-    :class:`~odoo.addons.iap.models.iap.InsufficientCreditError` for you.
+    :func:`~gerp.addons.iap.jsonrpc` takes care of re-raising
+    :class:`~gerp.addons.iap.models.iap.InsufficientCreditError` for you.
 
 .. danger::
 
-    If you are not using :func:`~odoo.addons.iap.jsonrpc` you *must* be
+    If you are not using :func:`~gerp.addons.iap.jsonrpc` you *must* be
     careful to re-raise
-    :class:`~odoo.addons.iap.models.iap.InsufficientCreditError` in your handler
+    :class:`~gerp.addons.iap.models.iap.InsufficientCreditError` in your handler
     otherwise the user will not be prompted to credit their account, and the
     next call will fail the same way.
 
@@ -243,23 +243,23 @@ Service
 .. queue:: iap_service/series
 
 Though that is not *required*, since ``iap`` provides both a client helper
-for JSON-RPC2_ calls (:func:`~odoo.addons.iap.jsonrpc`) and a service helper
-for transactions (:class:`~odoo.addons.iap.models.iap.charge`) we will also be
+for JSON-RPC2_ calls (:func:`~gerp.addons.iap.jsonrpc`) and a service helper
+for transactions (:class:`~gerp.addons.iap.models.iap.charge`) we will also be
 implementing the service side as an Odoo module:
 
 .. patch::
 
 Since the query from the client comes as JSON-RPC2_ we will need the
-corresponding controller which can call :class:`~odoo.addons.iap.models.iap.charge` and
+corresponding controller which can call :class:`~gerp.addons.iap.models.iap.charge` and
 perform the service within:
 
 .. patch::
 
-.. todo:: for the actual IAP will the "portal" page be on odoo.com or iap.odoo.com?
+.. todo:: for the actual IAP will the "portal" page be on gerp.com or iap.gerp.com?
 
 .. todo:: "My Account" > "Your InApp Services"?
 
-The :class:`~odoo.addons.iap.models.iap.charge` helper will:
+The :class:`~gerp.addons.iap.models.iap.charge` helper will:
 
 1. authorize (create) a transaction with the specified number of credits,
    if the account does not have enough credits it will raise the relevant
@@ -272,17 +272,17 @@ The :class:`~odoo.addons.iap.models.iap.charge` helper will:
 
 .. danger::
 
-    By default, :class:`~odoo.addons.iap.models.iap.charge` contacts the *production*
-    IAP endpoint, https://iap.odoo.com. While developing and testing your
+    By default, :class:`~gerp.addons.iap.models.iap.charge` contacts the *production*
+    IAP endpoint, https://iap.gerp.com. While developing and testing your
     service you may want to point it towards the *development* IAP endpoint
-    https://iap-sandbox.odoo.com.
+    https://iap-sandbox.gerp.com.
 
     To do so, set the ``iap.endpoint`` config parameter in your service
     Odoo: in debug/developer mode, :menuselection:`Setting --> Technical -->
     Parameters --> System Parameters`, just define an entry for the key
     ``iap.endpoint`` if none already exists).
 
-The :class:`~odoo.addons.iap.models.iap.charge` helper has two additional optional
+The :class:`~gerp.addons.iap.models.iap.charge` helper has two additional optional
 parameters we can use to make things clearer to the end-user:
 
 ``description``
@@ -334,8 +334,8 @@ Authorize
     :param str description: optional, helps users identify the reason for
                             charges on their accounts.
     :returns: :class:`TransactionToken` if the authorization succeeded.
-    :raises: :class:`~odoo.exceptions.AccessError` if the service token is invalid
-    :raises: :class:`~odoo.addons.iap.models.iap.InsufficientCreditError` if the account does
+    :raises: :class:`~gerp.exceptions.AccessError` if the service token is invalid
+    :raises: :class:`~gerp.addons.iap.models.iap.InsufficientCreditError` if the account does
     :raises: ``TypeError`` if the ``credit`` value is not an integer
 
 .. code-block:: python
@@ -370,7 +370,7 @@ Capture
 
     :param TransactionToken token:
     :param ServiceKey key:
-    :raises: :class:`~odoo.exceptions.AccessError`
+    :raises: :class:`~gerp.exceptions.AccessError`
 
 .. code-block:: python
 
@@ -400,7 +400,7 @@ Cancel
 
     :param TransactionToken token:
     :param ServiceKey key:
-    :raises: :class:`~odoo.exceptions.AccessError`
+    :raises: :class:`~gerp.exceptions.AccessError`
 
 .. code-block:: python
 
@@ -425,7 +425,7 @@ care how they are implemented
 
 .. class:: ServiceName
 
-    String identifying your service on https://iap.odoo.com (production) as well
+    String identifying your service on https://iap.gerp.com (production) as well
     as the account related to your service in the client's database.
 
 .. class:: ServiceKey
@@ -450,20 +450,20 @@ care how they are implemented
     Transaction identifier, returned by the authorization process and consumed
     by either capturing or cancelling the transaction
 
-.. exception:: odoo.addons.iap.models.iap.InsufficientCreditError
+.. exception:: gerp.addons.iap.models.iap.InsufficientCreditError
 
     Raised during transaction authorization if the credits requested are not
     currently available on the account (either not enough credits or too many
     pending transactions/existing holds).
 
-.. exception:: odoo.exceptions.AccessError
+.. exception:: gerp.exceptions.AccessError
 
     Raised by:
 
     * any operation to which a service token is required, if the service token is invalid.
-    * any failure in an inter-server call. (typically, in :func:`~odoo.addons.iap.jsonrpc`)
+    * any failure in an inter-server call. (typically, in :func:`~gerp.addons.iap.jsonrpc`)
 
-.. exception:: odoo.exceptions.UserError
+.. exception:: gerp.exceptions.UserError
 
     Raised by any unexpeted behaviour at the discretion of the App developer (*you*).
 
@@ -476,7 +476,7 @@ module provides a few helpers to make IAP flow even simpler:
 Charging
 --------
 
-.. class:: odoo.addons.iap.models.iap.charge(env, key, account_token, credit[, description, credit_template])
+.. class:: gerp.addons.iap.models.iap.charge(env, key, account_token, credit[, description, credit_template])
 
     A *context manager* for authorizing and automatically capturing or
     cancelling transactions for use in the backend/proxy.
@@ -488,7 +488,7 @@ Charging
     * if the body executes in full without error, captures the transaction
     * otherwise cancels it
 
-    :param odoo.api.Environment env: used to retrieve the ``iap.endpoint``
+    :param gerp.api.Environment env: used to retrieve the ``iap.endpoint``
                                      configuration key
     :param ServiceKey key:
     :param UserToken token:
@@ -514,4 +514,4 @@ Charging
             ]).unlink()
 
 .. _JSON-RPC2: http://www.jsonrpc.org/specification
-.. _Odoo App: https://www.odoo.com/apps
+.. _Odoo App: https://www.gerp.com/apps

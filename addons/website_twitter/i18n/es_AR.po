@@ -11,7 +11,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2015-09-10 21:10+0000\n"
 "Last-Translator: Martin Trigaux\n"
-"Language-Team: Spanish (Argentina) (http://www.transifex.com/odoo/odoo-9/"
+"Language-Team: Spanish (Argentina) (http://www.transifex.com/gerp/gerp-9/"
 "language/es_AR/)\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
@@ -345,8 +345,8 @@ msgstr "https://apps.twitter.com/app/new"
 
 #. module: website_twitter
 #: model:ir.ui.view,arch_db:website_twitter.view_website_config_settings
-msgid "https://www.odoo.com"
-msgstr "https://www.odoo.com"
+msgid "https://www.gerp.com"
+msgstr "https://www.gerp.com"
 
 #. module: website_twitter
 #: model:ir.model,name:website_twitter.model_website_config_settings

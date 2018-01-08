@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<odoo>
+<gerp>
 
     <template id="inventory_planner">
         <t t-call="web_planner.pages">
@@ -108,7 +108,7 @@
                     <div class="alert alert-info">
                         <span>If you are a developer <strong>you can use our
                         API</strong> to load data automatically through
-                        scripts: take a look at our <a href="https://www.odoo.com/documentation/9.0/api_integration.html" target="_blank">API Documentation</a> for more
+                        scripts: take a look at our <a href="https://www.gerp.com/documentation/9.0/api_integration.html" target="_blank">API Documentation</a> for more
                         information.</span>
                     </div>
                 </t>
@@ -284,11 +284,11 @@
                                     </span>
                                 </div>
                                 <div class="panel-body">
-                                    <div><span class="label label-default text-center odoo_purple"><a t-att-href="prepare_backend_url('sale.action_quotations')"> Create a Quotation</a></span><div> for a customer and add products</div></div>
+                                    <div><span class="label label-default text-center gerp_purple"><a t-att-href="prepare_backend_url('sale.action_quotations')"> Create a Quotation</a></span><div> for a customer and add products</div></div>
                                     <span class="fa fa-angle-down fa-2x"></span>
-                                    <div><span class="label label-default text-center odoo_purple">Confirm Sale</span><div>The quotation becomes a Sales Order and a Transfer Order is created</div></div>
+                                    <div><span class="label label-default text-center gerp_purple">Confirm Sale</span><div>The quotation becomes a Sales Order and a Transfer Order is created</div></div>
                                     <span class="fa fa-angle-down fa-2x"></span>
-                                    <div><span class="label label-default text-center odoo_purple">Click on <span class="fa fa-truck"/> Delivery</span><div> on the sales order form to see Transfer Order</div></div>
+                                    <div><span class="label label-default text-center gerp_purple">Click on <span class="fa fa-truck"/> Delivery</span><div> on the sales order form to see Transfer Order</div></div>
                                 </div>
                             </div>
                         </div>
@@ -300,11 +300,11 @@
                                     </span>
                                 </div>
                                 <div class="panel-body">
-                                    <div><span class="label label-default text-center odoo_purple">'Available'</span><div>is displayed on the transfer if your products supply chain is properly configured. Otherwise, <strong>Check the availability</strong> manually</div></div>
+                                    <div><span class="label label-default text-center gerp_purple">'Available'</span><div>is displayed on the transfer if your products supply chain is properly configured. Otherwise, <strong>Check the availability</strong> manually</div></div>
                                     <span class="fa fa-angle-down fa-2x"></span>
-                                    <div><span class="label label-default text-center odoo_purple">Process the products</span><div>either by manually updating the Done quantity on the product lines, or let Odoo do it automatically while validating</div></div>
+                                    <div><span class="label label-default text-center gerp_purple">Process the products</span><div>either by manually updating the Done quantity on the product lines, or let Odoo do it automatically while validating</div></div>
                                     <span class="fa fa-angle-down fa-2x"></span>
-                                    <div><span class="label label-default text-center odoo_purple">Validate the Delivery</span><div>with the <i>Validate</i> button</div></div>
+                                    <div><span class="label label-default text-center gerp_purple">Validate the Delivery</span><div>with the <i>Validate</i> button</div></div>
                                 </div>
                             </div>
                         </div>
@@ -331,11 +331,11 @@
                                     </span>
                                 </div>
                                 <div class="panel-body">
-                                    <div><span class="label label-default text-center odoo_purple"><a t-att-href="prepare_backend_url('purchase.purchase_rfq')">Create a RFQ</a></span><div> from your vendor with the products and the requested quantities</div></div>
+                                    <div><span class="label label-default text-center gerp_purple"><a t-att-href="prepare_backend_url('purchase.purchase_rfq')">Create a RFQ</a></span><div> from your vendor with the products and the requested quantities</div></div>
                                     <span class="fa fa-angle-down fa-2x"></span>
-                                    <div><span class="label label-default text-center odoo_purple">Confirm Order</span><div>The RFQ becomes a Purchase Order and a Transfer Order is created</div></div>
+                                    <div><span class="label label-default text-center gerp_purple">Confirm Order</span><div>The RFQ becomes a Purchase Order and a Transfer Order is created</div></div>
                                     <span class="fa fa-angle-down fa-2x"></span>
-                                    <div><span class="label label-default text-center odoo_purple">Click on <span class="fa fa-truck"/> Shipment</span><div> on the purchase order form or click on <i>Receive Products</i> to see the Transfer Order</div></div>
+                                    <div><span class="label label-default text-center gerp_purple">Click on <span class="fa fa-truck"/> Shipment</span><div> on the purchase order form or click on <i>Receive Products</i> to see the Transfer Order</div></div>
                                 </div>
                             </div>
                         </div>
@@ -347,11 +347,11 @@
                                     </span>
                                 </div>
                                 <div class="panel-body">
-                                    <div><span class="label label-default text-center odoo_purple">Find Incoming Shipments</span><div>via the <a t-att-href="prepare_backend_url('stock.stock_picking_type_action')">Dashboard</a> when you receive the ordered products</div></div>
+                                    <div><span class="label label-default text-center gerp_purple">Find Incoming Shipments</span><div>via the <a t-att-href="prepare_backend_url('stock.stock_picking_type_action')">Dashboard</a> when you receive the ordered products</div></div>
                                     <span class="fa fa-angle-down fa-2x"></span>
-                                    <div><span class="label label-default text-center odoo_purple">Process the products</span><div>either by manually updating the Done quantity on the product lines, or scan them with the Odoo Barcode app, or let Odoo do it automatically while validating</div></div>
+                                    <div><span class="label label-default text-center gerp_purple">Process the products</span><div>either by manually updating the Done quantity on the product lines, or scan them with the Odoo Barcode app, or let Odoo do it automatically while validating</div></div>
                                     <span class="fa fa-angle-down fa-2x"></span>
-                                    <div><span class="label label-default text-center odoo_purple">Validate the Receipt Order</span><div>to mark the products as transferred to your stock location</div></div>
+                                    <div><span class="label label-default text-center gerp_purple">Validate the Receipt Order</span><div>to mark the products as transferred to your stock location</div></div>
                                 </div>
                             </div>
                         </div>
@@ -458,10 +458,10 @@
                     <h1>Congratulations!</h1>
                     <h4>We hope this guide helped you implement Odoo Inventory.</h4>
                     <p>Do not hesitate to send us an email to describe your experience or to suggest improvements!</p>
-                    <p>Once it's fully working, give us some feedback: we love to hear from our customer. It would be great if you could send us a photo of your warehouse to <a href="mailto:feedback@mail.odoo.com?subject=Inventory%20Planner" target="_blank">feedback@mail.odoo.com</a></p>
+                    <p>Once it's fully working, give us some feedback: we love to hear from our customer. It would be great if you could send us a photo of your warehouse to <a href="mailto:feedback@mail.gerp.com?subject=Inventory%20Planner" target="_blank">feedback@mail.gerp.com</a></p>
                     <p><strong>Enjoy your Inventory management with Odoo!</strong></p>
                     <p>- The Odoo Team</p>
-                    <img src="/web_planner/static/src/img/odoo_logo.png"/>
+                    <img src="/web_planner/static/src/img/gerp_logo.png"/>
                 </div>
             </t>
         </t>
@@ -477,4 +477,4 @@
         </field>
     </record>
 
-</odoo>
+</gerp>

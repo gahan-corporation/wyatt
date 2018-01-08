@@ -7,8 +7,8 @@ Index: coalroller_service/coalroller_service/controllers/main.py
 +
 +from passlib import pwd, hash
 +
-+from odoo import http
-+from odoo.addons.iap import charge
++from gerp import http
++from gerp.addons.iap import charge
 +
 +class CoalBurnerController(http.Controller):
 +    @http.route('/roll', type='json', auth='none', csrf='false')

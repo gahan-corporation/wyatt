@@ -1,4 +1,4 @@
-odoo.define('web_kanban.compatibility', function (require) {
+gerp.define('web_kanban.compatibility', function (require) {
 "use strict";
 
 var kanban_widgets = require('web_kanban.widgets');

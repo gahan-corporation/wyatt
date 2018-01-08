@@ -94,47 +94,47 @@ msgstr ""
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "<span class=\"label label-default text-center odoo_purple\">'Available'</span>"
+msgid "<span class=\"label label-default text-center gerp_purple\">'Available'</span>"
 msgstr ""
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "<span class=\"label label-default text-center odoo_purple\">Click on <span class=\"fa fa-truck\"/> Delivery</span>"
+msgid "<span class=\"label label-default text-center gerp_purple\">Click on <span class=\"fa fa-truck\"/> Delivery</span>"
 msgstr ""
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "<span class=\"label label-default text-center odoo_purple\">Click on <span class=\"fa fa-truck\"/> Shipment</span>"
+msgid "<span class=\"label label-default text-center gerp_purple\">Click on <span class=\"fa fa-truck\"/> Shipment</span>"
 msgstr ""
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "<span class=\"label label-default text-center odoo_purple\">Confirm Order</span>"
+msgid "<span class=\"label label-default text-center gerp_purple\">Confirm Order</span>"
 msgstr ""
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "<span class=\"label label-default text-center odoo_purple\">Confirm Sale</span>"
+msgid "<span class=\"label label-default text-center gerp_purple\">Confirm Sale</span>"
 msgstr ""
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "<span class=\"label label-default text-center odoo_purple\">Find Incoming Shipments</span>"
+msgid "<span class=\"label label-default text-center gerp_purple\">Find Incoming Shipments</span>"
 msgstr ""
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "<span class=\"label label-default text-center odoo_purple\">Process the products</span>"
+msgid "<span class=\"label label-default text-center gerp_purple\">Process the products</span>"
 msgstr ""
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "<span class=\"label label-default text-center odoo_purple\">Validate the Delivery</span>"
+msgid "<span class=\"label label-default text-center gerp_purple\">Validate the Delivery</span>"
 msgstr ""
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "<span class=\"label label-default text-center odoo_purple\">Validate the Receipt Order</span>"
+msgid "<span class=\"label label-default text-center gerp_purple\">Validate the Receipt Order</span>"
 msgstr ""
 
 #. module: stock
@@ -6901,7 +6901,7 @@ msgstr ""
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "feedback@mail.odoo.com"
+msgid "feedback@mail.gerp.com"
 msgstr ""
 
 #. module: stock

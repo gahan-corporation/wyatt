@@ -1,4 +1,4 @@
-odoo.define('web_editor.tour', function (require) {
+gerp.define('web_editor.tour', function (require) {
 'use strict';
 
 var core = require('web.core');
@@ -178,7 +178,7 @@ tour.register('rte', {
     content: "insert a link url",
     trigger: '#o_link_dialog_url_input',
     extra_trigger: 'a#link-preview.btn',
-    run: "text http://www.odoo.com",
+    run: "text http://www.gerp.com",
 }, {
     content: "change text label",
     trigger: '#o_link_dialog_label_input',

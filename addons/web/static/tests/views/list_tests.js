@@ -1,4 +1,4 @@
-odoo.define('web.list_tests', function (require) {
+gerp.define('web.list_tests', function (require) {
 "use strict";
 
 var config = require('web.config');

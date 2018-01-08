@@ -1,4 +1,4 @@
-odoo.define('web.AbstractField', function (require) {
+gerp.define('web.AbstractField', function (require) {
 "use strict";
 
 /**

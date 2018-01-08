@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Judyta Kaźmierczak <judyta.kazmierczak@openglobe.pl>, 2017
-# Martin Trigaux <mat@odoo.com>, 2017
+# Martin Trigaux <mat@gerp.com>, 2017
 # Grzegorz Grzelak <grzegorz.grzelak@openglobe.pl>, 2017
 # zbik2607 <darek@krokus.com.pl>, 2017
 # Piotr Szlązak <szlazakpiotr@gmail.com>, 2017
@@ -26,7 +26,7 @@ msgstr ""
 "POT-Creation-Date: 2017-10-10 11:34+0000\n"
 "PO-Revision-Date: 2017-10-10 11:34+0000\n"
 "Last-Translator: Monika Grzelak <m.e.grzelak@gmail.com>, 2017\n"
-"Language-Team: Polish (https://www.transifex.com/odoo/teams/41243/pl/)\n"
+"Language-Team: Polish (https://www.transifex.com/gerp/teams/41243/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -118,81 +118,81 @@ msgstr ""
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
 "<span class=\"label label-default text-center "
-"odoo_purple\">'Available'</span>"
+"gerp_purple\">'Available'</span>"
 msgstr ""
 "<span class=\"label label-default text-center "
-"odoo_purple\">'Available'</span>"
+"gerp_purple\">'Available'</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Click on <span "
+"<span class=\"label label-default text-center gerp_purple\">Click on <span "
 "class=\"fa fa-truck\"/> Delivery</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Kliknij na <span"
+"<span class=\"label label-default text-center gerp_purple\">Kliknij na <span"
 " class=\"fa fa-truck\"/> dostawę</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Click on <span "
+"<span class=\"label label-default text-center gerp_purple\">Click on <span "
 "class=\"fa fa-truck\"/> Shipment</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">kliknij na <span"
+"<span class=\"label label-default text-center gerp_purple\">kliknij na <span"
 " class=\"fa fa-truck\"/> Wysyłkę</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Confirm "
+"<span class=\"label label-default text-center gerp_purple\">Confirm "
 "Order</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Potwierdź "
+"<span class=\"label label-default text-center gerp_purple\">Potwierdź "
 "zamówienie</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Confirm "
+"<span class=\"label label-default text-center gerp_purple\">Confirm "
 "Sale</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Potwierdź "
+"<span class=\"label label-default text-center gerp_purple\">Potwierdź "
 "sprzedaż</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Find Incoming "
+"<span class=\"label label-default text-center gerp_purple\">Find Incoming "
 "Shipments</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Znajdź przyjęcia"
+"<span class=\"label label-default text-center gerp_purple\">Znajdź przyjęcia"
 " zewnętrzne</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Process the "
+"<span class=\"label label-default text-center gerp_purple\">Process the "
 "products</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">proces "
+"<span class=\"label label-default text-center gerp_purple\">proces "
 "produktów</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Validate the "
+"<span class=\"label label-default text-center gerp_purple\">Validate the "
 "Delivery</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Zatwierdź "
+"<span class=\"label label-default text-center gerp_purple\">Zatwierdź "
 "wydanie zewnętrzne</span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"<span class=\"label label-default text-center odoo_purple\">Validate the "
+"<span class=\"label label-default text-center gerp_purple\">Validate the "
 "Receipt Order</span>"
 msgstr ""
-"<span class=\"label label-default text-center odoo_purple\">Zatwierdź "
+"<span class=\"label label-default text-center gerp_purple\">Zatwierdź "
 "przyjęcie zewnętrzne</span>"
 
 #. module: stock
@@ -7014,7 +7014,7 @@ msgid ""
 "Quantity."
 msgstr ""
 "Kiedy zapas wirtualny będzie mniejszy niż Ilość minimalna z tego pola, to "
-"odoo wygeneruje zapotrzebowanie na taką ilość, aby ilość spodziewana doszła "
+"gerp wygeneruje zapotrzebowanie na taką ilość, aby ilość spodziewana doszła "
 "do Ilości maksymalnej."
 
 #. module: stock
@@ -7025,7 +7025,7 @@ msgid ""
 "Max Quantity."
 msgstr ""
 "Kiedy zapas wirtualny będzie mniejszy niż Ilość minimalna z tego pola, to "
-"odoo wygeneruje zapotrzebowanie na taką ilość, aby ilość spodziewana doszła "
+"gerp wygeneruje zapotrzebowanie na taką ilość, aby ilość spodziewana doszła "
 "do Ilości maksymalnej."
 
 #. module: stock
@@ -7448,8 +7448,8 @@ msgstr ""
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "feedback@mail.odoo.com"
-msgstr "feedback@mail.odoo.com"
+msgid "feedback@mail.gerp.com"
+msgstr "feedback@mail.gerp.com"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner

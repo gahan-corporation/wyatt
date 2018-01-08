@@ -1,4 +1,4 @@
-odoo.define('website_sale.test', function (require) {
+gerp.define('website_sale.test', function (require) {
 'use strict';
 
 require("website_sale.tour");

@@ -7,7 +7,7 @@
 @o-kanban-image-width: 64px;
 @o-kanban-inside-vgutter: 8px;
 @o-kanban-inside-hgutter: 8px;
-@o-kanban-inside-hgutter-mobile: @odoo-horizontal-padding;
+@o-kanban-inside-hgutter-mobile: @gerp-horizontal-padding;
 
 // mixins
 .o-kanban-icon() {
@@ -16,7 +16,7 @@
     width: 50px;
     line-height: 1.8;
     text-align: center;
-    color: @odoo-main-text-color;
+    color: @gerp-main-text-color;
     padding: 8px;
     font-size: 22px;
     cursor: pointer;
@@ -154,7 +154,7 @@
         .o-flex-flow(row, wrap);
         .o-justify-content(flex-start);
 
-        padding: @o-kanban-record-margin @odoo-horizontal-padding - @o-kanban-record-margin;
+        padding: @o-kanban-record-margin @gerp-horizontal-padding - @o-kanban-record-margin;
         @media (max-width: @screen-xs-max) {
             padding: 0;
         }
@@ -180,7 +180,7 @@
 
     &.o_kanban_grouped {
         min-height: 100%;
-        padding: 0 @odoo-horizontal-padding - @o-kanban-group-padding - @o-kanban-record-margin;
+        padding: 0 @gerp-horizontal-padding - @o-kanban-group-padding - @o-kanban-record-margin;
         .o_kanban_record {
             width: @o-kanban-default-record-width;
         }
@@ -223,7 +223,7 @@
 
     .o_kanban_record {
         background-color: white;
-        box-shadow: 0px 0px 1px 1px lighten(@odoo-main-text-color, 10%);
+        box-shadow: 0px 0px 1px 1px lighten(@gerp-main-text-color, 10%);
         padding: @o-kanban-inside-vgutter @o-kanban-inside-hgutter;
         @media (max-width: @screen-xs-max) {
             padding: @o-kanban-inside-vgutter @o-kanban-inside-hgutter-mobile;
@@ -281,7 +281,7 @@
         .o_dropdown_kanban {
             > a {
                 padding: 3px;
-                color: @odoo-main-text-color;
+                color: @gerp-main-text-color;
             }
             &.open {
                 visibility: visible;
@@ -356,27 +356,27 @@
     }
 
     .o_kanban_group {
-        background-color: @odoo-webclient-background-color;
+        background-color: @gerp-webclient-background-color;
         &:nth-child(odd) {
-            background-color: darken(@odoo-webclient-background-color, 3%);
+            background-color: darken(@gerp-webclient-background-color, 3%);
         }
         &.ui-sortable-helper ~ .o_kanban_group, // Invert odd/even rule for groups which follows the helper (fixed)
         &.ui-sortable-placeholder ~ .o_kanban_group.ui-sortable-helper { // Invert odd/even rule for the helper if the placeholder is before (so that it keep the same color)
-            background-color: @odoo-webclient-background-color;
+            background-color: @gerp-webclient-background-color;
             &:nth-child(even) {
-                background-color: darken(@odoo-webclient-background-color, 3%);
+                background-color: darken(@gerp-webclient-background-color, 3%);
             }
         }
 
         &.o_kanban_dragged {
-            background-color: @odoo-main-text-color;
+            background-color: @gerp-main-text-color;
             .o_kanban_record {
                 visibility: hidden;
             }
         }
 
        .o_kanban_header {
-            color: @odoo-main-text-color;
+            color: @gerp-main-text-color;
             margin: 0 @o-kanban-record-margin;
             height: 50px;
             line-height: 2.2;
@@ -395,7 +395,7 @@
             .o_kanban_quick_add i {
                 .o-kanban-icon;
                 &:hover {
-                    background-color: darken(@odoo-webclient-background-color, 10%);
+                    background-color: darken(@gerp-webclient-background-color, 10%);
                     color: white !important;
                 }
             }
@@ -408,7 +408,7 @@
                 i {
                     .o-kanban-icon;
                     &:hover {
-                        background-color: darken(@odoo-webclient-background-color, 10%);
+                        background-color: darken(@gerp-webclient-background-color, 10%);
                     }
                 }
             }
@@ -416,7 +416,7 @@
 
         &.o_column_folded {
             position: relative;
-            border-right: 1px solid darken(@odoo-webclient-background-color, 10%);
+            border-right: 1px solid darken(@gerp-webclient-background-color, 10%);
             margin: 0;
 
             .o_column_title {
@@ -448,12 +448,12 @@
                 }
 
             }
-            background-color: darken(@odoo-webclient-background-color, 5%);
+            background-color: darken(@gerp-webclient-background-color, 5%);
         }
 
         .o_kanban_quick_create {
             background-color: white;
-            box-shadow: 0px 0px 1px 1px lighten(@odoo-main-text-color, 10%);
+            box-shadow: 0px 0px 1px 1px lighten(@gerp-main-text-color, 10%);
         }
 
         .o_kanban_load_more {
@@ -466,13 +466,13 @@
     }
 
     .o_column_quick_create {
-        background-color: darken(@odoo-webclient-background-color, 10%);
+        background-color: darken(@gerp-webclient-background-color, 10%);
         cursor: pointer;
 
         .o_column_header {
             .o_kanban_add_column {
                 padding: 0 10px;
-                color: @odoo-main-text-color;
+                color: @gerp-main-text-color;
 
                 > i {
                     font-size: 22px;
@@ -493,7 +493,7 @@
         }
         .o_kanban_quick_create {
             background-color: white;
-            box-shadow: 0px 0px 1px 1px lighten(@odoo-main-text-color, 10%);
+            box-shadow: 0px 0px 1px 1px lighten(@gerp-main-text-color, 10%);
         }
     }
 
@@ -551,7 +551,7 @@
     width: 12px;
     border-radius: 6px;
 
-    background-color: @odoo-brand-secondary;
+    background-color: @gerp-brand-secondary;
 
     &.oe_kanban_status_green {
         background-color: @brand-success;

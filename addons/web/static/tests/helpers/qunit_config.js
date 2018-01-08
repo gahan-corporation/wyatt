@@ -23,7 +23,7 @@ QUnit.config.requireExpects = true;
 /**
  * not important in normal mode, but in debug=assets, the files are loaded
  * asynchroneously, which can lead to various issues with QUnit... Notice that
- * this is done outside of odoo modules, otherwise the setting would not take
+ * this is done outside of gerp modules, otherwise the setting would not take
  * effect on time.
  */
 QUnit.config.autostart = false;

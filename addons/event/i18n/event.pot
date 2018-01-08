@@ -1864,7 +1864,7 @@ msgstr ""
 #. module: event
 #: model:event.event,description:event.event_2
 #: model:event.event,description:event.event_3
-msgid "events@odoo.com"
+msgid "events@gerp.com"
 msgstr ""
 
 #. module: event
@@ -1881,7 +1881,7 @@ msgstr ""
 
 #. module: event
 #: model:event.event,description:event.event_3
-msgid "https://www.odoo.com/services/technical-training"
+msgid "https://www.gerp.com/services/technical-training"
 msgstr ""
 
 #. module: event

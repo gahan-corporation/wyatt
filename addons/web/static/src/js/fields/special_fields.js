@@ -1,4 +1,4 @@
-odoo.define('web.special_fields', function (require) {
+gerp.define('web.special_fields', function (require) {
 "use strict";
 
 var core = require('web.core');

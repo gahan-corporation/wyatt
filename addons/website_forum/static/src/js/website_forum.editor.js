@@ -1,4 +1,4 @@
-odoo.define('website_forum.editor', function (require) {
+gerp.define('website_forum.editor', function (require) {
 "use strict";
 
 var core = require('web.core');
