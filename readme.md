@@ -1,4 +1,5 @@
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/54b92bda8e5c48b8bb2b8503535fad4f)](https://www.codacy.com/app/gcorp/gerp?utm_source=github.com&utm_medium=referral&utm_content=gahan-corporation/gerp&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/gahan-corporation/gerp.svg?branch=master)](https://travis-ci.org/gahan-corporation/gerp) [![Coverage Status](https://coveralls.io/repos/github/gahan-corporation/gerp/badge.svg?branch=master)](https://coveralls.io/github/gahan-corporation/gerp?branch=master)
 
 # GERP
