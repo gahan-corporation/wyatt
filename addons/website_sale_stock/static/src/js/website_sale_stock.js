@@ -1,4 +1,4 @@
-odoo.define('website_sale_stock.website_sale', function(require) {
+gerp.define('website_sale_stock.website_sale', function(require) {
 'use strict';
 
 require('web.dom_ready');

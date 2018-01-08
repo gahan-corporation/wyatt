@@ -1,4 +1,4 @@
-odoo.define('web.FormController', function (require) {
+gerp.define('web.FormController', function (require) {
 "use strict";
 
 var BasicController = require('web.BasicController');
@@ -351,7 +351,7 @@ var FormController = BasicController.extend({
      */
     _onBounceEdit: function () {
         if (this.$buttons) {
-            this.$buttons.find('.o_form_button_edit').odooBounce();
+            this.$buttons.find('.o_form_button_edit').gerpBounce();
         }
     },
     /**

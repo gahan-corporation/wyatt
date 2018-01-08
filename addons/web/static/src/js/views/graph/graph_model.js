@@ -1,4 +1,4 @@
-odoo.define('web.GraphModel', function (require) {
+gerp.define('web.GraphModel', function (require) {
 "use strict";
 
 /**

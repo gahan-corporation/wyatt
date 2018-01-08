@@ -1,4 +1,4 @@
-odoo.define('web.KanbanView', function (require) {
+gerp.define('web.KanbanView', function (require) {
 "use strict";
 
 var BasicView = require('web.BasicView');

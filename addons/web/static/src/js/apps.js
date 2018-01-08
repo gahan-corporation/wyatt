@@ -1,4 +1,4 @@
-odoo.define('web.Apps', function (require) {
+gerp.define('web.Apps', function (require) {
 "use strict";
 
 var core = require('web.core');

@@ -1,4 +1,4 @@
-<odoo>
+<gerp>
   <data noupdate="1">
 
     <!-- Drink Categories -->
@@ -465,4 +465,4 @@
         </record>
     </data>
 
-</odoo>
+</gerp>

@@ -1,4 +1,4 @@
-odoo.define('mail.tour', function(require) {
+gerp.define('mail.tour', function(require) {
 "use strict";
 
 var core = require('web.core');

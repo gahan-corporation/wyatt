@@ -1,4 +1,4 @@
-odoo.define('web.config', function (require) {
+gerp.define('web.config', function (require) {
 "use strict";
 
 /**

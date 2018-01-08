@@ -1,4 +1,4 @@
-odoo.define('web_diagram.diagram_tests', function (require) {
+gerp.define('web_diagram.diagram_tests', function (require) {
 "use strict";
 
 var DiagramView = require('web_diagram.DiagramView');

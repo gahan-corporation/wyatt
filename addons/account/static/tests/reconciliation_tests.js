@@ -1,4 +1,4 @@
-odoo.define('account.reconciliation_tests.data', function () {
+gerp.define('account.reconciliation_tests.data', function () {
 "use strict";
 
 var Datas = {};
@@ -499,7 +499,7 @@ Datas.getParams = function () {
 return Datas;
 });
 
-odoo.define('account.reconciliation_tests', function (require) {
+gerp.define('account.reconciliation_tests', function (require) {
 "use strict";
 
 var ReconciliationClientAction = require('account.ReconciliationClientAction');

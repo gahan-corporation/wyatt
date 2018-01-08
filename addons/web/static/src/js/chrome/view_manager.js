@@ -1,4 +1,4 @@
-odoo.define('web.ViewManager', function (require) {
+gerp.define('web.ViewManager', function (require) {
 "use strict";
 
 var Context = require('web.Context');

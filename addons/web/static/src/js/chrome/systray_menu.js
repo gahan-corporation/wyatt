@@ -1,4 +1,4 @@
-odoo.define('web.SystrayMenu', function (require) {
+gerp.define('web.SystrayMenu', function (require) {
 "use strict";
 
 var Widget = require('web.Widget');

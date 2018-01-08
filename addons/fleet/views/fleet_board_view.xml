@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<gerp>
     <record id="fleet_costs_reporting_action" model="ir.actions.act_window">
       <field name="name">Costs Analysis</field>
       <field name="res_model">fleet.vehicle.cost</field>
@@ -76,4 +76,4 @@
               action="fleet_costs_reporting_non_effective_action"
               sequence="2"
               groups="fleet_group_manager"/>
-</odoo>
+</gerp>

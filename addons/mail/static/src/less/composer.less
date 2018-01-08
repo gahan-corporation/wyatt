@@ -55,7 +55,7 @@
         }
         @media (max-width: @screen-xs-max) {
             .o_composer_button_send {
-                color: @odoo-brand-optional;
+                color: @gerp-brand-optional;
             }
         }
 
@@ -175,7 +175,7 @@
                 border-radius: 0 3px 3px 0;
                 // Make the button appear as the same size as the subject input
                 padding: 10px @padding-base-horizontal;
-                border: 1px solid darken(@odoo-brand-optional, 5%);
+                border: 1px solid darken(@gerp-brand-optional, 5%);
                 border-left-width: 0;
             }
         }
@@ -236,24 +236,24 @@
 // Attachment Icons (common for chat thread and chat composer)
 // ------------------------------------------------------------------
 @-webkit-keyframes oe_mail_attach_loading_anim {
-    0% { background: @odoo-brand-optional }
-    50% { background: darken(@odoo-brand-optional, 10%) }
-    100% { background: @odoo-brand-optional }
+    0% { background: @gerp-brand-optional }
+    50% { background: darken(@gerp-brand-optional, 10%) }
+    100% { background: @gerp-brand-optional }
 }
 @-moz-keyframes oe_mail_attach_loading_anim {
-    0% { background: @odoo-brand-optional }
-    50% { background: darken(@odoo-brand-optional, 10%) }
-    100% { background: @odoo-brand-optional }
+    0% { background: @gerp-brand-optional }
+    50% { background: darken(@gerp-brand-optional, 10%) }
+    100% { background: @gerp-brand-optional }
 }
 @-o-keyframes oe_mail_attach_loading_anim {
-    0% { background: @odoo-brand-optional }
-    50% { background: darken(@odoo-brand-optional, 10%) }
-    100% { background: @odoo-brand-optional }
+    0% { background: @gerp-brand-optional }
+    50% { background: darken(@gerp-brand-optional, 10%) }
+    100% { background: @gerp-brand-optional }
 }
 @keyframes oe_mail_attach_loading_anim {
-    0% { background: @odoo-brand-optional }
-    50% { background: darken(@odoo-brand-optional, 10%) }
-    100% { background: @odoo-brand-optional }
+    0% { background: @gerp-brand-optional }
+    50% { background: darken(@gerp-brand-optional, 10%) }
+    100% { background: @gerp-brand-optional }
 }
 
 @o-mail-attachment-image-size: 100px;
@@ -302,7 +302,7 @@
         overflow: hidden;
         padding: 5px;
         a {
-            color: @odoo-main-text-color;
+            color: @gerp-main-text-color;
         }
     }
     .o_attachment_progress_bar {
@@ -310,7 +310,7 @@
     }
     .o_attachment_delete {
         .o-position-absolute(@top: -10px, @right: -8px);
-        color: @odoo-main-text-color;
+        color: @gerp-main-text-color;
         cursor: pointer;
         opacity: 0;
         .o-transition(opacity, 0.2s, linear);
@@ -324,7 +324,7 @@
             color: white;
             border-radius: @border-radius-base;
             border: solid 1px grey;
-            box-shadow: 0px 1px 10px @odoo-shadow-color;
+            box-shadow: 0px 1px 10px @gerp-shadow-color;
             .o-animation(@name: oe_mail_attach_loading_anim, @duration: 1s, @timing-function: linear, @iteration-count: infinite);
         }
         .o_attachment_delete {

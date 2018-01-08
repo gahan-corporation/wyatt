@@ -1,4 +1,4 @@
-odoo.define('pad.pad', function (require) {
+gerp.define('pad.pad', function (require) {
 "use strict";
 
 var AbstractField = require('web.AbstractField');

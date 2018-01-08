@@ -1,4 +1,4 @@
-odoo.define('web.BasicRenderer', function (require) {
+gerp.define('web.BasicRenderer', function (require) {
 "use strict";
 
 /**

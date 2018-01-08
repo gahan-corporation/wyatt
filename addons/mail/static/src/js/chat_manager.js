@@ -1,4 +1,4 @@
-odoo.define('mail.chat_manager', function (require) {
+gerp.define('mail.chat_manager', function (require) {
 "use strict";
 
 var bus = require('bus.bus').bus;
@@ -48,7 +48,7 @@ bus.on("window_focus", null, function() {
 });
 
 function notify_incoming_message (msg, options) {
-    if (bus.is_odoo_focused() && options.is_displayed) {
+    if (bus.is_gerp_focused() && options.is_displayed) {
         // no need to notify
         return;
     }
@@ -58,7 +58,7 @@ function notify_incoming_message (msg, options) {
     }
     var content = utils.parse_and_transform(msg.body, utils.strip_html).substr(0, preview_msg_max_size);
 
-    if (!bus.is_odoo_focused()) {
+    if (!bus.is_gerp_focused()) {
         global_unread_counter++;
         var tab_title = _.str.sprintf(_t("%d Messages"), global_unread_counter);
         web_client.set_title_part("_chat", tab_title);
@@ -203,7 +203,7 @@ function make_message (data) {
 
     // Compute the avatar_url
     if (msg.author_id === ODOOBOT_ID) {
-        msg.avatar_src = "/mail/static/src/img/odoo_o.png";
+        msg.avatar_src = "/mail/static/src/img/gerp_o.png";
     } else if (msg.author_id && msg.author_id[0]) {
         msg.avatar_src = "/web/image/res.partner/" + msg.author_id[0] + "/image_small";
     } else if (msg.message_type === 'email') {

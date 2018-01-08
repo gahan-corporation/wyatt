@@ -1,4 +1,4 @@
-odoo.define('hr_gamification.hr_gamification', function(require) {
+gerp.define('hr_gamification.hr_gamification', function(require) {
 "use strict";
 
 var KanbanRecord = require('web.KanbanRecord');

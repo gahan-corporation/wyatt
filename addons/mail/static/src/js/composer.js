@@ -1,4 +1,4 @@
-odoo.define('mail.composer', function (require) {
+gerp.define('mail.composer', function (require) {
 "use strict";
 
 var chat_mixin = require('mail.chat_mixin');

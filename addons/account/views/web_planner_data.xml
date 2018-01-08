@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<odoo>
+<gerp>
 
     <template id="account_planner">
         <t t-call="web_planner.pages">
@@ -142,7 +142,7 @@
                     <t t-set="page_title">Chart of Accounts</t>
                     <t t-if="not is_coa_installed">
                         <p>Before continuing, you must install the Chart of Account related to your country (or the generic one if your country is not listed).</p>
-                        <a class="btn btn-sm odoo_purple" t-att-href="prepare_backend_url('account.open_account_charts_modules', 'kanban')">Install Chart of Account</a>
+                        <a class="btn btn-sm gerp_purple" t-att-href="prepare_backend_url('account.open_account_charts_modules', 'kanban')">Install Chart of Account</a>
                     </t>
                     <t t-if="is_coa_installed">
                         <p>
@@ -401,7 +401,7 @@
                             <span class="fa fa-building-o fa-4x"></span>
                             <h3><strong>Assets Management</strong></h3>
                             <p>Manage your various fixed assets, such as buildings, machinery, materials, cars, etc..., and calculate their associated depreciation over time.</p>
-                            <a t-att-href="prepare_backend_url('base.open_module_tree', 'form', 'account_asset')" class="btn odoo_purple">
+                            <a t-att-href="prepare_backend_url('base.open_module_tree', 'form', 'account_asset')" class="btn gerp_purple">
                                 <span class="fa fa-arrow-circle-o-down"/> Install Now
                             </a>
                         </div>
@@ -410,7 +410,7 @@
                             <h3><strong>Revenue Recognition</strong></h3>
                             <p>Use in conjunction with contracts to calculate your monthly revenue for multi-month contracts.</p>
                             <a t-att-href="prepare_backend_url('base.open_module_tree', 'form', 'account_deferred_revenue')"
-                                class="btn odoo_purple">
+                                class="btn gerp_purple">
                                 <span class="fa fa-arrow-circle-o-down"/> Install Now
                             </a>
                         </div>
@@ -419,7 +419,7 @@
                             <h3><strong>Deposit Tickets</strong></h3>
                             <p>Simplify your cash, checks, or credit cards deposits with an integrated batch payment function.</p>
                             <a t-att-href="prepare_backend_url('base.open_module_tree', 'form', 'account_batch_deposit')"
-                                class="btn odoo_purple">
+                                class="btn gerp_purple">
                                 <span class="fa fa-arrow-circle-o-down"/> Install Now
                             </a>
                         </div>
@@ -430,7 +430,7 @@
                             <h3><strong>Expenses</strong></h3>
                             <p>Manage your employee expenses, from encoding, to payments and reporting.</p>
                             <a t-att-href="prepare_backend_url('base.open_module_tree', 'form', 'hr_expense')"
-                                class="btn odoo_purple">
+                                class="btn gerp_purple">
                                 <span class="fa fa-arrow-circle-o-down"/> Install Now
                             </a>
                         </div>
@@ -439,7 +439,7 @@
                             <h3><strong>Purchases</strong></h3>
                             <p>Validate purchase orders and control vendor bills by departments.</p>
                             <a t-att-href="prepare_backend_url('base.open_module_tree', 'form', 'purchase')"
-                                class="btn odoo_purple">
+                                class="btn gerp_purple">
                                 <span class="fa fa-arrow-circle-o-down"/> Install Now
                             </a>
                         </div>
@@ -448,7 +448,7 @@
                             <h3><strong>Contracts &amp; Subscriptions</strong></h3>
                             <p>Manage time &amp; material contracts or fixed-price recurring subscriptions.</p>
                             <a t-att-href="prepare_backend_url('base.open_module_tree', 'form', 'sale_subscription')"
-                                class="btn odoo_purple">
+                                class="btn gerp_purple">
                                 <span class="fa fa-arrow-circle-o-down"/> Install Now
                             </a>
                         </div>
@@ -517,7 +517,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <strong>Next action:</strong><br/>
-                            <a t-att-href="prepare_backend_url('base.action_res_users')" class="btn odoo_purple">
+                            <a t-att-href="prepare_backend_url('base.action_res_users')" class="btn gerp_purple">
                                 <span class="fa"/> Invite Your Users
                             </a>
                         </div>
@@ -658,9 +658,9 @@
                     <div class="text-center">
                         <h1>Congratulations, you're done!</h1>
                         <h3>We hope this tool helped you implement our accounting application.</h3>
-                        <h4>Don't hesitate to <a href="mailto:info@odoo.com?subject=Accounting%20Planner" target="_blank">send us an email</a> to describe<br/> your experience or to suggest improvements !</h4>
+                        <h4>Don't hesitate to <a href="mailto:info@gerp.com?subject=Accounting%20Planner" target="_blank">send us an email</a> to describe<br/> your experience or to suggest improvements !</h4>
                         <p><strong>-The Odoo Team</strong></p>
-                        <img src="/web_planner/static/src/img/odoo_logo.png"/>
+                        <img src="/web_planner/static/src/img/gerp_logo.png"/>
                     </div>
                 </t>
             </t>
@@ -678,4 +678,4 @@
         </field>
     </record>
 
-</odoo>
+</gerp>

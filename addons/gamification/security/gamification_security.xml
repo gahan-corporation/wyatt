@@ -1,4 +1,4 @@
-<odoo>
+<gerp>
     <data noupdate="1">
 
         <record id="goal_user_visibility" model="ir.rule">
@@ -36,4 +36,4 @@
         </record>
 
     </data>
-</odoo>
+</gerp>

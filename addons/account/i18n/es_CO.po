@@ -6,7 +6,7 @@
 # Translators:
 # Andrés Felipe Casas <omega@nubark.com>, 2016
 # ANDRES FELIPE NEGRETE GOMEZ <psi@nubark.com>, 2016
-# Denis Ledoux <dle@odoo.com>, 2016
+# Denis Ledoux <dle@gerp.com>, 2016
 # Esteban Echeverry <tebanep@nubark.com>, 2016
 # gammanubark <gamma@nubark.com>, 2016
 # Juan Pablo Vargas Soruco <juanpablo.vargas@cruzoil.com>, 2016
@@ -22,7 +22,7 @@
 # Translators:
 # Andrés Felipe Casas <omega@nubark.com>, 2016
 # ANDRES FELIPE NEGRETE GOMEZ <psi@nubark.com>, 2016
-# Denis Ledoux <dle@odoo.com>, 2016
+# Denis Ledoux <dle@gerp.com>, 2016
 # Esteban Echeverry <tebanep@nubark.com>, 2016
 # Juan Pablo Vargas Soruco <juanpablo.vargas@cruzoil.com>, 2016
 # Leidy Sofía Peña Gahona <beta@nubark.com>, 2016
@@ -37,7 +37,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:06+0000\n"
 "PO-Revision-Date: 2016-07-06 21:50+0000\n"
 "Last-Translator: Leidy Sofía Peña Gahona <beta@nubark.com>\n"
-"Language-Team: Spanish (Colombia) (http://www.transifex.com/odoo/odoo-9/"
+"Language-Team: Spanish (Colombia) (http://www.transifex.com/gerp/gerp-9/"
 "language/es_CO/)\n"
 "Language: es_CO\n"
 "MIME-Version: 1.0\n"
@@ -10606,8 +10606,8 @@ msgstr "ej. Comisiones Bancarias"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.view_account_config_settings
-msgid "e.g. sales@odoo.com"
-msgstr "ej. sales@odoo.com"
+msgid "e.g. sales@gerp.com"
+msgstr "ej. sales@gerp.com"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner

@@ -1,4 +1,4 @@
-odoo.define('account.payment', function (require) {
+gerp.define('account.payment', function (require) {
 "use strict";
 
 var AbstractField = require('web.AbstractField');

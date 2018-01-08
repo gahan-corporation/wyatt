@@ -1,4 +1,4 @@
-odoo.define('web.AbstractRenderer', function (require) {
+gerp.define('web.AbstractRenderer', function (require) {
 "use strict";
 
 /**

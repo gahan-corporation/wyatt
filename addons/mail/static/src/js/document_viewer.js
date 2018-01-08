@@ -1,4 +1,4 @@
-odoo.define('mail.DocumentViewer', function (require) {
+gerp.define('mail.DocumentViewer', function (require) {
 "use strict";
 
 var core = require('web.core');

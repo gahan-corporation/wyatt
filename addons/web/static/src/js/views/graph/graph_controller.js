@@ -1,4 +1,4 @@
-odoo.define('web.GraphController', function (require) {
+gerp.define('web.GraphController', function (require) {
 "use strict";
 /*---------------------------------------------------------
  * Odoo Graph view

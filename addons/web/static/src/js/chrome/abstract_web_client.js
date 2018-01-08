@@ -1,4 +1,4 @@
-odoo.define('web.AbstractWebClient', function (require) {
+gerp.define('web.AbstractWebClient', function (require) {
 "use strict";
 
 /**

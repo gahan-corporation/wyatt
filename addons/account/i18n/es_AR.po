@@ -13,7 +13,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:06+0000\n"
 "PO-Revision-Date: 2016-05-29 19:23+0000\n"
 "Last-Translator: Virginia Castro <castrovirginia88@gmail.com>\n"
-"Language-Team: Spanish (Argentina) (http://www.transifex.com/odoo/odoo-9/"
+"Language-Team: Spanish (Argentina) (http://www.transifex.com/gerp/gerp-9/"
 "language/es_AR/)\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
@@ -9942,7 +9942,7 @@ msgstr ""
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.view_account_config_settings
-msgid "e.g. sales@odoo.com"
+msgid "e.g. sales@gerp.com"
 msgstr ""
 
 #. module: account

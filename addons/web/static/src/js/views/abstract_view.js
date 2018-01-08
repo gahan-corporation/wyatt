@@ -1,4 +1,4 @@
-odoo.define('web.AbstractView', function (require) {
+gerp.define('web.AbstractView', function (require) {
 "use strict";
 
 /**

@@ -1,4 +1,4 @@
-odoo.define('web.nvd3.extensions', function () {
+gerp.define('web.nvd3.extensions', function () {
 'use strict';
 
 /**

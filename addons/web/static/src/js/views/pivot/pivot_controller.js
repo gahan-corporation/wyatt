@@ -1,4 +1,4 @@
-odoo.define('web.PivotController', function (require) {
+gerp.define('web.PivotController', function (require) {
 "use strict";
 /**
  * Odoo Pivot Table Controller

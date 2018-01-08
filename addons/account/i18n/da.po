@@ -5,15 +5,15 @@
 # Translators:
 # Morten Schou <ms@msteknik.dk>, 2017
 # Pernille Kristensen <pernillekristensen1994@gmail.com>, 2017
-# Martin Trigaux <mat@odoo.com>, 2017
+# Martin Trigaux <mat@gerp.com>, 2017
 # Ejner Sønniksen <ejner@vkdata.dk>, 2017
 # Sanne Kristensen <sanne@vkdata.dk>, 2017
 # Jarnhold Nattestad <nattestads@gmail.com>, 2017
 # Hans Henrik Gabelgaard <hhg@gabelgaard.org>, 2017
-# Jesper Carstensen <info@danodoo.dk>, 2017
+# Jesper Carstensen <info@dangerp.dk>, 2017
 # peso <peer.sommerlund@gmail.com>, 2017
 # jonas jensen <j.jensen@tcomp.dk>, 2017
-# Jesper Carstensen <jc@danodoo.dk>, 2017
+# Jesper Carstensen <jc@dangerp.dk>, 2017
 # Visti Kristensen <visti@vkdata.dk>, 2017
 # Nicolaj Helmer Hansen <nhh@softwarehuset.com>, 2017
 # Kenneth Hansen <kenneth@vkdata.dk>, 2017
@@ -24,7 +24,7 @@ msgstr ""
 "POT-Creation-Date: 2017-10-24 08:59+0000\n"
 "PO-Revision-Date: 2017-10-24 08:59+0000\n"
 "Last-Translator: Kenneth Hansen <kenneth@vkdata.dk>, 2017\n"
-"Language-Team: Danish (https://www.transifex.com/odoo/teams/41243/da/)\n"
+"Language-Team: Danish (https://www.transifex.com/gerp/teams/41243/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -253,7 +253,7 @@ msgid ""
 "    </tr>\n"
 "    <tr>\n"
 "        <td align=\"center\">\n"
-"            Powered by <a target=\"_blank\" href=\"https://www.odoo.com\">Odoo</a>.\n"
+"            Powered by <a target=\"_blank\" href=\"https://www.gerp.com\">Odoo</a>.\n"
 "        </td>\n"
 "    </tr>\n"
 "</tbody>\n"
@@ -6434,7 +6434,7 @@ msgstr "Mindre betaling"
 #. openerp-web
 #: code:addons/account/static/src/xml/account_reconciliation.xml:24
 #, python-format
-msgid "Let odoo try to reconcile entries for the user"
+msgid "Let gerp try to reconcile entries for the user"
 msgstr "Lad Odoo forsøge at afstemme poster til brugeren"
 
 #. module: account

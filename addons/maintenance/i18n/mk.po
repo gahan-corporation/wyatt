@@ -11,7 +11,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2016-08-09 14:10+0000\n"
 "Last-Translator: Aleksandar Vangelovski <aleksandarv@hbee.eu>\n"
-"Language-Team: Macedonian (http://www.transifex.com/odoo/odoo-9/language/"
+"Language-Team: Macedonian (http://www.transifex.com/gerp/gerp-9/language/"
 "mk/)\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
@@ -824,10 +824,10 @@ msgstr ""
 #: model:ir.model.fields,help:hr_equipment.field_hr_equipment_category_alias_name
 msgid ""
 "The name of the email alias, e.g. 'jobs' if you want to catch emails for "
-"<jobs@example.odoo.com>"
+"<jobs@example.gerp.com>"
 msgstr ""
 "Името на е-маил алијасот, пр. 'jobs' ако сакате да ги примате сите е-маил "
-"пораки испратени до <jobs@example.odoo.com>"
+"пораки испратени до <jobs@example.gerp.com>"
 
 #. module: hr_equipment
 #: model:ir.model.fields,help:hr_equipment.field_hr_equipment_category_alias_user_id

@@ -1,4 +1,4 @@
-odoo.define('google_calendar.google_calendar', function (require) {
+gerp.define('google_calendar.google_calendar', function (require) {
 "use strict";
 
 var core = require('web.core');

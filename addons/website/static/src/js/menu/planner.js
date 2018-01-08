@@ -1,4 +1,4 @@
-odoo.define('website.planner', function (require) {
+gerp.define('website.planner', function (require) {
 'use strict';
 
 var session = require('web.session');

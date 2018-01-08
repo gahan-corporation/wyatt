@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.keyboard', function (require) {
+gerp.define('point_of_sale.keyboard', function (require) {
 "use strict";
 
 var Widget = require('web.Widget');

@@ -1,4 +1,4 @@
-odoo.define('web_diagram.DiagramController', function (require) {
+gerp.define('web_diagram.DiagramController', function (require) {
 "use strict";
 
 var AbstractController = require('web.AbstractController');

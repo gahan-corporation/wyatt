@@ -1,4 +1,4 @@
-odoo.define('website.content.compatibility', function (require) {
+gerp.define('website.content.compatibility', function (require) {
 'use strict';
 
 /**

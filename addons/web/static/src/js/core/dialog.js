@@ -1,4 +1,4 @@
-odoo.define('web.Dialog', function (require) {
+gerp.define('web.Dialog', function (require) {
 "use strict";
 
 var core = require('web.core');

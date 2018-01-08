@@ -1,4 +1,4 @@
-odoo.define('web.CrashManager', function (require) {
+gerp.define('web.CrashManager', function (require) {
 "use strict";
 
 var ajax = require('web.ajax');
@@ -54,7 +54,7 @@ var CrashManager = core.Class.extend({
             new (handler)(this, error).display();
             return;
         }
-        if (error.data.name === "odoo.http.SessionExpiredException" || error.data.name === "werkzeug.exceptions.Forbidden") {
+        if (error.data.name === "gerp.http.SessionExpiredException" || error.data.name === "werkzeug.exceptions.Forbidden") {
             this.show_warning({type: _t("Odoo Session Expired"), data: {message: _t("Your Odoo session expired. Please refresh the current web page.")}});
             return;
         }
@@ -207,12 +207,12 @@ var RedirectWarningHandler = Dialog.extend(ExceptionHandler, {
     }
 });
 
-core.crash_registry.add('odoo.exceptions.RedirectWarning', RedirectWarningHandler);
+core.crash_registry.add('gerp.exceptions.RedirectWarning', RedirectWarningHandler);
 
 return CrashManager;
 });
 
-odoo.define('web.crash_manager', function (require) {
+gerp.define('web.crash_manager', function (require) {
 "use strict";
 
 var CrashManager = require('web.CrashManager');

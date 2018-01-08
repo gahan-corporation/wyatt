@@ -1,4 +1,4 @@
-odoo.define('mail.form_renderer', function (require) {
+gerp.define('mail.form_renderer', function (require) {
 "use strict";
 
 var BasicModel = require('web.BasicModel');

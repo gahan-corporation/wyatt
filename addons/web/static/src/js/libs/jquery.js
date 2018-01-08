@@ -1,4 +1,4 @@
-odoo.define('web.jquery.extensions', function () {
+gerp.define('web.jquery.extensions', function () {
 'use strict';
 
 /**
@@ -87,7 +87,7 @@ $.fn.extend({
     /**
      * Makes DOM elements bounce the way Odoo decided it.
      */
-    odooBounce: function () {
+    gerpBounce: function () {
         return this.each(function () {
             $(this).css('box-sizing', 'content-box')
                    .effect('bounce', {distance: 18, times: 5}, 250);

@@ -11,7 +11,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2016-03-21 21:32+0000\n"
 "Last-Translator: Jaroslav Bosansky <jaro.bosansky@ekoenergo.sk>\n"
-"Language-Team: Slovak (http://www.transifex.com/odoo/odoo-9/language/sk/)\n"
+"Language-Team: Slovak (http://www.transifex.com/gerp/gerp-9/language/sk/)\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1962,8 +1962,8 @@ msgstr "Čo si myslíte o sprievodcoch inštaláciou?"
 
 #. module: survey
 #: model:survey.question,question:survey.feedback_2_1
-msgid "What do you think about the documentation available on doc.odoo.com?"
-msgstr "Čo si myslíte o dokumentácii dostupnej na doc.odoo.com?"
+msgid "What do you think about the documentation available on doc.gerp.com?"
+msgstr "Čo si myslíte o dokumentácii dostupnej na doc.gerp.com?"
 
 #. module: survey
 #: model:survey.question,question:survey.feedback_2_5

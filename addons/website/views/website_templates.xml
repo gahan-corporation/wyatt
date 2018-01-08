@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<gerp>
 <!-- Assets -->
 <template id="assets_backend" inherit_id="web.assets_backend" name="Website Backend Assets (used in backend interface)">
     <xpath expr="//link[last()]" position="after">
@@ -22,7 +22,7 @@
     <xpath expr="//link[last()]" position="after">
         <link rel="stylesheet" type="text/less" href="/website/static/src/less/website.ui.components.less"/>
         <link rel="stylesheet" type="text/less" href="/website/static/src/less/website.snippets.less"/>
-        <link rel="stylesheet" type="text/less" href="/website/static/src/less/website.zoomodoo.less"/>
+        <link rel="stylesheet" type="text/less" href="/website/static/src/less/website.zoomgerp.less"/>
     </xpath>
     <xpath expr="//script[last()]" position="after">
         <script type="text/javascript" src="/website/static/src/js/utils.js"/>
@@ -32,7 +32,7 @@
         <script type="text/javascript" src="/website/static/src/js/content/lazy_template_call.js"/>
         <script type="text/javascript" src="/website/static/src/js/content/snippets.animation.js"/>
         <script type="text/javascript" src="/website/static/src/js/content/website_root.js"/>
-        <script type="text/javascript" src="/website/static/src/js/content/zoomodoo.js"/>
+        <script type="text/javascript" src="/website/static/src/js/content/zoomgerp.js"/>
 
         <script type="text/javascript" src="/website/static/src/js/menu/navbar.js"/>
     </xpath>
@@ -143,10 +143,10 @@
 
             <script type="text/javascript">
                 <t groups="website.group_website_publisher">
-                    odoo.snippetsURL = '/website/snippets';
+                    gerp.snippetsURL = '/website/snippets';
                 </t>
 
-                odoo.session_info = {
+                gerp.session_info = {
                     is_superuser: <t t-esc="json.dumps(request.env.user._is_superuser())"/>,
                     is_system: <t t-esc="json.dumps(request.env.user._is_system())"/>,
                     is_frontend: true,
@@ -208,8 +208,8 @@
     <xpath expr="//footer" position="inside">
         <div class="container mt16 mb8">
             <div class="pull-right" t-ignore="true" t-if="not editable">
-                Create a <a target="_blank" href="http://www.odoo.com/page/website-builder">free website</a> with
-                <a target="_blank" class="label label-danger" href="http://www.odoo.com/page/website-builder">Odoo</a>
+                Create a <a target="_blank" href="http://www.gerp.com/page/website-builder">free website</a> with
+                <a target="_blank" class="label label-danger" href="http://www.gerp.com/page/website-builder">Odoo</a>
             </div>
             <div class="pull-left text-muted" itemscope="itemscope" itemtype="http://schema.org/Organization">
                 Copyright &amp;copy; <span t-field="res_company.name" itemprop="name">Company name</span>
@@ -483,7 +483,7 @@
                     <small>Odoo Version <t t-raw="version.get('server_version')"/></small>
                 </h1>
                 <p>
-                    Information about the <t t-esc="res_company.name"/> instance of Odoo, the <a target="_blank" href="https://www.odoo.com">Open Source ERP</a>.
+                    Information about the <t t-esc="res_company.name"/> instance of Odoo, the <a target="_blank" href="https://www.gerp.com">Open Source ERP</a>.
                 </p>
 
                 <div class="alert alert-warning alert-dismissable mt16" groups="website.group_website_publisher">
@@ -558,7 +558,7 @@
 <template id="default_less">
     <style type="text/less">
         div#wrap div &gt; h1 {
-            color: @odoo-brand-primary;
+            color: @gerp-brand-primary;
         }
     </style>
 </template>
@@ -940,4 +940,4 @@ Sitemap: <t t-esc="url_root"/>sitemap.xml
   </t>
 </template>
 
-</odoo>
+</gerp>

@@ -1,4 +1,4 @@
-odoo.define('web.BasicController', function (require) {
+gerp.define('web.BasicController', function (require) {
 "use strict";
 
 /**

@@ -11,7 +11,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:07+0000\n"
 "PO-Revision-Date: 2016-03-10 13:15+0000\n"
 "Last-Translator: Martin Trigaux\n"
-"Language-Team: Portuguese (http://www.transifex.com/odoo/odoo-9/language/"
+"Language-Team: Portuguese (http://www.transifex.com/gerp/gerp-9/language/"
 "pt/)\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
@@ -1663,10 +1663,10 @@ msgstr "O nome do grau de recrutamento deve ser único!"
 #: model:ir.model.fields,help:hr_recruitment.field_hr_job_alias_name
 msgid ""
 "The name of the email alias, e.g. 'jobs' if you want to catch emails for "
-"<jobs@example.odoo.com>"
+"<jobs@example.gerp.com>"
 msgstr ""
 "O nome do alias de e-mail , por exemplo, Se você quer recolher e-mails para "
-"\" empregos\" < jobs@example.odoo.com >"
+"\" empregos\" < jobs@example.gerp.com >"
 
 #. module: hr_recruitment
 #: model:ir.model.fields,help:hr_recruitment.field_hr_job_alias_user_id

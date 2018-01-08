@@ -1,4 +1,4 @@
-odoo.define('web.KanbanRendererMobile', function (require) {
+gerp.define('web.KanbanRendererMobile', function (require) {
 "use strict";
 
 /**

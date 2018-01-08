@@ -1,4 +1,4 @@
-odoo.define('web.data', function (require) {
+gerp.define('web.data', function (require) {
 "use strict";
 
 var Class = require('web.Class');

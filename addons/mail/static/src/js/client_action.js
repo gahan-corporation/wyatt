@@ -1,4 +1,4 @@
-odoo.define('mail.chat_client_action', function (require) {
+gerp.define('mail.chat_client_action', function (require) {
 "use strict";
 
 var chat_manager = require('mail.chat_manager');

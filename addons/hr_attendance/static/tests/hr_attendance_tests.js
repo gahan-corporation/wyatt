@@ -1,4 +1,4 @@
-odoo.define('hr_attendance.tests', function (require) {
+gerp.define('hr_attendance.tests', function (require) {
 "use strict";
 
 var testUtils = require('web.test_utils');

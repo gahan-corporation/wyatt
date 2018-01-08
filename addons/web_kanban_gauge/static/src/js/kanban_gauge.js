@@ -1,4 +1,4 @@
-odoo.define('web_kanban_gauge.widget', function (require) {
+gerp.define('web_kanban_gauge.widget', function (require) {
 "use strict";
 
 var AbstractField = require('web.AbstractField');

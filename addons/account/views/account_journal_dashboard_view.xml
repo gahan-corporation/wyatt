@@ -1,4 +1,4 @@
-<odoo>
+<gerp>
     <record id="account_journal_dashboard_kanban_view" model="ir.ui.view">
         <field name="name">account.journal.dashboard.kanban</field>
         <field name="model">account.journal</field>
@@ -332,4 +332,4 @@
     </record>
 
     <menuitem id="menu_board_journal_1" name="Dashboard" action="open_account_journal_dashboard_kanban" parent="menu_finance" sequence="1" groups="account.group_account_user"/>
-</odoo>
+</gerp>

@@ -1,4 +1,4 @@
-odoo.define('mrp.tests', function (require) {
+gerp.define('mrp.tests', function (require) {
 "use strict";
 
 var FormView = require('web.FormView');

@@ -10,7 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2015-10-15 04:38+0000\n"
 "Last-Translator: Martin Trigaux\n"
-"Language-Team: Slovenian (http://www.transifex.com/odoo/odoo-9/language/"
+"Language-Team: Slovenian (http://www.transifex.com/gerp/gerp-9/language/"
 "sl/)\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -1927,7 +1927,7 @@ msgstr "Kaj menite o nastavitvenih čarovnikih?"
 
 #. module: survey
 #: model:survey.question,question:survey.feedback_2_1
-msgid "What do you think about the documentation available on doc.odoo.com?"
+msgid "What do you think about the documentation available on doc.gerp.com?"
 msgstr ""
 
 #. module: survey

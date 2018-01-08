@@ -1,4 +1,4 @@
-odoo.define('web.EditableListRenderer', function (require) {
+gerp.define('web.EditableListRenderer', function (require) {
 "use strict";
 
 /**

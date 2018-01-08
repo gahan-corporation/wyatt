@@ -1,4 +1,4 @@
-odoo.define('barcodes.FormView', function (require) {
+gerp.define('barcodes.FormView', function (require) {
 "use strict";
 
 var BarcodeEvents = require('barcodes.BarcodeEvents'); // handle to trigger barcode on bus

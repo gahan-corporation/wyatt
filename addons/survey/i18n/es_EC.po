@@ -12,7 +12,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2016-02-10 17:31+0000\n"
 "Last-Translator: Rick Hunter <rick_hunter_ec@yahoo.com>\n"
-"Language-Team: Spanish (Ecuador) (http://www.transifex.com/odoo/odoo-9/"
+"Language-Team: Spanish (Ecuador) (http://www.transifex.com/gerp/gerp-9/"
 "language/es_EC/)\n"
 "Language: es_EC\n"
 "MIME-Version: 1.0\n"
@@ -1967,8 +1967,8 @@ msgstr "¿Qué piensa acerca de los asistentes de configuración?"
 
 #. module: survey
 #: model:survey.question,question:survey.feedback_2_1
-msgid "What do you think about the documentation available on doc.odoo.com?"
-msgstr "¿Qué opina sobre la documentación disponible en doc.odoo.com?"
+msgid "What do you think about the documentation available on doc.gerp.com?"
+msgstr "¿Qué opina sobre la documentación disponible en doc.gerp.com?"
 
 #. module: survey
 #: model:survey.question,question:survey.feedback_2_5

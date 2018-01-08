@@ -1,4 +1,4 @@
-odoo.define('barcodes.field', function(require) {
+gerp.define('barcodes.field', function(require) {
 "use strict";
 
 var AbstractField = require('web.AbstractField');

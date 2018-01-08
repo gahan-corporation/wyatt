@@ -1,4 +1,4 @@
-odoo.define('web.view_dialogs', function (require) {
+gerp.define('web.view_dialogs', function (require) {
 "use strict";
 
 var core = require('web.core');

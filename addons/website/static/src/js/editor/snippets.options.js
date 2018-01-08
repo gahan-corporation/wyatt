@@ -1,4 +1,4 @@
-odoo.define('website.snippets.options', function (require) {
+gerp.define('website.snippets.options', function (require) {
 'use strict';
 
 var core = require('web.core');

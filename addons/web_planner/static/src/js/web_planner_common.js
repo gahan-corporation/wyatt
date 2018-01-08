@@ -1,4 +1,4 @@
-odoo.define('web.planner.common', function (require) {
+gerp.define('web.planner.common', function (require) {
 "use strict";
 
 var core = require('web.core');
@@ -372,7 +372,7 @@ var PlannerDialog = Dialog.extend({
                         args: [[["share", "=", false]]],
                     })
                     .then(function (data) {
-                        window.location = "https://www.odoo.com/odoo-enterprise/upgrade?utm_medium=community_upgrade&num_users=" + data;
+                        window.location = "https://www.gerp.com/gerp-enterprise/upgrade?utm_medium=community_upgrade&num_users=" + data;
                     });
             },
         }, {

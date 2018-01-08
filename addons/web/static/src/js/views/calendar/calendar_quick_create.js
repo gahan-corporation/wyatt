@@ -1,4 +1,4 @@
-odoo.define('web.CalendarQuickCreate', function (require) {
+gerp.define('web.CalendarQuickCreate', function (require) {
 "use strict";
 
 var core = require('web.core');

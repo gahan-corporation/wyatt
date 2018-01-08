@@ -1,4 +1,4 @@
-odoo.define('website.website', function (require) {
+gerp.define('website.website', function (require) {
 'use strict';
 
 var weContext = require('web_editor.context');

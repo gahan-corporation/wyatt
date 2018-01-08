@@ -1,4 +1,4 @@
-odoo.define('website.content.zoomodoo', function (require) {
+gerp.define('website.content.zoomgerp', function (require) {
 'use strict';
 
 /**
@@ -75,18 +75,18 @@ ZoomOdoo.prototype._init = function () {
     if (window.outerWidth > 467 || !this.opts.disabledOnMobile) {
         this.$link  = this.$target.find(this.opts.linkTag).length && this.$target.find(this.opts.linkTag) || this.$target;
         this.$image  = this.$target.find('img').length && this.$target.find('img') || this.$target;
-        this.$flyout = $('<div class="zoomodoo-flyout" />');
+        this.$flyout = $('<div class="zoomgerp-flyout" />');
 
         var $attach = this.$target;
         if (this.opts.attach !== undefined && this.$target.parents(this.opts.attach).length) {
             $attach = this.$target.parents(this.opts.attach);
         }
-        $attach.parent().on('mousemove.zoomodoo touchmove.zoomodoo', $.proxy(this._onMove, this));
-        $attach.parent().on('mouseleave.zoomodoo touchend.zoomodoo', $.proxy(this._onLeave, this));
-        this.$target.parent().on(this.opts.event + '.zoomodoo touchstart.zoomodoo', $.proxy(this._onEnter, this));
+        $attach.parent().on('mousemove.zoomgerp touchmove.zoomgerp', $.proxy(this._onMove, this));
+        $attach.parent().on('mouseleave.zoomgerp touchend.zoomgerp', $.proxy(this._onLeave, this));
+        this.$target.parent().on(this.opts.event + '.zoomgerp touchstart.zoomgerp', $.proxy(this._onEnter, this));
 
         if (this.opts.preventClicks) {
-            this.$target.on('click.zoomodoo', function (e) { e.preventDefault(); });
+            this.$target.on('click.zoomgerp', function (e) { e.preventDefault(); });
         }
     }
 };

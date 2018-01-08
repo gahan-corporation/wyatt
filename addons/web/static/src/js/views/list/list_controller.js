@@ -1,4 +1,4 @@
-odoo.define('web.ListController', function (require) {
+gerp.define('web.ListController', function (require) {
 "use strict";
 
 /**

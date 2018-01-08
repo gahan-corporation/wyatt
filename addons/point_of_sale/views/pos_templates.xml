@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<gerp>
 <template id="index" name="POS Index">&lt;!DOCTYPE html&gt;
 <html>
     <head>
@@ -24,7 +24,7 @@
         <link rel="shortcut icon" href="/web/static/src/img/favicon.ico" type="image/x-icon"/>
 
         <script type="text/javascript">
-            var odoo = {
+            var gerp = {
                 csrf_token: "<t t-esc="request.csrf_token(None)"/>",
                 session_info: <t t-raw="session_info"/>,
             };
@@ -37,7 +37,7 @@
         <t t-call-assets="point_of_sale.assets"/>
 
         <script type="text/javascript" id="loading-script" t-raw="init">
-            odoo.define('web.web_client', function (require) {
+            gerp.define('web.web_client', function (require) {
                 var WebClient = require('web.AbstractWebClient');
                 var web_client = new WebClient();
 
@@ -121,4 +121,4 @@
         </div>
     </div>
 </template>
-</odoo>
+</gerp>

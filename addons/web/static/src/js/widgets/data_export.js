@@ -1,4 +1,4 @@
-odoo.define('web.DataExport', function (require) {
+gerp.define('web.DataExport', function (require) {
 "use strict";
 
 var core = require('web.core');

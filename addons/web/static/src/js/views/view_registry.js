@@ -1,4 +1,4 @@
-odoo.define('web.view_registry', function (require) {
+gerp.define('web.view_registry', function (require) {
 "use strict";
 
 /**
@@ -16,7 +16,7 @@ return new Registry();
 
 });
 
-odoo.define('web._view_registry', function (require) {
+gerp.define('web._view_registry', function (require) {
 "use strict";
 
 /**

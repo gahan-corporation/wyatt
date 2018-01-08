@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<gerp>
     <!-- Assets for reports -->
 
     <template id="report_assets_common">
@@ -401,4 +401,4 @@
         file="web.preview_externalreport"
         string="Preview External Report"
         report_type="qweb-pdf"/>
-</odoo>
+</gerp>

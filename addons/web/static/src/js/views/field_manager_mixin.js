@@ -1,4 +1,4 @@
-odoo.define('web.FieldManagerMixin', function (require) {
+gerp.define('web.FieldManagerMixin', function (require) {
 "use strict";
 
 /**

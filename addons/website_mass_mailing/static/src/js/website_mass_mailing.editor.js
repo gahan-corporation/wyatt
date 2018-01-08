@@ -1,4 +1,4 @@
-odoo.define('website_mass_mailing.editor', function (require) {
+gerp.define('website_mass_mailing.editor', function (require) {
 'use strict';
 
 var ajax = require('web.ajax');

@@ -3,7 +3,7 @@
 # * web
 # 
 # Translators:
-# Martin Trigaux <mat@odoo.com>, 2017
+# Martin Trigaux <mat@gerp.com>, 2017
 # Mariusz <waniliowy@o2.pl>, 2017
 # Piotr Szlązak <szlazakpiotr@gmail.com>, 2017
 # Grażyna Grzelak <grazyna.grzelak@openglobe.pl>, 2017
@@ -23,7 +23,7 @@ msgstr ""
 "POT-Creation-Date: 2017-10-24 09:00+0000\n"
 "PO-Revision-Date: 2017-10-24 09:00+0000\n"
 "Last-Translator: 8cells Team <admin@8cells.com>, 2017\n"
-"Language-Team: Polish (https://www.transifex.com/odoo/teams/41243/pl/)\n"
+"Language-Team: Polish (https://www.transifex.com/gerp/teams/41243/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -2825,7 +2825,7 @@ msgid ""
 "workers to print a pdf version of the reports."
 msgstr ""
 "Do wydruku raportu w wersji pdf Musisz uruchomić \n"
-"odoo z co najmniej dwoma procesami roboczymi."
+"gerp z co najmniej dwoma procesami roboczymi."
 
 #. module: web
 #. openerp-web

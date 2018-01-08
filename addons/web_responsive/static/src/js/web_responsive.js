@@ -1,7 +1,7 @@
 /* Copyright 2016 LasLabs Inc.
  * License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). */
 
-odoo.define('web_responsive', function(require) {
+gerp.define('web_responsive', function(require) {
     'use strict';
 
     var Menu = require('web.Menu');
@@ -87,7 +87,7 @@ odoo.define('web_responsive', function(require) {
             };
             this.initDrawer();
             this.handleWindowResize();
-            var $clickZones = $('.odoo_webclient_container, ' +
+            var $clickZones = $('.gerp_webclient_container, ' +
                 'a.oe_menu_leaf, ' +
                 'a.oe_menu_toggler, ' +
                 'a.oe_logo, ' +

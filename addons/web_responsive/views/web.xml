@@ -5,7 +5,7 @@
     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 -->
 
-<odoo>
+<gerp>
 
     <template id="webclient_bootstrap"
               inherit_id="web.webclient_bootstrap"
@@ -28,7 +28,7 @@
             <t t-set="body_classname" t-value="'drawer drawer--left o_web_client'" />
 
             <header role="banner">
-                <nav id="odooAppDrawer" class="app-drawer-nav drawer-nav" role="navigation">
+                <nav id="gerpAppDrawer" class="app-drawer-nav drawer-nav" role="navigation">
                     <t t-call="web.menu" />
                 </nav>
 
@@ -58,10 +58,10 @@
                             </button>
 
                             <button type="button"
-                                    id="odooMenuBarToggle"
+                                    id="gerpMenuBarToggle"
                                     class="navbar-toggle collapsed pull-right"
                                     data-toggle="collapse"
-                                    data-target="#odooMenuBarNav"
+                                    data-target="#gerpMenuBarNav"
                                     >
                                 <span class="sr-only">Toggle Navigation</span>
                                 <i class="fa fa-bars fa-lg"
@@ -73,8 +73,8 @@
                         </div>
 
                         <div class="collapse navbar-collapse"
-                             id="odooMenuBarNav"
-                             data-parent="#odooMenuBarToggle"
+                             id="gerpMenuBarNav"
+                             data-parent="#gerpMenuBarToggle"
                              aria-expanded="false"
                              >
                             <div class="o_sub_menu"
@@ -251,4 +251,4 @@
         </xpath>
     </template>
 
-</odoo>
+</gerp>

@@ -1,4 +1,4 @@
-odoo.define('web.OrgChart', function (require) {
+gerp.define('web.OrgChart', function (require) {
 "use strict";
 
 var AbstractField = require('web.AbstractField');

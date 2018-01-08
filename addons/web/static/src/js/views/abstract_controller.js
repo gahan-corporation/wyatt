@@ -1,4 +1,4 @@
-odoo.define('web.AbstractController', function (require) {
+gerp.define('web.AbstractController', function (require) {
 "use strict";
 
 /**
@@ -141,7 +141,7 @@ var AbstractController = Widget.extend({
      *
      * Note that there is no guarantee that this method will be called. The
      * controller is supposed to work even without a view manager, for example
-     * in the frontend (odoo frontend = public website)
+     * in the frontend (gerp frontend = public website)
      *
      * @param {jQuery Node} $node
      */

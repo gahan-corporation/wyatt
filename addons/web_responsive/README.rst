@@ -34,9 +34,9 @@ The following keyboard shortcuts are implemented:
 * Type to select App Links
 * ``esc`` to close App Drawer
 
-.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+.. image:: https://gerp-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/162/11.0
+   :target: https://runbot.gerp-community.org/runbot/162/11.0
 
 Known issues / Roadmap
 ======================
@@ -83,9 +83,9 @@ Contributors
 Maintainer
 ----------
 
-.. image:: https://odoo-community.org/logo.png
+.. image:: https://gerp-community.org/logo.png
    :alt: Odoo Community Association
-   :target: https://odoo-community.org
+   :target: https://gerp-community.org
 
 This module is maintained by the OCA.
 
@@ -93,4 +93,4 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-To contribute to this module, please visit https://odoo-community.org.
+To contribute to this module, please visit https://gerp-community.org.

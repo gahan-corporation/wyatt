@@ -1,4 +1,4 @@
-odoo.define('website_quote.website_quote', function (require) {
+gerp.define('website_quote.website_quote', function (require) {
 'use strict';
 
 require('web.dom_ready');

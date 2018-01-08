@@ -12,7 +12,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2016-07-08 16:00+0000\n"
 "Last-Translator: Aleksandar Vangelovski <aleksandarv@hbee.eu>\n"
-"Language-Team: Macedonian (http://www.transifex.com/odoo/odoo-9/language/"
+"Language-Team: Macedonian (http://www.transifex.com/gerp/gerp-9/language/"
 "mk/)\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
@@ -1944,7 +1944,7 @@ msgstr "Што мислите за волшебниците за конфигу�
 
 #. module: survey
 #: model:survey.question,question:survey.feedback_2_1
-msgid "What do you think about the documentation available on doc.odoo.com?"
+msgid "What do you think about the documentation available on doc.gerp.com?"
 msgstr ""
 
 #. module: survey

@@ -1,4 +1,4 @@
-odoo.define('board.favorite_menu', function (require) {
+gerp.define('board.favorite_menu', function (require) {
 "use strict";
 
 var ActionManager = require('web.ActionManager');

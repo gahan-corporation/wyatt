@@ -1,4 +1,4 @@
-odoo.define('web.FormRenderer', function (require) {
+gerp.define('web.FormRenderer', function (require) {
 "use strict";
 
 var BasicRenderer = require('web.BasicRenderer');

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<gerp>
     <data>
 
         <!-- Invoices -->
@@ -811,4 +811,4 @@
            src_model="account.journal"/>
 
     </data>
-</odoo>
+</gerp>

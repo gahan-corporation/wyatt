@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.popups', function (require) {
+gerp.define('point_of_sale.popups', function (require) {
 "use strict";
 
 // This file contains the Popups.

@@ -1,4 +1,4 @@
-odoo.define('web.CalendarRenderer', function (require) {
+gerp.define('web.CalendarRenderer', function (require) {
 "use strict";
 
 var AbstractRenderer = require('web.AbstractRenderer');

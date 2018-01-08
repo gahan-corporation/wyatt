@@ -1,4 +1,4 @@
-odoo.define('web.KanbanRecord', function (require) {
+gerp.define('web.KanbanRecord', function (require) {
 "use strict";
 
 /**

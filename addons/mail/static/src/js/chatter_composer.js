@@ -1,4 +1,4 @@
-odoo.define('mail.ChatterComposer', function (require) {
+gerp.define('mail.ChatterComposer', function (require) {
 "use strict";
 
 // var chat_manager = require('mail.chat_manager');

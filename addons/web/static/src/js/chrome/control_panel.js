@@ -1,4 +1,4 @@
-odoo.define('web.ControlPanelMixin', function (require) {
+gerp.define('web.ControlPanelMixin', function (require) {
 "use strict";
 
 /**
@@ -59,7 +59,7 @@ return ControlPanelMixin;
 
 });
 
-odoo.define('web.ControlPanel', function (require) {
+gerp.define('web.ControlPanel', function (require) {
 "use strict";
 
 var Bus = require('web.Bus');

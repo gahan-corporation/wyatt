@@ -13,7 +13,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:06+0000\n"
 "PO-Revision-Date: 2016-05-22 07:59+0000\n"
 "Last-Translator: Jaroslav Bosansky <jaro.bosansky@ekoenergo.sk>\n"
-"Language-Team: Slovak (http://www.transifex.com/odoo/odoo-9/language/sk/)\n"
+"Language-Team: Slovak (http://www.transifex.com/gerp/gerp-9/language/sk/)\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -953,7 +953,7 @@ msgid ""
 "services.\n"
 "                        Choose how you want to create your products:"
 msgstr ""
-"Produkt v odoo je niečo na predaj alebo kúpu\n"
+"Produkt v gerp je niečo na predaj alebo kúpu\n"
 "či už je to tovar, položky spotreby alebo služby. \n"
 "Vyberte si ako chcete vytvárať vaše produkty:"
 
@@ -4446,7 +4446,7 @@ msgid ""
 "format.\n"
 "-This installs the module account_bank_statement_import_ofx."
 msgstr ""
-"Získajte svoje bankové výpisy a importujte ich do odoo v .OFX formáte.\n"
+"Získajte svoje bankové výpisy a importujte ich do gerp v .OFX formáte.\n"
 "Toto nainštaluje modul account_bank_statement_import_ofx."
 
 #. module: account
@@ -4457,7 +4457,7 @@ msgid ""
 "format.\n"
 "-This installs the module account_bank_statement_import_qif."
 msgstr ""
-"Získajte svoje bankové výpisy a importujte ich do odoo v .QIF formáte.\n"
+"Získajte svoje bankové výpisy a importujte ich do gerp v .QIF formáte.\n"
 "Toto nainštaluje modul account_bank_statement_import_qif."
 
 #. module: account
@@ -10511,8 +10511,8 @@ msgstr "napr. Bankové poplatky"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.view_account_config_settings
-msgid "e.g. sales@odoo.com"
-msgstr "napr. predaje@odoo.com"
+msgid "e.g. sales@gerp.com"
+msgstr "napr. predaje@gerp.com"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner

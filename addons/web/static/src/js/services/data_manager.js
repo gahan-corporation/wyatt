@@ -1,4 +1,4 @@
-odoo.define('web.DataManager', function (require) {
+gerp.define('web.DataManager', function (require) {
 "use strict";
 
 var config = require('web.config');
@@ -477,7 +477,7 @@ return core.Class.extend({
 
 });
 
-odoo.define('web.data_manager', function (require) {
+gerp.define('web.data_manager', function (require) {
 "use strict";
 
 var DataManager = require('web.DataManager');

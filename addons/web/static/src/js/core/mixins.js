@@ -1,4 +1,4 @@
-odoo.define('web.mixins', function (require) {
+gerp.define('web.mixins', function (require) {
 "use strict";
 
 var Class = require('web.Class');
@@ -437,7 +437,7 @@ return {
 
 });
 
-odoo.define('web.ServicesMixin', function (require) {
+gerp.define('web.ServicesMixin', function (require) {
 "use strict";
 
 var rpc = require('web.rpc');

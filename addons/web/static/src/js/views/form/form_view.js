@@ -1,4 +1,4 @@
-odoo.define('web.FormView', function (require) {
+gerp.define('web.FormView', function (require) {
 "use strict";
 
 var BasicView = require('web.BasicView');

@@ -11,7 +11,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2015-10-01 15:06+0000\n"
 "Last-Translator: Martin Trigaux\n"
-"Language-Team: Spanish (Argentina) (http://www.transifex.com/odoo/odoo-9/"
+"Language-Team: Spanish (Argentina) (http://www.transifex.com/gerp/gerp-9/"
 "language/es_AR/)\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
@@ -1913,7 +1913,7 @@ msgstr ""
 
 #. module: survey
 #: model:survey.question,question:survey.feedback_2_1
-msgid "What do you think about the documentation available on doc.odoo.com?"
+msgid "What do you think about the documentation available on doc.gerp.com?"
 msgstr ""
 
 #. module: survey

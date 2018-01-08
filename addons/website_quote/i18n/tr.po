@@ -3,7 +3,7 @@
 # * website_quote
 # 
 # Translators:
-# Martin Trigaux <mat@odoo.com>, 2017
+# Martin Trigaux <mat@gerp.com>, 2017
 # Murat Kaplan <muratk@projetgrup.com>, 2017
 # İlknur Püskül <ilknurpuskull@gmail.com>, 2017
 # checkyoursix <batuhan.akpinar@gmail.com>, 2017
@@ -22,7 +22,7 @@ msgstr ""
 "POT-Creation-Date: 2017-10-24 09:00+0000\n"
 "PO-Revision-Date: 2017-10-24 09:00+0000\n"
 "Last-Translator: Hakan ıı <hkn1979@gmail.com>, 2017\n"
-"Language-Team: Turkish (https://www.transifex.com/odoo/teams/41243/tr/)\n"
+"Language-Team: Turkish (https://www.transifex.com/gerp/teams/41243/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -74,7 +74,7 @@ msgid ""
 "                <p style=\"font-size: 11px;\"><strong>Sent by\n"
 "                <a href=\"${user.company_id.website}\" style=\"text-decoration:none; color: #875A7B;\">\n"
 "                    <strong>${user.company_id.name}</strong>\n"
-"                </a> using <a href=\"www.odoo.com\" style=\"text-decoration:none; color: #875A7B;\"><strong>Odoo</strong></a>\n"
+"                </a> using <a href=\"www.gerp.com\" style=\"text-decoration:none; color: #875A7B;\"><strong>Odoo</strong></a>\n"
 "                </strong></p>\n"
 "            </td>\n"
 "        </tr></tbody>\n"
@@ -124,7 +124,7 @@ msgstr ""
 "<p style=\"font-size: 11px;\"><strong>Tarafından gönderilen\n"
 "<a href=\"${user.company_id.website}\" style=\"text-decoration:none; color: #875A7B;\">\n"
 "<strong>${user.company_id.name}</strong>\n"
-"</a> using <a href=\"www.odoo.com\" style=\"text-decoration:none; color: #875A7B;\"><strong>Odoo</strong></a>\n"
+"</a> using <a href=\"www.gerp.com\" style=\"text-decoration:none; color: #875A7B;\"><strong>Odoo</strong></a>\n"
 "</strong></p>\n"
 "</td>\n"
 "</tr></tbody>\n"

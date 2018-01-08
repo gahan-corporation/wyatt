@@ -1,4 +1,4 @@
-odoo.define('website.WebsiteRoot.instance', function (require) {
+gerp.define('website.WebsiteRoot.instance', function (require) {
 'use strict';
 
 require('web.dom_ready');
@@ -12,7 +12,7 @@ return websiteRoot.attachTo(document.body).then(function () {
 
 //==============================================================================
 
-odoo.define('website.WebsiteRoot', function (require) {
+gerp.define('website.WebsiteRoot', function (require) {
 'use strict';
 
 var ajax = require('web.ajax');
@@ -23,7 +23,7 @@ var BodyManager = require('web_editor.BodyManager');
 var weContext = require('web_editor.context');
 var rootWidget = require('web_editor.root_widget');
 var sAnimation = require('website.content.snippets.animation');
-require("website.content.zoomodoo");
+require("website.content.zoomgerp");
 
 var _t = core._t;
 

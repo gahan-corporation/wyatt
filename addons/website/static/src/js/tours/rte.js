@@ -1,4 +1,4 @@
-odoo.define('website.tour.rte', function (require) {
+gerp.define('website.tour.rte', function (require) {
 'use strict';
 
 var tour = require('web_tour.tour');

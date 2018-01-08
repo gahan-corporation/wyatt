@@ -1,4 +1,4 @@
-odoo.define('web.CalendarView', function (require) {
+gerp.define('web.CalendarView', function (require) {
 "use strict";
 
 var AbstractView = require('web.AbstractView');

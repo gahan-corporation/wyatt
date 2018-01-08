@@ -1,4 +1,4 @@
-odoo.define('website.mobile', function (require) {
+gerp.define('website.mobile', function (require) {
 'use strict';
 
 var core = require('web.core');

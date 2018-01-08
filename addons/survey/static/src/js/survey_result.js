@@ -1,4 +1,4 @@
-odoo.define('survey.result', function (require) {
+gerp.define('survey.result', function (require) {
 'use strict';
 
 require('web.dom_ready');

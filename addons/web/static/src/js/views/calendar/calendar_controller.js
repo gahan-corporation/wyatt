@@ -1,4 +1,4 @@
-odoo.define('web.CalendarController', function (require) {
+gerp.define('web.CalendarController', function (require) {
 "use strict";
 
 /**

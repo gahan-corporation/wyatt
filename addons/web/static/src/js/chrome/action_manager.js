@@ -1,4 +1,4 @@
-odoo.define('web.ActionManager', function (require) {
+gerp.define('web.ActionManager', function (require) {
 "use strict";
 
 /**

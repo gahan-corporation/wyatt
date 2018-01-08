@@ -1,4 +1,4 @@
-odoo.define('website.content.snippets.animation', function (require) {
+gerp.define('website.content.snippets.animation', function (require) {
 'use strict';
 
 /**
@@ -871,7 +871,7 @@ registry.socialShare = Animation.extend({
  * Unfortunatly one snippet uses a <div/> tag instead. The fix forces an empty
  * click handler on these div, which allows standard bootstrap to work.
  *
- * This should be removed in a future odoo snippets refactoring.
+ * This should be removed in a future gerp snippets refactoring.
  */
 registry._fixAppleCollapse = Animation.extend({
     selector: '.s_faq_collapse [data-toggle="collapse"]',

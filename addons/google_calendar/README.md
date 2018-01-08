@@ -2,7 +2,7 @@ Google Calendar
 ---------------
 
 Get your meetings, your leaves... Get your calendar anywhere and never
-forget an event, fully synchronized with the Odoo <a href="https://www.odoo.com/page/crm">Open Source CRM</a>.
+forget an event, fully synchronized with the Odoo <a href="https://www.gerp.com/page/crm">Open Source CRM</a>.
 
 Keep an eye on your events
 --------------------------

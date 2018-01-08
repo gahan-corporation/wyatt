@@ -4,9 +4,9 @@
 # 
 # Translators:
 # Yenthe Van Ginneken <yenthespam@gmail.com>, 2017
-# Martin Trigaux <mat@odoo.com>, 2017
+# Martin Trigaux <mat@gerp.com>, 2017
 # Eric Geens <ericgeens@yahoo.com>, 2017
-# Erwin van der Ploeg <erwin@odooexperts.nl>, 2017
+# Erwin van der Ploeg <erwin@gerpexperts.nl>, 2017
 # Stephan Van Dyck <stephan.vandyck@vanroey.be>, 2017
 # Cas Vissers <casvissers@brahoo.nl>, 2017
 # Volluta <volluta@tutanota.com>, 2017
@@ -14,15 +14,15 @@
 # Eric Geens <eric.geens@vitabiz.be>, 2017
 # Melroy van den Berg <webmaster1989@gmail.com>, 2017
 # Pol Van Dingenen <pol.vandingenen@vanroey.be>, 2017
-# Julia van Orsouw <julia@odooexperts.nl>, 2017
+# Julia van Orsouw <julia@gerpexperts.nl>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 08:59+0000\n"
 "PO-Revision-Date: 2017-10-24 08:59+0000\n"
-"Last-Translator: Julia van Orsouw <julia@odooexperts.nl>, 2017\n"
-"Language-Team: Dutch (https://www.transifex.com/odoo/teams/41243/nl/)\n"
+"Last-Translator: Julia van Orsouw <julia@gerpexperts.nl>, 2017\n"
+"Language-Team: Dutch (https://www.transifex.com/gerp/teams/41243/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -267,7 +267,7 @@ msgid ""
 "    </tr>\n"
 "    <tr>\n"
 "        <td align=\"center\">\n"
-"            Powered by <a target=\"_blank\" href=\"https://www.odoo.com\">Odoo</a>.\n"
+"            Powered by <a target=\"_blank\" href=\"https://www.gerp.com\">Odoo</a>.\n"
 "        </td>\n"
 "    </tr>\n"
 "</tbody>\n"
@@ -333,7 +333,7 @@ msgstr ""
 "    </tr>\n"
 "    <tr>\n"
 "        <td align=\"center\">\n"
-"            Powered by <a target=\"_blank\" href=\"https://www.odoo.com\">Odoo</a>.\n"
+"            Powered by <a target=\"_blank\" href=\"https://www.gerp.com\">Odoo</a>.\n"
 "        </td>\n"
 "    </tr>\n"
 "</tbody>\n"
@@ -1864,10 +1864,10 @@ msgid ""
 "for the past month, past two months, and so on."
 msgstr ""
 "Dit openstaande posten rapport is een meer gedetailleerd verslag van uw "
-"vorderingen in de tijd. Bij het openen van het rapport, vraagt odoo naar de "
+"vorderingen in de tijd. Bij het openen van het rapport, vraagt gerp naar de "
 "naam van het bedrijf, de periode en de grootte van het interval te "
-"analyseren (in dagen). odoo berekent dan een tabel van openstaande posten "
-"per periode. Dus als u een interval van 30 dagen opgeeft, genereert odoo een"
+"analyseren (in dagen). gerp berekent dan een tabel van openstaande posten "
+"per periode. Dus als u een interval van 30 dagen opgeeft, genereert gerp een"
 " analyse van de schuldeisers van de afgelopen maand, afgelopen twee maanden,"
 " enz."
 
@@ -6664,7 +6664,7 @@ msgstr "Min betalingen"
 #. openerp-web
 #: code:addons/account/static/src/xml/account_reconciliation.xml:24
 #, python-format
-msgid "Let odoo try to reconcile entries for the user"
+msgid "Let gerp try to reconcile entries for the user"
 msgstr "Laat Odoo proberen om de boekingen af te letteren voor deze gebruiker"
 
 #. module: account

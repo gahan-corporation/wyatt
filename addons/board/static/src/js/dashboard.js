@@ -1,4 +1,4 @@
-odoo.define('board.dashboard', function (require) {
+gerp.define('board.dashboard', function (require) {
 "use strict";
 
 var Context = require('web.Context');

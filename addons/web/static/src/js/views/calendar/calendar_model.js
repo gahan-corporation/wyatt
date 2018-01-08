@@ -1,4 +1,4 @@
-odoo.define('web.CalendarModel', function (require) {
+gerp.define('web.CalendarModel', function (require) {
 "use strict";
 
 var AbstractModel = require('web.AbstractModel');

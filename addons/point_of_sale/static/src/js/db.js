@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.DB', function (require) {
+gerp.define('point_of_sale.DB', function (require) {
 "use strict";
 
 var core = require('web.core');

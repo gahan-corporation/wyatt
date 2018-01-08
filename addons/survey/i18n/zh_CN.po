@@ -7,7 +7,7 @@
 # Jeffery CHEN <jeffery9@gmail.com>, 2017
 # mrshelly <mrshelly@hotmail.com>, 2017
 # Gary Wei <Gary.wei@elico-corp.com>, 2017
-# Martin Trigaux <mat@odoo.com>, 2017
+# Martin Trigaux <mat@gerp.com>, 2017
 # liAnGjiA <liangjia@qq.com>, 2017
 # waveyeung <waveyeung@qq.com>, 2017
 # fausthuang <faust_huang@hotmail.com>, 2017
@@ -27,7 +27,7 @@ msgstr ""
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
 "Last-Translator: Jeff Yu - Elico Corp <jeff.yu@elico-corp.com>, 2017\n"
-"Language-Team: Chinese (China) (https://www.transifex.com/odoo/teams/41243/zh_CN/)\n"
+"Language-Team: Chinese (China) (https://www.transifex.com/gerp/teams/41243/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -728,7 +728,7 @@ msgstr "我参与论坛讨论"
 #. module: survey
 #: model:survey.label,value:survey.choice_4_1_1
 msgid "I use Github, like all official Odoo projects"
-msgstr "就像官方odoo的项目一样，我用Github"
+msgstr "就像官方gerp的项目一样，我用Github"
 
 #. module: survey
 #: model:survey.label,value:survey.choice_4_1_2
@@ -2001,8 +2001,8 @@ msgstr "你怎么看配置向导?"
 
 #. module: survey
 #: model:survey.question,question:survey.feedback_2_1
-msgid "What do you think about the documentation available on doc.odoo.com?"
-msgstr "你觉得在doc.odoo.com的文档怎么样？"
+msgid "What do you think about the documentation available on doc.gerp.com?"
+msgstr "你觉得在doc.gerp.com的文档怎么样？"
 
 #. module: survey
 #: model:survey.question,question:survey.feedback_2_5

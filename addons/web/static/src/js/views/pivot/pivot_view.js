@@ -1,4 +1,4 @@
-odoo.define('web.PivotView', function (require) {
+gerp.define('web.PivotView', function (require) {
 "use strict";
 
 /**

@@ -35,21 +35,21 @@ fi
 
 cp -a *raspbian*.img posbox.img
 
-CLONE_DIR="${OVERWRITE_FILES_BEFORE_INIT_DIR}/home/pi/odoo"
+CLONE_DIR="${OVERWRITE_FILES_BEFORE_INIT_DIR}/home/pi/gerp"
 
 rm -rf "${CLONE_DIR}"
 
 if [ ! -d $CLONE_DIR ]; then
     echo "Clone Github repo"
     mkdir -p "${CLONE_DIR}"
-    git clone -b 8.0 --no-local --no-checkout --depth 1 https://github.com/odoo/odoo.git "${CLONE_DIR}"
+    git clone -b 8.0 --no-local --no-checkout --depth 1 https://github.com/gerp/gerp.git "${CLONE_DIR}"
     cd "${CLONE_DIR}"
     git config core.sparsecheckout true
     echo "addons/web
 addons/hw_*
 addons/point_of_sale/tools/posbox/configuration
 openerp/
-odoo.py" | tee --append .git/info/sparse-checkout > /dev/null
+gerp.py" | tee --append .git/info/sparse-checkout > /dev/null
     git read-tree -mu HEAD
 fi
 

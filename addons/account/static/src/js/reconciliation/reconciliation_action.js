@@ -1,4 +1,4 @@
-odoo.define('account.ReconciliationClientAction', function (require) {
+gerp.define('account.ReconciliationClientAction', function (require) {
 "use strict";
 
 var ReconciliationModel = require('account.ReconciliationModel');

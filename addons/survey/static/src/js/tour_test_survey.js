@@ -1,4 +1,4 @@
-odoo.define('survey.tour_test_survey', function (require) {
+gerp.define('survey.tour_test_survey', function (require) {
 'use strict';
 
 var tour = require('web_tour.tour');
@@ -32,7 +32,7 @@ tour.register('test_survey', {
             trigger: 'button[value="next"]',
         },
         // Page-2
-        // Question: What do you think about the documentation available on doc.odoo.com?
+        // Question: What do you think about the documentation available on doc.gerp.com?
         {
             content: "For 'It is up-to-date' checking 'Totally disagree'",
             trigger: 'input[name="1_2_3_15"][value="11"]',

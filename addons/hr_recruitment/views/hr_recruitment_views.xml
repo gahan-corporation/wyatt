@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<odoo>
+<gerp>
     <data>
 
     <!-- Stage -->
@@ -979,4 +979,4 @@
     </record>
 
     </data>
-</odoo>
+</gerp>

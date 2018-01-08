@@ -1,4 +1,4 @@
-odoo.define('account.dashboard_setup_bar', function (require) {
+gerp.define('account.dashboard_setup_bar', function (require) {
 "use strict";
 
 var core = require('web.core');
@@ -179,19 +179,19 @@ var AccountSetupBarController = KanbanController.extend({
     /**
     * Manages the clicks on the setup bar buttons.
     **/
-    _triggerCompanyButtonAction: function (odooEvent) {
+    _triggerCompanyButtonAction: function (gerpEvent) {
         var self = this
-        if (odooEvent.data.rpc_method !== undefined) {
+        if (gerpEvent.data.rpc_method !== undefined) {
             self._rpc({
                     model: 'res.company',
-                    method: odooEvent.data.rpc_method,
+                    method: gerpEvent.data.rpc_method,
                     args: [],
                 })
                 .then(
                     function(rslt_action) {
                         if (rslt_action !== undefined) {
                             self.do_action(rslt_action, {
-                                action_context: odooEvent.data.context,
+                                action_context: gerpEvent.data.context,
                                 on_close: function () {
                                     self.trigger_up('reload'); //Reloads the dashboard to refresh the status of the setup bar.
                                 },

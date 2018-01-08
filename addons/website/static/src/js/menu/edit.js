@@ -1,4 +1,4 @@
-odoo.define('website.editMenu', function (require) {
+gerp.define('website.editMenu', function (require) {
 'use strict';
 
 var core = require('web.core');

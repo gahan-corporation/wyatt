@@ -1,4 +1,4 @@
-odoo.define('website_event_track.website_event_track', function (require) {
+gerp.define('website_event_track.website_event_track', function (require) {
 "use strict";
 
 $(document).ready(function() {

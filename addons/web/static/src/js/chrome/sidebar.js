@@ -1,4 +1,4 @@
-odoo.define('web.Sidebar', function (require) {
+gerp.define('web.Sidebar', function (require) {
 "use strict";
 
 var Context = require('web.Context');

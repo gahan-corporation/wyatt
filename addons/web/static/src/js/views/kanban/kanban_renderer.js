@@ -1,4 +1,4 @@
-odoo.define('web.KanbanRenderer', function (require) {
+gerp.define('web.KanbanRenderer', function (require) {
 "use strict";
 
 var BasicRenderer = require('web.BasicRenderer');

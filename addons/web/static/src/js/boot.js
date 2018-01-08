@@ -44,8 +44,8 @@
 
     var debug = ($.deparam($.param.querystring()).debug !== undefined);
 
-    var odoo = window.odoo = window.odoo || {};
-    _.extend(odoo, {
+    var gerp = window.gerp = window.gerp || {};
+    _.extend(gerp, {
         testing: typeof QUnit === "object",
         debug: debug,
         remaining_jobs: jobs,
@@ -107,7 +107,7 @@
                     });
             }
 
-            if (odoo.debug) {
+            if (gerp.debug) {
                 if (!(deps instanceof Array)) {
                     throw new Error ('Dependencies should be defined by an array', deps);
                 }
@@ -152,7 +152,7 @@
                 for (var k=0; k<jobs.length; k++) {
                     debug_jobs[jobs[k].name] = job = {
                         dependencies: jobs[k].deps,
-                        dependents: odoo.__DEBUG__.get_dependents(jobs[k].name),
+                        dependents: gerp.__DEBUG__.get_dependents(jobs[k].name),
                         name: jobs[k].name
                     };
                     if (jobs[k].error) {
@@ -162,7 +162,7 @@
                         job.rejected = jobs[k].rejected;
                         rejected.push(job.name);
                     }
-                    var deps = odoo.__DEBUG__.get_dependencies( job.name );
+                    var deps = gerp.__DEBUG__.get_dependencies( job.name );
                     for (var i=0; i<deps.length; i++) {
                         if (job.name !== deps[i] && !(deps[i] in services)) {
                             jobdep = debug_jobs[deps[i]] || (deps[i] in factories && _.find(jobs, function (job) { return job.name === deps[i];}));
@@ -181,8 +181,8 @@
                         }
                     }
                 }
-                missing = odoo.__DEBUG__.get_missing_jobs();
-                failed = odoo.__DEBUG__.get_failed_jobs();
+                missing = gerp.__DEBUG__.get_missing_jobs();
+                failed = gerp.__DEBUG__.get_failed_jobs();
                 var unloaded = _.filter(debug_jobs, function (job) { return job.missing; });
 
                 var log = [(_.isEmpty(failed) ? (_.isEmpty(unloaded) ? 'info' : 'warning' ) : 'error') + ':', 'Some modules could not be started'];
@@ -191,17 +191,17 @@
                 if (!_.isEmpty(rejected))       log.push('\nRejected modules:       ', rejected);
                 if (!_.isEmpty(rejected_linked))log.push('\nRejected linked modules:', rejected_linked);
                 if (!_.isEmpty(unloaded))       log.push('\nNon loaded modules:     ', _.pluck(unloaded, 'name'));
-                if (odoo.debug && !_.isEmpty(debug_jobs)) log.push('\nDebug:                  ', debug_jobs);
+                if (gerp.debug && !_.isEmpty(debug_jobs)) log.push('\nDebug:                  ', debug_jobs);
 
-                if (odoo.debug || !_.isEmpty(failed) || !_.isEmpty(unloaded)) {
+                if (gerp.debug || !_.isEmpty(failed) || !_.isEmpty(unloaded)) {
                     console[_.isEmpty(failed) || _.isEmpty(unloaded) ? 'info' : 'error'].apply(console, log);
                 }
             }
-            odoo.__DEBUG__.js_modules = {
+            gerp.__DEBUG__.js_modules = {
                 missing: missing,
                 failed: _.pluck(failed, 'name'),
             };
-            odoo.__DEBUG__.didLogInfo.resolve();
+            gerp.__DEBUG__.didLogInfo.resolve();
         },
         process_jobs: function (jobs, services) {
             var job;
@@ -223,7 +223,7 @@
                         function (data) {
                             services[job.name] = data;
                             def.resolve();
-                            odoo.process_jobs(jobs, services);
+                            gerp.process_jobs(jobs, services);
                         }, function (e) {
                             job.rejected = e || true;
                             jobs.push(job);
@@ -268,7 +268,7 @@
             var len = job_deferred.length;
             $.when.apply($, job_deferred).then(function () {
                 if (len === job_deferred.length) {
-                    odoo.log();
+                    gerp.log();
                 } else {
                     log_when_loaded();
                 }
