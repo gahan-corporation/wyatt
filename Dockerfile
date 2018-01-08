@@ -16,5 +16,5 @@ RUN /srv/.py3/bin/pip install lxml==4.1.1
 RUN wget https://bootstrap.pypa.io/get-pip.py -O /tmp/get-pip.py; /usr/bin/python3 /tmp/get-pip.py; rm -r /tmp/get-pip.py
 RUN wget https://github.com/gahan-corporation/gerp/archive/v0.0.1.tar.gz -O /srv/gerp.tar.gz
 WORKDIR /srv
-RUN tar xvf gerp.tar.gz
+RUN tar xf gerp.tar.gz
 RUN pip install /srv/gerp-0.0.1 
