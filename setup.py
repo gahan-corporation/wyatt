@@ -49,12 +49,13 @@ setuptools.setup(
     long_description='gerp',
     name='gerp',
     packages=[
-        'addons/account',
-        'addons/backend_theme_v11',
-        'addons/hr',
-        'addons/sale',
-        'addons/web',
-        'gerp/addons/base',
+        'cli',
+        'modules',
+        'osv',
+        'tools',
+        'service',
+        'conf',
+        'addons/base',
     ],
     package_dir={
         '': 'gerp'
