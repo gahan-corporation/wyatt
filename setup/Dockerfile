@@ -20,3 +20,5 @@ RUN tar xf gerp.tar.gz; mv /srv/gerp-0.0.1 /srv/gerp;
 WORKDIR /srv/gerp
 RUN /srv/.py3/bin/python setup.py build
 RUN /srv/.py3/bin/python setup.py install
+RUN cp setup/gerp /usr/bin/gerp; chmod +x /usr/bin/gerp;
+RUN apk add nodejs; npm install -g less
