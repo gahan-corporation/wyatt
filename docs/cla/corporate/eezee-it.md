@@ -20,5 +20,5 @@ Javier Carrasco javier.carrasco@eezee-it.com https://github.com/jose-eezee
 David Cajot david.cajot@eezee-it.com https://github.com/dcajot
 François Honoré francois.honore@eezee-it.com https://github.com/eezeefho
 Bénédicte Hanet benedicte.hanet@eezee-it.com https://github.com/bene1505
-Analisa Carbone analisa.carbone@eezee-it.com https://github.com/analisaodoo
+Analisa Carbone analisa.carbone@eezee-it.com https://github.com/analisagerp
 Nicolas De Moreau nicolas.demoreau@eezee-it.com https://github.com/ndemoreau

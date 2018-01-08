@@ -60,17 +60,17 @@ Odoo powered website.</p>
 <code class="docutils literal"><span class="pre">http://pulltest-b49.kxcdn.com</span></code></p>
 </div>
 </div>
-<div class="section" id="step-2-configure-the-odoo-instance-with-your-zone">
-<h3>Step 2: Configure the odoo instance with your zone<a class="headerlink" href="#step-2-configure-the-odoo-instance-with-your-zone" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="step-2-configure-the-gerp-instance-with-your-zone">
+<h3>Step 2: Configure the gerp instance with your zone<a class="headerlink" href="#step-2-configure-the-gerp-instance-with-your-zone" title="Permalink to this headline">¶</a></h3>
 <p>In the Odoo back end, go to the <span class="guilabel">Website Settings</span>: menu, then
 activate the CDN support and copy/paste your zone URL in the
 <span class="guilabel">CDN Base URL</span> field.</p>
-<img alt="../_images/odoo_cdn_base_url.png" class="img-responsive" src="../_images/odoo_cdn_base_url.png" />
+<img alt="../_images/gerp_cdn_base_url.png" class="img-responsive" src="../_images/gerp_cdn_base_url.png" />
 <p>Now your website is using the CDN for the resources matching the
 <span class="guilabel">CDN filters</span> regular expressions.</p>
 <p>You can have a look to the HTML of your website in order to check if the CDN
 integration is properly working.</p>
-<img alt="../_images/odoo_check_your_html.png" class="img-responsive" src="../_images/odoo_check_your_html.png" />
+<img alt="../_images/gerp_check_your_html.png" class="img-responsive" src="../_images/gerp_check_your_html.png" />
 </div>
 <div class="section" id="why-should-i-activate-cors">
 <h3>Why should I activate CORS?<a class="headerlink" href="#why-should-i-activate-cors" title="Permalink to this headline">¶</a></h3>
@@ -82,9 +82,9 @@ resulting problem on a default Odoo website will be the lack of font-awesome
 icons because the font file declared in the font-awesome CSS won’t be loaded on
 the remote server.</p>
 <p>Here’s what you would see on your homepage in such a case:</p>
-<img alt="../_images/odoo_font_file_not_loaded.png" class="img-responsive" src="../_images/odoo_font_file_not_loaded.png" />
+<img alt="../_images/gerp_font_file_not_loaded.png" class="img-responsive" src="../_images/gerp_font_file_not_loaded.png" />
 <p>A security error message will also appear in the browser’s console:</p>
-<img alt="../_images/odoo_security_message.png" class="img-responsive" src="../_images/odoo_security_message.png" />
+<img alt="../_images/gerp_security_message.png" class="img-responsive" src="../_images/gerp_security_message.png" />
 <p>Enabling the CORS option in the CDN fixes this issue.</p>
 </div>
 </div>

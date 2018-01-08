@@ -51,13 +51,13 @@ defined via records.</p>
 <p>The main way to define data in Odoo is via XML data files: The broad structure
 of an XML data file is the following:</p>
 <ul class="simple">
-<li>Any number of operation elements within the root element <code class="docutils literal"><span class="pre">odoo</span></code></li>
+<li>Any number of operation elements within the root element <code class="docutils literal"><span class="pre">gerp</span></code></li>
 </ul>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- the root elements of the data file --&gt;</span>
-<span class="nt">&lt;odoo&gt;</span>
+<span class="nt">&lt;gerp&gt;</span>
   <span class="nt">&lt;operation/&gt;</span>
   ...
-<span class="nt">&lt;/odoo&gt;</span>
+<span class="nt">&lt;/gerp&gt;</span>
 </pre></div>
 </div>
 <p>Data files are executed sequentially, operations can only refer to the result
@@ -106,13 +106,13 @@ for the field.</dd>
 a <a class="reference internal" href="orm.html#reference-orm-domains"><span class="std std-ref">domain</span></a> on the field’s model.</p>
 <p class="last">Will evaluate the domain, search the field’s model using it and set the
 search’s result as the field’s value. Will only use the first result if
-the field is a <a class="reference internal" href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a></p>
+the field is a <a class="reference internal" href="orm.html#gerp.fields.Many2one" title="gerp.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a></p>
 </dd>
 <dt><code class="docutils literal"><span class="pre">ref</span></code></dt>
 <dd><p class="first">if a <code class="docutils literal"><span class="pre">ref</span></code> attribute is provided, its value must be a valid
 <a class="reference internal" href="../glossary.html#term-external-id"><span class="xref std std-term">external id</span></a>, which will be looked up and set as the field’s value.</p>
-<p class="last">Mostly for <a class="reference internal" href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a> and
-<a class="reference internal" href="orm.html#odoo.fields.Reference" title="odoo.fields.Reference"><code class="xref py py-class docutils literal"><span class="pre">Reference</span></code></a> fields</p>
+<p class="last">Mostly for <a class="reference internal" href="orm.html#gerp.fields.Many2one" title="gerp.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a> and
+<a class="reference internal" href="orm.html#gerp.fields.Reference" title="gerp.fields.Reference"><code class="xref py py-class docutils literal"><span class="pre">Reference</span></code></a> fields</p>
 </dd>
 <dt><code class="docutils literal"><span class="pre">type</span></code></dt>
 <dd><p class="first">if a <code class="docutils literal"><span class="pre">type</span></code> attribute is provided, it is used to interpret and convert

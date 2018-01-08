@@ -61,12 +61,12 @@ or extend existing business systems of Odoo, see <a class="reference internal" h
 configuration and letting us test the web framework.</p>
 <p>The example module is available online and can be downloaded using the
 following command:</p>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> git clone http://github.com/odoo/petstore
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> git clone http://github.com/gerp/petstore
 </pre></div>
 </div>
 <p>This will create a <code class="docutils literal"><span class="pre">petstore</span></code> folder wherever you executed the command.
 You then need to add that folder to Odoo’s
-<a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-addons-path"><code class="xref std std-option docutils literal"><span class="pre">addons</span> <span class="pre">path</span></code></a>, create a new database and
+<a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-addons-path"><code class="xref std std-option docutils literal"><span class="pre">addons</span> <span class="pre">path</span></code></a>, create a new database and
 install the <code class="docutils literal"><span class="pre">oepetstore</span></code> module.</p>
 <p>If you browse the <code class="docutils literal"><span class="pre">petstore</span></code> folder, you should see the following content:</p>
 <div class="highlight-text"><div class="highlight"><pre><span></span>oepetstore
@@ -108,7 +108,7 @@ sub-folders are conventional and not strictly necessary.</p>
 <dd><p class="first">The most important (and interesting) part, contains the logic of the
 application (or at least its web-browser side) as javascript. It should
 currently look like:</p>
-<div class="last highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">odoo</span><span class="p">.</span><span class="nx">oepetstore</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">local</span><span class="p">)</span> <span class="p">{</span>
+<div class="last highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">gerp</span><span class="p">.</span><span class="nx">oepetstore</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">local</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">_t</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">_t</span><span class="p">,</span>
         <span class="nx">_lt</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">_lt</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">QWeb</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">qweb</span><span class="p">;</span>
@@ -139,7 +139,7 @@ readable. It is possible to disable this process by enabling the
 <em>admin</em> by default) open the user menu (in the top-right corner of the
 Odoo screen) and select <span class="guilabel">About Odoo</span> then <span class="guilabel">Activate
 the developer mode</span>:</p>
-<img alt="../_images/about_odoo.png" class="align-center" src="../_images/about_odoo.png" />
+<img alt="../_images/about_gerp.png" class="align-center" src="../_images/about_gerp.png" />
 <img alt="../_images/devmode.png" class="align-center" src="../_images/devmode.png" />
 <p class="last">This will reload the web client with optimizations disabled, making
 development and debugging significantly more comfortable.</p>
@@ -149,8 +149,8 @@ development and debugging significantly more comfortable.</p>
 <p class="last">qweb files hooked via __manifest__.py, but js and CSS use bundles</p>
 </div>
 </div>
-<div class="section" id="odoo-javascript-module">
-<h2>Odoo JavaScript Module<a class="headerlink" href="#odoo-javascript-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gerp-javascript-module">
+<h2>Odoo JavaScript Module<a class="headerlink" href="#gerp-javascript-module" title="Permalink to this headline">¶</a></h2>
 <p>Javascript doesn’t have built-in modules. As a result variables defined in
 different files are all mashed together and may conflict. This has given rise
 to various module patterns used to build clean namespaces and limit risks of
@@ -158,12 +158,12 @@ naming conflicts.</p>
 <p>The Odoo framework uses one such pattern to define modules within web addons,
 in order to both namespace code and correctly order its loading.</p>
 <p><code class="docutils literal"><span class="pre">oepetstore/static/js/petstore.js</span></code> contains a module declaration:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">odoo</span><span class="p">.</span><span class="nx">oepetstore</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">local</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">gerp</span><span class="p">.</span><span class="nx">oepetstore</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">local</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">local</span><span class="p">.</span><span class="nx">xxx</span> <span class="o">=</span> <span class="p">...;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>In Odoo web, modules are declared as functions set on the global <code class="docutils literal"><span class="pre">odoo</span></code>
+<p>In Odoo web, modules are declared as functions set on the global <code class="docutils literal"><span class="pre">gerp</span></code>
 variable. The function’s name must be the same as the addon (in this case
 <code class="docutils literal"><span class="pre">oepetstore</span></code>) so the framework can find it, and automatically initialize it.</p>
 <p>When the web client loads your module it will call the root function
@@ -188,7 +188,7 @@ equivalent (if lower-level and more verbose) mechanisms.</p>
 <p>For simplicity and developer-friendliness Odoo web provides a class
 system based on John Resig’s <a class="reference external" href="http://ejohn.org/blog/simple-javascript-inheritance/">Simple JavaScript Inheritance</a>.</p>
 <p>New classes are defined by calling the <code class="xref js js-func docutils literal"><span class="pre">extend()</span></code>
-method of <code class="xref js js-class docutils literal"><span class="pre">odoo.web.Class()</span></code>:</p>
+method of <code class="xref js js-class docutils literal"><span class="pre">gerp.web.Class()</span></code>:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">MyClass</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
     <span class="nx">say_hello</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">);</span>
@@ -940,7 +940,7 @@ any. Example:</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Triggering events on an other widget is generally a bad idea. The main
-exception to that rule is <code class="docutils literal"><span class="pre">odoo.web.bus</span></code> which exists specifically
+exception to that rule is <code class="docutils literal"><span class="pre">gerp.web.bus</span></code> which exists specifically
 to broadcasts evens in which any widget could be interested throughout
 the Odoo web application.</p>
 </div>
@@ -1042,8 +1042,8 @@ an object which, when converted to a string, will perform the translation.</p>
 initialized, for class attributes for instance (as modules are loaded before
 the user’s language is configured and translations are downloaded).</p>
 </div>
-<div class="section" id="communication-with-the-odoo-server">
-<h2>Communication with the Odoo Server<a class="headerlink" href="#communication-with-the-odoo-server" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="communication-with-the-gerp-server">
+<h2>Communication with the Odoo Server<a class="headerlink" href="#communication-with-the-gerp-server" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="contacting-models">
 <h3>Contacting Models<a class="headerlink" href="#contacting-models" title="Permalink to this headline">¶</a></h3>
 <p>Most operations with Odoo involve communicating with <em>models</em> implementing
@@ -1081,7 +1081,7 @@ returns a literal dictionary.</p>
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>The class used to call Odoo models is <code class="xref js js-class docutils literal"><span class="pre">odoo.Model()</span></code>. It is
+<p>The class used to call Odoo models is <code class="xref js js-class docutils literal"><span class="pre">gerp.Model()</span></code>. It is
 instantiated with the Odoo model’s name as first parameter
 (<code class="docutils literal"><span class="pre">oepetstore.message_of_the_day</span></code> here).</p>
 <p><code class="xref js js-func docutils literal"><span class="pre">call()</span></code> can be used to call any (public) method of an
@@ -1135,7 +1135,7 @@ is used by people in different countries.</p>
 <p>The <code class="docutils literal"><span class="pre">argument</span></code> is necessary in all methods, otherwise bad things could
 happen (such as the application not being translated correctly). That’s why,
 when you call a model’s method, you should always provide that argument. The
-solution to achieve that is to use <code class="xref js js-class docutils literal"><span class="pre">odoo.web.CompoundContext()</span></code>.</p>
+solution to achieve that is to use <code class="xref js js-class docutils literal"><span class="pre">gerp.web.CompoundContext()</span></code>.</p>
 <p><code class="xref js js-class docutils literal"><span class="pre">CompoundContext()</span></code> is a class used to pass the user’s
 context (with language, time zone, etc…) to the server as well as adding new
 keys to the context (some models’ methods use arbitrary keys added to the
@@ -1162,8 +1162,8 @@ are related to the configuration of the current user in Odoo plus the
 models, Odoo Web provides a helper for simpler and clearer querying of models
 (fetching of records based on various conditions):
 <code class="xref js js-func docutils literal"><span class="pre">query()</span></code> which acts as a shortcut for the common
-combination of <a class="reference internal" href="../reference/orm.html#odoo.models.Model.search" title="odoo.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a> and
-:<a class="reference internal" href="../reference/orm.html#odoo.models.Model.read" title="odoo.models.Model.read"><code class="xref py py-meth docutils literal"><span class="pre">read()</span></code></a>. It provides a clearer syntax to search
+combination of <a class="reference internal" href="../reference/orm.html#gerp.models.Model.search" title="gerp.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a> and
+:<a class="reference internal" href="../reference/orm.html#gerp.models.Model.read" title="gerp.models.Model.read"><code class="xref py py-meth docutils literal"><span class="pre">read()</span></code></a>. It provides a clearer syntax to search
 and read models:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">model</span><span class="p">.</span><span class="nx">query</span><span class="p">([</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="s1">&#39;user_email&#39;</span><span class="p">,</span> <span class="s1">&#39;signature&#39;</span><span class="p">])</span>
      <span class="p">.</span><span class="nx">filter</span><span class="p">([[</span><span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;company_id&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="nx">main_company</span><span class="p">]])</span>
@@ -1186,7 +1186,7 @@ and read models:</p>
 <ul class="simple">
 <li><code class="xref js js-func docutils literal"><span class="pre">query()</span></code> takes an optional list of fields as
 parameter (if no field is provided, all fields of the model are fetched). It
-returns a <code class="xref js js-class docutils literal"><span class="pre">odoo.web.Query()</span></code> which can be further customized before
+returns a <code class="xref js js-class docutils literal"><span class="pre">gerp.web.Query()</span></code> which can be further customized before
 being executed</li>
 <li><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code> represents the query being built. It is
 immutable, methods to customize the query actually return a modified copy,
@@ -1196,7 +1196,7 @@ so it’s possible to use the original and the new version side-by-side. See
 <p>When the query is set up as desired, simply call
 <code class="xref js js-func docutils literal"><span class="pre">all()</span></code> to execute it and return a
 deferred to its result. The result is the same as
-<a class="reference internal" href="../reference/orm.html#odoo.models.Model.read" title="odoo.models.Model.read"><code class="xref py py-meth docutils literal"><span class="pre">read()</span></code></a>’s, an array of dictionaries where each
+<a class="reference internal" href="../reference/orm.html#gerp.models.Model.read" title="gerp.models.Model.read"><code class="xref py py-meth docutils literal"><span class="pre">read()</span></code></a>’s, an array of dictionaries where each
 dictionary is a requested record, with each requested field a dictionary key.</p>
 </div>
 </div>
@@ -1314,13 +1314,13 @@ multiple views depending on the original action’s requirements:</p>
 <div class="section" id="the-views">
 <h4>The Views<a class="headerlink" href="#the-views" title="Permalink to this headline">¶</a></h4>
 <p>Most <a class="reference internal" href="../reference/views.html#reference-views"><span class="std std-ref">Odoo views</span></a> are implemented through a subclass
-of <code class="xref js js-class docutils literal"><span class="pre">odoo.web.View()</span></code> which provides a bit of generic basic structure
+of <code class="xref js js-class docutils literal"><span class="pre">gerp.web.View()</span></code> which provides a bit of generic basic structure
 for handling events and displaying model information.</p>
 <p>The <em>search view</em> is considered a view type by the main Odoo framework, but
 handled separately by the web client (as it’s a more permanent fixture and
 can interact with other views, which regular views don’t do).</p>
 <p>A view is responsible for loading its own description XML (using
-<a class="reference internal" href="../reference/orm.html#odoo.models.Model.fields_view_get" title="odoo.models.Model.fields_view_get"><code class="xref py py-class docutils literal"><span class="pre">fields_view_get</span></code></a>) and any other data source
+<a class="reference internal" href="../reference/orm.html#gerp.models.Model.fields_view_get" title="gerp.models.Model.fields_view_get"><code class="xref py py-class docutils literal"><span class="pre">fields_view_get</span></code></a>) and any other data source
 it needs. To that purpose, views are provided with an optional view
 identifier set as the <code class="xref js js-attr docutils literal"><span class="pre">view_id</span></code> attribute.</p>
 <p>Views are also provided with a <code class="xref js js-class docutils literal"><span class="pre">DataSet()</span></code> instance which
@@ -1339,7 +1339,7 @@ displaying fields.</p>
 form widget may be necessary to correctly interact with a new field type
 (e.g. a <a class="reference internal" href="../glossary.html#term-gis"><span class="xref std std-term">GIS</span></a> field) or to provide new representations and ways to
 interact with existing field types (e.g. validate
-<a class="reference internal" href="../reference/orm.html#odoo.fields.Char" title="odoo.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a> fields which should contain email addresses
+<a class="reference internal" href="../reference/orm.html#gerp.fields.Char" title="gerp.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a> fields which should contain email addresses
 and display them as email links).</p>
 <p>To explicitly specify which form widget should be used to display a field,
 simply use the <code class="docutils literal"><span class="pre">widget</span></code> attribute in the view’s XML description:</p>

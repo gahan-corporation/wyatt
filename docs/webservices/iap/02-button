@@ -15,7 +15,7 @@ Index: coalroller/coalroller/views/views.xml
 --- /dev/null
 +++ coalroller/coalroller/views/views.xml
 @@ -0,0 +1,17 @@
-+<odoo>
++<gerp>
 +  <record model="ir.ui.view" id="partner_form_coalroll">
 +    <field name="name">partner.form.coalroll</field>
 +    <field name="model">res.partner</field>
@@ -31,4 +31,4 @@ Index: coalroller/coalroller/views/views.xml
 +      </xpath>
 +    </field>
 +  </record>
-+</odoo>
++</gerp>

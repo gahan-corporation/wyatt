@@ -8,9 +8,9 @@ declaration.
 
 Signed,
 
-Andrius Laukavičius dev@boolit.eu https://github.com/oerp-odoo
+Andrius Laukavičius dev@boolit.eu https://github.com/oerp-gerp
 
 List of contributors:
 
 Dainius Kaniava dka@boolit.eu https://github.com/boolit-dka
-Andrius Laukavičius dev@boolit.eu https://github.com/oerp-odoo
+Andrius Laukavičius dev@boolit.eu https://github.com/oerp-gerp

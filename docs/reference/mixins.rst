@@ -248,30 +248,30 @@ subtype of notifications they wish to receive.
 
 Subtypes are created as data in your module; the model has the following fields:
 
-``name`` (mandatory) - :class:`~odoo.fields.Char` 
+``name`` (mandatory) - :class:`~gerp.fields.Char` 
     name of the subtype, will be displayed in the notification customization
     popup
-``description`` - :class:`~odoo.fields.Char` 
+``description`` - :class:`~gerp.fields.Char` 
     description that will be added in the message posted for this
     subtype. If void, the name will be added instead
-``internal`` - :class:`~odoo.fields.Boolean` 
+``internal`` - :class:`~gerp.fields.Boolean` 
     messages with internal subtypes will be visible only by employees,
     aka members of the ``base.group_user`` group
-``parent_id`` - :class:`~odoo.fields.Many2one` 
+``parent_id`` - :class:`~gerp.fields.Many2one` 
     link subtypes for automatic subscription; for example project subtypes are
     linked to task subtypes through this link. When someone is subscribed to
     a project, he will be subscribed to all tasks of this project with
     subtypes found using the parent subtype
-``relation_field`` - :class:`~odoo.fields.Char` 
+``relation_field`` - :class:`~gerp.fields.Char` 
     as an example, when linking project and tasks subtypes, the relation
     field is the project_id field of tasks
-``res_model`` - :class:`~odoo.fields.Char` 
+``res_model`` - :class:`~gerp.fields.Char` 
     model the subtype applies to; if False, this subtype applies to all models
-``default`` - :class:`~odoo.fields.Boolean` 
+``default`` - :class:`~gerp.fields.Boolean` 
     wether the subtype is activated by default when subscribing
-``sequence`` - :class:`~odoo.fields.Integer` 
+``sequence`` - :class:`~gerp.fields.Integer` 
     used to order subtypes in the notification customization popup
-``hidden`` - :class:`~odoo.fields.Boolean` 
+``hidden`` - :class:`~gerp.fields.Boolean` 
     wether the subtype is hidden in the notification customization popup
     
 
@@ -491,7 +491,7 @@ Overriding defaults
 There are several ways you can customize the behaviour of ``mail.thread`` models,
 including (but not limited to):
 
-``_mail_post_access`` - :class:`~odoo.models.Model`  attribute
+``_mail_post_access`` - :class:`~gerp.models.Model`  attribute
     the required access rights to be able to post a message on the model; by
     default a ``write`` access is needed, can be set to ``read`` as well
 
@@ -563,7 +563,7 @@ gets created (for example, every ``project.project`` record having its ``mail.al
 record initialized on creation).
 
 .. note:: Aliases can also be created manually and supported by a simple
-    :class:`~odoo.fields.Many2one` field. This guide assumes you wish a 
+    :class:`~gerp.fields.Many2one` field. This guide assumes you wish a 
     more complete integration with automatic creation of the alias, record-specific
     default values, etc.
 
@@ -599,22 +599,22 @@ The ``get_alias_values()`` override is particularly interesting as it allows you
 to modify the behaviour of your aliases easily. Among the fields that can be set
 on the alias, the following are of particular interest:
 
-``alias_name`` - :class:`~odoo.fields.Char` 
+``alias_name`` - :class:`~gerp.fields.Char` 
     name of the email alias, e.g. 'jobs' if you want to catch emails for
-    <jobs@example.odoo.com>
-``alias_user_id`` - :class:`~odoo.fields.Many2one` (``res.users``) 
+    <jobs@example.gerp.com>
+``alias_user_id`` - :class:`~gerp.fields.Many2one` (``res.users``) 
     owner of records created upon receiving emails on this alias;
     if this field is not set the system will attempt to find the right owner
     based on the sender (From) address, or will use the Administrator account
     if no system user is found for that address
-``alias_defaults`` - :class:`~odoo.fields.Text` 
+``alias_defaults`` - :class:`~gerp.fields.Text` 
     Python dictionary that will be evaluated to provide
     default values when creating new records for this alias
-``alias_force_thread_id`` - :class:`~odoo.fields.Integer` 
+``alias_force_thread_id`` - :class:`~gerp.fields.Integer` 
     optional ID of a thread (record) to which all incoming messages will be
     attached, even if they did not reply to it; if set, this will disable the
     creation of new records completely
-``alias_contact`` - :class:`~odoo.fields.Selection` 
+``alias_contact`` - :class:`~gerp.fields.Selection` 
     Policy to post a message on the document using the mailgateway
     
     - *everyone*: everyone can post
@@ -812,18 +812,18 @@ The ``utm.mixin`` class can be used to track online marketing/communication
 campaigns through arguments in links to specified resources. The mixin adds
 3 fields to your model:
 
-* ``campaign_id``: :class:`~odoo.fields.Many2one` field to a ``utm.campaign``
+* ``campaign_id``: :class:`~gerp.fields.Many2one` field to a ``utm.campaign``
   object (i.e. Christmas_Special, Fall_Collection, etc.)
-* ``source_id``: :class:`~odoo.fields.Many2one` field to a ``utm.source`` 
+* ``source_id``: :class:`~gerp.fields.Many2one` field to a ``utm.source`` 
   object (i.e. Search Engine, mailing list, etc.)
-* ``medium_id``: :class:`~odoo.fields.Many2one` field to a ``utm.medium`` 
+* ``medium_id``: :class:`~gerp.fields.Many2one` field to a ``utm.medium`` 
   object (i.e. Snail Mail, e-Mail, social network update, etc.)
 
 These models have a single field ``name`` (i.e. they are simply there to
 distinguish campaigns but don't have any specific behaviour).
 
 Once a customer visits your website with these parameters set in the url
-(i.e. http://www.odoo.com/?campaign_id=mixin_talk&source_id=www.odoo.com&medium_id=website),
+(i.e. http://www.gerp.com/?campaign_id=mixin_talk&source_id=www.gerp.com&medium_id=website),
 three cookies are set in the visitor's website for these parameters.
 Once a object that inherits the utm.mixin is created from the website (i.e. lead
 form, job application, etc.), the utm.mixin code kicks in and fetches the values
@@ -856,11 +856,11 @@ model should support the *quick create* (i.e. call to ``create()`` with a single
             result = super(MyModel, self).tracking_fields()
             result.append([
             # ("URL_PARAMETER", "FIELD_NAME_MIXIN", "NAME_IN_COOKIES")
-                ('my_field', 'my_field', 'odoo_utm_my_field')
+                ('my_field', 'my_field', 'gerp_utm_my_field')
             ])
             return result
 
-This will tell the system to create a cookie named *odoo_utm_my_field* with the
+This will tell the system to create a cookie named *gerp_utm_my_field* with the
 value found in the url parameter ``my_field``; once a new record of this model is
 created by a call from a website form, the generic override of the ``create()``
 method of ``utm.mixin`` will fetch the default values for this field from the
@@ -896,9 +896,9 @@ To include the functionnality, you only need to inherit ``website.published.mixi
 
 This mixin adds 2 fields on your model:
 
-* ``website_published``: :class:`~odoo.fields.Boolean` field which represents
+* ``website_published``: :class:`~gerp.fields.Boolean` field which represents
   the status of the publication
-* ``website_url``: :class:`~odoo.fields.Char` field which represents
+* ``website_url``: :class:`~gerp.fields.Char` field which represents
   the URL through which the object is accessed
   
 Note that this last field is a computed field and must be implemented for your class:
@@ -967,11 +967,11 @@ pages.
 
 This mixin adds 3 fields on your model:
 
-* ``website_meta_title``: :class:`~odoo.fields.Char` field that allow you to set
+* ``website_meta_title``: :class:`~gerp.fields.Char` field that allow you to set
   an additional title to your page
-* ``website_meta_description``: :class:`~odoo.fields.Char` field that contains a
+* ``website_meta_description``: :class:`~gerp.fields.Char` field that contains a
   short description of the page (sometimes used in search engines results)
-* ``website_meta_keywords``: :class:`~odoo.fields.Char` field that contains some
+* ``website_meta_keywords``: :class:`~gerp.fields.Char` field that contains some
   keywords to help your page to be classified more precisely by search engines; the
   "Promote" tool will help you select lexically-related keywords easily
 

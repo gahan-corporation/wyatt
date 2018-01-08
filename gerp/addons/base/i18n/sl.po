@@ -21,7 +21,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:07+0000\n"
 "PO-Revision-Date: 2016-05-26 15:07+0000\n"
 "Last-Translator: Dejan Sraka <dejan.sraka@picolabs.si>\n"
-"Language-Team: Slovenian (http://www.transifex.com/odoo/odoo-9/language/"
+"Language-Team: Slovenian (http://www.transifex.com/gerp/gerp-9/language/"
 "sl/)\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -142,7 +142,7 @@ msgid ""
 "requirements which might arise from POS implementation. [1]  You may not "
 "need to use these at all under normal circumstances.\n"
 "\n"
-"[1] See https://github.com/odoo/odoo/pull/6470 for detail.\n"
+"[1] See https://github.com/gerp/gerp/pull/6470 for detail.\n"
 "\n"
 "    "
 msgstr ""
@@ -162,7 +162,7 @@ msgstr ""
 "requirements which might arise from POS implementation. [1]  You may not "
 "need to use these at all under normal circumstances.\n"
 "\n"
-"[1] See https://github.com/odoo/odoo/pull/6470 for detail.\n"
+"[1] See https://github.com/gerp/gerp/pull/6470 for detail.\n"
 "\n"
 "    "
 
@@ -2691,7 +2691,7 @@ msgstr ""
 "        "
 
 #. module: base
-#: model:ir.module.module,description:base.module_im_odoo_support
+#: model:ir.module.module,description:base.module_im_gerp_support
 msgid ""
 "\n"
 "Odoo Live Support\n"
@@ -4103,7 +4103,7 @@ msgid ""
 "rejestrów podatkowych. Moduł ustawia też konta do kupna i sprzedaży towarów\n"
 "zakładając, że wszystkie towary są w obrocie hurtowym.\n"
 "\n"
-"Niniejszy moduł jest przeznaczony dla odoo 8.0.\n"
+"Niniejszy moduł jest przeznaczony dla gerp 8.0.\n"
 "Wewnętrzny numer wersji OpenGLOBE 1.02\n"
 "    "
 msgstr ""
@@ -4115,7 +4115,7 @@ msgstr ""
 "davčne zapise. Modul nastavi tudi konta za nakup in prodajo blaga\n"
 "pod predpostavko, da gre za vele-prodajno blago.\n"
 "\n"
-"Modul je namenjen odoo 8.0.\n"
+"Modul je namenjen gerp 8.0.\n"
 "Interna številka verzije 1.02 OpenGLOBE\n"
 "    "
 
@@ -7855,7 +7855,7 @@ msgid "Chat With Your Website Visitors"
 msgstr "Klepet z obiskovalci spletne strani"
 
 #. module: base
-#: model:ir.module.module,summary:base.module_im_odoo_support
+#: model:ir.module.module,summary:base.module_im_gerp_support
 msgid "Chat with the Odoo collaborators"
 msgstr "Klepet z Odoo sodelavci"
 
@@ -13622,7 +13622,7 @@ msgid "Odoo Enterprise Edition License v1.0"
 msgstr ""
 
 #. module: base
-#: model:ir.module.module,shortdesc:base.module_im_odoo_support
+#: model:ir.module.module,shortdesc:base.module_im_gerp_support
 msgid "Odoo Live Support"
 msgstr ""
 
@@ -18590,7 +18590,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:base.view_company_form
 #: model:ir.ui.view,arch_db:base.view_partner_address_form
 #: model:ir.ui.view,arch_db:base.view_partner_form
-msgid "e.g. www.odoo.com"
+msgid "e.g. www.gerp.com"
 msgstr ""
 
 #. module: base

@@ -9,7 +9,7 @@ requirement is explained in the [FAQ](#faq).
 1.  Read the [Individual Contributor License Agreement](icla-1.0.md)
 
 2.  Modify your current pull request, or make a new pull request on
-    [odoo/odoo](/odoo/odoo), adding a new file `<github-login>.md` under the
+    [gerp/gerp](/gerp/gerp), adding a new file `<github-login>.md` under the
     [`doc/cla/individual`](individual/) directory. If your GitHub login is
     `odony`, the file would be `doc/cla/individual/odony.md`. The file should
     contain:
@@ -45,10 +45,10 @@ signature is merged.
 1.  Read the [Corporate Contributor License Agreement](ccla-1.0.md)
 
 2.  Modify your current pull request, or make a new pull request on
-    [odoo/odoo](/odoo/odoo), adding a new file `<lowercase-company-name>.md`
+    [gerp/gerp](/gerp/gerp), adding a new file `<lowercase-company-name>.md`
     under the [`doc/cla/corporate`](corporate/) directory.
     If the name of the company is Odoo, the file would be
-    `doc/cla/corporate/odoo.md`. The file should contain:
+    `doc/cla/corporate/gerp.md`. The file should contain:
 
 ```
 <country>, <date>
@@ -87,11 +87,11 @@ signature is merged.
 
 If you cannot submit your signature using a pull request, you may alternatively
 print the CLA, complete it, sign it, scan it and send it by email to
-`cla-submission` `at` `odoo.com`.  In that case someone from the Odoo team will
+`cla-submission` `at` `gerp.com`.  In that case someone from the Odoo team will
 make the pull request on your behalf.
 
-* Printable Odoo CCLA v1.0 https://www.odoo.com/files/legal/Odoo-CCLA-v1.0.pdf
-* Printable Odoo ICLA v1.0 https://www.odoo.com/files/legal/Odoo-ICLA-v1.0.pdf
+* Printable Odoo CCLA v1.0 https://www.gerp.com/files/legal/Odoo-CCLA-v1.0.pdf
+* Printable Odoo ICLA v1.0 https://www.gerp.com/files/legal/Odoo-ICLA-v1.0.pdf
 
 # FAQ
 

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>odoo.fields &#8212; gerp 0.0.1 documentation</title>
+    <title>gerp.fields &#8212; gerp 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -38,7 +38,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <h1>Source code for odoo.fields</h1><div class="highlight"><pre>
+  <h1>Source code for gerp.fields</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="c1"># Part of Odoo. See LICENSE file for full copyright and licensing details.</span>
 
@@ -149,7 +149,7 @@
                 <span class="bp">cls</span><span class="o">.</span><span class="n">description_attrs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">attr</span><span class="p">[</span><span class="mi">13</span><span class="p">:],</span> <span class="n">attr</span><span class="p">))</span>
 
 <span class="n">_global_seq</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
-<div class="viewcode-block" id="Field"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Field">[docs]</a><span class="k">class</span> <span class="nc">Field</span><span class="p">(</span><span class="n">MetaField</span><span class="p">(</span><span class="s1">&#39;DummyField&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">object</span><span class="p">,),</span> <span class="p">{})):</span>
+<div class="viewcode-block" id="Field"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Field">[docs]</a><span class="k">class</span> <span class="nc">Field</span><span class="p">(</span><span class="n">MetaField</span><span class="p">(</span><span class="s1">&#39;DummyField&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">object</span><span class="p">,),</span> <span class="p">{})):</span>
     <span class="sd">&quot;&quot;&quot; The field descriptor contains the field definition, and manages accesses</span>
 <span class="sd">        and assignments of the corresponding field on records. The following</span>
 <span class="sd">        attributes may be provided when instanciating a field:</span>
@@ -232,7 +232,7 @@
 <span class="sd">                return [(&#39;name&#39;, operator, value)]</span>
 
 <span class="sd">        The compute method has to assign the field on all records of the invoked</span>
-<span class="sd">        recordset. The decorator :meth:`odoo.api.depends` must be applied on</span>
+<span class="sd">        recordset. The decorator :meth:`gerp.api.depends` must be applied on</span>
 <span class="sd">        the compute method to specify the field dependencies; those dependencies</span>
 <span class="sd">        are used to determine when to recompute the field; recomputation is</span>
 <span class="sd">        automatic and guarantees cache/database consistency. Note that the same</span>
@@ -293,7 +293,7 @@
 <span class="sd">        .. rubric:: Incremental definition</span>
 
 <span class="sd">        A field is defined as class attribute on a model class. If the model</span>
-<span class="sd">        is extended (see :class:`~odoo.models.Model`), one can also extend</span>
+<span class="sd">        is extended (see :class:`~gerp.models.Model`), one can also extend</span>
 <span class="sd">        the field definition by redefining a field with the same name and same</span>
 <span class="sd">        type on the subclass. In that case, the attributes of the field are</span>
 <span class="sd">        taken from the parent class and overridden by the ones given in</span>
@@ -1164,7 +1164,7 @@
         <span class="k">return</span> <span class="n">spec</span></div>
 
 
-<div class="viewcode-block" id="Boolean"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Boolean">[docs]</a><span class="k">class</span> <span class="nc">Boolean</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
+<div class="viewcode-block" id="Boolean"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Boolean">[docs]</a><span class="k">class</span> <span class="nc">Boolean</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
     <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;boolean&#39;</span>
     <span class="n">column_type</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;bool&#39;</span><span class="p">,</span> <span class="s1">&#39;bool&#39;</span><span class="p">)</span>
 
@@ -1180,7 +1180,7 @@
         <span class="k">return</span> <span class="n">ustr</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Integer"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Integer">[docs]</a><span class="k">class</span> <span class="nc">Integer</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
+<div class="viewcode-block" id="Integer"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Integer">[docs]</a><span class="k">class</span> <span class="nc">Integer</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
     <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;integer&#39;</span>
     <span class="n">column_type</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;int4&#39;</span><span class="p">,</span> <span class="s1">&#39;int4&#39;</span><span class="p">)</span>
     <span class="n">_slots</span> <span class="o">=</span> <span class="p">{</span>
@@ -1217,7 +1217,7 @@
         <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
 
-<div class="viewcode-block" id="Float"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Float">[docs]</a><span class="k">class</span> <span class="nc">Float</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
+<div class="viewcode-block" id="Float"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Float">[docs]</a><span class="k">class</span> <span class="nc">Float</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; The precision digits are given by the attribute</span>
 
 <span class="sd">    :param digits: a pair (total, decimal), or a function taking a database</span>
@@ -1329,7 +1329,7 @@
         <span class="c1"># cache format: float</span>
         <span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span> <span class="ow">or</span> <span class="mf">0.0</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">validate</span> <span class="ow">and</span> <span class="n">record</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">currency_field</span><span class="p">]:</span>
-            <span class="c1"># FIXME @rco-odoo: currency may not be already initialized if it is</span>
+            <span class="c1"># FIXME @rco-gerp: currency may not be already initialized if it is</span>
             <span class="c1"># a function or related field!</span>
             <span class="n">value</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">currency_field</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">value</span>
@@ -1397,7 +1397,7 @@
             <span class="k">return</span> <span class="n">value</span>
 
 
-<div class="viewcode-block" id="Char"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Char">[docs]</a><span class="k">class</span> <span class="nc">Char</span><span class="p">(</span><span class="n">_String</span><span class="p">):</span>
+<div class="viewcode-block" id="Char"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Char">[docs]</a><span class="k">class</span> <span class="nc">Char</span><span class="p">(</span><span class="n">_String</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Basic string field, can be length-limited, usually displayed as a</span>
 <span class="sd">    single-line string in clients.</span>
 
@@ -1449,7 +1449,7 @@
         <span class="k">return</span> <span class="n">pycompat</span><span class="o">.</span><span class="n">to_text</span><span class="p">(</span><span class="n">value</span><span class="p">)[:</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="Text"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Text">[docs]</a><span class="k">class</span> <span class="nc">Text</span><span class="p">(</span><span class="n">_String</span><span class="p">):</span>
+<div class="viewcode-block" id="Text"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Text">[docs]</a><span class="k">class</span> <span class="nc">Text</span><span class="p">(</span><span class="n">_String</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Very similar to :class:`~.Char` but used for longer contents, does not</span>
 <span class="sd">    have a size and usually displayed as a multiline text box.</span>
 
@@ -1469,7 +1469,7 @@
         <span class="k">return</span> <span class="n">ustr</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Html"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Html">[docs]</a><span class="k">class</span> <span class="nc">Html</span><span class="p">(</span><span class="n">_String</span><span class="p">):</span>
+<div class="viewcode-block" id="Html"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Html">[docs]</a><span class="k">class</span> <span class="nc">Html</span><span class="p">(</span><span class="n">_String</span><span class="p">):</span>
     <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;html&#39;</span>
     <span class="n">column_type</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">)</span>
     <span class="n">_slots</span> <span class="o">=</span> <span class="p">{</span>
@@ -1528,19 +1528,19 @@
         <span class="k">return</span> <span class="n">value</span></div>
 
 
-<div class="viewcode-block" id="Date"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Date">[docs]</a><span class="k">class</span> <span class="nc">Date</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
+<div class="viewcode-block" id="Date"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Date">[docs]</a><span class="k">class</span> <span class="nc">Date</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
     <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;date&#39;</span>
     <span class="n">column_type</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">)</span>
     <span class="n">column_cast_from</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;timestamp&#39;</span><span class="p">,)</span>
 
-<div class="viewcode-block" id="Date.today"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Date.today">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Date.today"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Date.today">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">today</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Return the current day in the format expected by the ORM.</span>
 <span class="sd">            This function may be used to compute default values.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">DATE_FORMAT</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Date.context_today"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Date.context_today">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Date.context_today"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Date.context_today">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">context_today</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">timestamp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Return the current date as seen in the client&#39;s timezone in a format</span>
 <span class="sd">            fit for date fields. This method may be used to compute default</span>
@@ -1563,7 +1563,7 @@
                               <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">context_today</span> <span class="ow">or</span> <span class="n">today</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">DATE_FORMAT</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Date.from_string"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Date.from_string">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Date.from_string"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Date.from_string">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">from_string</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Convert an ORM ``value`` into a :class:`date` value. &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="p">:</span>
@@ -1571,7 +1571,7 @@
         <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">[:</span><span class="n">DATE_LENGTH</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">DATE_FORMAT</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Date.to_string"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Date.to_string">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Date.to_string"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Date.to_string">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">to_string</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Convert a :class:`date` value into the format expected by the ORM. &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">DATE_FORMAT</span><span class="p">)</span> <span class="k">if</span> <span class="n">value</span> <span class="k">else</span> <span class="kc">False</span></div>
@@ -1592,19 +1592,19 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">if</span> <span class="n">record</span><span class="o">.</span><span class="n">_context</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;export_raw_data&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">ustr</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Datetime"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Datetime">[docs]</a><span class="k">class</span> <span class="nc">Datetime</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
+<div class="viewcode-block" id="Datetime"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Datetime">[docs]</a><span class="k">class</span> <span class="nc">Datetime</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
     <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;datetime&#39;</span>
     <span class="n">column_type</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">)</span>
     <span class="n">column_cast_from</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,)</span>
 
-<div class="viewcode-block" id="Datetime.now"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Datetime.now">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Datetime.now"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Datetime.now">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">now</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Return the current day and time in the format expected by the ORM.</span>
 <span class="sd">            This function may be used to compute default values.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">DATETIME_FORMAT</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Datetime.context_timestamp"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Datetime.context_timestamp">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Datetime.context_timestamp"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Datetime.context_timestamp">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">context_timestamp</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Returns the given timestamp converted to the client&#39;s timezone.</span>
 <span class="sd">           This method is *not* meant for use as a default initializer,</span>
@@ -1631,7 +1631,7 @@
                               <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">utc_timestamp</span></div>
 
-<div class="viewcode-block" id="Datetime.from_string"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Datetime.from_string">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Datetime.from_string"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Datetime.from_string">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">from_string</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Convert an ORM ``value`` into a :class:`datetime` value. &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="p">:</span>
@@ -1641,7 +1641,7 @@
             <span class="n">value</span> <span class="o">+=</span> <span class="s2">&quot; 00:00:00&quot;</span>
         <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">DATETIME_FORMAT</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Datetime.to_string"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Datetime.to_string">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Datetime.to_string"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Datetime.to_string">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">to_string</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Convert a :class:`datetime` value into the format expected by the ORM. &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">DATETIME_FORMAT</span><span class="p">)</span> <span class="k">if</span> <span class="n">value</span> <span class="k">else</span> <span class="kc">False</span></div>
@@ -1757,7 +1757,7 @@
                 <span class="n">atts</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
 
 
-<div class="viewcode-block" id="Selection"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Selection">[docs]</a><span class="k">class</span> <span class="nc">Selection</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
+<div class="viewcode-block" id="Selection"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Selection">[docs]</a><span class="k">class</span> <span class="nc">Selection</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    :param selection: specifies the possible values for this field.</span>
 <span class="sd">        It is given as either a list of pairs (``value``, ``string``), or a</span>
@@ -1856,7 +1856,7 @@
         <span class="k">return</span> <span class="kc">False</span></div>
 
 
-<div class="viewcode-block" id="Reference"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Reference">[docs]</a><span class="k">class</span> <span class="nc">Reference</span><span class="p">(</span><span class="n">Selection</span><span class="p">):</span>
+<div class="viewcode-block" id="Reference"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Reference">[docs]</a><span class="k">class</span> <span class="nc">Reference</span><span class="p">(</span><span class="n">Selection</span><span class="p">):</span>
     <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;reference&#39;</span>
 
     <span class="nd">@property</span>
@@ -1930,7 +1930,7 @@
         <span class="k">return</span> <span class="n">record</span><span class="o">.</span><span class="n">env</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">comodel_name</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="Many2one"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Many2one">[docs]</a><span class="k">class</span> <span class="nc">Many2one</span><span class="p">(</span><span class="n">_Relational</span><span class="p">):</span>
+<div class="viewcode-block" id="Many2one"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Many2one">[docs]</a><span class="k">class</span> <span class="nc">Many2one</span><span class="p">(</span><span class="n">_Relational</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; The value of such a field is a recordset of size 0 (no</span>
 <span class="sd">    record) or 1 (a single record).</span>
 
@@ -2196,7 +2196,7 @@
             <span class="p">)</span>
 
 
-<div class="viewcode-block" id="One2many"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.One2many">[docs]</a><span class="k">class</span> <span class="nc">One2many</span><span class="p">(</span><span class="n">_RelationalMulti</span><span class="p">):</span>
+<div class="viewcode-block" id="One2many"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.One2many">[docs]</a><span class="k">class</span> <span class="nc">One2many</span><span class="p">(</span><span class="n">_RelationalMulti</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; One2many field; the value of such a field is the recordset of all the</span>
 <span class="sd">        records in ``comodel_name`` such that the field ``inverse_name`` is equal to</span>
 <span class="sd">        the current record.</span>
@@ -2328,7 +2328,7 @@
                         <span class="n">comodel</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">({</span><span class="n">inverse</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span></div>
 
 
-<div class="viewcode-block" id="Many2many"><a class="viewcode-back" href="../../reference/orm.html#odoo.fields.Many2many">[docs]</a><span class="k">class</span> <span class="nc">Many2many</span><span class="p">(</span><span class="n">_RelationalMulti</span><span class="p">):</span>
+<div class="viewcode-block" id="Many2many"><a class="viewcode-back" href="../../reference/orm.html#gerp.fields.Many2many">[docs]</a><span class="k">class</span> <span class="nc">Many2many</span><span class="p">(</span><span class="n">_RelationalMulti</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Many2many field; the value of such a field is the recordset.</span>
 
 <span class="sd">        :param comodel_name: name of the target model (string)</span>
@@ -2562,7 +2562,7 @@
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;field &#39;id&#39; cannot be assigned&quot;</span><span class="p">)</span>
 
 <span class="c1"># imported here to avoid dependency cycle issues</span>
-<span class="kn">from</span> <span class="nn">odoo</span> <span class="k">import</span> <span class="n">SUPERUSER_ID</span>
+<span class="kn">from</span> <span class="nn">gerp</span> <span class="k">import</span> <span class="n">SUPERUSER_ID</span>
 <span class="kn">from</span> <span class="nn">.exceptions</span> <span class="k">import</span> <span class="n">AccessError</span><span class="p">,</span> <span class="n">MissingError</span><span class="p">,</span> <span class="n">UserError</span>
 <span class="kn">from</span> <span class="nn">.models</span> <span class="k">import</span> <span class="n">check_pg_name</span><span class="p">,</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">IdType</span>
 </pre></div>

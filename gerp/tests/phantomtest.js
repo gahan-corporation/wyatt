@@ -1,4 +1,4 @@
-// Phantomjs odoo helper
+// Phantomjs gerp helper
 // jshint evil: true, loopfunc: true
 
 var system = require('system');

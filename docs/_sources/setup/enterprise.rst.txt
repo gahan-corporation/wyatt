@@ -29,11 +29,11 @@ On Linux, using an installer
 
 * Backup your community database
 
-* Stop the odoo service
+* Stop the gerp service
 
   .. code-block:: console
 
-    $ sudo service odoo stop
+    $ sudo service gerp stop
 
 * Install the enterprise .deb (it should install over the community package)
 
@@ -45,7 +45,7 @@ On Linux, using an installer
 
   .. code-block:: console
 
-    $ python3 /usr/bin/odoo.py -d <database_name> -i web_enterprise --stop-after-init
+    $ python3 /usr/bin/gerp.py -d <database_name> -i web_enterprise --stop-after-init
 
 * You should be able to connect to your Odoo Enterprise instance using your usual mean of identification.
   You can then link your database with your Odoo Enterprise Subscription by entering the code you received
@@ -97,7 +97,7 @@ On Windows
 
   .. code-block:: console
 
-    $ odoo.exe -d <database_name> -i web_enterprise --stop-after-init
+    $ gerp.exe -d <database_name> -i web_enterprise --stop-after-init
 
 * No need to manually launch the server, the service is running.
   You should be able to connect to your Odoo Enterprise instance using your usual

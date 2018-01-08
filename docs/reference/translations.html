@@ -105,11 +105,11 @@ values (across all records) are exported</li>
 code, Odoo cannot automatically export translatable terms so they
 must be marked explicitly for export. This is done by wrapping a literal
 string in a function call.</p>
-<p>In Python, the wrapping function is <code class="xref py py-func docutils literal"><span class="pre">odoo._()</span></code>:</p>
+<p>In Python, the wrapping function is <code class="xref py py-func docutils literal"><span class="pre">gerp._()</span></code>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Bank Accounts&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In JavaScript, the wrapping function is generally <code class="xref js js-func docutils literal"><span class="pre">odoo.web._t()</span></code>:</p>
+<p>In JavaScript, the wrapping function is generally <code class="xref js js-func docutils literal"><span class="pre">gerp.web._t()</span></code>:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">title</span> <span class="o">=</span> <span class="nx">_t</span><span class="p">(</span><span class="s2">&quot;Bank Accounts&quot;</span><span class="p">)</span>
 </pre></div>
 </div>

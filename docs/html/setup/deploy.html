@@ -40,8 +40,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="deploying-odoo">
-<h1>Deploying Odoo<a class="headerlink" href="#deploying-odoo" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="deploying-gerp">
+<h1>Deploying Odoo<a class="headerlink" href="#deploying-gerp" title="Permalink to this headline">¶</a></h1>
 <p>This document describes basic steps to set up Odoo in production or on an
 internet-facing server. It follows <a class="reference internal" href="install.html#setup-install"><span class="std std-ref">installation</span></a>, and is
 not generally necessary for a development systems that is not exposed on the
@@ -63,7 +63,7 @@ bound to a database: Odoo needs to know which database should be used to load
 the website page or perform the operation. If multi-tenancy is not used that is not an
 issue, there’s only one database to use, but if there are multiple databases
 accessible Odoo needs a rule to know which one it should use.</p>
-<p>That is one of the purposes of <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-db-filter"><code class="xref std std-option docutils literal"><span class="pre">--db-filter</span></code></a>:
+<p>That is one of the purposes of <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-db-filter"><code class="xref std std-option docutils literal"><span class="pre">--db-filter</span></code></a>:
 it specifies how the database should be selected based on the hostname (domain)
 that is being requested. The value is a <a class="reference external" href="https://docs.python.org/3/library/re.html">regular expression</a>, possibly
 including the dynamically injected hostname (<code class="docutils literal"><span class="pre">%h</span></code>) or the first subdomain
@@ -76,7 +76,7 @@ correctly.</p>
 <ul class="simple">
 <li>show only databases with names beginning with ‘mycompany’</li>
 </ul>
-<p>in <code class="docutils literal"><span class="pre">/etc/odoo.conf</span></code> set:</p>
+<p>in <code class="docutils literal"><span class="pre">/etc/gerp.conf</span></code> set:</p>
 <div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[options]</span>
 <span class="na">dbfilter</span> <span class="o">=</span> <span class="s">^mycompany.*$</span>
 </pre></div>
@@ -87,14 +87,14 @@ the database “mycompany” will be shown if the incoming request
 was sent to <code class="docutils literal"><span class="pre">www.mycompany.com</span></code> or <code class="docutils literal"><span class="pre">mycompany.co.uk</span></code>, but not
 for <code class="docutils literal"><span class="pre">www2.mycompany.com</span></code> or <code class="docutils literal"><span class="pre">helpdesk.mycompany.com</span></code>.</li>
 </ul>
-<p>in <code class="docutils literal"><span class="pre">/etc/odoo.conf</span></code> set:</p>
+<p>in <code class="docutils literal"><span class="pre">/etc/gerp.conf</span></code> set:</p>
 <div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[options]</span>
 <span class="na">dbfilter</span> <span class="o">=</span> <span class="s">^%d$</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Setting a proper <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-db-filter"><code class="xref std std-option docutils literal"><span class="pre">--db-filter</span></code></a> is an important part
+<p class="last">Setting a proper <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-db-filter"><code class="xref std std-option docutils literal"><span class="pre">--db-filter</span></code></a> is an important part
 of securing your deployment.
 Once it is correctly working and only matching a single database per hostname, it
 is strongly recommended to block access to the database manager screens,
@@ -140,13 +140,13 @@ max_connections = 80
 </pre></div>
 </div>
 </div>
-<div class="section" id="configuring-odoo">
-<span id="setup-deploy-odoo"></span><h3>Configuring Odoo<a class="headerlink" href="#configuring-odoo" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="configuring-gerp">
+<span id="setup-deploy-gerp"></span><h3>Configuring Odoo<a class="headerlink" href="#configuring-gerp" title="Permalink to this headline">¶</a></h3>
 <p>Out of the box, Odoo connects to a local postgres over UNIX socket via port
 5432. This can be overridden using <a class="reference internal" href="../reference/cmdline.html#reference-cmdline-server-database"><span class="std std-ref">the database options</span></a> when your Postgres deployment is not
 local and/or does not use the installation defaults.</p>
 <p>The <a class="reference internal" href="install.html#setup-install-packaged"><span class="std std-ref">packaged installers</span></a> will automatically
-create a new user (<code class="docutils literal"><span class="pre">odoo</span></code>) and set it as the database user.</p>
+create a new user (<code class="docutils literal"><span class="pre">gerp</span></code>) and set it as the database user.</p>
 <ul>
 <li><p class="first">The database management screens are protected by the <code class="docutils literal"><span class="pre">admin_passwd</span></code>
 setting. This setting can only be set using configuration files, and is
@@ -172,16 +172,16 @@ to be completely non-functional, the PostgreSQL user needs to be created with
 <ul class="simple">
 <li>connect to a PostgreSQL server on 192.168.1.2</li>
 <li>port 5432</li>
-<li>using an ‘odoo’ user account,</li>
+<li>using an ‘gerp’ user account,</li>
 <li>with ‘pwd’ as a password</li>
 <li>filtering only db with a name beginning with ‘mycompany’</li>
 </ul>
-<p>in <code class="docutils literal"><span class="pre">/etc/odoo.conf</span></code> set:</p>
+<p>in <code class="docutils literal"><span class="pre">/etc/gerp.conf</span></code> set:</p>
 <div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[options]</span>
 <span class="na">admin_passwd</span> <span class="o">=</span> <span class="s">mysupersecretpassword</span>
 <span class="na">db_host</span> <span class="o">=</span> <span class="s">192.168.1.2</span>
 <span class="na">db_port</span> <span class="o">=</span> <span class="s">5432</span>
-<span class="na">db_user</span> <span class="o">=</span> <span class="s">odoo</span>
+<span class="na">db_user</span> <span class="o">=</span> <span class="s">gerp</span>
 <span class="na">db_password</span> <span class="o">=</span> <span class="s">pwd</span>
 <span class="na">dbfilter</span> <span class="o">=</span> <span class="s">^mycompany.*$</span>
 </pre></div>
@@ -197,7 +197,7 @@ multiprocessing.</p>
 increases stability, makes somewhat better use of computing resources and can
 be better monitored and resource-restricted.</p>
 <ul class="simple">
-<li>Multiprocessing is enabled by configuring <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-workers"><code class="xref std std-option docutils literal"><span class="pre">a</span> <span class="pre">non-zero</span> <span class="pre">number</span> <span class="pre">of</span>
+<li>Multiprocessing is enabled by configuring <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-workers"><code class="xref std std-option docutils literal"><span class="pre">a</span> <span class="pre">non-zero</span> <span class="pre">number</span> <span class="pre">of</span>
 <span class="pre">worker</span> <span class="pre">processes</span></code></a>, the number of workers should be based
 on the number of cores in the machine (possibly with some room for cron
 workers depending on how much cron work is predicted)</li>
@@ -228,11 +228,11 @@ resources exhaustion</li>
 <div class="section" id="livechat">
 <h3>LiveChat<a class="headerlink" href="#livechat" title="Permalink to this headline">¶</a></h3>
 <p>In multiprocessing, a dedicated LiveChat worker is automatically started and
-listening on <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-longpolling-port"><code class="xref std std-option docutils literal"><span class="pre">the</span> <span class="pre">longpolling</span> <span class="pre">port</span></code></a> but
+listening on <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-longpolling-port"><code class="xref std std-option docutils literal"><span class="pre">the</span> <span class="pre">longpolling</span> <span class="pre">port</span></code></a> but
 the client will not connect to it.</p>
 <p>Instead you must have a proxy redirecting requests whose URL starts with
 <code class="docutils literal"><span class="pre">/longpolling/</span></code> to the longpolling port. Other request should be proxied to
-the <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-http-port"><code class="xref std std-option docutils literal"><span class="pre">normal</span> <span class="pre">HTTP</span> <span class="pre">port</span></code></a></p>
+the <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-http-port"><code class="xref std std-option docutils literal"><span class="pre">normal</span> <span class="pre">HTTP</span> <span class="pre">port</span></code></a></p>
 </div>
 <div class="section" id="id5">
 <h3>Configuration sample<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
@@ -244,7 +244,7 @@ the <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo
 <li>We’ll use 8 workers + 1 for cron. We’ll also use a monitoring system to measure cpu load, and check if it’s between 7 and 7.5 .</li>
 <li>RAM = 9 * ((0.8*150) + (0.2*1024)) ~= 3Go RAM for Odoo</li>
 </ul>
-<p>in <code class="docutils literal"><span class="pre">/etc/odoo.conf</span></code>:</p>
+<p>in <code class="docutils literal"><span class="pre">/etc/gerp.conf</span></code>:</p>
 <div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[options]</span>
 <span class="na">limit_memory_hard</span> <span class="o">=</span> <span class="s">1677721600</span>
 <span class="na">limit_memory_soft</span> <span class="o">=</span> <span class="s">629145600</span>
@@ -264,7 +264,7 @@ authentication information in cleartext. This means a secure deployment of
 Odoo must use HTTPS<a class="footnote-reference" href="#switching" id="id6">[3]</a>. SSL termination can be implemented via
 just about any SSL termination proxy, but requires the following setup:</p>
 <ul class="simple">
-<li>enable Odoo’s <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-proxy-mode"><code class="xref std std-option docutils literal"><span class="pre">proxy</span> <span class="pre">mode</span></code></a>. This should only be enabled when Odoo is behind a reverse proxy</li>
+<li>enable Odoo’s <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-proxy-mode"><code class="xref std std-option docutils literal"><span class="pre">proxy</span> <span class="pre">mode</span></code></a>. This should only be enabled when Odoo is behind a reverse proxy</li>
 <li>set up the SSL termination proxy (<a class="reference external" href="http://nginx.com/resources/admin-guide/nginx-ssl-termination/">Nginx termination example</a>)</li>
 <li>set up the proxying itself (<a class="reference external" href="http://nginx.com/resources/admin-guide/reverse-proxy/">Nginx proxying example</a>)</li>
 <li>your SSL termination proxy should also automatically redirect non-secure
@@ -272,7 +272,7 @@ connections to the secure port</li>
 </ul>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">In case you are using the Point of Sale module in combination with a <a class="reference external" href="https://www.odoo.com/page/point-of-sale-hardware#part_2">POSBox</a>,
+<p class="last">In case you are using the Point of Sale module in combination with a <a class="reference external" href="https://www.gerp.com/page/point-of-sale-hardware#part_2">POSBox</a>,
 you must disable the HTTPS configuration for the route <code class="docutils literal"><span class="pre">/pos/web</span></code> to avoid
 mixed-content errors.</p>
 </div>
@@ -280,36 +280,36 @@ mixed-content errors.</p>
 <h3>Configuration sample<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>redirect http requests to https</li>
-<li>proxy requests to odoo</li>
+<li>proxy requests to gerp</li>
 </ul>
-<p>in <code class="docutils literal"><span class="pre">/etc/odoo.conf</span></code> set:</p>
+<p>in <code class="docutils literal"><span class="pre">/etc/gerp.conf</span></code> set:</p>
 <div class="highlight-ini"><div class="highlight"><pre><span></span><span class="na">proxy_mode</span> <span class="o">=</span> <span class="s">True</span>
 </pre></div>
 </div>
-<p>in <code class="docutils literal"><span class="pre">/etc/nginx/sites-enabled/odoo.conf</span></code> set:</p>
-<div class="highlight-nginx"><div class="highlight"><pre><span></span><span class="c1">#odoo server</span>
-<span class="k">upstream</span> <span class="s">odoo</span> <span class="p">{</span>
+<p>in <code class="docutils literal"><span class="pre">/etc/nginx/sites-enabled/gerp.conf</span></code> set:</p>
+<div class="highlight-nginx"><div class="highlight"><pre><span></span><span class="c1">#gerp server</span>
+<span class="k">upstream</span> <span class="s">gerp</span> <span class="p">{</span>
  <span class="kn">server</span> <span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">8069</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="k">upstream</span> <span class="s">odoochat</span> <span class="p">{</span>
+<span class="k">upstream</span> <span class="s">gerpchat</span> <span class="p">{</span>
  <span class="kn">server</span> <span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">8072</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1"># http -&gt; https</span>
 <span class="k">server</span> <span class="p">{</span>
    <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
-   <span class="kn">server_name</span> <span class="s">odoo.mycompany.com</span><span class="p">;</span>
+   <span class="kn">server_name</span> <span class="s">gerp.mycompany.com</span><span class="p">;</span>
    <span class="kn">rewrite</span> <span class="s">^(.*)</span> <span class="s">https://</span><span class="nv">$host$1</span> <span class="s">permanent</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="k">server</span> <span class="p">{</span>
  <span class="kn">listen</span> <span class="mi">443</span><span class="p">;</span>
- <span class="kn">server_name</span> <span class="s">odoo.mycompany.com</span><span class="p">;</span>
+ <span class="kn">server_name</span> <span class="s">gerp.mycompany.com</span><span class="p">;</span>
  <span class="kn">proxy_read_timeout</span> <span class="s">720s</span><span class="p">;</span>
  <span class="kn">proxy_connect_timeout</span> <span class="s">720s</span><span class="p">;</span>
  <span class="kn">proxy_send_timeout</span> <span class="s">720s</span><span class="p">;</span>
 
- <span class="c1"># Add Headers for odoo proxy mode</span>
+ <span class="c1"># Add Headers for gerp proxy mode</span>
  <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-Host</span> <span class="nv">$host</span><span class="p">;</span>
  <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-For</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
  <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-Proto</span> <span class="nv">$scheme</span><span class="p">;</span>
@@ -325,16 +325,16 @@ mixed-content errors.</p>
  <span class="kn">ssl_prefer_server_ciphers</span> <span class="no">on</span><span class="p">;</span>
 
  <span class="c1"># log</span>
- <span class="kn">access_log</span> <span class="s">/var/log/nginx/odoo.access.log</span><span class="p">;</span>
- <span class="kn">error_log</span> <span class="s">/var/log/nginx/odoo.error.log</span><span class="p">;</span>
+ <span class="kn">access_log</span> <span class="s">/var/log/nginx/gerp.access.log</span><span class="p">;</span>
+ <span class="kn">error_log</span> <span class="s">/var/log/nginx/gerp.error.log</span><span class="p">;</span>
 
- <span class="c1"># Redirect requests to odoo backend server</span>
+ <span class="c1"># Redirect requests to gerp backend server</span>
  <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
    <span class="kn">proxy_redirect</span> <span class="no">off</span><span class="p">;</span>
-   <span class="kn">proxy_pass</span> <span class="s">http://odoo</span><span class="p">;</span>
+   <span class="kn">proxy_pass</span> <span class="s">http://gerp</span><span class="p">;</span>
  <span class="p">}</span>
  <span class="kn">location</span> <span class="s">/longpolling</span> <span class="p">{</span>
-     <span class="kn">proxy_pass</span> <span class="s">http://odoochat</span><span class="p">;</span>
+     <span class="kn">proxy_pass</span> <span class="s">http://gerpchat</span><span class="p">;</span>
  <span class="p">}</span>
 
  <span class="c1"># common gzip</span>
@@ -345,12 +345,12 @@ mixed-content errors.</p>
 </div>
 </div>
 </div>
-<div class="section" id="odoo-as-a-wsgi-application">
-<h2>Odoo as a WSGI Application<a class="headerlink" href="#odoo-as-a-wsgi-application" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gerp-as-a-wsgi-application">
+<h2>Odoo as a WSGI Application<a class="headerlink" href="#gerp-as-a-wsgi-application" title="Permalink to this headline">¶</a></h2>
 <p>It is also possible to mount Odoo as a standard <a class="reference external" href="http://wsgi.readthedocs.org/">WSGI</a> application. Odoo
-provides the base for a WSGI launcher script as <code class="docutils literal"><span class="pre">odoo-wsgi.example.py</span></code>. That
+provides the base for a WSGI launcher script as <code class="docutils literal"><span class="pre">gerp-wsgi.example.py</span></code>. That
 script should be customized (possibly after copying it from the setup directory) to correctly set the
-configuration directly in <code class="xref py py-mod docutils literal"><span class="pre">odoo.tools.config</span></code> rather than through the
+configuration directly in <code class="xref py py-mod docutils literal"><span class="pre">gerp.tools.config</span></code> rather than through the
 command-line or a configuration file.</p>
 <p>However the WSGI server will only expose the main HTTP endpoint for the web
 client, website and webservice API. Because Odoo does not control the creation
@@ -359,12 +359,12 @@ of workers anymore it can not setup cron or livechat workers</p>
 <h3>Cron Workers<a class="headerlink" href="#cron-workers" title="Permalink to this headline">¶</a></h3>
 <p>To run cron jobs for an Odoo deployment as a WSGI application requires</p>
 <ul class="simple">
-<li>a classical Odoo (run via <code class="docutils literal"><span class="pre">odoo-bin</span></code>)</li>
+<li>a classical Odoo (run via <code class="docutils literal"><span class="pre">gerp-bin</span></code>)</li>
 <li>connected to the database in which cron jobs have to be run (via
-<a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-d"><code class="xref std std-option docutils literal"><span class="pre">odoo-bin</span> <span class="pre">-d</span></code></a>)</li>
+<a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-d"><code class="xref std std-option docutils literal"><span class="pre">gerp-bin</span> <span class="pre">-d</span></code></a>)</li>
 <li>which should not be exposed to the network. To ensure cron runners are not
 network-accessible, it is possible to disable the built-in HTTP server
-entirely with <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-no-http"><code class="xref std std-option docutils literal"><span class="pre">odoo-bin</span> <span class="pre">--no-http</span></code></a> or setting <code class="docutils literal"><span class="pre">http_enable</span> <span class="pre">=</span> <span class="pre">False</span></code>
+entirely with <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-no-http"><code class="xref std std-option docutils literal"><span class="pre">gerp-bin</span> <span class="pre">--no-http</span></code></a> or setting <code class="docutils literal"><span class="pre">http_enable</span> <span class="pre">=</span> <span class="pre">False</span></code>
 in the configuration file</li>
 </ul>
 </div>
@@ -384,9 +384,9 @@ notifications.</p>
 one) and redirect only requests to URLs starting with <code class="docutils literal"><span class="pre">/longpolling/</span></code> to
 that Odoo, this is the simplest and the longpolling URL can double up as
 the cron instance.</li>
-<li>deploy an evented Odoo via <code class="docutils literal"><span class="pre">odoo-gevent</span></code> and proxy requests starting
+<li>deploy an evented Odoo via <code class="docutils literal"><span class="pre">gerp-gevent</span></code> and proxy requests starting
 with <code class="docutils literal"><span class="pre">/longpolling/</span></code> to
-<a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-longpolling-port"><code class="xref std std-option docutils literal"><span class="pre">the</span> <span class="pre">longpolling</span> <span class="pre">port</span></code></a>.</li>
+<a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-longpolling-port"><code class="xref std std-option docutils literal"><span class="pre">the</span> <span class="pre">longpolling</span> <span class="pre">port</span></code></a>.</li>
 </ul>
 </div>
 </div>
@@ -424,31 +424,31 @@ management pages as soon as the system is set up. See <a class="reference intern
 Do not use ‘admin’ as the login. Do not use those logins for day-to-day operations,
 only for controlling/managing the installation.
 <em>Never</em> use any default passwords like admin/admin, even for test/staging databases.</li>
-<li>Use appropriate database filters ( <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-db-filter"><code class="xref std std-option docutils literal"><span class="pre">--db-filter</span></code></a>)
+<li>Use appropriate database filters ( <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-db-filter"><code class="xref std std-option docutils literal"><span class="pre">--db-filter</span></code></a>)
 to restrict the visibility of your databases according to the hostname.
 See <a class="reference internal" href="#db-filter"><span class="std std-ref">dbfilter</span></a>.
-You may also use <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-d"><code class="xref std std-option docutils literal"><span class="pre">-d</span></code></a> to provide your own (comma-separated)
+You may also use <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-d"><code class="xref std std-option docutils literal"><span class="pre">-d</span></code></a> to provide your own (comma-separated)
 list of available databases to filter from, instead of letting the system fetch
 them all from the database backend.</li>
 <li>Once your <code class="docutils literal"><span class="pre">db_name</span></code> and <code class="docutils literal"><span class="pre">db_filter</span></code> are configured and only match a single database
 per hostname, you should set <code class="docutils literal"><span class="pre">list_db</span></code> configuration option to <code class="docutils literal"><span class="pre">False</span></code>, to prevent
 listing databases entirely, and to block access to the database management screens
-(this is also exposed as the <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-no-database-list"><code class="xref std std-option docutils literal"><span class="pre">--no-database-list</span></code></a>
+(this is also exposed as the <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-no-database-list"><code class="xref std std-option docutils literal"><span class="pre">--no-database-list</span></code></a>
 command-line option)</li>
-<li>Make sure the PostgreSQL user (<a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-r"><code class="xref std std-option docutils literal"><span class="pre">--db_user</span></code></a>) is <em>not</em> a super-user,
+<li>Make sure the PostgreSQL user (<a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-r"><code class="xref std std-option docutils literal"><span class="pre">--db_user</span></code></a>) is <em>not</em> a super-user,
 and that your databases are owned by a different user. For example they could be owned by
 the <code class="docutils literal"><span class="pre">postgres</span></code> super-user if you are using a dedicated non-privileged <code class="docutils literal"><span class="pre">db_user</span></code>.
-See also <a class="reference internal" href="#setup-deploy-odoo"><span class="std std-ref">Configuring Odoo</span></a>.</li>
+See also <a class="reference internal" href="#setup-deploy-gerp"><span class="std std-ref">Configuring Odoo</span></a>.</li>
 <li>Keep installations updated by regularly installing the latest builds,
 either via GitHub or by downloading the latest version from
-<a class="reference external" href="https://www.odoo.com/page/download">https://www.odoo.com/page/download</a> or <a class="reference external" href="http://nightly.odoo.com">http://nightly.odoo.com</a></li>
+<a class="reference external" href="https://www.gerp.com/page/download">https://www.gerp.com/page/download</a> or <a class="reference external" href="http://nightly.gerp.com">http://nightly.gerp.com</a></li>
 <li>Configure your server in multi-process mode with proper limits matching your typical
 usage (memory/CPU/timeouts). See also <a class="reference internal" href="#builtin-server"><span class="std std-ref">Builtin server</span></a>.</li>
 <li>Run Odoo behind a web server providing HTTPS termination with a valid SSL certificate,
 in order to prevent eavesdropping on cleartext communications. SSL certificates are
 cheap, and many free options exist.
 Configure the web proxy to limit the size of requests, set appropriate timeouts,
-and then enable the <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-proxy-mode"><code class="xref std std-option docutils literal"><span class="pre">proxy</span> <span class="pre">mode</span></code></a> option.
+and then enable the <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-proxy-mode"><code class="xref std std-option docutils literal"><span class="pre">proxy</span> <span class="pre">mode</span></code></a> option.
 See also <a class="reference internal" href="#https-proxy"><span class="std std-ref">HTTPS</span></a>.</li>
 <li>Whenever possible, host your public-facing demo/test/staging instances on different
 machines than the production ones. And apply the same security precautions as for
@@ -460,7 +460,7 @@ archiving server that is not accessible from the server itself.</li>
 </ul>
 <div class="section" id="database-manager-security">
 <span id="db-manager-security"></span><h3>Database Manager Security<a class="headerlink" href="#database-manager-security" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="#setup-deploy-odoo"><span class="std std-ref">Configuring Odoo</span></a> mentioned <code class="docutils literal"><span class="pre">admin_passwd</span></code> in passing.</p>
+<p><a class="reference internal" href="#setup-deploy-gerp"><span class="std std-ref">Configuring Odoo</span></a> mentioned <code class="docutils literal"><span class="pre">admin_passwd</span></code> in passing.</p>
 <p>This setting is used on all database management screens (to create, delete,
 dump or restore databases).</p>
 <p>If the management screens must not be accessible at all, you should set <code class="docutils literal"><span class="pre">list_db</span></code>

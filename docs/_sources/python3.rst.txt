@@ -71,7 +71,7 @@ features whereas:
 .. note::
 
     In the *very rare* cases where you *need* to differentiate between
-    Python 2 and Python 3, use the :data:`odoo.tools.pycompat.PY2` flag.
+    Python 2 and Python 3, use the :data:`gerp.tools.pycompat.PY2` flag.
 
 Semantics changes
 =================
@@ -97,7 +97,7 @@ When discovered, this can be fixed by one of:
 * using different checking method (e.g. when serialising sets or dictionaries
   and checking against the specific serialised value)
 * fixing dependencies
-* using a ``collections.OrderedDict`` or ``odoo.tools.misc.OrderedSet`` instead
+* using a ``collections.OrderedDict`` or ``gerp.tools.misc.OrderedSet`` instead
   of a regular one, they guarantee order of iteration is order of insertion
 * sorting the collection's items before iterating over them (this may require
   adding some sort of iteration key to the items)
@@ -126,7 +126,7 @@ library:
   .. warning:: `requests`_ does not raise by default on non-200 responses
 
 * ``cgi.escape`` (HTML escaping) is deprecated in Python 3, prefer Odoo's own
-  :func:`odoo.tools.misc.html_encode`.
+  :func:`gerp.tools.misc.html_encode`.
 * Most of ``types``'s content has been stripped out in Python 3: only
   "internal" interpreter types (e.g. CodeType, FrameType, ...) have been left
   in, other types can be obtained directly from the corresponding builtin or
@@ -149,7 +149,7 @@ PYTHONPATH.
 
 Furthermore if a sibling file is named the same as top-level package, the
 library becomes inaccessible to both the file itself ans siblings, this has
-actually happened in Odoo with :mod:`odoo.tools.mimetypes`.
+actually happened in Odoo with :mod:`gerp.tools.mimetypes`.
 
 Additionally, relative imports allow navigating "up" the tree by using
 multiple leading ``.``.
@@ -300,7 +300,7 @@ under the single ``int`` type.
     * the ``L`` suffix for integer literals must be removed
     * calls to ``long`` must be replaced by calls to ``int``
     * ``(int, long)`` for type-checking purposes must be replaced by
-      :py:data:`odoo.tools.pycompat.integer_types`
+      :py:data:`gerp.tools.pycompat.integer_types`
 
 
 * the ``L`` suffix on numbers is unsupported in Python 3, and unnecessary in
@@ -312,7 +312,7 @@ under the single ``int`` type.
   is thus generally necessary to catch all integrals.
 
   For that case, Odoo 11 now provides a compatibility module with an
-  :py:data:`~odoo.tools.pycompat.integer_types` definition which can be used
+  :py:data:`~gerp.tools.pycompat.integer_types` definition which can be used
   for type-testing.
 
   It is a tuple of types so when used with ``isinstance`` it can be provided
@@ -411,13 +411,13 @@ Both versions have the following prefixes for string literals:
 For best cross-version compatibility you should avoid unprefixed string
 literals unless you *specifically* need a "native string" [#native-string]_.
 
-For easier type-testing, :mod:`odoo.tools.pycompat` provides the following
+For easier type-testing, :mod:`gerp.tools.pycompat` provides the following
 constants:
 
-* :data:`~odoo.tools.pycompat.string_types` is an alias/type tuple for testing
+* :data:`~gerp.tools.pycompat.string_types` is an alias/type tuple for testing
   string types, essentially a replacement of testing for ``basestring`` or
   ``(str, unicode)``.
-* :data:`~odoo.tools.pycompat.text_type` is the proper *text* type for the
+* :data:`~gerp.tools.pycompat.text_type` is the proper *text* type for the
   current version, it should mostly be used for converting non-bytes objects
   to text.
 * ``bytes`` should be avoided for type conversions, though it can be used to
@@ -470,8 +470,8 @@ However with respect to Odoo it turns out most or all uses of ``csv`` fit
 inside a model of *byte stream to and from text values*.
 
 The latter is thus a model implemented by cross-version wrappers
-:func:`odoo.tools.pycompat.csv_reader` and
-:func:`odoo.tools.pycompat.csv_writer`: they take a *UTF-8 byte stream* and
+:func:`gerp.tools.pycompat.csv_reader` and
+:func:`gerp.tools.pycompat.csv_writer`: they take a *UTF-8 byte stream* and
 read or write *text* values.
 
 .. _hash randomisation: http://bugs.python.org/issue13703

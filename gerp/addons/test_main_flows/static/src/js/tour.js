@@ -1,4 +1,4 @@
-odoo.define('test_main_flows.tour', function(require) {
+gerp.define('test_main_flows.tour', function(require) {
 "use strict";
 
 var core = require('web.core');

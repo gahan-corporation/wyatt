@@ -4,7 +4,7 @@ import os.path
 
 from werkzeug import urls
 
-from odoo.tools import pycompat
+from gerp.tools import pycompat
 
 """
 * adds github_link(mode) context variable: provides URL (in relevant mode) of
@@ -24,7 +24,7 @@ Notes
 
 * provided ``linkcode_resolve`` only supports Python domain
 * generates https github links
-* explicitly imports ``odoo``, so useless for anyone else
+* explicitly imports ``gerp``, so useless for anyone else
 """
 
 def setup(app):
@@ -65,9 +65,9 @@ def setup(app):
             # obj doesn't have a module, or something
             return None
 
-        import odoo
+        import gerp
         # FIXME: make finding project root project-independent
-        project_root = os.path.join(os.path.dirname(odoo.__file__), '..')
+        project_root = os.path.join(os.path.dirname(gerp.__file__), '..')
         return make_github_link(
             app,
             os.path.relpath(obj_source_path, project_root),

@@ -95,14 +95,14 @@ Setting a field’s value triggers an update to the database:</p>
 </pre></div>
 </div>
 <p>Trying to read or write a field on multiple records will raise an error.</p>
-<p>Accessing a relational field (<a class="reference internal" href="#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a>,
-<a class="reference internal" href="#odoo.fields.One2many" title="odoo.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">One2many</span></code></a>, <a class="reference internal" href="#odoo.fields.Many2many" title="odoo.fields.Many2many"><code class="xref py py-class docutils literal"><span class="pre">Many2many</span></code></a>)
+<p>Accessing a relational field (<a class="reference internal" href="#gerp.fields.Many2one" title="gerp.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a>,
+<a class="reference internal" href="#gerp.fields.One2many" title="gerp.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">One2many</span></code></a>, <a class="reference internal" href="#gerp.fields.Many2many" title="gerp.fields.Many2many"><code class="xref py py-class docutils literal"><span class="pre">Many2many</span></code></a>)
 <em>always</em> returns a recordset, empty if the field is not set.</p>
 <div class="admonition danger">
 <p class="first admonition-title">Danger</p>
 <p>each assignment to a field triggers a database update, when setting
 multiple fields at the same time or setting fields on multiple records
-(to the same value), use <a class="reference internal" href="#odoo.models.Model.write" title="odoo.models.Model.write"><code class="xref py py-meth docutils literal"><span class="pre">write()</span></code></a>:</p>
+(to the same value), use <a class="reference internal" href="#gerp.models.Model.write" title="gerp.models.Model.write"><code class="xref py py-meth docutils literal"><span class="pre">write()</span></code></a>:</p>
 <div class="last highlight-default"><div class="highlight"><pre><span></span><span class="c1"># 3 * len(records) database updates</span>
 <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">records</span><span class="p">:</span>
     <span class="n">record</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
@@ -188,7 +188,7 @@ call methods on their result, or to use set operations.</p>
 <p>Recordsets therefore provide these operations returning recordsets themselves
 (when possible):</p>
 <dl class="docutils">
-<dt><a class="reference internal" href="#odoo.models.Model.filtered" title="odoo.models.Model.filtered"><code class="xref py py-meth docutils literal"><span class="pre">filtered()</span></code></a></dt>
+<dt><a class="reference internal" href="#gerp.models.Model.filtered" title="gerp.models.Model.filtered"><code class="xref py py-meth docutils literal"><span class="pre">filtered()</span></code></a></dt>
 <dd><p class="first">returns a recordset containing only records satisfying the provided
 predicate function. The predicate can also be a string to filter by a
 field being true or false:</p>
@@ -200,7 +200,7 @@ field being true or false:</p>
 </pre></div>
 </div>
 </dd>
-<dt><a class="reference internal" href="#odoo.models.Model.sorted" title="odoo.models.Model.sorted"><code class="xref py py-meth docutils literal"><span class="pre">sorted()</span></code></a></dt>
+<dt><a class="reference internal" href="#gerp.models.Model.sorted" title="gerp.models.Model.sorted"><code class="xref py py-meth docutils literal"><span class="pre">sorted()</span></code></a></dt>
 <dd><p class="first">returns a recordset sorted by the provided key function. If no key
 is provided, use the model’s default sort order:</p>
 <div class="last highlight-default"><div class="highlight"><pre><span></span><span class="c1"># sort records by name</span>
@@ -208,7 +208,7 @@ is provided, use the model’s default sort order:</p>
 </pre></div>
 </div>
 </dd>
-<dt><a class="reference internal" href="#odoo.models.Model.mapped" title="odoo.models.Model.mapped"><code class="xref py py-meth docutils literal"><span class="pre">mapped()</span></code></a></dt>
+<dt><a class="reference internal" href="#gerp.models.Model.mapped" title="gerp.models.Model.mapped"><code class="xref py py-meth docutils literal"><span class="pre">mapped()</span></code></a></dt>
 <dd><p class="first">applies the provided function to each record in the recordset, returns
 a recordset if the results are recordsets:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># returns a list of summing two fields for each record in the set</span>
@@ -263,7 +263,7 @@ other model, and query that model:</p>
 <p>The environment can be customized from a recordset. This returns a new
 version of the recordset using the altered environment.</p>
 <dl class="docutils">
-<dt><a class="reference internal" href="#odoo.models.Model.sudo" title="odoo.models.Model.sudo"><code class="xref py py-meth docutils literal"><span class="pre">sudo()</span></code></a></dt>
+<dt><a class="reference internal" href="#gerp.models.Model.sudo" title="gerp.models.Model.sudo"><code class="xref py py-meth docutils literal"><span class="pre">sudo()</span></code></a></dt>
 <dd><p class="first">creates a new environment with the provided user set, uses the
 administrator if none is provided (to bypass access rights/rules in safe
 contexts), returns a copy of the recordset it is called on using the
@@ -277,7 +277,7 @@ new environment:</p>
 </pre></div>
 </div>
 </dd>
-<dt><a class="reference internal" href="#odoo.models.Model.with_context" title="odoo.models.Model.with_context"><code class="xref py py-meth docutils literal"><span class="pre">with_context()</span></code></a></dt>
+<dt><a class="reference internal" href="#gerp.models.Model.with_context" title="gerp.models.Model.with_context"><code class="xref py py-meth docutils literal"><span class="pre">with_context()</span></code></a></dt>
 <dd><ol class="first arabic simple">
 <li>can take a single positional parameter, which replaces the current
 environment’s context</li>
@@ -290,7 +290,7 @@ the current environment’s context or the context set during step 1</li>
 </pre></div>
 </div>
 </dd>
-<dt><a class="reference internal" href="#odoo.models.Model.with_env" title="odoo.models.Model.with_env"><code class="xref py py-meth docutils literal"><span class="pre">with_env()</span></code></a></dt>
+<dt><a class="reference internal" href="#gerp.models.Model.with_env" title="gerp.models.Model.with_env"><code class="xref py py-meth docutils literal"><span class="pre">with_env()</span></code></a></dt>
 <dd>replaces the existing environment entirely</dd>
 </dl>
 </div>
@@ -298,7 +298,7 @@ the current environment’s context or the context set during step 1</li>
 <div class="section" id="common-orm-methods">
 <h2>Common ORM methods<a class="headerlink" href="#common-orm-methods" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt><a class="reference internal" href="#odoo.models.Model.search" title="odoo.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a></dt>
+<dt><a class="reference internal" href="#gerp.models.Model.search" title="gerp.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a></dt>
 <dd><p class="first">Takes a <a class="reference internal" href="#reference-orm-domains"><span class="std std-ref">search domain</span></a>, returns a recordset
 of matching records. Can return a subset of matching records (<code class="docutils literal"><span class="pre">offset</span></code>
 and <code class="docutils literal"><span class="pre">limit</span></code> parameters) and be ordered (<code class="docutils literal"><span class="pre">order</span></code> parameter):</p>
@@ -313,10 +313,10 @@ and <code class="docutils literal"><span class="pre">limit</span></code> paramet
 <p class="first admonition-title">Tip</p>
 <p class="last">to just check if any record matches a domain, or count the number
 of records which do, use
-<a class="reference internal" href="#odoo.models.Model.search_count" title="odoo.models.Model.search_count"><code class="xref py py-meth docutils literal"><span class="pre">search_count()</span></code></a></p>
+<a class="reference internal" href="#gerp.models.Model.search_count" title="gerp.models.Model.search_count"><code class="xref py py-meth docutils literal"><span class="pre">search_count()</span></code></a></p>
 </div>
 </dd>
-<dt><a class="reference internal" href="#odoo.models.Model.create" title="odoo.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a></dt>
+<dt><a class="reference internal" href="#gerp.models.Model.create" title="gerp.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a></dt>
 <dd><p class="first">Takes a number of field values, and returns a recordset containing the
 record created:</p>
 <div class="last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s2">&quot;New Name&quot;</span><span class="p">})</span>
@@ -324,14 +324,14 @@ record created:</p>
 </pre></div>
 </div>
 </dd>
-<dt><a class="reference internal" href="#odoo.models.Model.write" title="odoo.models.Model.write"><code class="xref py py-meth docutils literal"><span class="pre">write()</span></code></a></dt>
+<dt><a class="reference internal" href="#gerp.models.Model.write" title="gerp.models.Model.write"><code class="xref py py-meth docutils literal"><span class="pre">write()</span></code></a></dt>
 <dd><p class="first">Takes a number of field values, writes them to all the records in its
 recordset. Does not return anything:</p>
 <div class="last highlight-default"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s2">&quot;Newer Name&quot;</span><span class="p">})</span>
 </pre></div>
 </div>
 </dd>
-<dt><a class="reference internal" href="#odoo.models.Model.browse" title="odoo.models.Model.browse"><code class="xref py py-meth docutils literal"><span class="pre">browse()</span></code></a></dt>
+<dt><a class="reference internal" href="#gerp.models.Model.browse" title="gerp.models.Model.browse"><code class="xref py py-meth docutils literal"><span class="pre">browse()</span></code></a></dt>
 <dd><p class="first">Takes a database id or a list of ids and returns a recordset, useful when
 record ids are obtained from outside Odoo (e.g. round-trip through
 external system) or <a class="reference internal" href="#reference-orm-oldapi"><span class="std std-ref">when calling methods in the old API</span></a>:</p>
@@ -340,7 +340,7 @@ external system) or <a class="reference internal" href="#reference-orm-oldapi"><
 </pre></div>
 </div>
 </dd>
-<dt><a class="reference internal" href="#odoo.models.Model.exists" title="odoo.models.Model.exists"><code class="xref py py-meth docutils literal"><span class="pre">exists()</span></code></a></dt>
+<dt><a class="reference internal" href="#gerp.models.Model.exists" title="gerp.models.Model.exists"><code class="xref py py-meth docutils literal"><span class="pre">exists()</span></code></a></dt>
 <dd><p class="first">Returns a new recordset containing only the records which exist in the
 database. Can be used to check whether a record (e.g. obtained externally)
 still exists:</p>
@@ -363,7 +363,7 @@ still exists:</p>
 </pre></div>
 </div>
 </dd>
-<dt><a class="reference internal" href="#odoo.models.Model.ensure_one" title="odoo.models.Model.ensure_one"><code class="xref py py-meth docutils literal"><span class="pre">ensure_one()</span></code></a></dt>
+<dt><a class="reference internal" href="#gerp.models.Model.ensure_one" title="gerp.models.Model.ensure_one"><code class="xref py py-meth docutils literal"><span class="pre">ensure_one()</span></code></a></dt>
 <dd><p class="first">checks that the recordset is a singleton (only contains a single record),
 raises an error otherwise:</p>
 <div class="last highlight-default"><div class="highlight"><pre><span></span><span class="n">records</span><span class="o">.</span><span class="n">ensure_one</span><span class="p">()</span>
@@ -377,7 +377,7 @@ raises an error otherwise:</p>
 <div class="section" id="creating-models">
 <h2>Creating Models<a class="headerlink" href="#creating-models" title="Permalink to this headline">¶</a></h2>
 <p>Model fields are defined as attributes on the model itself:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odoo</span> <span class="k">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fields</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gerp</span> <span class="k">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fields</span>
 <span class="k">class</span> <span class="nc">AModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;a.model.name&#39;</span>
 
@@ -411,8 +411,8 @@ value:</p>
 <p>Fields can be computed (instead of read straight from the database) using the
 <code class="docutils literal"><span class="pre">compute</span></code> parameter. <strong>It must assign the computed value to the field</strong>. If
 it uses the values of other <em>fields</em>, it should specify those fields using
-<a class="reference internal" href="#odoo.api.depends" title="odoo.api.depends"><code class="xref py py-func docutils literal"><span class="pre">depends()</span></code></a>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odoo</span> <span class="k">import</span> <span class="n">api</span>
+<a class="reference internal" href="#gerp.api.depends" title="gerp.api.depends"><code class="xref py py-func docutils literal"><span class="pre">depends()</span></code></a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gerp</span> <span class="k">import</span> <span class="n">api</span>
 <span class="n">total</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="n">compute</span><span class="o">=</span><span class="s1">&#39;_compute_total&#39;</span><span class="p">)</span>
 
 <span class="nd">@api</span><span class="o">.</span><span class="n">depends</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;tax&#39;</span><span class="p">)</span>
@@ -500,7 +500,7 @@ added.</p>
 <li><p class="first">computed fields are automatically checked and recomputed, they do not need
 an <code class="docutils literal"><span class="pre">onchange</span></code></p>
 </li>
-<li><p class="first">for non-computed fields, the <a class="reference internal" href="#odoo.api.onchange" title="odoo.api.onchange"><code class="xref py py-func docutils literal"><span class="pre">onchange()</span></code></a> decorator is used
+<li><p class="first">for non-computed fields, the <a class="reference internal" href="#gerp.api.onchange" title="gerp.api.onchange"><code class="xref py py-func docutils literal"><span class="pre">onchange()</span></code></a> decorator is used
 to provide new field values:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@api</span><span class="o">.</span><span class="n">onchange</span><span class="p">(</span><span class="s1">&#39;field1&#39;</span><span class="p">,</span> <span class="s1">&#39;field2&#39;</span><span class="p">)</span> <span class="c1"># if these fields are changed, call method</span>
 <span class="k">def</span> <span class="nf">check_change</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -564,7 +564,7 @@ in the old API style</li>
 <ul class="simple">
 <li>values of the <code class="xref py py-class docutils literal"><span class="pre">Environment</span></code> (cursor, user id and
 context) are passed explicitly to methods instead</li>
-<li>record data (<a class="reference internal" href="#odoo.models.Model.ids" title="odoo.models.Model.ids"><code class="xref py py-attr docutils literal"><span class="pre">ids</span></code></a>) are passed explicitly to
+<li>record data (<a class="reference internal" href="#gerp.models.Model.ids" title="gerp.models.Model.ids"><code class="xref py py-attr docutils literal"><span class="pre">ids</span></code></a>) are passed explicitly to
 methods, and possibly not passed at all</li>
 <li>methods tend to work on lists of ids instead of recordsets</li>
 </ul>
@@ -593,7 +593,7 @@ anything special:</p>
 </div>
 <p>Two decorators can expose a new-style method to the old API:</p>
 <dl class="docutils">
-<dt><a class="reference internal" href="#odoo.api.model" title="odoo.api.model"><code class="xref py py-func docutils literal"><span class="pre">model()</span></code></a></dt>
+<dt><a class="reference internal" href="#gerp.api.model" title="gerp.api.model"><code class="xref py py-func docutils literal"><span class="pre">model()</span></code></a></dt>
 <dd><p class="first">the method is exposed as not using ids, its recordset will generally be
 empty. Its “old API” signature is <code class="docutils literal"><span class="pre">cr,</span> <span class="pre">uid,</span> <span class="pre">*arguments,</span> <span class="pre">context</span></code>:</p>
 <div class="last highlight-default"><div class="highlight"><pre><span></span><span class="nd">@api</span><span class="o">.</span><span class="n">model</span>
@@ -604,7 +604,7 @@ empty. Its “old API” signature is <code class="docutils literal"><span class
 </pre></div>
 </div>
 </dd>
-<dt><a class="reference internal" href="#odoo.api.multi" title="odoo.api.multi"><code class="xref py py-func docutils literal"><span class="pre">multi()</span></code></a></dt>
+<dt><a class="reference internal" href="#gerp.api.multi" title="gerp.api.multi"><code class="xref py py-func docutils literal"><span class="pre">multi()</span></code></a></dt>
 <dd><p class="first">the method is exposed as taking a list of ids (possibly empty), its
 “old API” signature is <code class="docutils literal"><span class="pre">cr,</span> <span class="pre">uid,</span> <span class="pre">ids,</span> <span class="pre">*arguments,</span> <span class="pre">context</span></code>:</p>
 <div class="last highlight-default"><div class="highlight"><pre><span></span><span class="nd">@api</span><span class="o">.</span><span class="n">multi</span>
@@ -619,7 +619,7 @@ empty. Its “old API” signature is <code class="docutils literal"><span class
 <p>Because new-style APIs tend to return recordsets and old-style APIs tend to
 return lists of ids, there is also a decorator managing this:</p>
 <dl class="docutils">
-<dt><a class="reference internal" href="#odoo.api.returns" title="odoo.api.returns"><code class="xref py py-func docutils literal"><span class="pre">returns()</span></code></a></dt>
+<dt><a class="reference internal" href="#gerp.api.returns" title="gerp.api.returns"><code class="xref py py-func docutils literal"><span class="pre">returns()</span></code></a></dt>
 <dd><p class="first">the function is assumed to return a recordset, the first parameter should
 be the name of the recordset’s model or <code class="docutils literal"><span class="pre">self</span></code> (for the current model).</p>
 <p>No effect if the method is called in new API style, but transforms the
@@ -642,8 +642,8 @@ recordset into a list of ids when called from the old API style:</p>
 <div class="section" id="model-reference">
 <span id="reference-orm-model"></span><h2>Model Reference<a class="headerlink" href="#model-reference" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="odoo.models.Model">
-<em class="property">class </em><code class="descclassname">odoo.models.</code><code class="descname">Model</code><span class="sig-paren">(</span><em>pool</em>, <em>cr</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/models.html#Model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.models.Model" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model">
+<em class="property">class </em><code class="descclassname">gerp.models.</code><code class="descname">Model</code><span class="sig-paren">(</span><em>pool</em>, <em>cr</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/models.html#Model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.models.Model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Main super-class for regular database-persisted Odoo models.</p>
 <p>Odoo models are created by inheriting from this class:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">user</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
@@ -654,33 +654,33 @@ recordset into a list of ids when called from the old API style:</p>
 which the class’ module is installed).</p>
 <p class="rubric">Structural attributes</p>
 <dl class="attribute">
-<dt id="odoo.models.Model._name">
-<code class="descname">_name</code><a class="headerlink" href="#odoo.models.Model._name" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model._name">
+<code class="descname">_name</code><a class="headerlink" href="#gerp.models.Model._name" title="Permalink to this definition">¶</a></dt>
 <dd><p>business object name, in dot-notation (in module namespace)</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model._rec_name">
-<code class="descname">_rec_name</code><a class="headerlink" href="#odoo.models.Model._rec_name" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model._rec_name">
+<code class="descname">_rec_name</code><a class="headerlink" href="#gerp.models.Model._rec_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alternative field to use as name, used by osv’s name_get()
 (default: <code class="docutils literal"><span class="pre">'name'</span></code>)</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model._inherit">
-<code class="descname">_inherit</code><a class="headerlink" href="#odoo.models.Model._inherit" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model._inherit">
+<code class="descname">_inherit</code><a class="headerlink" href="#gerp.models.Model._inherit" title="Permalink to this definition">¶</a></dt>
 <dd><ul class="simple">
-<li>If <a class="reference internal" href="#odoo.models.Model._name" title="odoo.models.Model._name"><code class="xref py py-attr docutils literal"><span class="pre">_name</span></code></a> is set, names of parent models to inherit from.
+<li>If <a class="reference internal" href="#gerp.models.Model._name" title="gerp.models.Model._name"><code class="xref py py-attr docutils literal"><span class="pre">_name</span></code></a> is set, names of parent models to inherit from.
 Can be a <code class="docutils literal"><span class="pre">str</span></code> if inheriting from a single parent</li>
-<li>If <a class="reference internal" href="#odoo.models.Model._name" title="odoo.models.Model._name"><code class="xref py py-attr docutils literal"><span class="pre">_name</span></code></a> is unset, name of a single model to extend
+<li>If <a class="reference internal" href="#gerp.models.Model._name" title="gerp.models.Model._name"><code class="xref py py-attr docutils literal"><span class="pre">_name</span></code></a> is unset, name of a single model to extend
 in-place</li>
 </ul>
 <p>See <a class="reference internal" href="#reference-orm-inheritance"><span class="std std-ref">Inheritance and extension</span></a>.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model._order">
-<code class="descname">_order</code><a class="headerlink" href="#odoo.models.Model._order" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model._order">
+<code class="descname">_order</code><a class="headerlink" href="#gerp.models.Model._order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ordering field when searching without an ordering specified (default:
 <code class="docutils literal"><span class="pre">'id'</span></code>)</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -694,24 +694,24 @@ in-place</li>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model._auto">
-<code class="descname">_auto</code><a class="headerlink" href="#odoo.models.Model._auto" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model._auto">
+<code class="descname">_auto</code><a class="headerlink" href="#gerp.models.Model._auto" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether a database table should be created (default: <code class="docutils literal"><span class="pre">True</span></code>)</p>
 <p>If set to <code class="docutils literal"><span class="pre">False</span></code>, override <code class="xref py py-meth docutils literal"><span class="pre">init()</span></code> to create the database
 table</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model._table">
-<code class="descname">_table</code><a class="headerlink" href="#odoo.models.Model._table" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model._table">
+<code class="descname">_table</code><a class="headerlink" href="#gerp.models.Model._table" title="Permalink to this definition">¶</a></dt>
 <dd><p>Name of the table backing the model created when
-<a class="reference internal" href="#odoo.models.Model._auto" title="odoo.models.Model._auto"><code class="xref py py-attr docutils literal"><span class="pre">_auto</span></code></a>, automatically generated by
+<a class="reference internal" href="#gerp.models.Model._auto" title="gerp.models.Model._auto"><code class="xref py py-attr docutils literal"><span class="pre">_auto</span></code></a>, automatically generated by
 default.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model._inherits">
-<code class="descname">_inherits</code><a class="headerlink" href="#odoo.models.Model._inherits" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model._inherits">
+<code class="descname">_inherits</code><a class="headerlink" href="#gerp.models.Model._inherits" title="Permalink to this definition">¶</a></dt>
 <dd><p>dictionary mapping the _name of the parent business objects to the
 names of the corresponding foreign key fields to use:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">_inherits</span> <span class="o">=</span> <span class="p">{</span>
@@ -721,37 +721,37 @@ names of the corresponding foreign key fields to use:</p>
 </pre></div>
 </div>
 <p>implements composition-based inheritance: the new model exposes all
-the fields of the <a class="reference internal" href="#odoo.models.Model._inherits" title="odoo.models.Model._inherits"><code class="xref py py-attr docutils literal"><span class="pre">_inherits</span></code></a>-ed model but
+the fields of the <a class="reference internal" href="#gerp.models.Model._inherits" title="gerp.models.Model._inherits"><code class="xref py py-attr docutils literal"><span class="pre">_inherits</span></code></a>-ed model but
 stores none of them: the values themselves remain stored on the linked
 record.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">if the same field is defined on multiple
-<a class="reference internal" href="#odoo.models.Model._inherits" title="odoo.models.Model._inherits"><code class="xref py py-attr docutils literal"><span class="pre">_inherits</span></code></a>-ed</p>
+<a class="reference internal" href="#gerp.models.Model._inherits" title="gerp.models.Model._inherits"><code class="xref py py-attr docutils literal"><span class="pre">_inherits</span></code></a>-ed</p>
 </div>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model._constraints">
-<code class="descname">_constraints</code><a class="headerlink" href="#odoo.models.Model._constraints" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model._constraints">
+<code class="descname">_constraints</code><a class="headerlink" href="#gerp.models.Model._constraints" title="Permalink to this definition">¶</a></dt>
 <dd><p>list of <code class="docutils literal"><span class="pre">(constraint_function,</span> <span class="pre">message,</span> <span class="pre">fields)</span></code> defining Python
 constraints. The fields list is indicative</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 8.0: </span>use <a class="reference internal" href="#odoo.api.constrains" title="odoo.api.constrains"><code class="xref py py-func docutils literal"><span class="pre">constrains()</span></code></a></p>
+<p><span class="versionmodified">Deprecated since version 8.0: </span>use <a class="reference internal" href="#gerp.api.constrains" title="gerp.api.constrains"><code class="xref py py-func docutils literal"><span class="pre">constrains()</span></code></a></p>
 </div>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model._sql_constraints">
-<code class="descname">_sql_constraints</code><a class="headerlink" href="#odoo.models.Model._sql_constraints" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model._sql_constraints">
+<code class="descname">_sql_constraints</code><a class="headerlink" href="#gerp.models.Model._sql_constraints" title="Permalink to this definition">¶</a></dt>
 <dd><p>list of <code class="docutils literal"><span class="pre">(name,</span> <span class="pre">sql_definition,</span> <span class="pre">message)</span></code> triples defining SQL
 constraints to execute when generating the backing table</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model._parent_store">
-<code class="descname">_parent_store</code><a class="headerlink" href="#odoo.models.Model._parent_store" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alongside <a class="reference internal" href="#odoo.models.Model.parent_left" title="odoo.models.Model.parent_left"><code class="xref py py-attr docutils literal"><span class="pre">parent_left</span></code></a> and <a class="reference internal" href="#odoo.models.Model.parent_right" title="odoo.models.Model.parent_right"><code class="xref py py-attr docutils literal"><span class="pre">parent_right</span></code></a>, sets up a
+<dt id="gerp.models.Model._parent_store">
+<code class="descname">_parent_store</code><a class="headerlink" href="#gerp.models.Model._parent_store" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alongside <a class="reference internal" href="#gerp.models.Model.parent_left" title="gerp.models.Model.parent_left"><code class="xref py py-attr docutils literal"><span class="pre">parent_left</span></code></a> and <a class="reference internal" href="#gerp.models.Model.parent_right" title="gerp.models.Model.parent_right"><code class="xref py py-attr docutils literal"><span class="pre">parent_right</span></code></a>, sets up a
 <a class="reference external" href="http://en.wikipedia.org/wiki/Nested_set_model">nested set</a>  to
 enable fast hierarchical queries on the records of the current model
 (default: <code class="docutils literal"><span class="pre">False</span></code>)</p>
@@ -767,11 +767,11 @@ enable fast hierarchical queries on the records of the current model
 
 <p class="rubric">CRUD</p>
 <dl class="method">
-<dt id="odoo.models.Model.create">
-<code class="descname">create</code><span class="sig-paren">(</span><em>vals</em><span class="sig-paren">)</span> &#x2192; record<a class="headerlink" href="#odoo.models.Model.create" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>vals</em><span class="sig-paren">)</span> &#x2192; record<a class="headerlink" href="#gerp.models.Model.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new record for the model.</p>
 <p>The new record is initialized using the values from <code class="docutils literal"><span class="pre">vals</span></code> and
-if necessary those from <a class="reference internal" href="#odoo.models.Model.default_get" title="odoo.models.Model.default_get"><code class="xref py py-meth docutils literal"><span class="pre">default_get()</span></code></a>.</p>
+if necessary those from <a class="reference internal" href="#gerp.models.Model.default_get" title="gerp.models.Model.default_get"><code class="xref py py-meth docutils literal"><span class="pre">default_get()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -780,7 +780,7 @@ if necessary those from <a class="reference internal" href="#odoo.models.Model.d
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;field_name&#39;</span><span class="p">:</span> <span class="n">field_value</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>see <a class="reference internal" href="#odoo.models.Model.write" title="odoo.models.Model.write"><code class="xref py py-meth docutils literal"><span class="pre">write()</span></code></a> for details</p>
+<p>see <a class="reference internal" href="#gerp.models.Model.write" title="gerp.models.Model.write"><code class="xref py py-meth docutils literal"><span class="pre">write()</span></code></a> for details</p>
 </p>
 </td>
 </tr>
@@ -788,13 +788,13 @@ if necessary those from <a class="reference internal" href="#odoo.models.Model.d
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../webservices/iap.html#odoo.exceptions.AccessError" title="odoo.exceptions.AccessError"><strong>AccessError</strong></a> – <ul>
+<li><a class="reference internal" href="../webservices/iap.html#gerp.exceptions.AccessError" title="gerp.exceptions.AccessError"><strong>AccessError</strong></a> – <ul>
 <li>if user has no create rights on the requested object</li>
 <li>if user tries to bypass access rules for create on the requested object</li>
 </ul>
 </li>
 <li><strong>ValidateError</strong> – if user tries to enter invalid value for a field that is not in selection</li>
-<li><a class="reference internal" href="../webservices/iap.html#odoo.exceptions.UserError" title="odoo.exceptions.UserError"><strong>UserError</strong></a> – if a loop would be created in a hierarchy of objects a result of the operation (such as setting an object as its own parent)</li>
+<li><a class="reference internal" href="../webservices/iap.html#gerp.exceptions.UserError" title="gerp.exceptions.UserError"><strong>UserError</strong></a> – if a loop would be created in a hierarchy of objects a result of the operation (such as setting an object as its own parent)</li>
 </ul>
 </td>
 </tr>
@@ -803,28 +803,28 @@ if necessary those from <a class="reference internal" href="#odoo.models.Model.d
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.browse">
-<code class="descname">browse</code><span class="sig-paren">(</span><span class="optional">[</span><em>ids</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; records<a class="headerlink" href="#odoo.models.Model.browse" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.browse">
+<code class="descname">browse</code><span class="sig-paren">(</span><span class="optional">[</span><em>ids</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; records<a class="headerlink" href="#gerp.models.Model.browse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a recordset for the ids provided as parameter in the current
 environment.</p>
 <p>Can take no ids, a single id or a sequence of ids.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.unlink">
-<code class="descname">unlink</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#odoo.models.Model.unlink" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.unlink">
+<code class="descname">unlink</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gerp.models.Model.unlink" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes the records of the current set</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../webservices/iap.html#odoo.exceptions.AccessError" title="odoo.exceptions.AccessError"><strong>AccessError</strong></a> – <ul>
+<li><a class="reference internal" href="../webservices/iap.html#gerp.exceptions.AccessError" title="gerp.exceptions.AccessError"><strong>AccessError</strong></a> – <ul>
 <li>if user has no unlink rights on the requested object</li>
 <li>if user tries to bypass access rules for unlink on the requested object</li>
 </ul>
 </li>
-<li><a class="reference internal" href="../webservices/iap.html#odoo.exceptions.UserError" title="odoo.exceptions.UserError"><strong>UserError</strong></a> – if the record is default property for other records</li>
+<li><a class="reference internal" href="../webservices/iap.html#gerp.exceptions.UserError" title="gerp.exceptions.UserError"><strong>UserError</strong></a> – if the record is default property for other records</li>
 </ul>
 </td>
 </tr>
@@ -833,8 +833,8 @@ environment.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.write">
-<code class="descname">write</code><span class="sig-paren">(</span><em>vals</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.models.Model.write" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>vals</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.models.Model.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates all records in the current set with the provided values.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -850,48 +850,48 @@ environment.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../webservices/iap.html#odoo.exceptions.AccessError" title="odoo.exceptions.AccessError"><strong>AccessError</strong></a> – <ul>
+<li><a class="reference internal" href="../webservices/iap.html#gerp.exceptions.AccessError" title="gerp.exceptions.AccessError"><strong>AccessError</strong></a> – <ul>
 <li>if user has no write rights on the requested object</li>
 <li>if user tries to bypass access rules for write on the requested object</li>
 </ul>
 </li>
 <li><strong>ValidateError</strong> – if user tries to enter invalid value for a field that is not in selection</li>
-<li><a class="reference internal" href="../webservices/iap.html#odoo.exceptions.UserError" title="odoo.exceptions.UserError"><strong>UserError</strong></a> – if a loop would be created in a hierarchy of objects a result of the operation (such as setting an object as its own parent)</li>
+<li><a class="reference internal" href="../webservices/iap.html#gerp.exceptions.UserError" title="gerp.exceptions.UserError"><strong>UserError</strong></a> – if a loop would be created in a hierarchy of objects a result of the operation (such as setting an object as its own parent)</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li><p class="first">For numeric fields (<a class="reference internal" href="#odoo.fields.Integer" title="odoo.fields.Integer"><code class="xref py py-class docutils literal"><span class="pre">Integer</span></code></a>,
-<a class="reference internal" href="#odoo.fields.Float" title="odoo.fields.Float"><code class="xref py py-class docutils literal"><span class="pre">Float</span></code></a>) the value should be of the
+<li><p class="first">For numeric fields (<a class="reference internal" href="#gerp.fields.Integer" title="gerp.fields.Integer"><code class="xref py py-class docutils literal"><span class="pre">Integer</span></code></a>,
+<a class="reference internal" href="#gerp.fields.Float" title="gerp.fields.Float"><code class="xref py py-class docutils literal"><span class="pre">Float</span></code></a>) the value should be of the
 corresponding type</p>
 </li>
-<li><p class="first">For <a class="reference internal" href="#odoo.fields.Boolean" title="odoo.fields.Boolean"><code class="xref py py-class docutils literal"><span class="pre">Boolean</span></code></a>, the value should be a
+<li><p class="first">For <a class="reference internal" href="#gerp.fields.Boolean" title="gerp.fields.Boolean"><code class="xref py py-class docutils literal"><span class="pre">Boolean</span></code></a>, the value should be a
 <code class="xref py py-class docutils literal"><span class="pre">python:bool</span></code></p>
 </li>
-<li><p class="first">For <a class="reference internal" href="#odoo.fields.Selection" title="odoo.fields.Selection"><code class="xref py py-class docutils literal"><span class="pre">Selection</span></code></a>, the value should match the
+<li><p class="first">For <a class="reference internal" href="#gerp.fields.Selection" title="gerp.fields.Selection"><code class="xref py py-class docutils literal"><span class="pre">Selection</span></code></a>, the value should match the
 selection values (generally <code class="xref py py-class docutils literal"><span class="pre">python:str</span></code>, sometimes
 <code class="xref py py-class docutils literal"><span class="pre">python:int</span></code>)</p>
 </li>
-<li><p class="first">For <a class="reference internal" href="#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a>, the value should be the
+<li><p class="first">For <a class="reference internal" href="#gerp.fields.Many2one" title="gerp.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a>, the value should be the
 database identifier of the record to set</p>
 </li>
 <li><p class="first">Other non-relational fields use a string for value</p>
 <div class="admonition danger">
 <p class="first admonition-title">Danger</p>
 <p class="last">for historical and compatibility reasons,
-<a class="reference internal" href="#odoo.fields.Date" title="odoo.fields.Date"><code class="xref py py-class docutils literal"><span class="pre">Date</span></code></a> and
-<a class="reference internal" href="#odoo.fields.Datetime" title="odoo.fields.Datetime"><code class="xref py py-class docutils literal"><span class="pre">Datetime</span></code></a> fields use strings as values
+<a class="reference internal" href="#gerp.fields.Date" title="gerp.fields.Date"><code class="xref py py-class docutils literal"><span class="pre">Date</span></code></a> and
+<a class="reference internal" href="#gerp.fields.Datetime" title="gerp.fields.Datetime"><code class="xref py py-class docutils literal"><span class="pre">Datetime</span></code></a> fields use strings as values
 (written and read) rather than <code class="xref py py-class docutils literal"><span class="pre">date</span></code> or
 <code class="xref py py-class docutils literal"><span class="pre">datetime</span></code>. These date strings are
 UTC-only and formatted according to
-<code class="xref py py-const docutils literal"><span class="pre">odoo.tools.misc.DEFAULT_SERVER_DATE_FORMAT</span></code> and
-<code class="xref py py-const docutils literal"><span class="pre">odoo.tools.misc.DEFAULT_SERVER_DATETIME_FORMAT</span></code></p>
+<code class="xref py py-const docutils literal"><span class="pre">gerp.tools.misc.DEFAULT_SERVER_DATE_FORMAT</span></code> and
+<code class="xref py py-const docutils literal"><span class="pre">gerp.tools.misc.DEFAULT_SERVER_DATETIME_FORMAT</span></code></p>
 </div>
 </li>
-<li><p id="openerp-models-relationals-format"><a class="reference internal" href="#odoo.fields.One2many" title="odoo.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">One2many</span></code></a> and
-<a class="reference internal" href="#odoo.fields.Many2many" title="odoo.fields.Many2many"><code class="xref py py-class docutils literal"><span class="pre">Many2many</span></code></a> use a special “commands” format to
+<li><p id="openerp-models-relationals-format"><a class="reference internal" href="#gerp.fields.One2many" title="gerp.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">One2many</span></code></a> and
+<a class="reference internal" href="#gerp.fields.Many2many" title="gerp.fields.Many2many"><code class="xref py py-class docutils literal"><span class="pre">Many2many</span></code></a> use a special “commands” format to
 manipulate the set of records stored in/associated with the field.</p>
 <p>This format is a list of triplets executed sequentially, where each
 triplet is a command to execute on the set of records. Not all
@@ -902,27 +902,27 @@ commands apply in all situations. Possible commands are:</p>
 </dd>
 <dt><code class="docutils literal"><span class="pre">(1,</span> <span class="pre">id,</span> <span class="pre">values)</span></code></dt>
 <dd><p class="first last">updates an existing record of id <code class="docutils literal"><span class="pre">id</span></code> with the values in
-<code class="docutils literal"><span class="pre">values</span></code>. Can not be used in <a class="reference internal" href="#odoo.models.Model.create" title="odoo.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a>.</p>
+<code class="docutils literal"><span class="pre">values</span></code>. Can not be used in <a class="reference internal" href="#gerp.models.Model.create" title="gerp.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a>.</p>
 </dd>
 <dt><code class="docutils literal"><span class="pre">(2,</span> <span class="pre">id,</span> <span class="pre">_)</span></code></dt>
 <dd><p class="first last">removes the record of id <code class="docutils literal"><span class="pre">id</span></code> from the set, then deletes it
-(from the database). Can not be used in <a class="reference internal" href="#odoo.models.Model.create" title="odoo.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a>.</p>
+(from the database). Can not be used in <a class="reference internal" href="#gerp.models.Model.create" title="gerp.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a>.</p>
 </dd>
 <dt><code class="docutils literal"><span class="pre">(3,</span> <span class="pre">id,</span> <span class="pre">_)</span></code></dt>
 <dd><p class="first last">removes the record of id <code class="docutils literal"><span class="pre">id</span></code> from the set, but does not
 delete it. Can not be used on
-<a class="reference internal" href="#odoo.fields.One2many" title="odoo.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">One2many</span></code></a>. Can not be used in
-<a class="reference internal" href="#odoo.models.Model.create" title="odoo.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a>.</p>
+<a class="reference internal" href="#gerp.fields.One2many" title="gerp.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">One2many</span></code></a>. Can not be used in
+<a class="reference internal" href="#gerp.models.Model.create" title="gerp.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a>.</p>
 </dd>
 <dt><code class="docutils literal"><span class="pre">(4,</span> <span class="pre">id,</span> <span class="pre">_)</span></code></dt>
 <dd><p class="first last">adds an existing record of id <code class="docutils literal"><span class="pre">id</span></code> to the set. Can not be
-used on <a class="reference internal" href="#odoo.fields.One2many" title="odoo.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">One2many</span></code></a>.</p>
+used on <a class="reference internal" href="#gerp.fields.One2many" title="gerp.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">One2many</span></code></a>.</p>
 </dd>
 <dt><code class="docutils literal"><span class="pre">(5,</span> <span class="pre">_,</span> <span class="pre">_)</span></code></dt>
 <dd><p class="first last">removes all records from the set, equivalent to using the
 command <code class="docutils literal"><span class="pre">3</span></code> on every record explicitly. Can not be used on
-<a class="reference internal" href="#odoo.fields.One2many" title="odoo.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">One2many</span></code></a>. Can not be used in
-<a class="reference internal" href="#odoo.models.Model.create" title="odoo.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a>.</p>
+<a class="reference internal" href="#gerp.fields.One2many" title="gerp.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">One2many</span></code></a>. Can not be used in
+<a class="reference internal" href="#gerp.models.Model.create" title="gerp.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a>.</p>
 </dd>
 <dt><code class="docutils literal"><span class="pre">(6,</span> <span class="pre">_,</span> <span class="pre">ids)</span></code></dt>
 <dd><p class="first last">replaces all existing records in the set by the <code class="docutils literal"><span class="pre">ids</span></code> list,
@@ -940,10 +940,10 @@ can be anything, generally <code class="docutils literal"><span class="pre">0</s
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.read">
-<code class="descname">read</code><span class="sig-paren">(</span><span class="optional">[</span><em>fields</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#odoo.models.Model.read" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.read">
+<code class="descname">read</code><span class="sig-paren">(</span><span class="optional">[</span><em>fields</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#gerp.models.Model.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the requested fields for the records in <code class="docutils literal"><span class="pre">self</span></code>, low-level/RPC
-method. In Python code, prefer <a class="reference internal" href="#odoo.models.Model.browse" title="odoo.models.Model.browse"><code class="xref py py-meth docutils literal"><span class="pre">browse()</span></code></a>.</p>
+method. In Python code, prefer <a class="reference internal" href="#gerp.models.Model.browse" title="gerp.models.Model.browse"><code class="xref py py-meth docutils literal"><span class="pre">browse()</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -953,7 +953,7 @@ method. In Python code, prefer <a class="reference internal" href="#odoo.models.
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list of dictionaries mapping field names to their values,
 with one dictionary per record</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="../webservices/iap.html#odoo.exceptions.AccessError" title="odoo.exceptions.AccessError"><strong>AccessError</strong></a> – if user has no read rights on some of the given
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="../webservices/iap.html#gerp.exceptions.AccessError" title="gerp.exceptions.AccessError"><strong>AccessError</strong></a> – if user has no read rights on some of the given
 records</td>
 </tr>
 </tbody>
@@ -961,8 +961,8 @@ records</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.read_group">
-<code class="descname">read_group</code><span class="sig-paren">(</span><em>domain</em>, <em>fields</em>, <em>groupby</em>, <em>offset=0</em>, <em>limit=None</em>, <em>orderby=False</em>, <em>lazy=True</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.models.Model.read_group" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.read_group">
+<code class="descname">read_group</code><span class="sig-paren">(</span><em>domain</em>, <em>fields</em>, <em>groupby</em>, <em>offset=0</em>, <em>limit=None</em>, <em>orderby=False</em>, <em>lazy=True</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.models.Model.read_group" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the list of records in list view grouped by the given <code class="docutils literal"><span class="pre">groupby</span></code> fields</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1000,7 +1000,7 @@ done in one call.</li>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">[{‘field_name_1’: value, ..]</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../webservices/iap.html#odoo.exceptions.AccessError" title="odoo.exceptions.AccessError"><strong>AccessError</strong></a> – <ul class="simple">
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../webservices/iap.html#gerp.exceptions.AccessError" title="gerp.exceptions.AccessError"><strong>AccessError</strong></a> – <ul class="simple">
 <li>if user has no read rights on the requested object</li>
 <li>if user tries to bypass access rules for read on the requested object</li>
 </ul>
@@ -1013,8 +1013,8 @@ done in one call.</li>
 
 <p class="rubric">Searching</p>
 <dl class="method">
-<dt id="odoo.models.Model.search">
-<code class="descname">search</code><span class="sig-paren">(</span><em>args[, offset=0][, limit=None][, order=None][, count=False]</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.models.Model.search" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.search">
+<code class="descname">search</code><span class="sig-paren">(</span><em>args[, offset=0][, limit=None][, order=None][, count=False]</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.models.Model.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for records based on the <code class="docutils literal"><span class="pre">args</span></code>
 <a class="reference internal" href="#reference-orm-domains"><span class="std std-ref">search domain</span></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1034,7 +1034,7 @@ list to match all records.</li>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">at most <code class="docutils literal"><span class="pre">limit</span></code> records matching the search criteria</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../webservices/iap.html#odoo.exceptions.AccessError" title="odoo.exceptions.AccessError"><strong>AccessError</strong></a> – <ul class="simple">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../webservices/iap.html#gerp.exceptions.AccessError" title="gerp.exceptions.AccessError"><strong>AccessError</strong></a> – <ul class="simple">
 <li>if user tries to bypass access rules for read on the requested object.</li>
 </ul>
 </p>
@@ -1045,23 +1045,23 @@ list to match all records.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.search_count">
-<code class="descname">search_count</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#odoo.models.Model.search_count" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.search_count">
+<code class="descname">search_count</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#gerp.models.Model.search_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the number of records in the current model matching <a class="reference internal" href="#reference-orm-domains"><span class="std std-ref">the
 provided domain</span></a>.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.name_search">
-<code class="descname">name_search</code><span class="sig-paren">(</span><em>name=''</em>, <em>args=None</em>, <em>operator='ilike'</em>, <em>limit=100</em><span class="sig-paren">)</span> &#x2192; records<a class="headerlink" href="#odoo.models.Model.name_search" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.name_search">
+<code class="descname">name_search</code><span class="sig-paren">(</span><em>name=''</em>, <em>args=None</em>, <em>operator='ilike'</em>, <em>limit=100</em><span class="sig-paren">)</span> &#x2192; records<a class="headerlink" href="#gerp.models.Model.name_search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Search for records that have a display name matching the given
 <code class="docutils literal"><span class="pre">name</span></code> pattern when compared with the given <code class="docutils literal"><span class="pre">operator</span></code>, while also
 matching the optional search domain (<code class="docutils literal"><span class="pre">args</span></code>).</p>
 <p>This is used for example to provide suggestions based on a partial
 value for a relational field. Sometimes be seen as the inverse
-function of <a class="reference internal" href="#odoo.models.Model.name_get" title="odoo.models.Model.name_get"><code class="xref py py-meth docutils literal"><span class="pre">name_get()</span></code></a>, but it is not guaranteed to be.</p>
-<p>This method is equivalent to calling <a class="reference internal" href="#odoo.models.Model.search" title="odoo.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a> with a search
-domain based on <code class="docutils literal"><span class="pre">display_name</span></code> and then <a class="reference internal" href="#odoo.models.Model.name_get" title="odoo.models.Model.name_get"><code class="xref py py-meth docutils literal"><span class="pre">name_get()</span></code></a> on the
+function of <a class="reference internal" href="#gerp.models.Model.name_get" title="gerp.models.Model.name_get"><code class="xref py py-meth docutils literal"><span class="pre">name_get()</span></code></a>, but it is not guaranteed to be.</p>
+<p>This method is equivalent to calling <a class="reference internal" href="#gerp.models.Model.search" title="gerp.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a> with a search
+domain based on <code class="docutils literal"><span class="pre">display_name</span></code> and then <a class="reference internal" href="#gerp.models.Model.name_get" title="gerp.models.Model.name_get"><code class="xref py py-meth docutils literal"><span class="pre">name_get()</span></code></a> on the
 result of the search.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1069,7 +1069,7 @@ result of the search.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – the name pattern to match</li>
-<li><strong>args</strong> (<em>list</em>) – optional search domain (see <a class="reference internal" href="#odoo.models.Model.search" title="odoo.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a> for
+<li><strong>args</strong> (<em>list</em>) – optional search domain (see <a class="reference internal" href="#gerp.models.Model.search" title="gerp.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a> for
 syntax), specifying further restrictions</li>
 <li><strong>operator</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – domain operator for matching <code class="docutils literal"><span class="pre">name</span></code>, such as
 <code class="docutils literal"><span class="pre">'like'</span></code> or <code class="docutils literal"><span class="pre">'='</span></code>.</li>
@@ -1089,22 +1089,22 @@ syntax), specifying further restrictions</li>
 
 <p class="rubric">Recordset operations</p>
 <dl class="attribute">
-<dt id="odoo.models.Model.ids">
-<code class="descname">ids</code><a class="headerlink" href="#odoo.models.Model.ids" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.ids">
+<code class="descname">ids</code><a class="headerlink" href="#gerp.models.Model.ids" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of actual record ids in this recordset (ignores placeholder
 ids for records to create)</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.ensure_one">
-<code class="descname">ensure_one</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#odoo.models.Model.ensure_one" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.ensure_one">
+<code class="descname">ensure_one</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gerp.models.Model.ensure_one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Verifies that the current recorset holds a single record. Raises
 an exception otherwise.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.exists">
-<code class="descname">exists</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; records<a class="headerlink" href="#odoo.models.Model.exists" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.exists">
+<code class="descname">exists</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; records<a class="headerlink" href="#gerp.models.Model.exists" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the subset of records in <code class="docutils literal"><span class="pre">self</span></code> that exist, and marks deleted
 records as such in cache. It can be used as a test on records:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">record</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
@@ -1115,8 +1115,8 @@ records as such in cache. It can be used as a test on records:</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.filtered">
-<code class="descname">filtered</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.models.Model.filtered" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.filtered">
+<code class="descname">filtered</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.models.Model.filtered" title="Permalink to this definition">¶</a></dt>
 <dd><p>Select the records in <code class="docutils literal"><span class="pre">self</span></code> such that <code class="docutils literal"><span class="pre">func(rec)</span></code> is true, and
 return them as a recordset.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1130,8 +1130,8 @@ return them as a recordset.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.sorted">
-<code class="descname">sorted</code><span class="sig-paren">(</span><em>key=None</em>, <em>reverse=False</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.models.Model.sorted" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.sorted">
+<code class="descname">sorted</code><span class="sig-paren">(</span><em>key=None</em>, <em>reverse=False</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.models.Model.sorted" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the recordset <code class="docutils literal"><span class="pre">self</span></code> ordered by <code class="docutils literal"><span class="pre">key</span></code>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1150,8 +1150,8 @@ which case records are ordered according the default model’s order</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.mapped">
-<code class="descname">mapped</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.models.Model.mapped" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.mapped">
+<code class="descname">mapped</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.models.Model.mapped" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply <code class="docutils literal"><span class="pre">func</span></code> on all records in <code class="docutils literal"><span class="pre">self</span></code>, and return the result as a
 list or a recordset (if <code class="docutils literal"><span class="pre">func</span></code> return recordsets). In the latter
 case, the order of the returned recordset is arbitrary.</p>
@@ -1168,8 +1168,8 @@ case, the order of the returned recordset is arbitrary.</p>
 
 <p class="rubric">Environment swapping</p>
 <dl class="method">
-<dt id="odoo.models.Model.sudo">
-<code class="descname">sudo</code><span class="sig-paren">(</span><span class="optional">[</span><em>user=SUPERUSER</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#odoo.models.Model.sudo" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.sudo">
+<code class="descname">sudo</code><span class="sig-paren">(</span><span class="optional">[</span><em>user=SUPERUSER</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#gerp.models.Model.sudo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new version of this recordset attached to the provided
 user.</p>
 <p>By default this returns a <code class="docutils literal"><span class="pre">SUPERUSER</span></code> recordset, where access
@@ -1195,8 +1195,8 @@ The returned recordset has the same prefetch object as <code class="docutils lit
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.with_context">
-<code class="descname">with_context</code><span class="sig-paren">(</span><em>[context][, **overrides]</em><span class="sig-paren">)</span> &#x2192; records<a class="headerlink" href="#odoo.models.Model.with_context" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.with_context">
+<code class="descname">with_context</code><span class="sig-paren">(</span><em>[context][, **overrides]</em><span class="sig-paren">)</span> &#x2192; records<a class="headerlink" href="#gerp.models.Model.with_context" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new version of this recordset attached to an extended
 context.</p>
 <p>The extended context is either the provided <code class="docutils literal"><span class="pre">context</span></code> in which
@@ -1212,8 +1212,8 @@ context.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.with_env">
-<code class="descname">with_env</code><span class="sig-paren">(</span><em>env</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.models.Model.with_env" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.with_env">
+<code class="descname">with_env</code><span class="sig-paren">(</span><em>env</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.models.Model.with_env" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new version of this recordset attached to the provided
 environment</p>
 <div class="admonition warning">
@@ -1233,8 +1233,8 @@ The returned recordset has the same prefetch object as <code class="docutils lit
 
 <p class="rubric">Fields and views querying</p>
 <dl class="method">
-<dt id="odoo.models.Model.fields_get">
-<code class="descname">fields_get</code><span class="sig-paren">(</span><em>[fields][, attributes]</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.models.Model.fields_get" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.fields_get">
+<code class="descname">fields_get</code><span class="sig-paren">(</span><em>[fields][, attributes]</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.models.Model.fields_get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the definition of each field.</p>
 <p>The returned value is a dictionary (indiced by field name) of
 dictionaries. The _inherits’d fields are included. The string, help,
@@ -1254,8 +1254,8 @@ and selection (if present) attributes are translated.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.fields_view_get">
-<code class="descname">fields_view_get</code><span class="sig-paren">(</span><span class="optional">[</span><em>view_id | view_type='form'</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#odoo.models.Model.fields_view_get" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.fields_view_get">
+<code class="descname">fields_view_get</code><span class="sig-paren">(</span><span class="optional">[</span><em>view_id | view_type='form'</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#gerp.models.Model.fields_view_get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the detailed composition of the requested view like fields, model, view architecture</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1288,8 +1288,8 @@ and selection (if present) attributes are translated.</p>
 
 <p class="rubric">Miscellaneous methods</p>
 <dl class="method">
-<dt id="odoo.models.Model.default_get">
-<code class="descname">default_get</code><span class="sig-paren">(</span><em>fields</em><span class="sig-paren">)</span> &#x2192; default_values<a class="headerlink" href="#odoo.models.Model.default_get" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.default_get">
+<code class="descname">default_get</code><span class="sig-paren">(</span><em>fields</em><span class="sig-paren">)</span> &#x2192; default_values<a class="headerlink" href="#gerp.models.Model.default_get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return default values for the fields in <code class="docutils literal"><span class="pre">fields_list</span></code>. Default
 values are determined by the context, user defaults, and the model
 itself.</p>
@@ -1307,8 +1307,8 @@ default value, if it has one.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#odoo.models.Model.copy" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gerp.models.Model.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Duplicate record <code class="docutils literal"><span class="pre">self</span></code> updating it with default values</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1324,8 +1324,8 @@ original values of the copied record, e.g: <code class="docutils literal"><span 
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.name_get">
-<code class="descname">name_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; [(id, name), ...]<a class="headerlink" href="#odoo.models.Model.name_get" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.name_get">
+<code class="descname">name_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; [(id, name), ...]<a class="headerlink" href="#gerp.models.Model.name_get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a textual representation for the records in <code class="docutils literal"><span class="pre">self</span></code>.
 By default this is the value of the <code class="docutils literal"><span class="pre">display_name</span></code> field.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1341,13 +1341,13 @@ By default this is the value of the <code class="docutils literal"><span class="
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.models.Model.name_create">
-<code class="descname">name_create</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span> &#x2192; record<a class="headerlink" href="#odoo.models.Model.name_create" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a new record by calling <a class="reference internal" href="#odoo.models.Model.create" title="odoo.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a> with only one value
+<dt id="gerp.models.Model.name_create">
+<code class="descname">name_create</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span> &#x2192; record<a class="headerlink" href="#gerp.models.Model.name_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new record by calling <a class="reference internal" href="#gerp.models.Model.create" title="gerp.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a> with only one value
 provided: the display name of the new record.</p>
 <p>The new record will be initialized with any default values
 applicable to this model, or provided through the context. The usual
-behavior of <a class="reference internal" href="#odoo.models.Model.create" title="odoo.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a> applies.</p>
+behavior of <a class="reference internal" href="#gerp.models.Model.create" title="gerp.models.Model.create"><code class="xref py py-meth docutils literal"><span class="pre">create()</span></code></a> applies.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1356,7 +1356,7 @@ behavior of <a class="reference internal" href="#odoo.models.Model.create" title
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="#odoo.models.Model.name_get" title="odoo.models.Model.name_get"><code class="xref py py-meth docutils literal"><span class="pre">name_get()</span></code></a> pair value of the created record</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the <a class="reference internal" href="#gerp.models.Model.name_get" title="gerp.models.Model.name_get"><code class="xref py py-meth docutils literal"><span class="pre">name_get()</span></code></a> pair value of the created record</td>
 </tr>
 </tbody>
 </table>
@@ -1364,21 +1364,21 @@ behavior of <a class="reference internal" href="#odoo.models.Model.create" title
 
 <p class="rubric" id="reference-orm-model-automatic">Automatic fields</p>
 <dl class="attribute">
-<dt id="odoo.models.Model.id">
-<code class="descname">id</code><a class="headerlink" href="#odoo.models.Model.id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifier <a class="reference internal" href="#odoo.fields.Field" title="odoo.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">field</span></code></a></p>
+<dt id="gerp.models.Model.id">
+<code class="descname">id</code><a class="headerlink" href="#gerp.models.Model.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifier <a class="reference internal" href="#gerp.fields.Field" title="gerp.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">field</span></code></a></p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model._log_access">
-<code class="descname">_log_access</code><a class="headerlink" href="#odoo.models.Model._log_access" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model._log_access">
+<code class="descname">_log_access</code><a class="headerlink" href="#gerp.models.Model._log_access" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether log access fields (<code class="docutils literal"><span class="pre">create_date</span></code>, <code class="docutils literal"><span class="pre">write_uid</span></code>, …) should
 be generated (default: <code class="docutils literal"><span class="pre">True</span></code>)</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model.create_date">
-<code class="descname">create_date</code><a class="headerlink" href="#odoo.models.Model.create_date" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.create_date">
+<code class="descname">create_date</code><a class="headerlink" href="#gerp.models.Model.create_date" title="Permalink to this definition">¶</a></dt>
 <dd><p>Date at which the record was created</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1391,8 +1391,8 @@ be generated (default: <code class="docutils literal"><span class="pre">True</sp
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model.create_uid">
-<code class="descname">create_uid</code><a class="headerlink" href="#odoo.models.Model.create_uid" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.create_uid">
+<code class="descname">create_uid</code><a class="headerlink" href="#gerp.models.Model.create_uid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relational field to the user who created the record</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1405,8 +1405,8 @@ be generated (default: <code class="docutils literal"><span class="pre">True</sp
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model.write_date">
-<code class="descname">write_date</code><a class="headerlink" href="#odoo.models.Model.write_date" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.write_date">
+<code class="descname">write_date</code><a class="headerlink" href="#gerp.models.Model.write_date" title="Permalink to this definition">¶</a></dt>
 <dd><p>Date at which the record was last modified</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1419,8 +1419,8 @@ be generated (default: <code class="docutils literal"><span class="pre">True</sp
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model.write_uid">
-<code class="descname">write_uid</code><a class="headerlink" href="#odoo.models.Model.write_uid" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.write_uid">
+<code class="descname">write_uid</code><a class="headerlink" href="#gerp.models.Model.write_uid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relational field to the last user who modified the record</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1437,98 +1437,98 @@ be generated (default: <code class="docutils literal"><span class="pre">True</sp
 automated fields. They should be defined on a model when the related
 behavior is desired:</p>
 <dl class="attribute">
-<dt id="odoo.models.Model.name">
-<code class="descname">name</code><a class="headerlink" href="#odoo.models.Model.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>default value for <a class="reference internal" href="#odoo.models.Model._rec_name" title="odoo.models.Model._rec_name"><code class="xref py py-attr docutils literal"><span class="pre">_rec_name</span></code></a>, used to
+<dt id="gerp.models.Model.name">
+<code class="descname">name</code><a class="headerlink" href="#gerp.models.Model.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>default value for <a class="reference internal" href="#gerp.models.Model._rec_name" title="gerp.models.Model._rec_name"><code class="xref py py-attr docutils literal"><span class="pre">_rec_name</span></code></a>, used to
 display records in context where a representative “naming” is
 necessary.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#odoo.fields.Char" title="odoo.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#gerp.fields.Char" title="gerp.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model.active">
-<code class="descname">active</code><a class="headerlink" href="#odoo.models.Model.active" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.active">
+<code class="descname">active</code><a class="headerlink" href="#gerp.models.Model.active" title="Permalink to this definition">¶</a></dt>
 <dd><p>toggles the global visibility of the record, if <code class="docutils literal"><span class="pre">active</span></code> is set to
 <code class="docutils literal"><span class="pre">False</span></code> the record is invisible in most searches and listing</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#odoo.fields.Boolean" title="odoo.fields.Boolean"><code class="xref py py-class docutils literal"><span class="pre">Boolean</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#gerp.fields.Boolean" title="gerp.fields.Boolean"><code class="xref py py-class docutils literal"><span class="pre">Boolean</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model.sequence">
-<code class="descname">sequence</code><a class="headerlink" href="#odoo.models.Model.sequence" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.sequence">
+<code class="descname">sequence</code><a class="headerlink" href="#gerp.models.Model.sequence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alterable ordering criteria, allows drag-and-drop reordering of models
 in list views</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#odoo.fields.Integer" title="odoo.fields.Integer"><code class="xref py py-class docutils literal"><span class="pre">Integer</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#gerp.fields.Integer" title="gerp.fields.Integer"><code class="xref py py-class docutils literal"><span class="pre">Integer</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model.state">
-<code class="descname">state</code><a class="headerlink" href="#odoo.models.Model.state" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.state">
+<code class="descname">state</code><a class="headerlink" href="#gerp.models.Model.state" title="Permalink to this definition">¶</a></dt>
 <dd><p>lifecycle stages of the object, used by the <code class="docutils literal"><span class="pre">states</span></code> attribute on
-<a class="reference internal" href="#odoo.fields.Field" title="odoo.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">fields</span></code></a></p>
+<a class="reference internal" href="#gerp.fields.Field" title="gerp.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">fields</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#odoo.fields.Selection" title="odoo.fields.Selection"><code class="xref py py-class docutils literal"><span class="pre">Selection</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#gerp.fields.Selection" title="gerp.fields.Selection"><code class="xref py py-class docutils literal"><span class="pre">Selection</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model.parent_id">
-<code class="descname">parent_id</code><a class="headerlink" href="#odoo.models.Model.parent_id" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.models.Model.parent_id">
+<code class="descname">parent_id</code><a class="headerlink" href="#gerp.models.Model.parent_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>used to order records in a tree structure and enables the <code class="docutils literal"><span class="pre">child_of</span></code>
 operator in domains</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#gerp.fields.Many2one" title="gerp.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a></td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model.parent_left">
-<code class="descname">parent_left</code><a class="headerlink" href="#odoo.models.Model.parent_left" title="Permalink to this definition">¶</a></dt>
-<dd><p>used with <a class="reference internal" href="#odoo.models.Model._parent_store" title="odoo.models.Model._parent_store"><code class="xref py py-attr docutils literal"><span class="pre">_parent_store</span></code></a>, allows faster tree structure access</p>
+<dt id="gerp.models.Model.parent_left">
+<code class="descname">parent_left</code><a class="headerlink" href="#gerp.models.Model.parent_left" title="Permalink to this definition">¶</a></dt>
+<dd><p>used with <a class="reference internal" href="#gerp.models.Model._parent_store" title="gerp.models.Model._parent_store"><code class="xref py py-attr docutils literal"><span class="pre">_parent_store</span></code></a>, allows faster tree structure access</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.models.Model.parent_right">
-<code class="descname">parent_right</code><a class="headerlink" href="#odoo.models.Model.parent_right" title="Permalink to this definition">¶</a></dt>
-<dd><p>see <a class="reference internal" href="#odoo.models.Model.parent_left" title="odoo.models.Model.parent_left"><code class="xref py py-attr docutils literal"><span class="pre">parent_left</span></code></a></p>
+<dt id="gerp.models.Model.parent_right">
+<code class="descname">parent_right</code><a class="headerlink" href="#gerp.models.Model.parent_right" title="Permalink to this definition">¶</a></dt>
+<dd><p>see <a class="reference internal" href="#gerp.models.Model.parent_left" title="gerp.models.Model.parent_left"><code class="xref py py-attr docutils literal"><span class="pre">parent_left</span></code></a></p>
 </dd></dl>
 
 </dd></dl>
 
 </div>
-<div class="section" id="module-odoo.api">
-<span id="method-decorators"></span><span id="reference-orm-decorators"></span><h2>Method decorators<a class="headerlink" href="#module-odoo.api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-gerp.api">
+<span id="method-decorators"></span><span id="reference-orm-decorators"></span><h2>Method decorators<a class="headerlink" href="#module-gerp.api" title="Permalink to this headline">¶</a></h2>
 <p>This module provides the elements for managing two different API styles,
 namely the “traditional” and “record” styles.</p>
 <p>In the “traditional” style, parameters like the database cursor, user id,
@@ -1556,8 +1556,8 @@ more object-oriented feel.</p>
 <p>Methods written in the “traditional” style are automatically decorated,
 following some heuristics based on parameter names.</p>
 <dl class="function">
-<dt id="odoo.api.multi">
-<code class="descclassname">odoo.api.</code><code class="descname">multi</code><span class="sig-paren">(</span><em>method</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/api.html#multi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.api.multi" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.api.multi">
+<code class="descclassname">gerp.api.</code><code class="descname">multi</code><span class="sig-paren">(</span><em>method</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/api.html#multi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.api.multi" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decorate a record-style method where <code class="docutils literal"><span class="pre">self</span></code> is a recordset. The method
 typically defines an operation on records. Such a method:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@api</span><span class="o">.</span><span class="n">multi</span>
@@ -1575,8 +1575,8 @@ typically defines an operation on records. Such a method:</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.api.model">
-<code class="descclassname">odoo.api.</code><code class="descname">model</code><span class="sig-paren">(</span><em>method</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/api.html#model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.api.model" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.api.model">
+<code class="descclassname">gerp.api.</code><code class="descname">model</code><span class="sig-paren">(</span><em>method</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/api.html#model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.api.model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decorate a record-style method where <code class="docutils literal"><span class="pre">self</span></code> is a recordset, but its
 contents is not relevant, only the model is. Such a method:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@api</span><span class="o">.</span><span class="n">model</span>
@@ -1595,8 +1595,8 @@ contents is not relevant, only the model is. Such a method:</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.api.depends">
-<code class="descclassname">odoo.api.</code><code class="descname">depends</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/api.html#depends"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.api.depends" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.api.depends">
+<code class="descclassname">gerp.api.</code><code class="descname">depends</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/api.html#depends"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.api.depends" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a decorator that specifies the field dependencies of a “compute”
 method (for new-style function fields). Each argument must be a string
 that consists in a dot-separated sequence of field names:</p>
@@ -1616,8 +1616,8 @@ dependencies are given by calling the function with the field’s model.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.api.constrains">
-<code class="descclassname">odoo.api.</code><code class="descname">constrains</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/api.html#constrains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.api.constrains" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.api.constrains">
+<code class="descclassname">gerp.api.</code><code class="descname">constrains</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/api.html#constrains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.api.constrains" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decorates a constraint checker. Each argument must be a field name
 used in the check:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@api</span><span class="o">.</span><span class="n">one</span>
@@ -1645,8 +1645,8 @@ value).</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.api.onchange">
-<code class="descclassname">odoo.api.</code><code class="descname">onchange</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/api.html#onchange"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.api.onchange" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.api.onchange">
+<code class="descclassname">gerp.api.</code><code class="descname">onchange</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/api.html#onchange"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.api.onchange" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a decorator to decorate an onchange method for given fields.
 Each argument must be a field name:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@api</span><span class="o">.</span><span class="n">onchange</span><span class="p">(</span><span class="s1">&#39;partner_id&#39;</span><span class="p">)</span>
@@ -1675,8 +1675,8 @@ supported and will be ignored</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.api.returns">
-<code class="descclassname">odoo.api.</code><code class="descname">returns</code><span class="sig-paren">(</span><em>model</em>, <em>downgrade=None</em>, <em>upgrade=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/api.html#returns"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.api.returns" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.api.returns">
+<code class="descclassname">gerp.api.</code><code class="descname">returns</code><span class="sig-paren">(</span><em>model</em>, <em>downgrade=None</em>, <em>upgrade=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/api.html#returns"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.api.returns" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a decorator for methods that return instances of <code class="docutils literal"><span class="pre">model</span></code>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1716,12 +1716,12 @@ a decorated existing method will be decorated with the same
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.api.one">
-<code class="descclassname">odoo.api.</code><code class="descname">one</code><span class="sig-paren">(</span><em>method</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/api.html#one"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.api.one" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.api.one">
+<code class="descclassname">gerp.api.</code><code class="descname">one</code><span class="sig-paren">(</span><em>method</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/api.html#one"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.api.one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decorate a record-style method where <code class="docutils literal"><span class="pre">self</span></code> is expected to be a
 singleton instance. The decorated method automatically loops on records,
 and makes a list with the results. In case the method is decorated with
-<a class="reference internal" href="#odoo.api.returns" title="odoo.api.returns"><code class="xref py py-func docutils literal"><span class="pre">returns()</span></code></a>, it concatenates the resulting instances. Such a
+<a class="reference internal" href="#gerp.api.returns" title="gerp.api.returns"><code class="xref py py-func docutils literal"><span class="pre">returns()</span></code></a>, it concatenates the resulting instances. Such a
 method:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@api</span><span class="o">.</span><span class="n">one</span>
 <span class="k">def</span> <span class="nf">method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
@@ -1736,20 +1736,20 @@ method:</p>
 </pre></div>
 </div>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 9.0: </span><a class="reference internal" href="#odoo.api.one" title="odoo.api.one"><code class="xref py py-func docutils literal"><span class="pre">one()</span></code></a> often makes the code less clear and behaves in ways
+<p><span class="versionmodified">Deprecated since version 9.0: </span><a class="reference internal" href="#gerp.api.one" title="gerp.api.one"><code class="xref py py-func docutils literal"><span class="pre">one()</span></code></a> often makes the code less clear and behaves in ways
 developers and readers may not expect.</p>
-<p>It is strongly recommended to use <a class="reference internal" href="#odoo.api.multi" title="odoo.api.multi"><code class="xref py py-func docutils literal"><span class="pre">multi()</span></code></a> and either
+<p>It is strongly recommended to use <a class="reference internal" href="#gerp.api.multi" title="gerp.api.multi"><code class="xref py py-func docutils literal"><span class="pre">multi()</span></code></a> and either
 iterate on the <code class="docutils literal"><span class="pre">self</span></code> recordset or ensure that the recordset
-is a single record with <a class="reference internal" href="#odoo.models.Model.ensure_one" title="odoo.models.Model.ensure_one"><code class="xref py py-meth docutils literal"><span class="pre">ensure_one()</span></code></a>.</p>
+is a single record with <a class="reference internal" href="#gerp.models.Model.ensure_one" title="gerp.models.Model.ensure_one"><code class="xref py py-meth docutils literal"><span class="pre">ensure_one()</span></code></a>.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.api.v7">
-<code class="descclassname">odoo.api.</code><code class="descname">v7</code><span class="sig-paren">(</span><em>method_v7</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/api.html#v7"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.api.v7" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.api.v7">
+<code class="descclassname">gerp.api.</code><code class="descname">v7</code><span class="sig-paren">(</span><em>method_v7</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/api.html#v7"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.api.v7" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decorate a method that supports the old-style api only. A new-style api
 may be provided by redefining a method with the same name and decorated
-with <a class="reference internal" href="#odoo.api.v8" title="odoo.api.v8"><code class="xref py py-func docutils literal"><span class="pre">v8()</span></code></a>:</p>
+with <a class="reference internal" href="#gerp.api.v8" title="gerp.api.v8"><code class="xref py py-func docutils literal"><span class="pre">v8()</span></code></a>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@api</span><span class="o">.</span><span class="n">v7</span>
 <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cr</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="o">...</span>
@@ -1773,11 +1773,11 @@ from the current class (say <code class="docutils literal"><span class="pre">MyC
 </dd></dl>
 
 <dl class="function">
-<dt id="odoo.api.v8">
-<code class="descclassname">odoo.api.</code><code class="descname">v8</code><span class="sig-paren">(</span><em>method_v8</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/api.html#v8"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.api.v8" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.api.v8">
+<code class="descclassname">gerp.api.</code><code class="descname">v8</code><span class="sig-paren">(</span><em>method_v8</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/api.html#v8"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.api.v8" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decorate a method that supports the new-style api only. An old-style api
 may be provided by redefining a method with the same name and decorated
-with <a class="reference internal" href="#odoo.api.v7" title="odoo.api.v7"><code class="xref py py-func docutils literal"><span class="pre">v7()</span></code></a>:</p>
+with <a class="reference internal" href="#gerp.api.v7" title="gerp.api.v7"><code class="xref py py-func docutils literal"><span class="pre">v7()</span></code></a>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@api</span><span class="o">.</span><span class="n">v8</span>
 <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="o">...</span>
@@ -1796,8 +1796,8 @@ with <a class="reference internal" href="#odoo.api.v7" title="odoo.api.v7"><code
 <div class="section" id="basic-fields">
 <span id="reference-orm-fields-basic"></span><h3>Basic fields<a class="headerlink" href="#basic-fields" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
-<dt id="odoo.fields.Field">
-<em class="property">class </em><code class="descclassname">odoo.fields.</code><code class="descname">Field</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Field"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Field" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.fields.Field">
+<em class="property">class </em><code class="descclassname">gerp.fields.</code><code class="descname">Field</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Field"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Field" title="Permalink to this definition">¶</a></dt>
 <dd><p>The field descriptor contains the field definition, and manages accesses
 and assignments of the corresponding field on records. The following
 attributes may be provided when instanciating a field:</p>
@@ -1880,7 +1880,7 @@ methods. Their signature is shown in the following example:</p>
 </pre></div>
 </div>
 <p>The compute method has to assign the field on all records of the invoked
-recordset. The decorator <a class="reference internal" href="#odoo.api.depends" title="odoo.api.depends"><code class="xref py py-meth docutils literal"><span class="pre">odoo.api.depends()</span></code></a> must be applied on
+recordset. The decorator <a class="reference internal" href="#gerp.api.depends" title="gerp.api.depends"><code class="xref py py-meth docutils literal"><span class="pre">gerp.api.depends()</span></code></a> must be applied on
 the compute method to specify the field dependencies; those dependencies
 are used to determine when to recompute the field; recomputation is
 automatic and guarantees cache/database consistency. Note that the same
@@ -1936,7 +1936,7 @@ may see different values for the field on a given record.</p>
 </table>
 <p class="rubric" id="field-incremental-definition">Incremental definition</p>
 <p>A field is defined as class attribute on a model class. If the model
-is extended (see <a class="reference internal" href="#odoo.models.Model" title="odoo.models.Model"><code class="xref py py-class docutils literal"><span class="pre">Model</span></code></a>), one can also extend
+is extended (see <a class="reference internal" href="#gerp.models.Model" title="gerp.models.Model"><code class="xref py py-class docutils literal"><span class="pre">Model</span></code></a>), one can also extend
 the field definition by redefining a field with the same name and same
 type on the subclass. In that case, the attributes of the field are
 taken from the parent class and overridden by the ones given in
@@ -1955,9 +1955,9 @@ subclasses.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="odoo.fields.Char">
-<em class="property">class </em><code class="descclassname">odoo.fields.</code><code class="descname">Char</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Char"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Char" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">odoo.fields._String</span></code></p>
+<dt id="gerp.fields.Char">
+<em class="property">class </em><code class="descclassname">gerp.fields.</code><code class="descname">Char</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Char"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Char" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">gerp.fields._String</span></code></p>
 <p>Basic string field, can be length-limited, usually displayed as a
 single-line string in clients.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1979,21 +1979,21 @@ translation of terms.</li>
 </dd></dl>
 
 <dl class="class">
-<dt id="odoo.fields.Boolean">
-<em class="property">class </em><code class="descclassname">odoo.fields.</code><code class="descname">Boolean</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Boolean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Boolean" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#odoo.fields.Field" title="odoo.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">odoo.fields.Field</span></code></a></p>
+<dt id="gerp.fields.Boolean">
+<em class="property">class </em><code class="descclassname">gerp.fields.</code><code class="descname">Boolean</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Boolean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Boolean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gerp.fields.Field" title="gerp.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">gerp.fields.Field</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
-<dt id="odoo.fields.Integer">
-<em class="property">class </em><code class="descclassname">odoo.fields.</code><code class="descname">Integer</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Integer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Integer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#odoo.fields.Field" title="odoo.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">odoo.fields.Field</span></code></a></p>
+<dt id="gerp.fields.Integer">
+<em class="property">class </em><code class="descclassname">gerp.fields.</code><code class="descname">Integer</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Integer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Integer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gerp.fields.Field" title="gerp.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">gerp.fields.Field</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
-<dt id="odoo.fields.Float">
-<em class="property">class </em><code class="descclassname">odoo.fields.</code><code class="descname">Float</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>digits=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Float"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Float" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#odoo.fields.Field" title="odoo.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">odoo.fields.Field</span></code></a></p>
+<dt id="gerp.fields.Float">
+<em class="property">class </em><code class="descclassname">gerp.fields.</code><code class="descname">Float</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>digits=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Float"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Float" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gerp.fields.Field" title="gerp.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">gerp.fields.Field</span></code></a></p>
 <p>The precision digits are given by the attribute</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2007,10 +2007,10 @@ cursor and returning a pair (total, decimal)</td>
 </dd></dl>
 
 <dl class="class">
-<dt id="odoo.fields.Text">
-<em class="property">class </em><code class="descclassname">odoo.fields.</code><code class="descname">Text</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Text" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">odoo.fields._String</span></code></p>
-<p>Very similar to <a class="reference internal" href="#odoo.fields.Char" title="odoo.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a> but used for longer contents, does not
+<dt id="gerp.fields.Text">
+<em class="property">class </em><code class="descclassname">gerp.fields.</code><code class="descname">Text</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">gerp.fields._String</span></code></p>
+<p>Very similar to <a class="reference internal" href="#gerp.fields.Char" title="gerp.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a> but used for longer contents, does not
 have a size and usually displayed as a multiline text box.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2027,9 +2027,9 @@ translation of terms.</td>
 </dd></dl>
 
 <dl class="class">
-<dt id="odoo.fields.Selection">
-<em class="property">class </em><code class="descclassname">odoo.fields.</code><code class="descname">Selection</code><span class="sig-paren">(</span><em>selection=&lt;object object&gt;</em>, <em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Selection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Selection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#odoo.fields.Field" title="odoo.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">odoo.fields.Field</span></code></a></p>
+<dt id="gerp.fields.Selection">
+<em class="property">class </em><code class="descclassname">gerp.fields.</code><code class="descname">Selection</code><span class="sig-paren">(</span><em>selection=&lt;object object&gt;</em>, <em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Selection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gerp.fields.Field" title="gerp.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">gerp.fields.Field</span></code></a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2050,18 +2050,18 @@ of an overridden field. It is a list of pairs (<code class="docutils literal"><s
 </dd></dl>
 
 <dl class="class">
-<dt id="odoo.fields.Html">
-<em class="property">class </em><code class="descclassname">odoo.fields.</code><code class="descname">Html</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Html" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">odoo.fields._String</span></code></p>
+<dt id="gerp.fields.Html">
+<em class="property">class </em><code class="descclassname">gerp.fields.</code><code class="descname">Html</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Html" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">gerp.fields._String</span></code></p>
 </dd></dl>
 
 <dl class="class">
-<dt id="odoo.fields.Date">
-<em class="property">class </em><code class="descclassname">odoo.fields.</code><code class="descname">Date</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Date" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#odoo.fields.Field" title="odoo.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">odoo.fields.Field</span></code></a></p>
+<dt id="gerp.fields.Date">
+<em class="property">class </em><code class="descclassname">gerp.fields.</code><code class="descname">Date</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gerp.fields.Field" title="gerp.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">gerp.fields.Field</span></code></a></p>
 <dl class="staticmethod">
-<dt id="odoo.fields.Date.context_today">
-<em class="property">static </em><code class="descname">context_today</code><span class="sig-paren">(</span><em>record</em>, <em>timestamp=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Date.context_today"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Date.context_today" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.fields.Date.context_today">
+<em class="property">static </em><code class="descname">context_today</code><span class="sig-paren">(</span><em>record</em>, <em>timestamp=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Date.context_today"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Date.context_today" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the current date as seen in the client’s timezone in a format
 fit for date fields. This method may be used to compute default
 values.</p>
@@ -2080,20 +2080,20 @@ can’t be converted between timezones.)</td>
 </dd></dl>
 
 <dl class="staticmethod">
-<dt id="odoo.fields.Date.from_string">
-<em class="property">static </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Date.from_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Date.from_string" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.fields.Date.from_string">
+<em class="property">static </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Date.from_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Date.from_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert an ORM <code class="docutils literal"><span class="pre">value</span></code> into a <code class="xref py py-class docutils literal"><span class="pre">date</span></code> value.</p>
 </dd></dl>
 
 <dl class="staticmethod">
-<dt id="odoo.fields.Date.to_string">
-<em class="property">static </em><code class="descname">to_string</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Date.to_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Date.to_string" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.fields.Date.to_string">
+<em class="property">static </em><code class="descname">to_string</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Date.to_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Date.to_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert a <code class="xref py py-class docutils literal"><span class="pre">date</span></code> value into the format expected by the ORM.</p>
 </dd></dl>
 
 <dl class="staticmethod">
-<dt id="odoo.fields.Date.today">
-<em class="property">static </em><code class="descname">today</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Date.today"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Date.today" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.fields.Date.today">
+<em class="property">static </em><code class="descname">today</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Date.today"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Date.today" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the current day in the format expected by the ORM.
 This function may be used to compute default values.</p>
 </dd></dl>
@@ -2101,12 +2101,12 @@ This function may be used to compute default values.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="odoo.fields.Datetime">
-<em class="property">class </em><code class="descclassname">odoo.fields.</code><code class="descname">Datetime</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Datetime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Datetime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#odoo.fields.Field" title="odoo.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">odoo.fields.Field</span></code></a></p>
+<dt id="gerp.fields.Datetime">
+<em class="property">class </em><code class="descclassname">gerp.fields.</code><code class="descname">Datetime</code><span class="sig-paren">(</span><em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Datetime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gerp.fields.Field" title="gerp.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">gerp.fields.Field</span></code></a></p>
 <dl class="staticmethod">
-<dt id="odoo.fields.Datetime.context_timestamp">
-<em class="property">static </em><code class="descname">context_timestamp</code><span class="sig-paren">(</span><em>record</em>, <em>timestamp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Datetime.context_timestamp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Datetime.context_timestamp" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.fields.Datetime.context_timestamp">
+<em class="property">static </em><code class="descname">context_timestamp</code><span class="sig-paren">(</span><em>record</em>, <em>timestamp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Datetime.context_timestamp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Datetime.context_timestamp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the given timestamp converted to the client’s timezone.
 This method is <em>not</em> meant for use as a default initializer,
 because datetime fields are automatically converted upon
@@ -2129,21 +2129,21 @@ timezone</td>
 </dd></dl>
 
 <dl class="staticmethod">
-<dt id="odoo.fields.Datetime.from_string">
-<em class="property">static </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Datetime.from_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Datetime.from_string" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.fields.Datetime.from_string">
+<em class="property">static </em><code class="descname">from_string</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Datetime.from_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Datetime.from_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert an ORM <code class="docutils literal"><span class="pre">value</span></code> into a <code class="xref py py-class docutils literal"><span class="pre">datetime</span></code> value.</p>
 </dd></dl>
 
 <dl class="staticmethod">
-<dt id="odoo.fields.Datetime.now">
-<em class="property">static </em><code class="descname">now</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Datetime.now"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Datetime.now" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.fields.Datetime.now">
+<em class="property">static </em><code class="descname">now</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Datetime.now"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Datetime.now" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the current day and time in the format expected by the ORM.
 This function may be used to compute default values.</p>
 </dd></dl>
 
 <dl class="staticmethod">
-<dt id="odoo.fields.Datetime.to_string">
-<em class="property">static </em><code class="descname">to_string</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Datetime.to_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Datetime.to_string" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.fields.Datetime.to_string">
+<em class="property">static </em><code class="descname">to_string</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Datetime.to_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Datetime.to_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert a <code class="xref py py-class docutils literal"><span class="pre">datetime</span></code> value into the format expected by the ORM.</p>
 </dd></dl>
 
@@ -2153,9 +2153,9 @@ This function may be used to compute default values.</p>
 <div class="section" id="relational-fields">
 <span id="reference-orm-fields-relational"></span><h3>Relational fields<a class="headerlink" href="#relational-fields" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
-<dt id="odoo.fields.Many2one">
-<em class="property">class </em><code class="descclassname">odoo.fields.</code><code class="descname">Many2one</code><span class="sig-paren">(</span><em>comodel_name=&lt;object object&gt;</em>, <em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Many2one"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Many2one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">odoo.fields._Relational</span></code></p>
+<dt id="gerp.fields.Many2one">
+<em class="property">class </em><code class="descclassname">gerp.fields.</code><code class="descname">Many2one</code><span class="sig-paren">(</span><em>comodel_name=&lt;object object&gt;</em>, <em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Many2one"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Many2one" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">gerp.fields._Relational</span></code></p>
 <p>The value of such a field is a recordset of size 0 (no
 record) or 1 (a single record).</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2184,9 +2184,9 @@ fields or field extensions.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="odoo.fields.One2many">
-<em class="property">class </em><code class="descclassname">odoo.fields.</code><code class="descname">One2many</code><span class="sig-paren">(</span><em>comodel_name=&lt;object object&gt;</em>, <em>inverse_name=&lt;object object&gt;</em>, <em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#One2many"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.One2many" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">odoo.fields._RelationalMulti</span></code></p>
+<dt id="gerp.fields.One2many">
+<em class="property">class </em><code class="descclassname">gerp.fields.</code><code class="descname">One2many</code><span class="sig-paren">(</span><em>comodel_name=&lt;object object&gt;</em>, <em>inverse_name=&lt;object object&gt;</em>, <em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#One2many"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.One2many" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">gerp.fields._RelationalMulti</span></code></p>
 <p>One2many field; the value of such a field is the recordset of all the
 records in <code class="docutils literal"><span class="pre">comodel_name</span></code> such that the field <code class="docutils literal"><span class="pre">inverse_name</span></code> is equal to
 the current record.</p>
@@ -2215,9 +2215,9 @@ the case of related fields or field extensions.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="odoo.fields.Many2many">
-<em class="property">class </em><code class="descclassname">odoo.fields.</code><code class="descname">Many2many</code><span class="sig-paren">(</span><em>comodel_name=&lt;object object&gt;</em>, <em>relation=&lt;object object&gt;</em>, <em>column1=&lt;object object&gt;</em>, <em>column2=&lt;object object&gt;</em>, <em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Many2many"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Many2many" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">odoo.fields._RelationalMulti</span></code></p>
+<dt id="gerp.fields.Many2many">
+<em class="property">class </em><code class="descclassname">gerp.fields.</code><code class="descname">Many2many</code><span class="sig-paren">(</span><em>comodel_name=&lt;object object&gt;</em>, <em>relation=&lt;object object&gt;</em>, <em>column1=&lt;object object&gt;</em>, <em>column2=&lt;object object&gt;</em>, <em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Many2many"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Many2many" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">gerp.fields._RelationalMulti</span></code></p>
 <p>Many2many field; the value of such a field is the recordset.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2266,9 +2266,9 @@ handling that field (dictionary)</li>
 </dd></dl>
 
 <dl class="class">
-<dt id="odoo.fields.Reference">
-<em class="property">class </em><code class="descclassname">odoo.fields.</code><code class="descname">Reference</code><span class="sig-paren">(</span><em>selection=&lt;object object&gt;</em>, <em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/fields.html#Reference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.fields.Reference" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#odoo.fields.Selection" title="odoo.fields.Selection"><code class="xref py py-class docutils literal"><span class="pre">odoo.fields.Selection</span></code></a></p>
+<dt id="gerp.fields.Reference">
+<em class="property">class </em><code class="descclassname">gerp.fields.</code><code class="descname">Reference</code><span class="sig-paren">(</span><em>selection=&lt;object object&gt;</em>, <em>string=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/fields.html#Reference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.fields.Reference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gerp.fields.Selection" title="gerp.fields.Selection"><code class="xref py py-class docutils literal"><span class="pre">gerp.fields.Selection</span></code></a></p>
 </dd></dl>
 
 </div>
@@ -2286,10 +2286,10 @@ version</li>
 <img alt="../_images/inheritance_methods1.png" class="align-center" src="../_images/inheritance_methods1.png" />
 <div class="section" id="classical-inheritance">
 <h3>Classical inheritance<a class="headerlink" href="#classical-inheritance" title="Permalink to this headline">¶</a></h3>
-<p>When using the <a class="reference internal" href="#odoo.models.Model._inherit" title="odoo.models.Model._inherit"><code class="xref py py-attr docutils literal"><span class="pre">_inherit</span></code></a> and
-<a class="reference internal" href="#odoo.models.Model._name" title="odoo.models.Model._name"><code class="xref py py-attr docutils literal"><span class="pre">_name</span></code></a> attributes together, Odoo creates a new
+<p>When using the <a class="reference internal" href="#gerp.models.Model._inherit" title="gerp.models.Model._inherit"><code class="xref py py-attr docutils literal"><span class="pre">_inherit</span></code></a> and
+<a class="reference internal" href="#gerp.models.Model._name" title="gerp.models.Model._name"><code class="xref py py-attr docutils literal"><span class="pre">_name</span></code></a> attributes together, Odoo creates a new
 model using the existing one (provided via
-<a class="reference internal" href="#odoo.models.Model._inherit" title="odoo.models.Model._inherit"><code class="xref py py-attr docutils literal"><span class="pre">_inherit</span></code></a>) as a base. The new model gets all the
+<a class="reference internal" href="#gerp.models.Model._inherit" title="gerp.models.Model._inherit"><code class="xref py py-attr docutils literal"><span class="pre">_inherit</span></code></a>) as a base. The new model gets all the
 fields, methods and meta-information (defaults &amp; al) from its base.</p>
 <p>and using them:</p>
 <p>will yield:</p>
@@ -2299,8 +2299,8 @@ fields, methods and meta-information (defaults &amp; al) from its base.</p>
 </div>
 <div class="section" id="extension">
 <h3>Extension<a class="headerlink" href="#extension" title="Permalink to this headline">¶</a></h3>
-<p>When using <a class="reference internal" href="#odoo.models.Model._inherit" title="odoo.models.Model._inherit"><code class="xref py py-attr docutils literal"><span class="pre">_inherit</span></code></a> but leaving out
-<a class="reference internal" href="#odoo.models.Model._name" title="odoo.models.Model._name"><code class="xref py py-attr docutils literal"><span class="pre">_name</span></code></a>, the new model replaces the existing one,
+<p>When using <a class="reference internal" href="#gerp.models.Model._inherit" title="gerp.models.Model._inherit"><code class="xref py py-attr docutils literal"><span class="pre">_inherit</span></code></a> but leaving out
+<a class="reference internal" href="#gerp.models.Model._name" title="gerp.models.Model._name"><code class="xref py py-attr docutils literal"><span class="pre">_name</span></code></a>, the new model replaces the existing one,
 essentially extending it in-place. This is useful to add new fields or methods
 to existing models (created in other modules), or to customize or reconfigure
 them (e.g. to change their default sort order):</p>
@@ -2313,10 +2313,10 @@ them (e.g. to change their default sort order):</p>
 <div class="section" id="delegation">
 <h3>Delegation<a class="headerlink" href="#delegation" title="Permalink to this headline">¶</a></h3>
 <p>The third inheritance mechanism provides more flexibility (it can be altered
-at runtime) but less power: using the <a class="reference internal" href="#odoo.models.Model._inherits" title="odoo.models.Model._inherits"><code class="xref py py-attr docutils literal"><span class="pre">_inherits</span></code></a>
+at runtime) but less power: using the <a class="reference internal" href="#gerp.models.Model._inherits" title="gerp.models.Model._inherits"><code class="xref py py-attr docutils literal"><span class="pre">_inherits</span></code></a>
 a model <em>delegates</em> the lookup of any field not found on the current model
 to “children” models. The delegation is performed via
-<a class="reference internal" href="#odoo.fields.Reference" title="odoo.fields.Reference"><code class="xref py py-class docutils literal"><span class="pre">Reference</span></code></a> fields automatically set up on the parent
+<a class="reference internal" href="#gerp.fields.Reference" title="gerp.fields.Reference"><code class="xref py py-class docutils literal"><span class="pre">Reference</span></code></a> fields automatically set up on the parent
 model:</p>
 <p>will result in:</p>
 <p>and it’s possible to write directly on the delegated field:</p>
@@ -2334,7 +2334,7 @@ only fields</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">field_name</span></code> (<code class="docutils literal"><span class="pre">str</span></code>)</dt>
 <dd>a field name of the current model, or a relationship traversal through
-a <a class="reference internal" href="#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a> using dot-notation e.g. <code class="docutils literal"><span class="pre">'street'</span></code>
+a <a class="reference internal" href="#gerp.fields.Many2one" title="gerp.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a> using dot-notation e.g. <code class="docutils literal"><span class="pre">'street'</span></code>
 or <code class="docutils literal"><span class="pre">'partner_id.country'</span></code></dd>
 <dt><code class="docutils literal"><span class="pre">operator</span></code> (<code class="docutils literal"><span class="pre">str</span></code>)</dt>
 <dd><p class="first">an operator used to compare the <code class="docutils literal"><span class="pre">field_name</span></code> with the <code class="docutils literal"><span class="pre">value</span></code>. Valid
@@ -2431,13 +2431,13 @@ AND (country is Belgium OR Germany)
 ORM, no need to switch to the old API, just call them as if they were a new
 API method. See <a class="reference internal" href="#reference-orm-oldapi-bridging"><span class="std std-ref">Automatic bridging of old API methods</span></a> for more details.</p>
 </li>
-<li><p class="first"><a class="reference internal" href="#odoo.models.Model.search" title="odoo.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a> returns a recordset, no point in e.g.
+<li><p class="first"><a class="reference internal" href="#gerp.models.Model.search" title="gerp.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a> returns a recordset, no point in e.g.
 browsing its result</p>
 </li>
 <li><p class="first"><code class="docutils literal"><span class="pre">fields.related</span></code> and <code class="docutils literal"><span class="pre">fields.function</span></code> are replaced by using a normal
 field type with either a <code class="docutils literal"><span class="pre">related=</span></code> or a <code class="docutils literal"><span class="pre">compute=</span></code> parameter</p>
 </li>
-<li><p class="first"><a class="reference internal" href="#odoo.api.depends" title="odoo.api.depends"><code class="xref py py-func docutils literal"><span class="pre">depends()</span></code></a> on <code class="docutils literal"><span class="pre">compute=</span></code> methods <strong>must be complete</strong>,
+<li><p class="first"><a class="reference internal" href="#gerp.api.depends" title="gerp.api.depends"><code class="xref py py-func docutils literal"><span class="pre">depends()</span></code></a> on <code class="docutils literal"><span class="pre">compute=</span></code> methods <strong>must be complete</strong>,
 it must list <strong>all</strong> the fields and sub-fields which the compute method
 uses. It is better to have too many dependencies (will recompute the field
 in cases where that is not needed) than not enough (will forget to recompute
@@ -2447,7 +2447,7 @@ the field and then values will be incorrect)</p>
 automatically re-computed when one of their dependencies is changed, and
 that is used to auto-generate <code class="docutils literal"><span class="pre">onchange</span></code> by the client</p>
 </li>
-<li><p class="first">the decorators <a class="reference internal" href="#odoo.api.model" title="odoo.api.model"><code class="xref py py-func docutils literal"><span class="pre">model()</span></code></a> and <a class="reference internal" href="#odoo.api.multi" title="odoo.api.multi"><code class="xref py py-func docutils literal"><span class="pre">multi()</span></code></a> are
+<li><p class="first">the decorators <a class="reference internal" href="#gerp.api.model" title="gerp.api.model"><code class="xref py py-func docutils literal"><span class="pre">model()</span></code></a> and <a class="reference internal" href="#gerp.api.multi" title="gerp.api.multi"><code class="xref py py-func docutils literal"><span class="pre">multi()</span></code></a> are
 for bridging <em>when calling from the old API context</em>, for internal or pure
 new-api (e.g. compute) they are useless</p>
 </li>
@@ -2471,28 +2471,28 @@ string), this makes them overridable (removes the need for an intermediate
 warning in case of collision (because Python handles it before Odoo sees
 anything)</p>
 </li>
-<li><p class="first">the normal new-api import is <code class="docutils literal"><span class="pre">from</span> <span class="pre">odoo</span> <span class="pre">import</span> <span class="pre">fields,</span> <span class="pre">models</span></code>. If
-compatibility decorators are necessary, use <code class="docutils literal"><span class="pre">from</span> <span class="pre">odoo</span> <span class="pre">import</span> <span class="pre">api,</span>
+<li><p class="first">the normal new-api import is <code class="docutils literal"><span class="pre">from</span> <span class="pre">gerp</span> <span class="pre">import</span> <span class="pre">fields,</span> <span class="pre">models</span></code>. If
+compatibility decorators are necessary, use <code class="docutils literal"><span class="pre">from</span> <span class="pre">gerp</span> <span class="pre">import</span> <span class="pre">api,</span>
 <span class="pre">fields,</span> <span class="pre">models</span></code></p>
 </li>
-<li><p class="first">avoid the <a class="reference internal" href="#odoo.api.one" title="odoo.api.one"><code class="xref py py-func docutils literal"><span class="pre">one()</span></code></a> decorator, it probably does not do what
+<li><p class="first">avoid the <a class="reference internal" href="#gerp.api.one" title="gerp.api.one"><code class="xref py py-func docutils literal"><span class="pre">one()</span></code></a> decorator, it probably does not do what
 you expect</p>
 </li>
-<li><p class="first">remove explicit definition of <a class="reference internal" href="#odoo.models.Model.create_uid" title="odoo.models.Model.create_uid"><code class="xref py py-attr docutils literal"><span class="pre">create_uid</span></code></a>,
-<a class="reference internal" href="#odoo.models.Model.create_date" title="odoo.models.Model.create_date"><code class="xref py py-attr docutils literal"><span class="pre">create_date</span></code></a>,
-<a class="reference internal" href="#odoo.models.Model.write_uid" title="odoo.models.Model.write_uid"><code class="xref py py-attr docutils literal"><span class="pre">write_uid</span></code></a> and
-<a class="reference internal" href="#odoo.models.Model.write_date" title="odoo.models.Model.write_date"><code class="xref py py-attr docutils literal"><span class="pre">write_date</span></code></a> fields: they are now created as
+<li><p class="first">remove explicit definition of <a class="reference internal" href="#gerp.models.Model.create_uid" title="gerp.models.Model.create_uid"><code class="xref py py-attr docutils literal"><span class="pre">create_uid</span></code></a>,
+<a class="reference internal" href="#gerp.models.Model.create_date" title="gerp.models.Model.create_date"><code class="xref py py-attr docutils literal"><span class="pre">create_date</span></code></a>,
+<a class="reference internal" href="#gerp.models.Model.write_uid" title="gerp.models.Model.write_uid"><code class="xref py py-attr docutils literal"><span class="pre">write_uid</span></code></a> and
+<a class="reference internal" href="#gerp.models.Model.write_date" title="gerp.models.Model.write_date"><code class="xref py py-attr docutils literal"><span class="pre">write_date</span></code></a> fields: they are now created as
 regular “legitimate” fields, and can be read and written like any other
 field out-of-the-box</p>
 </li>
 <li><p class="first">when straight conversion is impossible (semantics can not be bridged) or the
 “old API” version is not desirable and could be improved for the new API, it
 is possible to use completely different “old API” and “new API”
-implementations for the same method name using <a class="reference internal" href="#odoo.api.v7" title="odoo.api.v7"><code class="xref py py-func docutils literal"><span class="pre">v7()</span></code></a> and
-<a class="reference internal" href="#odoo.api.v8" title="odoo.api.v8"><code class="xref py py-func docutils literal"><span class="pre">v8()</span></code></a>. The method should first be defined using the
-old-API style and decorated with <a class="reference internal" href="#odoo.api.v7" title="odoo.api.v7"><code class="xref py py-func docutils literal"><span class="pre">v7()</span></code></a>, it should then be
+implementations for the same method name using <a class="reference internal" href="#gerp.api.v7" title="gerp.api.v7"><code class="xref py py-func docutils literal"><span class="pre">v7()</span></code></a> and
+<a class="reference internal" href="#gerp.api.v8" title="gerp.api.v8"><code class="xref py py-func docutils literal"><span class="pre">v8()</span></code></a>. The method should first be defined using the
+old-API style and decorated with <a class="reference internal" href="#gerp.api.v7" title="gerp.api.v7"><code class="xref py py-func docutils literal"><span class="pre">v7()</span></code></a>, it should then be
 re-defined using the exact same name but the new-API style and decorated
-with <a class="reference internal" href="#odoo.api.v8" title="odoo.api.v8"><code class="xref py py-func docutils literal"><span class="pre">v8()</span></code></a>. Calls from an old-API context will be
+with <a class="reference internal" href="#gerp.api.v8" title="gerp.api.v8"><code class="xref py py-func docutils literal"><span class="pre">v8()</span></code></a>. Calls from an old-API context will be
 dispatched to the first implementation and calls from a new-API context will
 be dispatched to the second implementation. One implementation can call (and
 frequently does) call the other by switching context.</p>
@@ -2505,8 +2505,8 @@ override and harder to understand and document</p>
 <li><p class="first">uses of <code class="xref py py-attr docutils literal"><span class="pre">_columns</span></code> or
 <code class="xref py py-attr docutils literal"><span class="pre">_all_columns</span></code> should be replaced by
 <code class="xref py py-attr docutils literal"><span class="pre">_fields</span></code>, which provides access to instances of
-new-style <a class="reference internal" href="#odoo.fields.Field" title="odoo.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">odoo.fields.Field</span></code></a> instances (rather than old-style
-<code class="xref py py-class docutils literal"><span class="pre">odoo.osv.fields._column</span></code>).</p>
+new-style <a class="reference internal" href="#gerp.fields.Field" title="gerp.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">gerp.fields.Field</span></code></a> instances (rather than old-style
+<code class="xref py py-class docutils literal"><span class="pre">gerp.osv.fields._column</span></code>).</p>
 <p>Non-stored computed fields created using the new API style are <em>not</em>
 available in <code class="xref py py-attr docutils literal"><span class="pre">_columns</span></code> and can only be
 inspected through <code class="xref py py-attr docutils literal"><span class="pre">_fields</span></code></p>
@@ -2516,10 +2516,10 @@ translation introspection</p>
 </li>
 <li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">Environment</span></code> objects rely on some threadlocal state,
 which has to be set up before using them. It is necessary to do so using the
-<code class="xref py py-meth docutils literal"><span class="pre">odoo.api.Environment.manage()</span></code> context manager when trying to use
+<code class="xref py py-meth docutils literal"><span class="pre">gerp.api.Environment.manage()</span></code> context manager when trying to use
 the new API in contexts where it hasn’t been set up yet, such as new threads
 or a Python interactive environment:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">odoo</span> <span class="k">import</span> <span class="n">api</span><span class="p">,</span> <span class="n">modules</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gerp</span> <span class="k">import</span> <span class="n">api</span><span class="p">,</span> <span class="n">modules</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">modules</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">RegistryManager</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cr</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">env</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">Environment</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{})</span>
@@ -2588,8 +2588,8 @@ from a new-API context</p>
 (e.g. <code class="xref py py-func docutils literal"><span class="pre">cr_uid_context()</span></code>) which also passes the current
 context <em>by keyword</em>.</p>
 </li>
-<li><p class="first">dual implementations using <a class="reference internal" href="#odoo.api.v7" title="odoo.api.v7"><code class="xref py py-func docutils literal"><span class="pre">v7()</span></code></a> and
-<a class="reference internal" href="#odoo.api.v8" title="odoo.api.v8"><code class="xref py py-func docutils literal"><span class="pre">v8()</span></code></a> will be ignored as they provide their own “bridging”</p>
+<li><p class="first">dual implementations using <a class="reference internal" href="#gerp.api.v7" title="gerp.api.v7"><code class="xref py py-func docutils literal"><span class="pre">v7()</span></code></a> and
+<a class="reference internal" href="#gerp.api.v8" title="gerp.api.v8"><code class="xref py py-func docutils literal"><span class="pre">v8()</span></code></a> will be ignored as they provide their own “bridging”</p>
 </li>
 </ul>
 </div>

@@ -391,13 +391,13 @@ be the name of a module, on which a <code class="docutils literal"><span class="
 <p>Most Python-side uses of QWeb are in controllers (and during HTTP requests),
 in which case templates stored in the database (as
 <a class="reference internal" href="views.html#reference-views-qweb"><span class="std std-ref">views</span></a>) can be trivially rendered by calling
-<a class="reference internal" href="http.html#odoo.http.HttpRequest.render" title="odoo.http.HttpRequest.render"><code class="xref py py-meth docutils literal"><span class="pre">odoo.http.HttpRequest.render()</span></code></a>:</p>
+<a class="reference internal" href="http.html#gerp.http.HttpRequest.render" title="gerp.http.HttpRequest.render"><code class="xref py py-meth docutils literal"><span class="pre">gerp.http.HttpRequest.render()</span></code></a>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s1">&#39;my-template&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="s1">&#39;context_value&#39;</span><span class="p">:</span> <span class="mi">42</span>
 <span class="p">})</span>
 </pre></div>
 </div>
-<p>This automatically creates a <a class="reference internal" href="http.html#odoo.http.Response" title="odoo.http.Response"><code class="xref py py-class docutils literal"><span class="pre">Response</span></code></a> object which can
+<p>This automatically creates a <a class="reference internal" href="http.html#gerp.http.Response" title="gerp.http.Response"><code class="xref py py-class docutils literal"><span class="pre">Response</span></code></a> object which can
 be returned from the controller (or further customized to suit).</p>
 </div>
 <div class="section" id="view-based">
@@ -412,7 +412,7 @@ Templates are automatically loaded from <code class="docutils literal"><span cla
 <p>Sets up a number of default values in the rendering context:</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">request</span></code></dt>
-<dd>the current <a class="reference internal" href="http.html#odoo.http.WebRequest" title="odoo.http.WebRequest"><code class="xref py py-class docutils literal"><span class="pre">WebRequest</span></code></a> object, if any</dd>
+<dd>the current <a class="reference internal" href="http.html#gerp.http.WebRequest" title="gerp.http.WebRequest"><code class="xref py py-class docutils literal"><span class="pre">WebRequest</span></code></a> object, if any</dd>
 <dt><code class="docutils literal"><span class="pre">debug</span></code></dt>
 <dd>whether the current request (if any) is in <code class="docutils literal"><span class="pre">debug</span></code> mode</dd>
 <dt><code class="xref py py-func docutils literal"><span class="pre">quote_plus</span></code></dt>

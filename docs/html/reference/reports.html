@@ -71,7 +71,7 @@ in a list of some sort</dd>
 <dt><code class="docutils literal"><span class="pre">report_name</span></code></dt>
 <dd>the name of your report (which will be the name of the PDF output)</dd>
 <dt><code class="docutils literal"><span class="pre">groups</span></code></dt>
-<dd><a class="reference internal" href="orm.html#odoo.fields.Many2many" title="odoo.fields.Many2many"><code class="xref py py-class docutils literal"><span class="pre">Many2many</span></code></a> field to the groups allowed to view/use
+<dd><a class="reference internal" href="orm.html#gerp.fields.Many2many" title="gerp.fields.Many2many"><code class="xref py py-class docutils literal"><span class="pre">Many2many</span></code></a> field to the groups allowed to view/use
 the current report</dd>
 <dt><code class="docutils literal"><span class="pre">attachment_use</span></code></dt>
 <dd>if set to True, the report will be stored as an attachment of the record
@@ -301,7 +301,7 @@ call the QWeb engine; otherwise a generic function will be used. If you wish
 to customize your reports by including more things in the template (like
 records of others models, for example), you can define this model, overwrite
 the function <code class="docutils literal"><span class="pre">render_html</span></code> and pass objects in the <code class="docutils literal"><span class="pre">docargs</span></code> dictionary:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odoo</span> <span class="kn">import</span> <span class="n">api</span><span class="p">,</span> <span class="n">models</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gerp</span> <span class="kn">import</span> <span class="n">api</span><span class="p">,</span> <span class="n">models</span>
 
 <span class="k">class</span> <span class="nc">ParticularReport</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">AbstractModel</span><span class="p">):</span>
     <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;report.module.report_name&#39;</span>

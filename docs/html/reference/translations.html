@@ -87,7 +87,7 @@ attributes</li>
 exported except inside <code class="docutils literal"><span class="pre">t-translation=&quot;off&quot;</span></code> blocks, the content of the
 <code class="docutils literal"><span class="pre">title</span></code>, <code class="docutils literal"><span class="pre">alt</span></code>, <code class="docutils literal"><span class="pre">label</span></code> and <code class="docutils literal"><span class="pre">placeholder</span></code> attributes are also
 exported</li>
-<li>for <a class="reference internal" href="orm.html#odoo.fields.Field" title="odoo.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">Field</span></code></a>, unless their model is marked with
+<li>for <a class="reference internal" href="orm.html#gerp.fields.Field" title="gerp.fields.Field"><code class="xref py py-class docutils literal"><span class="pre">Field</span></code></a>, unless their model is marked with
 <code class="docutils literal"><span class="pre">_translate</span> <span class="pre">=</span> <span class="pre">False</span></code>:<ul>
 <li>their <code class="docutils literal"><span class="pre">string</span></code> and <code class="docutils literal"><span class="pre">help</span></code> attributes are exported</li>
 <li>if <code class="docutils literal"><span class="pre">selection</span></code> is present and a list (or tuple), it’s exported</li>
@@ -95,8 +95,8 @@ exported</li>
 values (across all records) are exported</li>
 </ul>
 </li>
-<li>help/error messages of <a class="reference internal" href="orm.html#odoo.models.Model._constraints" title="odoo.models.Model._constraints"><code class="xref py py-attr docutils literal"><span class="pre">_constraints</span></code></a> and
-<a class="reference internal" href="orm.html#odoo.models.Model._sql_constraints" title="odoo.models.Model._sql_constraints"><code class="xref py py-attr docutils literal"><span class="pre">_sql_constraints</span></code></a> are exported</li>
+<li>help/error messages of <a class="reference internal" href="orm.html#gerp.models.Model._constraints" title="gerp.models.Model._constraints"><code class="xref py py-attr docutils literal"><span class="pre">_constraints</span></code></a> and
+<a class="reference internal" href="orm.html#gerp.models.Model._sql_constraints" title="gerp.models.Model._sql_constraints"><code class="xref py py-attr docutils literal"><span class="pre">_sql_constraints</span></code></a> are exported</li>
 </ul>
 </div>
 <div class="section" id="explicit-exports">
@@ -105,11 +105,11 @@ values (across all records) are exported</li>
 code, Odoo cannot automatically export translatable terms so they
 must be marked explicitly for export. This is done by wrapping a literal
 string in a function call.</p>
-<p>In Python, the wrapping function is <code class="xref py py-func docutils literal"><span class="pre">odoo._()</span></code>:</p>
+<p>In Python, the wrapping function is <code class="xref py py-func docutils literal"><span class="pre">gerp._()</span></code>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s2">&quot;Bank Accounts&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In JavaScript, the wrapping function is generally <code class="xref js js-func docutils literal"><span class="pre">odoo.web._t()</span></code>:</p>
+<p>In JavaScript, the wrapping function is generally <code class="xref js js-func docutils literal"><span class="pre">gerp.web._t()</span></code>:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">title</span> <span class="o">=</span> <span class="nx">_t</span><span class="p">(</span><span class="s2">&quot;Bank Accounts&quot;</span><span class="p">)</span>
 </pre></div>
 </div>

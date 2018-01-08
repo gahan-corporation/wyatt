@@ -49,7 +49,7 @@ easily available over <a class="reference external" href="http://en.wikipedia.or
 <div class="section" id="connection">
 <h2>Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h2>
 <div class="setupcode hidden highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xmlrpclib</span>
-<span class="n">info</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s1">&#39;https://demo.odoo.com/start&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s1">&#39;https://demo.gerp.com/start&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 <span class="n">url</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> \
     <span class="n">info</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;database&#39;</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span>
 <span class="n">common</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s1">&#39;{}/xmlrpc/2/common&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
@@ -58,7 +58,7 @@ easily available over <a class="reference external" href="http://en.wikipedia.or
 </pre></div>
 </div>
 <div class="setupcode hidden highlight-ruby"><div class="highlight"><pre><span></span><span class="nb">require</span> <span class="s2">&quot;xmlrpc/client&quot;</span>
-<span class="n">info</span> <span class="o">=</span> <span class="no">XMLRPC</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new2</span><span class="p">(</span><span class="s1">&#39;https://demo.odoo.com/start&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">)</span>
+<span class="n">info</span> <span class="o">=</span> <span class="no">XMLRPC</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new2</span><span class="p">(</span><span class="s1">&#39;https://demo.gerp.com/start&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">)</span>
 <span class="n">url</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="p">\</span>
     <span class="n">info</span><span class="o">[</span><span class="s1">&#39;host&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">info</span><span class="o">[</span><span class="s1">&#39;database&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">info</span><span class="o">[</span><span class="s1">&#39;user&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">info</span><span class="o">[</span><span class="s1">&#39;password&#39;</span><span class="o">]</span>
 <span class="n">common</span> <span class="o">=</span> <span class="no">XMLRPC</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new2</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">url</span><span class="si">}</span><span class="s2">/xmlrpc/2/common&quot;</span><span class="p">)</span>
@@ -67,7 +67,7 @@ easily available over <a class="reference external" href="http://en.wikipedia.or
 </pre></div>
 </div>
 <div class="setupcode hidden highlight-php"><div class="highlight"><pre><span></span><span class="x">require_once(&#39;ripcord.php&#39;);</span>
-<span class="x">$info = ripcord::client(&#39;https://demo.odoo.com/start&#39;)-&gt;start();</span>
+<span class="x">$info = ripcord::client(&#39;https://demo.gerp.com/start&#39;)-&gt;start();</span>
 <span class="x">list($url, $db, $username, $password) =</span>
 <span class="x">  array($info[&#39;host&#39;], $info[&#39;database&#39;], $info[&#39;user&#39;], $info[&#39;password&#39;]);</span>
 <span class="x">$common = ripcord::client(&quot;$url/xmlrpc/2/common&quot;);</span>
@@ -77,7 +77,7 @@ easily available over <a class="reference external" href="http://en.wikipedia.or
 </div>
 <div class="setupcode hidden highlight-java"><div class="highlight"><pre><span></span><span class="kd">final</span> <span class="n">XmlRpcClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XmlRpcClient</span><span class="o">();</span>
 <span class="kd">final</span> <span class="n">XmlRpcClientConfigImpl</span> <span class="n">start_config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XmlRpcClientConfigImpl</span><span class="o">();</span>
-<span class="n">start_config</span><span class="o">.</span><span class="na">setServerURL</span><span class="o">(</span><span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">&quot;https://demo.odoo.com/start&quot;</span><span class="o">));</span>
+<span class="n">start_config</span><span class="o">.</span><span class="na">setServerURL</span><span class="o">(</span><span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">&quot;https://demo.gerp.com/start&quot;</span><span class="o">));</span>
 <span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">info</span> <span class="o">=</span> <span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;)</span><span class="n">client</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span>
     <span class="n">start_config</span><span class="o">,</span> <span class="s">&quot;start&quot;</span><span class="o">,</span> <span class="n">emptyList</span><span class="o">());</span>
 
@@ -106,7 +106,7 @@ easily available over <a class="reference external" href="http://en.wikipedia.or
 parameters</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p>For Odoo Online instances (&lt;domain&gt;.odoo.com), users are created without a
+<p>For Odoo Online instances (&lt;domain&gt;.gerp.com), users are created without a
 <em>local</em> password (as a person you are logged in via the Odoo Online
 authentication system, not by the instance itself). To use XML-RPC on Odoo
 Online instances, you will need to set a password on the user account you
@@ -120,13 +120,13 @@ want to use:</p>
 <span class="guilabel">Change Password</span>.</li>
 </ul>
 <p class="last">The <em>server url</em> is the instance’s domain (e.g.
-<em>https://mycompany.odoo.com</em>), the <em>database name</em> is the name of the
+<em>https://mycompany.gerp.com</em>), the <em>database name</em> is the name of the
 instance (e.g. <em>mycompany</em>). The <em>username</em> is the configured user’s login
 as shown by the <em>Change Password</em> screen.</p>
 </div>
 <div class="setup doc-aside section" id="demo">
 <h4>demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h4>
-<p>To make exploration simpler, you can also ask <a class="reference external" href="https://demo.odoo.com">https://demo.odoo.com</a> for a test
+<p>To make exploration simpler, you can also ask <a class="reference external" href="https://demo.gerp.com">https://demo.gerp.com</a> for a test
 database:</p>
 </div>
 </div>
@@ -153,7 +153,7 @@ the login.</p>
 </div>
 <div class="setup doc-aside section" id="calling-methods">
 <h2>Calling methods<a class="headerlink" href="#calling-methods" title="Permalink to this headline">¶</a></h2>
-<p>The second endpoint is <code class="docutils literal"><span class="pre">xmlrpc/2/object</span></code>, is used to call methods of odoo
+<p>The second endpoint is <code class="docutils literal"><span class="pre">xmlrpc/2/object</span></code>, is used to call methods of gerp
 models via the <code class="docutils literal"><span class="pre">execute_kw</span></code> RPC function.</p>
 <p>Each call to <code class="docutils literal"><span class="pre">execute_kw</span></code> takes the following parameters:</p>
 <ul class="simple">
@@ -604,7 +604,7 @@ decoded and may need to be saved to disk before use</p>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="../_sources/webservices/odoo.rst.txt"
+      <a href="../_sources/webservices/gerp.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>odoo.http &#8212; gerp 0.0.1 documentation</title>
+    <title>gerp.http &#8212; gerp 0.0.1 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -38,7 +38,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <h1>Source code for odoo.http</h1><div class="highlight"><pre>
+  <h1>Source code for gerp.http</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="c1">#----------------------------------------------------------</span>
 <span class="c1"># OpenERP HTTP layer</span>
@@ -84,7 +84,7 @@
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="n">psutil</span> <span class="o">=</span> <span class="kc">None</span>
 
-<span class="kn">import</span> <span class="nn">odoo</span>
+<span class="kn">import</span> <span class="nn">gerp</span>
 <span class="kn">from</span> <span class="nn">.service.server</span> <span class="k">import</span> <span class="n">memory_info</span>
 <span class="kn">from</span> <span class="nn">.service</span> <span class="k">import</span> <span class="n">security</span><span class="p">,</span> <span class="n">model</span> <span class="k">as</span> <span class="n">service_model</span>
 <span class="kn">from</span> <span class="nn">.tools.func</span> <span class="k">import</span> <span class="n">lazy_property</span>
@@ -121,13 +121,13 @@
 <span class="c1"># don&#39;t trigger debugger for those exceptions, they carry user-facing warnings</span>
 <span class="c1"># and indications, they&#39;re not necessarily indicative of anything being</span>
 <span class="c1"># *broken*</span>
-<span class="n">NO_POSTMORTEM</span> <span class="o">=</span> <span class="p">(</span><span class="n">odoo</span><span class="o">.</span><span class="n">osv</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">except_orm</span><span class="p">,</span>
-                 <span class="n">odoo</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">AccessError</span><span class="p">,</span>
-                 <span class="n">odoo</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">,</span>
-                 <span class="n">odoo</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">MissingError</span><span class="p">,</span>
-                 <span class="n">odoo</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">AccessDenied</span><span class="p">,</span>
-                 <span class="n">odoo</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">Warning</span><span class="p">,</span>
-                 <span class="n">odoo</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RedirectWarning</span><span class="p">)</span>
+<span class="n">NO_POSTMORTEM</span> <span class="o">=</span> <span class="p">(</span><span class="n">gerp</span><span class="o">.</span><span class="n">osv</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">except_orm</span><span class="p">,</span>
+                 <span class="n">gerp</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">AccessError</span><span class="p">,</span>
+                 <span class="n">gerp</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">,</span>
+                 <span class="n">gerp</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">MissingError</span><span class="p">,</span>
+                 <span class="n">gerp</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">AccessDenied</span><span class="p">,</span>
+                 <span class="n">gerp</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">Warning</span><span class="p">,</span>
+                 <span class="n">gerp</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RedirectWarning</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">dispatch_rpc</span><span class="p">(</span><span class="n">service_name</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Handle a RPC call.</span>
 
@@ -143,16 +143,16 @@
             <span class="k">if</span> <span class="n">psutil</span><span class="p">:</span>
                 <span class="n">start_rss</span><span class="p">,</span> <span class="n">start_vms</span> <span class="o">=</span> <span class="n">memory_info</span><span class="p">(</span><span class="n">psutil</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()))</span>
             <span class="k">if</span> <span class="n">rpc_request</span> <span class="ow">and</span> <span class="n">rpc_response_flag</span><span class="p">:</span>
-                <span class="n">odoo</span><span class="o">.</span><span class="n">netsvc</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">rpc_request</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">service_name</span><span class="p">,</span> <span class="n">method</span><span class="p">),</span> <span class="n">replace_request_password</span><span class="p">(</span><span class="n">params</span><span class="p">))</span>
+                <span class="n">gerp</span><span class="o">.</span><span class="n">netsvc</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">rpc_request</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">service_name</span><span class="p">,</span> <span class="n">method</span><span class="p">),</span> <span class="n">replace_request_password</span><span class="p">(</span><span class="n">params</span><span class="p">))</span>
 
         <span class="n">threading</span><span class="o">.</span><span class="n">current_thread</span><span class="p">()</span><span class="o">.</span><span class="n">uid</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="n">threading</span><span class="o">.</span><span class="n">current_thread</span><span class="p">()</span><span class="o">.</span><span class="n">dbname</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="n">service_name</span> <span class="o">==</span> <span class="s1">&#39;common&#39;</span><span class="p">:</span>
-            <span class="n">dispatch</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">dispatch</span>
+            <span class="n">dispatch</span> <span class="o">=</span> <span class="n">gerp</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">dispatch</span>
         <span class="k">elif</span> <span class="n">service_name</span> <span class="o">==</span> <span class="s1">&#39;db&#39;</span><span class="p">:</span>
-            <span class="n">dispatch</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dispatch</span>
+            <span class="n">dispatch</span> <span class="o">=</span> <span class="n">gerp</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">dispatch</span>
         <span class="k">elif</span> <span class="n">service_name</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span><span class="p">:</span>
-            <span class="n">dispatch</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">dispatch</span>
+            <span class="n">dispatch</span> <span class="o">=</span> <span class="n">gerp</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">dispatch</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">dispatch</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">rpc_request_flag</span> <span class="ow">or</span> <span class="n">rpc_response_flag</span><span class="p">:</span>
@@ -162,20 +162,20 @@
                 <span class="n">end_rss</span><span class="p">,</span> <span class="n">end_vms</span> <span class="o">=</span> <span class="n">memory_info</span><span class="p">(</span><span class="n">psutil</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()))</span>
             <span class="n">logline</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="s1"> time:</span><span class="si">%.3f</span><span class="s1">s mem: </span><span class="si">%s</span><span class="s1">k -&gt; </span><span class="si">%s</span><span class="s1">k (diff: </span><span class="si">%s</span><span class="s1">k)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">service_name</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">,</span> <span class="n">start_vms</span> <span class="o">/</span> <span class="mi">1024</span><span class="p">,</span> <span class="n">end_vms</span> <span class="o">/</span> <span class="mi">1024</span><span class="p">,</span> <span class="p">(</span><span class="n">end_vms</span> <span class="o">-</span> <span class="n">start_vms</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">rpc_response_flag</span><span class="p">:</span>
-                <span class="n">odoo</span><span class="o">.</span><span class="n">netsvc</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">rpc_response</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">logline</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+                <span class="n">gerp</span><span class="o">.</span><span class="n">netsvc</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">rpc_response</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">logline</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">odoo</span><span class="o">.</span><span class="n">netsvc</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">rpc_request</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">logline</span><span class="p">,</span> <span class="n">replace_request_password</span><span class="p">(</span><span class="n">params</span><span class="p">),</span> <span class="n">depth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">gerp</span><span class="o">.</span><span class="n">netsvc</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">rpc_request</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">logline</span><span class="p">,</span> <span class="n">replace_request_password</span><span class="p">(</span><span class="n">params</span><span class="p">),</span> <span class="n">depth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">result</span>
     <span class="k">except</span> <span class="n">NO_POSTMORTEM</span><span class="p">:</span>
         <span class="k">raise</span>
-    <span class="k">except</span> <span class="n">odoo</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">DeferredException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="n">_logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">exception_to_unicode</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-        <span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">debugger</span><span class="o">.</span><span class="n">post_mortem</span><span class="p">(</span><span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">traceback</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">gerp</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">DeferredException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">_logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">exception_to_unicode</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">debugger</span><span class="o">.</span><span class="n">post_mortem</span><span class="p">(</span><span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">traceback</span><span class="p">)</span>
         <span class="k">raise</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="n">_logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">exception_to_unicode</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-        <span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">debugger</span><span class="o">.</span><span class="n">post_mortem</span><span class="p">(</span><span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">())</span>
+        <span class="n">_logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">exception_to_unicode</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">debugger</span><span class="o">.</span><span class="n">post_mortem</span><span class="p">(</span><span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">())</span>
         <span class="k">raise</span>
 
 <span class="k">def</span> <span class="nf">local_redirect</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keep_hash</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">forward_debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="mi">303</span><span class="p">):</span>
@@ -210,7 +210,7 @@
     <span class="n">url</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;%27&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;&quot;</span><span class="p">,</span> <span class="s2">&quot;%3C&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="s2">&quot;&lt;html&gt;&lt;head&gt;&lt;script&gt;window.location = &#39;</span><span class="si">%s</span><span class="s2">&#39; + location.hash;&lt;/script&gt;&lt;/head&gt;&lt;/html&gt;&quot;</span> <span class="o">%</span> <span class="n">url</span>
 
-<div class="viewcode-block" id="WebRequest"><a class="viewcode-back" href="../../reference/http.html#odoo.http.WebRequest">[docs]</a><span class="k">class</span> <span class="nc">WebRequest</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="WebRequest"><a class="viewcode-back" href="../../reference/http.html#gerp.http.WebRequest">[docs]</a><span class="k">class</span> <span class="nc">WebRequest</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Parent class for all Odoo Web request types, mostly deals with</span>
 <span class="sd">    initialization and setup of the request object (the dispatching itself has</span>
 <span class="sd">    to be handled by the subclasses)</span>
@@ -245,7 +245,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_failed</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="c1"># set db/uid trackers - they&#39;re cleaned up at the WSGI</span>
-        <span class="c1"># dispatching phase in odoo.service.wsgi_server.application</span>
+        <span class="c1"># dispatching phase in gerp.service.wsgi_server.application</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">:</span>
             <span class="n">threading</span><span class="o">.</span><span class="n">current_thread</span><span class="p">()</span><span class="o">.</span><span class="n">dbname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">uid</span><span class="p">:</span>
@@ -253,7 +253,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">cr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; :class:`~odoo.sql_db.Cursor` initialized for the current method call.</span>
+        <span class="sd">&quot;&quot;&quot; :class:`~gerp.sql_db.Cursor` initialized for the current method call.</span>
 
 <span class="sd">        Accessing the cursor when the current request uses the ``none``</span>
 <span class="sd">        authentication will raise an exception.</span>
@@ -289,9 +289,9 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">env</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; The :class:`~odoo.api.Environment` bound to current request. &quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot; The :class:`~gerp.api.Environment` bound to current request. &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_env</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_env</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">Environment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_env</span> <span class="o">=</span> <span class="n">gerp</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">Environment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_env</span>
 
     <span class="nd">@lazy_property</span>
@@ -342,8 +342,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_failed</span> <span class="o">=</span> <span class="n">exception</span> <span class="c1"># prevent tx commit</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exception</span><span class="p">,</span> <span class="n">NO_POSTMORTEM</span><span class="p">)</span> \
                 <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exception</span><span class="p">,</span> <span class="n">werkzeug</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">HTTPException</span><span class="p">):</span>
-            <span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">debugger</span><span class="o">.</span><span class="n">post_mortem</span><span class="p">(</span>
-                <span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">())</span>
+            <span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">debugger</span><span class="o">.</span><span class="n">post_mortem</span><span class="p">(</span>
+                <span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">())</span>
         <span class="c1"># otherwise &quot;no active exception to reraise&quot;</span>
         <span class="k">raise</span> <span class="n">pycompat</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">exception</span><span class="p">),</span> <span class="n">exception</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
 
@@ -411,7 +411,7 @@
 
 <span class="sd">            use :attr:`.env`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">odoo</span><span class="o">.</span><span class="n">registry</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">gerp</span><span class="o">.</span><span class="n">registry</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -421,7 +421,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">db</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">disable_db</span> <span class="k">else</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="WebRequest.csrf_token"><a class="viewcode-back" href="../../reference/http.html#odoo.http.WebRequest.csrf_token">[docs]</a>    <span class="k">def</span> <span class="nf">csrf_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_limit</span><span class="o">=</span><span class="mi">3600</span><span class="p">):</span>
+<div class="viewcode-block" id="WebRequest.csrf_token"><a class="viewcode-back" href="../../reference/http.html#gerp.http.WebRequest.csrf_token">[docs]</a>    <span class="k">def</span> <span class="nf">csrf_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_limit</span><span class="o">=</span><span class="mi">3600</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Generates and returns a CSRF token for the current session</span>
 
 <span class="sd">        :param time_limit: the CSRF token should only be valid for the</span>
@@ -463,7 +463,7 @@
         <span class="n">hm_expected</span> <span class="o">=</span> <span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">secret</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">),</span> <span class="n">msg</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha1</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">consteq</span><span class="p">(</span><span class="n">hm</span><span class="p">,</span> <span class="n">hm_expected</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="route"><a class="viewcode-back" href="../../reference/http.html#odoo.http.route">[docs]</a><span class="k">def</span> <span class="nf">route</span><span class="p">(</span><span class="n">route</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+<div class="viewcode-block" id="route"><a class="viewcode-back" href="../../reference/http.html#gerp.http.route">[docs]</a><span class="k">def</span> <span class="nf">route</span><span class="p">(</span><span class="n">route</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Decorator marking the decorated method as being a handler for</span>
 <span class="sd">    requests. The method must be part of a subclass of ``Controller``.</span>
 
@@ -517,8 +517,8 @@
 
 <span class="sd">        * if the form is generated in Python, a csrf token is</span>
 <span class="sd">          available via :meth:`request.csrf_token()</span>
-<span class="sd">          &lt;odoo.http.WebRequest.csrf_token`, the</span>
-<span class="sd">          :data:`~odoo.http.request` object is available by default</span>
+<span class="sd">          &lt;gerp.http.WebRequest.csrf_token`, the</span>
+<span class="sd">          :data:`~gerp.http.request` object is available by default</span>
 <span class="sd">          in QWeb (python) templates, it may have to be added</span>
 <span class="sd">          explicitly if you are not using QWeb.</span>
 
@@ -571,7 +571,7 @@
         <span class="k">return</span> <span class="n">response_wrap</span>
     <span class="k">return</span> <span class="n">decorator</span></div>
 
-<div class="viewcode-block" id="JsonRequest"><a class="viewcode-back" href="../../reference/http.html#odoo.http.JsonRequest">[docs]</a><span class="k">class</span> <span class="nc">JsonRequest</span><span class="p">(</span><span class="n">WebRequest</span><span class="p">):</span>
+<div class="viewcode-block" id="JsonRequest"><a class="viewcode-back" href="../../reference/http.html#gerp.http.JsonRequest">[docs]</a><span class="k">class</span> <span class="nc">JsonRequest</span><span class="p">(</span><span class="n">WebRequest</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Request handler for `JSON-RPC 2</span>
 <span class="sd">    &lt;http://www.jsonrpc.org/specification&gt;`_ over HTTP</span>
 
@@ -686,7 +686,7 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">JsonRequest</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_handle_exception</span><span class="p">(</span><span class="n">exception</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exception</span><span class="p">,</span> <span class="p">(</span><span class="n">odoo</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">Warning</span><span class="p">,</span> <span class="n">SessionExpiredException</span><span class="p">,</span> <span class="n">odoo</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">except_orm</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exception</span><span class="p">,</span> <span class="p">(</span><span class="n">gerp</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">Warning</span><span class="p">,</span> <span class="n">SessionExpiredException</span><span class="p">,</span> <span class="n">gerp</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">except_orm</span><span class="p">)):</span>
                 <span class="n">_logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;Exception during JSON request handling.&quot;</span><span class="p">)</span>
             <span class="n">error</span> <span class="o">=</span> <span class="p">{</span>
                     <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
@@ -747,25 +747,25 @@
         <span class="s2">&quot;arguments&quot;</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">,</span>
         <span class="s2">&quot;exception_type&quot;</span><span class="p">:</span> <span class="s2">&quot;internal_error&quot;</span>
     <span class="p">}</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">odoo</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">UserError</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">gerp</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">UserError</span><span class="p">):</span>
         <span class="n">tmp</span><span class="p">[</span><span class="s2">&quot;exception_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;user_error&quot;</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">odoo</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">Warning</span><span class="p">):</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">gerp</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">Warning</span><span class="p">):</span>
         <span class="n">tmp</span><span class="p">[</span><span class="s2">&quot;exception_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;warning&quot;</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">odoo</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RedirectWarning</span><span class="p">):</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">gerp</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RedirectWarning</span><span class="p">):</span>
         <span class="n">tmp</span><span class="p">[</span><span class="s2">&quot;exception_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;warning&quot;</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">odoo</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">AccessError</span><span class="p">):</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">gerp</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">AccessError</span><span class="p">):</span>
         <span class="n">tmp</span><span class="p">[</span><span class="s2">&quot;exception_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;access_error&quot;</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">odoo</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">MissingError</span><span class="p">):</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">gerp</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">MissingError</span><span class="p">):</span>
         <span class="n">tmp</span><span class="p">[</span><span class="s2">&quot;exception_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;missing_error&quot;</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">odoo</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">AccessDenied</span><span class="p">):</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">gerp</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">AccessDenied</span><span class="p">):</span>
         <span class="n">tmp</span><span class="p">[</span><span class="s2">&quot;exception_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;access_denied&quot;</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">odoo</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">):</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">gerp</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">):</span>
         <span class="n">tmp</span><span class="p">[</span><span class="s2">&quot;exception_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;validation_error&quot;</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">odoo</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">except_orm</span><span class="p">):</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">gerp</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">except_orm</span><span class="p">):</span>
         <span class="n">tmp</span><span class="p">[</span><span class="s2">&quot;exception_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;except_orm&quot;</span>
     <span class="k">return</span> <span class="n">tmp</span>
 
-<div class="viewcode-block" id="HttpRequest"><a class="viewcode-back" href="../../reference/http.html#odoo.http.HttpRequest">[docs]</a><span class="k">class</span> <span class="nc">HttpRequest</span><span class="p">(</span><span class="n">WebRequest</span><span class="p">):</span>
+<div class="viewcode-block" id="HttpRequest"><a class="viewcode-back" href="../../reference/http.html#gerp.http.HttpRequest">[docs]</a><span class="k">class</span> <span class="nc">HttpRequest</span><span class="p">(</span><span class="n">WebRequest</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Handler for the ``http`` request type.</span>
 
 <span class="sd">    matched routing parameters, query string parameters, form_ parameters</span>
@@ -836,7 +836,7 @@
 
 <span class="s2">Odoo URLs are CSRF-protected by default (when accessed with unsafe</span>
 <span class="s2">HTTP methods). See</span>
-<span class="s2">https://www.odoo.com/documentation/9.0/reference/http.html#csrf for</span>
+<span class="s2">https://www.gerp.com/documentation/9.0/reference/http.html#csrf for</span>
 <span class="s2">more details.</span>
 
 <span class="s2">* if this endpoint is accessed through Odoo via py-QWeb form, embed a CSRF</span>
@@ -863,7 +863,7 @@
             <span class="n">r</span> <span class="o">=</span> <span class="n">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">204</span><span class="p">)</span>  <span class="c1"># no content</span>
         <span class="k">return</span> <span class="n">r</span>
 
-<div class="viewcode-block" id="HttpRequest.make_response"><a class="viewcode-back" href="../../reference/http.html#odoo.http.HttpRequest.make_response">[docs]</a>    <span class="k">def</span> <span class="nf">make_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cookies</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="HttpRequest.make_response"><a class="viewcode-back" href="../../reference/http.html#gerp.http.HttpRequest.make_response">[docs]</a>    <span class="k">def</span> <span class="nf">make_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cookies</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Helper for non-HTML responses, or HTML responses with custom</span>
 <span class="sd">        response headers or cookies.</span>
 
@@ -883,7 +883,7 @@
                 <span class="n">response</span><span class="o">.</span><span class="n">set_cookie</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">response</span></div>
 
-<div class="viewcode-block" id="HttpRequest.render"><a class="viewcode-back" href="../../reference/http.html#odoo.http.HttpRequest.render">[docs]</a>    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">qcontext</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+<div class="viewcode-block" id="HttpRequest.render"><a class="viewcode-back" href="../../reference/http.html#gerp.http.HttpRequest.render">[docs]</a>    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">qcontext</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Lazy render of a QWeb template.</span>
 
 <span class="sd">        The actual rendering of the given template will occur at then end of</span>
@@ -901,7 +901,7 @@
             <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">response</span></div>
 
-<div class="viewcode-block" id="HttpRequest.not_found"><a class="viewcode-back" href="../../reference/http.html#odoo.http.HttpRequest.not_found">[docs]</a>    <span class="k">def</span> <span class="nf">not_found</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="HttpRequest.not_found"><a class="viewcode-back" href="../../reference/http.html#gerp.http.HttpRequest.not_found">[docs]</a>    <span class="k">def</span> <span class="nf">not_found</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Shortcut for a `HTTP 404</span>
 <span class="sd">        &lt;http://tools.ietf.org/html/rfc7231#section-6.5.4&gt;`_ (Not Found)</span>
 <span class="sd">        response</span>
@@ -940,7 +940,7 @@
         <span class="c1"># store the controller in the controllers list</span>
         <span class="n">name_class</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__module__</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">),</span> <span class="bp">cls</span><span class="p">)</span>
         <span class="n">class_path</span> <span class="o">=</span> <span class="n">name_class</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">class_path</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;odoo&quot;</span><span class="p">,</span> <span class="s2">&quot;addons&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">class_path</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;gerp&quot;</span><span class="p">,</span> <span class="s2">&quot;addons&quot;</span><span class="p">]:</span>
             <span class="n">module</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># we want to know all modules that have controllers</span>
@@ -972,7 +972,7 @@
 
     <span class="k">def</span> <span class="nf">get_subclasses</span><span class="p">(</span><span class="n">klass</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">valid</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">c</span><span class="o">.</span><span class="vm">__module__</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;odoo.addons.&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">c</span><span class="o">.</span><span class="vm">__module__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="n">modules</span>
+            <span class="k">return</span> <span class="n">c</span><span class="o">.</span><span class="vm">__module__</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;gerp.addons.&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">c</span><span class="o">.</span><span class="vm">__module__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="n">modules</span>
         <span class="n">subclasses</span> <span class="o">=</span> <span class="n">klass</span><span class="o">.</span><span class="n">__subclasses__</span><span class="p">()</span>
         <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">subclass</span> <span class="ow">in</span> <span class="n">subclasses</span><span class="p">:</span>
@@ -1231,7 +1231,7 @@
 <span class="c1"># Add potentially missing (detected on windows) svg mime types</span>
 <span class="n">mimetypes</span><span class="o">.</span><span class="n">add_type</span><span class="p">(</span><span class="s1">&#39;image/svg+xml&#39;</span><span class="p">,</span> <span class="s1">&#39;.svg&#39;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Response"><a class="viewcode-back" href="../../reference/http.html#odoo.http.Response">[docs]</a><span class="k">class</span> <span class="nc">Response</span><span class="p">(</span><span class="n">werkzeug</span><span class="o">.</span><span class="n">wrappers</span><span class="o">.</span><span class="n">Response</span><span class="p">):</span>
+<div class="viewcode-block" id="Response"><a class="viewcode-back" href="../../reference/http.html#gerp.http.Response">[docs]</a><span class="k">class</span> <span class="nc">Response</span><span class="p">(</span><span class="n">werkzeug</span><span class="o">.</span><span class="n">wrappers</span><span class="o">.</span><span class="n">Response</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Response object passed through controller route chain.</span>
 
 <span class="sd">    In addition to the :class:`werkzeug.wrappers.Response` parameters, this</span>
@@ -1275,14 +1275,14 @@
     <span class="k">def</span> <span class="nf">is_qweb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">template</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="Response.render"><a class="viewcode-back" href="../../reference/http.html#odoo.http.Response.render">[docs]</a>    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Response.render"><a class="viewcode-back" href="../../reference/http.html#gerp.http.Response.render">[docs]</a>    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Renders the Response&#39;s template, returns the result</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">env</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">env</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uid</span> <span class="ow">or</span> <span class="n">request</span><span class="o">.</span><span class="n">uid</span> <span class="ow">or</span> <span class="n">odoo</span><span class="o">.</span><span class="n">SUPERUSER_ID</span><span class="p">)</span>
+        <span class="n">env</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">env</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uid</span> <span class="ow">or</span> <span class="n">request</span><span class="o">.</span><span class="n">uid</span> <span class="ow">or</span> <span class="n">gerp</span><span class="o">.</span><span class="n">SUPERUSER_ID</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">qcontext</span><span class="p">[</span><span class="s1">&#39;request&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span>
         <span class="k">return</span> <span class="n">env</span><span class="p">[</span><span class="s2">&quot;ir.ui.view&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">render_template</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">template</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">qcontext</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Response.flatten"><a class="viewcode-back" href="../../reference/http.html#odoo.http.Response.flatten">[docs]</a>    <span class="k">def</span> <span class="nf">flatten</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Response.flatten"><a class="viewcode-back" href="../../reference/http.html#gerp.http.Response.flatten">[docs]</a>    <span class="k">def</span> <span class="nf">flatten</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Forces the rendering of the response&#39;s template, sets the result</span>
 <span class="sd">        as response body and unsets :attr:`.template`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1321,14 +1321,14 @@
     <span class="nd">@lazy_property</span>
     <span class="k">def</span> <span class="nf">session_store</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Setup http sessions</span>
-        <span class="n">path</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">session_dir</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">session_dir</span>
         <span class="n">_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;HTTP sessions stored in: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">werkzeug</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">sessions</span><span class="o">.</span><span class="n">FilesystemSessionStore</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">session_class</span><span class="o">=</span><span class="n">OpenERPSession</span><span class="p">)</span>
 
     <span class="nd">@lazy_property</span>
     <span class="k">def</span> <span class="nf">nodb_routing_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Generating nondb routing&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">routing_map</span><span class="p">([</span><span class="s1">&#39;&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">odoo</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">server_wide_modules</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">routing_map</span><span class="p">([</span><span class="s1">&#39;&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">gerp</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">server_wide_modules</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">environ</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Handle a WSGI request</span>
@@ -1343,7 +1343,7 @@
 <span class="sd">        controllers and configure them.  &quot;&quot;&quot;</span>
         <span class="c1"># TODO should we move this to ir.http so that only configured modules are served ?</span>
         <span class="n">statics</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">addons_path</span> <span class="ow">in</span> <span class="n">odoo</span><span class="o">.</span><span class="n">modules</span><span class="o">.</span><span class="n">module</span><span class="o">.</span><span class="n">ad_paths</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">addons_path</span> <span class="ow">in</span> <span class="n">gerp</span><span class="o">.</span><span class="n">modules</span><span class="o">.</span><span class="n">module</span><span class="o">.</span><span class="n">ad_paths</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">addons_path</span><span class="p">))):</span>
                 <span class="k">if</span> <span class="n">module</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">addons_module</span><span class="p">:</span>
                     <span class="n">mod_path</span> <span class="o">=</span> <span class="n">opj</span><span class="p">(</span><span class="n">addons_path</span><span class="p">,</span> <span class="n">module</span><span class="p">)</span>
@@ -1356,8 +1356,8 @@
                             <span class="k">continue</span>
                         <span class="n">manifest</span><span class="p">[</span><span class="s1">&#39;addons_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">addons_path</span>
                         <span class="n">_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Loading </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">module</span><span class="p">)</span>
-                        <span class="k">if</span> <span class="s1">&#39;odoo.addons&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
-                            <span class="n">m</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s1">&#39;odoo.addons.&#39;</span> <span class="o">+</span> <span class="n">module</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="s1">&#39;gerp.addons&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+                            <span class="n">m</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s1">&#39;gerp.addons.&#39;</span> <span class="o">+</span> <span class="n">module</span><span class="p">)</span>
                         <span class="k">else</span><span class="p">:</span>
                             <span class="n">m</span> <span class="o">=</span> <span class="kc">None</span>
                         <span class="n">addons_module</span><span class="p">[</span><span class="n">module</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span>
@@ -1494,8 +1494,8 @@
                 <span class="n">db</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">db</span>
                 <span class="k">if</span> <span class="n">db</span><span class="p">:</span>
                     <span class="k">try</span><span class="p">:</span>
-                        <span class="n">odoo</span><span class="o">.</span><span class="n">registry</span><span class="p">(</span><span class="n">db</span><span class="p">)</span><span class="o">.</span><span class="n">check_signaling</span><span class="p">()</span>
-                        <span class="k">with</span> <span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">mute_logger</span><span class="p">(</span><span class="s1">&#39;odoo.sql_db&#39;</span><span class="p">):</span>
+                        <span class="n">gerp</span><span class="o">.</span><span class="n">registry</span><span class="p">(</span><span class="n">db</span><span class="p">)</span><span class="o">.</span><span class="n">check_signaling</span><span class="p">()</span>
+                        <span class="k">with</span> <span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">mute_logger</span><span class="p">(</span><span class="s1">&#39;gerp.sql_db&#39;</span><span class="p">):</span>
                             <span class="n">ir_http</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="s1">&#39;ir.http&#39;</span><span class="p">]</span>
                     <span class="k">except</span> <span class="p">(</span><span class="ne">AttributeError</span><span class="p">,</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">,</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">ProgrammingError</span><span class="p">):</span>
                         <span class="c1"># psycopg2 error or attribute error while constructing</span>
@@ -1527,7 +1527,7 @@
         <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="s1">&#39;ir.http&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">routing_map</span><span class="p">()</span>
 
 <span class="k">def</span> <span class="nf">db_list</span><span class="p">(</span><span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">httprequest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="n">dbs</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">list_dbs</span><span class="p">(</span><span class="n">force</span><span class="p">)</span>
+    <span class="n">dbs</span> <span class="o">=</span> <span class="n">gerp</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">list_dbs</span><span class="p">(</span><span class="n">force</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">db_filter</span><span class="p">(</span><span class="n">dbs</span><span class="p">,</span> <span class="n">httprequest</span><span class="o">=</span><span class="n">httprequest</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">db_filter</span><span class="p">(</span><span class="n">dbs</span><span class="p">,</span> <span class="n">httprequest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1536,13 +1536,13 @@
     <span class="n">d</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="s2">&quot;www&quot;</span> <span class="ow">and</span> <span class="n">r</span><span class="p">:</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;dbfilter&#39;</span><span class="p">]:</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;dbfilter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;%h&#39;</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;dbfilter&#39;</span><span class="p">]:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;dbfilter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;%h&#39;</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
         <span class="n">dbs</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dbs</span> <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">)]</span>
-    <span class="k">elif</span> <span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;db_name&#39;</span><span class="p">]:</span>
+    <span class="k">elif</span> <span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;db_name&#39;</span><span class="p">]:</span>
         <span class="c1"># In case --db-filter is not provided and --database is passed, Odoo will</span>
         <span class="c1"># use the value of --database as a comma seperated list of exposed databases.</span>
-        <span class="n">exposed_dbs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">db</span> <span class="ow">in</span> <span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;db_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
+        <span class="n">exposed_dbs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">db</span> <span class="ow">in</span> <span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;db_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
         <span class="n">dbs</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">exposed_dbs</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">dbs</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">dbs</span>
 
@@ -1639,7 +1639,7 @@
 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mtime</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">server_format</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">DEFAULT_SERVER_DATETIME_FORMAT</span>
+            <span class="n">server_format</span> <span class="o">=</span> <span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">DEFAULT_SERVER_DATETIME_FORMAT</span>
             <span class="n">mtime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">mtime</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">server_format</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="n">mtime</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1652,7 +1652,7 @@
         <span class="n">rv</span><span class="o">.</span><span class="n">expires</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="n">cache_timeout</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">add_etags</span> <span class="ow">and</span> <span class="n">filename</span> <span class="ow">and</span> <span class="n">mtime</span><span class="p">:</span>
-        <span class="n">rv</span><span class="o">.</span><span class="n">set_etag</span><span class="p">(</span><span class="s1">&#39;odoo-</span><span class="si">%s</span><span class="s1">-</span><span class="si">%s</span><span class="s1">-</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
+        <span class="n">rv</span><span class="o">.</span><span class="n">set_etag</span><span class="p">(</span><span class="s1">&#39;gerp-</span><span class="si">%s</span><span class="s1">-</span><span class="si">%s</span><span class="s1">-</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
             <span class="n">mtime</span><span class="p">,</span>
             <span class="n">size</span><span class="p">,</span>
             <span class="n">adler32</span><span class="p">(</span>
@@ -1669,7 +1669,7 @@
     <span class="k">return</span> <span class="n">rv</span>
 
 <span class="k">def</span> <span class="nf">content_disposition</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-    <span class="n">filename</span> <span class="o">=</span> <span class="n">odoo</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">ustr</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">ustr</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
     <span class="n">escaped</span> <span class="o">=</span> <span class="n">urls</span><span class="o">.</span><span class="n">url_quote</span><span class="p">(</span><span class="n">filename</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">))</span>
     <span class="n">browser</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">httprequest</span><span class="o">.</span><span class="n">user_agent</span><span class="o">.</span><span class="n">browser</span>
     <span class="n">version</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">request</span><span class="o">.</span><span class="n">httprequest</span><span class="o">.</span><span class="n">user_agent</span><span class="o">.</span><span class="n">version</span> <span class="ow">or</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>

@@ -144,17 +144,17 @@ Odoo's XML files, an overview
 -----------------------------
 
 Any Odoo XML file starts with encoding specifications.
-After that, you have to write your code inside a ``<odoo>`` tag.
+After that, you have to write your code inside a ``<gerp>`` tag.
 
 .. code-block:: xml
 
    [XML]
    <?xml version="1.0" encoding="utf-8" ?>
-   <odoo>
+   <gerp>
      
        ## YOUR CODE HERE
      
-   </odoo>
+   </gerp>
 
 Almost every element and option that you create has to be placed inside a ``<template>`` tag, like in this example.
 
@@ -223,7 +223,7 @@ Odoo’s themes are packaged like modules. Even if you are designing a very simp
 .. important::
 
   Use two underscore characters at the beginning
-  and two at the end of odoo and init file names.
+  and two at the end of gerp and init file names.
 
 The final result should be something like this:
 
@@ -253,7 +253,7 @@ These values will be used to identify your new theme in Odoo’s backend.
 
 The ``data`` property will contain the xml files list. Right now it’s empty, but we will add any new files created.
 
-``category`` defines your module category (always “Theme”) and, after a slash, the subcategory. You can use one subcategory from the Odoo Apps categories list. (https://www.odoo.com/apps/themes)
+``category`` defines your module category (always “Theme”) and, after a slash, the subcategory. You can use one subcategory from the Odoo Apps categories list. (https://www.gerp.com/apps/themes)
 
 
 ``depends`` specifies the modules needed by our theme to work properly. For our tutorial theme, we only need website. If you need blogging or eCommerce features as well, you have to add those modules too.
@@ -307,13 +307,13 @@ To do so, create a **layout.xml** file in your **views** folder and add the defa
 .. code-block:: xml
 
    <?xml version="1.0" encoding="utf-8" ?>
-   <odoo>
+   <gerp>
 
 
 
-   </odoo>
+   </gerp>
 
-Create a new template into the ``<odoo>`` tag, copy-pasting the following
+Create a new template into the ``<gerp>`` tag, copy-pasting the following
 code.
 
 .. code-block:: xml
@@ -371,13 +371,13 @@ Imagine that we want to create a specific layout for a Services page.
 For this page, we need to add a list of services to the top and give the client the possibility of setting the rest of the page’s layout using snippets.
 
 Inside your *views* folder, create a **pages.xml** file and add the
-default Odoo markup.  Inside ``<odoo>`` create a ``<template>`` tag, set the
+default Odoo markup.  Inside ``<gerp>`` create a ``<template>`` tag, set the
 ``page`` attribute to ``True`` and add your code into it.
 
 .. code-block:: xml
 
    <?xml version="1.0" encoding="utf-8" ?>
-   <odoo>
+   <gerp>
 
        <!-- === Services Page === -->
        <template name="Services page" id="website.services" page="True">
@@ -389,7 +389,7 @@ default Odoo markup.  Inside ``<odoo>`` create a ``<template>`` tag, set the
            </ul>
          </template>
 
-     </odoo>
+     </gerp>
 
 The page title will be the template ID. In our case *Services* (from ``website.services``)
 
@@ -427,7 +427,7 @@ can fill with snippets. To achieve this, just create a ``div`` with
 .. code-block:: xml
 
    <?xml version="1.0" encoding="utf-8" ?>
-   <odoo>
+   <gerp>
 
    <!-- === Services Page === -->
    <template name="Services page" id="website.services" page="True">
@@ -447,7 +447,7 @@ can fill with snippets. To achieve this, just create a ``div`` with
      </t>
    </template>
 
-   </odoo>
+   </gerp>
 
 .. tip::
 
@@ -787,8 +787,8 @@ the following code
 
     (function() {
         'use strict';
-        var website = odoo.website;
-        website.odoo_website = {};
+        var website = gerp.website;
+        website.gerp_website = {};
     })();
 
 Great, we successfully created our javascript editor file. This file will contain all the javascript functions used by our snippets in edit mode. Let’s create a new function for our testimonial snippet using the ``snippet_testimonial_options`` method that we created before.
@@ -797,8 +797,8 @@ Great, we successfully created our javascript editor file. This file will contai
 
    (function() {
        'use strict';
-       var website = odoo.website;
-       website.odoo_website = {};
+       var website = gerp.website;
+       website.gerp_website = {};
 
        website.snippet.options.snippet_testimonial_options = website.snippet.Option.extend({
            onFocus: function() {

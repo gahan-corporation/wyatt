@@ -45,8 +45,8 @@
 <div class="section" id="routing">
 <span id="reference-http-routing"></span><h2>Routing<a class="headerlink" href="#routing" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="odoo.http.route">
-<code class="descclassname">odoo.http.</code><code class="descname">route</code><span class="sig-paren">(</span><em>route=None</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/http.html#route"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.http.route" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.route">
+<code class="descclassname">gerp.http.</code><code class="descname">route</code><span class="sig-paren">(</span><em>route=None</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/http.html#route"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.http.route" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decorator marking the decorated method as being a handler for
 requests. The method must be part of a subclass of <code class="docutils literal"><span class="pre">Controller</span></code>.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -103,7 +103,7 @@ for e.g. forms):</p>
 <ul class="last">
 <li><p class="first">if the form is generated in Python, a csrf token is
 available via <code class="xref py py-meth docutils literal"><span class="pre">request.csrf_token()</span>
-<span class="pre">&lt;odoo.http.WebRequest.csrf_token()</span></code>, the
+<span class="pre">&lt;gerp.http.WebRequest.csrf_token()</span></code>, the
 <code class="xref py py-data docutils literal"><span class="pre">request</span></code> object is available by default
 in QWeb (python) templates, it may have to be added
 explicitly if you are not using QWeb.</p>
@@ -129,11 +129,11 @@ it is not called by an unrelated third-party).</p>
 </div>
 <div class="section" id="request">
 <span id="reference-http-request"></span><h2>Request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h2>
-<p>The request object is automatically set on <code class="xref py py-data docutils literal"><span class="pre">odoo.http.request</span></code> at
+<p>The request object is automatically set on <code class="xref py py-data docutils literal"><span class="pre">gerp.http.request</span></code> at
 the start of the request</p>
 <dl class="class">
-<dt id="odoo.http.WebRequest">
-<em class="property">class </em><code class="descclassname">odoo.http.</code><code class="descname">WebRequest</code><span class="sig-paren">(</span><em>httprequest</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/http.html#WebRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.http.WebRequest" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.WebRequest">
+<em class="property">class </em><code class="descclassname">gerp.http.</code><code class="descname">WebRequest</code><span class="sig-paren">(</span><em>httprequest</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/http.html#WebRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.http.WebRequest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parent class for all Odoo Web request types, mostly deals with
 initialization and setup of the request object (the dispatching itself has
 to be handled by the subclasses)</p>
@@ -146,73 +146,73 @@ to be handled by the subclasses)</p>
 </tbody>
 </table>
 <dl class="attribute">
-<dt id="odoo.http.WebRequest.httprequest">
-<code class="descname">httprequest</code><a class="headerlink" href="#odoo.http.WebRequest.httprequest" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.WebRequest.httprequest">
+<code class="descname">httprequest</code><a class="headerlink" href="#gerp.http.WebRequest.httprequest" title="Permalink to this definition">¶</a></dt>
 <dd><p>the original <code class="xref py py-class docutils literal"><span class="pre">werkzeug.wrappers.Request</span></code> object provided to the
 request</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.http.WebRequest.params">
-<code class="descname">params</code><a class="headerlink" href="#odoo.http.WebRequest.params" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.WebRequest.params">
+<code class="descname">params</code><a class="headerlink" href="#gerp.http.WebRequest.params" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference external" href="https://docs.python.org/2/library/collections.html#collections.Mapping" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">Mapping</span></code></a> of request parameters, not generally
 useful as they’re provided directly to the handler method as keyword
 arguments</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.http.WebRequest.cr">
-<code class="descname">cr</code><a class="headerlink" href="#odoo.http.WebRequest.cr" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.WebRequest.cr">
+<code class="descname">cr</code><a class="headerlink" href="#gerp.http.WebRequest.cr" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-class docutils literal"><span class="pre">Cursor</span></code> initialized for the current method call.</p>
 <p>Accessing the cursor when the current request uses the <code class="docutils literal"><span class="pre">none</span></code>
 authentication will raise an exception.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.http.WebRequest.context">
-<code class="descname">context</code><a class="headerlink" href="#odoo.http.WebRequest.context" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.WebRequest.context">
+<code class="descname">context</code><a class="headerlink" href="#gerp.http.WebRequest.context" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference external" href="https://docs.python.org/2/library/collections.html#collections.Mapping" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">Mapping</span></code></a> of context values for the current request</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.http.WebRequest.env">
-<code class="descname">env</code><a class="headerlink" href="#odoo.http.WebRequest.env" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.WebRequest.env">
+<code class="descname">env</code><a class="headerlink" href="#gerp.http.WebRequest.env" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <code class="xref py py-class docutils literal"><span class="pre">Environment</span></code> bound to current request.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.http.WebRequest.session">
-<code class="descname">session</code><a class="headerlink" href="#odoo.http.WebRequest.session" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.WebRequest.session">
+<code class="descname">session</code><a class="headerlink" href="#gerp.http.WebRequest.session" title="Permalink to this definition">¶</a></dt>
 <dd><p><code class="xref py py-class docutils literal"><span class="pre">OpenERPSession</span></code> holding the HTTP session data for the
 current http session</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.http.WebRequest.debug">
-<code class="descname">debug</code><a class="headerlink" href="#odoo.http.WebRequest.debug" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.WebRequest.debug">
+<code class="descname">debug</code><a class="headerlink" href="#gerp.http.WebRequest.debug" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates whether the current request is in “debug” mode</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.http.WebRequest.registry">
-<code class="descname">registry</code><a class="headerlink" href="#odoo.http.WebRequest.registry" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.WebRequest.registry">
+<code class="descname">registry</code><a class="headerlink" href="#gerp.http.WebRequest.registry" title="Permalink to this definition">¶</a></dt>
 <dd><p>The registry to the database linked to this request. Can be <code class="docutils literal"><span class="pre">None</span></code>
 if the current request uses the <code class="docutils literal"><span class="pre">none</span></code> authentication.</p>
 <div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 8.0: </span>use <a class="reference internal" href="#odoo.http.WebRequest.env" title="odoo.http.WebRequest.env"><code class="xref py py-attr docutils literal"><span class="pre">env</span></code></a></p>
+<p><span class="versionmodified">Deprecated since version 8.0: </span>use <a class="reference internal" href="#gerp.http.WebRequest.env" title="gerp.http.WebRequest.env"><code class="xref py py-attr docutils literal"><span class="pre">env</span></code></a></p>
 </div>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="odoo.http.WebRequest.db">
-<code class="descname">db</code><a class="headerlink" href="#odoo.http.WebRequest.db" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.WebRequest.db">
+<code class="descname">db</code><a class="headerlink" href="#gerp.http.WebRequest.db" title="Permalink to this definition">¶</a></dt>
 <dd><p>The database linked to this request. Can be <code class="docutils literal"><span class="pre">None</span></code>
 if the current request uses the <code class="docutils literal"><span class="pre">none</span></code> authentication.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.http.WebRequest.csrf_token">
-<code class="descname">csrf_token</code><span class="sig-paren">(</span><em>time_limit=3600</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/http.html#WebRequest.csrf_token"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.http.WebRequest.csrf_token" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.WebRequest.csrf_token">
+<code class="descname">csrf_token</code><span class="sig-paren">(</span><em>time_limit=3600</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/http.html#WebRequest.csrf_token"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.http.WebRequest.csrf_token" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates and returns a CSRF token for the current session</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -232,8 +232,8 @@ current user’s session is.</td>
 </dd></dl>
 
 <dl class="class">
-<dt id="odoo.http.HttpRequest">
-<em class="property">class </em><code class="descclassname">odoo.http.</code><code class="descname">HttpRequest</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/http.html#HttpRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.http.HttpRequest" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.HttpRequest">
+<em class="property">class </em><code class="descclassname">gerp.http.</code><code class="descname">HttpRequest</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/http.html#HttpRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.http.HttpRequest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handler for the <code class="docutils literal"><span class="pre">http</span></code> request type.</p>
 <p>matched routing parameters, query string parameters, <a class="reference external" href="http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.2">form</a> parameters
 and files are passed to the handler method as keyword arguments.</p>
@@ -247,8 +247,8 @@ and files are passed to the handler method as keyword arguments.</p>
 interpreted as HTML</li>
 </ul>
 <dl class="method">
-<dt id="odoo.http.HttpRequest.make_response">
-<code class="descname">make_response</code><span class="sig-paren">(</span><em>data</em>, <em>headers=None</em>, <em>cookies=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/http.html#HttpRequest.make_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.http.HttpRequest.make_response" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.HttpRequest.make_response">
+<code class="descname">make_response</code><span class="sig-paren">(</span><em>data</em>, <em>headers=None</em>, <em>cookies=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/http.html#HttpRequest.make_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.http.HttpRequest.make_response" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper for non-HTML responses, or HTML responses with custom
 response headers or cookies.</p>
 <p>While handlers can just return the HTML markup of a page they want to
@@ -271,15 +271,15 @@ interpreted by the clients.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.http.HttpRequest.not_found">
-<code class="descname">not_found</code><span class="sig-paren">(</span><em>description=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/http.html#HttpRequest.not_found"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.http.HttpRequest.not_found" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.HttpRequest.not_found">
+<code class="descname">not_found</code><span class="sig-paren">(</span><em>description=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/http.html#HttpRequest.not_found"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.http.HttpRequest.not_found" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shortcut for a <a class="reference external" href="http://tools.ietf.org/html/rfc7231#section-6.5.4">HTTP 404</a> (Not Found)
 response</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.http.HttpRequest.render">
-<code class="descname">render</code><span class="sig-paren">(</span><em>template</em>, <em>qcontext=None</em>, <em>lazy=True</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/http.html#HttpRequest.render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.http.HttpRequest.render" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.HttpRequest.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>template</em>, <em>qcontext=None</em>, <em>lazy=True</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/http.html#HttpRequest.render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.http.HttpRequest.render" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lazy render of a QWeb template.</p>
 <p>The actual rendering of the given template will occur at then end of
 the dispatching. Meanwhile, the template and/or qcontext can be
@@ -304,8 +304,8 @@ until the last possible moment</li>
 </dd></dl>
 
 <dl class="class">
-<dt id="odoo.http.JsonRequest">
-<em class="property">class </em><code class="descclassname">odoo.http.</code><code class="descname">JsonRequest</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/http.html#JsonRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.http.JsonRequest" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.JsonRequest">
+<em class="property">class </em><code class="descclassname">gerp.http.</code><code class="descname">JsonRequest</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/http.html#JsonRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.http.JsonRequest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request handler for <a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC 2</a> over HTTP</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">method</span></code> is ignored</li>
@@ -347,8 +347,8 @@ wrapped in the <a class="reference external" href="http://www.jsonrpc.org/specif
 <div class="section" id="response">
 <h2>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="odoo.http.Response">
-<em class="property">class </em><code class="descclassname">odoo.http.</code><code class="descname">Response</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/http.html#Response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.http.Response" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.Response">
+<em class="property">class </em><code class="descclassname">gerp.http.</code><code class="descname">Response</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/http.html#Response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.http.Response" title="Permalink to this definition">¶</a></dt>
 <dd><p>Response object passed through controller route chain.</p>
 <p>In addition to the <code class="xref py py-class docutils literal"><span class="pre">werkzeug.wrappers.Response</span></code> parameters, this
 class’s constructor can take the following additional parameters
@@ -372,14 +372,14 @@ can be altered at any time before rendering</p>
 <p>Also exposes all the attributes and methods of
 <code class="xref py py-class docutils literal"><span class="pre">werkzeug.wrappers.Response</span></code>.</p>
 <dl class="method">
-<dt id="odoo.http.Response.render">
-<code class="descname">render</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/http.html#Response.render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.http.Response.render" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.Response.render">
+<code class="descname">render</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/http.html#Response.render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.http.Response.render" title="Permalink to this definition">¶</a></dt>
 <dd><p>Renders the Response’s template, returns the result</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="odoo.http.Response.flatten">
-<code class="descname">flatten</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/odoo/http.html#Response.flatten"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odoo.http.Response.flatten" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.Response.flatten">
+<code class="descname">flatten</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gerp/http.html#Response.flatten"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gerp.http.Response.flatten" title="Permalink to this definition">¶</a></dt>
 <dd><p>Forces the rendering of the response’s template, sets the result
 as response body and unsets <code class="xref py py-attr docutils literal"><span class="pre">template</span></code></p>
 </dd></dl>
@@ -390,19 +390,19 @@ as response body and unsets <code class="xref py py-attr docutils literal"><span
 <div class="section" id="controllers">
 <span id="reference-http-controllers"></span><h2>Controllers<a class="headerlink" href="#controllers" title="Permalink to this headline">¶</a></h2>
 <p>Controllers need to provide extensibility, much like
-<a class="reference internal" href="orm.html#odoo.models.Model" title="odoo.models.Model"><code class="xref py py-class docutils literal"><span class="pre">Model</span></code></a>, but can’t use the same mechanism as the
+<a class="reference internal" href="orm.html#gerp.models.Model" title="gerp.models.Model"><code class="xref py py-class docutils literal"><span class="pre">Model</span></code></a>, but can’t use the same mechanism as the
 pre-requisites (a database with loaded modules) may not be available yet (e.g.
 no database created, or no database selected).</p>
 <p>Controllers thus provide their own extension mechanism, separate from that of
 models:</p>
 <p>Controllers are created by <span class="xref std std-ref">inheriting</span> from</p>
 <dl class="class">
-<dt id="odoo.http.Controller">
-<em class="property">class </em><code class="descclassname">odoo.http.</code><code class="descname">Controller</code><a class="headerlink" href="#odoo.http.Controller" title="Permalink to this definition">¶</a></dt>
+<dt id="gerp.http.Controller">
+<em class="property">class </em><code class="descclassname">gerp.http.</code><code class="descname">Controller</code><a class="headerlink" href="#gerp.http.Controller" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<p>and defining methods decorated with <a class="reference internal" href="#odoo.http.route" title="odoo.http.route"><code class="xref py py-func docutils literal"><span class="pre">route()</span></code></a>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">odoo</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
+<p>and defining methods decorated with <a class="reference internal" href="#gerp.http.route" title="gerp.http.route"><code class="xref py py-func docutils literal"><span class="pre">route()</span></code></a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">gerp</span><span class="o">.</span><span class="n">http</span><span class="o">.</span><span class="n">Controller</span><span class="p">):</span>
     <span class="nd">@route</span><span class="p">(</span><span class="s1">&#39;/some_url&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="s1">&#39;public&#39;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">stuff</span><span class="p">()</span>
@@ -418,7 +418,7 @@ class and override relevant methods, re-exposing them if necessary:</p>
 </pre></div>
 </div>
 <ul>
-<li><p class="first">decorating with <a class="reference internal" href="#odoo.http.route" title="odoo.http.route"><code class="xref py py-func docutils literal"><span class="pre">route()</span></code></a> is necessary to keep the method
+<li><p class="first">decorating with <a class="reference internal" href="#gerp.http.route" title="gerp.http.route"><code class="xref py py-func docutils literal"><span class="pre">route()</span></code></a> is necessary to keep the method
 (and route) visible: if the method is redefined without decorating, it
 will be “unpublished”</p>
 </li>

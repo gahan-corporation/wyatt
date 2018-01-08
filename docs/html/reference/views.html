@@ -63,7 +63,7 @@ inheritance</span></a></p>
 <dt><code class="docutils literal"><span class="pre">arch</span></code></dt>
 <dd>the description of the view’s layout</dd>
 <dt><code class="docutils literal"><span class="pre">groups_id</span></code></dt>
-<dd><a class="reference internal" href="orm.html#odoo.fields.Many2many" title="odoo.fields.Many2many"><code class="xref py py-class docutils literal"><span class="pre">Many2many</span></code></a> field to the groups allowed to view/use
+<dd><a class="reference internal" href="orm.html#gerp.fields.Many2many" title="gerp.fields.Many2many"><code class="xref py py-class docutils literal"><span class="pre">Many2many</span></code></a> field to the groups allowed to view/use
 the current view</dd>
 <dt><code class="docutils literal"><span class="pre">inherit_id</span></code></dt>
 <dd>the current view’s parent view, see <a class="reference internal" href="#reference-views-inheritance"><span class="std std-ref">Inheritance</span></a>,
@@ -393,8 +393,8 @@ record. Possible attributes are:</p>
 <dd>the name of the field to render</dd>
 <dt><code class="docutils literal"><span class="pre">widget</span></code></dt>
 <dd><p class="first">fields have a default rendering based on their type
-(e.g. <a class="reference internal" href="orm.html#odoo.fields.Char" title="odoo.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a>,
-<a class="reference internal" href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a>). The <code class="docutils literal"><span class="pre">widget</span></code> attributes allows using
+(e.g. <a class="reference internal" href="orm.html#gerp.fields.Char" title="gerp.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a>,
+<a class="reference internal" href="orm.html#gerp.fields.Many2one" title="gerp.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a>). The <code class="docutils literal"><span class="pre">widget</span></code> attributes allows using
 a different rendering method and context.</p>
 <div class="admonition-todo last admonition" id="index-0">
 <p class="first admonition-title">Todo</p>
@@ -417,7 +417,7 @@ statusbar_visible clickable)</p>
 <dd>only displays the field in the corresponding form mode</dd>
 <dt><code class="docutils literal"><span class="pre">oe_no_button</span></code></dt>
 <dd>avoids displaying the navigation button in a
-<a class="reference internal" href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a></dd>
+<a class="reference internal" href="orm.html#gerp.fields.Many2one" title="gerp.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a></dd>
 <dt><code class="docutils literal"><span class="pre">oe_avatar</span></code></dt>
 <dd>for image fields, displays images as “avatar” (square, 90x90 maximum
 size, some image decorations)</dd>
@@ -429,7 +429,7 @@ size, some image decorations)</dd>
 <dd><p class="first">calls the specified method when this field’s value is edited, can generate
 update other fields or display warnings for the user</p>
 <div class="last deprecated">
-<p><span class="versionmodified">Deprecated since version 8.0: </span>Use <a class="reference internal" href="orm.html#odoo.api.onchange" title="odoo.api.onchange"><code class="xref py py-func docutils literal"><span class="pre">odoo.api.onchange()</span></code></a> on the model</p>
+<p><span class="versionmodified">Deprecated since version 8.0: </span>Use <a class="reference internal" href="orm.html#gerp.api.onchange" title="gerp.api.onchange"><code class="xref py py-func docutils literal"><span class="pre">gerp.api.onchange()</span></code></a> on the model</p>
 </div>
 </dd>
 <dt><code class="docutils literal"><span class="pre">attrs</span></code></dt>
@@ -453,7 +453,7 @@ field is a direct child of a <code class="docutils literal"><span class="pre">gr
 complex forms. <em>Should not</em> be an example of data as users are liable to
 confuse placeholder text with filled fields</dd>
 <dt><code class="docutils literal"><span class="pre">mode</span></code></dt>
-<dd>for <a class="reference internal" href="orm.html#odoo.fields.One2many" title="odoo.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">One2many</span></code></a>, display mode (view type) to use for
+<dd>for <a class="reference internal" href="orm.html#gerp.fields.One2many" title="gerp.fields.One2many"><code class="xref py py-class docutils literal"><span class="pre">One2many</span></code></a>, display mode (view type) to use for
 the field’s linked records. One of <code class="docutils literal"><span class="pre">tree</span></code>, <code class="docutils literal"><span class="pre">form</span></code>, <code class="docutils literal"><span class="pre">kanban</span></code> or
 <code class="docutils literal"><span class="pre">graph</span></code>. The default is <code class="docutils literal"><span class="pre">tree</span></code> (a list display)</dd>
 <dt><code class="docutils literal"><span class="pre">help</span></code></dt>
@@ -462,7 +462,7 @@ the field’s linked records. One of <code class="docutils literal"><span class=
 <dd>for binary fields, name of the related field providing the name of the
 file</dd>
 <dt><code class="docutils literal"><span class="pre">password</span></code></dt>
-<dd>indicates that a <a class="reference internal" href="orm.html#odoo.fields.Char" title="odoo.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a> field stores a password and
+<dd>indicates that a <a class="reference internal" href="orm.html#gerp.fields.Char" title="gerp.fields.Char"><code class="xref py py-class docutils literal"><span class="pre">Char</span></code></a> field stores a password and
 that its data shouldn’t be displayed</dd>
 </dl>
 </dd>
@@ -706,7 +706,7 @@ product form looks like:</p>
 </div>
 <div class="section" id="tags">
 <h5>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h5>
-<p>Most <a class="reference internal" href="orm.html#odoo.fields.Many2many" title="odoo.fields.Many2many"><code class="xref py py-class docutils literal"><span class="pre">Many2many</span></code></a> fields, like categories, are better
+<p>Most <a class="reference internal" href="orm.html#gerp.fields.Many2many" title="gerp.fields.Many2many"><code class="xref py py-class docutils literal"><span class="pre">Many2many</span></code></a> fields, like categories, are better
 rendered as a list of tags. Use the widget <code class="docutils literal"><span class="pre">many2many_tags</span></code> for this:</p>
 <img alt="../_images/screenshot-04.png" class="img-responsive" src="../_images/screenshot-04.png" />
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;category_id&quot;</span> <span class="na">widget=</span><span class="s">&quot;many2many_tags&quot;</span><span class="nt">/&gt;</span>
@@ -880,8 +880,8 @@ template context and don’t need to be accessed via <code class="docutils liter
 <dd>an object with all the requested fields as its attributes. Each field has
 two attributes <code class="docutils literal"><span class="pre">value</span></code> and <code class="docutils literal"><span class="pre">raw_value</span></code>, the former is formatted
 according to current user parameters, the latter is the direct value from
-a <a class="reference internal" href="orm.html#odoo.models.Model.read" title="odoo.models.Model.read"><code class="xref py py-meth docutils literal"><span class="pre">read()</span></code></a> (except for date and datetime fields
-that are <a class="reference external" href="https://github.com/odoo/odoo/blob/a678bd4e/addons/web_kanban/static/src/js/kanban_record.js#L102">formatted according to user’s locale</a>)</dd>
+a <a class="reference internal" href="orm.html#gerp.models.Model.read" title="gerp.models.Model.read"><code class="xref py py-meth docutils literal"><span class="pre">read()</span></code></a> (except for date and datetime fields
+that are <a class="reference external" href="https://github.com/gerp/gerp/blob/a678bd4e/addons/web_kanban/static/src/js/kanban_record.js#L102">formatted according to user’s locale</a>)</dd>
 <dt><code class="docutils literal"><span class="pre">read_only_mode</span></code></dt>
 <dd><p class="first">self-explanatory</p>
 <p class="rubric">buttons and fields</p>
@@ -1091,10 +1091,10 @@ is <code class="docutils literal"><span class="pre">grey</span></code>.</dd>
 <dt><code class="docutils literal"><span class="pre">object</span></code> (required)</dt>
 <dd>the edge’s Odoo model</dd>
 <dt><code class="docutils literal"><span class="pre">source</span></code> (required)</dt>
-<dd><a class="reference internal" href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a> field of the edge’s model pointing to
+<dd><a class="reference internal" href="orm.html#gerp.fields.Many2one" title="gerp.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a> field of the edge’s model pointing to
 the edge’s source node record</dd>
 <dt><code class="docutils literal"><span class="pre">destination</span></code> (required)</dt>
-<dd><a class="reference internal" href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a> field of the edge’s model pointing to
+<dd><a class="reference internal" href="orm.html#gerp.fields.Many2one" title="gerp.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a> field of the edge’s model pointing to
 the edge’s destination node record</dd>
 <dt><code class="docutils literal"><span class="pre">label</span></code></dt>
 <dd>Python list of attributes (as quoted strings). The corresponding
@@ -1163,10 +1163,10 @@ values, set <code class="docutils literal"><span class="pre">filter_domain</span
 <dt><code class="docutils literal"><span class="pre">widget</span></code></dt>
 <dd>use specific search widget for the field (the only use case in
 standard Odoo 8.0 is a <code class="docutils literal"><span class="pre">selection</span></code> widget for
-<a class="reference internal" href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a> fields)</dd>
+<a class="reference internal" href="orm.html#gerp.fields.Many2one" title="gerp.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a> fields)</dd>
 <dt><code class="docutils literal"><span class="pre">domain</span></code></dt>
 <dd>if the field can provide an auto-completion
-(e.g. <a class="reference internal" href="orm.html#odoo.fields.Many2one" title="odoo.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a>), filters the possible
+(e.g. <a class="reference internal" href="orm.html#gerp.fields.Many2one" title="gerp.fields.Many2one"><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code></a>), filters the possible
 completion results.</dd>
 </dl>
 </dd>

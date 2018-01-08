@@ -43,7 +43,7 @@ can take the following attributes:
 ``report_name``
     the name of your report (which will be the name of the PDF output)
 ``groups``
-    :class:`~odoo.fields.Many2many` field to the groups allowed to view/use
+    :class:`~gerp.fields.Many2many` field to the groups allowed to view/use
     the current report
 ``attachment_use``
     if set to True, the report will be stored as an attachment of the record
@@ -286,7 +286,7 @@ the function ``render_html`` and pass objects in the ``docargs`` dictionary:
 
 .. code-block:: python
 
-    from odoo import api, models
+    from gerp import api, models
 
     class ParticularReport(models.AbstractModel):
         _name = 'report.module.report_name'

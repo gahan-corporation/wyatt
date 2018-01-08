@@ -8,6 +8,6 @@ Web Services
 .. toctree::
     :titlesonly:
 
-    webservices/odoo
+    webservices/gerp
     webservices/iap
     webservices/upgrade

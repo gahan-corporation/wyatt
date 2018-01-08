@@ -27,7 +27,7 @@ extensions = [
     'sphinx.ext.linkcode',
     'autojsdoc.ext',
     'github_link',
-    'odoo_ext',
+    'gerp_ext',
     'html_domain',
     'exercise_admonition',
     'patchqueue'
@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'odoo'
+project = u'gerp'
 copyright = u'Odoo S.A.'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -84,7 +84,7 @@ add_function_parentheses = True
 #show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'odoo'
+pygments_style = 'gerp'
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
@@ -93,9 +93,9 @@ pygments_style = 'odoo'
 # -- Options for HTML output ---------------------------------------------------
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'odoo_ext'
+html_theme = 'gerp_ext'
 
-odoo_cover_default = 'banners/installing_odoo.jpg'
+gerp_cover_default = 'banners/installing_gerp.jpg'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -184,8 +184,8 @@ intersphinx_mapping = {
     'django': ('https://django.readthedocs.org/en/latest/', None),
 }
 
-github_user = 'odoo'
-github_project = 'odoo'
+github_user = 'gerp'
+github_project = 'gerp'
 
 # monkeypatch PHP lexer to not require <?php
 from sphinx.highlighting import lexers

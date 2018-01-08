@@ -6,7 +6,7 @@ I declare that I am authorized and able to make this agreement and sign this dec
 
 Signed,
 
-Odoo-Group-Ecuador odoo.group.ecuador@gmail.com https://www.github.com/odoo-group-ecuador
+Odoo-Group-Ecuador gerp.group.ecuador@gmail.com https://www.github.com/gerp-group-ecuador
 
 List of contributors:
 

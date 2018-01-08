@@ -1,4 +1,4 @@
-odoo.define('web.base_setting_test', function (require) {
+gerp.define('web.base_setting_test', function (require) {
 "use strict";
 
 var core = require('web.core');

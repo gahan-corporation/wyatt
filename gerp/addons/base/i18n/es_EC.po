@@ -26,7 +26,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-18 14:07+0000\n"
 "PO-Revision-Date: 2016-04-12 05:46+0000\n"
 "Last-Translator: Rick Hunter <rick_hunter_ec@yahoo.com>\n"
-"Language-Team: Spanish (Ecuador) (http://www.transifex.com/odoo/odoo-9/"
+"Language-Team: Spanish (Ecuador) (http://www.transifex.com/gerp/gerp-9/"
 "language/es_EC/)\n"
 "Language: es_EC\n"
 "MIME-Version: 1.0\n"
@@ -147,7 +147,7 @@ msgid ""
 "requirements which might arise from POS implementation. [1]  You may not "
 "need to use these at all under normal circumstances.\n"
 "\n"
-"[1] See https://github.com/odoo/odoo/pull/6470 for detail.\n"
+"[1] See https://github.com/gerp/gerp/pull/6470 for detail.\n"
 "\n"
 "    "
 msgstr ""
@@ -170,7 +170,7 @@ msgstr ""
 "que no sea necesario usar esto en su totalidad bajo circunstancias "
 "normales.\n"
 "\n"
-"[1] Ver https://github.com/odoo/odoo/pull/6470 para más detalles.\n"
+"[1] Ver https://github.com/gerp/gerp/pull/6470 para más detalles.\n"
 "\n"
 "    "
 
@@ -3225,7 +3225,7 @@ msgstr ""
 "        "
 
 #. module: base
-#: model:ir.module.module,description:base.module_im_odoo_support
+#: model:ir.module.module,description:base.module_im_gerp_support
 msgid ""
 "\n"
 "Odoo Live Support\n"
@@ -4887,7 +4887,7 @@ msgid ""
 "rejestrów podatkowych. Moduł ustawia też konta do kupna i sprzedaży towarów\n"
 "zakładając, że wszystkie towary są w obrocie hurtowym.\n"
 "\n"
-"Niniejszy moduł jest przeznaczony dla odoo 8.0.\n"
+"Niniejszy moduł jest przeznaczony dla gerp 8.0.\n"
 "Wewnętrzny numer wersji OpenGLOBE 1.02\n"
 "    "
 msgstr ""
@@ -8792,7 +8792,7 @@ msgid "Chat With Your Website Visitors"
 msgstr "Charle con los visitantes de su sitio web"
 
 #. module: base
-#: model:ir.module.module,summary:base.module_im_odoo_support
+#: model:ir.module.module,summary:base.module_im_gerp_support
 msgid "Chat with the Odoo collaborators"
 msgstr "Conversar con los colaboradores de Odoo"
 
@@ -14783,7 +14783,7 @@ msgid "Odoo Enterprise Edition License v1.0"
 msgstr "Odoo Enterprise Edition License v1.0"
 
 #. module: base
-#: model:ir.module.module,shortdesc:base.module_im_odoo_support
+#: model:ir.module.module,shortdesc:base.module_im_gerp_support
 msgid "Odoo Live Support"
 msgstr "Soporte de Odoo en vivo"
 
@@ -20049,8 +20049,8 @@ msgstr "Por ejemplo, es_ES"
 #: model:ir.ui.view,arch_db:base.view_company_form
 #: model:ir.ui.view,arch_db:base.view_partner_address_form
 #: model:ir.ui.view,arch_db:base.view_partner_form
-msgid "e.g. www.odoo.com"
-msgstr "Por ejemplo, www.odoo.com"
+msgid "e.g. www.gerp.com"
+msgstr "Por ejemplo, www.gerp.com"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_sale
@@ -22387,7 +22387,7 @@ msgstr "Islas Åland"
 #~ msgstr "Venta por Ebay"
 
 #~ msgid "See http://openerp.com"
-#~ msgstr "ver http://odoo.com"
+#~ msgstr "ver http://gerp.com"
 
 #~ msgid ""
 #~ "Select this if you want to set company's address information  for this "

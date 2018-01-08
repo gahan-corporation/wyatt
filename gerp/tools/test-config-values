@@ -9,10 +9,10 @@ import threading
 import traceback
 import time
 
-import odoo
+import gerp
 
-odoo.tools.config.parse_config(sys.argv[1:])
-config = odoo.tools.config
+gerp.tools.config.parse_config(sys.argv[1:])
+config = gerp.tools.config
 
 for name in [
     'db_name',

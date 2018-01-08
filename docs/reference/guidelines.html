@@ -40,8 +40,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="odoo-guidelines">
-<h1>Odoo Guidelines<a class="headerlink" href="#odoo-guidelines" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="gerp-guidelines">
+<h1>Odoo Guidelines<a class="headerlink" href="#gerp-guidelines" title="Permalink to this headline">¶</a></h1>
 <p>This page introduces the new Odoo Coding Guidelines. Those aim to improve the quality of the code (e.g. better readability of source) and Odoo Apps. Indeed, proper code eases maintenance, aids debugging, lowers complexity and promotes reliability.</p>
 <p>These guidelines should be applied to every new module, and new developpment. These guidelines will be applied to old module <strong>only</strong> in case of code refactoring (migration to new API, big refactoring, …).</p>
 <div class="admonition warning">
@@ -50,7 +50,7 @@
 modifying existing files, the original style of the file strictly supersedes
 any other style guidelines. In other words, never modify existing files in
 order to apply these guidelines, to avoid disrupting the revision history of
-each line. For more details, see our <a class="reference external" href="https://odoo.com/submit-pr">pull request guide</a>.</p>
+each line. For more details, see our <a class="reference external" href="https://gerp.com/submit-pr">pull request guide</a>.</p>
 </div>
 <div class="section" id="module-structure">
 <h2>Module structure<a class="headerlink" href="#module-structure" title="Permalink to this headline">¶</a></h2>
@@ -192,7 +192,7 @@ action/menu/views, this convention may not be applicable.</li>
 <li>Use naming convention defined at the next point</li>
 <li>The tag <em>&lt;data&gt;</em> is only used to set not-updatable data with <code class="docutils literal"><span class="pre">noupdate=1</span></code>.
 If there is only not-updatable data in the file, the <code class="docutils literal"><span class="pre">noupdate=1</span></code> can be
-set on the <code class="docutils literal"><span class="pre">&lt;odoo&gt;</span></code> tag and do not set a <code class="docutils literal"><span class="pre">&lt;data&gt;</span></code> tag.</li>
+set on the <code class="docutils literal"><span class="pre">&lt;gerp&gt;</span></code> tag and do not set a <code class="docutils literal"><span class="pre">&lt;data&gt;</span></code> tag.</li>
 </ul>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;record</span> <span class="na">id=</span><span class="s">&quot;view_id&quot;</span> <span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>view.name<span class="nt">&lt;/field&gt;</span>
@@ -327,7 +327,7 @@ source code tries to respect Python standard, but some of them can be ignored.</
 <p>The imports are ordered as</p>
 <ol class="arabic simple">
 <li>External libraries (one per line sorted and split in python stdlib)</li>
-<li>Imports of <code class="docutils literal"><span class="pre">odoo</span></code></li>
+<li>Imports of <code class="docutils literal"><span class="pre">gerp</span></code></li>
 <li>Imports from Odoo modules (rarely, and only if necessary)</li>
 </ol>
 <p>Inside these 3 groups, the imported lines are alphabetically sorted.</p>
@@ -336,14 +336,14 @@ source code tries to respect Python standard, but some of them can be ignored.</
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="c1"># 2 :  imports of odoo</span>
-<span class="kn">import</span> <span class="nn">odoo</span>
-<span class="kn">from</span> <span class="nn">odoo</span> <span class="kn">import</span> <span class="n">api</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">models</span> <span class="c1"># alphabetically ordered</span>
-<span class="kn">from</span> <span class="nn">odoo.tools.safe_eval</span> <span class="kn">import</span> <span class="n">safe_eval</span> <span class="k">as</span> <span class="nb">eval</span>
-<span class="kn">from</span> <span class="nn">odoo.tools.translate</span> <span class="kn">import</span> <span class="n">_</span>
-<span class="c1"># 3 :  imports from odoo modules</span>
-<span class="kn">from</span> <span class="nn">odoo.addons.website.models.website</span> <span class="kn">import</span> <span class="n">slug</span>
-<span class="kn">from</span> <span class="nn">odoo.addons.web.controllers.main</span> <span class="kn">import</span> <span class="n">login_redirect</span>
+<span class="c1"># 2 :  imports of gerp</span>
+<span class="kn">import</span> <span class="nn">gerp</span>
+<span class="kn">from</span> <span class="nn">gerp</span> <span class="kn">import</span> <span class="n">api</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">models</span> <span class="c1"># alphabetically ordered</span>
+<span class="kn">from</span> <span class="nn">gerp.tools.safe_eval</span> <span class="kn">import</span> <span class="n">safe_eval</span> <span class="k">as</span> <span class="nb">eval</span>
+<span class="kn">from</span> <span class="nn">gerp.tools.translate</span> <span class="kn">import</span> <span class="n">_</span>
+<span class="c1"># 3 :  imports from gerp modules</span>
+<span class="kn">from</span> <span class="nn">gerp.addons.website.models.website</span> <span class="kn">import</span> <span class="n">slug</span>
+<span class="kn">from</span> <span class="nn">gerp.addons.web.controllers.main</span> <span class="kn">import</span> <span class="n">login_redirect</span>
 </pre></div>
 </div>
 </div>
@@ -493,8 +493,8 @@ interesting: <a class="reference external" href="http://python.net/~goodger/proj
 (a little bit outdated, but quite relevant)</li>
 </ul>
 </div>
-<div class="section" id="programming-in-odoo">
-<h3>Programming in Odoo<a class="headerlink" href="#programming-in-odoo" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="programming-in-gerp">
+<h3>Programming in Odoo<a class="headerlink" href="#programming-in-gerp" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Avoid to create generators and decorators: only use the ones provided by
 the Odoo API.</li>
@@ -686,7 +686,7 @@ they can and will be removed !</p>
 a static string used in the code needs to be translated at runtime using the
 language of the context. This pseudo-method is accessed within your code by
 importing as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odoo.tools.translate</span> <span class="kn">import</span> <span class="n">_</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gerp.tools.translate</span> <span class="kn">import</span> <span class="n">_</span>
 </pre></div>
 </div>
 <p>A few very important rules must be followed when using it, in order for it to
@@ -898,7 +898,7 @@ using the <code class="docutils literal"><span class="pre">if_dom_contains</span
 element which is specific to the pages your code needs to run on
 using JQuery.</li>
 </ul>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">odoo</span><span class="p">.</span><span class="nx">website</span><span class="p">.</span><span class="nx">if_dom_contains</span><span class="p">(</span><span class="s1">&#39;.jquery_class_selector&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">gerp</span><span class="p">.</span><span class="nx">website</span><span class="p">.</span><span class="nx">if_dom_contains</span><span class="p">(</span><span class="s1">&#39;.jquery_class_selector&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="cm">/*your code here*/</span>
 <span class="p">});</span>
 </pre></div>

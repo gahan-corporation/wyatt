@@ -46,23 +46,23 @@
 <p class="first admonition-title">Warning</p>
 <p class="last">This tutorial requires <a class="reference internal" href="../setup/install.html#setup-install"><span class="std std-ref">having installed Odoo</span></a></p>
 </div>
-<div class="section" id="start-stop-the-odoo-server">
-<h2>Start/Stop the Odoo server<a class="headerlink" href="#start-stop-the-odoo-server" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="start-stop-the-gerp-server">
+<h2>Start/Stop the Odoo server<a class="headerlink" href="#start-stop-the-gerp-server" title="Permalink to this headline">¶</a></h2>
 <p>Odoo uses a client/server architecture in which clients are web browsers
 accessing the Odoo server via RPC.</p>
 <p>Business logic and extension is generally performed on the server side,
 although supporting client features (e.g. new data representation such as
 interactive maps) can be added to the client.</p>
-<p>In order to start the server, simply invoke the command <a class="reference internal" href="../reference/cmdline.html#reference-cmdline"><span class="std std-ref">odoo-bin</span></a> in the shell, adding the full path to the file if
+<p>In order to start the server, simply invoke the command <a class="reference internal" href="../reference/cmdline.html#reference-cmdline"><span class="std std-ref">gerp-bin</span></a> in the shell, adding the full path to the file if
 necessary:</p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">odoo</span><span class="o">-</span><span class="nb">bin</span>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">gerp</span><span class="o">-</span><span class="nb">bin</span>
 </pre></div>
 </div>
 <p>The server is stopped by hitting <code class="docutils literal"><span class="pre">Ctrl-C</span></code> twice from the terminal, or by
 killing the corresponding OS process.</p>
 </div>
-<div class="section" id="build-an-odoo-module">
-<h2>Build an Odoo module<a class="headerlink" href="#build-an-odoo-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="build-an-gerp-module">
+<h2>Build an Odoo module<a class="headerlink" href="#build-an-gerp-module" title="Permalink to this headline">¶</a></h2>
 <p>Both server and client extensions are packaged as <em>modules</em> which are
 optionally loaded in a <em>database</em>.</p>
 <p>Odoo modules can either add brand new business logic to an Odoo system, or
@@ -89,7 +89,7 @@ data (modules parameterization), demonstration data and more</dd>
 <div class="section" id="module-structure">
 <h3>Module structure<a class="headerlink" href="#module-structure" title="Permalink to this headline">¶</a></h3>
 <p>Each module is a directory within a <em>module directory</em>. Module directories
-are specified by using the <a class="reference internal" href="../reference/cmdline.html#cmdoption-odoo-bin-addons-path"><code class="xref std std-option docutils literal"><span class="pre">--addons-path</span></code></a>
+are specified by using the <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-addons-path"><code class="xref std std-option docutils literal"><span class="pre">--addons-path</span></code></a>
 option.</p>
 <div class="aphorism admonition tip">
 <p class="first admonition-title">Tip</p>
@@ -107,8 +107,8 @@ might contain:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">mymodule</span>
 </pre></div>
 </div>
-<p>Odoo provides a mechanism to help set up a new module, <a class="reference internal" href="../reference/cmdline.html#reference-cmdline-server"><span class="std std-ref">odoo-bin</span></a> has a subcommand <a class="reference internal" href="../reference/cmdline.html#reference-cmdline-scaffold"><span class="std std-ref">scaffold</span></a> to create an empty module:</p>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> odoo-bin scaffold &lt;module name&gt; &lt;where to put it&gt;
+<p>Odoo provides a mechanism to help set up a new module, <a class="reference internal" href="../reference/cmdline.html#reference-cmdline-server"><span class="std std-ref">gerp-bin</span></a> has a subcommand <a class="reference internal" href="../reference/cmdline.html#reference-cmdline-scaffold"><span class="std std-ref">scaffold</span></a> to create an empty module:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> gerp-bin scaffold &lt;module name&gt; &lt;where to put it&gt;
 </pre></div>
 </div>
 <p>The command creates a subdirectory for your module, and automatically creates a
@@ -128,7 +128,7 @@ definition. The most important attribute is
 <code class="xref py py-attr docutils literal"><span class="pre">_name</span></code> which is required and defines the name for
 the model in the Odoo system. Here is a minimally complete definition of a
 model:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odoo</span> <span class="k">import</span> <span class="n">models</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gerp</span> <span class="k">import</span> <span class="n">models</span>
 <span class="k">class</span> <span class="nc">MinimalModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;test.model&#39;</span>
 </pre></div>
@@ -138,7 +138,7 @@ model:</p>
 <h3>Model fields<a class="headerlink" href="#model-fields" title="Permalink to this headline">¶</a></h3>
 <p>Fields are used to define what the model can store and where. Fields are
 defined as attributes on the model class:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odoo</span> <span class="k">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fields</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gerp</span> <span class="k">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fields</span>
 
 <span class="k">class</span> <span class="nc">LessMinimalModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;test.model2&#39;</span>
@@ -210,13 +210,13 @@ overridden by setting <code class="xref py py-attr docutils literal"><span class
 <p>Module data is declared via <a class="reference internal" href="../reference/data.html#reference-data"><span class="std std-ref">data files</span></a>, XML files with
 <code class="docutils literal"><span class="pre">&lt;record&gt;</span></code> elements. Each <code class="docutils literal"><span class="pre">&lt;record&gt;</span></code> element creates or updates a database
 record.</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;odoo&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;gerp&gt;</span>
 
         <span class="nt">&lt;record</span> <span class="na">model=</span><span class="s">&quot;{model name}&quot;</span> <span class="na">id=</span><span class="s">&quot;{record identifier}&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;{a field name}&quot;</span><span class="nt">&gt;</span>{a value}<span class="nt">&lt;/field&gt;</span>
         <span class="nt">&lt;/record&gt;</span>
 
-<span class="nt">&lt;/odoo&gt;</span>
+<span class="nt">&lt;/gerp&gt;</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -556,7 +556,7 @@ itself a collection of size 1. You can access/assign fields on single
 records by using the dot notation, like <code class="docutils literal"><span class="pre">record.name</span></code>.</p>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">from</span> <span class="nn">odoo</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">api</span>
+<span class="kn">from</span> <span class="nn">gerp</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">api</span>
 
 <span class="k">class</span> <span class="nc">ComputedModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;test.computed&#39;</span>
@@ -576,7 +576,7 @@ the computed record. The ORM expects the developer to specify those dependencies
 on the compute method with the decorator <code class="xref py py-func docutils literal"><span class="pre">depends()</span></code>.
 The given dependencies are used by the ORM to trigger the recomputation of the
 field whenever some of its dependencies have been modified:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odoo</span> <span class="k">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">api</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gerp</span> <span class="k">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">api</span>
 
 <span class="k">class</span> <span class="nc">ComputedModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;test.computed&#39;</span>
@@ -661,7 +661,7 @@ the <code class="docutils literal"><span class="pre">taken_seats</span></code> p
 specifies which fields are involved in the constraint, so that the constraint is
 automatically evaluated when one of them is modified. The method is expected to
 raise an exception if its invariant is not satisfied:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">odoo.exceptions</span> <span class="k">import</span> <span class="n">ValidationError</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gerp.exceptions</span> <span class="k">import</span> <span class="n">ValidationError</span>
 
 <span class="nd">@api</span><span class="o">.</span><span class="n">constrains</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">_check_something</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -952,7 +952,7 @@ for editing and merging PO/POT files.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">The Portable Object files generated by Odoo are published on
-<a class="reference external" href="https://www.transifex.com/odoo/public/">Transifex</a>, making it
+<a class="reference external" href="https://www.transifex.com/gerp/public/">Transifex</a>, making it
 easy to translate the software.</p>
 </div>
 <div class="highlight-text"><div class="highlight"><pre><span></span>|- idea/ # The module directory
@@ -967,7 +967,7 @@ easy to translate the software.</p>
 <p class="first admonition-title">Tip</p>
 <p class="last">By default Odoo’s POT export only extracts labels inside XML files or
 inside field definitions in Python code, but any Python string can be
-translated this way by surrounding it with the function <code class="xref py py-func docutils literal"><span class="pre">odoo._()</span></code>
+translated this way by surrounding it with the function <code class="xref py py-func docutils literal"><span class="pre">gerp._()</span></code>
 (e.g. <code class="docutils literal"><span class="pre">_(&quot;Label&quot;)</span></code>)</p>
 </div>
 </div>
