@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_forum
 # 
@@ -11,7 +11,7 @@
 # NOKA Shigekazu <shigekazu.noka@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 09:00+0000\n"
 "PO-Revision-Date: 2017-10-24 09:00+0000\n"
@@ -2549,8 +2549,8 @@ msgstr "フラグが設定されたキューは空です。"
 #: model:forum.forum,faq:website_forum.forum_help
 msgid ""
 "The goal of this site is create a relevant knowledge base that would answer\n"
-"    questions related to Odoo."
-msgstr "このサイトの目的は、Odooに関する質問に答える関連ナレッジベースを作成することです。"
+"    questions related to Gerp."
+msgstr "このサイトの目的は、Gerpに関する質問に答える関連ナレッジベースを作成することです。"
 
 #. module: website_forum
 #: model:ir.ui.view,arch_db:website_forum.moderation_queue
@@ -3104,8 +3104,8 @@ msgstr "ここ"
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
-msgid "how to configure or customize Odoo to specific business needs,"
-msgstr "Odooを特定のビジネスニーズに合わせて構成またはカスタマイズする方法、"
+msgid "how to configure or customize Gerp to specific business needs,"
+msgstr "Gerpを特定のビジネスニーズに合わせて構成またはカスタマイズする方法、"
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
@@ -3114,8 +3114,8 @@ msgstr "あなた自身の必要に応じてにモジュールを開発する方
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
-msgid "how to install Odoo on a specific infrastructure,"
-msgstr "Odooを特定のインフラストラクチャにインストールする方法、"
+msgid "how to install Gerp on a specific infrastructure,"
+msgstr "Gerpを特定のインフラストラクチャにインストールする方法、"
 
 #. module: website_forum
 #. openerp-web
@@ -3229,7 +3229,7 @@ msgstr ""
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
-msgid "specific questions about Odoo service offers, etc."
+msgid "specific questions about Gerp service offers, etc."
 msgstr ""
 
 #. module: website_forum
@@ -3303,7 +3303,7 @@ msgstr "ウェブサイト"
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
-msgid "what's the best way to use Odoo for a specific business need,"
+msgid "what's the best way to use Gerp for a specific business need,"
 msgstr ""
 
 #. module: website_forum

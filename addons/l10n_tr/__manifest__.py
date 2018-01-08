@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Turkey - Accounting',
     'version': '1.0',
     'category': 'Localization',
     'description': """
-Türkiye için Tek düzen hesap planı şablonu Odoo Modülü.
+Türkiye için Tek düzen hesap planı şablonu Gerp Modülü.
 ==========================================================
 
 Bu modül kurulduktan sonra, Muhasebe yapılandırma sihirbazı çalışır

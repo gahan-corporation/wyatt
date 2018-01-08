@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 {
     'name': 'Website Wishlist',
     'description': 'Let returning shoppers save products in a wishlist',
-    'author': 'Odoo SA',
+    'author': 'Gerp SA',
     'website': 'https://www.gerp.com',
     'category': 'Website',
     'version': '1.0',

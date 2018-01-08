@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_links
 #
@@ -6,7 +6,7 @@
 # Jaroslav Bosansky <jaro.bosansky@ekoenergo.sk>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: Gerp 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2016-05-03 05:47+0000\n"
@@ -168,10 +168,10 @@ msgstr "štatistiky"
 #, fuzzy
 msgid ""
 "Those trackers can be used in Google Analytics to track clicks and visitors, "
-"or in Odoo reports to track opportunities and related revenues."
+"or in Gerp reports to track opportunities and related revenues."
 msgstr ""
 "Tieto trackery môžu byť použité v Google Analytics na sledovanie kliknutí a "
-"návštevníkov, alebo v Odoo na ohlsovanie sledovania príležitostí a "
+"návštevníkov, alebo v Gerp na ohlsovanie sledovania príležitostí a "
 "súvisiacich výnosov."
 
 #. module: website_links

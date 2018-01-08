@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_links
 # 
@@ -10,7 +10,7 @@
 # Eric Geens <ericgeens@yahoo.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-20 09:54+0000\n"
 "PO-Revision-Date: 2017-09-20 09:54+0000\n"
@@ -201,10 +201,10 @@ msgstr "Er is geen data om te tonen"
 #: model:ir.ui.view,arch_db:website_links.create_shorten_url
 msgid ""
 "Those trackers can be used in Google Analytics to track clicks and visitors,"
-" or in Odoo reports to track opportunities and related revenues."
+" or in Gerp reports to track opportunities and related revenues."
 msgstr ""
 "Deze trackers kunnen worden gebruikt in Google Analytics om klikken en "
-"bezoekers te volgen, of in Odoo rapportages om prospects en omzet te volgen."
+"bezoekers te volgen, of in Gerp rapportages om prospects en omzet te volgen."
 
 #. module: website_links
 #: model:ir.ui.view,arch_db:website_links.create_shorten_url

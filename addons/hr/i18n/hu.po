@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * hr
 # 
@@ -9,7 +9,7 @@
 # tdombos <tdombos@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
@@ -337,8 +337,8 @@ msgstr "Határozzon meg egy átlátható kommunikációs stratégiát"
 
 #. module: hr
 #: model:hr.job,website_description:hr.job_consultant
-msgid "Deliver generic Odoo functional training sessions"
-msgstr "Nyújtson általános Odoo rendszer gyakorlati oktatási szakaszokat"
+msgid "Deliver generic Gerp functional training sessions"
+msgstr "Nyújtson általános Gerp rendszer gyakorlati oktatási szakaszokat"
 
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_employee_department_id
@@ -856,7 +856,7 @@ msgstr "A felvenni kívánt alkalmazottak száma"
 #. module: hr
 #: model:ir.actions.act_window,help:hr.open_module_tree_department
 msgid ""
-"Odoo's department structure is used to manage all documents\n"
+"Gerp's department structure is used to manage all documents\n"
 "                related to employees by departments: expenses, timesheets,\n"
 "                leaves, recruitments, etc."
 msgstr ""
@@ -1308,11 +1308,11 @@ msgstr "Be fog számolni a  Szak Szolgáltatások Vezetőségének"
 #: model:ir.actions.act_window,help:hr.act_employee_from_department
 #: model:ir.actions.act_window,help:hr.open_view_employee_list_my
 msgid ""
-"With just a quick glance on the Odoo employee screen, you\n"
+"With just a quick glance on the Gerp employee screen, you\n"
 "                can easily find all the information you need for each person;\n"
 "                contact data, job position, availability, etc."
 msgstr ""
-"Az Odoo rendszer munkavállalói képernyőn szempillantás alatt\n"
+"Az Gerp rendszer munkavállalói képernyőn szempillantás alatt\n"
 "könnyen megtalálja az összes személyhez a kívánt információkat; \n"
 "kapcsolati adatok, munka pozíció, elérhetőség, stb."
 

@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * project
 # 
@@ -17,7 +17,7 @@
 # Ayhan KIZILTAN <akiziltan76@hotmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:25+0000\n"
 "PO-Revision-Date: 2017-10-02 11:25+0000\n"
@@ -52,7 +52,7 @@ msgid ""
 "                    <tr>\n"
 "                        <td style=\"padding:15px 10px;font-size:20px\">\n"
 "                            <p dir=\"ltr\" style=\"font-size:15px;margin-top:0pt;margin-bottom:0pt;\">\n"
-"                                <span>Your Odoo Project application is up and running</span></p><br>\n"
+"                                <span>Your Gerp Project application is up and running</span></p><br>\n"
 "                            <p dir=\"ltr\" style=\"margin-top:0pt;margin-bottom:8pt;\">\n"
 "                                <span style=\"font-size:13px;font-weight:bold;\">What’s next?</span></p>\n"
 "                            <ul style=\"margin-top:0pt;margin-bottom:0pt;font-size:13px;list-style-type:disc;\">\n"
@@ -116,7 +116,7 @@ msgid ""
 "                            <p dir=\"ltr\" style=\"font-size:13px;margin-top:0pt;margin-bottom:8pt;\">\n"
 "                                <span>We would be delighted to assist you along the way. Contact us through our\n"
 "                                <a href=\"https://www.gerp.com/help\">support form</a> if you have any question.\n"
-"                                You can also discover how to get the best out of Odoo Project with our </span>\n"
+"                                You can also discover how to get the best out of Gerp Project with our </span>\n"
 "                                <a target=\"_blank\" href=\"https://www.gerp.com/documentation/user/10.0/project.html\">\n"
 "                                <span style=\"text-decoration:underline;\">User Documentation</span></a>\n"
 "                                </span><span> or with our </span>\n"
@@ -124,13 +124,13 @@ msgid ""
 "                                <span style=\"text-decoration:underline;\">API Documentation</span></a>\n"
 "                            </p>\n"
 "                            <br>\n"
-"                            <p dir=\"ltr\" style=\"font-size:13px;margin-top:0pt;margin-bottom:8pt;\"><span>Enjoy your Odoo experience,</span></p>\n"
+"                            <p dir=\"ltr\" style=\"font-size:13px;margin-top:0pt;margin-bottom:8pt;\"><span>Enjoy your Gerp experience,</span></p>\n"
 "                        </td>\n"
 "                    </tr>\n"
 "                </tbody>\n"
 "            </table>\n"
 "            <div dir=\"ltr\" style=\"font-size:13px;margin-top:0pt;margin-bottom:8pt;color:grey\">\n"
-"                <span><br/>-- <br/>The Odoo Team<br/>PS: People love Odoo, check </span><a target=\"_blank\" href=\"https://twitter.com/gerp/favorites\"><span style=\"text-decoration:underline;\">what they say about it.</span></a></span>\n"
+"                <span><br/>-- <br/>The Gerp Team<br/>PS: People love Gerp, check </span><a target=\"_blank\" href=\"https://twitter.com/gerp/favorites\"><span style=\"text-decoration:underline;\">what they say about it.</span></a></span>\n"
 "            </div>\n"
 "        </div>"
 msgstr ""
@@ -194,8 +194,8 @@ msgstr ""
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
-msgid "- The Odoo Team"
-msgstr "- Odoo Ekibi"
+msgid "- The Gerp Team"
+msgstr "- Gerp Ekibi"
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
@@ -388,12 +388,12 @@ msgstr ""
 msgid ""
 "<span class=\"panel-title\">\n"
 "                                            <span class=\"fa fa-tasks\"/>\n"
-"                                            <strong> Directly in Odoo</strong>\n"
+"                                            <strong> Directly in Gerp</strong>\n"
 "                                        </span>"
 msgstr ""
 "<span class=\"panel-title\">\n"
 "                                            <span class=\"fa fa-tasks\"/>\n"
-"                                            <strong> Doğrudan Odoo'da</strong>\n"
+"                                            <strong> Doğrudan Gerp'da</strong>\n"
 "                                        </span>"
 
 #. module: project
@@ -541,7 +541,7 @@ msgstr ""
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid ""
-"<strong>A great feature in Odoo is the integration of a Collaborative Notepad called Etherpad.</strong><br/>\n"
+"<strong>A great feature in Gerp is the integration of a Collaborative Notepad called Etherpad.</strong><br/>\n"
 "                            It replaces the standard Description area in Tasks and is extremely useful for several cases."
 msgstr ""
 
@@ -589,10 +589,10 @@ msgstr "<strong>Görevlendirilen</strong>"
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid ""
 "<strong>Be careful about the messages you send</strong><br/>\n"
-"                                    Sending a message through Odoo will automatically send an email containing your message to all the followers including internal employees, external users or customers."
+"                                    Sending a message through Gerp will automatically send an email containing your message to all the followers including internal employees, external users or customers."
 msgstr ""
 "<strong>Gönderdiğiniz mesajlara dikkat edin.</strong><br/>\n"
-"                                    Odoo aracılığıyla bir mesaj gönderdiğinizde, mesajınızı içeren bir e-postayla, personeller, dış kullanıcılar (portal) veya müşteriler de dahil olmak üzere tüm takipçilerinize otomatik olarak gönderilecektir."
+"                                    Gerp aracılığıyla bir mesaj gönderdiğinizde, mesajınızı içeren bir e-postayla, personeller, dış kullanıcılar (portal) veya müşteriler de dahil olmak üzere tüm takipçilerinize otomatik olarak gönderilecektir."
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
@@ -626,7 +626,7 @@ msgstr "<strong>Şimdi bize ulaşın:</strong><br/>"
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid ""
 "<strong>Create tasks by email</strong><br/>\n"
-"                                In Odoo, every project has an email alias. If you send an email to this alias, it will automatically create a task in the first stage of the project, with all the email recipients as its default followers."
+"                                In Gerp, every project has an email alias. If you send an email to this alias, it will automatically create a task in the first stage of the project, with all the email recipients as its default followers."
 msgstr ""
 
 #. module: project
@@ -832,7 +832,7 @@ msgstr "<strong>Önerilen aksiyonlar:</strong>"
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid ""
 "<strong>Rely on the chatter</strong><br/>\n"
-"                                    Below every Task (or more generally, below every Document in Odoo) is an area called Chatter."
+"                                    Below every Task (or more generally, below every Document in Gerp) is an area called Chatter."
 msgstr ""
 
 #. module: project
@@ -905,9 +905,9 @@ msgstr "Yönetmek ister misin? <strong>Hangi Aktiviteler</strong>"
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
-msgid "<strong>What do you expect</strong> from using Odoo Project?"
+msgid "<strong>What do you expect</strong> from using Gerp Project?"
 msgstr ""
-"Odoo Proje modülünü kullanmak için <strong>Daha ne bekliyorsun?</strong>"
+"Gerp Proje modülünü kullanmak için <strong>Daha ne bekliyorsun?</strong>"
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
@@ -949,10 +949,10 @@ msgstr ""
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid ""
 "A project usually involves many stakeholders, be it the project's sponsor, resources, customers or external contractors. But the most important person in a project is usually the Project Manager.<br/>\n"
-"                    In Odoo, the Project Managers have the responsibility of managing the Kanban view: they ensure smooth progression of the projects, minimal downtime between stages and optimal work distribution between resources."
+"                    In Gerp, the Project Managers have the responsibility of managing the Kanban view: they ensure smooth progression of the projects, minimal downtime between stages and optimal work distribution between resources."
 msgstr ""
 "Bir proje genellikle projenin sponsoru, kaynağı, müşterisi veya harici yüklenici olarak birçok paydaş içerir. Ancak bir projedeki en önemli kişi genellikle Proje Yöneticisi'dir. <br/>\n"
-"                    Odoo'da, Proje Yöneticileri Kanban görünümünü yönetme sorumluluğuna sahiptir: projelerin düzgün ilerlemesini, aşamaları arasındaki minimum kesintiyi ve kaynaklar arasında en iyi iş dağılımını sağlarlar."
+"                    Gerp'da, Proje Yöneticileri Kanban görünümünü yönetme sorumluluğuna sahiptir: projelerin düzgün ilerlemesini, aşamaları arasındaki minimum kesintiyi ve kaynaklar arasında en iyi iş dağılımını sağlarlar."
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_task_kanban_state
@@ -1263,11 +1263,11 @@ msgstr "Engellendi"
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid ""
 "But because change is never easy, we've created this Planner to guide you.<br/>\n"
-"                        For example, you'll understand why you shouldn’t use Odoo to plan but instead to\n"
+"                        For example, you'll understand why you shouldn’t use Gerp to plan but instead to\n"
 "                        collaborate, or why organizing your projects by role is wrong."
 msgstr ""
 "Ancak değişim asla kolay olmadığından size yardımcı olması için bu Planlayıcıyı oluşturduk. <br/>\n"
-"                        Örneğin Odoo'yu neden planlamak için niye kullanmamanız gerektiğini, bunun yerine\n"
+"                        Örneğin Gerp'yu neden planlamak için niye kullanmamanız gerektiğini, bunun yerine\n"
 "                        İşbirliği yapın, neden projelerinizi rolü kullanarak organize etmeniz yanlıştır."
 
 #. module: project
@@ -1437,10 +1437,10 @@ msgstr "Proje Yapılandırma"
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid ""
-"Congratulations on choosing Odoo Project to help running your company more "
+"Congratulations on choosing Gerp Project to help running your company more "
 "efficiently!"
 msgstr ""
-"Şirketinizin daha verimli çalışmasına yardımcı olmak için Odoo Proje "
+"Şirketinizin daha verimli çalışmasına yardımcı olmak için Gerp Proje "
 "modülünü seçtiğiniz için tebrik ederiz!"
 
 #. module: project
@@ -1566,7 +1566,7 @@ msgstr "Oluşturulma"
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid ""
 "Creating Tasks is the next step in managing your Projects.<br/>\n"
-"                        In Odoo, it is pretty straightforward, but here are some explanations you may find useful."
+"                        In Gerp, it is pretty straightforward, but here are some explanations you may find useful."
 msgstr ""
 
 #. module: project
@@ -1715,7 +1715,7 @@ msgstr "Sil"
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid ""
 "Depending on what you need and how you want to operate, there are several "
-"ways to work with Odoo. First, decide if you want to think in terms of "
+"ways to work with Gerp. First, decide if you want to think in terms of "
 "tasks. Then, activate the Timesheets app if you need it."
 msgstr ""
 
@@ -1905,20 +1905,20 @@ msgstr ""
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid ""
-"Even if there is no specific field in Odoo, it's important to define a person responsible for each stage of your Project.<br/>\n"
+"Even if there is no specific field in Gerp, it's important to define a person responsible for each stage of your Project.<br/>\n"
 "                        This person will have the responsibility for validating each stage and ensuring that the requirements to move to the next stage are met."
 msgstr ""
-"Odoo'da belirli bir alan yoksa bile, Projenizin her aşamasından sorumlu bir kişinin tanımlanması önemlidir. <br/>\n"
+"Gerp'da belirli bir alan yoksa bile, Projenizin her aşamasından sorumlu bir kişinin tanımlanması önemlidir. <br/>\n"
 "                        Bu kişi, her aşamayı doğrulamak ve bir sonraki aşamaya geçme şartlarının sağlanmasını sağlamakla yükümlüdür."
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid ""
 "Every business is different.<br/>\n"
-"                    Odoo allows you to customize every application and it's usually a good idea to customize screens to fit your project needs."
+"                    Gerp allows you to customize every application and it's usually a good idea to customize screens to fit your project needs."
 msgstr ""
 "Her iş farklıdır. <br/>\n"
-"                    Odoo, her uygulamayı özelleştirmenize izin verir ve ekranları proje ihtiyaçlarınıza uyacak şekilde özelleştirmeniz iyi bir fikirdir."
+"                    Gerp, her uygulamayı özelleştirmenize izin verir ve ekranları proje ihtiyaçlarınıza uyacak şekilde özelleştirmeniz iyi bir fikirdir."
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
@@ -2007,10 +2007,10 @@ msgstr ""
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid ""
-"For the Odoo Team,<br/>\n"
+"For the Gerp Team,<br/>\n"
 "                            Fabien Pinckaers, Founder"
 msgstr ""
-"Odoo Ekibi adına,<br/>\n"
+"Gerp Ekibi adına,<br/>\n"
 "                            Fabien Pinckaers, CEO"
 
 #. module: project
@@ -2044,8 +2044,8 @@ msgstr "Müşteri faturalarınıza eklenecek zaman çizelgesi raporu oluşturun"
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
-msgid "Get full synchronization with Odoo"
-msgstr "Odoo ile tam senkronizasyon sağlayın"
+msgid "Get full synchronization with Gerp"
+msgstr "Gerp ile tam senkronizasyon sağlayın"
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
@@ -2367,9 +2367,9 @@ msgstr ""
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid ""
 "Internal notes are messages that will appear in the Chatter but will not be "
-"notified in Odoo's Inbox."
+"notified in Gerp's Inbox."
 msgstr ""
-"Dahili notlar, Chatter'da görünecek, ancak Odoo'nun Gelen Kutusu'nda "
+"Dahili notlar, Chatter'da görünecek, ancak Gerp'nun Gelen Kutusu'nda "
 "bildirilmeyen mesajlardır."
 
 #. module: project
@@ -2409,17 +2409,17 @@ msgstr ""
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid ""
-"It is time to think about how you will transform your activities into real projects in Odoo.<br/>\n"
+"It is time to think about how you will transform your activities into real projects in Gerp.<br/>\n"
 "                        For that, the most important part is defining the stages of your projects. Stages are the different steps a task can go through, from its creation to its ending. They will appear in what we call the 'Kanban' view of your projects."
 msgstr ""
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid ""
-"It's essential to be clear about why you want to use Odoo Project and what your goals are.\n"
+"It's essential to be clear about why you want to use Gerp Project and what your goals are.\n"
 "                        Indeed, there are many ways to manage a project, to find the best one for you, you need to know exactly what you want to achieve. And later on, we will hopefully transform your objectives into real improvements for your company."
 msgstr ""
-"Neden Odoo Proje yönetimini kullanmak istediğiniz ve hedeflerinizin ne "
+"Neden Gerp Proje yönetimini kullanmak istediğiniz ve hedeflerinizin ne "
 "olduğu hakkında açık bilgi almak çok önemlidir. Gerçekten de, bir projeyi "
 "yönetmenin, sizin için en iyisini bulmanın birçok yolu vardır, tam olarak ne"
 " elde etmek istediğinizi bilmeniz gerekir. Ve daha sonra, umarız "
@@ -2609,13 +2609,13 @@ msgid ""
 "Managing notifications is essential: too few and you risk missing critical "
 "information, too many and you will be  overloaded with unnecessary "
 "information. The trick is to find the right balance between the projects, "
-"stages and tasks you want to be informed about. Fortunately, Odoo Project "
+"stages and tasks you want to be informed about. Fortunately, Gerp Project "
 "has many levels of notifications and messages you can choose from."
 msgstr ""
 "Bildirimleri yönetmek çok önemlidir: çok az sayıdadır ve kritik bilgileri "
 "kaçınılmaz olarak riske atarsınız ve gereksiz bilgilerle aşırı "
 "yüklenirsiniz. Hedef, bilgilendirilmek istediğiniz projeler, aşamalar ve "
-"görevler arasında doğru denge bulmaktır. Neyse ki, Odoo Proje modülü, "
+"görevler arasında doğru denge bulmaktır. Neyse ki, Gerp Proje modülü, "
 "seçebileceğiniz birçok bildirim ve mesaj seviyesine sahiptir."
 
 #. module: project
@@ -2796,11 +2796,11 @@ msgstr "Ekli belge sayısı"
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid ""
-"Odoo Project is a super fast and easy way to make your activities and tasks visible to\n"
+"Gerp Project is a super fast and easy way to make your activities and tasks visible to\n"
 "                        everyone in your company. Follow how things progress, see when things are stuck, know\n"
 "                        who's in charge, all in one place."
 msgstr ""
-"Odoo Proje modülü, aktivitelerinizi ve görevlerinizi şirketinizdeki herkesin"
+"Gerp Proje modülü, aktivitelerinizi ve görevlerinizi şirketinizdeki herkesin"
 " görebileceği süper hızlı ve kolay bir yoldur. İşlerin nasıl ilerlediğini "
 "izleyin, işler sıkıştığında görün, kimlerin sorumlu olduğunu bilin, hepsini "
 "tek bir yerde."
@@ -2808,11 +2808,11 @@ msgstr ""
 #. module: project
 #: model:ir.actions.act_window,help:project.action_view_task
 msgid ""
-"Odoo's project management allows you to manage the pipeline of your tasks "
+"Gerp's project management allows you to manage the pipeline of your tasks "
 "efficiently. You can track progress, discuss on tasks, attach documents, "
 "etc."
 msgstr ""
-"Odoo proje yönetimi, işlerin verimli bir şekilde yürütülmesi için görev "
+"Gerp proje yönetimi, işlerin verimli bir şekilde yürütülmesi için görev "
 "kanallarını yönetmenizi sağlar. Süreci izler, görevleri tartışır, belge "
 "ekleyebilirsiniz."
 
@@ -3270,8 +3270,8 @@ msgstr "Sorumluluk"
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
-msgid "Runs outside Odoo, always available"
-msgstr "Odoo'nun dışında çalışır, daima kullanılabilir"
+msgid "Runs outside Gerp, always available"
+msgstr "Gerp'nun dışında çalışır, daima kullanılabilir"
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
@@ -3691,9 +3691,9 @@ msgstr "Görev analizi"
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
-msgid "Tasks are the main mechanism in Odoo and are activated by default."
+msgid "Tasks are the main mechanism in Gerp and are activated by default."
 msgstr ""
-"Görevler Odoo'nun temel mekanizmasıdır ve varsayılan olarak etkinleştirilir."
+"Görevler Gerp'nun temel mekanizmasıdır ve varsayılan olarak etkinleştirilir."
 
 #. module: project
 #: model:ir.model,name:project.model_report_project_task_user
@@ -3729,14 +3729,14 @@ msgstr "Test"
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
 msgid ""
-"The Odoo Project app can be used to manage many activities, from the "
+"The Gerp Project app can be used to manage many activities, from the "
 "development of a new product to the daily operations of a customer support. "
 "With some creativity, it can even be used to manage your marketing "
 "communications or personal projects. But just because it can be done doesn't"
 " mean it's always a good idea: let's start by helping you understand what "
 "can be a good project."
 msgstr ""
-"Odoo Proje uygulaması, yeni bir ürünün gelişmesinden bir müşteri desteğinin "
+"Gerp Proje uygulaması, yeni bir ürünün gelişmesinden bir müşteri desteğinin "
 "günlük operasyonlarına kadar bir çok faaliyeti yönetmek için kullanılabilir."
 " Biraz yaratıcılık ile, pazarlama iletişimleri veya kişisel projelerinizi "
 "yönetmek için bile kullanılabilir. Ancak bunun yapılabilmesi her zaman iyi "
@@ -3756,11 +3756,11 @@ msgstr ""
 #. module: project
 #: model:ir.model.fields,help:project.field_project_project_alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming"
+"The model (Gerp Document Kind) to which this alias corresponds. Any incoming"
 " email that does not reply to an existing record will cause the creation of "
 "a new record of this model (e.g. a Project Task)"
 msgstr ""
-"Bu diğer ad için karşılık gelen model (Odoo belge gibi). Varolan kayda yanıt"
+"Bu diğer ad için karşılık gelen model (Gerp belge gibi). Varolan kayda yanıt"
 " değil gelen herhangi bir e-posta-ecek neden bu modelin (örneğin bir proje "
 "görevini) yeni kayıt oluşturma"
 
@@ -3922,11 +3922,11 @@ msgstr "Zaman Çizelgeleri"
 msgid ""
 "Timesheets are often essential for running a company.<br/>\n"
 "                    They are also prone to human error, repetitive, annoying, and sometimes stressful to employees.<br/>\n"
-"                    Fortunately, Odoo has several solutions to make them as efficient and painless as possible!<br/>"
+"                    Fortunately, Gerp has several solutions to make them as efficient and painless as possible!<br/>"
 msgstr ""
 "Zaman çizelgeleri, genellikle bir firma çalıştırmak için şarttır. <br/>\n"
 "                    Ayrıca, insan hatalarına, tekrarlayan, can sıkıcı ve bazen çalışanlara stresli olma eğilimi gösterirler. <br/>\n"
-"                    Neyse ki, Odoo'yu mümkün olduğunca verimli ve ağrısız hale getiren çeşitli çözümler var! <br/>"
+"                    Neyse ki, Gerp'yu mümkün olduğunca verimli ve ağrısız hale getiren çeşitli çözümler var! <br/>"
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
@@ -4360,8 +4360,8 @@ msgstr "Hedefleriniz"
 
 #. module: project
 #: model:mail.template,subject:project.mail_template_data_module_install_project
-msgid "Your Odoo Project application is up and running"
-msgstr "Odoo Proje uygulaması aktif ve çalışıyor"
+msgid "Your Gerp Project application is up and running"
+msgstr "Gerp Proje uygulaması aktif ve çalışıyor"
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner

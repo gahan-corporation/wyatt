@@ -74,7 +74,7 @@ class PaymentAcquirer(models.Model):
         help="Make this payment acquirer available (Customer invoices, etc.)")
     # Formerly associated to `authorize` option from auto_confirm
     capture_manually = fields.Boolean(string="Capture Amount Manually",
-        help="Capture the amount from Odoo, when the delivery is completed.")
+        help="Capture the amount from Gerp, when the delivery is completed.")
     # Formerly associated to `generate_and_pay_invoice` option from auto_confirm
     journal_id = fields.Many2one(
         'account.journal', 'Payment Journal', domain=[('type', '=', 'bank')],
@@ -277,7 +277,7 @@ class PaymentAcquirer(models.Model):
          - 'return_url': URL for coming back after payment validation (wihout base url) -> FIXME
          - 'cancel_url': URL if the client cancels the payment -> FIXME
          - 'error_url': URL if there is an issue with the payment -> FIXME
-         - context: Odoo context
+         - context: Gerp context
 
         """
         if values is None:

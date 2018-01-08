@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_forum
 # 
@@ -15,7 +15,7 @@
 # Šarūnas Ažna <sarunas.azna@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 09:00+0000\n"
 "PO-Revision-Date: 2017-10-24 09:00+0000\n"
@@ -2521,10 +2521,10 @@ msgstr "Pažymėta eilė yra tuščia."
 #: model:forum.forum,faq:website_forum.forum_help
 msgid ""
 "The goal of this site is create a relevant knowledge base that would answer\n"
-"    questions related to Odoo."
+"    questions related to Gerp."
 msgstr ""
 "Šio puslapio tikslas yra sukurti atitinkamą žinių bazę, kuri atsakytų \n"
-"    į klausimus, susijusius su Odoo."
+"    į klausimus, susijusius su Gerp."
 
 #. module: website_forum
 #: model:ir.ui.view,arch_db:website_forum.moderation_queue
@@ -3071,8 +3071,8 @@ msgstr "čia"
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
-msgid "how to configure or customize Odoo to specific business needs,"
-msgstr "kaip konfigūruoti ar pritaikyti Odoo konkretiems verslo poreikiams,"
+msgid "how to configure or customize Gerp to specific business needs,"
+msgstr "kaip konfigūruoti ar pritaikyti Gerp konkretiems verslo poreikiams,"
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
@@ -3081,8 +3081,8 @@ msgstr "kaip kurti modulius savo reikmėms,"
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
-msgid "how to install Odoo on a specific infrastructure,"
-msgstr "kaip diegti Odoo konkrečioje infrastruktūroje,"
+msgid "how to install Gerp on a specific infrastructure,"
+msgstr "kaip diegti Gerp konkrečioje infrastruktūroje,"
 
 #. module: website_forum
 #. openerp-web
@@ -3198,8 +3198,8 @@ msgstr "brukalas ar reklama"
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
-msgid "specific questions about Odoo service offers, etc."
-msgstr "specifiniai klausimai apie Odoo paslaugų pasiūlymus ir t. t. "
+msgid "specific questions about Gerp service offers, etc."
+msgstr "specifiniai klausimai apie Gerp paslaugų pasiūlymus ir t. t. "
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
@@ -3274,8 +3274,8 @@ msgstr "tinklalapis"
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
-msgid "what's the best way to use Odoo for a specific business need,"
-msgstr "koks geriausias būdas naudoti Odoo specifiniam verslo poreikiui?"
+msgid "what's the best way to use Gerp for a specific business need,"
+msgstr "koks geriausias būdas naudoti Gerp specifiniam verslo poreikiui?"
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help

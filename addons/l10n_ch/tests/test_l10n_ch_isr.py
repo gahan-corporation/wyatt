@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 import time
 
@@ -85,7 +85,7 @@ class ISRTest(AccountingTestCase):
 
     def test_isr(self):
         #Let us test the generation of an ISR for an invoice, first by showing an
-        #ISR report is only generated when Odoo has all the data it needs.
+        #ISR report is only generated when Gerp has all the data it needs.
         invoice_1 = self.create_invoice('base.CHF')
         self.isr_not_generated(invoice_1)
 

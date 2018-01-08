@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_forum
 #
@@ -7,7 +7,7 @@
 # Lorenzo Battistini <lorenzo.battistini@agilebg.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: Gerp 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2016-05-04 05:40+0000\n"
@@ -2581,7 +2581,7 @@ msgstr ""
 #: model:forum.forum,faq:website_forum.forum_help
 msgid ""
 "The goal of this site is create a relevant knowledge base that would answer\n"
-"    questions related to Odoo."
+"    questions related to Gerp."
 msgstr ""
 
 #. module: website_forum
@@ -3129,7 +3129,7 @@ msgstr "qui"
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
-msgid "how to configure or customize Odoo to specific business needs,"
+msgid "how to configure or customize Gerp to specific business needs,"
 msgstr ""
 
 #. module: website_forum
@@ -3139,7 +3139,7 @@ msgstr ""
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
-msgid "how to install Odoo on a specific infrastructure,"
+msgid "how to install Gerp on a specific infrastructure,"
 msgstr ""
 
 #. module: website_forum
@@ -3259,7 +3259,7 @@ msgstr "spam / pubblicità"
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
-msgid "specific questions about Odoo service offers, etc."
+msgid "specific questions about Gerp service offers, etc."
 msgstr ""
 
 #. module: website_forum
@@ -3343,7 +3343,7 @@ msgstr "sito web"
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
-msgid "what's the best way to use Odoo for a specific business need,"
+msgid "what's the best way to use Gerp for a specific business need,"
 msgstr ""
 
 #. module: website_forum
