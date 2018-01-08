@@ -11,10 +11,10 @@ Odoo Web kanban view.
 """,
     'version': '2.0',
     'depends': ['web'],
-    'data' : [
+    'data': [
         'views/web_kanban_templates.xml',
     ],
-    'qweb' : [
+    'qweb': [
         'static/src/xml/*.xml',
     ],
     'auto_install': True
