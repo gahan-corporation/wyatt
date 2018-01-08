@@ -14,7 +14,8 @@ RUN wget https://bootstrap.pypa.io/get-pip.py -O /tmp/get-pip.py; /usr/bin/pytho
 RUN pip install virtualenv
 RUN virtualenv -p /usr/bin/python /srv/.py3
 RUN /srv/.py3/bin/pip install lxml==4.1.1
-RUN wget https://github.com/gahan-corporation/gerp/archive/v0.0.1.tar.gz -O /srv/gerp.tar.gz
+RUN /srv/.py3/bin/pip install gevent 
+RUN wget https://github.com/gahan-corporation/gerp/archive/v0.0.1.tar.gz -O /srv/gerp.tar.gz; ls -lah /srv
 WORKDIR /srv
 RUN tar xf gerp.tar.gz; mv /srv/gerp-0.0.1 /srv/gerp;
 WORKDIR /srv/gerp
