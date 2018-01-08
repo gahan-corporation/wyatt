@@ -48,7 +48,7 @@ setuptools.setup(
     ],
     long_description='gerp',
     name='gerp',
-    packages=setuptools.find_packages(),
+    packages=setuptools.find_packages('./'),
     python_requires='>=3.5',
     tests_require=[
         'pytest-runner',

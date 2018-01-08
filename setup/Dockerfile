@@ -14,11 +14,14 @@ RUN wget https://bootstrap.pypa.io/get-pip.py -O /tmp/get-pip.py; /usr/bin/pytho
 RUN pip install virtualenv
 RUN virtualenv -p /usr/bin/python /srv/.py3
 RUN /srv/.py3/bin/pip install lxml==4.1.1
-RUN wget https://github.com/gahan-corporation/gerp/archive/v0.0.1.tar.gz -O /srv/gerp.tar.gz
 WORKDIR /srv
+RUN wget https://github.com/gahan-corporation/gerp/archive/v0.0.1.tar.gz -O /srv/gerp.tar.gz
 RUN tar xf gerp.tar.gz; mv /srv/gerp-0.0.1 /srv/gerp;
 WORKDIR /srv/gerp
 RUN /srv/.py3/bin/python setup.py build
 RUN /srv/.py3/bin/python setup.py install
-RUN cp setup/gerp /usr/bin/gerp; chmod +x /usr/bin/gerp;
 RUN apk add nodejs; npm install -g less
+ADD rc /root/.gerprc
+ADD gerp /srv/.py3/bin/gerp
+RUN chmod +x /srv/.py3/bin/gerp
+CMD /srv/.py3/bin/gerp
