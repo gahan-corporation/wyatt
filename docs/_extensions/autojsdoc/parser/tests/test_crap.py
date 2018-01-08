@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Test various crap patterns found in Odoo code to ensure they don't blow up
+Test various crap patterns found in Gerp code to ensure they don't blow up
 the parser thingie
 """
 from autojsdoc.parser import jsdoc

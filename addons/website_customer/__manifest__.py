@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Customer References',
@@ -8,7 +8,7 @@
     'summary': 'Publish Your Customer References',
     'version': '1.0',
     'description': """
-Odoo Customer References
+Gerp Customer References
 ===========================
 """,
     'depends': [

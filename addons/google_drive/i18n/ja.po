@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * google_drive
 # 
@@ -9,7 +9,7 @@
 # Manami Hashi <manami@roomsfor.hk>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
@@ -25,14 +25,14 @@ msgstr ""
 #: model:ir.ui.view,arch_db:google_drive.view_google_drive_config_form
 msgid ""
 "<b>To create a new filter:</b><br/>\n"
-"                                - Go to the Odoo document you want to filter. For instance, go to Opportunities and search on Sales Department.<br/>\n"
+"                                - Go to the Gerp document you want to filter. For instance, go to Opportunities and search on Sales Department.<br/>\n"
 "                                - In this \"Search\" view, select the option \"Save Current Filter\", enter the name (Ex: Sales Department)<br/>\n"
 "                                - If you select \"Share with all users\", link of google document in \"More\" options will appear for all users in opportunities of Sales Department.<br/>\n"
 "                                - If you don't select \"Share with all users\", link of google document in \"More\" options will not appear for other users in opportunities of Sales Department.<br/>\n"
 "                                - If filter is not specified, link of google document will appear in \"More\" option for all users for all opportunities."
 msgstr ""
 "<b>新規フィルタの作成：</b> <br/>\n"
-"                                 - フィルタリングするOdooドキュメントに移動します。 たとえば、案件で販売部門を検索します。<br/>\n"
+"                                 - フィルタリングするGerpドキュメントに移動します。 たとえば、案件で販売部門を検索します。<br/>\n"
 "                                 - この「検索」ビューで、「現在のフィルタを保存」オプションを選択し、名前(例：販売部)を入力します。<br/>\n"
 "                                 - 「すべてのユーザーと共有する」を選択すると、販売部の案件にあるすべてのユーザーに対して、「その他」オプションでGoogleドキュメントのリンクが表示されます。<br/>\n"
 "                                 - 「すべてのユーザーと共有する」を選択しないと、「その他」オプションのGoogleドキュメントのリンクは、販売部門の他のユーザーには表示されません。<br/>\n"
@@ -175,15 +175,15 @@ msgstr "最終更新日"
 #. module: google_drive
 #: model:ir.actions.act_window,help:google_drive.action_google_drive_users_config
 msgid ""
-"Link your own google drive templates to any record of Odoo. If you have "
+"Link your own google drive templates to any record of Gerp. If you have "
 "really specific documents you want your collaborator fill in, e.g. Use a "
 "spreadsheet to control the quality of your product or review the delivery "
 "checklist for each order in a foreign country, ... Its very easy to manage "
-"them, link them to Odoo and use them to collaborate with your employees."
+"them, link them to Gerp and use them to collaborate with your employees."
 msgstr ""
-"Odooの任意のレコードに自分のGoogleドライブテンプレートをリンクします。 "
+"Gerpの任意のレコードに自分のGoogleドライブテンプレートをリンクします。 "
 "あなたが本当に具体的なドキュメントがあれば、あなたの共同編集者が記入したいと思うでしょう。 "
-"スプレッドシートを使用して製品の品質を管理したり、海外の各注文の配送チェックリストを確認したりすることができます。管理が非常に簡単で、Odooにリンクして従業員と協力することができます。"
+"スプレッドシートを使用して製品の品質を管理したり、海外の各注文の配送チェックリストを確認したりすることができます。管理が非常に簡単で、Gerpにリンクして従業員と協力することができます。"
 
 #. module: google_drive
 #: model:ir.model.fields,field_description:google_drive.field_google_drive_config_model_id
@@ -245,11 +245,11 @@ msgstr "The URL to generate the authorization code from Google"
 msgid ""
 "The name of the attached document can use fixed or variable data. To distinguish between documents in\n"
 "                                Google Drive, use fixed words and fields. For instance, in the example above, if you wrote Agrolait_%(name)s_Sales\n"
-"                                in the Google Drive name field, the document in your Google Drive and in Odoo attachment will be named\n"
+"                                in the Google Drive name field, the document in your Google Drive and in Gerp attachment will be named\n"
 "                                'Agrolait_SO0001_Sales'."
 msgstr ""
 "添付文書の名前は、固定または可変のデータを使用できます。 Googleドライブのドキュメントを区別するには、固定語とフィールドを使用します。\n"
-"たとえば、上記の例で、Googleドライブ名欄にAgrolait_%(name)s_Salesを書き込んだ場合、GoogleドライブとOdoo添付ファイルのドキュメント名は'Agrolait_SO0001_Sales'となります。"
+"たとえば、上記の例で、Googleドライブ名欄にAgrolait_%(name)s_Salesを書き込んだ場合、GoogleドライブとGerp添付ファイルのドキュメント名は'Agrolait_SO0001_Sales'となります。"
 
 #. module: google_drive
 #: code:addons/google_drive/models/google_drive.py:134

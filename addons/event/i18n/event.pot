@@ -1,10 +1,10 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 #	* event
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-16 08:08+0000\n"
 "PO-Revision-Date: 2017-11-16 08:08+0000\n"
@@ -372,7 +372,7 @@ msgstr ""
 
 #. module: event
 #: model:event.event,description:event.event_0
-msgid "2 technical rooms: one dedicated to advanced Odoo developers, one for new developers."
+msgid "2 technical rooms: one dedicated to advanced Gerp developers, one for new developers."
 msgstr ""
 
 #. module: event
@@ -1353,7 +1353,7 @@ msgstr ""
 
 #. module: event
 #: model:ir.actions.act_window,help:event.action_event_view
-msgid "Odoo helps you schedule and efficiently organize your events:\n"
+msgid "Gerp helps you schedule and efficiently organize your events:\n"
 "    track registrations and participations, automate the confirmation emails,\n"
 "    sell tickets, etc."
 msgstr ""

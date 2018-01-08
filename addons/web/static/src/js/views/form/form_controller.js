@@ -356,7 +356,7 @@ var FormController = BasicController.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} event
+     * @param {GerpEvent} event
      */
     _onButtonClicked: function (event) {
         // stop the event's propagation as a form controller might have other
@@ -453,7 +453,7 @@ var FormController = BasicController.extend({
      * with the one of the form view.
      *
      * @private
-     * @param {OdooEvent} event
+     * @param {GerpEvent} event
      */
     _onOpenOne2ManyRecord: function (event) {
         event.stopPropagation();
@@ -482,7 +482,7 @@ var FormController = BasicController.extend({
      * Open an existing record in a form view dialog
      *
      * @private
-     * @param {OdooEvent} event
+     * @param {GerpEvent} event
      */
     _onOpenRecord: function (event) {
         var self = this;
@@ -512,7 +512,7 @@ var FormController = BasicController.extend({
      * in a x2many list view
      *
      * @private
-     * @param {OdooEvent} event
+     * @param {GerpEvent} event
      */
     _onToggleColumnOrder: function (event) {
         event.stopPropagation();

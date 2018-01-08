@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Website Form - Project',
@@ -7,7 +7,7 @@
     'summary': 'Create Tasks From Contact Form',
     'version': '1.0',
     'description': """
-Odoo Contact Form
+Gerp Contact Form
 =================
 
         """,

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 import datetime
 import io
@@ -77,7 +77,7 @@ class Import(models.TransientModel):
 
             .. attribute:: name (str)
 
-                The field's logical (Odoo) name within the scope of
+                The field's logical (Gerp) name within the scope of
                 its parent.
 
             .. attribute:: string (str)

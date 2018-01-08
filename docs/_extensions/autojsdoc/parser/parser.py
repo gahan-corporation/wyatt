@@ -15,7 +15,7 @@ class ModuleMatcher(Visitor):
 
         gerp.define($string, function ($name) {
 
-    These are *Odoo module definitions*, upon encountering one the
+    These are *Gerp module definitions*, upon encountering one the
     matcher:
 
     * creates a module entry, optionally associated with the module comment
@@ -193,7 +193,7 @@ BASE_SCOPE = BaseScope(None, {
     }),
     'gerp': jsdoc.UnknownNS({
         'name': u'gerp',
-        'doc': u"Odoo",
+        'doc': u"Gerp",
         '_members': [
             ('name', jsdoc.PropertyDoc({'name': u'csrf_token', 'type': u'{String}'})),
         ]

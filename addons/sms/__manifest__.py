@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 {
     'name': 'SMS gateway',
     'category': 'Tools',
@@ -8,7 +8,7 @@
 This module gives a framework for SMS text messaging
 ----------------------------------------------------
 
-The service is provided by the In App Purchase Odoo platform.
+The service is provided by the In App Purchase Gerp platform.
 """,
     'depends': ['base', 'iap', 'mail'],
     'data': [

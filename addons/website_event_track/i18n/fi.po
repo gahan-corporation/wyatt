@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_event_track
 # 
@@ -16,7 +16,7 @@
 # Teija Hölttä <teija.holtta@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
@@ -129,10 +129,10 @@ msgstr ""
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track7
 msgid ""
-"A technical explanation of Odoo as a CMS and a eCommerce platform for "
+"A technical explanation of Gerp as a CMS and a eCommerce platform for "
 "version 8."
 msgstr ""
-"Tekninen kuvaus Odoosta sisällönhallintajärjestelmänä ja verkkokauppa-"
+"Tekninen kuvaus Gerpsta sisällönhallintajärjestelmänä ja verkkokauppa-"
 "alustana, versiolla 8."
 
 #. module: website_event_track
@@ -161,8 +161,8 @@ msgstr "Aktiivinen"
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track19
-msgid "Advanced lead management with Odoo: tips and tricks from the fields"
-msgstr "Edistynyt liidien hallinta Odoolla: vinkit ja niksit kenttätyöstä"
+msgid "Advanced lead management with Gerp: tips and tricks from the fields"
+msgstr "Edistynyt liidien hallinta Gerplla: vinkit ja niksit kenttätyöstä"
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track13
@@ -311,13 +311,13 @@ msgstr ""
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track8
 msgid ""
-"Discover Odoo CRM: How to optimize your sales, from leads to sales orders."
-msgstr "Löydä Odoo CRM: kuinka optimoida myynti liideistä myyntitilauksiksi."
+"Discover Gerp CRM: How to optimize your sales, from leads to sales orders."
+msgstr "Löydä Gerp CRM: kuinka optimoida myynti liideistä myyntitilauksiksi."
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track11
-msgid "Discover Odoo Point-of-Sale: Your shop ready to use in 30 minutes."
-msgstr "Löydä Odoon kassapääte: kauppa valmiina käyttöön 30 minuutissa."
+msgid "Discover Gerp Point-of-Sale: Your shop ready to use in 30 minutes."
+msgstr "Löydä Gerpn kassapääte: kauppa valmiina käyttöön 30 minuutissa."
 
 #. module: website_event_track
 #: model:ir.model.fields,field_description:website_event_track.field_event_sponsor_display_name
@@ -480,9 +480,9 @@ msgstr "Korkein"
 #: model:event.track,name:website_event_track.event_track18
 msgid ""
 "How to build your marketing strategy for the purpose of generating leads "
-"with Odoo."
+"with Gerp."
 msgstr ""
-"Kuinka luoda markkinointistrategia liidien generoimiseksi Odoon kautta."
+"Kuinka luoda markkinointistrategia liidien generoimiseksi Gerpn kautta."
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track1
@@ -491,8 +491,8 @@ msgstr "Kuinka kehittää verkkosivumoduuli"
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track4
-msgid "How to develop automated tests in the Odoo web client."
-msgstr "Kuinka kehittää automaattisia testejä Odoon verkkokäyttöliittymässä."
+msgid "How to develop automated tests in the Gerp web client."
+msgstr "Kuinka kehittää automaattisia testejä Gerpn verkkokäyttöliittymässä."
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track3
@@ -503,16 +503,16 @@ msgstr ""
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track2
-msgid "How to integrate hardware materials with the Odoo point of sale."
-msgstr "Kuinka integroida laitteistoa Odoon kassapääteen kanssa."
+msgid "How to integrate hardware materials with the Gerp point of sale."
+msgstr "Kuinka integroida laitteistoa Gerpn kassapääteen kanssa."
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track9
 msgid ""
-"How to use Odoo for your HR process: recruitment, leaves management, "
+"How to use Gerp for your HR process: recruitment, leaves management, "
 "appraisals, expenses, etc."
 msgstr ""
-"Kuinka käyttää Odoota henkilöstöhallinnon prosesseissa: rekry, poissalot, "
+"Kuinka käyttää Gerpta henkilöstöhallinnon prosesseissa: rekry, poissalot, "
 "arvioinnit, kulut, yms."
 
 #. module: website_event_track
@@ -549,8 +549,8 @@ msgstr "Kanban tila"
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track23
-msgid "Key Success factors selling Odoo."
-msgstr "Avaintekijät Odoon myymisen onnistumiseen."
+msgid "Key Success factors selling Gerp."
+msgstr "Avaintekijät Gerpn myymisen onnistumiseen."
 
 #. module: website_event_track
 #: model:ir.model.fields,field_description:website_event_track.field_event_sponsor___last_update
@@ -610,12 +610,12 @@ msgstr "Lounas"
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track22
 msgid "Manage your KPIs (recomended to openERP partners)."
-msgstr "Hallinnoi KPI-tunnuslukuja (suositellaan Odoo-partnereille)."
+msgstr "Hallinnoi KPI-tunnuslukuja (suositellaan Gerp-partnereille)."
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track12
-msgid "Manage your events with Odoo, the new training modules."
-msgstr "Hallinnoi tapahtumia Odoolla, uudet koulutuksenhallintamoduulit."
+msgid "Manage your events with Gerp, the new training modules."
+msgstr "Hallinnoi tapahtumia Gerplla, uudet koulutuksenhallintamoduulit."
 
 #. module: website_event_track
 #: selection:event.track,priority:0
@@ -686,23 +686,23 @@ msgstr "Ei löydettyjä trackeja!"
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track15
-msgid "Odoo Mobile for Notes, Meetings and Messages."
-msgstr "Odoo mobile muistiinpanoja, tapaamisia ja viestejä varten."
+msgid "Gerp Mobile for Notes, Meetings and Messages."
+msgstr "Gerp mobile muistiinpanoja, tapaamisia ja viestejä varten."
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track28
-msgid "Odoo Status & Strategy 2014"
-msgstr "Odoon tila ja strategia 2014"
+msgid "Gerp Status & Strategy 2014"
+msgstr "Gerpn tila ja strategia 2014"
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track16
-msgid "Odoo as your Enterprise Social Network."
-msgstr "Odoo yrityksen sosiaalisena verkostona."
+msgid "Gerp as your Enterprise Social Network."
+msgstr "Gerp yrityksen sosiaalisena verkostona."
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track27
-msgid "Odoo in 2014"
-msgstr "Odoo vuonna 2014"
+msgid "Gerp in 2014"
+msgstr "Gerp vuonna 2014"
 
 #. module: website_event_track
 #: model:ir.ui.view,arch_db:website_event_track.event_sponsor
@@ -762,8 +762,8 @@ msgstr "Nostetaan laadullisia huomioita kyselysovelluksella"
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track21
-msgid "Recruiting high skilled talents with Odoo HR apps"
-msgstr "Rekrytoidaan taidokkaita ihmisiä Odoon HR-sovelluksella"
+msgid "Recruiting high skilled talents with Gerp HR apps"
+msgstr "Rekrytoidaan taidokkaita ihmisiä Gerpn HR-sovelluksella"
 
 #. module: website_event_track
 #: selection:event.track,kanban_state:0
@@ -950,8 +950,8 @@ msgstr "Kiitos ehdotuksestasi."
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track17
-msgid "The Art of Making an Odoo Demo."
-msgstr "Odoo-demon luonnin taito."
+msgid "The Art of Making an Gerp Demo."
+msgstr "Gerp-demon luonnin taito."
 
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track29
@@ -961,8 +961,8 @@ msgstr "Uusi markkinointistrategia"
 #. module: website_event_track
 #: model:event.track,name:website_event_track.event_track5
 msgid ""
-"The new way to promote your modules in the Apps platform and Odoo website."
-msgstr "Uusi tapa edistää moduuleitasi Odoon verkkosivujen sovellusalustassa."
+"The new way to promote your modules in the Apps platform and Gerp website."
+msgstr "Uusi tapa edistää moduuleitasi Gerpn verkkosivujen sovellusalustassa."
 
 #. module: website_event_track
 #: model:ir.ui.view,arch_db:website_event_track.event_track_proposal

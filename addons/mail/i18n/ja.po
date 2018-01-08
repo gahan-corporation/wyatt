@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * mail
 # 
@@ -14,7 +14,7 @@
 # Takahiro MURAKAMI <murakami@date-yakkyoku.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 08:59+0000\n"
 "PO-Revision-Date: 2017-10-24 08:59+0000\n"
@@ -112,7 +112,7 @@ msgid ""
 "    </a>\n"
 "    % endif\n"
 "    using\n"
-"    <a target=\"_blank\" href=\"https://www.gerp.com\" style=\"text-decoration:none; color: #875A7B;\">Odoo</a>.\n"
+"    <a target=\"_blank\" href=\"https://www.gerp.com\" style=\"text-decoration:none; color: #875A7B;\">Gerp</a>.\n"
 "</p>\n"
 "</div>"
 msgstr ""
@@ -2095,8 +2095,8 @@ msgstr "メール送信"
 
 #. module: mail
 #: selection:res.users,notification_type:0
-msgid "Handle in Odoo"
-msgstr "Odoo内にとどめる"
+msgid "Handle in Gerp"
+msgstr "Gerp内にとどめる"
 
 #. module: mail
 #: model:ir.ui.view,arch_db:mail.view_message_search
@@ -2353,9 +2353,9 @@ msgstr ""
 #. module: mail
 #: model:ir.model.fields,help:mail.field_res_config_settings_alias_domain
 msgid ""
-"If you have setup a catch-all email domain redirected to the Odoo server, "
+"If you have setup a catch-all email domain redirected to the Gerp server, "
 "enter the domain name here."
-msgstr "Odooサーバーにリダイレクトされるキャッチオール電子メールドメインをセットアップした場合は、ここにドメイン名を入力します。"
+msgstr "Gerpサーバーにリダイレクトされるキャッチオール電子メールドメインをセットアップした場合は、ここにドメイン名を入力します。"
 
 #. module: mail
 #: code:addons/mail/models/mail_alias.py:141
@@ -3676,22 +3676,22 @@ msgstr "未読メッセージ件数"
 
 #. module: mail
 #: model:ir.ui.view,arch_db:mail.message_user_assigned
-msgid "Odoo"
-msgstr "Odoo"
+msgid "Gerp"
+msgstr "Gerp"
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/js/client_action.js:895
 #, python-format
 msgid ""
-"Odoo has now the permission to send you native notifications on this device."
+"Gerp has now the permission to send you native notifications on this device."
 msgstr ""
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/xml/client_action.xml:11
 #, python-format
-msgid "Odoo needs your permission to"
+msgid "Gerp needs your permission to"
 msgstr "許可しますか？"
 
 #. module: mail
@@ -3699,7 +3699,7 @@ msgstr "許可しますか？"
 #: code:addons/mail/static/src/js/client_action.js:892
 #, python-format
 msgid ""
-"Odoo will not have the permission to send native notifications on this "
+"Gerp will not have the permission to send native notifications on this "
 "device."
 msgstr ""
 
@@ -4091,7 +4091,7 @@ msgstr "ファイルがアップロードされている間お待ちください
 msgid ""
 "Policy on how to handle Chatter notifications:\n"
 "- Emails: notifications are sent to your email\n"
-"- Odoo: notifications appear in your Odoo Inbox"
+"- Gerp: notifications appear in your Gerp Inbox"
 msgstr ""
 
 #. module: mail
@@ -4805,11 +4805,11 @@ msgstr "ショートカットを置き換えるエスケープされたhtmlコ�
 #: model:ir.model.fields,help:mail.field_mail_channel_alias_model_id
 #: model:ir.model.fields,help:mail.field_mail_test_alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming"
+"The model (Gerp Document Kind) to which this alias corresponds. Any incoming"
 " email that does not reply to an existing record will cause the creation of "
 "a new record of this model (e.g. a Project Task)"
 msgstr ""
-"このエイリアスに対応した(Odooドキュメント種別)モデル。既存のレコードに返信しない任意の受信メールは、このモデルの新しいレコード(例えば、プロジェクトタスク)の作成を引き起こします"
+"このエイリアスに対応した(Gerpドキュメント種別)モデル。既存のレコードに返信しない任意の受信メールは、このモデルの新しいレコード(例えば、プロジェクトタスク)の作成を引き起こします"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_alias_alias_name

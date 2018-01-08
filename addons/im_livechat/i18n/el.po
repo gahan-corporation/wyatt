@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * im_livechat
 # 
@@ -7,7 +7,7 @@
 # Martin Trigaux <mat@gerp.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-20 09:54+0000\n"
 "PO-Revision-Date: 2017-09-20 09:54+0000\n"
@@ -367,11 +367,11 @@ msgstr "Εξηγήστε τη σημείωσή σας"
 #. module: im_livechat
 #: model:ir.ui.view,arch_db:im_livechat.im_livechat_channel_view_form
 msgid ""
-"For website built with Odoo CMS, please install the website_livechat module."
+"For website built with Gerp CMS, please install the website_livechat module."
 " Then go to Website Admin &gt; Configuration &gt; Settings and select the "
 "Website Live Chat Channel you want to add on your website."
 msgstr ""
-"Σε ιστότοπο που δημιουργήθηκε με το Odoo CMS, εγκαταστήστε το άρθρωμα "
+"Σε ιστότοπο που δημιουργήθηκε με το Gerp CMS, εγκαταστήστε το άρθρωμα "
 "web_livechat. Στη συνέχεια, μεταβείτε στην διαχειριστή του Ιστοτόπου και "
 "επιλέξτε το κανάλι Ζωντανής Συνομιλίας που θέλετε να προσθέσετε στον "
 "ιστότοπό σας."
@@ -674,10 +674,10 @@ msgstr "Χειριστές<br/><i class=\"fa fa-comments\"/>"
 #. module: im_livechat
 #: model:ir.ui.view,arch_db:im_livechat.im_livechat_channel_view_form
 msgid ""
-"Operators that do not show any activity In Odoo for more than 30 minutes "
+"Operators that do not show any activity In Gerp for more than 30 minutes "
 "will be considered as disconnected."
 msgstr ""
-"Οι χειριστές που δεν εμφανίζουν καμία δραστηριότητα στο Odoo για περισσότερο"
+"Οι χειριστές που δεν εμφανίζουν καμία δραστηριότητα στο Gerp για περισσότερο"
 " από 30 λεπτά θα θεωρούνται αποσυνδεδεμένοι."
 
 #. module: im_livechat

@@ -6,10 +6,10 @@ Theme Tutorial
 
 .. rst-class:: lead
 
-Odoo celebrates freedom. Freedom for the designer to go further and
+Gerp celebrates freedom. Freedom for the designer to go further and
 freedom for the user to customize everything according to their needs.
 
-Ready to create your own theme? Great. Here are some things you should know before you begin. This tutorial is a guide to creating an Odoo theme.
+Ready to create your own theme? Great. Here are some things you should know before you begin. This tutorial is a guide to creating an Gerp theme.
 
 .. image:: theme_tutorial_assets/img/Intro.jpg
 
@@ -17,14 +17,14 @@ Ready to create your own theme? Great. Here are some things you should know befo
 An introduction for web designers
 =================================
 
-If you are a web designer using Odoo for the first time, you are in the right place.
-This introduction will outline the basics of Odoo theme creation.
+If you are a web designer using Gerp for the first time, you are in the right place.
+This introduction will outline the basics of Gerp theme creation.
 
 .. note::
 
-   Odoo’s team has created a framework that’s powerful and easy to use. There’s no need to know special syntaxes to use this set of tools.
+   Gerp’s team has created a framework that’s powerful and easy to use. There’s no need to know special syntaxes to use this set of tools.
 
-From common CMS to Odoo
+From common CMS to Gerp
 -----------------------
 
 .. note::
@@ -35,7 +35,7 @@ From common CMS to Odoo
 
     Where is my header.php file?
 
-This is usually the first question from a web designer used to working with Wordpress or Joomla and coming to Odoo for the first time.
+This is usually the first question from a web designer used to working with Wordpress or Joomla and coming to Gerp for the first time.
 
 .. container:: col-sm-4
 
@@ -45,7 +45,7 @@ This is usually the first question from a web designer used to working with Word
 
   Indeed, when using common CMSs, you have to code several files (like header.php, page.php, post.php, etc.) in order to create a basic structure for your website. With those systems, this base structure acts as a design foundation that you have to update over time to ensure compatibility within your CMS. So, even after you have spent hours coding the files, you have not even started on the design yet.
 
-  This **does not** apply to creating Odoo themes.
+  This **does not** apply to creating Gerp themes.
 
 
 .. note::
@@ -53,15 +53,15 @@ This is usually the first question from a web designer used to working with Word
 
    We think that theme design should be simple (and powerful). When we created our Website Builder, we decided to start from scratch instead of relying on what already existed. This approach gave us the freedom to focus on the things that are really important for designers: styles, content and the logic behind them. No more struggling with technical stuff.
 
-Odoo default theme structure
+Gerp default theme structure
 ----------------------------
 
 .. container:: col-sm-8
 
-  Odoo comes with a default theme structure.
+  Gerp comes with a default theme structure.
   It is a very basic “theme” that provides minimal structure and layout. When you create a new theme, you are actually extending this.
   Indeed it’s always enabled in your setup and it acts exactly like the CMS’s base structure we mentioned above, except that you don’t have to create or maintain it.
-  It will upgrade automatically within your Odoo installation and, since it is included in the Website Builder module, everything is smoothly integrated by default.
+  It will upgrade automatically within your Gerp installation and, since it is included in the Website Builder module, everything is smoothly integrated by default.
 
   As a result, you are totally free to focus on design while this structure does the job of providing integrations and functionality.
 
@@ -91,14 +91,14 @@ Odoo default theme structure
 Thinking "modular"
 ==================
 
-An Odoo theme is not a folder containing HTML or PHP files, it’s a modular framework written in XML. Never worked with XML files before? Don’t worry, after following the tutorial, you’ll be able to create your first theme with only basic knowledge of HTML.
+An Gerp theme is not a folder containing HTML or PHP files, it’s a modular framework written in XML. Never worked with XML files before? Don’t worry, after following the tutorial, you’ll be able to create your first theme with only basic knowledge of HTML.
 
 Using classical web design workflows, you usually code the layout of the entire page. The result of this is a “static” web page. You can update the content, of course, but your client will need you to work on making even basic changes.
 
-Creating themes for Odoo is a total change of perspective. Instead of defining the complete layout for a page, you can create blocks (snippets) at let the user choose where to “drag&drop” them, creating the page layout on their own.
+Creating themes for Gerp is a total change of perspective. Instead of defining the complete layout for a page, you can create blocks (snippets) at let the user choose where to “drag&drop” them, creating the page layout on their own.
 We call this modular design.
 
-Imagine an Odoo theme as a “list” of elements and options that you have to create and style.
+Imagine an Gerp theme as a “list” of elements and options that you have to create and style.
 As a designer, your goal is to style these elements in order to achieve a wonderful result, regardless of where the end user chooses to place them.
 
 Let’s take a tour of our “list” elements:
@@ -136,14 +136,14 @@ Let’s take a tour of our “list” elements:
 
    Functionalities
 
-   Thanks to Odoo’s modularity, everything can be personalized even more. This means there are endless possibilities for your creativity. Adding functionalities is easy and it’s simple to provide the end user with customizable options.
+   Thanks to Gerp’s modularity, everything can be personalized even more. This means there are endless possibilities for your creativity. Adding functionalities is easy and it’s simple to provide the end user with customizable options.
 
 .. /row
 
-Odoo's XML files, an overview
+Gerp's XML files, an overview
 -----------------------------
 
-Any Odoo XML file starts with encoding specifications.
+Any Gerp XML file starts with encoding specifications.
 After that, you have to write your code inside a ``<gerp>`` tag.
 
 .. code-block:: xml
@@ -174,7 +174,7 @@ Almost every element and option that you create has to be placed inside a ``<tem
 
 The previous code defines a title, but it will not be displayed
 anywhere because that *template* is not associated with any part of
-the **Odoo default structure**.  In order to do that you can use
+the **Gerp default structure**.  In order to do that you can use
 **xpath**, **qWeb** or a combination of both.
 
 Keep reading the tutorial to learn to how properly extend it with your own code.
@@ -199,7 +199,7 @@ Update your theme
 Create a theme module
 ======================
 
-Odoo’s themes are packaged like modules. Even if you are designing a very simple website for your company or client, you need to package the theme like an Odoo module.
+Gerp’s themes are packaged like modules. Even if you are designing a very simple website for your company or client, you need to package the theme like an Gerp module.
 
 ``main folder``
   Create a folder and name it like this: ``theme_`` followed by your
@@ -249,11 +249,11 @@ Open the ``__manifest__.py`` you created and copy/paste the following:
   }
 
 Replace the first four property’s values with anything you like.
-These values will be used to identify your new theme in Odoo’s backend.
+These values will be used to identify your new theme in Gerp’s backend.
 
 The ``data`` property will contain the xml files list. Right now it’s empty, but we will add any new files created.
 
-``category`` defines your module category (always “Theme”) and, after a slash, the subcategory. You can use one subcategory from the Odoo Apps categories list. (https://www.gerp.com/apps/themes)
+``category`` defines your module category (always “Theme”) and, after a slash, the subcategory. You can use one subcategory from the Gerp Apps categories list. (https://www.gerp.com/apps/themes)
 
 
 ``depends`` specifies the modules needed by our theme to work properly. For our tutorial theme, we only need website. If you need blogging or eCommerce features as well, you have to add those modules too.
@@ -269,15 +269,15 @@ The ``data`` property will contain the xml files list. Right now it’s empty, b
 Installing your theme
 ---------------------
 
-To install your theme, you just place your theme folder inside addons in your Odoo installation.
+To install your theme, you just place your theme folder inside addons in your Gerp installation.
 
 After that, navigate to the Settings page, look for your theme and click on the install button.
 
-Structure of an Odoo page
+Structure of an Gerp page
 =========================
 
-An Odoo page is the visual result of a combination of 2 kind of elements, **cross-pages** and **unique**.
-By default, Odoo provides you with a **Header** and a **Footer** (cross-pages) and a unique main element that contains the content that makes your page unique.
+An Gerp page is the visual result of a combination of 2 kind of elements, **cross-pages** and **unique**.
+By default, Gerp provides you with a **Header** and a **Footer** (cross-pages) and a unique main element that contains the content that makes your page unique.
 
 .. note::
 
@@ -300,9 +300,9 @@ add a page name.  Inspect the page using your browser.
 Extend the default Header
 -------------------------
 
-By default, Odoo header contains a responsive navigation menu and the company’s logo. You can easily add new elements or style the existing one.
+By default, Gerp header contains a responsive navigation menu and the company’s logo. You can easily add new elements or style the existing one.
 
-To do so, create a **layout.xml** file in your **views** folder and add the default Odoo xml markup.
+To do so, create a **layout.xml** file in your **views** folder and add the default Gerp xml markup.
 
 .. code-block:: xml
 
@@ -342,7 +342,7 @@ target css rules to that element and avoid these affecting other content on the 
 .. warning::
 
   Be careful replacing default elements attributes. As your theme will extend the default one,
-  your changes will take priority in any future Odoo’s update.
+  your changes will take priority in any future Gerp’s update.
 
 The second xpath will add a welcome message just after the navigation menu.
 
@@ -371,7 +371,7 @@ Imagine that we want to create a specific layout for a Services page.
 For this page, we need to add a list of services to the top and give the client the possibility of setting the rest of the page’s layout using snippets.
 
 Inside your *views* folder, create a **pages.xml** file and add the
-default Odoo markup.  Inside ``<gerp>`` create a ``<template>`` tag, set the
+default Gerp markup.  Inside ``<gerp>`` create a ``<template>`` tag, set the
 ``page`` attribute to ``True`` and add your code into it.
 
 .. code-block:: xml
@@ -415,7 +415,7 @@ html code into a ``<t>`` tag, like in this example.
      </t>
    </template>
 
-Using ``<t t-call="website.layout">`` we will extend the Odoo
+Using ``<t t-call="website.layout">`` we will extend the Gerp
 default page layout with our code.
 
 As you can see, we wrapped our code into two ``<div>``,  one with ID ``wrap`` and the other one with class ``container``. This is to provide a minimal layout.
@@ -500,7 +500,7 @@ If, for example, you want to place your link in the **middle**, you can set your
 Add Styles
 ==========
 
-Odoo includes Bootstrap by default. This means that you can take advantage of all Bootstrap styles and layout functionalities out of the box.
+Gerp includes Bootstrap by default. This means that you can take advantage of all Bootstrap styles and layout functionalities out of the box.
 
 Of course Bootstrap is not enough if you want to provide a unique design. The following steps will guide you through how to add custom styles to your theme.
 The final result won't be pretty, but will provide you with enough information to build upon on your own.
@@ -532,7 +532,7 @@ The following rules will style our *Services* page. Copy and paste it, then save
 
 Our file is ready but it is not included in our theme yet.
 
-Let’s navigate to the view folder and create an XML file called *assets.xml*. Add the default Odoo xml markup and copy/paste the following code. Remember to replace ``theme folder`` with your theme’s main folder name.
+Let’s navigate to the view folder and create an XML file called *assets.xml*. Add the default Gerp xml markup and copy/paste the following code. Remember to replace ``theme folder`` with your theme’s main folder name.
 
 .. code-block:: xml
 
@@ -544,7 +544,7 @@ Let’s navigate to the view folder and create an XML file called *assets.xml*. 
 
 We just created a template specifying our less file. As you can see,
 our template has a special attribute called ``inherit_id``.  This
-attribute tells Odoo that our template is referring to another one in
+attribute tells Gerp that our template is referring to another one in
 order to operate.
 
 In this case, we are referring to ``assets_frontend`` template,
@@ -567,7 +567,7 @@ Update your theme
 .. image:: theme_tutorial_assets/img/restart.png
 
 
-Our less file is now included in our theme, it will be automatically compiled, minified and combined with all Odoo’s assets.
+Our less file is now included in our theme, it will be automatically compiled, minified and combined with all Gerp’s assets.
 
 .. image:: theme_tutorial_assets/img/services_page_styled.png
    :class: shadow-0
@@ -578,7 +578,7 @@ Create Snippets
 Since snippets are how users design and layout pages, they are the most important element of your design.
 Let’s create a snippet for our Service page. The snippet will display three testimonials and it will be editable by the end user using the Website Builder UI.
 Navigate to the view folder and create an XML file called **snippets.xml**.
-Add the default Odoo xml markup and copy/paste the following code.
+Add the default Gerp xml markup and copy/paste the following code.
 The template contains the HTML markup that will be displayed by the snippet.
 
 .. code-block:: xml
@@ -681,7 +681,7 @@ Options apply standard CSS classes to the snippet. Depending on the method that 
 
 Let's demonstrate how default options work with a basic example.
 
-We start by adding a new file in our views folder - name it **options.xml** and add the default Odoo XML markup. Create a new template copy/pasting the following
+We start by adding a new file in our views folder - name it **options.xml** and add the default Gerp XML markup. Create a new template copy/pasting the following
 
 
 .. code-block:: xml

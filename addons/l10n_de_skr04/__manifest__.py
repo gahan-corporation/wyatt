@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 # SKR04
 # =====
@@ -26,7 +26,7 @@
 # die Zuordnung bei Produkten und überschreibt diese im Einzelfall.
 #
 # Zur Vereinfachung der Steuerausweise und Buchung bei Auslandsgeschäften
-# erlaubt Odoo ein generelles Mapping von Steuerausweis und Steuerkonten
+# erlaubt Gerp ein generelles Mapping von Steuerausweis und Steuerkonten
 # (z.B. Zuordnung 'Umsatzsteuer 19%' zu 'steuerfreie Einfuhren aus der EU')
 # zwecks Zuordnung dieses Mappings zum ausländischen Partner (Kunde/Lieferant).
 

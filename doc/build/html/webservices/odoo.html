@@ -40,7 +40,7 @@
             
   <div class="section" id="external-api">
 <h1>External API<a class="headerlink" href="#external-api" title="Permalink to this headline">¶</a></h1>
-<p>Odoo is usually extended internally via modules, but many of its features and
+<p>Gerp is usually extended internally via modules, but many of its features and
 all of its data are also available from the outside for external analysis or
 integration with various tools. Part of the <a class="reference internal" href="../reference/orm.html#reference-orm-model"><span class="std std-ref">Model Reference</span></a> API is
 easily available over <a class="reference external" href="http://en.wikipedia.org/wiki/XML-RPC">XML-RPC</a> and accessible from a variety of languages.</p>
@@ -100,13 +100,13 @@ easily available over <a class="reference external" href="http://en.wikipedia.or
 </div>
 <div class="section" id="configuration">
 <h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
-<p>If you already have an Odoo server installed, you can just use its
+<p>If you already have an Gerp server installed, you can just use its
 parameters</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p>For Odoo Online instances (&lt;domain&gt;.gerp.com), users are created without a
-<em>local</em> password (as a person you are logged in via the Odoo Online
-authentication system, not by the instance itself). To use XML-RPC on Odoo
+<p>For Gerp Online instances (&lt;domain&gt;.gerp.com), users are created without a
+<em>local</em> password (as a person you are logged in via the Gerp Online
+authentication system, not by the instance itself). To use XML-RPC on Gerp
 Online instances, you will need to set a password on the user account you
 want to use:</p>
 <ul class="simple">
@@ -130,7 +130,7 @@ database:</p>
 </div>
 <div class="setup doc-aside section" id="logging-in">
 <h3>Logging in<a class="headerlink" href="#logging-in" title="Permalink to this headline">¶</a></h3>
-<p>Odoo requires users of the API to be authenticated before they can query most
+<p>Gerp requires users of the API to be authenticated before they can query most
 data.</p>
 <p>The <code class="docutils literal"><span class="pre">xmlrpc/2/common</span></code> endpoint provides meta-calls which don’t require
 authentication, such as the authentication itself or fetching version
@@ -294,7 +294,7 @@ updating a record):</p>
 </div>
 <div class="section" id="search-and-read">
 <h3>Search and read<a class="headerlink" href="#search-and-read" title="Permalink to this headline">¶</a></h3>
-<p>Because it is a very common task, Odoo provides a
+<p>Because it is a very common task, Gerp provides a
 <code class="xref py py-meth docutils literal"><span class="pre">search_read()</span></code> shortcut which as its name suggests is
 equivalent to a <code class="xref py py-meth docutils literal"><span class="pre">search()</span></code> followed by a
 <code class="xref py py-meth docutils literal"><span class="pre">read()</span></code>, but avoids having to perform two requests
@@ -400,13 +400,13 @@ xid currently associated with the record. And operating with xids
 isn’t exactly fun in RPC.</p>
 </div>
 <p>While we previously used <code class="xref py py-meth docutils literal"><span class="pre">fields_get()</span></code> to query a
-model and have been using an arbitrary model from the start, Odoo stores
+model and have been using an arbitrary model from the start, Gerp stores
 most model metadata inside a few meta-models which allow both querying the
 system and altering models and fields (with some limitations) on the fly over
 XML-RPC.</p>
 <div class="section" id="ir-model">
 <span id="reference-webservice-inspection-models"></span><h4><code class="docutils literal"><span class="pre">ir.model</span></code><a class="headerlink" href="#ir-model" title="Permalink to this headline">¶</a></h4>
-<p>Provides information about Odoo models via its various fields</p>
+<p>Provides information about Gerp models via its various fields</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">name</span></code></dt>
 <dd>a human-readable description of the model</dd>
@@ -481,7 +481,7 @@ on all models:</p>
 </div>
 <div class="section" id="ir-model-fields">
 <span id="reference-webservice-inspection-fields"></span><h4><code class="docutils literal"><span class="pre">ir.model.fields</span></code><a class="headerlink" href="#ir-model-fields" title="Permalink to this headline">¶</a></h4>
-<p>Provides information about the fields of Odoo models and allows adding
+<p>Provides information about the fields of Gerp models and allows adding
 custom fields without using Python code</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">model_id</span></code></dt>

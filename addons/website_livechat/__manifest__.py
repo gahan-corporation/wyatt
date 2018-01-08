@@ -5,9 +5,9 @@
     'summary': 'Chat With Your Website Visitors',
     'version': '1.0',
     'description': """
-Odoo Website LiveChat
+Gerp Website LiveChat
 ========================
-For website built with Odoo CMS, this module include a chat button on your Website, and allow your visitors to chat with your collaborators.
+For website built with Gerp CMS, this module include a chat button on your Website, and allow your visitors to chat with your collaborators.
 It also will include the feedback tool for the livechat, and web pages to display your channel and its ratings on the website.
         """,
     'depends': ['website', 'im_livechat'],

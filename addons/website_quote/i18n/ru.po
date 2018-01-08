@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_quote
 # 
@@ -15,7 +15,7 @@
 # Max Belyanin <maxbelyanin@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 09:00+0000\n"
 "PO-Revision-Date: 2017-10-24 09:00+0000\n"
@@ -72,7 +72,7 @@ msgid ""
 "                <p style=\"font-size: 11px;\"><strong>Sent by\n"
 "                <a href=\"${user.company_id.website}\" style=\"text-decoration:none; color: #875A7B;\">\n"
 "                    <strong>${user.company_id.name}</strong>\n"
-"                </a> using <a href=\"www.gerp.com\" style=\"text-decoration:none; color: #875A7B;\"><strong>Odoo</strong></a>\n"
+"                </a> using <a href=\"www.gerp.com\" style=\"text-decoration:none; color: #875A7B;\"><strong>Gerp</strong></a>\n"
 "                </strong></p>\n"
 "            </td>\n"
 "        </tr></tbody>\n"
@@ -121,7 +121,7 @@ msgstr ""
 "                <p style=\"font-size: 11px;\"><strong>Sent by\n"
 "                <a href=\"${user.company_id.website}\" style=\"text-decoration:none; color: #875A7B;\">\n"
 "                    <strong>${user.company_id.name}</strong>\n"
-"                </a> using <a href=\"www.gerp.com\" style=\"text-decoration:none; color: #875A7B;\"><strong>Odoo</strong></a>\n"
+"                </a> using <a href=\"www.gerp.com\" style=\"text-decoration:none; color: #875A7B;\"><strong>Gerp</strong></a>\n"
 "                </strong></p>\n"
 "            </td>\n"
 "        </tr></tbody>\n"
@@ -391,7 +391,7 @@ msgstr "О нас"
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
 msgid ""
-"Access to an Account Manager at Odoo SA to discuss strategic, sales and "
+"Access to an Account Manager at Gerp SA to discuss strategic, sales and "
 "service issues"
 msgstr ""
 
@@ -438,7 +438,7 @@ msgstr "Сумма без скидки"
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "An Odoo official partner commits to:"
+msgid "An Gerp official partner commits to:"
 msgstr ""
 
 #. module: website_quote
@@ -482,19 +482,19 @@ msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Be available for periodic review meeting with Odoo SA account managers"
+msgid "Be available for periodic review meeting with Gerp SA account managers"
 msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
 msgid ""
-"Be the first level of support for his Odoo customers and use Odoo SA for the"
+"Be the first level of support for his Gerp customers and use Gerp SA for the"
 " second level of support (mostly for bug fixes)"
 msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Become a Certified Odoo Partner"
+msgid "Become a Certified Gerp Partner"
 msgstr ""
 
 #. module: website_quote
@@ -795,18 +795,18 @@ msgstr "Практические упражнения и их решения"
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Has a direct relationship with Odoo SA to escalate issues"
+msgid "Has a direct relationship with Gerp SA to escalate issues"
 msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
 msgid ""
-"Has access to Odoo Enterprise source code on Github and latest bug fixes"
+"Has access to Gerp Enterprise source code on Github and latest bug fixes"
 msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Have dedicated resources assigned to Odoo projects"
+msgid "Have dedicated resources assigned to Gerp projects"
 msgstr ""
 
 #. module: website_quote
@@ -921,7 +921,7 @@ msgstr "Введение в QWeb"
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Is fully trained on Odoo"
+msgid "Is fully trained on Gerp"
 msgstr ""
 
 #. module: website_quote
@@ -956,22 +956,22 @@ msgstr "Последнее обновление"
 #: model:product.template,description_sale:website_quote.product_template_quote_1
 #: model:product.template,description_sale:website_quote.product_template_quote_3
 msgid ""
-"Learn directly from our team and network of Odoo experts. Choose from the "
-"available training sessions for a better functional understanding of Odoo"
+"Learn directly from our team and network of Gerp experts. Choose from the "
+"available training sessions for a better functional understanding of Gerp"
 msgstr ""
-"Учитесь непосредственно у нашей команды и сети экспертов Odoo. Выбирайте из "
-"доступных учебных занятий для лучшего функционального понимания Odoo"
+"Учитесь непосредственно у нашей команды и сети экспертов Gerp. Выбирайте из "
+"доступных учебных занятий для лучшего функционального понимания Gerp"
 
 #. module: website_quote
 #: model:product.product,description_sale:website_quote.product_product_quote_2
 #: model:product.template,description_sale:website_quote.product_product_quote_2_product_template
 #: model:product.template,description_sale:website_quote.product_template_quote_2
 msgid ""
-"Learn directly from our team and network of Odoo experts. Choose from the "
-"available training sessions for a better technical understanding of Odoo"
+"Learn directly from our team and network of Gerp experts. Choose from the "
+"available training sessions for a better technical understanding of Gerp"
 msgstr ""
-"Учитесь непосредственно у нашей команды и сети экспертов Odoo. Выбирайте из "
-"доступных учебных занятий для лучшего технического понимания Odoo"
+"Учитесь непосредственно у нашей команды и сети экспертов Gerp. Выбирайте из "
+"доступных учебных занятий для лучшего технического понимания Gerp"
 
 #. module: website_quote
 #: model:ir.model.fields,field_description:website_quote.field_sale_order_option_line_id
@@ -1048,25 +1048,25 @@ msgstr "Количество дней для расчета срока дейс�
 #: model:product.template,quote_description:website_quote.product_product_quote_2_product_template
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
-msgid "Odoo Official Website"
-msgstr "Официальный вебсайт Odoo"
+msgid "Gerp Official Website"
+msgstr "Официальный вебсайт Gerp"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
 #: model:product.template,quote_description:website_quote.product_product_quote_2_product_template
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
-msgid "Odoo Web Client"
-msgstr "Odoo веб-клиент"
+msgid "Gerp Web Client"
+msgstr "Gerp веб-клиент"
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Odoo official partners will benefit from:"
+msgid "Gerp official partners will benefit from:"
 msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Odoo sales training session"
+msgid "Gerp sales training session"
 msgstr ""
 
 #. module: website_quote
@@ -1240,12 +1240,12 @@ msgstr "Продукты"
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Promote Odoo Enterprise to its customers"
+msgid "Promote Gerp Enterprise to its customers"
 msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Publishes references directly on Odoo.com"
+msgid "Publishes references directly on Gerp.com"
 msgstr ""
 
 #. module: website_quote
@@ -1469,22 +1469,22 @@ msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "The Odoo Enterprise GitHub repositories for all his developers"
+msgid "The Gerp Enterprise GitHub repositories for all his developers"
 msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
 msgid ""
-"The Odoo eco system is designed to offer the best customer experience to "
-"Odoo users, from the product to implementation services. In order to "
-"guarantee that, the Odoo Partner Program ensures that official partners have"
-" the resources and knowledge required to offer Odoo implementation services."
+"The Gerp eco system is designed to offer the best customer experience to "
+"Gerp users, from the product to implementation services. In order to "
+"guarantee that, the Gerp Partner Program ensures that official partners have"
+" the resources and knowledge required to offer Gerp implementation services."
 msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
 msgid ""
-"The ability to report bugs to be fixed by Odoo on behalf of his customer "
+"The ability to report bugs to be fixed by Gerp on behalf of his customer "
 "(Enterprise contracts only)"
 msgstr ""
 
@@ -1572,7 +1572,7 @@ msgstr "Итоговая цена"
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Train their staff by following Odoo training sessions"
+msgid "Train their staff by following Gerp training sessions"
 msgstr ""
 
 #. module: website_quote
@@ -1618,7 +1618,7 @@ msgstr "Единица измерения "
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
 msgid ""
-"Up to 20% commission on Odoo Enterprise sales, depending on the partnership "
+"Up to 20% commission on Gerp Enterprise sales, depending on the partnership "
 "level"
 msgstr ""
 
@@ -1659,7 +1659,7 @@ msgstr "Видео с подробной демо"
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
 msgid ""
 "Visibility and recognition, by being listed as an official partner on "
-"Odoo.com Partners page"
+"Gerp.com Partners page"
 msgstr ""
 
 #. module: website_quote
@@ -1707,13 +1707,13 @@ msgstr ""
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_default
 msgid ""
-"You can <strong>set a description per product</strong>. Odoo will\n"
+"You can <strong>set a description per product</strong>. Gerp will\n"
 "                        automatically create a quotation using the descriptions\n"
 "                        of all products in the proposal. The table of content\n"
 "                        on the left is generated automatically using the styles you\n"
 "                        used in your description (heading 1, heading 2, ...)"
 msgstr ""
-"Вы можете <strong>установить описание по продукту</strong>. Odoo \n"
+"Вы можете <strong>установить описание по продукту</strong>. Gerp \n"
 "                        автоматически создает коммерческое предложение используя описания\n"
 "                        всех продуктов в предложении. Таблица содержания\n"
 "                        с лева создается автоматически используя стили которые вы\n"

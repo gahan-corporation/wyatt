@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * purchase
 # 
@@ -34,7 +34,7 @@
 # Christopher Ormaza <chris.ormaza@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
@@ -242,7 +242,7 @@ msgid ""
 "                      </tr>\n"
 "                      <tr>\n"
 "                        <td align=\"center\">\n"
-"                            Powered by <a href=\"https://www.gerp.com\">Odoo</a>.\n"
+"                            Powered by <a href=\"https://www.gerp.com\">Gerp</a>.\n"
 "                        </td>\n"
 "                      </tr>\n"
 "                    </tbody>\n"
@@ -313,7 +313,7 @@ msgstr ""
 "                      </tr>\n"
 "                      <tr>\n"
 "                        <td align=\"center\">\n"
-"                            Implementado por <a href=\"https://www.gerp.com\">Odoo</a>.\n"
+"                            Implementado por <a href=\"https://www.gerp.com\">Gerp</a>.\n"
 "                        </td>\n"
 "                      </tr>\n"
 "                    </tbody>\n"
@@ -1129,10 +1129,10 @@ msgstr "Compras mensuales"
 #: model:ir.actions.act_window,help:purchase.purchase_rfq
 msgid ""
 "Most propositions of purchase orders are created automatically\n"
-"                by Odoo based on inventory needs."
+"                by Gerp based on inventory needs."
 msgstr ""
 "La mayor parte de las proposiciones para pedidos de compra se\n"
-"crean automáticamente por Odoo en base a las necesidades de\n"
+"crean automáticamente por Gerp en base a las necesidades de\n"
 "inventario."
 
 #. module: purchase
@@ -2121,12 +2121,12 @@ msgstr "Base imponible:"
 msgid ""
 "Use this menu to control the invoices to be received from your\n"
 "            vendors. When registering a new bill, set the purchase order\n"
-"            and Odoo will fill the bill automatically according to ordered\n"
+"            and Gerp will fill the bill automatically according to ordered\n"
 "            or received quantities."
 msgstr ""
 "Utilice este menú para controlar las facturas que se reciban de su\n"
 "proveedor. Cuando registre una nueva factura, establezca la orden de compra\n"
-"y Odoo llenará la factura automáticamente según las cantidades ordenadas\n"
+"y Gerp llenará la factura automáticamente según las cantidades ordenadas\n"
 "o recibidas."
 
 #. module: purchase
@@ -2195,12 +2195,12 @@ msgid ""
 "Vendors bills can be pre-generated based on purchase\n"
 "                    orders or receipts. This allows you to control bills\n"
 "                    you receive from your vendor according to the draft\n"
-"                    document in Odoo."
+"                    document in Gerp."
 msgstr ""
 "Las facturas de proveedor pueden ser pre-generadas basadas en la orden de\n"
 "compra o recibos. Esto le permite controlar las facturas\n"
 "que recibe de su proveedor de acuerdo con el documento\n"
-"borrador en Odoo."
+"borrador en Gerp."
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_report_volume

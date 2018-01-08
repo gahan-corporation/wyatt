@@ -500,10 +500,10 @@ name of the component they belong to (creating “informal” namespaces, much
 as in C or Objective-C).</p>
 </li>
 <li><p class="first">Global selectors should be avoided. Because a component may be used several
-times in a single page (an example in Odoo is dashboards), queries should be
+times in a single page (an example in Gerp is dashboards), queries should be
 restricted to a given component’s scope. Unfiltered selections such as
 <code class="docutils literal"><span class="pre">$(selector)</span></code> or <code class="docutils literal"><span class="pre">document.querySelectorAll(selector)</span></code> will generally
-lead to unintended or incorrect behavior.  Odoo Web’s
+lead to unintended or incorrect behavior.  Gerp Web’s
 <a class="reference internal" href="#Widget" title="Widget"><code class="xref js js-class docutils literal"><span class="pre">Widget()</span></code></a> has an attribute providing its DOM root
 (<a class="reference internal" href="#Widget._S_el" title="Widget.$el"><code class="xref js js-attr docutils literal"><span class="pre">$el</span></code></a>), and a shortcut to select nodes directly
 (<a class="reference internal" href="#Widget._S_" title="Widget.$"><code class="xref js js-func docutils literal"><span class="pre">$()</span></code></a>).</p>
@@ -518,25 +518,25 @@ or intercepting DOM events) must inherit from <a class="reference internal" href
 and correctly implement and use its API and life cycle.</p>
 </li>
 </ul>
-<p>To display and interact with data, calls to the Odoo server are necessary.
+<p>To display and interact with data, calls to the Gerp server are necessary.
 This is performed using <abbr>RPC &lt;Remote Procedure Call&gt;</abbr>.</p>
-<p>Odoo Web provides two primary APIs to handle this: a low-level
-JSON-RPC based API communicating with the Python section of Odoo
+<p>Gerp Web provides two primary APIs to handle this: a low-level
+JSON-RPC based API communicating with the Python section of Gerp
 Web (and of your module, if you have a Python part) and a high-level
-API above that allowing your code to talk directly to high-level Odoo models.</p>
+API above that allowing your code to talk directly to high-level Gerp models.</p>
 <p>All networking APIs are <a class="reference internal" href="async.html#reference-async"><span class="std std-ref">asynchronous</span></a>. As a result,
 all of them will return <a class="reference external" href="http://api.jquery.com/category/deferred-object/">Deferred</a> objects (whether they resolve those with
 values or not). Understanding how those work before before moving on is
 probably necessary.</p>
 </div>
 <div class="section" id="high-level-api-calling-into-gerp-models">
-<h2>High-level API: calling into Odoo models<a class="headerlink" href="#high-level-api-calling-into-gerp-models" title="Permalink to this headline">¶</a></h2>
-<p>Access to Odoo object methods (made available through XML-RPC from the server)
-is done via <a class="reference internal" href="#Model" title="Model"><code class="xref js js-class docutils literal"><span class="pre">Model()</span></code></a>. It maps onto the Odoo server objects via two primary
+<h2>High-level API: calling into Gerp models<a class="headerlink" href="#high-level-api-calling-into-gerp-models" title="Permalink to this headline">¶</a></h2>
+<p>Access to Gerp object methods (made available through XML-RPC from the server)
+is done via <a class="reference internal" href="#Model" title="Model"><code class="xref js js-class docutils literal"><span class="pre">Model()</span></code></a>. It maps onto the Gerp server objects via two primary
 methods, <code class="xref js js-func docutils literal"><span class="pre">call()</span></code> (exported in <code class="docutils literal"><span class="pre">web.Model</span></code>) and <code class="xref js js-func docutils literal"><span class="pre">query()</span></code>
 (exported in <code class="docutils literal"><span class="pre">web.DataModel</span></code>, only available in the backend client).</p>
 <p><code class="xref js js-func docutils literal"><span class="pre">call()</span></code> is a direct mapping to the corresponding method of
-the Odoo server object. Its usage is similar to that of the Odoo Model API,
+the Gerp server object. Its usage is similar to that of the Gerp Model API,
 with three differences:</p>
 <ul>
 <li><p class="first">The interface is <a class="reference internal" href="async.html#reference-async"><span class="std std-ref">asynchronous</span></a>, so instead of
@@ -561,7 +561,7 @@ not fetched from an other (somewhat global) object:</p>
 </li>
 </ul>
 <p><code class="xref js js-func docutils literal"><span class="pre">query()</span></code> is a shortcut for a builder-style
-interface to searches (<code class="docutils literal"><span class="pre">search</span></code> + <code class="docutils literal"><span class="pre">read</span></code> in Odoo RPC terms). It
+interface to searches (<code class="docutils literal"><span class="pre">search</span></code> + <code class="docutils literal"><span class="pre">read</span></code> in Gerp RPC terms). It
 returns a <a class="reference internal" href="#gerp.web.Query" title="gerp.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> object which is immutable but
 allows building new <a class="reference internal" href="#gerp.web.Query" title="gerp.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a> instances from the
 first one, adding new properties or modifiying the parent object’s:</p>
@@ -766,12 +766,12 @@ for sorting.</p>
 
 <div class="section" id="aggregation-grouping">
 <h3>Aggregation (grouping)<a class="headerlink" href="#aggregation-grouping" title="Permalink to this headline">¶</a></h3>
-<p>Odoo has powerful grouping capacities, but they are kind-of strange
+<p>Gerp has powerful grouping capacities, but they are kind-of strange
 in that they’re recursive, and level n+1 relies on data provided
 directly by the grouping at level n. As a result, while
 <code class="xref py py-meth docutils literal"><span class="pre">gerp.models.Model.read_group()</span></code> works it’s not a very intuitive
 API.</p>
-<p>Odoo Web eschews direct calls to <code class="xref py py-meth docutils literal"><span class="pre">read_group()</span></code>
+<p>Gerp Web eschews direct calls to <code class="xref py py-meth docutils literal"><span class="pre">read_group()</span></code>
 in favor of calling a method of <a class="reference internal" href="#gerp.web.Query" title="gerp.web.Query"><code class="xref js js-class docutils literal"><span class="pre">Query()</span></code></a>, <code class="xref py py-meth docutils literal"><span class="pre">much</span>
 <span class="pre">in</span> <span class="pre">the</span> <span class="pre">way</span> <span class="pre">it</span> <span class="pre">is</span> <span class="pre">done</span> <span class="pre">in</span> <span class="pre">SQLAlchemy</span></code>
 <a class="footnote-reference" href="#terminal" id="id2">[2]</a>:</p>
@@ -860,7 +860,7 @@ below this one</p>
 <h2>Low-level API: RPC calls to Python side<a class="headerlink" href="#low-level-api-rpc-calls-to-python-side" title="Permalink to this headline">¶</a></h2>
 <p>While the previous section is great for calling core OpenERP code
 (models code), it does not work if you want to call the Python side of
-Odoo Web.</p>
+Gerp Web.</p>
 <p>For this, a lower-level API exists on on
 <code class="xref js js-class docutils literal"><span class="pre">Session()</span></code> objects (the class is exported in <code class="docutils literal"><span class="pre">web.Session</span></code>, but
 an instance isusually available through <code class="docutils literal"><span class="pre">web.session</span></code>): the <code class="docutils literal"><span class="pre">rpc</span></code> method.</p>
@@ -885,7 +885,7 @@ fetches the return value of the Python methods, converted to JSON.</p>
 <div class="section" id="javascript-module-system-overview">
 <h2>Javascript module system overview<a class="headerlink" href="#javascript-module-system-overview" title="Permalink to this headline">¶</a></h2>
 <p>A new module system (inspired from requirejs) has now been deployed.
-It has many advantages over the Odoo version 8 system.</p>
+It has many advantages over the Gerp version 8 system.</p>
 <ul class="simple">
 <li>loading order: dependencies are guaranteed to be loaded first, even if
 files are not loaded in the correct order in the bundle files.</li>
@@ -1010,11 +1010,11 @@ everything else (for example, <code class="docutils literal"><span class="pre">a
 </div>
 <div class="section" id="javascript-unit-testing">
 <h2>Javascript Unit Testing<a class="headerlink" href="#javascript-unit-testing" title="Permalink to this headline">¶</a></h2>
-<p>Odoo Web includes means to unit-test both the core code of
-Odoo Web and your own javascript modules. On the javascript side,
+<p>Gerp Web includes means to unit-test both the core code of
+Gerp Web and your own javascript modules. On the javascript side,
 unit-testing is based on <a class="reference external" href="http://qunitjs.com/">QUnit</a> with a number of helpers and
-extensions for better integration with Odoo.</p>
-<p>To see what the runner looks like, find (or start) an Odoo server
+extensions for better integration with Gerp.</p>
+<p>To see what the runner looks like, find (or start) an Gerp server
 with the web client enabled, and navigate to <code class="docutils literal"><span class="pre">/web/tests</span></code>
 This will show the runner selector, which lists all modules with javascript
 unit tests, and allows starting any of them (or all javascript tests in all
@@ -1027,7 +1027,7 @@ bundled <a class="reference external" href="http://qunitjs.com/">QUnit</a> runne
 <div class="section" id="writing-a-test-case">
 <h2>Writing a test case<a class="headerlink" href="#writing-a-test-case" title="Permalink to this headline">¶</a></h2>
 <p>The first step is to list the test file(s). This is done through the
-<code class="docutils literal"><span class="pre">test</span></code> key of the Odoo manifest, by adding javascript files to it:</p>
+<code class="docutils literal"><span class="pre">test</span></code> key of the Gerp manifest, by adding javascript files to it:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s2">&quot;Demonstration of web/javascript tests&quot;</span><span class="p">,</span>
     <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="s1">&#39;Hidden&#39;</span><span class="p">,</span>
@@ -1055,13 +1055,13 @@ and allow running all of its (0 so far) tests:</p>
 </pre></div>
 </div>
 <p>All testing helpers and structures live in the <code class="docutils literal"><span class="pre">gerp.testing</span></code>
-module. Odoo tests live in a <a class="reference internal" href="#gerp.testing.section" title="gerp.testing.section"><code class="xref js js-func docutils literal"><span class="pre">section()</span></code></a>,
+module. Gerp tests live in a <a class="reference internal" href="#gerp.testing.section" title="gerp.testing.section"><code class="xref js js-func docutils literal"><span class="pre">section()</span></code></a>,
 which is itself part of a module. The first argument to a section is
 the name of the section, the second one is the section body.</p>
 <p><a class="reference internal" href="#gerp.testing.case" title="gerp.testing.case"><code class="xref js js-func docutils literal"><span class="pre">test</span></code></a>, provided by the
 <a class="reference internal" href="#gerp.testing.section" title="gerp.testing.section"><code class="xref js js-func docutils literal"><span class="pre">section()</span></code></a> to the callback, is used to
 register a given test case which will be run whenever the test runner
-actually does its job. Odoo Web test case use standard <a class="reference external" href="http://api.qunitjs.com/category/assert/">QUnit
+actually does its job. Gerp Web test case use standard <a class="reference external" href="http://api.qunitjs.com/category/assert/">QUnit
 assertions</a> within them.</p>
 <p>Launching the test runner at this point will run the test and display
 the corresponding assertion message, with red colors indicating the
@@ -1073,7 +1073,7 @@ will make it pass:</p>
 </div>
 <div class="section" id="assertions">
 <h2>Assertions<a class="headerlink" href="#assertions" title="Permalink to this headline">¶</a></h2>
-<p>As noted above, Odoo Web’s tests use <a class="reference external" href="http://api.qunitjs.com/category/assert/">qunit assertions</a>. They are
+<p>As noted above, Gerp Web’s tests use <a class="reference external" href="http://api.qunitjs.com/category/assert/">qunit assertions</a>. They are
 available globally (so they can just be called without references to
 anything). The following list is available:</p>
 <dl class="function">
@@ -1148,8 +1148,8 @@ the <code class="docutils literal"><span class="pre">==</span></code> operator a
 
 </div>
 <div class="section" id="getting-an-gerp-instance">
-<h2>Getting an Odoo instance<a class="headerlink" href="#getting-an-gerp-instance" title="Permalink to this headline">¶</a></h2>
-<p>The Odoo instance is the base through which most Odoo Web
+<h2>Getting an Gerp instance<a class="headerlink" href="#getting-an-gerp-instance" title="Permalink to this headline">¶</a></h2>
+<p>The Gerp instance is the base through which most Gerp Web
 modules behaviors (functions, objects, …) are accessed. As a result,
 the test framework automatically builds one, and loads the module
 being tested and all of its dependencies inside it. This new instance
@@ -1320,7 +1320,7 @@ first parameter:</p>
 <ul>
 <li><p class="first">If it matches the pattern <code class="docutils literal"><span class="pre">model:method</span></code> (if it contains a
 colon, essentially) the call will set up the mocking of an RPC
-call straight to the Odoo server (through XMLRPC) as
+call straight to the Gerp server (through XMLRPC) as
 performed via e.g. <code class="xref js js-func docutils literal"><span class="pre">gerp.web.Model.call()</span></code>.</p>
 <p>In that case, <code class="docutils literal"><span class="pre">handler</span></code> should be a function taking two
 arguments <code class="docutils literal"><span class="pre">args</span></code> and <code class="docutils literal"><span class="pre">kwargs</span></code>, matching the corresponding
@@ -1558,7 +1558,7 @@ a web component at least), then restart the server</p>
 <p class="first admonition-title">Note</p>
 <p class="last">For some tests, a source database needs to be duplicated. This
 operation requires that there be no connection to the database
-being duplicated, but Odoo doesn’t currently break
+being duplicated, but Gerp doesn’t currently break
 existing/outstanding connections, so restarting the server is
 the simplest way to ensure everything is in the right state.</p>
 </div>
@@ -1607,7 +1607,7 @@ the OpenERP Web test suite.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Note that this runs all the Python tests for the <code class="docutils literal"><span class="pre">web</span></code> module,
-but all the web tests for all of Odoo. This can be surprising.</p>
+but all the web tests for all of Gerp. This can be surprising.</p>
 </div>
 <table class="docutils footnote" frame="void" id="eventsdelegation" rules="none">
 <colgroup><col class="label" /><col /></colgroup>

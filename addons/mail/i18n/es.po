@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * mail
 # 
@@ -40,7 +40,7 @@
 # Christopher Ormaza <chris.ormaza@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 08:59+0000\n"
 "PO-Revision-Date: 2017-10-24 08:59+0000\n"
@@ -138,7 +138,7 @@ msgid ""
 "    </a>\n"
 "    % endif\n"
 "    using\n"
-"    <a target=\"_blank\" href=\"https://www.gerp.com\" style=\"text-decoration:none; color: #875A7B;\">Odoo</a>.\n"
+"    <a target=\"_blank\" href=\"https://www.gerp.com\" style=\"text-decoration:none; color: #875A7B;\">Gerp</a>.\n"
 "</p>\n"
 "</div>"
 msgstr ""
@@ -2163,7 +2163,7 @@ msgstr ""
 
 #. module: mail
 #: selection:res.users,notification_type:0
-msgid "Handle in Odoo"
+msgid "Handle in Gerp"
 msgstr ""
 
 #. module: mail
@@ -2434,11 +2434,11 @@ msgstr ""
 #. module: mail
 #: model:ir.model.fields,help:mail.field_res_config_settings_alias_domain
 msgid ""
-"If you have setup a catch-all email domain redirected to the Odoo server, "
+"If you have setup a catch-all email domain redirected to the Gerp server, "
 "enter the domain name here."
 msgstr ""
 "Si tiene un dominio de correo electrónico general redireccionado a un "
-"servidor de Odoo, ponga el nombre del dominio aquí."
+"servidor de Gerp, ponga el nombre del dominio aquí."
 
 #. module: mail
 #: code:addons/mail/models/mail_alias.py:141
@@ -3788,35 +3788,35 @@ msgstr "Número de mensajes no leidos"
 
 #. module: mail
 #: model:ir.ui.view,arch_db:mail.message_user_assigned
-msgid "Odoo"
-msgstr "Odoo"
+msgid "Gerp"
+msgstr "Gerp"
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/js/client_action.js:895
 #, python-format
 msgid ""
-"Odoo has now the permission to send you native notifications on this device."
+"Gerp has now the permission to send you native notifications on this device."
 msgstr ""
-"Odoo tiene ahora permisos para enviarte de forma nativa notificaciones en "
+"Gerp tiene ahora permisos para enviarte de forma nativa notificaciones en "
 "este dispositivo."
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/xml/client_action.xml:11
 #, python-format
-msgid "Odoo needs your permission to"
-msgstr "Odoo necesita su permiso para"
+msgid "Gerp needs your permission to"
+msgstr "Gerp necesita su permiso para"
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/js/client_action.js:892
 #, python-format
 msgid ""
-"Odoo will not have the permission to send native notifications on this "
+"Gerp will not have the permission to send native notifications on this "
 "device."
 msgstr ""
-"Odoo no tendrá permisos para enviar notificaciones nativas en este "
+"Gerp no tendrá permisos para enviar notificaciones nativas en este "
 "dispositivo."
 
 #. module: mail
@@ -4224,7 +4224,7 @@ msgstr "Por favor, espere mientras sube el archivo."
 msgid ""
 "Policy on how to handle Chatter notifications:\n"
 "- Emails: notifications are sent to your email\n"
-"- Odoo: notifications appear in your Odoo Inbox"
+"- Gerp: notifications appear in your Gerp Inbox"
 msgstr ""
 
 #. module: mail
@@ -4953,11 +4953,11 @@ msgstr "El código html escapado que reemplaza el acceso directo"
 #: model:ir.model.fields,help:mail.field_mail_channel_alias_model_id
 #: model:ir.model.fields,help:mail.field_mail_test_alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming"
+"The model (Gerp Document Kind) to which this alias corresponds. Any incoming"
 " email that does not reply to an existing record will cause the creation of "
 "a new record of this model (e.g. a Project Task)"
 msgstr ""
-"El modelo (Tipo de documento de Odoo) al que corresponde este seudónimo. "
+"El modelo (Tipo de documento de Gerp) al que corresponde este seudónimo. "
 "Cualquier correo entrante que no sea respuesta a un registro existente, "
 "causará la creación de un nuevo registro de este modelo (por ejemplo, una "
 "tarea de proyecto)."

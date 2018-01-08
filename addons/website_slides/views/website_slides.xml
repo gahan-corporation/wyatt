@@ -185,7 +185,7 @@
 </template>
 
 <!-- Channel main template -->
-<template id='home' name="Odoo Slides">
+<template id='home' name="Gerp Slides">
      <t t-set="head">
         <t t-call-assets="web.pdf_js_lib" t-css="false"/>
         <script type="text/javascript" src="/website_slides/static/lib/pdfslidesviewer/PDFSlidesViewer.js"></script>

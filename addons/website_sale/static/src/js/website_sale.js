@@ -286,8 +286,8 @@ gerp.define('website_sale.website_sale', function (require) {
             }
             // reset zooming constructs
             $img.filter('[data-zoom-image]').attr('data-zoom-image', $img.attr('src'));
-            if ($img.data('zoomOdoo') !== undefined) {
-                $img.data('zoomOdoo').isReady = false;
+            if ($img.data('zoomGerp') !== undefined) {
+                $img.data('zoomGerp').isReady = false;
             }
         }
 
@@ -474,6 +474,6 @@ gerp.define('website_sale.website_sale', function (require) {
 
     // Deactivate image zoom for mobile devices, since it might prevent users to scroll
     if (config.device.size_class > config.device.SIZES.XS) {
-        $('.ecom-zoomable img[data-zoom]').zoomOdoo({ attach: '#o-carousel-product'});
+        $('.ecom-zoomable img[data-zoom]').zoomGerp({ attach: '#o-carousel-product'});
     }
 });

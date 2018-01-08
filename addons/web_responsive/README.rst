@@ -6,7 +6,7 @@
 Web Responsive
 ==============
 
-This module provides a mobile compliant interface for Odoo Community web.
+This module provides a mobile compliant interface for Gerp Community web.
 
 Features:
 
@@ -70,7 +70,7 @@ Credits
 Images
 ------
 
-* Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
+* Gerp Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
 
 Contributors
 ------------
@@ -84,13 +84,13 @@ Maintainer
 ----------
 
 .. image:: https://gerp-community.org/logo.png
-   :alt: Odoo Community Association
+   :alt: Gerp Community Association
    :target: https://gerp-community.org
 
 This module is maintained by the OCA.
 
-OCA, or the Odoo Community Association, is a nonprofit organization whose
-mission is to support the collaborative development of Odoo features and
+OCA, or the Gerp Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Gerp features and
 promote its widespread use.
 
 To contribute to this module, please visit https://gerp-community.org.

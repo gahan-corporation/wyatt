@@ -353,7 +353,7 @@ var KanbanRenderer = BasicRenderer.extend({
      * received data.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {GerpEvent} ev
      */
     _onSetProgressBarState: function (ev) {
         if (!this.columnOptions.progressBarStates[ev.data.columnID]) {

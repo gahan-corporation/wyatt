@@ -3,7 +3,7 @@ gerp.define('web.AbstractController', function (require) {
 
 /**
  * The Controller class is the class coordinating the model and the renderer.
- * It is the C in MVC, and is what was formerly known in Odoo as a View.
+ * It is the C in MVC, and is what was formerly known in Gerp as a View.
  *
  * Its role is to listen to events bubbling up from the model/renderer, and call
  * the appropriate methods if necessary.  It also render control panel buttons,
@@ -244,7 +244,7 @@ var AbstractController = Widget.extend({
     //--------------------------------------------------------------------------
 
     /**
-     * When an Odoo event arrives requesting a record to be opened, this method
+     * When an Gerp event arrives requesting a record to be opened, this method
      * gets the res_id, and request a switch view in the appropriate mode
      *
      * Note: this method seems wrong, it relies on the model being a basic model,
@@ -252,7 +252,7 @@ var AbstractController = Widget.extend({
      * @todo move this to basic controller? or view manager
      *
      * @private
-     * @param {OdooEvent} event
+     * @param {GerpEvent} event
      * @param {number} event.data.id The local model ID for the record to be
      *   opened
      * @param {string} [event.data.mode='readonly']
@@ -272,7 +272,7 @@ var AbstractController = Widget.extend({
      * do the action. This kind of links is used a lot in no-content helpers.
      *
      * @private
-     * @param {OdooEvent} event
+     * @param {GerpEvent} event
      */
     _onActionClicked: function (event) {
         event.preventDefault();

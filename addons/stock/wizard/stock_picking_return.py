@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See ICENSE file for full copyright and licensing details.
+# Part of Gerp. See ICENSE file for full copyright and licensing details.
 
 from gerp import api, fields, models, _
 from gerp.addons import decimal_precision as dp

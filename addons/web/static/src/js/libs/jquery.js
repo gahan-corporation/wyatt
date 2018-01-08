@@ -85,7 +85,7 @@ $.fn.extend({
         return o;
     },
     /**
-     * Makes DOM elements bounce the way Odoo decided it.
+     * Makes DOM elements bounce the way Gerp decided it.
      */
     gerpBounce: function () {
         return this.each(function () {

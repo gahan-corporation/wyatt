@@ -1,6 +1,6 @@
 Netherlands, 2016-02-18
 
-Onestein BV agrees to the terms of the Odoo Corporate 
+Onestein BV agrees to the terms of the Gerp Corporate 
 Contributor License Agreement v1.0.
 
 We declare that we are authorized and able to make this agreement and sign

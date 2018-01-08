@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * web
 # 
@@ -23,7 +23,7 @@
 # Jerther <jerther@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 09:00+0000\n"
 "PO-Revision-Date: 2017-10-24 09:00+0000\n"
@@ -243,8 +243,8 @@ msgstr "<span class=\"oe_logo_edit\">Modifier les données de la société</span
 
 #. module: web
 #: model:ir.ui.view,arch_db:web.menu_secondary
-msgid "<span>Odoo</span>"
-msgstr "<span>Odoo</span>"
+msgid "<span>Gerp</span>"
+msgstr "<span>Gerp</span>"
 
 #. module: web
 #. openerp-web
@@ -1242,8 +1242,8 @@ msgstr "Formulaire"
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:1338
 #, python-format
-msgid "Get this feature and much more with Odoo Enterprise!"
-msgstr "Activez cette application et bien d'autres via Odoo Entreprise !"
+msgid "Get this feature and much more with Gerp Enterprise!"
+msgstr "Activez cette application et bien d'autres via Gerp Entreprise !"
 
 #. module: web
 #. openerp-web
@@ -1597,8 +1597,8 @@ msgstr "Déplacer vers le haut"
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:1323
 #, python-format
-msgid "My Odoo.com account"
-msgstr "Mon compte Odoo.com"
+msgid "My Gerp.com account"
+msgstr "Mon compte Gerp.com"
 
 #. module: web
 #. openerp-web
@@ -1733,15 +1733,15 @@ msgstr "Objet :"
 #. openerp-web
 #: code:addons/web/static/src/js/core/dialog.js:51
 #, python-format
-msgid "Odoo"
-msgstr "Odoo"
+msgid "Gerp"
+msgstr "Gerp"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/apps.js:148
 #, python-format
-msgid "Odoo Apps will be available soon"
-msgstr "Les applications Odoo seront bientôt disponibles"
+msgid "Gerp Apps will be available soon"
+msgstr "Les applications Gerp seront bientôt disponibles"
 
 #. module: web
 #. openerp-web
@@ -1749,36 +1749,36 @@ msgstr "Les applications Odoo seront bientôt disponibles"
 #: code:addons/web/static/src/js/chrome/abstract_web_client.js:194
 #: code:addons/web/static/src/js/services/crash_manager.js:156
 #, python-format
-msgid "Odoo Client Error"
-msgstr "Erreur client Odoo "
+msgid "Gerp Client Error"
+msgstr "Erreur client Gerp "
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/fields/upgrade_fields.js:86
 #, python-format
-msgid "Odoo Enterprise"
-msgstr "Entreprise Odoo"
+msgid "Gerp Enterprise"
+msgstr "Entreprise Gerp"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:118
 #, python-format
-msgid "Odoo Error"
-msgstr "Erreur Odoo"
+msgid "Gerp Error"
+msgstr "Erreur Gerp"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:58
 #, python-format
-msgid "Odoo Session Expired"
-msgstr "Session Odoo Expirée"
+msgid "Gerp Session Expired"
+msgstr "Session Gerp Expirée"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:108
 #: code:addons/web/static/src/js/services/crash_manager.js:197
 #, python-format
-msgid "Odoo Warning"
+msgid "Gerp Warning"
 msgstr ""
 
 #. module: web
@@ -1997,8 +1997,8 @@ msgstr "Fourni par"
 
 #. module: web
 #: model:ir.ui.view,arch_db:web.login_layout
-msgid "Powered by <span>Odoo</span>"
-msgstr "Propulsé par <span>Odoo</span>"
+msgid "Powered by <span>Gerp</span>"
+msgstr "Propulsé par <span>Gerp</span>"
 
 #. module: web
 #. openerp-web
@@ -2500,10 +2500,10 @@ msgstr ""
 #, python-format
 msgid ""
 "Timezone Mismatch : The timezone of your browser doesn't match the selected "
-"one. The time in Odoo is displayed according to your field timezone."
+"one. The time in Gerp is displayed according to your field timezone."
 msgstr ""
 "Différence de fuseau horaire : Le fuseau horaire de votre navigateur ne "
-"correspond pas à celui sélectionné. Le temps dans Odoo est affiché selon "
+"correspond pas à celui sélectionné. Le temps dans Gerp est affiché selon "
 "votre champ fuseau horaire"
 
 #. module: web
@@ -2853,7 +2853,7 @@ msgid ""
 "You need to start OpenERP with at least two \n"
 "workers to print a pdf version of the reports."
 msgstr ""
-"Vous devez démarrer Odoo avec au moins 2 workers pour imprimer une version "
+"Vous devez démarrer Gerp avec au moins 2 workers pour imprimer une version "
 "PDF des rapports."
 
 #. module: web
@@ -2874,8 +2874,8 @@ msgstr ""
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:58
 #, python-format
-msgid "Your Odoo session expired. Please refresh the current web page."
-msgstr "Votre session Odoo a expiré. Merci d'actualiser la page."
+msgid "Your Gerp session expired. Please refresh the current web page."
+msgstr "Votre session Gerp a expiré. Merci d'actualiser la page."
 
 #. module: web
 #. openerp-web

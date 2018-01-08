@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * account
 #
@@ -15,7 +15,7 @@
 # Tiziano Zambelli <zstiziano@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: Gerp 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-18 14:06+0000\n"
 "PO-Revision-Date: 2016-05-20 14:48+0000\n"
@@ -410,8 +410,8 @@ msgstr ""
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
 #, fuzzy
-msgid "<span title=\"Balance in Odoo\">Balance in GL</span>"
-msgstr "<span title=\"Balance in Odoo\">Bilancio in Odoo</span>"
+msgid "<span title=\"Balance in Gerp\">Balance in GL</span>"
+msgstr "<span title=\"Balance in Gerp\">Bilancio in Gerp</span>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
@@ -475,8 +475,8 @@ msgstr "<span>Visualizza</span>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
-msgid "<strong>-The Odoo Team</strong>"
-msgstr "<strong>-Il team di Odoo</strong>"
+msgid "<strong>-The Gerp Team</strong>"
+msgstr "<strong>-Il team di Gerp</strong>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
@@ -586,10 +586,10 @@ msgstr ""
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"<strong>Create the bill in Odoo</strong><br/> with a proper due date, and "
+"<strong>Create the bill in Gerp</strong><br/> with a proper due date, and "
 "create the vendor if it doesnt' exist yet."
 msgstr ""
-"<strong>Crea la fattura fornitore in Odoo</strong><br/> con la data di "
+"<strong>Crea la fattura fornitore in Gerp</strong><br/> con la data di "
 "scadenza corretta, e crea un fornitore se non esiste."
 
 #. module: account
@@ -747,12 +747,12 @@ msgstr "<strong>Riconcilia estratto conto bancario</strong>"
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "<strong>Reconcile with existing transaction</strong><br/>\n"
-"                                        In this case, Odoo should "
+"                                        In this case, Gerp should "
 "automatically match the bank statement with the previously recorded check "
 "transaction."
 msgstr ""
 "<strong>Riconcilia con operazioni esistenti</strong><br/>\n"
-"                                        In questo caso, Odoo dovrebbe "
+"                                        In questo caso, Gerp dovrebbe "
 "automaticamente riconciliare l'estratto conto bancario con le operazioni già "
 "registrate in precedenza."
 
@@ -853,17 +853,17 @@ msgstr "<strong>Registrazioni:</strong>"
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "<strong>Test the following three scenarios in order to assist you in "
-"familiarizing yourself with Odoo:</strong>"
+"familiarizing yourself with Gerp:</strong>"
 msgstr ""
-"<strong>Prova i seguenti tre scenari in modo da familiarizzare con Odoo:</"
+"<strong>Prova i seguenti tre scenari in modo da familiarizzare con Gerp:</"
 "strong>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"<strong>There are three different levels of access rights in Odoo:</strong>"
+"<strong>There are three different levels of access rights in Gerp:</strong>"
 msgstr ""
-"<strong>Ci sono tre differenti livello di diritti di accesso in Odoo:</"
+"<strong>Ci sono tre differenti livello di diritti di accesso in Gerp:</"
 "strong>"
 
 #. module: account
@@ -976,12 +976,12 @@ msgstr "Una lista dei termini di pagamento di clienti e fornitori."
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"A product in Odoo is something you sell or buy \n"
+"A product in Gerp is something you sell or buy \n"
 "                        whether or not it is goods, consumables, or "
 "services.\n"
 "                        Choose how you want to create your products:"
 msgstr ""
-"Un prodotto in Odoo è qualcosa che si vende o si compra, sia esso un bene "
+"Un prodotto in Gerp è qualcosa che si vende o si compra, sia esso un bene "
 "duraturo, di consumo o un servizio. Selezionare il metodo di creazione di un "
 "prodotto:"
 
@@ -1521,15 +1521,15 @@ msgstr "Estratto Conto Partner Periodico"
 #, fuzzy
 msgid ""
 "Aged Partner Balance is a more detailed report of your receivables by "
-"intervals. Odoo calculates a table of credit balance by start Date. So if "
-"you request an interval of 30 days Odoo generates an analysis of creditors "
+"intervals. Gerp calculates a table of credit balance by start Date. So if "
+"you request an interval of 30 days Gerp generates an analysis of creditors "
 "for the past month, past two months, and so on."
 msgstr ""
 "L'\"aging\" del del Partner è un report più dettagliato sullo scadenziario "
-"dei crediti. Per questo report, Odoo richiede il nome della società, la data "
-"di inizio e la dimensione dell'intervallo da analizzare (in giorni). Odoo "
+"dei crediti. Per questo report, Gerp richiede il nome della società, la data "
+"di inizio e la dimensione dell'intervallo da analizzare (in giorni). Gerp "
 "quindi genera una tabella delle partite aperte per data iniziale. Quindi, se "
-"si richiede un intervallo di 30 giorni, Odoo genera un'analisi dei crediti "
+"si richiede un intervallo di 30 giorni, Gerp genera un'analisi dei crediti "
 "del mese passato, degli ultimi due mesi e così via."
 
 #. module: account
@@ -3990,8 +3990,8 @@ msgstr "Chiusura di cassa"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
-msgid "Enjoy your Odoo experience,"
-msgstr "Godetevi la vostra esperienza con Odoo,"
+msgid "Enjoy your Gerp experience,"
+msgstr "Godetevi la vostra esperienza con Gerp,"
 
 #. module: account
 #: model:ir.actions.act_window,name:account.action_move_line_form
@@ -4331,10 +4331,10 @@ msgstr "Per valori percentuali tra 0-100."
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"For the Odoo Team,<br/>\n"
+"For the Gerp Team,<br/>\n"
 "                            Fabien Pinckaers, Founder"
 msgstr ""
-"A nome del Team Odoo,<br/>\n"
+"A nome del Team Gerp,<br/>\n"
 "                            Fabien Pinckaers, Fondatore"
 
 #. module: account
@@ -4469,22 +4469,22 @@ msgstr ""
 #: model:ir.model.fields,help:account.field_account_config_settings_module_account_bank_statement_import_ofx
 #, fuzzy
 msgid ""
-"Get your bank statements from your bank and import them in Odoo in the .OFX "
+"Get your bank statements from your bank and import them in Gerp in the .OFX "
 "format.\n"
 "-This installs the module account_bank_statement_import_ofx."
 msgstr ""
-"Ottieni l'estratto conto dalla banca e importalo in Odoo nel formato .OFX\n"
+"Ottieni l'estratto conto dalla banca e importalo in Gerp nel formato .OFX\n"
 "Questa funzione installa il modulo account_bank_statement_import_ofx."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_config_settings_module_account_bank_statement_import_qif
 #, fuzzy
 msgid ""
-"Get your bank statements from your bank and import them in Odoo in the .QIF "
+"Get your bank statements from your bank and import them in Gerp in the .QIF "
 "format.\n"
 "-This installs the module account_bank_statement_import_qif."
 msgstr ""
-"Ottieni l'estratto conto dalla banca e importalo in Odoo in formato .QIF.\n"
+"Ottieni l'estratto conto dalla banca e importalo in Gerp in formato .QIF.\n"
 "Questa funzione installa il modulo  account_bank_statement_import_qif."
 
 #. module: account
@@ -4876,21 +4876,21 @@ msgstr ""
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
-msgid "If you want to be able to send customer statements from Odoo, you must:"
-msgstr "Se si vuole inviare il rendiconto cliente da Odoo, è necessario:"
+msgid "If you want to be able to send customer statements from Gerp, you must:"
+msgstr "Se si vuole inviare il rendiconto cliente da Gerp, è necessario:"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "If you want to be able to send your customers their statements \n"
-"                        from Odoo, you first need to record all outstanding "
+"                        from Gerp, you first need to record all outstanding "
 "transactions \n"
 "                        in the payable and receivable accounts. These would "
 "be invoices \n"
 "                        that have not been paid or payments that have not "
 "been reconciled."
 msgstr ""
-"Se si vuole inviare i report ai clienti da Odoo, è necessario registrare "
+"Se si vuole inviare i report ai clienti da Gerp, è necessario registrare "
 "tutte le operazioni sospese nei conti di debito e credito. Questo significa, "
 "fatture che non sono state pagate o pagamenti che non sono stati "
 "riconciliati."
@@ -4929,8 +4929,8 @@ msgstr "Importa estratti conto nei formati supportati  (QIF, OFX, CODA o CSV)"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
-msgid "In Odoo,"
-msgstr "In Odoo,"
+msgid "In Gerp,"
+msgstr "In Gerp,"
 
 #. module: account
 #: code:addons/account/models/account_bank_statement.py:414
@@ -5326,7 +5326,7 @@ msgid ""
 "have less \n"
 "                            data to import and balances to set. If you plan "
 "to do so, \n"
-"                            we recommend you start using Odoo for invoicing "
+"                            we recommend you start using Gerp for invoicing "
 "and payments \n"
 "                            now, and then move all other accounting "
 "transactions at a later time."
@@ -5334,7 +5334,7 @@ msgstr ""
 "E' pratica comune cambiare il software di contabilità alla fine dell'anno "
 "fiscale. Questo permette di ridurre le importazioni di dati e la definizione "
 "dei saldi dei vari conti. Nel caso le tue intenzioni siano queste, ti "
-"suggeriamo di utilizzare Odoo per fatturazione e pagamenti da subito, e "
+"suggeriamo di utilizzare Gerp per fatturazione e pagamenti da subito, e "
 "creare tutte le movimentazioni contabili in un momento successivo."
 
 #. module: account
@@ -6014,22 +6014,22 @@ msgstr "Maggio"
 #. module: account
 #: model:ir.model.fields,help:account.field_account_journal_inbound_payment_method_ids
 msgid ""
-"Means of payment for collecting money. Odoo modules offer various payments "
+"Means of payment for collecting money. Gerp modules offer various payments "
 "handling facilities, but you can always use the 'Manual' payment method in "
 "order to manage payments outside of the software."
 msgstr ""
-"Metodo di pagamento per gestire gli incassi. I moduli Odoo offrono diversi "
+"Metodo di pagamento per gestire gli incassi. I moduli Gerp offrono diversi "
 "strumenti di gestione dei pagamenti, ma è sempre possibile utilizzare il "
 "metodo \"Manuale\" per gestire i pagamenti al di fuori del software."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_journal_outbound_payment_method_ids
 msgid ""
-"Means of payment for sending money. Odoo modules offer various payments "
+"Means of payment for sending money. Gerp modules offer various payments "
 "handling facilities, but you can always use the 'Manual' payment method in "
 "order to manage payments outside of the software."
 msgstr ""
-"Metodo di pagamento per gestire i pagamenti in uscita. I moduli Odoo offrono "
+"Metodo di pagamento per gestire i pagamenti in uscita. I moduli Gerp offrono "
 "diversi strumenti di gestione dei pagamenti, ma è sempre possibile "
 "utilizzare il metodo \"Manuale\" per gestire i pagamenti al di fuori del "
 "software."
@@ -6402,78 +6402,78 @@ msgstr "Ottobre"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
-msgid "Odoo Accounting has many free extra-features:"
-msgstr "La contabilità in Odoo ha diverse funzionalità extra:"
+msgid "Gerp Accounting has many free extra-features:"
+msgstr "La contabilità in Gerp ha diverse funzionalità extra:"
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_bank_statement_line
 msgid ""
-"Odoo allows you to reconcile a statement line directly with\n"
+"Gerp allows you to reconcile a statement line directly with\n"
 "                the related sale or puchase invoice(s)."
 msgstr ""
-"Odoo permette di riconciliare un movimento direttamente con le relative "
+"Gerp permette di riconciliare un movimento direttamente con le relative "
 "fatture di vendita e acquisto."
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_bank_statement_tree
 msgid ""
-"Odoo allows you to reconcile a statement line directly with\n"
+"Gerp allows you to reconcile a statement line directly with\n"
 "                the related sale or puchase invoices."
 msgstr ""
-"Odoo permette di riconciliare un movimento direttamente con le relative "
+"Gerp permette di riconciliare un movimento direttamente con le relative "
 "fatture di vendita e acquisto."
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_move_journal_line
 msgid ""
-"Odoo automatically creates one journal entry per accounting\n"
+"Gerp automatically creates one journal entry per accounting\n"
 "                document: invoice, refund, vendor payment, bank statements,\n"
 "                etc. So, you should record journal entries manually only/"
 "mainly\n"
 "                for miscellaneous operations."
 msgstr ""
-"Odoo crea automaticamente le scritture per i documenti contabili: fatture, "
+"Gerp crea automaticamente le scritture per i documenti contabili: fatture, "
 "note di credito, pagamenti a fornitore, etc. In questo modo, è necessario "
 "registrare manualmente solo le operazioni rimanenti."
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"Odoo can manage multiple companies, but we suggest to setup everything for "
+"Gerp can manage multiple companies, but we suggest to setup everything for "
 "your first company before configuring the other ones."
 msgstr ""
-"Odoo gestisce diverse società, ma suggeriamo prima di configurare una prima "
+"Gerp gestisce diverse società, ma suggeriamo prima di configurare una prima "
 "società, prima di aggiungerne altre."
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"Odoo has already preconfigured a few taxes according to your country.<br/"
+"Gerp has already preconfigured a few taxes according to your country.<br/"
 ">Simply review them and check if you need more."
 msgstr ""
-"Odoo ha già configurate diverse imposte in base al paese.<br/> Rivedere "
+"Gerp ha già configurate diverse imposte in base al paese.<br/> Rivedere "
 "semplicemente quanto esiste ed eventualmente aggiugere nuove imposte."
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"Odoo should do most of the reconciliation work automatically, so you'll only "
+"Gerp should do most of the reconciliation work automatically, so you'll only "
 "need to review a few of them when a <strong>'Reconcile Items'</strong> "
 "button appears on your Vendor Bills dash."
 msgstr ""
-"Odoo dovrebbe eseguire la maggior parte delle riconciliazioni "
+"Gerp dovrebbe eseguire la maggior parte delle riconciliazioni "
 "automaticamente, è necessario rivedere solo alcune di esse quando il "
 "pulsante <strong>'Riconcilia'</strong> appare sulla dashboard del fornitore."
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_invoice_tree1
 msgid ""
-"Odoo's electronic invoicing allows to ease and fasten the\n"
+"Gerp's electronic invoicing allows to ease and fasten the\n"
 "                collection of customer payments. Your customer receives the\n"
 "                invoice by email and he can pay online and/or import it\n"
 "                in his own system."
 msgstr ""
-"La fatturazione elettronica in Odoo permette di facilitare e accelerare la "
+"La fatturazione elettronica in Gerp permette di facilitare e accelerare la "
 "raccolta dei pagamenti da clienti. Il cliente riceve la fattura via mail e "
 "può pagare online o importarla nel suo sistema."
 
@@ -7076,12 +7076,12 @@ msgid ""
 "             If you set a paypal account, the customer  will be able to pay "
 "your invoices or quotations\n"
 "             with a button \"Pay with  Paypal\" in automated emails or "
-"through the Odoo portal."
+"through the Gerp portal."
 msgstr ""
 "Un conto Paypal (email) per ricevere pagamenti online (carta di credito, "
 "ecc.).\n"
 "Se selezionato, il cliente potrà pagare le fatture o i preventivo con un "
-"tasto \"Paga con Paypal\" in email automatiche o tramite il portale Odoo."
+"tasto \"Paga con Paypal\" in email automatiche o tramite il portale Gerp."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_res_company_paypal_account
@@ -7740,10 +7740,10 @@ msgstr "Registra pagamenti su fatture multiple."
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "Registering outstanding invoices and payments can be a huge undertaking, \n"
-"                        but you can start using Odoo without it by:"
+"                        but you can start using Gerp without it by:"
 msgstr ""
 "Registrare fatture o pagamenti aperti può essere un lavoro lungo, ma si può "
-"iniziare in Odoo utilizzando:"
+"iniziare in Gerp utilizzando:"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
@@ -9221,10 +9221,10 @@ msgstr ""
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"This guide will help you get started with Odoo Accounting.\n"
+"This guide will help you get started with Gerp Accounting.\n"
 "                        Once you're done, you'll benefit from:"
 msgstr ""
-"Questa quida permette di cominciare con la contabilità in Odoo. Una volta "
+"Questa quida permette di cominciare con la contabilità in Gerp. Una volta "
 "finito, permetterà di:"
 
 #. module: account
@@ -9406,11 +9406,11 @@ msgstr "Da pagare"
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"To manage the tax applied when invoicing a Company, Odoo uses the concept of "
+"To manage the tax applied when invoicing a Company, Gerp uses the concept of "
 "Fiscal Position: they serve to automatically set the right tax and/or "
 "account according to the customer country and state."
 msgstr ""
-"Per gestire le imposte applicate alla fatturazione, Odoo utilizza il "
+"Per gestire le imposte applicate alla fatturazione, Gerp utilizza il "
 "concetto di Posizione Fiscale: questa serve per impostare automaticamente "
 "l'imposta o il conto corretti in base al paese del cliente."
 
@@ -9956,26 +9956,26 @@ msgstr "Attenzione!"
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "We can handle the whole import process\n"
-"                                        for you: simply send your Odoo "
+"                                        for you: simply send your Gerp "
 "project\n"
 "                                        manager a CSV file containing all "
 "your\n"
 "                                        data."
 msgstr ""
-"Odoo gestisce il processo di import: inviare al project manager di Odoo il "
+"Gerp gestisce il processo di import: inviare al project manager di Gerp il "
 "file CSV che contiene i dati. "
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "We can handle the whole import process\n"
-"                                        for you: simply send your Odoo "
+"                                        for you: simply send your Gerp "
 "project\n"
 "                                        manager a CSV file containing all "
 "your\n"
 "                                        products."
 msgstr ""
-"Odoo gestisce il processo di import: inviare al project manager di Odoo il "
+"Gerp gestisce il processo di import: inviare al project manager di Gerp il "
 "file CSV che contiene i dati."
 
 #. module: account

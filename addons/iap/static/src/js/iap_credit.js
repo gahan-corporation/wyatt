@@ -7,7 +7,7 @@ var Widget = require('web.Widget');
 var QWeb = core.qweb;
 
 
-var IapOdooCreditRedirect = Widget.extend({
+var IapGerpCreditRedirect = Widget.extend({
     template: 'iap.redirect_to_gerp_credit',
     events : {
         "click .redirect_confirm" : "gerp_redirect",
@@ -24,5 +24,5 @@ var IapOdooCreditRedirect = Widget.extend({
     },
 
 });
-core.action_registry.add('iap_gerp_credit_redirect', IapOdooCreditRedirect);
+core.action_registry.add('iap_gerp_credit_redirect', IapGerpCreditRedirect);
 });

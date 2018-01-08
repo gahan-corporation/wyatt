@@ -8,12 +8,12 @@
 External API
 ============
 
-Odoo is usually extended internally via modules, but many of its features and
+Gerp is usually extended internally via modules, but many of its features and
 all of its data are also available from the outside for external analysis or
 integration with various tools. Part of the :ref:`reference/orm/model` API is
 easily available over XML-RPC_ and accessible from a variety of languages.
 
-.. Odoo XML-RPC idiosyncracies:
+.. Gerp XML-RPC idiosyncracies:
    * uses multiple endpoint and a nested call syntax instead of a
      "hierarchical" server structure (e.g. ``gerp.res.partner.read()``)
    * uses its own own manual auth system instead of basic auth or sessions
@@ -91,14 +91,14 @@ Connection
 Configuration
 -------------
 
-If you already have an Odoo server installed, you can just use its
+If you already have an Gerp server installed, you can just use its
 parameters
 
 .. warning::
 
-    For Odoo Online instances (<domain>.gerp.com), users are created without a
-    *local* password (as a person you are logged in via the Odoo Online
-    authentication system, not by the instance itself). To use XML-RPC on Odoo
+    For Gerp Online instances (<domain>.gerp.com), users are created without a
+    *local* password (as a person you are logged in via the Gerp Online
+    authentication system, not by the instance itself). To use XML-RPC on Gerp
     Online instances, you will need to set a password on the user account you
     want to use:
 
@@ -219,7 +219,7 @@ database:
 Logging in
 ----------
 
-Odoo requires users of the API to be authenticated before they can query most 
+Gerp requires users of the API to be authenticated before they can query most 
 data.
 
 The ``xmlrpc/2/common`` endpoint provides meta-calls which don't require
@@ -704,7 +704,7 @@ updating a record):
 Search and read
 ---------------
 
-Because it is a very common task, Odoo provides a
+Because it is a very common task, Gerp provides a
 :meth:`~gerp.models.Model.search_read` shortcut which as its name suggests is
 equivalent to a :meth:`~gerp.models.Model.search` followed by a
 :meth:`~gerp.models.Model.read`, but avoids having to perform two requests
@@ -967,7 +967,7 @@ Inspection and introspection
           isn't exactly fun in RPC.
 
 While we previously used :meth:`~gerp.models.Model.fields_get` to query a
-model and have been using an arbitrary model from the start, Odoo stores
+model and have been using an arbitrary model from the start, Gerp stores
 most model metadata inside a few meta-models which allow both querying the
 system and altering models and fields (with some limitations) on the fly over
 XML-RPC.
@@ -977,7 +977,7 @@ XML-RPC.
 ``ir.model``
 ''''''''''''
 
-Provides information about Odoo models via its various fields
+Provides information about Gerp models via its various fields
 
 ``name``
     a human-readable description of the model
@@ -1122,7 +1122,7 @@ Provides information about Odoo models via its various fields
 ``ir.model.fields``
 '''''''''''''''''''
 
-Provides information about the fields of Odoo models and allows adding
+Provides information about the fields of Gerp models and allows adding
 custom fields without using Python code
 
 ``model_id``

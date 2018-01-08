@@ -66,7 +66,7 @@ can be created. PO files can be created using <a class="reference external" href
 translation tool like <a class="reference external" href="http://poedit.net/">POEdit</a> or by simply copying the template to a new file
 called <code class="file docutils literal"><em><span class="pre">language</span></em><span class="pre">.po</span></code>. Translation files should be put in
 <code class="file docutils literal"><em><span class="pre">yourmodule</span></em><span class="pre">/i18n/</span></code>, next to <code class="file docutils literal"><em><span class="pre">yourmodule</span></em><span class="pre">.pot</span></code>, and will be
-automatically loaded by Odoo when the corresponding language is installed (via
+automatically loaded by Gerp when the corresponding language is installed (via
 <span class="menuselection">Settings ‣ Translations ‣ Load a Translation</span>)</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -76,7 +76,7 @@ when installing or updating a module</p>
 </div>
 <div class="section" id="implicit-exports">
 <h2>Implicit exports<a class="headerlink" href="#implicit-exports" title="Permalink to this headline">¶</a></h2>
-<p>Odoo automatically exports translatable strings from “data”-type content:</p>
+<p>Gerp automatically exports translatable strings from “data”-type content:</p>
 <ul class="simple">
 <li>in non-QWeb views, all text nodes are exported as well as the content of
 the <code class="docutils literal"><span class="pre">string</span></code>, <code class="docutils literal"><span class="pre">help</span></code>, <code class="docutils literal"><span class="pre">sum</span></code>, <code class="docutils literal"><span class="pre">confirm</span></code> and <code class="docutils literal"><span class="pre">placeholder</span></code>
@@ -100,7 +100,7 @@ values (across all records) are exported</li>
 <div class="section" id="explicit-exports">
 <h2>Explicit exports<a class="headerlink" href="#explicit-exports" title="Permalink to this headline">¶</a></h2>
 <p>When it comes to more “imperative” situations in Python code or Javascript
-code, Odoo cannot automatically export translatable terms so they
+code, Gerp cannot automatically export translatable terms so they
 must be marked explicitly for export. This is done by wrapping a literal
 string in a function call.</p>
 <p>In Python, the wrapping function is <code class="xref py py-func docutils literal"><span class="pre">gerp._()</span></code>:</p>

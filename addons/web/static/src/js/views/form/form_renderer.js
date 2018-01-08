@@ -850,7 +850,7 @@ var FormRenderer = BasicRenderer.extend({
     /**
      * @override
      * @private
-     * @param {OdooEvent} ev
+     * @param {GerpEvent} ev
      */
     _onNavigationMove: function (ev) {
         ev.stopPropagation();

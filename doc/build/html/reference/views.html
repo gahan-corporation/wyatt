@@ -224,7 +224,7 @@ after having created or edited that record (in database).</p>
 </ul>
 </dd>
 <dt><code class="docutils literal"><span class="pre">type</span></code></dt>
-<dd><p class="first">type of button, indicates how it clicking it affects Odoo:</p>
+<dd><p class="first">type of button, indicates how it clicking it affects Gerp:</p>
 <dl class="last docutils">
 <dt><code class="docutils literal"><span class="pre">object</span></code></dt>
 <dd>call a method on the list’s model. The button’s <code class="docutils literal"><span class="pre">name</span></code> is the
@@ -264,10 +264,10 @@ unexpected results as domains are combined with a logical AND.</p>
 </div>
 </dd>
 <dt><code class="docutils literal"><span class="pre">context</span></code></dt>
-<dd>merged into the view’s context when performing the button’s Odoo call</dd>
+<dd>merged into the view’s context when performing the button’s Gerp call</dd>
 <dt><code class="docutils literal"><span class="pre">confirm</span></code></dt>
 <dd>confirmation message to display (and for the user to accept) before
-performing the button’s Odoo call</dd>
+performing the button’s Gerp call</dd>
 </dl>
 </dd>
 <dt><code class="docutils literal"><span class="pre">field</span></code></dt>
@@ -371,11 +371,11 @@ itself, generally used to display workflow buttons and status widgets</dd>
 </div>
 <div class="section" id="semantic-components">
 <h3>Semantic components<a class="headerlink" href="#semantic-components" title="Permalink to this headline">¶</a></h3>
-<p>Semantic components tie into and allow interaction with the Odoo
+<p>Semantic components tie into and allow interaction with the Gerp
 system. Available semantic components are:</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">button</span></code></dt>
-<dd><p class="first">call into the Odoo system, similar to <a class="reference internal" href="#reference-views-list-button"><span class="std std-ref">list view buttons</span></a>. In addition, the following attribute can be
+<dd><p class="first">call into the Gerp system, similar to <a class="reference internal" href="#reference-views-list-button"><span class="std std-ref">list view buttons</span></a>. In addition, the following attribute can be
 specified:</p>
 <dl class="last docutils">
 <dt><code class="docutils literal"><span class="pre">special</span></code></dt>
@@ -893,12 +893,12 @@ match specific kanban view widgets</p>
 <p class="last">list widgets?</p>
 </div>
 </li>
-<li><p class="first">buttons and links with a <code class="docutils literal"><span class="pre">type</span></code> attribute become perform Odoo-related
+<li><p class="first">buttons and links with a <code class="docutils literal"><span class="pre">type</span></code> attribute become perform Gerp-related
 operations rather than their standard HTML function. Possible types are:</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">action</span></code>, <code class="docutils literal"><span class="pre">object</span></code></dt>
-<dd><p class="first last">standard behavior for <a class="reference internal" href="#reference-views-list-button"><span class="std std-ref">Odoo buttons</span></a>, most attributes relevant to standard
-Odoo buttons can be used.</p>
+<dd><p class="first last">standard behavior for <a class="reference internal" href="#reference-views-list-button"><span class="std std-ref">Gerp buttons</span></a>, most attributes relevant to standard
+Gerp buttons can be used.</p>
 </dd>
 <dt><code class="docutils literal"><span class="pre">open</span></code></dt>
 <dd><p class="first last">opens the card’s record in the form view in read-only mode</p>
@@ -1072,7 +1072,7 @@ element is <code class="docutils literal"><span class="pre">&lt;diagram&gt;</spa
 <dd><p class="first">Defines the nodes of the graph. Its attributes are:</p>
 <dl class="last docutils">
 <dt><code class="docutils literal"><span class="pre">object</span></code></dt>
-<dd>the node’s Odoo model</dd>
+<dd>the node’s Gerp model</dd>
 <dt><code class="docutils literal"><span class="pre">shape</span></code></dt>
 <dd>conditional shape mapping similar to colors and fonts in <a class="reference internal" href="#reference-views-list"><span class="std std-ref">the list
 view</span></a>. The only valid shape is <code class="docutils literal"><span class="pre">rectangle</span></code> (the
@@ -1087,7 +1087,7 @@ is <code class="docutils literal"><span class="pre">grey</span></code>.</dd>
 <dd><p class="first">Defines the directed edges of the graph. Its attributes are:</p>
 <dl class="last docutils">
 <dt><code class="docutils literal"><span class="pre">object</span></code> (required)</dt>
-<dd>the edge’s Odoo model</dd>
+<dd>the edge’s Gerp model</dd>
 <dt><code class="docutils literal"><span class="pre">source</span></code> (required)</dt>
 <dd><code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code> field of the edge’s model pointing to
 the edge’s source node record</dd>
@@ -1160,7 +1160,7 @@ values, set <code class="docutils literal"><span class="pre">filter_domain</span
 <dd>make the field only available to specific users</dd>
 <dt><code class="docutils literal"><span class="pre">widget</span></code></dt>
 <dd>use specific search widget for the field (the only use case in
-standard Odoo 8.0 is a <code class="docutils literal"><span class="pre">selection</span></code> widget for
+standard Gerp 8.0 is a <code class="docutils literal"><span class="pre">selection</span></code> widget for
 <code class="xref py py-class docutils literal"><span class="pre">Many2one</span></code> fields)</dd>
 <dt><code class="docutils literal"><span class="pre">domain</span></code></dt>
 <dd>if the field can provide an auto-completion
@@ -1178,7 +1178,7 @@ sections to the search filter.</p>
 <dt><code class="docutils literal"><span class="pre">string</span></code> (required)</dt>
 <dd>the label of the filter</dd>
 <dt><code class="docutils literal"><span class="pre">domain</span></code></dt>
-<dd>an Odoo <a class="reference internal" href="orm.html#reference-orm-domains"><span class="std std-ref">domain</span></a>, will be appended to the
+<dd>an Gerp <a class="reference internal" href="orm.html#reference-orm-domains"><span class="std std-ref">domain</span></a>, will be appended to the
 action’s domain as part of the search domain</dd>
 <dt><code class="docutils literal"><span class="pre">context</span></code></dt>
 <dd>a Python dictionary, merged into the action’s domain to generate the

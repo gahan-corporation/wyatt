@@ -52,7 +52,7 @@ return AbstractRenderer.extend({
      *
      * Note that This method is synchronous, but the actual rendering is done
      * asynchronously (in a setTimeout).  The reason for that is that nvd3/d3
-     * needs to be in the DOM to correctly render itself.  So, we trick Odoo by
+     * needs to be in the DOM to correctly render itself.  So, we trick Gerp by
      * returning immediately, then wait a tiny interval before actually
      * displaying the data.
      *

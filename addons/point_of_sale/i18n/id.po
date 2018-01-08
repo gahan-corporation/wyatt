@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * point_of_sale
 # 
@@ -24,7 +24,7 @@
 # Ryanto The <ry.the77@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-10 11:34+0000\n"
 "PO-Revision-Date: 2017-10-10 11:34+0000\n"
@@ -1657,8 +1657,8 @@ msgstr "ID"
 #. openerp-web
 #: code:addons/point_of_sale/static/src/js/popups.js:115
 #, python-format
-msgid "IMPORTANT: Bug Report From Odoo Point Of Sale"
-msgstr "PENTING: Laporan Bug dari Odoo Point Of Sale"
+msgid "IMPORTANT: Bug Report From Gerp Point Of Sale"
+msgstr "PENTING: Laporan Bug dari Gerp Point Of Sale"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_config_proxy_ip
@@ -2141,7 +2141,7 @@ msgstr "Jumlah cetakan"
 #. module: point_of_sale
 #: model:ir.ui.view,arch_db:point_of_sale.customer_facing_display_html
 #: model:pos.config,customer_facing_display_html:point_of_sale.pos_config_main
-msgid "Odoo Logo"
+msgid "Gerp Logo"
 msgstr ""
 
 #. module: point_of_sale
@@ -3370,7 +3370,7 @@ msgstr "Tampilkan daftar harga untuk pelanggan"
 #, python-format
 msgid "Skip"
 msgstr ""
-"<p>Jika Anda tidak memberikan kontribusi atau mengembangkan di Odoo, "
+"<p>Jika Anda tidak memberikan kontribusi atau mengembangkan di Gerp, "
 "melewati halaman ini.</p>"
 
 #. module: point_of_sale
@@ -3933,17 +3933,17 @@ msgstr ""
 #. module: point_of_sale
 #: model:ir.model.fields,help:point_of_sale.field_pos_config_sequence_line_id
 msgid ""
-"This sequence is automatically created by Odoo but you can change it to "
+"This sequence is automatically created by Gerp but you can change it to "
 "customize the reference numbers of your orders lines."
 msgstr ""
 
 #. module: point_of_sale
 #: model:ir.model.fields,help:point_of_sale.field_pos_config_sequence_id
 msgid ""
-"This sequence is automatically created by Odoo but you can change it to "
+"This sequence is automatically created by Gerp but you can change it to "
 "customize the reference numbers of your orders."
 msgstr ""
-"Urutan ini secara otomatis dibuat oleh Odoo tetapi Anda dapat mengubahnya "
+"Urutan ini secara otomatis dibuat oleh Gerp tetapi Anda dapat mengubahnya "
 "untuk menyesuaikan referensi nomor pesanan Anda."
 
 #. module: point_of_sale

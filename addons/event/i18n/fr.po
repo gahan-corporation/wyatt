@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * event
 # 
@@ -29,7 +29,7 @@
 # Melanie Bernard <mbe@gerp.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
@@ -576,7 +576,7 @@ msgstr ""
 #. module: event
 #: model:event.event,description:event.event_0
 msgid ""
-"<font style=\"color: rgb(255, 255, 255); font-size: 24px;\">to learn <i>Odoo"
+"<font style=\"color: rgb(255, 255, 255); font-size: 24px;\">to learn <i>Gerp"
 " Programming</i></font>"
 msgstr ""
 
@@ -1721,24 +1721,24 @@ msgstr "Le nombre d'évènements auxquels le partenaire a participé."
 #: model:event.event,description:event.event_0
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
-msgid "Odoo Official Website"
-msgstr "Site web officiel d'Odoo"
+msgid "Gerp Official Website"
+msgstr "Site web officiel d'Gerp"
 
 #. module: event
 #: model:event.event,description:event.event_0
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
-msgid "Odoo Web Client"
-msgstr "Client web d'Odoo"
+msgid "Gerp Web Client"
+msgstr "Client web d'Gerp"
 
 #. module: event
 #: model:ir.actions.act_window,help:event.action_event_view
 msgid ""
-"Odoo helps you schedule and efficiently organize your events:\n"
+"Gerp helps you schedule and efficiently organize your events:\n"
 "    track registrations and participations, automate the confirmation emails,\n"
 "    sell tickets, etc."
 msgstr ""
-"Odoo vous aide à planifier et organiser efficacement vos évènements:\n"
+"Gerp vous aide à planifier et organiser efficacement vos évènements:\n"
 "   Suivez les inscriptions et participations, automatisez les courriels de confirmation, vendez des billets, etc."
 
 #. module: event

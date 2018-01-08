@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'eCommerce Optional Products',
@@ -7,7 +7,7 @@
     'version': '1.0',
     'website': 'https://www.gerp.com/page/e-commerce',
     'description': """
-Odoo E-Commerce
+Gerp E-Commerce
 ==================
 
         """,

@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * sale_stock
 # 
@@ -16,7 +16,7 @@
 # 苏州远鼎 <tiexinliu@126.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
@@ -60,11 +60,11 @@ msgstr "适用于从订单的专用线路（例如dropshipping，MTO）"
 #. module: sale_stock
 #: model:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_sale
 msgid ""
-"By default Odoo computes the expected delivery date this way: order date + "
+"By default Gerp computes the expected delivery date this way: order date + "
 "highest customer lead time of products. With this option, you can set a "
 "specific delivery date on orders rather than setting lead times on products."
 msgstr ""
-"默认情况下，Odoo计算预期的交货日期是这样的：订单日期+最高客户的交货时间的产品。使用此选项，您可以在订单上设置特定的交货日期，而不是在产品上设置前置时间。"
+"默认情况下，Gerp计算预期的交货日期是这样的：订单日期+最高客户的交货时间的产品。使用此选项，您可以在订单上设置特定的交货日期，而不是在产品上设置前置时间。"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_res_company

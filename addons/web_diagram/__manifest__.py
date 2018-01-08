@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Odoo Web Diagram',
+    'name': 'Gerp Web Diagram',
     'category': 'Hidden',
     'description': """
 Openerp Web Diagram view.

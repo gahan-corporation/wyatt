@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 import functools
 import logging
@@ -174,7 +174,7 @@ class OAuthController(http.Controller):
 
     @http.route('/auth_oauth/oea', type='http', auth='none')
     def oea(self, **kw):
-        """login user via Odoo Account provider"""
+        """login user via Gerp Account provider"""
         dbname = kw.pop('db', None)
         if not dbname:
             dbname = db_monodb()

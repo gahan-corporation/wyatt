@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Base Kanban',
     'category': 'Hidden',
     'description': """
-Odoo Web kanban view.
+Gerp Web kanban view.
 ========================
 
 """,

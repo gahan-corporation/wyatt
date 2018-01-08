@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 import logging
 import psycopg2
@@ -74,7 +74,7 @@ class DeliveryCarrier(models.Model):
             'domain': [['name', 'ilike', 'delivery_']],
             'type': 'ir.actions.act_window',
             'help': _('''<p class="oe_view_nocontent">
-                    Buy Odoo Enterprise now to get more providers.
+                    Buy Gerp Enterprise now to get more providers.
                 </p>'''),
         }
 

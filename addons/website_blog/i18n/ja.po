@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_blog
 # 
@@ -11,7 +11,7 @@
 # 高木正勝 <masakatsu.takagi@pro-spire.co.jp>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 09:00+0000\n"
 "PO-Revision-Date: 2017-10-24 09:00+0000\n"
@@ -37,7 +37,7 @@ msgstr ""
 #. module: website_blog
 #: model:blog.post,content:website_blog.blog_post_2
 msgid ""
-"\"Odoo now competes on many fronts, with no real\n"
+"\"Gerp now competes on many fronts, with no real\n"
 "                    competition out there to knock them off the top spot.\n"
 "                    With the launch of their integrated CMS and Ecommerce\n"
 "                    systems,it only elevates their position as one of the leading\n"
@@ -46,7 +46,7 @@ msgid ""
 "                    compete at this level due to the technology currently\n"
 "                    employed by most industry providers.\""
 msgstr ""
-"\"Odooは現在、多くの面で競合するシステムがありそうですが、実際のところは\n"
+"\"Gerpは現在、多くの面で競合するシステムがありそうですが、実際のところは\n"
 "                     競争は一切ありません。常に高みにあります。\n"
 "                     統合されたCMSとeコマースシステムのローンチにより、\n"
 "　　　　　  オープンソース革命の主導的な光の1つとしての地位を向上させるだけです。\n"
@@ -57,18 +57,18 @@ msgstr ""
 #. module: website_blog
 #: model:blog.post,content:website_blog.blog_post_2
 msgid ""
-"\"Odoo's latest launch will allow a business to go from\n"
+"\"Gerp's latest launch will allow a business to go from\n"
 "                    zero to trading online quicker than ever before,” Stuart\n"
-"                    Mackintosh, MD of Open Source specialist and Odoo\n"
+"                    Mackintosh, MD of Open Source specialist and Gerp\n"
 "                    integration partner, OpusVL, explains. “The investment\n"
 "                    required to have a fully automated business system is\n"
 "                    dramatically reduced, enabling the small and medium\n"
 "                    enterprise to compete at a level of functionality and\n"
 "                    performance previously reserved for the big IT investors.\""
 msgstr ""
-"「Odooの最新のローンチは、ビジネスがゼロから今まで以上に\n"
+"「Gerpの最新のローンチは、ビジネスがゼロから今まで以上に\n"
 "                     迅速にオンラインで取引できるようにする」\n"
-"                     オープンソースの専門家であるStuart Mackintosh、Odoo\n"
+"                     オープンソースの専門家であるStuart Mackintosh、Gerp\n"
 "                     統合パートナー、OpusVLが説明しています。\n"
 "                     「完全自動化されたビジネスシステムを構築するために\n"
 "                      必要な投資は大幅に削減され、中小企業は以前は大規模な\n"
@@ -79,13 +79,13 @@ msgstr ""
 #: model:blog.post,content:website_blog.blog_post_2
 msgid ""
 "\"This is another clever and highly disruptive move by\n"
-"                    Odoo,which will force other technology providers to\n"
+"                    Gerp,which will force other technology providers to\n"
 "                    take another look at the value they are providing to ensure\n"
 "                    that their 'solutions' can still compete.\""
 msgstr ""
 "「これは、他のテクノロジープロバイダーに、彼らの「ソリューション」が\n"
 "                      まだ競争できるかどうかを確認するために提供している\n"
-"                      価値をもう一度見直さなければならないOdooのもう一つの\n"
+"                      価値をもう一度見直さなければならないGerpのもう一つの\n"
 "                      巧妙で破壊的な動きだ」"
 
 #. module: website_blog
@@ -149,11 +149,11 @@ msgstr ""
 msgid ""
 "A mix of push &amp; pull: Today, people\n"
 "                        are victims of what others decide to push to them.\n"
-"                        Odoo differentiates:"
+"                        Gerp differentiates:"
 msgstr ""
 "プッシュ＆プルのミックス：今日、人々は他の人が彼らに押し付けたものの\n"
 "　　　　　　 犠牲者です。\n"
-"                         Odooは次のように区別します:"
+"                         Gerpは次のように区別します:"
 
 #. module: website_blog
 #: model:ir.ui.view,arch_db:website_blog.blog_post_template_new_post
@@ -208,12 +208,12 @@ msgstr ""
 #. module: website_blog
 #: model:blog.post,content:website_blog.blog_post_1
 msgid ""
-"At Odoo, we build tools to bring productivity to\n"
+"At Gerp, we build tools to bring productivity to\n"
 "                    enterprises. As emails and information flows are one of\n"
 "                    the biggest wastes of time in companies, we have to fix\n"
 "                    this."
 msgstr ""
-"Odooでは、企業に生産性をもたらすツールを構築しています。\n"
+"Gerpでは、企業に生産性をもたらすツールを構築しています。\n"
 "                     電子メールや情報の流れにこそ企業にとっての最大の\n"
 "                     無駄があるので、これを修正する必要があります。"
 
@@ -460,14 +460,14 @@ msgstr ""
 #: model:blog.post,content:website_blog.blog_post_1
 msgid ""
 "Folders and mailing lists are great tools but too\n"
-"                        complex in traditional email clients. In Odoo, a\n"
+"                        complex in traditional email clients. In Gerp, a\n"
 "                        group of contacts that share a discussion can be\n"
 "                        created with one click. Every group should have it's\n"
 "                        own email address."
 msgstr ""
 "フォルダやメーリングリストは素晴らしいツールですが、\n"
 "                         従来の電子メールクライアントでは複雑すぎます。\n"
-"                         Odooでは、1回のクリックでディスカッションを共有する\n"
+"                         Gerpでは、1回のクリックでディスカッションを共有する\n"
 "                         連絡先のグループを作成できます。\n"
 "                         すべてのグループは自分のメールアドレスを持っている必要があります。"
 
@@ -508,8 +508,8 @@ msgstr "グループ化"
 
 #. module: website_blog
 #: model:blog.post,content:website_blog.blog_post_1
-msgid "Here are the ideas behind the Odoo communication tools:"
-msgstr "Odooコミュニケーションツールの背後にある考え方は次のとおりです。"
+msgid "Here are the ideas behind the Gerp communication tools:"
+msgstr "Gerpコミュニケーションツールの背後にある考え方は次のとおりです。"
 
 #. module: website_blog
 #: model:ir.ui.view,arch_db:website_blog.website_blog
@@ -540,8 +540,8 @@ msgstr "ID"
 
 #. module: website_blog
 #: model:blog.post,subtitle:website_blog.blog_post_1
-msgid "Ideas behind the Odoo communication tools."
-msgstr "Odooコミュニケーションツールの背後にあるアイデア。"
+msgid "Ideas behind the Gerp communication tools."
+msgstr "Gerpコミュニケーションツールの背後にあるアイデア。"
 
 #. module: website_blog
 #: model:ir.ui.view,arch_db:website_blog.latest_blogs
@@ -600,11 +600,11 @@ msgstr "最新の投稿"
 #. module: website_blog
 #: model:blog.post,content:website_blog.blog_post_2
 msgid ""
-"Like many modern website editors, with Odoo you can edit\n"
+"Like many modern website editors, with Gerp you can edit\n"
 "                    content in-line, enabling you to see exactly what you are\n"
 "                    changing and ensure your changes suit the context."
 msgstr ""
-" 現代の多くのウェブサイトエディタと同様に、Odooではコンテンツを\n"
+" 現代の多くのウェブサイトエディタと同様に、Gerpではコンテンツを\n"
 "                    インラインで編集できるため、変更内容を正確に把握し、\n"
 "                    変更がコンテキストに適合するようにすることができます。"
 
@@ -715,18 +715,18 @@ msgstr "なし"
 #. module: website_blog
 #: model:blog.post,content:website_blog.blog_post_2
 msgid ""
-"Odoo claims to be 'the Open Source software that makes\n"
+"Gerp claims to be 'the Open Source software that makes\n"
 "                    building your company's website and selling your products\n"
 "                    online easy'. So how true is this statement?"
 msgstr ""
-"Odooは、あなたの会社のウェブサイトを構築し、あなたの製品を\n"
+"Gerpは、あなたの会社のウェブサイトを構築し、あなたの製品を\n"
 "                 オンラインで簡単に販売するオープンソースソフトウェアだと主張しています。 \n"
 "                 ところで、この話は本当でしょうか？"
 
 #. module: website_blog
 #: model:blog.post,website_meta_keywords:website_blog.blog_post_1
-msgid "Odoo, email"
-msgstr "Odoo　eメール"
+msgid "Gerp, email"
+msgstr "Gerp　eメール"
 
 #. module: website_blog
 #. openerp-web
@@ -934,8 +934,8 @@ msgstr "技術設定"
 
 #. module: website_blog
 #: model:blog.post,content:website_blog.blog_post_1
-msgid "The Communication Mechanism of Odoo"
-msgstr "Odooのコミュニケーションメカニズム"
+msgid "The Communication Mechanism of Gerp"
+msgstr "Gerpのコミュニケーションメカニズム"
 
 #. module: website_blog
 #: model:blog.post,name:website_blog.blog_post_1
@@ -977,11 +977,11 @@ msgstr "タイトル"
 #. module: website_blog
 #: model:blog.post,content:website_blog.blog_post_2
 msgid ""
-"To add to an already comprehensive set of Odoo\n"
+"To add to an already comprehensive set of Gerp\n"
 "                features, a website content management system (CMS or WMS) has been developed and a beta release is\n"
 "                available from today, 31st January 2014."
 msgstr ""
-"すでに包括的なOdoo機能セットに追加するには、\n"
+"すでに包括的なGerp機能セットに追加するには、\n"
 "                 ウェブサイトのコンテンツ管理システム（CMSまたはWMS）が開発されており、ベータリリースは\n"
 "                 2014年1月31日の今日から利用可能です。"
 

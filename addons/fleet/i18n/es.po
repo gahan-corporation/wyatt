@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * fleet
 # 
@@ -24,7 +24,7 @@
 # Jesus Zapata <jesus@vauxoo.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-20 09:54+0000\n"
 "PO-Revision-Date: 2017-09-20 09:54+0000\n"
@@ -1143,11 +1143,11 @@ msgstr "Marca del vehículo"
 #: model:ir.actions.act_window,help:fleet.fleet_vehicle_log_contract_action
 msgid ""
 "Manage all your contracts (leasing, insurances, etc.) with\n"
-"            their related services, costs. Odoo will automatically warn\n"
+"            their related services, costs. Gerp will automatically warn\n"
 "            you when some contracts have to be renewed."
 msgstr ""
 "Administre todos sus contratos (leasing, seguros, etc.) \n"
-"con sus servicios relacionados, costes. Odoo lo advertirá \n"
+"con sus servicios relacionados, costes. Gerp lo advertirá \n"
 "automáticamente cuando se tengan que renovar algunos contratos."
 
 #. module: fleet
@@ -1373,22 +1373,22 @@ msgstr "Medida del odómetro del vehículo en el momento de este registro"
 #. module: fleet
 #: model:ir.actions.act_window,help:fleet.fleet_vehicle_log_services_action
 msgid ""
-"Odoo helps you keeping track of all the services done\n"
+"Gerp helps you keeping track of all the services done\n"
 "            on your vehicle. Services can be of many type: occasional\n"
 "            repair, fixed maintenance, etc."
 msgstr ""
-"Odoo lo ayuda a realizar un seguimiento de todos los \n"
+"Gerp lo ayuda a realizar un seguimiento de todos los \n"
 "servicios realizados en su vehículo. Los servicios pueden \n"
 "ser de muchos tipos: reparación ocasional, mantenimiento fijo, etc."
 
 #. module: fleet
 #: model:ir.actions.act_window,help:fleet.fleet_vehicle_costs_action
 msgid ""
-"Odoo helps you managing the costs for your different\n"
+"Gerp helps you managing the costs for your different\n"
 "                vehicles. Costs are created automatically from services,\n"
 "                contracts (fixed or recurring) and fuel logs."
 msgstr ""
-"Odoo lo ayuda a administrar los costes de sus diferentes \n"
+"Gerp lo ayuda a administrar los costes de sus diferentes \n"
 "vehículos. Los costes se crean automáticamente a partir de \n"
 "servicios, contratos (fijos o recurrentes) y registros de combustible."
 
@@ -1396,20 +1396,20 @@ msgstr ""
 #: model:ir.actions.act_window,help:fleet.fleet_costs_reporting_action
 #: model:ir.actions.act_window,help:fleet.fleet_costs_reporting_non_effective_action
 msgid ""
-"Odoo helps you managing the costs for your different vehicles\n"
+"Gerp helps you managing the costs for your different vehicles\n"
 "          Costs are generally created from services and contract and appears here."
 msgstr ""
-"Odoo lo ayuda a administrar los costes de sus \n"
+"Gerp lo ayuda a administrar los costes de sus \n"
 "diferentes vehículos. Los costes generalmente se \n"
 "crean a partir de servicios y contratos, y aparecen aquí."
 
 #. module: fleet
 #: model:ir.actions.act_window,help:fleet.fleet_vehicle_action
 msgid ""
-"Odoo will warn you when services or contract have to be\n"
+"Gerp will warn you when services or contract have to be\n"
 "            renewed."
 msgstr ""
-"Odoo le avisará cuando los servicios o el contrato \n"
+"Gerp le avisará cuando los servicios o el contrato \n"
 "deban renovarse."
 
 #. module: fleet
@@ -1767,10 +1767,10 @@ msgstr "Términos y condiciones"
 #: model:ir.actions.act_window,help:fleet.fleet_costs_reporting_action
 #: model:ir.actions.act_window,help:fleet.fleet_costs_reporting_non_effective_action
 msgid ""
-"Thanks to the different filters, Odoo can only print the effective\n"
+"Thanks to the different filters, Gerp can only print the effective\n"
 "          costs, sort them by type and by vehicle."
 msgstr ""
-"Gracias a los diferentes filtros, Odoo solo puede imprimir \n"
+"Gracias a los diferentes filtros, Gerp solo puede imprimir \n"
 "los costos efectivos, ordenarlos por tipo y por vehículo."
 
 #. module: fleet

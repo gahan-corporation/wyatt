@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Website Sale Stock&Options',
     'category': 'Website',
     'description': """
-Odoo E-Commerce
+Gerp E-Commerce
 ==================
 Adds stock limitations on products options.
 """,

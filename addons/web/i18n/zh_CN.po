@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * web
 # 
@@ -20,7 +20,7 @@
 # Li Xiang <lvx5013@foxmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 09:00+0000\n"
 "PO-Revision-Date: 2017-10-24 09:00+0000\n"
@@ -237,8 +237,8 @@ msgstr "<span class=\"oe_logo_edit\">编辑公司数据</span>"
 
 #. module: web
 #: model:ir.ui.view,arch_db:web.menu_secondary
-msgid "<span>Odoo</span>"
-msgstr "<span>Odoo</span>"
+msgid "<span>Gerp</span>"
+msgstr "<span>Gerp</span>"
 
 #. module: web
 #. openerp-web
@@ -1233,7 +1233,7 @@ msgstr "表单"
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:1338
 #, python-format
-msgid "Get this feature and much more with Odoo Enterprise!"
+msgid "Get this feature and much more with Gerp Enterprise!"
 msgstr "通过企业版获得该功能及其他更多。"
 
 #. module: web
@@ -1582,8 +1582,8 @@ msgstr "上移"
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:1323
 #, python-format
-msgid "My Odoo.com account"
-msgstr "Odoo.com帐户"
+msgid "My Gerp.com account"
+msgstr "Gerp.com帐户"
 
 #. module: web
 #. openerp-web
@@ -1713,15 +1713,15 @@ msgstr "对象:"
 #. openerp-web
 #: code:addons/web/static/src/js/core/dialog.js:51
 #, python-format
-msgid "Odoo"
-msgstr "Odoo"
+msgid "Gerp"
+msgstr "Gerp"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/apps.js:148
 #, python-format
-msgid "Odoo Apps will be available soon"
-msgstr "Odoo Apps 将马上可用"
+msgid "Gerp Apps will be available soon"
+msgstr "Gerp Apps 将马上可用"
 
 #. module: web
 #. openerp-web
@@ -1729,37 +1729,37 @@ msgstr "Odoo Apps 将马上可用"
 #: code:addons/web/static/src/js/chrome/abstract_web_client.js:194
 #: code:addons/web/static/src/js/services/crash_manager.js:156
 #, python-format
-msgid "Odoo Client Error"
-msgstr "Odoo客户端错误"
+msgid "Gerp Client Error"
+msgstr "Gerp客户端错误"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/fields/upgrade_fields.js:86
 #, python-format
-msgid "Odoo Enterprise"
-msgstr "Odoo 企业版"
+msgid "Gerp Enterprise"
+msgstr "Gerp 企业版"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:118
 #, python-format
-msgid "Odoo Error"
-msgstr "Odoo错误"
+msgid "Gerp Error"
+msgstr "Gerp错误"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:58
 #, python-format
-msgid "Odoo Session Expired"
-msgstr "Odoo会话过期"
+msgid "Gerp Session Expired"
+msgstr "Gerp会话过期"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:108
 #: code:addons/web/static/src/js/services/crash_manager.js:197
 #, python-format
-msgid "Odoo Warning"
-msgstr "Odoo警告"
+msgid "Gerp Warning"
+msgstr "Gerp警告"
 
 #. module: web
 #. openerp-web
@@ -1973,8 +1973,8 @@ msgstr "官方技术支持"
 
 #. module: web
 #: model:ir.ui.view,arch_db:web.login_layout
-msgid "Powered by <span>Odoo</span>"
-msgstr "由<span>Odoo</span>提供技术支持"
+msgid "Powered by <span>Gerp</span>"
+msgstr "由<span>Gerp</span>提供技术支持"
 
 #. module: web
 #. openerp-web
@@ -2469,8 +2469,8 @@ msgstr "该向导将导出所有符合当前的搜索条件为CSV文件。你可
 #, python-format
 msgid ""
 "Timezone Mismatch : The timezone of your browser doesn't match the selected "
-"one. The time in Odoo is displayed according to your field timezone."
-msgstr "时区不匹配：你的浏览器的时区选择不匹配。在Odoo的时间是根据你的领域时区显示。"
+"one. The time in Gerp is displayed according to your field timezone."
+msgstr "时区不匹配：你的浏览器的时区选择不匹配。在Gerp的时间是根据你的领域时区显示。"
 
 #. module: web
 #. openerp-web
@@ -2816,7 +2816,7 @@ msgid ""
 "You need to start OpenERP with at least two \n"
 "workers to print a pdf version of the reports."
 msgstr ""
-"你需要至少使用两个workers启动Odoo\n"
+"你需要至少使用两个workers启动Gerp\n"
 "来打印pdf报表。"
 
 #. module: web
@@ -2839,7 +2839,7 @@ msgstr ""
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:58
 #, python-format
-msgid "Your Odoo session expired. Please refresh the current web page."
+msgid "Your Gerp session expired. Please refresh the current web page."
 msgstr "你的会话已到期，请刷新当前网页。"
 
 #. module: web

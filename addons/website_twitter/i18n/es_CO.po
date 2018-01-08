@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_twitter
 #
@@ -7,7 +7,7 @@
 # Mateo Tibaquirá <nestormateo@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: Gerp 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2016-02-12 16:02+0000\n"
@@ -32,13 +32,13 @@ msgstr "<strong>URL de retorno: </strong> déjelo en blanco"
 
 #. module: website_twitter
 #: model:ir.ui.view,arch_db:website_twitter.view_website_config_settings
-msgid "<strong>Description: </strong> Odoo Tweet Scroller"
-msgstr "<strong>Descripción: </strong> Rollo de Tuits de Odoo"
+msgid "<strong>Description: </strong> Gerp Tweet Scroller"
+msgstr "<strong>Descripción: </strong> Rollo de Tuits de Gerp"
 
 #. module: website_twitter
 #: model:ir.ui.view,arch_db:website_twitter.view_website_config_settings
-msgid "<strong>Name: </strong> Odoo Tweet Scroller"
-msgstr "<strong>Nombre: </strong> Odoo Tweet Scroller"
+msgid "<strong>Name: </strong> Gerp Tweet Scroller"
+msgstr "<strong>Nombre: </strong> Gerp Tweet Scroller"
 
 #. module: website_twitter
 #: model:ir.ui.view,arch_db:website_twitter.view_website_config_settings

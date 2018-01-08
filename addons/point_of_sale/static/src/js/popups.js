@@ -112,7 +112,7 @@ var ErrorTracebackPopupWidget = ErrorPopupWidget.extend({
 
         this.$('.email').off('click').click(function(){
             self.gui.send_email( self.pos.company.email,
-                _t('IMPORTANT: Bug Report From Odoo Point Of Sale'),
+                _t('IMPORTANT: Bug Report From Gerp Point Of Sale'),
                 self.options.body);
         });
     }

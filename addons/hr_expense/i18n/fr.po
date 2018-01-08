@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * hr_expense
 # 
@@ -35,7 +35,7 @@
 # Rémi CAZENAVE <remi@le-filament.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-10 11:34+0000\n"
 "PO-Revision-Date: 2017-10-10 11:34+0000\n"
@@ -612,8 +612,8 @@ msgstr "Fin"
 
 #. module: hr_expense
 #: model:ir.ui.view,arch_db:hr_expense.hr_expense_planner
-msgid "Enjoy your Odoo experience,"
-msgstr "Profitez de votre expérience Odoo,"
+msgid "Enjoy your Gerp experience,"
+msgstr "Profitez de votre expérience Gerp,"
 
 #. module: hr_expense
 #: model:ir.model,name:hr_expense.model_hr_expense
@@ -881,10 +881,10 @@ msgstr ""
 #. module: hr_expense
 #: model:ir.ui.view,arch_db:hr_expense.hr_expense_planner
 msgid ""
-"For the Odoo Team,<br/>\n"
+"For the Gerp Team,<br/>\n"
 "                            Fabien Pinckaers, Founder"
 msgstr ""
-"De la part de l'équipe Odoo,<br/>\n"
+"De la part de l'équipe Gerp,<br/>\n"
 "Fabien Pinckaers, Fondateur"
 
 #. module: hr_expense
@@ -942,8 +942,8 @@ msgstr "Département RH"
 
 #. module: hr_expense
 #: model:ir.ui.view,arch_db:hr_expense.hr_expense_planner
-msgid "Have a wonderful day,<br/>- The Odoo Team"
-msgstr "Passez une bonne journée,<br/>- La Team Odoo"
+msgid "Have a wonderful day,<br/>- The Gerp Team"
+msgstr "Passez une bonne journée,<br/>- La Team Gerp"
 
 #. module: hr_expense
 #: model:ir.model.fields,field_description:hr_expense.field_hr_expense_sheet_register_payment_wizard_hide_payment_method
@@ -1622,8 +1622,8 @@ msgstr "Les étapes pour enregistrer vos dépenses sont: "
 
 #. module: hr_expense
 #: model:ir.ui.view,arch_db:hr_expense.hr_expense_planner
-msgid "This guide helps you start with Odoo Expenses."
-msgstr "Ce guide vous aidera à démarre avec Notes de Frais Odoo."
+msgid "This guide helps you start with Gerp Expenses."
+msgstr "Ce guide vous aidera à démarre avec Notes de Frais Gerp."
 
 #. module: hr_expense
 #: model:ir.ui.view,arch_db:hr_expense.res_config_settings_view_form

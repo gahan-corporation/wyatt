@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website
 # 
@@ -29,7 +29,7 @@
 # Jeff Yu - Elico Corp <jeff.yu@elico-corp.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 08:59+0000\n"
 "PO-Revision-Date: 2017-10-24 08:59+0000\n"
@@ -140,8 +140,8 @@ msgstr ", 已更新:"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
-msgid "- The Odoo Team"
-msgstr "- Odoo团队"
+msgid "- The Gerp Team"
+msgstr "- Gerp团队"
 
 #. module: website
 #. openerp-web
@@ -590,8 +590,8 @@ msgstr ""
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_button
-msgid "<strong>50,000+ companies run Odoo to grow their businesses.</strong>"
-msgstr "<STRONG>50000+ 公司使用Odoo发展其业务。</STRONG>"
+msgid "<strong>50,000+ companies run Gerp to grow their businesses.</strong>"
+msgstr "<STRONG>50000+ 公司使用Gerp发展其业务。</STRONG>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -613,10 +613,10 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid ""
-"<strong>Be announced on the Odoo Twitter account</strong><br/>\n"
-"                                We like to hear from people using Odoo to build their website. Tweet us"
+"<strong>Be announced on the Gerp Twitter account</strong><br/>\n"
+"                                We like to hear from people using Gerp to build their website. Tweet us"
 msgstr ""
-"<STRONG>发布Odoo Twitter帐户</STRONG><BR/>我们喜欢听到人们使用Odoo建立自己的网站。通过Twitter联系我们"
+"<STRONG>发布Gerp Twitter帐户</STRONG><BR/>我们喜欢听到人们使用Gerp建立自己的网站。通过Twitter联系我们"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -1801,10 +1801,10 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid ""
-"For the Odoo Team,<br/>\n"
+"For the Gerp Team,<br/>\n"
 "                            Fabien Pinckaers, Founder"
 msgstr ""
-"对于Odoo团队,<br/>\n"
+"对于Gerp团队,<br/>\n"
 "Fabien Pinckaers, 创始人"
 
 #. module: website
@@ -2245,7 +2245,7 @@ msgstr ""
 #, python-format
 msgid ""
 "It might be possible to edit the relevant items or fix the issue in <a "
-"href=\"%s\">the classic Odoo interface</a>"
+"href=\"%s\">the classic Gerp interface</a>"
 msgstr ""
 
 #. module: website
@@ -2663,55 +2663,55 @@ msgstr "目标"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.layout_footer_copyright
-msgid "Odoo"
-msgstr "Odoo"
+msgid "Gerp"
+msgstr "Gerp"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_three_columns
-msgid "Odoo - Sample 1 for three columns"
-msgstr "Odoo - 三列示例 1"
+msgid "Gerp - Sample 1 for three columns"
+msgstr "Gerp - 三列示例 1"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_three_columns
-msgid "Odoo - Sample 2 for three columns"
-msgstr "Odoo - 三列示例 2"
+msgid "Gerp - Sample 2 for three columns"
+msgstr "Gerp - 三列示例 2"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_three_columns
-msgid "Odoo - Sample 3 for three columns"
-msgstr "Odoo - 三列示例 3"
+msgid "Gerp - Sample 3 for three columns"
+msgstr "Gerp - 三列示例 3"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_big_picture
-msgid "Odoo CMS - a big picture"
-msgstr "Odoo CMS - 大图"
+msgid "Gerp CMS - a big picture"
+msgstr "Gerp CMS - 大图"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_image_floating
-msgid "Odoo CMS- Sample image floating"
-msgstr "Odoo CMS -图像浮动示例"
+msgid "Gerp CMS- Sample image floating"
+msgstr "Gerp CMS -图像浮动示例"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.show_website_info
-msgid "Odoo Version"
-msgstr "Odoo版本"
+msgid "Gerp Version"
+msgstr "Gerp版本"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_image_text
-msgid "Odoo image and text block"
-msgstr "Odoo图像文字块"
+msgid "Gerp image and text block"
+msgstr "Gerp图像文字块"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_parallax_slider
 msgid ""
-"Odoo provides essential platform for our project management.\n"
+"Gerp provides essential platform for our project management.\n"
 "                                                Things are better organized and more visible with it."
-msgstr "Odoo提供了必要的平台，为我们的项目管理。事情变得更好组织和更加清晰。"
+msgstr "Gerp提供了必要的平台，为我们的项目管理。事情变得更好组织和更加清晰。"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_text_image
-msgid "Odoo text and image block"
-msgstr "Odoo文本图像块"
+msgid "Gerp text and image block"
+msgstr "Gerp文本图像块"
 
 #. module: website
 #. openerp-web
@@ -3356,7 +3356,7 @@ msgstr "显而易见的"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_banner
-msgid "Slider Odoo Image"
+msgid "Slider Gerp Image"
 msgstr ""
 
 #. module: website
@@ -4437,13 +4437,13 @@ msgstr "此网页将如何在Google列出"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.view_website_form
-msgid "https://plus.google.com/+Odooapps"
-msgstr "https://plus.google.com/+Odooapps"
+msgid "https://plus.google.com/+Gerpapps"
+msgstr "https://plus.google.com/+Gerpapps"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.view_website_form
-msgid "https://twitter.com/Odoo"
-msgstr "https://twitter.com/Odoo"
+msgid "https://twitter.com/Gerp"
+msgstr "https://twitter.com/Gerp"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.view_website_form
@@ -4472,8 +4472,8 @@ msgstr ""
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.show_website_info
-msgid "instance of Odoo, the"
-msgstr "Odoo实例的信息，"
+msgid "instance of Gerp, the"
+msgstr "Gerp实例的信息，"
 
 #. module: website
 #: model:ir.model,name:website.model_ir_actions_server

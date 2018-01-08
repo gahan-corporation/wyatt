@@ -11,7 +11,7 @@ Recordsets
 
 .. versionadded:: 8.0
 
-    This page documents the New API added in Odoo 8.0 which should be the
+    This page documents the New API added in Gerp 8.0 which should be the
     primary development API going forward. It also provides information about
     porting from or bridging with the "old API" of versions 7 and earlier, but
     does not explicitly document that API. See the old documentation for that.
@@ -88,14 +88,14 @@ Accessing a relational field (:class:`~gerp.fields.Many2one`,
 Record cache and prefetching
 ----------------------------
 
-Odoo maintains a cache for the fields of the records, so that not every field
+Gerp maintains a cache for the fields of the records, so that not every field
 access issues a database request, which would be terrible for performance. The
 following example queries the database only for the first statement::
 
     record.name             # first access reads value from database
     record.name             # second access gets value from cache
 
-To avoid reading one field on one record at a time, Odoo *prefetches* records
+To avoid reading one field on one record at a time, Gerp *prefetches* records
 and fields following some heuristics to get good performance. Once a field must
 be read on a given record, the ORM actually reads that field on a larger
 recordset, and stores the returned values in cache for later use. The prefetched
@@ -293,7 +293,7 @@ Common ORM methods
 
 :meth:`~gerp.models.Model.browse`
     Takes a database id or a list of ids and returns a recordset, useful when
-    record ids are obtained from outside Odoo (e.g. round-trip through
+    record ids are obtained from outside Gerp (e.g. round-trip through
     external system) or :ref:`when calling methods in the old API
     <reference/orm/oldapi>`::
 
@@ -503,7 +503,7 @@ Clearing caches can be performed using the
 Compatibility between new API and old API
 =========================================
 
-Odoo is currently transitioning from an older (less regular) API, it can be
+Gerp is currently transitioning from an older (less regular) API, it can be
 necessary to manually bridge from one to the other manually:
 
 * RPC layers (both XML-RPC and JSON-RPC) are expressed in terms of the old
@@ -888,7 +888,7 @@ Relational fields
 Inheritance and extension
 =========================
 
-Odoo provides three different mechanisms to extend models in a modular way:
+Gerp provides three different mechanisms to extend models in a modular way:
 
 * creating a new model from an existing one, adding new information to the
   copy but leaving the original module as-is
@@ -903,7 +903,7 @@ Classical inheritance
 ---------------------
 
 When using the :attr:`~gerp.models.Model._inherit` and
-:attr:`~gerp.models.Model._name` attributes together, Odoo creates a new
+:attr:`~gerp.models.Model._name` attributes together, Gerp creates a new
 model using the existing one (provided via
 :attr:`~gerp.models.Model._inherit`) as a base. The new model gets all the
 fields, methods and meta-information (defaults & al) from its base.
@@ -1118,7 +1118,7 @@ Porting from the old API to the new API
   string), this makes them overridable (removes the need for an intermediate
   "trampoline" function)
 * double check that all fields and methods have different names, there is no
-  warning in case of collision (because Python handles it before Odoo sees
+  warning in case of collision (because Python handles it before Gerp sees
   anything)
 * the normal new-api import is ``from gerp import fields, models``. If
   compatibility decorators are necessary, use ``from gerp import api,

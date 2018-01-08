@@ -1,11 +1,11 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_forum_doc
 #
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: Gerp 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2015-08-25 10:27+0000\n"
@@ -166,12 +166,12 @@ msgstr ""
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "Explain how to configure Odoo"
+msgid "Explain how to configure Gerp"
 msgstr ""
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "Explain how to implement it in Odoo"
+msgid "Explain how to implement it in Gerp"
 msgstr ""
 
 #. module: website_forum_doc
@@ -383,7 +383,7 @@ msgstr ""
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "The answer is understandable for someone who does not know Odoo"
+msgid "The answer is understandable for someone who does not know Gerp"
 msgstr ""
 
 #. module: website_forum_doc

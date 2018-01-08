@@ -1,7 +1,7 @@
 gerp.define('web.GraphController', function (require) {
 "use strict";
 /*---------------------------------------------------------
- * Odoo Graph view
+ * Gerp Graph view
  *---------------------------------------------------------*/
 
 var AbstractController = require('web.AbstractController');

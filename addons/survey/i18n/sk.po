@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * survey
 #
@@ -6,7 +6,7 @@
 # Jaroslav Bosansky <jaro.bosansky@ekoenergo.sk>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: Gerp 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2016-03-21 21:32+0000\n"
@@ -242,8 +242,8 @@ msgstr "Token musí byť unikátny!"
 
 #. module: survey
 #: model:survey.page,title:survey.feedback_1
-msgid "About your Odoo usage"
-msgstr "O vašom Odoo používaní"
+msgid "About your Gerp usage"
+msgstr "O vašom Gerp používaní"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_survey_active
@@ -315,8 +315,8 @@ msgstr "Odpovede"
 
 #. module: survey
 #: model:survey.question,question:survey.feedback_1_1
-msgid "Are you using Odoo on a daily basis?"
-msgstr "Používate Odoo na dennej báze?"
+msgid "Are you using Gerp on a daily basis?"
+msgstr "Používate Gerp na dennej báze?"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message_attachment_ids
@@ -684,8 +684,8 @@ msgstr "Zoskupiť podľa"
 
 #. module: survey
 #: model:survey.question,question:survey.feedback_3_1
-msgid "How do you contribute or plan to contribute to Odoo?"
-msgstr "Ako prispievate alebo máte v úmysle prispieť k Odoo?"
+msgid "How do you contribute or plan to contribute to Gerp?"
+msgstr "Ako prispievate alebo máte v úmysle prispieť k Gerp?"
 
 #. module: survey
 #: model:survey.label,value:survey.choice_1_2_6
@@ -720,8 +720,8 @@ msgstr "Zúčastňujem sa diskusií a fór"
 
 #. module: survey
 #: model:survey.label,value:survey.choice_4_1_1
-msgid "I use Github, like all official Odoo projects"
-msgstr "Používam Github, ako všetky oficiálne Odoo projekty"
+msgid "I use Github, like all official Gerp projects"
+msgstr "Používam Github, ako všetky oficiálne Gerp projekty"
 
 #. module: survey
 #: model:survey.label,value:survey.choice_4_1_2
@@ -730,8 +730,8 @@ msgstr "Používam iný schránkový systém (SourceForge...)"
 
 #. module: survey
 #: model:survey.label,value:survey.frow_2_1_3
-msgid "I use the contextual help in Odoo"
-msgstr "Používam kontextuálnu pomoc v Odoo"
+msgid "I use the contextual help in Gerp"
+msgstr "Používam kontextuálnu pomoc v Gerp"
 
 #. module: survey
 #: model:survey.label,value:survey.choice_3_1_5
@@ -791,8 +791,8 @@ msgstr "Ak iné, konkrétne:"
 
 #. module: survey
 #: model:survey.page,description:survey.feedback_4
-msgid "If you do not contribute or develop in Odoo, skip this page."
-msgstr "Ak neprispievate alebo nevyvíjate v Odoo, preskočte túto stránku."
+msgid "If you do not contribute or develop in Gerp, skip this page."
+msgstr "Ak neprispievate alebo nevyvíjate v Gerp, preskočte túto stránku."
 
 #. module: survey
 #: model:ir.ui.view,arch_db:survey.sfinished
@@ -1727,12 +1727,12 @@ msgstr "Príliš veľa menu ponúk, je to komplexné na pochopenie"
 #. module: survey
 #: model:survey.page,description:survey.feedback_2
 msgid ""
-"These questions relate to the ergonomy and ease of use of Odoo. Try to "
-"remind your firsts days on Odoo and\n"
+"These questions relate to the ergonomy and ease of use of Gerp. Try to "
+"remind your firsts days on Gerp and\n"
 "what have been your difficulties."
 msgstr ""
-"Tieto otázky sa týkajú ergonómie a jednoduchosti používania Odoo. Skúste si "
-"spomenúť na svoje prvé dni na Odoo a\n"
+"Tieto otázky sa týkajú ergonómie a jednoduchosti používania Gerp. Skúste si "
+"spomenúť na svoje prvé dni na Gerp a\n"
 "čo vám robilo problémy."
 
 #. module: survey
@@ -1747,8 +1747,8 @@ msgstr "Sú užitočné na denné použitie"
 
 #. module: survey
 #: model:survey.label,value:survey.frow_2_2_1
-msgid "They help new users to understand Odoo"
-msgstr "Pomáhajú novým používateľom pochopiť Odoo"
+msgid "They help new users to understand Gerp"
+msgstr "Pomáhajú novým používateľom pochopiť Gerp"
 
 #. module: survey
 #: code:addons/survey/survey.py:671 code:addons/survey/tests/test_survey.py:94
@@ -1973,10 +1973,10 @@ msgstr "Čo si myslíte o skupinách používateľov?"
 #. module: survey
 #: model:survey.question,question:survey.feedback_2_2
 msgid ""
-"What do you think about the process views of Odoo, available in the web "
+"What do you think about the process views of Gerp, available in the web "
 "client ?"
 msgstr ""
-"Čo si myslíte o procesných zobrazeniach Odoo, dostupných vo webovom kliente?"
+"Čo si myslíte o procesných zobrazeniach Gerp, dostupných vo webovom kliente?"
 
 #. module: survey
 #: model:survey.question,question:survey.feedback_2_4
@@ -2021,8 +2021,8 @@ msgstr "Áno, používam verziu 7.0, nainštalovanú lokálne"
 
 #. module: survey
 #: model:survey.label,value:survey.choice_1_1_3
-msgid "Yes, I use the online version of Odoo"
-msgstr "Áno, používam online verziu Odoo"
+msgid "Yes, I use the online version of Gerp"
+msgstr "Áno, používam online verziu Gerp"
 
 #. module: survey
 #: model:ir.actions.act_window,help:survey.action_survey_form

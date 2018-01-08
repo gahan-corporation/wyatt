@@ -46,16 +46,16 @@
 <p class="first admonition-title">Warning</p>
 <ul class="last simple">
 <li>This guide assumes <a class="reference external" href="http://docs.python.org/2/tutorial/">basic knowledge of Python</a></li>
-<li>This guide assumes <a class="reference internal" href="../setup/install.html#setup-install"><span class="std std-ref">an installed Odoo</span></a></li>
+<li>This guide assumes <a class="reference internal" href="../setup/install.html#setup-install"><span class="std std-ref">an installed Gerp</span></a></li>
 </ul>
 </div>
 <div class="section" id="creating-a-basic-module">
 <h2>Creating a basic module<a class="headerlink" href="#creating-a-basic-module" title="Permalink to this headline">¶</a></h2>
-<p>In Odoo, tasks are performed by creating modules.</p>
-<p>Modules customize the behavior of an Odoo installation, either by adding new
+<p>In Gerp, tasks are performed by creating modules.</p>
+<p>Modules customize the behavior of an Gerp installation, either by adding new
 behaviors or by altering existing ones (including behaviors added by other
 modules).</p>
-<p><a class="reference internal" href="../reference/cmdline.html#reference-cmdline-scaffold"><span class="std std-ref">Odoo’s scaffolding</span></a> can setup a basic
+<p><a class="reference internal" href="../reference/cmdline.html#reference-cmdline-scaffold"><span class="std std-ref">Gerp’s scaffolding</span></a> can setup a basic
 module. To quickly get started simply invoke:</p>
 <div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ./gerp-bin scaffold Academy my-modules
 </pre></div>
@@ -69,7 +69,7 @@ if you want, but the module name must be unique within the directory.</p>
 <p>We have a “complete” module ready for installation.</p>
 <p>Although it does absolutely nothing we can install it:</p>
 <ul>
-<li><p class="first">start the Odoo server</p>
+<li><p class="first">start the Gerp server</p>
 <div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ./gerp-bin --addons-path addons,my-modules
 </pre></div>
 </div>
@@ -92,7 +92,7 @@ if you want, but the module name must be unique within the directory.</p>
 <p><a class="reference internal" href="../reference/http.html#reference-http-controllers"><span class="std std-ref">Controllers</span></a> interpret browser requests and
 send data back.</p>
 <p>Add a simple controller and ensure it is imported by <code class="docutils literal"><span class="pre">__init__.py</span></code> (so
-Odoo can find it):</p>
+Gerp can find it):</p>
 <p>Shut down your server (<code class="kbd docutils literal"><span class="pre">^C</span></code>) then restart it:</p>
 <div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ./gerp-bin --addons-path addons,my-modules
 </pre></div>
@@ -107,19 +107,19 @@ Odoo can find it):</p>
 <h2>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
 <p>Generating HTML in Python isn’t very pleasant.</p>
 <p>The usual solution is <a class="reference external" href="http://en.wikipedia.org/wiki/Web_template">templates</a>, pseudo-documents with placeholders and
-display logic. Odoo allows any Python templating system, but provides its
+display logic. Gerp allows any Python templating system, but provides its
 own <a class="reference internal" href="../reference/qweb.html#reference-qweb"><span class="std std-ref">QWeb</span></a> templating system which integrates with other
 features.</p>
 <p>Create a template and ensure the template file is registered in the
 <code class="docutils literal"><span class="pre">__manifest__.py</span></code> manifest, and alter the controller to use our template:</p>
 <p>The templates iterates (<code class="docutils literal"><span class="pre">t-foreach</span></code>) on all the teachers (passed through the
 <em>template context</em>), and prints each teacher in its own paragraph.</p>
-<p>Finally restart Odoo and update the module’s data (to install the template)
+<p>Finally restart Gerp and update the module’s data (to install the template)
 by going to <span class="menuselection">Settings ‣ Modules ‣ Modules ‣
 Academy</span> and clicking <span class="guilabel">Upgrade</span>.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p>Alternatively, Odoo can be restarted <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-u"><code class="xref std std-option docutils literal"><span class="pre">and</span> <span class="pre">update</span> <span class="pre">modules</span> <span class="pre">at</span>
+<p>Alternatively, Gerp can be restarted <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-u"><code class="xref std std-option docutils literal"><span class="pre">and</span> <span class="pre">update</span> <span class="pre">modules</span> <span class="pre">at</span>
 <span class="pre">the</span> <span class="pre">same</span> <span class="pre">time</span></code></a>:</p>
 <div class="last highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> gerp-bin --addons-path addons,my-modules -d academy -u academy
 </pre></div>
@@ -129,8 +129,8 @@ Academy</span> and clicking <span class="guilabel">Upgrade</span>.</p>
 <img alt="../_images/basic-list.png" src="../_images/basic-list.png" />
 </div>
 <div class="section" id="storing-data-in-gerp">
-<h2>Storing data in Odoo<a class="headerlink" href="#storing-data-in-gerp" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="../reference/orm.html#reference-orm-model"><span class="std std-ref">Odoo models</span></a> map to database tables.</p>
+<h2>Storing data in Gerp<a class="headerlink" href="#storing-data-in-gerp" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../reference/orm.html#reference-orm-model"><span class="std std-ref">Gerp models</span></a> map to database tables.</p>
 <p>In the previous section we just displayed a list of string entered statically
 in the Python code. This doesn’t allow modifications or persistent storage
 so we’ll now move our data to the database.</p>
@@ -188,8 +188,8 @@ identifier for the teacher).</p>
 </div>
 <div class="section" id="website-support">
 <h2>Website support<a class="headerlink" href="#website-support" title="Permalink to this headline">¶</a></h2>
-<p>Odoo bundles a module dedicated to building websites.</p>
-<p>So far we’ve used controllers fairly directly, but Odoo 8 added deeper
+<p>Gerp bundles a module dedicated to building websites.</p>
+<p>So far we’ve used controllers fairly directly, but Gerp 8 added deeper
 integration and a few other services (e.g. default styling, theming) via the
 <code class="docutils literal"><span class="pre">website</span></code> module.</p>
 <ol class="arabic simple">
@@ -207,7 +207,7 @@ elements (top-level menu, footer, …)</p>
 <p>The website layout also provides support for edition tools: click
 <span class="guilabel">Sign In</span> (in the top-right), fill the credentials in (<code class="docutils literal"><span class="pre">admin</span></code> /
 <code class="docutils literal"><span class="pre">admin</span></code> by default) then click <span class="guilabel">Log In</span>.</p>
-<p>You’re now in Odoo “proper”: the administrative interface. For now click on
+<p>You’re now in Gerp “proper”: the administrative interface. For now click on
 the <span class="guilabel">Website</span> menu item (top-left corner.</p>
 <p>We’re back in the website but as an administrator, with access to advanced
 edition features provided by the <em>website</em> support:</p>
@@ -228,21 +228,21 @@ number of attributes to customise its behavior or security.</p>
 but routing strings can also use <a class="reference external" href="http://werkzeug.pocoo.org/docs/routing/#rule-format">converter patterns</a> which match bits
 of URLs and make those available as local variables. For instance we can
 create a new controller method which takes a bit of URL and prints it out:</p>
-<p>restart Odoo, access <a class="reference external" href="http://localhost:8069/academy/Alice/">http://localhost:8069/academy/Alice/</a> and
+<p>restart Gerp, access <a class="reference external" href="http://localhost:8069/academy/Alice/">http://localhost:8069/academy/Alice/</a> and
 <a class="reference external" href="http://localhost:8069/academy/Bob/">http://localhost:8069/academy/Bob/</a> and see the difference.</p>
 <p>As the name indicates, <a class="reference external" href="http://werkzeug.pocoo.org/docs/routing/#rule-format">converter patterns</a> don’t just do extraction, they
 also do <em>validation</em> and <em>conversion</em>, so we can change the new controller
 to only accept integers:</p>
-<p>Restart Odoo, access <a class="reference external" href="http://localhost:8069/academy/2">http://localhost:8069/academy/2</a>, note how the old value
+<p>Restart Gerp, access <a class="reference external" href="http://localhost:8069/academy/2">http://localhost:8069/academy/2</a>, note how the old value
 was a string, but the new one was converted to an integers. Try accessing
 <a class="reference external" href="http://localhost:8069/academy/Carol/">http://localhost:8069/academy/Carol/</a> and note that the page was not found:
 since “Carol” is not an integer, the route was ignored and no route could be
 found.</p>
-<p>Odoo provides an additional converter called <code class="docutils literal"><span class="pre">model</span></code> which provides records
+<p>Gerp provides an additional converter called <code class="docutils literal"><span class="pre">model</span></code> which provides records
 directly when given their id. Let’s use this to create a generic page for
 teacher biographies:</p>
 <p>then change the list of model to link to our new controller:</p>
-<p>Restart Odoo and upgrade the module, then you can visit each teacher’s page.
+<p>Restart Gerp and upgrade the module, then you can visit each teacher’s page.
 As an exercise, try adding blocks to a teacher’s page to write a biography,
 then go to another teacher’s page and so forth. You will discover, that your
 biography is shared between all teachers, because blocks are added to the
@@ -253,7 +253,7 @@ one page is edited they’re all edited at the same time.</p>
 <h2>Field edition<a class="headerlink" href="#field-edition" title="Permalink to this headline">¶</a></h2>
 <p>Data which is specific to a record should be saved on that record, so let us
 add a new biography field to our teachers:</p>
-<p>Restart Odoo and update the views, reload the teacher’s page and… the field
+<p>Restart Gerp and update the views, reload the teacher’s page and… the field
 is invisible since it contains nothing.</p>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Todo</p>
@@ -263,7 +263,7 @@ force via <code class="docutils literal"><span class="pre">-i</span></code> or d
 <p>For record fields, templates can use a special <code class="docutils literal"><span class="pre">t-field</span></code> directive which
 allows editing the field content from the website using field-specific
 interfaces. Change the <em>person</em> template to use <code class="docutils literal"><span class="pre">t-field</span></code>:</p>
-<p>Restart Odoo and upgrade the module, there is now a placeholder under the
+<p>Restart Gerp and upgrade the module, there is now a placeholder under the
 teacher’s name and a new zone for blocks in <span class="guilabel">Edit</span> mode. Content
 dropped there is stored in the corresponding teacher’s <code class="docutils literal"><span class="pre">biography</span></code> field, and
 thus specific to that teacher.</p>
@@ -278,25 +278,25 @@ ask for a human-readable version:</p>
 <div class="section" id="administration-and-erp-integration">
 <h2>Administration and ERP integration<a class="headerlink" href="#administration-and-erp-integration" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="a-brief-and-incomplete-introduction-to-the-gerp-administration">
-<h3>A brief and incomplete introduction to the Odoo administration<a class="headerlink" href="#a-brief-and-incomplete-introduction-to-the-gerp-administration" title="Permalink to this headline">¶</a></h3>
-<p>The Odoo administration was briefly seen during the <a class="reference internal" href="#website-support">website support</a> section.
+<h3>A brief and incomplete introduction to the Gerp administration<a class="headerlink" href="#a-brief-and-incomplete-introduction-to-the-gerp-administration" title="Permalink to this headline">¶</a></h3>
+<p>The Gerp administration was briefly seen during the <a class="reference internal" href="#website-support">website support</a> section.
 We can go back to it using <span class="menuselection">Administrator ‣ Administrator</span> in
 the menu (or <span class="guilabel">Sign In</span> if you’re signed out).</p>
-<p>The conceptual structure of the Odoo backend is simple:</p>
+<p>The conceptual structure of the Gerp backend is simple:</p>
 <ol class="arabic simple">
 <li>first are menus, a tree (menus can have sub-menus) of records. Menus
 without children map to…</li>
-<li>actions. Actions have various types: links, reports, code which Odoo should
+<li>actions. Actions have various types: links, reports, code which Gerp should
 execute or data display. Data display actions are called <em>window actions</em>,
-and tell Odoo to display a given <em>model</em> according to a set of views…</li>
+and tell Gerp to display a given <em>model</em> according to a set of views…</li>
 <li>a view has a type, a broad category to which it corresponds (a list,
 a graph, a calendar) and an <em>architecture</em> which customises the way the
 model is displayed inside the view.</li>
 </ol>
 </div>
 <div class="section" id="editing-in-the-gerp-administration">
-<h3>Editing in the Odoo administration<a class="headerlink" href="#editing-in-the-gerp-administration" title="Permalink to this headline">¶</a></h3>
-<p>By default, an Odoo model is essentially invisible to a user. To make it
+<h3>Editing in the Gerp administration<a class="headerlink" href="#editing-in-the-gerp-administration" title="Permalink to this headline">¶</a></h3>
+<p>By default, an Gerp model is essentially invisible to a user. To make it
 visible it must be available through an action, which itself needs to be
 reachable, generally through a menu.</p>
 <p>Let’s create a menu for our model:</p>
@@ -306,7 +306,7 @@ and having opened a listing of teachers. From the listing it is possible to
 <span class="guilabel">Create</span> new teacher records, and to switch to the “form” by-record
 view.</p>
 <p>If there is no definition of how to present records (a
-<a class="reference internal" href="../reference/views.html#reference-views"><span class="std std-ref">view</span></a>) Odoo will automatically create a basic one
+<a class="reference internal" href="../reference/views.html#reference-views"><span class="std std-ref">view</span></a>) Gerp will automatically create a basic one
 on-the-fly. In our case it works for the “list” view for now (only displays
 the teacher’s name) but in the “form” view the HTML <code class="docutils literal"><span class="pre">biography</span></code> field is
 displayed side-by-side with the <code class="docutils literal"><span class="pre">name</span></code> field and not given enough space.
@@ -330,10 +330,10 @@ model:</p>
 </div>
 <div class="section" id="discussions-and-notifications">
 <h3>Discussions and notifications<a class="headerlink" href="#discussions-and-notifications" title="Permalink to this headline">¶</a></h3>
-<p>Odoo provides technical models, which don’t directly fulfill business needs
+<p>Gerp provides technical models, which don’t directly fulfill business needs
 but which add capabilities to business objects without having to build
 them by hand.</p>
-<p>One of these is the <em>Chatter</em> system, part of Odoo’s email and messaging
+<p>One of these is the <em>Chatter</em> system, part of Gerp’s email and messaging
 system, which can add notifications and discussion threads to any model.
 The model simply has to <a class="reference internal" href="../reference/orm.html#gerp.models.Model._inherit" title="gerp.models.Model._inherit"><code class="xref py py-attr docutils literal"><span class="pre">_inherit</span></code></a>
 <code class="docutils literal"><span class="pre">mail.thread</span></code>, and add the <code class="docutils literal"><span class="pre">message_ids</span></code> field to its form view to display
@@ -346,9 +346,9 @@ discussions linked to specific courses.</p>
 </div>
 <div class="section" id="selling-courses">
 <h3>Selling courses<a class="headerlink" href="#selling-courses" title="Permalink to this headline">¶</a></h3>
-<p>Odoo also provides business models which allow using or opting in business
+<p>Gerp also provides business models which allow using or opting in business
 needs more directly. For instance the <code class="docutils literal"><span class="pre">website_sale</span></code> module sets up an
-e-commerce site based on the products in the Odoo system. We can easily make
+e-commerce site based on the products in the Gerp system. We can easily make
 course subscriptions sellable by making our courses specific kinds of
 products.</p>
 <p>Rather than the previous classical inheritance, this means replacing our
@@ -356,7 +356,7 @@ products.</p>
 add anything we need to it).</p>
 <p>First of all we need to add a dependency on <code class="docutils literal"><span class="pre">website_sale</span></code> so we get both
 products (via <code class="docutils literal"><span class="pre">sale</span></code>) and the ecommerce interface:</p>
-<p>restart Odoo, update your module, there is now a <span class="guilabel">Shop</span> section in
+<p>restart Gerp, update your module, there is now a <span class="guilabel">Shop</span> section in
 the website, listing a number of pre-filled (via demonstration data) products.</p>
 <p>The second step is to replace the <em>courses</em> model by <code class="docutils literal"><span class="pre">product.template</span></code>,
 and add a new category of product for courses:</p>

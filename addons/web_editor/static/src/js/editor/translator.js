@@ -344,7 +344,7 @@ var TranslatorMenuBar = Widget.extend({
      * the element as dirty.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {GerpEvent} ev
      */
     _onRTEChange: function (ev) {
         var $node = $(ev.data.target);

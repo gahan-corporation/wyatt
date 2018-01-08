@@ -134,7 +134,7 @@ class GoogleDrive(gerp.models.Model):
 
         record_url = (
             "Click on link to open Record in "
-            "Odoo\n %s/?db=%s#id=%s&model=%s" % (
+            "Gerp\n %s/?db=%s#id=%s&model=%s" % (
                 google_web_base_url, self._cr.dbname, res_id, res_model)
         )
         data = {
@@ -173,7 +173,7 @@ class GoogleDrive(gerp.models.Model):
             key = self._get_key_from_url(res['url'])
             request_url = (
                 "https://www.googleapis.com/drive/v2/files/{key}/permissions"
-                "?emailMessage=This+is+a+drive+file+created+by+Odoo&sendNoti"
+                "?emailMessage=This+is+a+drive+file+created+by+Gerp&sendNoti"
                 "ficationEmails=false&access_token={access_token}".format(
                     key=key, access_token=self.get_access_token())
             )

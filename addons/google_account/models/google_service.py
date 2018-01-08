@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 import json
@@ -70,7 +70,7 @@ class GoogleService(models.TransientModel):
 
     @api.model
     def _get_authorize_uri(self, from_url, service, scope=False):
-        """ This method return the url needed to allow this instance of Odoo to access to the scope
+        """ This method return the url needed to allow this instance of Gerp to access to the scope
             of gmail specified as parameters
         """
         state = {

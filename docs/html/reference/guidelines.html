@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Odoo Guidelines &#8212; gerp 0.0.1 documentation</title>
+    <title>Gerp Guidelines &#8212; gerp 0.0.1 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -41,8 +41,8 @@
           <div class="body" role="main">
             
   <div class="section" id="gerp-guidelines">
-<h1>Odoo Guidelines<a class="headerlink" href="#gerp-guidelines" title="Permalink to this headline">¶</a></h1>
-<p>This page introduces the new Odoo Coding Guidelines. Those aim to improve the quality of the code (e.g. better readability of source) and Odoo Apps. Indeed, proper code eases maintenance, aids debugging, lowers complexity and promotes reliability.</p>
+<h1>Gerp Guidelines<a class="headerlink" href="#gerp-guidelines" title="Permalink to this headline">¶</a></h1>
+<p>This page introduces the new Gerp Coding Guidelines. Those aim to improve the quality of the code (e.g. better readability of source) and Gerp Apps. Indeed, proper code eases maintenance, aids debugging, lowers complexity and promotes reliability.</p>
 <p>These guidelines should be applied to every new module, and new developpment. These guidelines will be applied to old module <strong>only</strong> in case of code refactoring (migration to new API, big refactoring, …).</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
@@ -94,7 +94,7 @@ the main_model name, suffixed by <em>_demo.xml</em> or <em>_data.xml</em>.</p>
 <p>For <em>controllers</em>, the only file should be named <em>main.py</em>. Otherwise, if you need to inherit an existing controller from another module, its name will be <em>&lt;module_name&gt;.py</em>. Unlike <em>models</em>, each controller class should be contained in a separated file.</p>
 <p>For <em>static files</em>, since the resources can be used in different contexts (frontend, backend, both), they will be included in only one bundle. So, CSS/Less, JavaScript and XML files should be suffixed with the name of the bundle type. i.e.: <em>im_chat_common.css</em>, <em>im_chat_common.js</em> for ‘assets_common’ bundle, and <em>im_chat_backend.css</em>, <em>im_chat_backend.js</em> for ‘assets_backend’ bundle.
 If the module owns only one file, the convention will be <em>&lt;module_name&gt;.ext</em> (i.e.: <em>project.js</em>).
-Don’t link data (image, libraries) outside Odoo: do not use an
+Don’t link data (image, libraries) outside Gerp: do not use an
 URL to an image but copy it in our codebase instead.</p>
 <p>Regarding <em>data</em>, split them by purpose: data or demo. The filename will be
 the <em>main_model</em> name, suffixed by <em>_data.xml</em> or <em>_demo.xml</em>.</p>
@@ -207,7 +207,7 @@ set on the <code class="docutils literal"><span class="pre">&lt;gerp&gt;</span><
 <span class="nt">&lt;/record&gt;</span>
 </pre></div>
 </div>
-<p>Odoo supports custom tags acting as syntactic sugar:</p>
+<p>Gerp supports custom tags acting as syntactic sugar:</p>
 <ul class="simple">
 <li>menuitem: use it as a shortcut to declare a <code class="docutils literal"><span class="pre">ir.ui.menu</span></code></li>
 <li>template: use it to declare a QWeb View requiring only the <code class="docutils literal"><span class="pre">arch</span></code> section of the view.</li>
@@ -309,7 +309,7 @@ technical name of the module extending the view.</p>
 <h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="pep8-options">
 <h3>PEP8 options<a class="headerlink" href="#pep8-options" title="Permalink to this headline">¶</a></h3>
-<p>Using a linter can help show syntax and semantic warnings or errors. Odoo
+<p>Using a linter can help show syntax and semantic warnings or errors. Gerp
 source code tries to respect Python standard, but some of them can be ignored.</p>
 <ul class="simple">
 <li>E501: line too long</li>
@@ -328,7 +328,7 @@ source code tries to respect Python standard, but some of them can be ignored.</
 <ol class="arabic simple">
 <li>External libraries (one per line sorted and split in python stdlib)</li>
 <li>Imports of <code class="docutils literal"><span class="pre">gerp</span></code></li>
-<li>Imports from Odoo modules (rarely, and only if necessary)</li>
+<li>Imports from Gerp modules (rarely, and only if necessary)</li>
 </ol>
 <p>Inside these 3 groups, the imported lines are alphabetically sorted.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># 1 : imports of python lib</span>
@@ -494,10 +494,10 @@ interesting: <a class="reference external" href="http://python.net/~goodger/proj
 </ul>
 </div>
 <div class="section" id="programming-in-gerp">
-<h3>Programming in Odoo<a class="headerlink" href="#programming-in-gerp" title="Permalink to this headline">¶</a></h3>
+<h3>Programming in Gerp<a class="headerlink" href="#programming-in-gerp" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Avoid to create generators and decorators: only use the ones provided by
-the Odoo API.</li>
+the Gerp API.</li>
 <li>As in python, use <code class="docutils literal"><span class="pre">filtered</span></code>, <code class="docutils literal"><span class="pre">mapped</span></code>, <code class="docutils literal"><span class="pre">sorted</span></code>, … methods to
 ease code reading and performance.</li>
 </ul>
@@ -619,7 +619,7 @@ A good rule of thumb is to split a method as soon as:
 </div>
 <div class="section" id="never-commit-the-transaction">
 <h4>Never commit the transaction<a class="headerlink" href="#never-commit-the-transaction" title="Permalink to this headline">¶</a></h4>
-<p>The Odoo framework is in charge of providing the transactional context for
+<p>The Gerp framework is in charge of providing the transactional context for
 all RPC calls. The principle is that a new database cursor is opened at the
 beginning of each RPC call, and committed when the call has returned, just
 before transmitting the answer to the RPC client, approximately like this:</p>
@@ -682,7 +682,7 @@ they can and will be removed !</p>
 </div>
 <div class="section" id="use-translation-method-correctly">
 <h4>Use translation method correctly<a class="headerlink" href="#use-translation-method-correctly" title="Permalink to this headline">¶</a></h4>
-<p>Odoo uses a GetText-like method named “underscore” <code class="docutils literal"><span class="pre">_(</span> <span class="pre">)</span></code> to indicate that
+<p>Gerp uses a GetText-like method named “underscore” <code class="docutils literal"><span class="pre">_(</span> <span class="pre">)</span></code> to indicate that
 a static string used in the code needs to be translated at runtime using the
 language of the context. This pseudo-method is accessed within your code by
 importing as follows:</p>
@@ -749,7 +749,7 @@ to be preserved, but it’s important to use these in a sensible and obvious man
           <span class="s2">&quot;Please enter an integer value.&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="n">question</span>
 </pre></div>
 </div>
-<p>In general in Odoo, when manipulating strings, prefer <code class="docutils literal"><span class="pre">%</span></code> over <code class="docutils literal"><span class="pre">.format()</span></code>
+<p>In general in Gerp, when manipulating strings, prefer <code class="docutils literal"><span class="pre">%</span></code> over <code class="docutils literal"><span class="pre">.format()</span></code>
 (when only one variable to replace in a string), and prefer <code class="docutils literal"><span class="pre">%(varname)</span></code> instead
 of position (when multiple variables have to be replaced). This makes the
 translation easier for the community translators.</p>
@@ -761,9 +761,9 @@ translation easier for the community translators.</p>
 <li><dl class="first docutils">
 <dt>Model name (using the dot notation, prefix by the module name) :</dt>
 <dd><ul class="first last simple">
-<li>When defining an Odoo Model : use singular form of the name (<em>res.partner</em>
+<li>When defining an Gerp Model : use singular form of the name (<em>res.partner</em>
 and <em>sale.order</em> instead of <em>res.partnerS</em> and <em>saleS.orderS</em>)</li>
-<li>When defining an Odoo Transient (wizard) : use <code class="docutils literal"><span class="pre">&lt;related_base_model&gt;.&lt;action&gt;</span></code>
+<li>When defining an Gerp Transient (wizard) : use <code class="docutils literal"><span class="pre">&lt;related_base_model&gt;.&lt;action&gt;</span></code>
 where <em>related_base_model</em> is the base model (defined in <em>models/</em>) related
 to the transient, and <em>action</em> is the short name of what the transient do.
 For instance : <code class="docutils literal"><span class="pre">account.invoice.make</span></code>, <code class="docutils literal"><span class="pre">project.task.delegate.batch</span></code>, …</li>
@@ -773,7 +773,7 @@ For instance : <code class="docutils literal"><span class="pre">account.invoice.
 </dd>
 </dl>
 </li>
-<li><p class="first">Odoo Python Class : use camelcase for code in api v8 (Object-oriented style),
+<li><p class="first">Gerp Python Class : use camelcase for code in api v8 (Object-oriented style),
 underscore lowercase notation for old api (SQL style).</p>
 </li>
 </ul>
@@ -933,7 +933,7 @@ webclient: it simply uses <em>o_</em> prefix.</li>
 Git will loose track, and the history will be lost !), or simply moving code
 from a file to another one.</li>
 <li><strong>[MERGE]</strong> for merge commits (only for forward/back-port)</li>
-<li><strong>[CLA]</strong> for signing the Odoo Individual Contributor License</li>
+<li><strong>[CLA]</strong> for signing the Gerp Individual Contributor License</li>
 </ul>
 <p>Then, in the message itself, specify the part of the code impacted by
 your changes (module name, lib, transversal object, …) and a description

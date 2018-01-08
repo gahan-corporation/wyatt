@@ -6,7 +6,7 @@
 Mixins and Useful Classes
 =========================
 
-Odoo implements some useful classes and mixins that make it easy for you to add
+Gerp implements some useful classes and mixins that make it easy for you to add
 often-used behaviours on your objects. This guide will details most of them, with
 examples and use cases.
 
@@ -524,20 +524,20 @@ Aliases are configurable email addresses that are linked to a specific record
 (which usually inherits the ``mail.alias.mixin`` model) that will create new records when
 contacted via e-mail. They are an easy way to make your system accessible from
 the outside, allowing users or customers to quickly create records in your
-database without needing to connect to Odoo directly.
+database without needing to connect to Gerp directly.
 
 Aliases vs. Incoming Mail Gateway
 '''''''''''''''''''''''''''''''''
 
 Some people use the Incoming Mail Gateway for this same purpose. You still need
 a correctly configured mail gateway to use aliases, however a single
-catchall domain will be sufficient since all routing will be done inside Odoo.
+catchall domain will be sufficient since all routing will be done inside Gerp.
 Aliases have several advantages over Mail Gateways:
 
 * Easier to configure
     * A single incoming gateway can be used by many aliases; this avoids having
       to configure multiple emails on your domain name (all configuration is done
-      inside Odoo)
+      inside Gerp)
     * No need for System access rights to configure aliases
 * More coherent
     * Configurable on the related record, not in a Settings submenu
@@ -871,7 +871,7 @@ You can find concrete examples of integration in the following models:
 
 * ``crm.lead`` in the CRM (*crm*) Application
 * ``hr.applicant`` in the Recruitment Process (*hr_recruitment*) Application
-* ``helpdesk.ticket`` in the Helpdesk (*helpdesk* - Odoo Enterprise only) Application
+* ``helpdesk.ticket`` in the Helpdesk (*helpdesk* - Gerp Enterprise only) Application
 
 .. _reference/mixins/website/published:
 
@@ -1089,5 +1089,5 @@ you a quick bird's eye view of your customer ratings.
 You can find concrete examples of integration in the following models:
 
 * ``project.task`` in the Project (*rating_project*) Application
-* ``helpdesk.ticket`` in the Helpdesk (*helpdesk* - Odoo Enterprise only) Application
+* ``helpdesk.ticket`` in the Helpdesk (*helpdesk* - Gerp Enterprise only) Application
 

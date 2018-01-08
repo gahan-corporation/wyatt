@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * theme_bootswatch
 # 
@@ -7,11 +7,11 @@
 # Gideoni Willian da Silva <gd.willian@gmail.com>, 2016
 # danimaribeiro <danimaribeiro@gmail.com>, 2016
 # Luiz Carlos de Lima <luiz.carlos@akretion.com.br>, 2016
-# Planeta Odoo <planetagerp@gmail.com>, 2016
+# Planeta Gerp <planetagerp@gmail.com>, 2016
 # Mateus Lopes <mateus1@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 9.0\n"
+"Project-Id-Version: Gerp Server 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-21 14:56+0000\n"
 "PO-Revision-Date: 2015-08-21 14:56+0000\n"

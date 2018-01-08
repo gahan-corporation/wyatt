@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * web_settings_dashboard
 # 
@@ -14,7 +14,7 @@
 # Martin Trigaux <mat@gerp.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-20 09:54+0000\n"
 "PO-Revision-Date: 2017-09-20 09:54+0000\n"
@@ -124,8 +124,8 @@ msgstr "Saisir les adresses email (une par ligne)"
 #. openerp-web
 #: code:addons/web_settings_dashboard/static/src/xml/dashboard.xml:100
 #, python-format
-msgid "Follow these implementation guides to get the most out of Odoo."
-msgstr "Suivre ces guides d'implémentation pour obtenir le meilleur d'Odoo."
+msgid "Follow these implementation guides to get the most out of Gerp."
+msgstr "Suivre ces guides d'implémentation pour obtenir le meilleur d'Gerp."
 
 #. module: web_settings_dashboard
 #. openerp-web
@@ -145,8 +145,8 @@ msgstr "Vous trouverez plusieurs options avec la version Entreprise!"
 #. openerp-web
 #: code:addons/web_settings_dashboard/static/src/xml/dashboard.xml:140
 #, python-format
-msgid "Help us spread the word: Share Odoo's awesomeness with your friends!"
-msgstr "Aidez-nous à passer le mot : Odoo est génial, dites-le à vos amis!"
+msgid "Help us spread the word: Share Gerp's awesomeness with your friends!"
+msgstr "Aidez-nous à passer le mot : Gerp est génial, dites-le à vos amis!"
 
 #. module: web_settings_dashboard
 #. openerp-web
@@ -208,22 +208,22 @@ msgstr "Pas d'applications installées"
 #. openerp-web
 #: code:addons/web_settings_dashboard/static/src/xml/dashboard.xml:155
 #, python-format
-msgid "Odoo"
-msgstr "Odoo"
+msgid "Gerp"
+msgstr "Gerp"
 
 #. module: web_settings_dashboard
 #. openerp-web
 #: code:addons/web_settings_dashboard/static/src/xml/dashboard.xml:186
 #, python-format
-msgid "Odoo Enterprise"
-msgstr "Entreprise Odoo"
+msgid "Gerp Enterprise"
+msgstr "Entreprise Gerp"
 
 #. module: web_settings_dashboard
 #. openerp-web
 #: code:addons/web_settings_dashboard/static/src/xml/dashboard.xml:163
 #, python-format
-msgid "Odoo S.A."
-msgstr "Odoo S.A."
+msgid "Gerp S.A."
+msgstr "Gerp S.A."
 
 #. module: web_settings_dashboard
 #. openerp-web

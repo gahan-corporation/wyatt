@@ -1,10 +1,10 @@
 :banner: banners/deploying_gerp.jpg
 
 ==============
-Deploying Odoo
+Deploying Gerp
 ==============
 
-This document describes basic steps to set up Odoo in production or on an
+This document describes basic steps to set up Gerp in production or on an
 internet-facing server. It follows :ref:`installation <setup/install>`, and is
 not generally necessary for a development systems that is not exposed on the
 internet.
@@ -17,7 +17,7 @@ internet.
 dbfilter
 ========
 
-Odoo is a multi-tenant system: a single Odoo system may run and serve a number
+Gerp is a multi-tenant system: a single Gerp system may run and serve a number
 of database instances. It is also highly customizable, with customizations
 (starting from the modules being loaded) depending on the "current database".
 
@@ -26,10 +26,10 @@ company user: the database can be selected when logging in, and customizations
 loaded afterwards.
 
 However it is an issue for non-logged users (portal, website) which aren't
-bound to a database: Odoo needs to know which database should be used to load
+bound to a database: Gerp needs to know which database should be used to load
 the website page or perform the operation. If multi-tenancy is not used that is not an
 issue, there's only one database to use, but if there are multiple databases
-accessible Odoo needs a rule to know which one it should use.
+accessible Gerp needs a rule to know which one it should use.
 
 That is one of the purposes of :option:`--db-filter <gerp-bin --db-filter>`:
 it specifies how the database should be selected based on the hostname (domain)
@@ -82,17 +82,17 @@ By default, PostgreSQL only allows connection over UNIX sockets and loopback
 connections (from "localhost", the same machine the PostgreSQL server is
 installed on).
 
-UNIX socket is fine if you want Odoo and PostgreSQL to execute on the same
-machine, and is the default when no host is provided, but if you want Odoo and
+UNIX socket is fine if you want Gerp and PostgreSQL to execute on the same
+machine, and is the default when no host is provided, but if you want Gerp and
 PostgreSQL to execute on different machines [#different-machines]_ it will
 need to `listen to network interfaces`_ [#remote-socket]_, either:
 
 * only accept loopback connections and `use an SSH tunnel`_ between the
-  machine on which Odoo runs and the one on which PostgreSQL runs, then
-  configure Odoo to connect to its end of the tunnel
-* accept connections to the machine on which Odoo is installed, possibly
+  machine on which Gerp runs and the one on which PostgreSQL runs, then
+  configure Gerp to connect to its end of the tunnel
+* accept connections to the machine on which Gerp is installed, possibly
   over ssl (see `PostgreSQL connection settings`_ for details), then configure
-  Odoo to connect over the network
+  Gerp to connect over the network
 
 Configuration sample
 --------------------
@@ -118,10 +118,10 @@ in ``/etc/postgresql/9.5/main/postgresql.conf`` set:
 
 .. _setup/deploy/gerp:
 
-Configuring Odoo
+Configuring Gerp
 ----------------
 
-Out of the box, Odoo connects to a local postgres over UNIX socket via port
+Out of the box, Gerp connects to a local postgres over UNIX socket via port
 5432. This can be overridden using :ref:`the database options
 <reference/cmdline/server/database>` when your Postgres deployment is not
 local and/or does not use the installation defaults.
@@ -170,7 +170,7 @@ in ``/etc/gerp.conf`` set:
 Builtin server
 ==============
 
-Odoo includes built-in HTTP servers, using either multithreading or
+Gerp includes built-in HTTP servers, using either multithreading or
 multiprocessing.
 
 For production use, it is recommended to use the multiprocessing server as it
@@ -223,7 +223,7 @@ Configuration sample
 * 60 users / 6 = 10 <- theorical number of worker needed
 * (4 * 2) + 1 = 9 <- theorical maximal number of worker
 * We'll use 8 workers + 1 for cron. We'll also use a monitoring system to measure cpu load, and check if it's between 7 and 7.5 .
-* RAM = 9 * ((0.8*150) + (0.2*1024)) ~= 3Go RAM for Odoo
+* RAM = 9 * ((0.8*150) + (0.2*1024)) ~= 3Go RAM for Gerp
 
 in ``/etc/gerp.conf``:
 
@@ -243,12 +243,12 @@ in ``/etc/gerp.conf``:
 HTTPS
 =====
 
-Whether it's accessed via website/web client or web service, Odoo transmits
+Whether it's accessed via website/web client or web service, Gerp transmits
 authentication information in cleartext. This means a secure deployment of
-Odoo must use HTTPS\ [#switching]_. SSL termination can be implemented via
+Gerp must use HTTPS\ [#switching]_. SSL termination can be implemented via
 just about any SSL termination proxy, but requires the following setup:
 
-* enable Odoo's :option:`proxy mode <gerp-bin --proxy-mode>`. This should only be enabled when Odoo is behind a reverse proxy
+* enable Gerp's :option:`proxy mode <gerp-bin --proxy-mode>`. This should only be enabled when Gerp is behind a reverse proxy
 * set up the SSL termination proxy (`Nginx termination example`_)
 * set up the proxying itself (`Nginx proxying example`_)
 * your SSL termination proxy should also automatically redirect non-secure
@@ -331,25 +331,25 @@ in ``/etc/nginx/sites-enabled/gerp.conf`` set:
    gzip on;
   }
  
-Odoo as a WSGI Application
+Gerp as a WSGI Application
 ==========================
 
-It is also possible to mount Odoo as a standard WSGI_ application. Odoo
+It is also possible to mount Gerp as a standard WSGI_ application. Gerp
 provides the base for a WSGI launcher script as ``gerp-wsgi.example.py``. That
 script should be customized (possibly after copying it from the setup directory) to correctly set the
 configuration directly in :mod:`gerp.tools.config` rather than through the
 command-line or a configuration file.
 
 However the WSGI server will only expose the main HTTP endpoint for the web
-client, website and webservice API. Because Odoo does not control the creation
+client, website and webservice API. Because Gerp does not control the creation
 of workers anymore it can not setup cron or livechat workers
 
 Cron Workers
 ------------
 
-To run cron jobs for an Odoo deployment as a WSGI application requires
+To run cron jobs for an Gerp deployment as a WSGI application requires
 
-* a classical Odoo (run via ``gerp-bin``)
+* a classical Gerp (run via ``gerp-bin``)
 * connected to the database in which cron jobs have to be run (via
   :option:`gerp-bin -d`)
 * which should not be exposed to the network. To ensure cron runners are not
@@ -372,22 +372,22 @@ notifications.
 
 The solutions to support livechat/motifications in a WSGI application are:
 
-* deploy a threaded version of Odoo (instread of a process-based preforking
+* deploy a threaded version of Gerp (instread of a process-based preforking
   one) and redirect only requests to URLs starting with ``/longpolling/`` to
-  that Odoo, this is the simplest and the longpolling URL can double up as
+  that Gerp, this is the simplest and the longpolling URL can double up as
   the cron instance.
-* deploy an evented Odoo via ``gerp-gevent`` and proxy requests starting
+* deploy an evented Gerp via ``gerp-gevent`` and proxy requests starting
   with ``/longpolling/`` to
   :option:`the longpolling port <gerp-bin --longpolling-port>`.
 
 Serving Static Files
 ====================
 
-For development convenience, Odoo directly serves all static files in its
+For development convenience, Gerp directly serves all static files in its
 modules. This may not be ideal when it comes to performances, and static
 files should generally be served by a static HTTP server.
 
-Odoo static files live in each module's ``static/`` folder, so static files
+Gerp static files live in each module's ``static/`` folder, so static files
 can be served by intercepting all requests to :samp:`/{MODULE}/static/{FILE}`,
 and looking up the right module (and file) in the various addons paths.
 
@@ -446,7 +446,7 @@ security-related topics:
 - Configure your server in multi-process mode with proper limits matching your typical
   usage (memory/CPU/timeouts). See also :ref:`builtin_server`.
 
-- Run Odoo behind a web server providing HTTPS termination with a valid SSL certificate,
+- Run Gerp behind a web server providing HTTPS termination with a valid SSL certificate,
   in order to prevent eavesdropping on cleartext communications. SSL certificates are
   cheap, and many free options exist.
   Configure the web proxy to limit the size of requests, set appropriate timeouts,
@@ -500,16 +500,16 @@ which will generate a 32 characters pseudorandom printable string.
 Supported Browsers
 ==================
 
-Odoo is supported by multiple browsers for each of its versions. No 
+Gerp is supported by multiple browsers for each of its versions. No 
 distinction is made according to the browser version in order to be
-up-to-date. Odoo is supported on the current browser version. The list 
-of the supported browsers by Odoo version is the following:
+up-to-date. Gerp is supported on the current browser version. The list 
+of the supported browsers by Gerp version is the following:
 
-- **Odoo 9:** IE11, Mozilla Firefox, Google Chrome, Safari, Microsoft Edge
-- **Odoo 10+:** Mozilla Firefox, Google Chrome, Safari, Microsoft Edge
+- **Gerp 9:** IE11, Mozilla Firefox, Google Chrome, Safari, Microsoft Edge
+- **Gerp 10+:** Mozilla Firefox, Google Chrome, Safari, Microsoft Edge
 
 .. [#different-machines]
-    to have multiple Odoo installations use the same PostgreSQL database,
+    to have multiple Gerp installations use the same PostgreSQL database,
     or to provide more computing resources to both software.
 .. [#remote-socket]
     technically a tool like socat_ can be used to proxy UNIX sockets across

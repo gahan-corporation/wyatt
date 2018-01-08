@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * base_setup
 # 
@@ -11,7 +11,7 @@
 # Melroy van den Berg <webmaster1989@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 09:00+0000\n"
 "PO-Revision-Date: 2017-10-24 09:00+0000\n"
@@ -161,8 +161,8 @@ msgstr "Externe email servers"
 
 #. module: base_setup
 #: model:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
-msgid "Extract and analyze Odoo data from Google Spreadsheet"
-msgstr "Exporteer en analyseer Odoo data van Google Spreadsheets"
+msgid "Extract and analyze Gerp data from Google Spreadsheet"
+msgstr "Exporteer en analyseer Gerp data van Google Spreadsheets"
 
 #. module: base_setup
 #: model:ir.model.fields,help:base_setup.field_res_config_settings_report_footer
@@ -328,8 +328,8 @@ msgstr "Gebruik externe authenticatie providers (OAuth)"
 
 #. module: base_setup
 #: model:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
-msgid "Use external pads in Odoo Notes"
-msgstr "Gebruik externe paden in Odoo Notities"
+msgid "Use external pads in Gerp Notes"
+msgstr "Gebruik externe paden in Gerp Notities"
 
 #. module: base_setup
 #: model:ir.ui.view,arch_db:base_setup.res_config_settings_view_form

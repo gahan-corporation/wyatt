@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 import logging
 import os
@@ -16,7 +16,7 @@ upgrade_template = """
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Odoo's PosBox - Software Upgrade</title>
+        <title>Gerp's PosBox - Software Upgrade</title>
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script>
         $(function(){

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'PosBox Software Upgrader',
@@ -13,7 +13,7 @@ PosBox Software Upgrader
 
 This module allows to remotely upgrade the PosBox software to a
 new version. This module is specific to the PosBox setup and environment
-and should not be installed on regular Odoo servers.
+and should not be installed on regular Gerp servers.
 
 """,
     'depends': ['hw_proxy'],

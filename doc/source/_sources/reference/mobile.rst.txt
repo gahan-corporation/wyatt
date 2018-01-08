@@ -10,19 +10,19 @@ Mobile JavaScript
 Introduction
 ============
 
-In Odoo 10.0 we released a mobile app, allows you to access all **Odoo apps**
+In Gerp 10.0 we released a mobile app, allows you to access all **Gerp apps**
 (even your customized modules). 
 
-The application is a combination of **Odoo Web** and **Native Mobile
-components**, in other words it is a Odoo Web instance loaded inside native
+The application is a combination of **Gerp Web** and **Native Mobile
+components**, in other words it is a Gerp Web instance loaded inside native
 WebView container of mobile.
 
 This page documents how you can access mobile native components like Camera,
-Vibration, Notification, Toast through Odoo Web (via JavaScript). For this, you
-do not need to be a mobile developer, if you know Odoo JavaScript API you can
+Vibration, Notification, Toast through Gerp Web (via JavaScript). For this, you
+do not need to be a mobile developer, if you know Gerp JavaScript API you can
 access all available mobile features.
 
-.. warning:: This features works with **Odoo Enterprise 10.0+** only
+.. warning:: This features works with **Gerp Enterprise 10.0+** only
 
 How does it work? 
 =================
@@ -35,8 +35,8 @@ Of course, it is a web page that loads on a Mobile Native Web container. But it
 is integrated in such a way that you can access native resources from your web
 JavaScript.
 
-WebPages (Odoo Web) is on the top of each layer, where second layer is a Bridge
-between Odoo Web (JS) and Native component of mobile.
+WebPages (Gerp Web) is on the top of each layer, where second layer is a Bridge
+between Gerp Web (JS) and Native component of mobile.
 
 When any call from JavaScript triggered it passes through Bridge and Bridge
 pass it to native invoker to perform that action.
@@ -50,7 +50,7 @@ from Native resources. Like Camera or GPS Location.
 How to use it?
 ==============
 
-As Odoo Web Framework, Mobile api can be used anywhere by getting object of
+As Gerp Web Framework, Mobile api can be used anywhere by getting object of
 **web_mobile.rpc**
 
 .. image:: images/gerp_mobile_api.png

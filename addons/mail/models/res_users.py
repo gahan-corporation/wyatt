@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 from gerp import _, api, exceptions, fields, models, modules
 from gerp.tools import pycompat
@@ -26,11 +26,11 @@ class Users(models.Model):
         ('followers', 'Followers only')], string='Alias Contact Security', related='alias_id.alias_contact')
     notification_type = fields.Selection([
         ('email', 'Handle by Emails'),
-        ('inbox', 'Handle in Odoo')],
+        ('inbox', 'Handle in Gerp')],
         'Notification Management', required=True, default='email',
         help="Policy on how to handle Chatter notifications:\n"
              "- Emails: notifications are sent to your email\n"
-             "- Odoo: notifications appear in your Odoo Inbox")
+             "- Gerp: notifications appear in your Gerp Inbox")
 
     def __init__(self, pool, cr):
         """ Override of __init__ to add access rights on notification_email_send

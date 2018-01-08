@@ -163,7 +163,7 @@ database
 
       These operations are case sensitive. Add option ``(?i)`` to match all
       databases (so domain ``gerp.com`` using ``(?i)%d`` matches the database
-      ``Odoo``).
+      ``Gerp``).
 
 .. option:: --db-template <template>
 
@@ -202,7 +202,7 @@ built-in HTTP
 logging
 -------
 
-By default, Odoo displays all logging of level_ ``info`` except for workflow
+By default, Gerp displays all logging of level_ ``info`` except for workflow
 logging (``warning`` only), and log output is sent to ``stdout``. Various
 options are available to redirect logging to other destinations and to
 customize the amount of logging output
@@ -276,7 +276,7 @@ customize the amount of logging output
     ``gerp`` and ``werkzeug`` loggers (except for ``debug`` which is only
     set on ``gerp``).
 
-    Odoo also provides debugging pseudo-levels which apply to different sets
+    Gerp also provides debugging pseudo-levels which apply to different sets
     of loggers:
 
     ``debug_sql``
@@ -310,7 +310,7 @@ emails
 
 .. option:: --email-from <address>
 
-    Email address used as <FROM> when Odoo needs to send mails
+    Email address used as <FROM> when Gerp needs to send mails
 
 .. option:: --smtp <server>
 
@@ -339,7 +339,7 @@ Scaffolding
 .. program:: gerp-bin scaffold
 
 Scaffolding is the automated creation of a skeleton structure to simplify
-bootstrapping (of new modules, in the case of Odoo). While not necessary it
+bootstrapping (of new modules, in the case of Gerp). While not necessary it
 avoids the tedium of setting up basic structures and looking up what all
 starting requirements are.
 

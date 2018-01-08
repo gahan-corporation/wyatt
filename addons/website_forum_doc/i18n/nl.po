@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_forum_doc
 # 
@@ -9,7 +9,7 @@
 # Eric Geens <ericgeens@yahoo.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
@@ -172,13 +172,13 @@ msgstr "Fout! het is niet mogelijk recursieve categorieën te maken!"
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "Explain how to configure Odoo"
-msgstr "Leg uit hoe in Odoo in te stellen"
+msgid "Explain how to configure Gerp"
+msgstr "Leg uit hoe in Gerp in te stellen"
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "Explain how to implement it in Odoo"
-msgstr "Leg uit hoe te implementeren in Odoo"
+msgid "Explain how to implement it in Gerp"
+msgstr "Leg uit hoe te implementeren in Gerp"
 
 #. module: website_forum_doc
 #: model:ir.model.fields,field_description:website_forum_doc.field_forum_documentation_toc_forum_id
@@ -389,8 +389,8 @@ msgstr "Naam fase"
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "The answer is understandable for someone who does not know Odoo"
-msgstr "De vraag is begrijpbaar voor iemand die geen Odoo kent"
+msgid "The answer is understandable for someone who does not know Gerp"
+msgstr "De vraag is begrijpbaar voor iemand die geen Gerp kent"
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question

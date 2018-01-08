@@ -193,12 +193,12 @@ function make_message (data) {
     if ((!msg.author_id || !msg.author_id[0]) && msg.email_from) {
         msg.mailto = msg.email_from;
     } else {
-        msg.displayed_author = (msg.author_id === ODOOBOT_ID) && "OdooBot" ||
+        msg.displayed_author = (msg.author_id === ODOOBOT_ID) && "GerpBot" ||
                                msg.author_id && msg.author_id[1] ||
                                msg.email_from || _t('Anonymous');
     }
 
-    // Don't redirect on author clicked of self-posted or OdooBot messages
+    // Don't redirect on author clicked of self-posted or GerpBot messages
     msg.author_redirect = !msg.is_author && msg.author_id !== ODOOBOT_ID;
 
     // Compute the avatar_url

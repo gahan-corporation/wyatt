@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_slides
 # 
@@ -8,7 +8,7 @@
 # Kostas Goutoudis <goutoudis@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:27+0000\n"
 "PO-Revision-Date: 2017-10-02 11:27+0000\n"
@@ -326,7 +326,7 @@ msgstr "Μόνο Επικυρωμένοι Χρήστες"
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_5
-msgid "Awesome Timesheet by Odoo"
+msgid "Awesome Timesheet by Gerp"
 msgstr ""
 
 #. module: website_slides
@@ -505,7 +505,7 @@ msgstr "Απόρριψη"
 
 #. module: website_slides
 #: model:slide.slide,description:website_slides.slide_6
-msgid "Discover how easy marketing your business can be with Odoo"
+msgid "Discover how easy marketing your business can be with Gerp"
 msgstr ""
 
 #. module: website_slides
@@ -515,7 +515,7 @@ msgid ""
 "\n"
 "Read more about the features at: https://www.gerp.com/page/manufacturing-features\n"
 "\n"
-"Discover Odoo MRP: https://www.gerp.com/page/manufacturing"
+"Discover Gerp MRP: https://www.gerp.com/page/manufacturing"
 msgstr ""
 
 #. module: website_slides
@@ -580,7 +580,7 @@ msgstr "Λήψη"
 #. module: website_slides
 #: model:slide.slide,description:website_slides.slide_5
 msgid ""
-"Download Awesome Timesheet by Odoo and discover how easy time tracking and employee management can be!\n"
+"Download Awesome Timesheet by Gerp and discover how easy time tracking and employee management can be!\n"
 "\n"
 "Chrome: http://bit.ly/2613LcY\n"
 "iOS: http://bit.ly/1ZUZsZD"
@@ -907,43 +907,43 @@ msgstr "Αριθμός Βίντεος"
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_2
-msgid "Odoo All-in-One Software Demonstration"
+msgid "Gerp All-in-One Software Demonstration"
 msgstr ""
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_1
-msgid "Odoo CRM"
+msgid "Gerp CRM"
 msgstr ""
 
 #. module: website_slides
 #: model:slide.category,name:website_slides.category_2
 #: model:slide.tag,name:website_slides.tag5
-msgid "Odoo Days"
-msgstr "Odoo Days"
+msgid "Gerp Days"
+msgstr "Gerp Days"
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_7
-msgid "Odoo Inventory"
+msgid "Gerp Inventory"
 msgstr ""
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_0
-msgid "Odoo MRP"
+msgid "Gerp MRP"
 msgstr ""
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_6
-msgid "Odoo Marketing"
-msgstr "Odoo Marketing"
+msgid "Gerp Marketing"
+msgstr "Gerp Marketing"
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_8
-msgid "Odoo Sales"
+msgid "Gerp Sales"
 msgstr ""
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_3
-msgid "Odoo Sign Demonstration"
+msgid "Gerp Sign Demonstration"
 msgstr ""
 
 #. module: website_slides
@@ -1180,7 +1180,7 @@ msgstr "Συγνώμη, αλλά τίποτα δεν ταιριάζει με τ�
 #. module: website_slides
 #: model:slide.slide,description:website_slides.slide_3
 msgid ""
-"Stop doing manual printing and scanning. Move to electronic signature with Odoo Sign!\n"
+"Stop doing manual printing and scanning. Move to electronic signature with Gerp Sign!\n"
 "\n"
 "Discover more at https://www.gerp.com/page/sign"
 msgstr ""
@@ -1384,7 +1384,7 @@ msgstr "Αναμονή για επικύρωση"
 msgid ""
 "Warehouse management software for the 21st century.\n"
 "\n"
-"Discover Odoo Inventory: https://www.gerp.com/page/warehouse"
+"Discover Gerp Inventory: https://www.gerp.com/page/warehouse"
 msgstr ""
 
 #. module: website_slides

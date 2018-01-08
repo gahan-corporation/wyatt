@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_forum_doc
 # 
@@ -16,7 +16,7 @@
 # Si Ling Lau <happy8645@hotmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
@@ -177,13 +177,13 @@ msgstr "错误！你不能创建循环类别。"
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "Explain how to configure Odoo"
-msgstr "讲解怎么配置Odoo"
+msgid "Explain how to configure Gerp"
+msgstr "讲解怎么配置Gerp"
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "Explain how to implement it in Odoo"
-msgstr "讲解怎么在Odoo上实施它"
+msgid "Explain how to implement it in Gerp"
+msgstr "讲解怎么在Gerp上实施它"
 
 #. module: website_forum_doc
 #: model:ir.model.fields,field_description:website_forum_doc.field_forum_documentation_toc_forum_id
@@ -394,8 +394,8 @@ msgstr "阶段名称"
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "The answer is understandable for someone who does not know Odoo"
-msgstr "对于不知道Odoo的人来说答案也得很容易懂"
+msgid "The answer is understandable for someone who does not know Gerp"
+msgstr "对于不知道Gerp的人来说答案也得很容易懂"
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question

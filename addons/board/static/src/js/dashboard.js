@@ -77,7 +77,7 @@ FormController.include({
 
     /**
      * @private
-     * @param {OdooEvent} event
+     * @param {GerpEvent} event
      */
     _onChangeLayout: function (event) {
         var self = this;
@@ -110,7 +110,7 @@ FormController.include({
      * record in a different breadcrumb)
      *
      * @private
-     * @param {OdooEvent} event
+     * @param {GerpEvent} event
      */
     _onSwitchView: function (event) {
         event.stopPropagation();

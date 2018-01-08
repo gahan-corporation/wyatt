@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * product
 #
@@ -10,7 +10,7 @@
 # Ricardo Martins <ricardo.nbs.martins@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: Gerp 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-18 14:07+0000\n"
 "PO-Revision-Date: 2016-05-30 16:03+0000\n"
@@ -3476,8 +3476,8 @@ msgstr "e.g. Lamps"
 
 #. module: product
 #: model:ir.ui.view,arch_db:product.product_variant_easy_edit_view
-msgid "e.g. Odoo Enterprise Susbcription"
-msgstr "e.g. Odoo Enterprise Susbcription"
+msgid "e.g. Gerp Enterprise Susbcription"
+msgstr "e.g. Gerp Enterprise Susbcription"
 
 #. module: product
 #: model:ir.ui.view,arch_db:product.product_pricelist_view

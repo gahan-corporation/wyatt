@@ -53,12 +53,12 @@ var defaults = {
 };
 
 /**
- * ZoomOdoo
+ * ZoomGerp
  * @constructor
  * @param {Object} target
  * @param {Object} options (Optional)
  */
-function ZoomOdoo(target, options) {
+function ZoomGerp(target, options) {
     this.$target = $(target);
     this.opts = $.extend({}, defaults, options, this.$target.data());
 
@@ -71,7 +71,7 @@ function ZoomOdoo(target, options) {
  * Init
  * @private
  */
-ZoomOdoo.prototype._init = function () {
+ZoomGerp.prototype._init = function () {
     if (window.outerWidth > 467 || !this.opts.disabledOnMobile) {
         this.$link  = this.$target.find(this.opts.linkTag).length && this.$target.find(this.opts.linkTag) || this.$target;
         this.$image  = this.$target.find('img').length && this.$target.find('img') || this.$target;
@@ -96,7 +96,7 @@ ZoomOdoo.prototype._init = function () {
  * @param {MouseEvent|TouchEvent} e
  * @param {Boolean} testMouseOver (Optional)
  */
-ZoomOdoo.prototype.show = function (e, testMouseOver) {
+ZoomGerp.prototype.show = function (e, testMouseOver) {
     var w1, h1, w2, h2;
     var self = this;
 
@@ -147,7 +147,7 @@ ZoomOdoo.prototype.show = function (e, testMouseOver) {
  * @private
  * @param {Event} e
  */
-ZoomOdoo.prototype._onEnter = function (e) {
+ZoomGerp.prototype._onEnter = function (e) {
     var touches = e.originalEvent.touches;
 
     this.isMouseOver = true;
@@ -162,7 +162,7 @@ ZoomOdoo.prototype._onEnter = function (e) {
  * @private
  * @param {Event} e
  */
-ZoomOdoo.prototype._onMove = function (e) {
+ZoomGerp.prototype._onMove = function (e) {
     if (!this.isOpen) return;
 
     e.preventDefault();
@@ -173,7 +173,7 @@ ZoomOdoo.prototype._onMove = function (e) {
  * On leave
  * @private
  */
-ZoomOdoo.prototype._onLeave = function () {
+ZoomGerp.prototype._onLeave = function () {
     this.isMouseOver = false;
     if (this.isOpen) {
         this.hide();
@@ -185,7 +185,7 @@ ZoomOdoo.prototype._onLeave = function () {
  * @private
  * @param {Event} e
  */
-ZoomOdoo.prototype._onLoad = function (e) {
+ZoomGerp.prototype._onLoad = function (e) {
     // IE may fire a load event even on error so test the image dimensions
     if (!e.currentTarget.width) return;
 
@@ -204,7 +204,7 @@ ZoomOdoo.prototype._onLoad = function (e) {
  * @param {String} href
  * @param {Function} callback
  */
-ZoomOdoo.prototype._loadImage = function (href, callback) {
+ZoomGerp.prototype._loadImage = function (href, callback) {
     var zoom = new Image();
 
     this.$zoom = $(zoom).on('load', callback, $.proxy(this._onLoad, this));
@@ -218,7 +218,7 @@ ZoomOdoo.prototype._loadImage = function (href, callback) {
  * @private
  * @param {Event} e
  */
-ZoomOdoo.prototype._move = function (e) {
+ZoomGerp.prototype._move = function (e) {
     if (e.type.indexOf('touch') === 0) {
         var touchlist = e.touches || e.originalEvent.touches;
         lx = touchlist[0].pageX;
@@ -254,7 +254,7 @@ ZoomOdoo.prototype._move = function (e) {
 /**
  * Hide
  */
-ZoomOdoo.prototype.hide = function () {
+ZoomGerp.prototype.hide = function () {
     if (!this.isOpen) return;
     if (this.opts.beforeHide.call(this) === false) return;
 
@@ -265,12 +265,12 @@ ZoomOdoo.prototype.hide = function () {
 };
 
 // jQuery plugin wrapper
-$.fn.zoomOdoo = function (options) {
+$.fn.zoomGerp = function (options) {
     return this.each(function () {
-        var api = $.data(this, 'zoomOdoo');
+        var api = $.data(this, 'zoomGerp');
 
         if (!api) {
-            $.data(this, 'zoomOdoo', new ZoomOdoo(this, options));
+            $.data(this, 'zoomGerp', new ZoomGerp(this, options));
         } else if (api.isOpen === undefined) {
             api._init();
         }

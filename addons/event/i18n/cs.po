@@ -1,11 +1,11 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * event
 #
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: Gerp 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-18 14:07+0000\n"
 "PO-Revision-Date: 2016-06-08 11:27+0000\n"
@@ -330,7 +330,7 @@ msgstr ""
 #: model:event.event,description:event.event_0
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
-msgid "Banner Odoo Image"
+msgid "Banner Gerp Image"
 msgstr ""
 
 #. module: event
@@ -1234,20 +1234,20 @@ msgstr ""
 #: model:event.event,description:event.event_0
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
-msgid "Odoo Official Website"
+msgid "Gerp Official Website"
 msgstr ""
 
 #. module: event
 #: model:event.event,description:event.event_0
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
-msgid "Odoo Web Client"
+msgid "Gerp Web Client"
 msgstr ""
 
 #. module: event
 #: model:ir.actions.act_window,help:event.action_event_view
 msgid ""
-"Odoo helps you schedule and efficiently organize your events:\n"
+"Gerp helps you schedule and efficiently organize your events:\n"
 "    track subscriptions and participations, automate the confirmation "
 "emails,\n"
 "    sell tickets, etc."
@@ -1777,7 +1777,7 @@ msgstr ""
 
 #. module: event
 #: model:event.event,description:event.event_0
-msgid "to learn Odoo Programming"
+msgid "to learn Gerp Programming"
 msgstr ""
 
 #. module: event

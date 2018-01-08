@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * analytic
 #
@@ -6,7 +6,7 @@
 # Pedro M. Baeza <pedro.baeza@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: Gerp 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-18 14:07+0000\n"
 "PO-Revision-Date: 2015-11-08 17:05+0000\n"
@@ -239,12 +239,12 @@ msgstr "ID (identificación)"
 #: model:ir.actions.act_window,help:analytic.account_analytic_line_action
 #: model:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
 msgid ""
-"In Odoo, sale orders and projects are implemented using\n"
+"In Gerp, sale orders and projects are implemented using\n"
 "                analytic accounts. You can track costs and revenues to "
 "analyse\n"
 "                your margins easily."
 msgstr ""
-"En Odoo, los pedidos de venta y los proyectos se implementan usando cuentas "
+"En Gerp, los pedidos de venta y los proyectos se implementan usando cuentas "
 "analíticas. Puede realizar seguimiento de los costes e ingresos para "
 "analizar sus márgenes fácilmente."
 

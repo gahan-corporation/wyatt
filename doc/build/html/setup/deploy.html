@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Deploying Odoo &#8212; gerp v0.0.1 documentation</title>
+    <title>Deploying Gerp &#8212; gerp v0.0.1 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -39,8 +39,8 @@
           <div class="body" role="main">
             
   <div class="section" id="deploying-gerp">
-<h1>Deploying Odoo<a class="headerlink" href="#deploying-gerp" title="Permalink to this headline">¶</a></h1>
-<p>This document describes basic steps to set up Odoo in production or on an
+<h1>Deploying Gerp<a class="headerlink" href="#deploying-gerp" title="Permalink to this headline">¶</a></h1>
+<p>This document describes basic steps to set up Gerp in production or on an
 internet-facing server. It follows <a class="reference internal" href="install.html#setup-install"><span class="std std-ref">installation</span></a>, and is
 not generally necessary for a development systems that is not exposed on the
 internet.</p>
@@ -50,17 +50,17 @@ internet.</p>
 </div>
 <div class="section" id="dbfilter">
 <span id="db-filter"></span><h2>dbfilter<a class="headerlink" href="#dbfilter" title="Permalink to this headline">¶</a></h2>
-<p>Odoo is a multi-tenant system: a single Odoo system may run and serve a number
+<p>Gerp is a multi-tenant system: a single Gerp system may run and serve a number
 of database instances. It is also highly customizable, with customizations
 (starting from the modules being loaded) depending on the “current database”.</p>
 <p>This is not an issue when working with the backend (web client) as a logged-in
 company user: the database can be selected when logging in, and customizations
 loaded afterwards.</p>
 <p>However it is an issue for non-logged users (portal, website) which aren’t
-bound to a database: Odoo needs to know which database should be used to load
+bound to a database: Gerp needs to know which database should be used to load
 the website page or perform the operation. If multi-tenancy is not used that is not an
 issue, there’s only one database to use, but if there are multiple databases
-accessible Odoo needs a rule to know which one it should use.</p>
+accessible Gerp needs a rule to know which one it should use.</p>
 <p>That is one of the purposes of <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-db-filter"><code class="xref std std-option docutils literal"><span class="pre">--db-filter</span></code></a>:
 it specifies how the database should be selected based on the hostname (domain)
 that is being requested. The value is a <a class="reference external" href="https://docs.python.org/3/library/re.html">regular expression</a>, possibly
@@ -107,17 +107,17 @@ See also <a class="reference internal" href="#security">security</a>.</p>
 <p>By default, PostgreSQL only allows connection over UNIX sockets and loopback
 connections (from “localhost”, the same machine the PostgreSQL server is
 installed on).</p>
-<p>UNIX socket is fine if you want Odoo and PostgreSQL to execute on the same
-machine, and is the default when no host is provided, but if you want Odoo and
+<p>UNIX socket is fine if you want Gerp and PostgreSQL to execute on the same
+machine, and is the default when no host is provided, but if you want Gerp and
 PostgreSQL to execute on different machines <a class="footnote-reference" href="#different-machines" id="id1">[1]</a> it will
 need to <a class="reference external" href="http://www.postgresql.org/docs/9.3/static/runtime-config-connection.html">listen to network interfaces</a> <a class="footnote-reference" href="#remote-socket" id="id2">[2]</a>, either:</p>
 <ul class="simple">
 <li>only accept loopback connections and <a class="reference external" href="http://www.postgresql.org/docs/9.3/static/ssh-tunnels.html">use an SSH tunnel</a> between the
-machine on which Odoo runs and the one on which PostgreSQL runs, then
-configure Odoo to connect to its end of the tunnel</li>
-<li>accept connections to the machine on which Odoo is installed, possibly
+machine on which Gerp runs and the one on which PostgreSQL runs, then
+configure Gerp to connect to its end of the tunnel</li>
+<li>accept connections to the machine on which Gerp is installed, possibly
 over ssl (see <a class="reference external" href="http://www.postgresql.org/docs/9.3/static/runtime-config-connection.html">PostgreSQL connection settings</a> for details), then configure
-Odoo to connect over the network</li>
+Gerp to connect over the network</li>
 </ul>
 <div class="section" id="configuration-sample">
 <h3>Configuration sample<a class="headerlink" href="#configuration-sample" title="Permalink to this headline">¶</a></h3>
@@ -139,8 +139,8 @@ max_connections = 80
 </div>
 </div>
 <div class="section" id="configuring-gerp">
-<span id="setup-deploy-gerp"></span><h3>Configuring Odoo<a class="headerlink" href="#configuring-gerp" title="Permalink to this headline">¶</a></h3>
-<p>Out of the box, Odoo connects to a local postgres over UNIX socket via port
+<span id="setup-deploy-gerp"></span><h3>Configuring Gerp<a class="headerlink" href="#configuring-gerp" title="Permalink to this headline">¶</a></h3>
+<p>Out of the box, Gerp connects to a local postgres over UNIX socket via port
 5432. This can be overridden using <a class="reference internal" href="../reference/cmdline.html#reference-cmdline-server-database"><span class="std std-ref">the database options</span></a> when your Postgres deployment is not
 local and/or does not use the installation defaults.</p>
 <p>The <a class="reference internal" href="install.html#setup-install-packaged"><span class="std std-ref">packaged installers</span></a> will automatically
@@ -189,7 +189,7 @@ to be completely non-functional, the PostgreSQL user needs to be created with
 </div>
 <div class="section" id="builtin-server">
 <span id="id4"></span><h2>Builtin server<a class="headerlink" href="#builtin-server" title="Permalink to this headline">¶</a></h2>
-<p>Odoo includes built-in HTTP servers, using either multithreading or
+<p>Gerp includes built-in HTTP servers, using either multithreading or
 multiprocessing.</p>
 <p>For production use, it is recommended to use the multiprocessing server as it
 increases stability, makes somewhat better use of computing resources and can
@@ -240,7 +240,7 @@ the <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp
 <li>60 users / 6 = 10 &lt;- theorical number of worker needed</li>
 <li>(4 * 2) + 1 = 9 &lt;- theorical maximal number of worker</li>
 <li>We’ll use 8 workers + 1 for cron. We’ll also use a monitoring system to measure cpu load, and check if it’s between 7 and 7.5 .</li>
-<li>RAM = 9 * ((0.8*150) + (0.2*1024)) ~= 3Go RAM for Odoo</li>
+<li>RAM = 9 * ((0.8*150) + (0.2*1024)) ~= 3Go RAM for Gerp</li>
 </ul>
 <p>in <code class="docutils literal"><span class="pre">/etc/gerp.conf</span></code>:</p>
 <div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[options]</span>
@@ -257,12 +257,12 @@ the <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp
 </div>
 <div class="section" id="https">
 <span id="https-proxy"></span><h2>HTTPS<a class="headerlink" href="#https" title="Permalink to this headline">¶</a></h2>
-<p>Whether it’s accessed via website/web client or web service, Odoo transmits
+<p>Whether it’s accessed via website/web client or web service, Gerp transmits
 authentication information in cleartext. This means a secure deployment of
-Odoo must use HTTPS<a class="footnote-reference" href="#switching" id="id6">[3]</a>. SSL termination can be implemented via
+Gerp must use HTTPS<a class="footnote-reference" href="#switching" id="id6">[3]</a>. SSL termination can be implemented via
 just about any SSL termination proxy, but requires the following setup:</p>
 <ul class="simple">
-<li>enable Odoo’s <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-proxy-mode"><code class="xref std std-option docutils literal"><span class="pre">proxy</span> <span class="pre">mode</span></code></a>. This should only be enabled when Odoo is behind a reverse proxy</li>
+<li>enable Gerp’s <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-proxy-mode"><code class="xref std std-option docutils literal"><span class="pre">proxy</span> <span class="pre">mode</span></code></a>. This should only be enabled when Gerp is behind a reverse proxy</li>
 <li>set up the SSL termination proxy (<a class="reference external" href="http://nginx.com/resources/admin-guide/nginx-ssl-termination/">Nginx termination example</a>)</li>
 <li>set up the proxying itself (<a class="reference external" href="http://nginx.com/resources/admin-guide/reverse-proxy/">Nginx proxying example</a>)</li>
 <li>your SSL termination proxy should also automatically redirect non-secure
@@ -344,20 +344,20 @@ mixed-content errors.</p>
 </div>
 </div>
 <div class="section" id="gerp-as-a-wsgi-application">
-<h2>Odoo as a WSGI Application<a class="headerlink" href="#gerp-as-a-wsgi-application" title="Permalink to this headline">¶</a></h2>
-<p>It is also possible to mount Odoo as a standard <a class="reference external" href="http://wsgi.readthedocs.org/">WSGI</a> application. Odoo
+<h2>Gerp as a WSGI Application<a class="headerlink" href="#gerp-as-a-wsgi-application" title="Permalink to this headline">¶</a></h2>
+<p>It is also possible to mount Gerp as a standard <a class="reference external" href="http://wsgi.readthedocs.org/">WSGI</a> application. Gerp
 provides the base for a WSGI launcher script as <code class="docutils literal"><span class="pre">gerp-wsgi.example.py</span></code>. That
 script should be customized (possibly after copying it from the setup directory) to correctly set the
 configuration directly in <code class="xref py py-mod docutils literal"><span class="pre">gerp.tools.config</span></code> rather than through the
 command-line or a configuration file.</p>
 <p>However the WSGI server will only expose the main HTTP endpoint for the web
-client, website and webservice API. Because Odoo does not control the creation
+client, website and webservice API. Because Gerp does not control the creation
 of workers anymore it can not setup cron or livechat workers</p>
 <div class="section" id="cron-workers">
 <h3>Cron Workers<a class="headerlink" href="#cron-workers" title="Permalink to this headline">¶</a></h3>
-<p>To run cron jobs for an Odoo deployment as a WSGI application requires</p>
+<p>To run cron jobs for an Gerp deployment as a WSGI application requires</p>
 <ul class="simple">
-<li>a classical Odoo (run via <code class="docutils literal"><span class="pre">gerp-bin</span></code>)</li>
+<li>a classical Gerp (run via <code class="docutils literal"><span class="pre">gerp-bin</span></code>)</li>
 <li>connected to the database in which cron jobs have to be run (via
 <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-d"><code class="xref std std-option docutils literal"><span class="pre">gerp-bin</span> <span class="pre">-d</span></code></a>)</li>
 <li>which should not be exposed to the network. To ensure cron runners are not
@@ -378,11 +378,11 @@ those long-lived connections do very little and mostly stay parked waiting for
 notifications.</p>
 <p>The solutions to support livechat/motifications in a WSGI application are:</p>
 <ul class="simple">
-<li>deploy a threaded version of Odoo (instread of a process-based preforking
+<li>deploy a threaded version of Gerp (instread of a process-based preforking
 one) and redirect only requests to URLs starting with <code class="docutils literal"><span class="pre">/longpolling/</span></code> to
-that Odoo, this is the simplest and the longpolling URL can double up as
+that Gerp, this is the simplest and the longpolling URL can double up as
 the cron instance.</li>
-<li>deploy an evented Odoo via <code class="docutils literal"><span class="pre">gerp-gevent</span></code> and proxy requests starting
+<li>deploy an evented Gerp via <code class="docutils literal"><span class="pre">gerp-gevent</span></code> and proxy requests starting
 with <code class="docutils literal"><span class="pre">/longpolling/</span></code> to
 <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-longpolling-port"><code class="xref std std-option docutils literal"><span class="pre">the</span> <span class="pre">longpolling</span> <span class="pre">port</span></code></a>.</li>
 </ul>
@@ -390,10 +390,10 @@ with <code class="docutils literal"><span class="pre">/longpolling/</span></code
 </div>
 <div class="section" id="serving-static-files">
 <h2>Serving Static Files<a class="headerlink" href="#serving-static-files" title="Permalink to this headline">¶</a></h2>
-<p>For development convenience, Odoo directly serves all static files in its
+<p>For development convenience, Gerp directly serves all static files in its
 modules. This may not be ideal when it comes to performances, and static
 files should generally be served by a static HTTP server.</p>
-<p>Odoo static files live in each module’s <code class="docutils literal"><span class="pre">static/</span></code> folder, so static files
+<p>Gerp static files live in each module’s <code class="docutils literal"><span class="pre">static/</span></code> folder, so static files
 can be served by intercepting all requests to <code class="samp docutils literal"><span class="pre">/</span><em><span class="pre">MODULE</span></em><span class="pre">/static/</span><em><span class="pre">FILE</span></em></code>,
 and looking up the right module (and file) in the various addons paths.</p>
 <div class="admonition-todo admonition" id="index-0">
@@ -436,13 +436,13 @@ command-line option)</li>
 <li>Make sure the PostgreSQL user (<a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-r"><code class="xref std std-option docutils literal"><span class="pre">--db_user</span></code></a>) is <em>not</em> a super-user,
 and that your databases are owned by a different user. For example they could be owned by
 the <code class="docutils literal"><span class="pre">postgres</span></code> super-user if you are using a dedicated non-privileged <code class="docutils literal"><span class="pre">db_user</span></code>.
-See also <a class="reference internal" href="#setup-deploy-gerp"><span class="std std-ref">Configuring Odoo</span></a>.</li>
+See also <a class="reference internal" href="#setup-deploy-gerp"><span class="std std-ref">Configuring Gerp</span></a>.</li>
 <li>Keep installations updated by regularly installing the latest builds,
 either via GitHub or by downloading the latest version from
 <a class="reference external" href="https://www.gerp.com/page/download">https://www.gerp.com/page/download</a> or <a class="reference external" href="http://nightly.gerp.com">http://nightly.gerp.com</a></li>
 <li>Configure your server in multi-process mode with proper limits matching your typical
 usage (memory/CPU/timeouts). See also <a class="reference internal" href="#builtin-server"><span class="std std-ref">Builtin server</span></a>.</li>
-<li>Run Odoo behind a web server providing HTTPS termination with a valid SSL certificate,
+<li>Run Gerp behind a web server providing HTTPS termination with a valid SSL certificate,
 in order to prevent eavesdropping on cleartext communications. SSL certificates are
 cheap, and many free options exist.
 Configure the web proxy to limit the size of requests, set appropriate timeouts,
@@ -458,7 +458,7 @@ archiving server that is not accessible from the server itself.</li>
 </ul>
 <div class="section" id="database-manager-security">
 <span id="db-manager-security"></span><h3>Database Manager Security<a class="headerlink" href="#database-manager-security" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="#setup-deploy-gerp"><span class="std std-ref">Configuring Odoo</span></a> mentioned <code class="docutils literal"><span class="pre">admin_passwd</span></code> in passing.</p>
+<p><a class="reference internal" href="#setup-deploy-gerp"><span class="std std-ref">Configuring Gerp</span></a> mentioned <code class="docutils literal"><span class="pre">admin_passwd</span></code> in passing.</p>
 <p>This setting is used on all database management screens (to create, delete,
 dump or restore databases).</p>
 <p>If the management screens must not be accessible at all, you should set <code class="docutils literal"><span class="pre">list_db</span></code>
@@ -482,18 +482,18 @@ password is checked before allowing database-alteration operations.</p>
 </div>
 <div class="section" id="supported-browsers">
 <h2>Supported Browsers<a class="headerlink" href="#supported-browsers" title="Permalink to this headline">¶</a></h2>
-<p>Odoo is supported by multiple browsers for each of its versions. No
+<p>Gerp is supported by multiple browsers for each of its versions. No
 distinction is made according to the browser version in order to be
-up-to-date. Odoo is supported on the current browser version. The list
-of the supported browsers by Odoo version is the following:</p>
+up-to-date. Gerp is supported on the current browser version. The list
+of the supported browsers by Gerp version is the following:</p>
 <ul class="simple">
-<li><strong>Odoo 9:</strong> IE11, Mozilla Firefox, Google Chrome, Safari, Microsoft Edge</li>
-<li><strong>Odoo 10+:</strong> Mozilla Firefox, Google Chrome, Safari, Microsoft Edge</li>
+<li><strong>Gerp 9:</strong> IE11, Mozilla Firefox, Google Chrome, Safari, Microsoft Edge</li>
+<li><strong>Gerp 10+:</strong> Mozilla Firefox, Google Chrome, Safari, Microsoft Edge</li>
 </ul>
 <table class="docutils footnote" frame="void" id="different-machines" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>to have multiple Odoo installations use the same PostgreSQL database,
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>to have multiple Gerp installations use the same PostgreSQL database,
 or to provide more computing resources to both software.</td></tr>
 </tbody>
 </table>

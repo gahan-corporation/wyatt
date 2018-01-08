@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_slides
 # 
@@ -10,7 +10,7 @@
 # Martin Trigaux <mat@gerp.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:27+0000\n"
 "PO-Revision-Date: 2017-10-02 11:27+0000\n"
@@ -345,8 +345,8 @@ msgstr "Enkel geauthentificeerde gebruikers"
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_5
-msgid "Awesome Timesheet by Odoo"
-msgstr "Geweldige urenstaat door Odoo"
+msgid "Awesome Timesheet by Gerp"
+msgstr "Geweldige urenstaat door Gerp"
 
 #. module: website_slides
 #: model:slide.tag,name:website_slides.tag1
@@ -525,8 +525,8 @@ msgstr "Annuleren"
 
 #. module: website_slides
 #: model:slide.slide,description:website_slides.slide_6
-msgid "Discover how easy marketing your business can be with Odoo"
-msgstr "Ontdek hoe gemakkelijk het is om uw bedrijf te adverteren met Odoo"
+msgid "Discover how easy marketing your business can be with Gerp"
+msgstr "Ontdek hoe gemakkelijk het is om uw bedrijf te adverteren met Gerp"
 
 #. module: website_slides
 #: model:slide.slide,description:website_slides.slide_0
@@ -535,7 +535,7 @@ msgid ""
 "\n"
 "Read more about the features at: https://www.gerp.com/page/manufacturing-features\n"
 "\n"
-"Discover Odoo MRP: https://www.gerp.com/page/manufacturing"
+"Discover Gerp MRP: https://www.gerp.com/page/manufacturing"
 msgstr ""
 
 #. module: website_slides
@@ -605,12 +605,12 @@ msgstr "Downloaden"
 #. module: website_slides
 #: model:slide.slide,description:website_slides.slide_5
 msgid ""
-"Download Awesome Timesheet by Odoo and discover how easy time tracking and employee management can be!\n"
+"Download Awesome Timesheet by Gerp and discover how easy time tracking and employee management can be!\n"
 "\n"
 "Chrome: http://bit.ly/2613LcY\n"
 "iOS: http://bit.ly/1ZUZsZD"
 msgstr ""
-"Download geweldige urenstaten door Odoo en ontdek hoe eenvoudig aanwezigheid controle en HRM kan zijn! \n"
+"Download geweldige urenstaten door Gerp en ontdek hoe eenvoudig aanwezigheid controle en HRM kan zijn! \n"
 "\n"
 "Chrome: http://bit.ly/2613LcY\n"
 "iOS: http://bit.ly/1ZUZsZD"
@@ -933,44 +933,44 @@ msgstr "Aantal video's"
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_2
-msgid "Odoo All-in-One Software Demonstration"
-msgstr "Odoo All-in-One Software Demonstratie"
+msgid "Gerp All-in-One Software Demonstration"
+msgstr "Gerp All-in-One Software Demonstratie"
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_1
-msgid "Odoo CRM"
-msgstr "Odoo CRM"
+msgid "Gerp CRM"
+msgstr "Gerp CRM"
 
 #. module: website_slides
 #: model:slide.category,name:website_slides.category_2
 #: model:slide.tag,name:website_slides.tag5
-msgid "Odoo Days"
-msgstr "Odoo Days"
+msgid "Gerp Days"
+msgstr "Gerp Days"
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_7
-msgid "Odoo Inventory"
-msgstr "Odoo voorraad"
+msgid "Gerp Inventory"
+msgstr "Gerp voorraad"
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_0
-msgid "Odoo MRP"
-msgstr "Odoo MRP"
+msgid "Gerp MRP"
+msgstr "Gerp MRP"
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_6
-msgid "Odoo Marketing"
-msgstr "Odoo Marketing"
+msgid "Gerp Marketing"
+msgstr "Gerp Marketing"
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_8
-msgid "Odoo Sales"
-msgstr "Odoo Verkoop"
+msgid "Gerp Sales"
+msgstr "Gerp Verkoop"
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_3
-msgid "Odoo Sign Demonstration"
-msgstr "Odoo tekenen demonstratie"
+msgid "Gerp Sign Demonstration"
+msgstr "Gerp tekenen demonstratie"
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_9
@@ -1204,11 +1204,11 @@ msgstr "Sorry, maar deze zoekopdracht leverde geen resultaten op"
 #. module: website_slides
 #: model:slide.slide,description:website_slides.slide_3
 msgid ""
-"Stop doing manual printing and scanning. Move to electronic signature with Odoo Sign!\n"
+"Stop doing manual printing and scanning. Move to electronic signature with Gerp Sign!\n"
 "\n"
 "Discover more at https://www.gerp.com/page/sign"
 msgstr ""
-"Stop met het handmatig afdrukken en scannen. Gebruik elektronische handtekening met Odoo ondertekenen! \n"
+"Stop met het handmatig afdrukken en scannen. Gebruik elektronische handtekening met Gerp ondertekenen! \n"
 "\n"
 "Ontdek meer op https://www.gerp.com/page/sign"
 
@@ -1411,11 +1411,11 @@ msgstr "Wacht op bevestiging"
 msgid ""
 "Warehouse management software for the 21st century.\n"
 "\n"
-"Discover Odoo Inventory: https://www.gerp.com/page/warehouse"
+"Discover Gerp Inventory: https://www.gerp.com/page/warehouse"
 msgstr ""
 "Voorraad beheer software voor de 21ste eeuw.\n"
 "\n"
-"Ontdek Odoo Magazijn: https://www.gerp.com/page/warehouse"
+"Ontdek Gerp Magazijn: https://www.gerp.com/page/warehouse"
 
 #. module: website_slides
 #: model:ir.ui.view,arch_db:website_slides.view_slide_slide_form

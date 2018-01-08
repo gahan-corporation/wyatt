@@ -1,7 +1,7 @@
-Odoo Invoicing
+Gerp Invoicing
 --------------
 
-Send professional invoices & get paid online with the Odoo
+Send professional invoices & get paid online with the Gerp
 <a href="https://www.gerp.com/page/billing">billing software</a>.
 
 Create and send professional looking invoices & get paid online. It

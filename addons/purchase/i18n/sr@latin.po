@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * purchase
 # 
@@ -9,7 +9,7 @@
 # Ljubisa Jovev <ljubisa.jovev@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
@@ -197,7 +197,7 @@ msgid ""
 "                      </tr>\n"
 "                      <tr>\n"
 "                        <td align=\"center\">\n"
-"                            Powered by <a href=\"https://www.gerp.com\">Odoo</a>.\n"
+"                            Powered by <a href=\"https://www.gerp.com\">Gerp</a>.\n"
 "                        </td>\n"
 "                      </tr>\n"
 "                    </tbody>\n"
@@ -994,10 +994,10 @@ msgstr "Mjesečne nabavke"
 #: model:ir.actions.act_window,help:purchase.purchase_rfq
 msgid ""
 "Most propositions of purchase orders are created automatically\n"
-"                by Odoo based on inventory needs."
+"                by Gerp based on inventory needs."
 msgstr ""
 "Većina prijedloga za narudžbenice je kreirana automatski\n"
-"od strane Odoo sistema na osnovu potreba skladišta."
+"od strane Gerp sistema na osnovu potreba skladišta."
 
 #. module: purchase
 #: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_stock
@@ -1947,7 +1947,7 @@ msgstr ""
 msgid ""
 "Use this menu to control the invoices to be received from your\n"
 "            vendors. When registering a new bill, set the purchase order\n"
-"            and Odoo will fill the bill automatically according to ordered\n"
+"            and Gerp will fill the bill automatically according to ordered\n"
 "            or received quantities."
 msgstr ""
 
@@ -2013,7 +2013,7 @@ msgid ""
 "Vendors bills can be pre-generated based on purchase\n"
 "                    orders or receipts. This allows you to control bills\n"
 "                    you receive from your vendor according to the draft\n"
-"                    document in Odoo."
+"                    document in Gerp."
 msgstr ""
 
 #. module: purchase

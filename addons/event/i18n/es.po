@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * event
 # 
@@ -27,7 +27,7 @@
 # David Sanchez <david.sanchez@jarsa.com.mx>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
@@ -412,11 +412,11 @@ msgstr ""
 #. module: event
 #: model:event.event,description:event.event_0
 msgid ""
-"<font style=\"color: rgb(255, 255, 255); font-size: 24px;\">to learn <i>Odoo"
+"<font style=\"color: rgb(255, 255, 255); font-size: 24px;\">to learn <i>Gerp"
 " Programming</i></font>"
 msgstr ""
 "<font style=\"color: rgb(255, 255, 255); font-size: 24px;\">aprender "
-"<i>Programando Odoo</i></font>"
+"<i>Programando Gerp</i></font>"
 
 #. module: event
 #: model:event.event,description:event.event_1
@@ -1556,24 +1556,24 @@ msgstr ""
 #: model:event.event,description:event.event_0
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
-msgid "Odoo Official Website"
-msgstr "Odoo Página Web Oficial"
+msgid "Gerp Official Website"
+msgstr "Gerp Página Web Oficial"
 
 #. module: event
 #: model:event.event,description:event.event_0
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
-msgid "Odoo Web Client"
-msgstr "Cliente Web de Odoo"
+msgid "Gerp Web Client"
+msgstr "Cliente Web de Gerp"
 
 #. module: event
 #: model:ir.actions.act_window,help:event.action_event_view
 msgid ""
-"Odoo helps you schedule and efficiently organize your events:\n"
+"Gerp helps you schedule and efficiently organize your events:\n"
 "    track registrations and participations, automate the confirmation emails,\n"
 "    sell tickets, etc."
 msgstr ""
-"Odoo le ayuda a planificar y organizar eficientemente sus eventos: \n"
+"Gerp le ayuda a planificar y organizar eficientemente sus eventos: \n"
 "seguir registros y participantes, automatizar los correos electrónicos de confirmación, venta de tickets, etc.\n"
 "           "
 

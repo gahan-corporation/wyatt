@@ -42,9 +42,9 @@
             
   <div class="section" id="building-interface-extensions">
 <h1>Building Interface Extensions<a class="headerlink" href="#building-interface-extensions" title="Permalink to this headline">¶</a></h1>
-<p>This guide is about creating modules for Odoo’s web client.</p>
-<p>To create websites with Odoo, see <a class="reference internal" href="website.html"><span class="doc">Building a Website</span></a>; to add business capabilities
-or extend existing business systems of Odoo, see <a class="reference internal" href="backend.html"><span class="doc">Building a Module</span></a>.</p>
+<p>This guide is about creating modules for Gerp’s web client.</p>
+<p>To create websites with Gerp, see <a class="reference internal" href="website.html"><span class="doc">Building a Website</span></a>; to add business capabilities
+or extend existing business systems of Gerp, see <a class="reference internal" href="backend.html"><span class="doc">Building a Module</span></a>.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p>This guide assumes knowledge of:</p>
@@ -53,11 +53,11 @@ or extend existing business systems of Odoo, see <a class="reference internal" h
 <li><a class="reference external" href="http://jquery.org">jQuery</a></li>
 <li><a class="reference external" href="http://underscorejs.org">Underscore.js</a></li>
 </ul>
-<p class="last">It also requires <a class="reference internal" href="../setup/install.html#setup-install"><span class="std std-ref">an installed Odoo</span></a>, and <a class="reference external" href="http://git-scm.com">Git</a>.</p>
+<p class="last">It also requires <a class="reference internal" href="../setup/install.html#setup-install"><span class="std std-ref">an installed Gerp</span></a>, and <a class="reference external" href="http://git-scm.com">Git</a>.</p>
 </div>
 <div class="section" id="a-simple-module">
 <h2>A Simple Module<a class="headerlink" href="#a-simple-module" title="Permalink to this headline">¶</a></h2>
-<p>Let’s start with a simple Odoo module holding basic web component
+<p>Let’s start with a simple Gerp module holding basic web component
 configuration and letting us test the web framework.</p>
 <p>The example module is available online and can be downloaded using the
 following command:</p>
@@ -65,7 +65,7 @@ following command:</p>
 </pre></div>
 </div>
 <p>This will create a <code class="docutils literal"><span class="pre">petstore</span></code> folder wherever you executed the command.
-You then need to add that folder to Odoo’s
+You then need to add that folder to Gerp’s
 <a class="reference internal" href="../reference/cmdline.html#cmdoption-gerp-bin-addons-path"><code class="xref std std-option docutils literal"><span class="pre">addons</span> <span class="pre">path</span></code></a>, create a new database and
 install the <code class="docutils literal"><span class="pre">oepetstore</span></code> module.</p>
 <p>If you browse the <code class="docutils literal"><span class="pre">petstore</span></code> folder, you should see the following content:</p>
@@ -95,7 +95,7 @@ install the <code class="docutils literal"><span class="pre">oepetstore</span></
 <p>The module already holds various server customizations. We’ll come back to
 these later, for now let’s focus on the web-related content, in the <code class="docutils literal"><span class="pre">static</span></code>
 folder.</p>
-<p>Files used in the “web” side of an Odoo module must be placed in a <code class="docutils literal"><span class="pre">static</span></code>
+<p>Files used in the “web” side of an Gerp module must be placed in a <code class="docutils literal"><span class="pre">static</span></code>
 folder so they are available to a web browser, files outside that folder can
 not be fetched by browsers. The <code class="docutils literal"><span class="pre">src/css</span></code>, <code class="docutils literal"><span class="pre">src/js</span></code> and <code class="docutils literal"><span class="pre">src/xml</span></code>
 sub-folders are conventional and not strictly necessary.</p>
@@ -135,9 +135,9 @@ application load time.</p>
 <p>One of the drawback is debugging becomes more difficult as
 individual files disappear and the code is made significantly less
 readable. It is possible to disable this process by enabling the
-“developer mode”: log into your Odoo instance (user <em>admin</em> password
+“developer mode”: log into your Gerp instance (user <em>admin</em> password
 <em>admin</em> by default) open the user menu (in the top-right corner of the
-Odoo screen) and select <span class="guilabel">About Odoo</span> then <span class="guilabel">Activate
+Gerp screen) and select <span class="guilabel">About Gerp</span> then <span class="guilabel">Activate
 the developer mode</span>:</p>
 <img alt="../_images/about_gerp.png" class="align-center" src="../_images/about_gerp.png" />
 <img alt="../_images/devmode.png" class="align-center" src="../_images/devmode.png" />
@@ -150,12 +150,12 @@ development and debugging significantly more comfortable.</p>
 </div>
 </div>
 <div class="section" id="gerp-javascript-module">
-<h2>Odoo JavaScript Module<a class="headerlink" href="#gerp-javascript-module" title="Permalink to this headline">¶</a></h2>
+<h2>Gerp JavaScript Module<a class="headerlink" href="#gerp-javascript-module" title="Permalink to this headline">¶</a></h2>
 <p>Javascript doesn’t have built-in modules. As a result variables defined in
 different files are all mashed together and may conflict. This has given rise
 to various module patterns used to build clean namespaces and limit risks of
 naming conflicts.</p>
-<p>The Odoo framework uses one such pattern to define modules within web addons,
+<p>The Gerp framework uses one such pattern to define modules within web addons,
 in order to both namespace code and correctly order its loading.</p>
 <p><code class="docutils literal"><span class="pre">oepetstore/static/js/petstore.js</span></code> contains a module declaration:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">gerp</span><span class="p">.</span><span class="nx">oepetstore</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">local</span><span class="p">)</span> <span class="p">{</span>
@@ -163,19 +163,19 @@ in order to both namespace code and correctly order its loading.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>In Odoo web, modules are declared as functions set on the global <code class="docutils literal"><span class="pre">gerp</span></code>
+<p>In Gerp web, modules are declared as functions set on the global <code class="docutils literal"><span class="pre">gerp</span></code>
 variable. The function’s name must be the same as the addon (in this case
 <code class="docutils literal"><span class="pre">oepetstore</span></code>) so the framework can find it, and automatically initialize it.</p>
 <p>When the web client loads your module it will call the root function
 and provide two parameters:</p>
 <ul class="simple">
-<li>the first parameter is the current instance of the Odoo web client, it gives
-access to various capabilities defined by the Odoo (translations,
+<li>the first parameter is the current instance of the Gerp web client, it gives
+access to various capabilities defined by the Gerp (translations,
 network services) as well as objects defined by the core or by other
 modules.</li>
 <li>the second parameter is your own local namespace automatically created by
 the web client. Objects and variables which should be accessible from
-outside your module (either because the Odoo web client needs to call them
+outside your module (either because the Gerp web client needs to call them
 or because others may want to customize them) should be set inside that
 namespace.</li>
 </ul>
@@ -185,7 +185,7 @@ namespace.</li>
 <p>Much as modules, and contrary to most object-oriented languages, javascript
 does not build in <em>classes</em><a class="footnote-reference" href="#id4" id="id1">[1]</a> although it provides roughly
 equivalent (if lower-level and more verbose) mechanisms.</p>
-<p>For simplicity and developer-friendliness Odoo web provides a class
+<p>For simplicity and developer-friendliness Gerp web provides a class
 system based on John Resig’s <a class="reference external" href="http://ejohn.org/blog/simple-javascript-inheritance/">Simple JavaScript Inheritance</a>.</p>
 <p>New classes are defined by calling the <code class="xref js js-func docutils literal"><span class="pre">extend()</span></code>
 method of <code class="xref js js-class docutils literal"><span class="pre">gerp.web.Class()</span></code>:</p>
@@ -291,13 +291,13 @@ to its value should be retained, it should not be accessed via <code class="docu
 </div>
 <div class="section" id="widgets-basics">
 <h2>Widgets Basics<a class="headerlink" href="#widgets-basics" title="Permalink to this headline">¶</a></h2>
-<p>The Odoo web client bundles <a class="reference external" href="http://jquery.org">jQuery</a> for easy DOM manipulation. It is useful
+<p>The Gerp web client bundles <a class="reference external" href="http://jquery.org">jQuery</a> for easy DOM manipulation. It is useful
 and provides a better API than standard <a class="reference external" href="http://www.w3.org/TR/DOM-Level-3-Core/">W3C DOM</a><a class="footnote-reference" href="#dombugs" id="id2">[2]</a>, but
 insufficient to structure complex applications leading to difficult
 maintenance.</p>
 <p>Much like object-oriented desktop UI toolkits (e.g. <a class="reference external" href="http://qt-project.org">Qt</a>, <a class="reference external" href="https://developer.apple.com/technologies/mac/cocoa.html">Cocoa</a> or <a class="reference external" href="http://www.gtk.org">GTK</a>),
-Odoo Web makes specific components responsible for sections of a page. In
-Odoo web, the base for such components is the <code class="xref js js-class docutils literal"><span class="pre">Widget()</span></code>
+Gerp Web makes specific components responsible for sections of a page. In
+Gerp web, the base for such components is the <code class="xref js js-class docutils literal"><span class="pre">Widget()</span></code>
 class, a component specialized in handling a page section and displaying
 information for the user.</p>
 <div class="section" id="your-first-widget">
@@ -350,7 +350,7 @@ on the page when <code class="docutils literal"><span class="pre">HomePage</span
 <p>Let’s add some content to the widget’s root element, using jQuery:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">local</span><span class="p">.</span><span class="nx">HomePage</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
     <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;div&gt;Hello dear Odoo user!&lt;/div&gt;&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;div&gt;Hello dear Gerp user!&lt;/div&gt;&quot;</span><span class="p">);</span>
     <span class="p">},</span>
 <span class="p">});</span>
 </pre></div>
@@ -359,10 +359,10 @@ on the page when <code class="docutils literal"><span class="pre">HomePage</span
 ‣ Pet Store ‣ Home Page</span></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">to refresh the javascript code loaded in Odoo Web, you will need to reload
-the page. There is no need to restart the Odoo server.</p>
+<p class="last">to refresh the javascript code loaded in Gerp Web, you will need to reload
+the page. There is no need to restart the Gerp server.</p>
 </div>
-<p>The <code class="docutils literal"><span class="pre">HomePage</span></code> widget is used by Odoo Web and managed automatically.
+<p>The <code class="docutils literal"><span class="pre">HomePage</span></code> widget is used by Gerp Web and managed automatically.
 To learn how to use a widget “from scratch” let’s create a new one:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">local</span><span class="p">.</span><span class="nx">GreetingsWidget</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
     <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -375,7 +375,7 @@ To learn how to use a widget “from scratch” let’s create a new one:</p>
 <code class="docutils literal"><span class="pre">GreetingsWidget</span></code>’s <code class="xref js js-func docutils literal"><span class="pre">appendTo()</span></code> method:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">local</span><span class="p">.</span><span class="nx">HomePage</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
     <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;div&gt;Hello dear Odoo user!&lt;/div&gt;&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;div&gt;Hello dear Gerp user!&lt;/div&gt;&quot;</span><span class="p">);</span>
         <span class="kd">var</span> <span class="nx">greeting</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">local</span><span class="p">.</span><span class="nx">GreetingsWidget</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
         <span class="k">return</span> <span class="nx">greeting</span><span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">);</span>
     <span class="p">},</span>
@@ -408,7 +408,7 @@ find where they are, by <code class="xref js js-attr docutils literal"><span cla
 <p>If you can find the relevant section of the DOM (right-click on the text
 then <span class="guilabel">Inspect Element</span>), it should look like this:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;oe_petstore_homepage&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Hello dear Odoo user!<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Hello dear Gerp user!<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;oe_petstore_greetings&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>We are so happy to see you again in this menu!<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -507,33 +507,33 @@ even if no error is displayed</p>
 <h2>The QWeb Template Engine<a class="headerlink" href="#the-qweb-template-engine" title="Permalink to this headline">¶</a></h2>
 <p>In the previous section we added content to our widgets by directly
 manipulating (and adding to) their DOM:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;div&gt;Hello dear Odoo user!&lt;/div&gt;&quot;</span><span class="p">);</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;div&gt;Hello dear Gerp user!&lt;/div&gt;&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>This allows generating and displaying any type of content, but gets unwieldy
 when generating significant amounts of DOM (lots of duplication, quoting
 issues, …)</p>
-<p>As many other environments, Odoo’s solution is to use a <a class="reference external" href="http://en.wikipedia.org/wiki/Web_template_system">template engine</a>.
-Odoo’s template engine is called <a class="reference internal" href="../reference/qweb.html#reference-qweb"><span class="std std-ref">QWeb</span></a>.</p>
+<p>As many other environments, Gerp’s solution is to use a <a class="reference external" href="http://en.wikipedia.org/wiki/Web_template_system">template engine</a>.
+Gerp’s template engine is called <a class="reference internal" href="../reference/qweb.html#reference-qweb"><span class="std std-ref">QWeb</span></a>.</p>
 <p>QWeb is an XML-based templating language, similar to <a class="reference external" href="http://en.wikipedia.org/wiki/Genshi_(templating_language)">Genshi</a>, <a class="reference external" href="http://en.wikipedia.org/wiki/Thymeleaf">Thymeleaf</a> or <a class="reference external" href="http://en.wikipedia.org/wiki/Facelets">Facelets</a>. It has the following
 characteristics:</p>
 <ul class="simple">
 <li>It’s implemented fully in JavaScript and rendered in the browser</li>
 <li>Each template file (XML files) contains multiple templates</li>
-<li>It has special support in Odoo Web’s <code class="xref js js-class docutils literal"><span class="pre">Widget()</span></code>, though it
-can be used outside of Odoo’s web client (and it’s possible to use
+<li>It has special support in Gerp Web’s <code class="xref js js-class docutils literal"><span class="pre">Widget()</span></code>, though it
+can be used outside of Gerp’s web client (and it’s possible to use
 <code class="xref js js-class docutils literal"><span class="pre">Widget()</span></code> without relying on QWeb)</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>The rationale behind using QWeb instead of existing javascript template
 engines is the extensibility of pre-existing (third-party) templates, much
-like Odoo <a class="reference internal" href="../reference/views.html#reference-views"><span class="std std-ref">views</span></a>.</p>
+like Gerp <a class="reference internal" href="../reference/views.html#reference-views"><span class="std std-ref">views</span></a>.</p>
 <p class="last">Most javascript template engines are text-based which precludes easy
 structural extensibility where an XML-based templating engine can be
 generically altered using e.g. XPath or CSS and a tree-alteration DSL (or
 even just XSLT). This flexibility and extensibility is a core
-characteristic of Odoo, and losing it was considered unacceptable.</p>
+characteristic of Gerp, and losing it was considered unacceptable.</p>
 </div>
 <div class="section" id="using-qweb">
 <h3>Using QWeb<a class="headerlink" href="#using-qweb" title="Permalink to this headline">¶</a></h3>
@@ -942,7 +942,7 @@ any. Example:</p>
 <p class="last">Triggering events on an other widget is generally a bad idea. The main
 exception to that rule is <code class="docutils literal"><span class="pre">gerp.web.bus</span></code> which exists specifically
 to broadcasts evens in which any widget could be interested throughout
-the Odoo web application.</p>
+the Gerp web application.</p>
 </div>
 </div>
 <div class="section" id="properties">
@@ -973,7 +973,7 @@ first parameter to <code class="xref js js-func docutils literal"><span class="p
 </div>
 <div class="section" id="modify-existing-widgets-and-classes">
 <h2>Modify existing widgets and classes<a class="headerlink" href="#modify-existing-widgets-and-classes" title="Permalink to this headline">¶</a></h2>
-<p>The class system of the Odoo web framework allows direct modification of
+<p>The class system of the Gerp web framework allows direct modification of
 existing classes using the <code class="xref js js-func docutils literal"><span class="pre">include()</span></code> method:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">TestClass</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">Class</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
     <span class="nx">testMethod</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -1014,7 +1014,7 @@ JavaScript module. They are used thus:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">_t</span><span class="p">(</span><span class="s2">&quot;Hello user!&quot;</span><span class="p">));</span>
 </pre></div>
 </div>
-<p>In Odoo, translations files are automatically generated by scanning the source
+<p>In Gerp, translations files are automatically generated by scanning the source
 code. All piece of code that calls a certain function are detected and their
 content is added to a translation file that will then be sent to the
 translators. In Python, the function is <code class="docutils literal"><span class="pre">_()</span></code>. In JavaScript the function is
@@ -1043,15 +1043,15 @@ initialized, for class attributes for instance (as modules are loaded before
 the user’s language is configured and translations are downloaded).</p>
 </div>
 <div class="section" id="communication-with-the-gerp-server">
-<h2>Communication with the Odoo Server<a class="headerlink" href="#communication-with-the-gerp-server" title="Permalink to this headline">¶</a></h2>
+<h2>Communication with the Gerp Server<a class="headerlink" href="#communication-with-the-gerp-server" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="contacting-models">
 <h3>Contacting Models<a class="headerlink" href="#contacting-models" title="Permalink to this headline">¶</a></h3>
-<p>Most operations with Odoo involve communicating with <em>models</em> implementing
+<p>Most operations with Gerp involve communicating with <em>models</em> implementing
 business concern, these models will then (potentially) interact with some
 storage engine (usually <a class="reference external" href="http://en.wikipedia.org/wiki/PostgreSQL">PostgreSQL</a>).</p>
 <p>Although <a class="reference external" href="http://jquery.org">jQuery</a> provides a <a class="reference external" href="http://api.jquery.com/jquery.ajax/">$.ajax</a> function for network interactions,
-communicating with Odoo requires additional metadata whose setup before every
-call would be verbose and error-prone. As a result, Odoo web provides
+communicating with Gerp requires additional metadata whose setup before every
+call would be verbose and error-prone. As a result, Gerp web provides
 higher-level communication primitives.</p>
 <p>To demonstrate this, the file <code class="docutils literal"><span class="pre">petstore.py</span></code> already contains a small model
 with a sample method:</p>
@@ -1081,11 +1081,11 @@ returns a literal dictionary.</p>
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>The class used to call Odoo models is <code class="xref js js-class docutils literal"><span class="pre">gerp.Model()</span></code>. It is
-instantiated with the Odoo model’s name as first parameter
+<p>The class used to call Gerp models is <code class="xref js js-class docutils literal"><span class="pre">gerp.Model()</span></code>. It is
+instantiated with the Gerp model’s name as first parameter
 (<code class="docutils literal"><span class="pre">oepetstore.message_of_the_day</span></code> here).</p>
 <p><code class="xref js js-func docutils literal"><span class="pre">call()</span></code> can be used to call any (public) method of an
-Odoo model. It takes the following positional arguments:</p>
+Gerp model. It takes the following positional arguments:</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">name</span></code></dt>
 <dd>The name of the method to call, <code class="docutils literal"><span class="pre">my_method</span></code> here</dd>
@@ -1130,7 +1130,7 @@ the method call:</p>
 the server when calling a method. The context is a dictionary containing
 multiple keys. One of the most important key is the language of the user, used
 by the server to translate all the messages of the application. Another one is
-the time zone of the user, used to compute correctly dates and times if Odoo
+the time zone of the user, used to compute correctly dates and times if Gerp
 is used by people in different countries.</p>
 <p>The <code class="docutils literal"><span class="pre">argument</span></code> is necessary in all methods, otherwise bad things could
 happen (such as the application not being translated correctly). That’s why,
@@ -1152,14 +1152,14 @@ merge all those contexts before sending them to the server.</p>
 </pre></div>
 </div>
 <p>You can see the dictionary in the argument <code class="docutils literal"><span class="pre">context</span></code> contains some keys that
-are related to the configuration of the current user in Odoo plus the
+are related to the configuration of the current user in Gerp plus the
 <code class="docutils literal"><span class="pre">new_key</span></code> key that was added when instantiating
 <code class="xref js js-class docutils literal"><span class="pre">CompoundContext()</span></code>.</p>
 </div>
 <div class="section" id="queries">
 <h3>Queries<a class="headerlink" href="#queries" title="Permalink to this headline">¶</a></h3>
-<p>While <code class="xref js js-func docutils literal"><span class="pre">call()</span></code> is sufficient for any interaction with Odoo
-models, Odoo Web provides a helper for simpler and clearer querying of models
+<p>While <code class="xref js js-func docutils literal"><span class="pre">call()</span></code> is sufficient for any interaction with Gerp
+models, Gerp Web provides a helper for simpler and clearer querying of models
 (fetching of records based on various conditions):
 <code class="xref js js-func docutils literal"><span class="pre">query()</span></code> which acts as a shortcut for the common
 combination of <a class="reference internal" href="../reference/orm.html#gerp.models.Model.search" title="gerp.models.Model.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a> and
@@ -1207,13 +1207,13 @@ dictionary is a requested record, with each requested field a dictionary key.</p
 <h2>Existing web components<a class="headerlink" href="#existing-web-components" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="the-action-manager">
 <h3>The Action Manager<a class="headerlink" href="#the-action-manager" title="Permalink to this headline">¶</a></h3>
-<p>In Odoo, many operations start from an <a class="reference internal" href="../reference/actions.html#reference-actions"><span class="std std-ref">action</span></a>:
+<p>In Gerp, many operations start from an <a class="reference internal" href="../reference/actions.html#reference-actions"><span class="std std-ref">action</span></a>:
 opening a menu item (to a view), printing a report, …</p>
 <p>Actions are pieces of data describing how a client should react to the
 activation of a piece of content. Actions can be stored (and read through a
 model) or they can be generated on-the fly (locally to the client by
 javascript code, or remotely by a method of a model).</p>
-<p>In Odoo Web, the component responsible for handling and reacting to these
+<p>In Gerp Web, the component responsible for handling and reacting to these
 actions is the <em>Action Manager</em>.</p>
 <div class="section" id="using-the-action-manager">
 <h4>Using the Action Manager<a class="headerlink" href="#using-the-action-manager" title="Permalink to this headline">¶</a></h4>
@@ -1262,10 +1262,10 @@ web client by the action, or <code class="docutils literal"><span class="pre">ne
 <h3>Client Actions<a class="headerlink" href="#client-actions" title="Permalink to this headline">¶</a></h3>
 <p>Throughout this guide, we used a simple <code class="docutils literal"><span class="pre">HomePage</span></code> widget which the web
 client automatically starts when we select the right menu item. But how did
-the Odoo web know to start this widget? Because the widget is registered as
+the Gerp web know to start this widget? Because the widget is registered as
 a <em>client action</em>.</p>
 <p>A client action is (as its name implies) an action type defined almost
-entirely in the client, in javascript for Odoo web. The server simply sends
+entirely in the client, in javascript for Gerp web. The server simply sends
 an action tag (an arbitrary name), and optionally adds a few parameters, but
 beyond that <em>everything</em> is handled by custom client code.</p>
 <p>Our widget is registered as the handler for the client action through this:</p>
@@ -1276,7 +1276,7 @@ beyond that <em>everything</em> is handled by custom client code.</p>
 the action manager looks up client action handlers when it needs to execute
 one. The first parameter of <code class="xref js js-class docutils literal"><span class="pre">add()</span></code> is the name
 (tag) of the client action, and the second parameter is the path to the widget
-from the Odoo web client root.</p>
+from the Gerp web client root.</p>
 <p>When a client action must be executed, the action manager looks up its tag
 in the registry, walks the specified path and displays the widget it finds at
 the end.</p>
@@ -1300,7 +1300,7 @@ next action to execute.</p>
 </div>
 <div class="section" id="architecture-of-the-views">
 <h3>Architecture of the Views<a class="headerlink" href="#architecture-of-the-views" title="Permalink to this headline">¶</a></h3>
-<p>Much of Odoo web’s usefulness (and complexity) resides in views. Each view
+<p>Much of Gerp web’s usefulness (and complexity) resides in views. Each view
 type is a way of displaying a model in the client.</p>
 <div class="section" id="the-view-manager">
 <h4>The View Manager<a class="headerlink" href="#the-view-manager" title="Permalink to this headline">¶</a></h4>
@@ -1313,10 +1313,10 @@ multiple views depending on the original action’s requirements:</p>
 </div>
 <div class="section" id="the-views">
 <h4>The Views<a class="headerlink" href="#the-views" title="Permalink to this headline">¶</a></h4>
-<p>Most <a class="reference internal" href="../reference/views.html#reference-views"><span class="std std-ref">Odoo views</span></a> are implemented through a subclass
+<p>Most <a class="reference internal" href="../reference/views.html#reference-views"><span class="std std-ref">Gerp views</span></a> are implemented through a subclass
 of <code class="xref js js-class docutils literal"><span class="pre">gerp.web.View()</span></code> which provides a bit of generic basic structure
 for handling events and displaying model information.</p>
-<p>The <em>search view</em> is considered a view type by the main Odoo framework, but
+<p>The <em>search view</em> is considered a view type by the main Gerp framework, but
 handled separately by the web client (as it’s a more permanent fixture and
 can interact with other views, which regular views don’t do).</p>
 <p>A view is responsible for loading its own description XML (using
@@ -1372,7 +1372,7 @@ by most fields.</p>
 <ul class="simple">
 <li>The field class must display and allow the user to edit the value of the field.</li>
 <li>It must correctly implement the 3 field attributes available in all fields
-of Odoo. The <code class="docutils literal"><span class="pre">AbstractField</span></code> class already implements an algorithm that
+of Gerp. The <code class="docutils literal"><span class="pre">AbstractField</span></code> class already implements an algorithm that
 dynamically calculates the value of these attributes (they can change at any
 moment because their value change according to the value of other
 fields). Their values are stored in <em>Widget Properties</em> (the widget
@@ -1387,7 +1387,7 @@ is <code class="docutils literal"><span class="pre">true</span></code> and the f
 <code class="docutils literal"><span class="pre">AbstractField</span></code> class already has a basic implementation of this
 behavior that fits most fields.</li>
 <li><code class="docutils literal"><span class="pre">readonly</span></code>: When <code class="docutils literal"><span class="pre">true</span></code>, the field must not be editable by the
-user. Most fields in Odoo have a completely different behavior depending
+user. Most fields in Gerp have a completely different behavior depending
 on the value of <code class="docutils literal"><span class="pre">readonly</span></code>. As example, the <code class="docutils literal"><span class="pre">FieldChar</span></code> displays an
 HTML <code class="docutils literal"><span class="pre">&lt;input&gt;</span></code> when it is editable and simply displays the text when
 it is read-only. This also means it has much more code it would need to
@@ -1398,10 +1398,10 @@ experience.</li>
 <li>Fields have two methods, <code class="docutils literal"><span class="pre">set_value()</span></code> and <code class="docutils literal"><span class="pre">get_value()</span></code>, which are
 called by the form view to give it the value to display and get back the new
 value entered by the user. These methods must be able to handle the value as
-given by the Odoo server when a <code class="docutils literal"><span class="pre">read()</span></code> is performed on a model and give
+given by the Gerp server when a <code class="docutils literal"><span class="pre">read()</span></code> is performed on a model and give
 back a valid value for a <code class="docutils literal"><span class="pre">write()</span></code>.  Remember that the JavaScript/Python
 data types used to represent the values given by <code class="docutils literal"><span class="pre">read()</span></code> and given to
-<code class="docutils literal"><span class="pre">write()</span></code> is not necessarily the same in Odoo. As example, when you read a
+<code class="docutils literal"><span class="pre">write()</span></code> is not necessarily the same in Gerp. As example, when you read a
 many2one, it is always a tuple whose first value is the id of the pointed
 record and the second one is the name get (ie: <code class="docutils literal"><span class="pre">(15,</span> <span class="pre">&quot;Agrolait&quot;)</span></code>). But
 when you write a many2one it must be a single integer, not a tuple
@@ -1411,7 +1411,7 @@ that works well for simple data type and set a widget property named
 </ul>
 <p>Please note that, to better understand how to implement fields, you are
 strongly encouraged to look at the definition of the <code class="docutils literal"><span class="pre">FieldInterface</span></code>
-interface and the <code class="docutils literal"><span class="pre">AbstractField</span></code> class directly in the code of the Odoo web
+interface and the <code class="docutils literal"><span class="pre">AbstractField</span></code> class directly in the code of the Gerp web
 client.</p>
 <div class="section" id="creating-a-new-type-of-field">
 <h4>Creating a New Type of Field<a class="headerlink" href="#creating-a-new-type-of-field" title="Permalink to this headline">¶</a></h4>
@@ -1456,7 +1456,7 @@ none is specified by the form view (here we assume the default value of a
 <div class="section" id="read-write-field">
 <h5>Read-Write Field<a class="headerlink" href="#read-write-field" title="Permalink to this headline">¶</a></h5>
 <p>Read-only fields, which only display content and don’t allow the
-user to modify it can be useful, but most fields in Odoo also allow editing.
+user to modify it can be useful, but most fields in Gerp also allow editing.
 This makes the field classes more complicated, mostly because fields are
 supposed to handle both editable and non-editable mode, those modes are
 often completely different (for design and usability purpose) and the fields

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 from datetime import date, timedelta
 
@@ -42,7 +42,7 @@ class MercuryTransaction(models.Model):
         data['operator_id'] = pos_session.user_id.login
         data['merchant_id'] = pos_mercury_config.sudo().merchant_id
         data['merchant_pwd'] = pos_mercury_config.sudo().merchant_pwd
-        data['memo'] = "Odoo " + service.common.exp_version()['server_version']
+        data['memo'] = "Gerp " + service.common.exp_version()['server_version']
 
     def _do_request(self, template, data):
         xml_transaction = self.env.ref(template).render(data).decode()

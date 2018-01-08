@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Security in Odoo" href="security.html" />
+    <link rel="next" title="Security in Gerp" href="security.html" />
     <link rel="prev" title="Modules" href="module.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -227,7 +227,7 @@ exception of <code class="docutils literal"><span class="pre">www</span></code> 
 match the database <code class="docutils literal"><span class="pre">gerp</span></code>).</p>
 <p>These operations are case sensitive. Add option <code class="docutils literal"><span class="pre">(?i)</span></code> to match all
 databases (so domain <code class="docutils literal"><span class="pre">gerp.com</span></code> using <code class="docutils literal"><span class="pre">(?i)%d</span></code> matches the database
-<code class="docutils literal"><span class="pre">Odoo</span></code>).</p>
+<code class="docutils literal"><span class="pre">Gerp</span></code>).</p>
 </li>
 </ul>
 </dd></dl>
@@ -283,7 +283,7 @@ defaults to 8072. Not used in default (threaded) mode.</p>
 </div>
 <div class="section" id="logging">
 <h3>logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h3>
-<p>By default, Odoo displays all logging of <a class="reference external" href="https://docs.python.org/2/library/logging.html#logging.Logger.setLevel">level</a> <code class="docutils literal"><span class="pre">info</span></code> except for workflow
+<p>By default, Gerp displays all logging of <a class="reference external" href="https://docs.python.org/2/library/logging.html#logging.Logger.setLevel">level</a> <code class="docutils literal"><span class="pre">info</span></code> except for workflow
 logging (<code class="docutils literal"><span class="pre">warning</span></code> only), and log output is sent to <code class="docutils literal"><span class="pre">stdout</span></code>. Various
 options are available to redirect logging to other destinations and to
 customize the amount of logging output</p>
@@ -371,7 +371,7 @@ e.g. <code class="docutils literal"><span class="pre">gerp.models:DEBUG</span></
 levels (<code class="docutils literal"><span class="pre">critical</span></code>, <code class="docutils literal"><span class="pre">error</span></code>, <code class="docutils literal"><span class="pre">warn</span></code>, <code class="docutils literal"><span class="pre">debug</span></code>) are set on the
 <code class="docutils literal"><span class="pre">gerp</span></code> and <code class="docutils literal"><span class="pre">werkzeug</span></code> loggers (except for <code class="docutils literal"><span class="pre">debug</span></code> which is only
 set on <code class="docutils literal"><span class="pre">gerp</span></code>).</p>
-<p>Odoo also provides debugging pseudo-levels which apply to different sets
+<p>Gerp also provides debugging pseudo-levels which apply to different sets
 of loggers:</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">debug_sql</span></code></dt>
@@ -414,7 +414,7 @@ of loggers:</p>
 <dl class="option">
 <dt id="cmdoption-gerp-bin-email-from">
 <code class="descname">--email-from</code><code class="descclassname"> &lt;address&gt;</code><a class="headerlink" href="#cmdoption-gerp-bin-email-from" title="Permalink to this definition">¶</a></dt>
-<dd><p>Email address used as &lt;FROM&gt; when Odoo needs to send mails</p>
+<dd><p>Email address used as &lt;FROM&gt; when Gerp needs to send mails</p>
 </dd></dl>
 
 <dl class="option">
@@ -451,7 +451,7 @@ of loggers:</p>
 <div class="section" id="scaffolding">
 <span id="reference-cmdline-scaffold"></span><h2>Scaffolding<a class="headerlink" href="#scaffolding" title="Permalink to this headline">¶</a></h2>
 <p>Scaffolding is the automated creation of a skeleton structure to simplify
-bootstrapping (of new modules, in the case of Odoo). While not necessary it
+bootstrapping (of new modules, in the case of Gerp). While not necessary it
 avoids the tedium of setting up basic structures and looking up what all
 starting requirements are.</p>
 <p>Scaffolding is available via the <strong class="command">gerp-bin scaffold</strong> subcommand.</p>
@@ -513,7 +513,7 @@ to that file.</p>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../reference.html">Reference</a><ul>
       <li>Previous: <a href="module.html" title="previous chapter">Modules</a></li>
-      <li>Next: <a href="security.html" title="next chapter">Security in Odoo</a></li>
+      <li>Next: <a href="security.html" title="next chapter">Security in Gerp</a></li>
   </ul></li>
   </ul></li>
 </ul>

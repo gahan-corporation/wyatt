@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 
 from babel.dates import format_date
@@ -58,7 +58,7 @@ class CrmTeam(models.Model):
         compute='_compute_is_favorite', inverse='_inverse_is_favorite',
         help="Favorite teams to display them in the dashboard and access them easily.")
     reply_to = fields.Char(string='Reply-To',
-                           help="The email address put in the 'Reply-To' of all emails sent by Odoo about cases in this sales channel")
+                           help="The email address put in the 'Reply-To' of all emails sent by Gerp about cases in this sales channel")
     color = fields.Integer(string='Color Index', help="The color of the channel")
     team_type = fields.Selection([('sales', 'Sales'), ('website', 'Website')], string='Channel Type', default='sales', required=True,
                                  help="The type of this channel, it will define the resources this channel uses.")

@@ -88,7 +88,7 @@ var EditPageMenu = websiteNavbarData.WebsiteNavbarActionWidget.extend({
      * that is should start the animations for this snippet.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {GerpEvent} ev
      */
     _onSnippetDropped: function (ev) {
         this.trigger_up('animation_start_demand', {

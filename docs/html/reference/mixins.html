@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Odoo Guidelines" href="guidelines.html" />
+    <link rel="next" title="Gerp Guidelines" href="guidelines.html" />
     <link rel="prev" title="QWeb Reports" href="reports.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -42,7 +42,7 @@
             
   <div class="section" id="mixins-and-useful-classes">
 <span id="reference-mixins"></span><h1>Mixins and Useful Classes<a class="headerlink" href="#mixins-and-useful-classes" title="Permalink to this headline">¶</a></h1>
-<p>Odoo implements some useful classes and mixins that make it easy for you to add
+<p>Gerp implements some useful classes and mixins that make it easy for you to add
 often-used behaviours on your objects. This guide will details most of them, with
 examples and use cases.</p>
 <div class="section" id="messaging-features">
@@ -687,12 +687,12 @@ email notifications; True by default</li>
 (which usually inherits the <code class="docutils literal"><span class="pre">mail.alias.mixin</span></code> model) that will create new records when
 contacted via e-mail. They are an easy way to make your system accessible from
 the outside, allowing users or customers to quickly create records in your
-database without needing to connect to Odoo directly.</p>
+database without needing to connect to Gerp directly.</p>
 <div class="section" id="aliases-vs-incoming-mail-gateway">
 <h4>Aliases vs. Incoming Mail Gateway<a class="headerlink" href="#aliases-vs-incoming-mail-gateway" title="Permalink to this headline">¶</a></h4>
 <p>Some people use the Incoming Mail Gateway for this same purpose. You still need
 a correctly configured mail gateway to use aliases, however a single
-catchall domain will be sufficient since all routing will be done inside Odoo.
+catchall domain will be sufficient since all routing will be done inside Gerp.
 Aliases have several advantages over Mail Gateways:</p>
 <ul>
 <li><dl class="first docutils">
@@ -700,7 +700,7 @@ Aliases have several advantages over Mail Gateways:</p>
 <dd><ul class="first last simple">
 <li>A single incoming gateway can be used by many aliases; this avoids having
 to configure multiple emails on your domain name (all configuration is done
-inside Odoo)</li>
+inside Gerp)</li>
 <li>No need for System access rights to configure aliases</li>
 </ul>
 </dd>
@@ -1048,7 +1048,7 @@ does not exist yet).</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">crm.lead</span></code> in the CRM (<em>crm</em>) Application</li>
 <li><code class="docutils literal"><span class="pre">hr.applicant</span></code> in the Recruitment Process (<em>hr_recruitment</em>) Application</li>
-<li><code class="docutils literal"><span class="pre">helpdesk.ticket</span></code> in the Helpdesk (<em>helpdesk</em> - Odoo Enterprise only) Application</li>
+<li><code class="docutils literal"><span class="pre">helpdesk.ticket</span></code> in the Helpdesk (<em>helpdesk</em> - Gerp Enterprise only) Application</li>
 </ul>
 </div>
 <div class="section" id="website-visibility">
@@ -1234,7 +1234,7 @@ you a quick bird’s eye view of your customer ratings.</p>
 <p>You can find concrete examples of integration in the following models:</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">project.task</span></code> in the Project (<em>rating_project</em>) Application</li>
-<li><code class="docutils literal"><span class="pre">helpdesk.ticket</span></code> in the Helpdesk (<em>helpdesk</em> - Odoo Enterprise only) Application</li>
+<li><code class="docutils literal"><span class="pre">helpdesk.ticket</span></code> in the Helpdesk (<em>helpdesk</em> - Gerp Enterprise only) Application</li>
 </ul>
 </div>
 </div>
@@ -1252,7 +1252,7 @@ you a quick bird’s eye view of your customer ratings.</p>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../reference.html">Reference</a><ul>
       <li>Previous: <a href="reports.html" title="previous chapter">QWeb Reports</a></li>
-      <li>Next: <a href="guidelines.html" title="next chapter">Odoo Guidelines</a></li>
+      <li>Next: <a href="guidelines.html" title="next chapter">Gerp Guidelines</a></li>
   </ul></li>
   </ul></li>
 </ul>

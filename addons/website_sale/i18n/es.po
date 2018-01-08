@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_sale
 # 
@@ -33,7 +33,7 @@
 # Christopher Ormaza <chris.ormaza@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 08:59+0000\n"
 "PO-Revision-Date: 2017-10-24 08:59+0000\n"
@@ -232,10 +232,10 @@ msgstr ""
 #: model:ir.ui.view,arch_db:website_sale.website_planner
 msgid ""
 "<span class=\"fa fa-lightbulb-o fa-2x\"/>\n"
-"                                Everything is editable in your Odoo website. Feel free to edit any page title, field or button label. Simply hit *Edit* in upper-right corner to start editing the page."
+"                                Everything is editable in your Gerp website. Feel free to edit any page title, field or button label. Simply hit *Edit* in upper-right corner to start editing the page."
 msgstr ""
 "<span class=\"fa fa-lightbulb-o fa-2x\"/>\n"
-"                                Todo es editable en tu web d'Odoo. Siéntase libre de editar cualquier título de página, campo o etiqueta de botón. Simplemente pulse * Editar * en la esquina superior derecha para comenzar a editar la página."
+"                                Todo es editable en tu web d'Gerp. Siéntase libre de editar cualquier título de página, campo o etiqueta de botón. Simplemente pulse * Editar * en la esquina superior derecha para comenzar a editar la página."
 
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.website_planner
@@ -668,8 +668,8 @@ msgstr ""
 
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.website_planner
-msgid "<strong>See it in action in Odoo</strong><br/>"
-msgstr "<strong>Verlo en acción en Odoo</strong><br/>"
+msgid "<strong>See it in action in Gerp</strong><br/>"
+msgstr "<strong>Verlo en acción en Gerp</strong><br/>"
 
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.website_planner
@@ -1850,10 +1850,10 @@ msgstr "Si está hecho para el iPad, está hecho para iPad mini."
 #: model:ir.ui.view,arch_db:website_sale.website_planner
 msgid ""
 "If you deal with a major shipper (UPS, FedEx, DHL, etc.), activate the "
-"related connector in Odoo to compute accurate costs and print labels."
+"related connector in Gerp to compute accurate costs and print labels."
 msgstr ""
 "Si usted trata con una empresa transportista importante (UPS, FedEx, DHL, "
-"etc.), active el conector relacionado en Odoo para calcular precios exactos "
+"etc.), active el conector relacionado en Gerp para calcular precios exactos "
 "e imprimir etiquetas."
 
 #. module: website_sale
@@ -3448,9 +3448,9 @@ msgstr ""
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.website_planner
 msgid ""
-"To do so, take the most out of Odoo's <strong>pricing options</strong>:<br/>"
+"To do so, take the most out of Gerp's <strong>pricing options</strong>:<br/>"
 msgstr ""
-"Para ello, aproveche al máximo las <strong>opciones de precios de Odoo "
+"Para ello, aproveche al máximo las <strong>opciones de precios de Gerp "
 "</strong>: <br/>"
 
 #. module: website_sale
@@ -3652,7 +3652,7 @@ msgstr ""
 
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.website_planner
-msgid "You can setup 3 types of <strong>payment acquirers in Odoo:</strong>"
+msgid "You can setup 3 types of <strong>payment acquirers in Gerp:</strong>"
 msgstr ""
 
 #. module: website_sale
@@ -3844,8 +3844,8 @@ msgstr "términos &amp; condiciones"
 
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.website_planner
-msgid "use Odoo API to import through scripts"
-msgstr "utiliza l'API de Odoo para importar a través de scripts"
+msgid "use Gerp API to import through scripts"
+msgstr "utiliza l'API de Gerp para importar a través de scripts"
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_product_pricelist_website_id

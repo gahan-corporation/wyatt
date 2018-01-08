@@ -1,5 +1,5 @@
 import gerp.tests
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 
 class TestUi(gerp.tests.HttpCase):

@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * hr_holidays
 # 
@@ -10,7 +10,7 @@
 # 高木正勝 <masakatsu.takagi@pro-spire.co.jp>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-20 09:53+0000\n"
 "PO-Revision-Date: 2017-09-20 09:53+0000\n"
@@ -999,9 +999,9 @@ msgstr "オフィサー"
 #. module: hr_holidays
 #: model:ir.model.fields,help:hr_holidays.field_hr_holidays_status_categ_id
 msgid ""
-"Once a leave is validated, Odoo will create a corresponding meeting of this "
+"Once a leave is validated, Gerp will create a corresponding meeting of this "
 "type in the calendar."
-msgstr "休暇が有効になると、Odooはカレンダーにこのタイプの会議を作成します。"
+msgstr "休暇が有効になると、Gerpはカレンダーにこのタイプの会議を作成します。"
 
 #. module: hr_holidays
 #: model:ir.actions.act_window,help:hr_holidays.open_ask_holidays
@@ -1405,7 +1405,7 @@ msgstr "これを選択すると、このタイプの割当/退出要求では�
 #. module: hr_holidays
 #: model:ir.actions.act_window,help:hr_holidays.hr_holidays_leaves_assign_legal
 msgid ""
-"You can assign remaining Legal Leaves for each employee, Odoo\n"
+"You can assign remaining Legal Leaves for each employee, Gerp\n"
 "               will automatically create and validate allocation requests."
 msgstr "各従業員に残りの法定休暇を割り当てることができます.Oudooは割り当て要求を自動的に作成し、検証します。"
 

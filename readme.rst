@@ -34,4 +34,4 @@ Special thanks to `Dennis Williamson`_ at `Stack Overflow`_
 We think we can do better.
 __________________________
 
-Originaly forked from [Odoo](https://github.com/odoo/odoo)
+Originaly forked from [Gerp](https://github.com/odoo/odoo)

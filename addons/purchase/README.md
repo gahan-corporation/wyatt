@@ -1,7 +1,7 @@
-Odoo Supply Chain
+Gerp Supply Chain
 -----------------
 
-Automate requisition-to-pay, control invoicing with the Odoo
+Automate requisition-to-pay, control invoicing with the Gerp
 <a href="https://www.gerp.com/page/purchase">Open Source Supply Chain</a>.
 
 Automate procurement propositions, launch request for quotations, track
@@ -39,7 +39,7 @@ Standard Price, Average Price, FIFO
 
 Use the costing method that reflects your business: standard price, average
 price, fifo or lifo. Get your accounting entries and the right inventory
-valuation in real-time; Odoo manages everything for you, transparently.
+valuation in real-time; Gerp manages everything for you, transparently.
 
 Import Vendor Pricelists
 --------------------------

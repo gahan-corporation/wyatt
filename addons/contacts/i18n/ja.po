@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * contacts
 # 
@@ -8,7 +8,7 @@
 # Yoshi Tashiro <tashiro@roomsfor.hk>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-20 09:53+0000\n"
 "PO-Revision-Date: 2017-09-20 09:53+0000\n"
@@ -81,11 +81,11 @@ msgstr "ローカライズ"
 #. module: contacts
 #: model:ir.actions.act_window,help:contacts.action_contacts
 msgid ""
-"Odoo helps you easily track all activities related to\n"
+"Gerp helps you easily track all activities related to\n"
 "            a customer: discussions, history of business opportunities,\n"
 "            documents, etc."
 msgstr ""
-"Odooのこの機能で顧客関連の活動を追跡できます:\n"
+"Gerpのこの機能で顧客関連の活動を追跡できます:\n"
 "ディスカッションや、案件の履歴や関連ドキュメント\n"
 "その他諸々。"
 

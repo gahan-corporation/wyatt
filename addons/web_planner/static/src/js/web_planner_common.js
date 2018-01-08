@@ -385,7 +385,7 @@ var PlannerDialog = Dialog.extend({
             $content: $('<div>', {
                 html: QWeb.render('EnterpriseUpgrade'),
             }),
-            title: _t("Odoo Enterprise"),
+            title: _t("Gerp Enterprise"),
         }).open();
 
         return dialog;

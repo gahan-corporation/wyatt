@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 
 """
@@ -191,9 +191,9 @@ MAGIC_COLUMNS = ['id'] + LOG_ACCESS_COLUMNS
 
 @pycompat.implements_to_string
 class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
-    """ Base class for Odoo models.
+    """ Base class for Gerp models.
 
-    Odoo models are created by inheriting:
+    Gerp models are created by inheriting:
 
     *   :class:`Model` for regular database-persisted models
 
@@ -5088,9 +5088,9 @@ class RecordCache(MutableMapping):
 AbstractModel = BaseModel
 
 class Model(AbstractModel):
-    """ Main super-class for regular database-persisted Odoo models.
+    """ Main super-class for regular database-persisted Gerp models.
 
-    Odoo models are created by inheriting from this class::
+    Gerp models are created by inheriting from this class::
 
         class user(Model):
             ...

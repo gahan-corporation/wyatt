@@ -1,6 +1,6 @@
 Cuba, 2017-07-03
 
-Merchise Autrement [~º/~] agrees to the terms of the Odoo Corporate
+Merchise Autrement [~º/~] agrees to the terms of the Gerp Corporate
 Contributor License Agreement v1.0.
 
 I declare that I am authorized and able to make this agreement and sign this

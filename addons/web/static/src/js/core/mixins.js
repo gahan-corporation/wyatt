@@ -118,7 +118,7 @@ var ParentedMixin = {
     },
 };
 
-function OdooEvent(target, name, data) {
+function GerpEvent(target, name, data) {
     this.target = target;
     this.name = name;
     this.data = Object.create(null);
@@ -126,11 +126,11 @@ function OdooEvent(target, name, data) {
     this.stopped = false;
 }
 
-OdooEvent.prototype.stopPropagation = function () {
+GerpEvent.prototype.stopPropagation = function () {
     this.stopped = true;
 };
 
-OdooEvent.prototype.is_stopped = function () {
+GerpEvent.prototype.is_stopped = function () {
     return this.stopped;
 };
 
@@ -331,7 +331,7 @@ var EventDispatcherMixin = _.extend({}, ParentedMixin, {
         return this;
     },
     trigger_up: function (name, info) {
-        var event = new OdooEvent(this, name, info);
+        var event = new GerpEvent(this, name, info);
         this._trigger_up(event);
     },
     _trigger_up: function (event) {

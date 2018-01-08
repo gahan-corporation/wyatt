@@ -44,7 +44,7 @@
 <span id="reference-upgrade-api"></span><h1>Database Upgrade<a class="headerlink" href="#database-upgrade" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>This document describes the API used to upgrade an Odoo database to a
+<p>This document describes the API used to upgrade an Gerp database to a
 higher version.</p>
 <p>It allows a database to be upgraded without ressorting to the html form at
 <a class="reference external" href="https://upgrade.gerp.com">https://upgrade.gerp.com</a>
@@ -66,10 +66,10 @@ Although the database will follow the same process described on that form.</p>
 <ul class="simple">
 <li>your contract reference</li>
 <li>your email address</li>
-<li>the target version (the Odoo version you want to upgrade to)</li>
+<li>the target version (the Gerp version you want to upgrade to)</li>
 <li>the purpose of your request (test or production)</li>
 <li>the database dump name (required but purely informative)</li>
-<li>optionally the server timezone (for Odoo source version &lt; 6.1)</li>
+<li>optionally the server timezone (for Gerp source version &lt; 6.1)</li>
 </ul>
 <div class="section" id="the-create-method">
 <h4>The <code class="docutils literal"><span class="pre">create</span></code> method<a class="headerlink" href="#the-create-method" title="Permalink to this headline">¶</a></h4>
@@ -84,10 +84,10 @@ Although the database will follow the same process described on that form.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>contract</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – (required) your enterprise contract reference</li>
 <li><strong>email</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – (required) your email address</li>
-<li><strong>target</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – (required) the Odoo version you want to upgrade to. Valid choices: 6.0, 6.1, 7.0, 8.0</li>
+<li><strong>target</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – (required) the Gerp version you want to upgrade to. Valid choices: 6.0, 6.1, 7.0, 8.0</li>
 <li><strong>aim</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – (required) the purpose of your upgrade database request. Valid choices: test, production.</li>
 <li><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – (required) a purely informative name for you database dump file</li>
-<li><strong>timezone</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – (optional) the timezone used by your server. Only for Odoo source version &lt; 6.1</li>
+<li><strong>timezone</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – (optional) the timezone used by your server. Only for Gerp source version &lt; 6.1</li>
 </ul>
 </td>
 </tr>
@@ -345,7 +345,7 @@ database upgrade request.</p>
 <dt><code class="docutils literal"><span class="pre">email</span></code></dt>
 <dd>the email address you supplied when creating the request</dd>
 <dt><code class="docutils literal"><span class="pre">target</span></code></dt>
-<dd>the target Odoo version you supplied when creating the request</dd>
+<dd>the target Gerp version you supplied when creating the request</dd>
 <dt><code class="docutils literal"><span class="pre">aim</span></code></dt>
 <dd>the purpose (test, production) of your database upgrade request you supplied when creating the request</dd>
 <dt><code class="docutils literal"><span class="pre">filename</span></code></dt>
@@ -355,9 +355,9 @@ database upgrade request.</p>
 <dt><code class="docutils literal"><span class="pre">state</span></code></dt>
 <dd>the state of your request</dd>
 <dt><code class="docutils literal"><span class="pre">issue_stage</span></code></dt>
-<dd>the stage of the issue we have create on Odoo main server</dd>
+<dd>the stage of the issue we have create on Gerp main server</dd>
 <dt><code class="docutils literal"><span class="pre">issue</span></code></dt>
-<dd>the id of the issue we have create on Odoo main server</dd>
+<dd>the id of the issue we have create on Gerp main server</dd>
 <dt><code class="docutils literal"><span class="pre">status_url</span></code></dt>
 <dd>the URL to access your database upgrade request html page</dd>
 <dt><code class="docutils literal"><span class="pre">notes_url</span></code></dt>
@@ -389,7 +389,7 @@ database upgrade request.</p>
 <dt><code class="docutils literal"><span class="pre">customer_message</span></code></dt>
 <dd>an important message related to your request</dd>
 <dt><code class="docutils literal"><span class="pre">database_version</span></code></dt>
-<dd>the guessed Odoo version of your uploaded (not upgraded) database</dd>
+<dd>the guessed Gerp version of your uploaded (not upgraded) database</dd>
 <dt><code class="docutils literal"><span class="pre">postgresql</span></code></dt>
 <dd>the guessed Postgresql version of your uploaded (not upgraded) database</dd>
 <dt><code class="docutils literal"><span class="pre">compressions</span></code></dt>

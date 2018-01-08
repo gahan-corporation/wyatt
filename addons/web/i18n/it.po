@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * web
 #
@@ -7,7 +7,7 @@
 # Simone Bernini <simone@aperturelabs.it>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: Gerp 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2016-05-23 15:35+0000\n"
@@ -226,8 +226,8 @@ msgstr "<span class=\"oe_logo_edit\">Modifica dati aziendali</span>"
 
 #. module: web
 #: model:ir.ui.view,arch_db:web.menu_secondary
-msgid "<span>Odoo</span>"
-msgstr "<span>Odoo</span>"
+msgid "<span>Gerp</span>"
+msgstr "<span>Gerp</span>"
 
 #. module: web
 #. openerp-web
@@ -575,8 +575,8 @@ msgstr "Context:"
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:116
 #, python-format
-msgid "Copyright © 2004-2015 Odoo S.A."
-msgstr "Copyright © 2004-2015 Odoo S.A."
+msgid "Copyright © 2004-2015 Gerp S.A."
+msgstr "Copyright © 2004-2015 Gerp S.A."
 
 #. module: web
 #. openerp-web
@@ -1087,8 +1087,8 @@ msgstr "GNU Lesser General Public License"
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:1512
 #, python-format
-msgid "Get this feature and much more with Odoo Enterprise!"
-msgstr "Attiva questa funzione e molte altre con Odoo Enterprise!"
+msgid "Get this feature and much more with Gerp Enterprise!"
+msgstr "Attiva questa funzione e molte altre con Gerp Enterprise!"
 
 #. module: web
 #. openerp-web
@@ -1412,8 +1412,8 @@ msgstr "Muovi Su"
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:87
 #, python-format
-msgid "My Odoo.com account"
-msgstr "Il mio account Odoo.com"
+msgid "My Gerp.com account"
+msgstr "Il mio account Gerp.com"
 
 #. module: web
 #. openerp-web
@@ -1586,55 +1586,55 @@ msgstr "Oggetto:"
 #: code:addons/web/static/src/js/framework/dialog.js:37
 #: model:ir.ui.view,arch_db:web.layout
 #, python-format
-msgid "Odoo"
-msgstr "Odoo"
+msgid "Gerp"
+msgstr "Gerp"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:101
 #, python-format
-msgid "Odoo (Formerly OpenERP)"
-msgstr "Odoo (In precedenza OpenERP)"
+msgid "Gerp (Formerly OpenERP)"
+msgstr "Gerp (In precedenza OpenERP)"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/apps.js:189
 #, python-format
-msgid "Odoo Apps will be available soon"
-msgstr "Odoo Apps saranno disponibili presto"
+msgid "Gerp Apps will be available soon"
+msgstr "Gerp Apps saranno disponibili presto"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/views/form_widgets.js:1717
 #, python-format
-msgid "Odoo Enterprise"
-msgstr "Odoo Enterprise"
+msgid "Gerp Enterprise"
+msgstr "Gerp Enterprise"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:117
 #, python-format
-msgid "Odoo S.A."
-msgstr "Odoo S.A."
+msgid "Gerp S.A."
+msgstr "Gerp S.A."
 
 #. module: web
 #: model:ir.ui.view,arch_db:web.qunit_suite
-msgid "Odoo Web Tests"
-msgstr "Web Test Odoo"
+msgid "Gerp Web Tests"
+msgstr "Web Test Gerp"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:117
 #, python-format
-msgid "Odoo is a trademark of"
-msgstr "Odoo è un marchio registrato di"
+msgid "Gerp is a trademark of"
+msgstr "Gerp è un marchio registrato di"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:119
 #, python-format
-msgid "Odoo.com"
-msgstr "Odoo.com"
+msgid "Gerp.com"
+msgstr "Gerp.com"
 
 #. module: web
 #. openerp-web
@@ -1792,8 +1792,8 @@ msgstr "Powered by"
 
 #. module: web
 #: model:ir.ui.view,arch_db:web.login_layout
-msgid "Powered by <span>Odoo</span>"
-msgstr "Powered by <span>Odoo</span>"
+msgid "Powered by <span>Gerp</span>"
+msgstr "Powered by <span>Gerp</span>"
 
 #. module: web
 #. openerp-web
@@ -2276,10 +2276,10 @@ msgstr ""
 #, python-format
 msgid ""
 "Timezone Mismatch : The timezone of your browser doesn't match the selected "
-"one. The time in Odoo is displayed according to your field timezone."
+"one. The time in Gerp is displayed according to your field timezone."
 msgstr ""
 "Incoerenza Timezone: la timezone del tuo browser non è la stessa impostata "
-"nella tua configurazione utente. Gli orari in Odoo verranno mostrati in base "
+"nella tua configurazione utente. Gli orari in Gerp verranno mostrati in base "
 "alla tua configurazione utente."
 
 #. module: web
@@ -2629,8 +2629,8 @@ msgstr "E' necessario selezionare almeno un record."
 #. openerp-web
 #: code:addons/web/static/src/js/framework/crash_manager.js:69
 #, python-format
-msgid "Your Odoo session expired. Please refresh the current web page."
-msgstr "La tua sessione Odoo è scaduta. Aggiorna la pagina corrente."
+msgid "Your Gerp session expired. Please refresh the current web page."
+msgstr "La tua sessione Gerp è scaduta. Aggiorna la pagina corrente."
 
 #. module: web
 #. openerp-web

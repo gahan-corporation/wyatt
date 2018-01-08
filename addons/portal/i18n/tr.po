@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * portal
 # 
@@ -13,7 +13,7 @@
 # Ayhan KIZILTAN <akiziltan76@hotmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:27+0000\n"
 "PO-Revision-Date: 2017-10-02 11:27+0000\n"
@@ -592,8 +592,8 @@ msgstr "Adınız"
 
 #. module: portal
 #: model:mail.template,subject:portal.mail_template_data_portal_welcome
-msgid "Your Odoo account at ${user.company_id.name}"
-msgstr "${user.company_id.name} altındaki Odoo hesabınız"
+msgid "Your Gerp account at ${user.company_id.name}"
+msgstr "${user.company_id.name} altındaki Gerp hesabınız"
 
 #. module: portal
 #: model:ir.ui.view,arch_db:portal.portal_my_details

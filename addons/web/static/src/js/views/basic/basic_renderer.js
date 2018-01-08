@@ -83,7 +83,7 @@ var BasicRenderer = AbstractRenderer.extend({
      * @param {Object} state
      * @param {string} id
      * @param {string[]} fields
-     * @param {OdooEvent} ev
+     * @param {GerpEvent} ev
      * @returns {Deferred<AbstractField[]>} resolved with the list of widgets
      *                                      that have been reset
      */
@@ -660,11 +660,11 @@ var BasicRenderer = AbstractRenderer.extend({
     /**
      * When someone presses the TAB/UP/DOWN/... key in a widget, it is nice to
      * be able to navigate in the view (default browser behaviors are disabled
-     * by Odoo).
+     * by Gerp).
      *
      * @abstract
      * @private
-     * @param {OdooEvent} ev
+     * @param {GerpEvent} ev
      */
     _onNavigationMove: function (ev) {},
 });

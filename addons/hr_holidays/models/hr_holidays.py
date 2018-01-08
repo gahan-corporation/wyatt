@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 # Copyright (c) 2005-2006 Axelor SARL. (http://www.axelor.com)
 
@@ -24,7 +24,7 @@ class HolidaysType(models.Model):
 
     name = fields.Char('Leave Type', required=True, translate=True)
     categ_id = fields.Many2one('calendar.event.type', string='Meeting Type',
-        help='Once a leave is validated, Odoo will create a corresponding meeting of this type in the calendar.')
+        help='Once a leave is validated, Gerp will create a corresponding meeting of this type in the calendar.')
     color_name = fields.Selection([
         ('red', 'Red'),
         ('blue', 'Blue'),

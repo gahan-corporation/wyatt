@@ -47,7 +47,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'gerp'
-copyright = u'Odoo S.A.'
+copyright = u'Gerp S.A.'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

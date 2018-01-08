@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * crm
 #
@@ -7,7 +7,7 @@
 # Ricardo Martins <ricardo.nbs.martins@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: Gerp 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-18 14:06+0000\n"
 "PO-Revision-Date: 2016-02-20 10:37+0000\n"
@@ -54,7 +54,7 @@ msgid ""
 "p><br>\n"
 "                            <p dir=\"ltr\" style=\"font-size:15px;margin-"
 "top:0pt;margin-bottom:0pt;\">\n"
-"                                <span>Your Odoo CRM application is up and "
+"                                <span>Your Gerp CRM application is up and "
 "running</span></p><br>\n"
 "                            <p dir=\"ltr\" style=\"margin-top:0pt;margin-"
 "bottom:8pt;\">\n"
@@ -152,7 +152,7 @@ msgid ""
 "\"text-decoration:underline;\">\n"
 "                                help@gerp.com</span></a> if you have any "
 "question. You can also discover \n"
-"                                how to get the best out of Odoo CRM with our "
+"                                how to get the best out of Gerp CRM with our "
 "</span>\n"
 "                                <a href=\"https://www.gerp.com/documentation/"
 "user/9.0/crm.html\">\n"
@@ -166,14 +166,14 @@ msgid ""
 "                            </p>\n"
 "                            <br>\n"
 "                            <p dir=\"ltr\" style=\"font-size:13px;margin-"
-"top:0pt;margin-bottom:8pt;\"><span>Enjoy your Odoo experience,</span></p>\n"
+"top:0pt;margin-bottom:8pt;\"><span>Enjoy your Gerp experience,</span></p>\n"
 "                        </td>\n"
 "                    </tr>\n"
 "                </tbody>\n"
 "            </table>\n"
 "            <div dir=\"ltr\" style=\"font-size:13px;margin-top:0pt;margin-"
 "bottom:8pt;color:grey\">\n"
-"                <span><br/>-- <br/>The Odoo Team<br/>PS: People love Odoo, "
+"                <span><br/>-- <br/>The Gerp Team<br/>PS: People love Gerp, "
 "check </span><a href=\"https://twitter.com/gerp/favorites\"><span style="
 "\"text-decoration:underline;\">what they say about it.</span></a></span>\n"
 "            </div>\n"
@@ -652,17 +652,17 @@ msgstr "<strong>Eventos</strong>"
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
-"<strong>Every business is different.</strong> Odoo allows to\n"
+"<strong>Every business is different.</strong> Gerp allows to\n"
 "                        customize every application and it's usually a good\n"
 "                        advice to customize screens to fit your sales "
 "process.\n"
-"                        <strong>Customizations are done by Odoo experts.</"
+"                        <strong>Customizations are done by Gerp experts.</"
 "strong>"
 msgstr ""
-"<strong>Cada empresa é diferente.</strong> O Odoo permite\n"
+"<strong>Cada empresa é diferente.</strong> O Gerp permite\n"
 "personalizar qualquer aplicação e é normalmente um bom\n"
 "conselho personalizar ecrãs para corresponderem ao seu processo de vendas.\n"
-"<strong>As personalizações são feitas por peritos do Odoo.</strong>"
+"<strong>As personalizações são feitas por peritos do Gerp.</strong>"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
@@ -880,12 +880,12 @@ msgid ""
 "<strong>Trainings</strong><br/>\n"
 "                                To build a strong sales training program, "
 "you can use the following\n"
-"                                apps of Odoo:"
+"                                apps of Gerp:"
 msgstr ""
 "<strong>Treinos</strong><br/>\n"
 "Para construir um forte programa de treino de vendas, pode utilizar as "
 "seguintes\n"
-"aplicações do Odoo:"
+"aplicações do Gerp:"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
@@ -933,12 +933,12 @@ msgstr "Um bom canal deve ter entre 5 a 7 etapas"
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
-"A product in Odoo is something you sell or buy. It could\n"
+"A product in Gerp is something you sell or buy. It could\n"
 "                    be a goods, consumable or services. Choose how you want "
 "to\n"
 "                    create your products:"
 msgstr ""
-"Um produto em Odoo é algo que você compra ou vende. Podem\n"
+"Um produto em Gerp é algo que você compra ou vende. Podem\n"
 "ser bens, consumíveis ou serviços. Escolha como quer\n"
 "criar os seus produtos:"
 
@@ -2113,7 +2113,7 @@ msgstr ""
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
-"For the Odoo Team,<br/>\n"
+"For the Gerp Team,<br/>\n"
 "                          Fabien Pinckaers, Founder"
 msgstr ""
 
@@ -2190,8 +2190,8 @@ msgstr "Controlar vinculativo de parceiro ou gerar nos assistentes de CRM."
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
-msgid "Happy Selling!<br/>- The Odoo Team"
-msgstr "Vendas Felizes!<br/>- A Equipa Odoo"
+msgid "Happy Selling!<br/>- The Gerp Team"
+msgstr "Vendas Felizes!<br/>- A Equipa Gerp"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
@@ -2343,9 +2343,9 @@ msgstr "Melhore a receita média por vendedor"
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
-"In Odoo, there are 3 different ways to manage your products prices.<br/>"
+"In Gerp, there are 3 different ways to manage your products prices.<br/>"
 msgstr ""
-"No Odoo, existem 3 maneiras diferentes de gerir os preços dos seus produtos."
+"No Gerp, existem 3 maneiras diferentes de gerir os preços dos seus produtos."
 "<br/>"
 
 #. module: crm
@@ -3070,23 +3070,23 @@ msgstr ""
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
-msgid "Odoo Default"
-msgstr "Odoo Predefinido"
+msgid "Gerp Default"
+msgstr "Gerp Predefinido"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_sale_config_settings_module_website_sign
 #: model:ir.ui.view,arch_db:crm.view_sale_config_settings
-msgid "Odoo Sign"
+msgid "Gerp Sign"
 msgstr ""
 
 #. module: crm
 #: model:ir.actions.act_window,help:crm.crm_case_form_view_salesteams_opportunity
 msgid ""
-"Odoo helps you keep track of your sales pipeline to follow\n"
+"Gerp helps you keep track of your sales pipeline to follow\n"
 "                    up potential sales and better forecast your future "
 "revenues."
 msgstr ""
-"O Odoo ajuda-o a acompanhar o seu canal de vendas para seguir\n"
+"O Gerp ajuda-o a acompanhar o seu canal de vendas para seguir\n"
 "                    potenciais vendas e prevenir melhor as suas receitas "
 "futuras."
 
@@ -3094,38 +3094,38 @@ msgstr ""
 #: model:ir.actions.act_window,help:crm.crm_lead_opportunities
 #: model:ir.actions.act_window,help:crm.crm_lead_opportunities_tree_view
 msgid ""
-"Odoo helps you keep track of your sales pipeline to follow\n"
+"Gerp helps you keep track of your sales pipeline to follow\n"
 "                up potential sales and better forecast your future revenues."
 msgstr ""
-"O Odoo ajuda-o a acompanhar o seu canal de vendas para seguir\n"
+"O Gerp ajuda-o a acompanhar o seu canal de vendas para seguir\n"
 "                    potenciais vendas e prevenir melhor as suas receitas "
 "futuras."
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
-"Odoo is the world's only software to have a full integration of Marketing "
+"Gerp is the world's only software to have a full integration of Marketing "
 "Apps for your sales channel: insight sales, point of sale, ecommerce."
 msgstr ""
-"O Odoo é o único software no mundo a ter uma integração completa de "
+"O Gerp é o único software no mundo a ter uma integração completa de "
 "Aplicações de Marketing para o seu canal de vendas: observe vendas, ponto de "
 "venda, ecommerce."
 
 #. module: crm
 #: model:ir.model.fields,help:crm.field_sale_config_settings_generate_sales_team_alias
-msgid "Odoo will generate an email alias based on the sales team name"
+msgid "Gerp will generate an email alias based on the sales team name"
 msgstr ""
-"O Odoo irá gerar um pseudónimo de email baseado no nome da equipa de vendas"
+"O Gerp irá gerar um pseudónimo de email baseado no nome da equipa de vendas"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
-"Odoo will help you create polished, professional quotations and contracts in "
+"Gerp will help you create polished, professional quotations and contracts in "
 "minutes.\n"
 "                        Tell us how you sell and we will tell you what\n"
 "                        configuration will best fit your quotation process."
 msgstr ""
-"O Odoo irá ajudá-lo a criar orçamentos profissionais e polidos, e contractos "
+"O Gerp irá ajudá-lo a criar orçamentos profissionais e polidos, e contractos "
 "em minutos.\n"
 "                        Diga-nos como vende e nós dizemos-lhe que\n"
 "                        configuração se adapta melhor ao seu processo de "
@@ -3770,7 +3770,7 @@ msgid ""
 "Select the list of fields used to search for\n"
 "                            duplicated records. If you select several "
 "fields,\n"
-"                            Odoo will propose you to merge only those "
+"                            Gerp will propose you to merge only those "
 "having\n"
 "                            all these fields in common. (not one of the "
 "fields)."
@@ -3778,7 +3778,7 @@ msgstr ""
 "Selecione a lista de campos usados ​​para procurar\n"
 "                            registros duplicados. Se você selecionar vários "
 "campos ,\n"
-"                            Odoo vai propor que você funda apenas aqueles "
+"                            Gerp vai propor que você funda apenas aqueles "
 "que têm\n"
 "                            todos esses campos em comum. ( não um dos "
 "campos ) ."
@@ -3855,13 +3855,13 @@ msgid ""
 "Setting up your sales funnel is just the first step. To achieve a\n"
 "                      significant boost, we will help you get the most out "
 "of\n"
-"                      Odoo CRM to transform how your salespeople work.\n"
+"                      Gerp CRM to transform how your salespeople work.\n"
 "                      That's the purpose of this guide."
 msgstr ""
 "Definir o seu funil de vendas é apenas o primeiro passo. Para alcançar um\n"
 "                      aumento significativo, nós iremos ajudá-lo a tirar o "
 "máximo proveito\n"
-"                      do Odoo CRM para transformar a forma como o seu "
+"                      do Gerp CRM para transformar a forma como o seu "
 "pessoal de vendas \n"
 "                      trabalha. É esse o propósito deste guia."
 
@@ -4102,8 +4102,8 @@ msgstr "Templates de emails"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
-msgid "Templates of quotations (use Odoo Online Proposals for this)"
-msgstr "Templates de orçamentos (use Propostas Online do Odoo para isto)"
+msgid "Templates of quotations (use Gerp Online Proposals for this)"
+msgstr "Templates de orçamentos (use Propostas Online do Gerp para isto)"
 
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_team_alias_id
@@ -4133,11 +4133,11 @@ msgstr "A primeira etapa é normalmente \"Novo\" e a última \"Ganho\""
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_team_alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming "
+"The model (Gerp Document Kind) to which this alias corresponds. Any incoming "
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
-"O modelo (tipo de Documento  Odoo ) para que este apelido corresponde . "
+"O modelo (tipo de Documento  Gerp ) para que este apelido corresponde . "
 "Qualquer e-mail recebido que não responde a um registro existente fará com "
 "que a criação de um novo registro deste modelo (por exemplo, uma tarefa do "
 "projeto )"
@@ -4209,10 +4209,10 @@ msgstr ""
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
-"There are several ways for your company to generate leads with Odoo CRM. \n"
+"There are several ways for your company to generate leads with Gerp CRM. \n"
 "                        One of them is using your company's generic email "
 "address as a trigger \n"
-"                        to create a new lead in the system. In Odoo, each "
+"                        to create a new lead in the system. In Gerp, each "
 "one of your sales teams \n"
 "                        is linked to its own email address from which "
 "prospects can reach them. \n"
@@ -4223,7 +4223,7 @@ msgid ""
 "                        contacts you will automatically create a new "
 "opportunity into the sales team.\n"
 "\n"
-"                        That's the easiest way to integrate Odoo with third "
+"                        That's the easiest way to integrate Gerp with third "
 "party apps."
 msgstr ""
 
@@ -4547,7 +4547,7 @@ msgstr "Nós podemos automatizar passos no seu fluxo de trabalho, por exemplo:"
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
 "We can handle the whole import process\n"
-"                                        for you: simply send your Odoo "
+"                                        for you: simply send your Gerp "
 "project\n"
 "                                        manager a CSV file containing all "
 "your\n"
@@ -4556,7 +4556,7 @@ msgstr ""
 "Nós podemos tratar de todo o processo de importação\n"
 "                                        para si: simplesmente envie ao seu "
 "gestor de\n"
-"                                        projectos Odoo um ficheiro CSV "
+"                                        projectos Gerp um ficheiro CSV "
 "contendo todos os\n"
 "                                        seus dados."
 
@@ -4564,7 +4564,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
 "We can handle the whole import process\n"
-"                                        for you: simply send your Odoo "
+"                                        for you: simply send your Gerp "
 "project\n"
 "                                        manager a CSV file containing all "
 "your\n"
@@ -4573,7 +4573,7 @@ msgstr ""
 "Nós podemos tratar de todo o processo de importação\n"
 "                                        para si: simplesmente envie ao seu "
 "gestor de\n"
-"                                        projectos Odoo um ficheiro CSV "
+"                                        projectos Gerp um ficheiro CSV "
 "contendo todos os\n"
 "                                        seus dados."
 
@@ -4589,13 +4589,13 @@ msgstr ""
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
-"We designed Odoo to help you grow your business. Odoo CRM\n"
+"We designed Gerp to help you grow your business. Gerp CRM\n"
 "                      is not just a tool, we want it to have a major impact "
 "on your\n"
 "                      sales performance. That's our mission, and we are "
 "serious about it."
 msgstr ""
-"Nós criamos o Odoo para ajudá-lo a fazer crescer a sua empresa. O Odoo CRM\n"
+"Nós criamos o Gerp para ajudá-lo a fazer crescer a sua empresa. O Gerp CRM\n"
 "                      não é apenas uma ferramenta, nós queremos que tenha um "
 "grande \n"
 "                      impacto no desempenho das suas vendas. É esta a nossa "
@@ -4819,7 +4819,7 @@ msgstr "As suas páginas de LinkedIn ou de redes sociais"
 
 #. module: crm
 #: model:mail.template,subject:crm.mail_template_data_module_install_crm
-msgid "Your Odoo CRM application is running smoothly."
+msgid "Your Gerp CRM application is running smoothly."
 msgstr ""
 
 #. module: crm
@@ -5041,12 +5041,12 @@ msgstr "com o seu trabalho acima"
 #~ msgid ""
 #~ "Incoming email create leads automatically when a new prospect contacts "
 #~ "you.\n"
-#~ "                        That's the easiest way to integrate Odoo with "
+#~ "                        That's the easiest way to integrate Gerp with "
 #~ "third party apps."
 #~ msgstr ""
 #~ "Email de entrada cria um prospecto automaticamente quando tem um novo "
 #~ "contacto.\n"
-#~ "                        É a forma mais fácil de integrar o Odoo com apps "
+#~ "                        É a forma mais fácil de integrar o Gerp com apps "
 #~ "de terceiros."
 
 #~ msgid "Is Follower"

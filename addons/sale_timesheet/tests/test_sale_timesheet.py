@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 from gerp.tools import float_is_zero, float_compare
 
 from gerp.addons.sale_timesheet.tests.common import CommonTest

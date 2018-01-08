@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * survey
 # 
@@ -22,7 +22,7 @@
 # Jeff Yu - Elico Corp <jeff.yu@elico-corp.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
@@ -249,8 +249,8 @@ msgstr "标记必须唯一！"
 
 #. module: survey
 #: model:survey.page,title:survey.feedback_1
-msgid "About your Odoo usage"
-msgstr "关于你使用Odoo的一些情况"
+msgid "About your Gerp usage"
+msgstr "关于你使用Gerp的一些情况"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_survey_active
@@ -325,8 +325,8 @@ msgstr "归档"
 
 #. module: survey
 #: model:survey.question,question:survey.feedback_1_1
-msgid "Are you using Odoo on a daily basis?"
-msgstr "你现在每天使用Odoo吗?"
+msgid "Are you using Gerp on a daily basis?"
+msgstr "你现在每天使用Gerp吗?"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message_attachment_ids
@@ -692,8 +692,8 @@ msgstr "分组"
 
 #. module: survey
 #: model:survey.question,question:survey.feedback_3_1
-msgid "How do you contribute or plan to contribute to Odoo?"
-msgstr "你如何为Odoo贡献或计划贡献?"
+msgid "How do you contribute or plan to contribute to Gerp?"
+msgstr "你如何为Gerp贡献或计划贡献?"
 
 #. module: survey
 #: model:survey.label,value:survey.choice_1_2_6
@@ -718,7 +718,7 @@ msgstr "我帮忙翻译"
 #. module: survey
 #: model:survey.label,value:survey.choice_4_1_3
 msgid "I host them on my own website"
-msgstr "我在自己的网站上推广Odoo"
+msgstr "我在自己的网站上推广Gerp"
 
 #. module: survey
 #: model:survey.label,value:survey.choice_3_1_1
@@ -727,7 +727,7 @@ msgstr "我参与论坛讨论"
 
 #. module: survey
 #: model:survey.label,value:survey.choice_4_1_1
-msgid "I use Github, like all official Odoo projects"
+msgid "I use Github, like all official Gerp projects"
 msgstr "就像官方gerp的项目一样，我用Github"
 
 #. module: survey
@@ -737,8 +737,8 @@ msgstr "我使用另外一个托管系统(如 sourceforge...)"
 
 #. module: survey
 #: model:survey.label,value:survey.frow_2_1_3
-msgid "I use the contextual help in Odoo"
-msgstr "我在Odoo使用上下文相关的帮助"
+msgid "I use the contextual help in Gerp"
+msgstr "我在Gerp使用上下文相关的帮助"
 
 #. module: survey
 #: model:survey.label,value:survey.choice_3_1_5
@@ -799,8 +799,8 @@ msgstr "如果是其它，请指定"
 
 #. module: survey
 #: model:survey.page,description:survey.feedback_4
-msgid "If you do not contribute or develop in Odoo, skip this page."
-msgstr "如果你不打算贡献并开发Odoo，可以跳过这一页"
+msgid "If you do not contribute or develop in Gerp, skip this page."
+msgstr "如果你不打算贡献并开发Gerp，可以跳过这一页"
 
 #. module: survey
 #: model:ir.ui.view,arch_db:survey.sfinished
@@ -1753,7 +1753,7 @@ msgstr "有太多的菜单,理解起来比较复杂"
 #. module: survey
 #: model:survey.page,description:survey.feedback_2
 msgid ""
-"These questions relate to the ergonomy and ease of use of Odoo. Try to remind your firsts days on Odoo and\n"
+"These questions relate to the ergonomy and ease of use of Gerp. Try to remind your firsts days on Gerp and\n"
 "what have been your difficulties."
 msgstr ""
 
@@ -1769,8 +1769,8 @@ msgstr "他们是在日常中使用"
 
 #. module: survey
 #: model:survey.label,value:survey.frow_2_2_1
-msgid "They help new users to understand Odoo"
-msgstr "他们帮助新用户了解Odoo"
+msgid "They help new users to understand Gerp"
+msgstr "他们帮助新用户了解Gerp"
 
 #. module: survey
 #: code:addons/survey/models/survey.py:544
@@ -2012,9 +2012,9 @@ msgstr "你怎么看待用户群组?"
 #. module: survey
 #: model:survey.question,question:survey.feedback_2_2
 msgid ""
-"What do you think about the process views of Odoo, available in the web "
+"What do you think about the process views of Gerp, available in the web "
 "client ?"
-msgstr "你怎么看待Odoo的流程视图,在web客户端是否匹配?"
+msgstr "你怎么看待Gerp的流程视图,在web客户端是否匹配?"
 
 #. module: survey
 #: model:survey.question,question:survey.feedback_2_4
@@ -2051,8 +2051,8 @@ msgstr "是的,我使用7.0版本,在本地安装"
 
 #. module: survey
 #: model:survey.label,value:survey.choice_1_1_3
-msgid "Yes, I use the online version of Odoo"
-msgstr "是的,我使用Odoo的在线版本"
+msgid "Yes, I use the online version of Gerp"
+msgstr "是的,我使用Gerp的在线版本"
 
 #. module: survey
 #: model:ir.actions.act_window,help:survey.action_survey_form

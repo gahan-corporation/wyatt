@@ -29,9 +29,9 @@
                     <div name="social_media">
                         <separator string="Social Media"/>
                         <group name="social_media">
-                            <field name="social_twitter" placeholder="https://twitter.com/Odoo"/>
+                            <field name="social_twitter" placeholder="https://twitter.com/Gerp"/>
                             <field name="social_facebook" placeholder="https://www.facebook.com/gerp"/>
-                            <field name="social_googleplus" placeholder="https://plus.google.com/+Odooapps"/>
+                            <field name="social_googleplus" placeholder="https://plus.google.com/+Gerpapps"/>
                             <field name="social_linkedin" placeholder="https://www.linkedin.com/company/gerp"/>
                             <field name="social_youtube" placeholder="https://www.youtube.com/user/OpenERPonline"/>
                             <field name="social_github" placeholder="https://youraccount.github.io"/>

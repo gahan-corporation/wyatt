@@ -645,7 +645,7 @@
       <xpath expr="//footer" position="inside">
           <div class="container mt16 mb8">
               <div class="pull-right" t-ignore="true" t-if="not editable">
-                  Powered by <a target="_blank" class="label label-danger" href="http://www.gerp.com/page/website-builder">Odoo</a>,
+                  Powered by <a target="_blank" class="label label-danger" href="http://www.gerp.com/page/website-builder">Gerp</a>,
                   an awesome <a target="_blank" href="http://www.gerp.com/page/crm">Open Source CRM</a>.
               </div>
               <div class="pull-left text-muted">

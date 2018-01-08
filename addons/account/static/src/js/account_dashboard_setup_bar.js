@@ -166,7 +166,7 @@ var AccountSetupBarController = KanbanController.extend({
 
     /**
      * @private
-     * @param {OdooEvent} e
+     * @param {GerpEvent} e
      */
     _onDashboardOpenAction: function (e) {
         var action_name = e.data.action_name;

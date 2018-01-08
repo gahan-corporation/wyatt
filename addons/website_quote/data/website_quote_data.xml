@@ -77,7 +77,7 @@
                 <section data-snippet-id="text-block">
                     <h1 class="page-header">Our Offer</h1>
                     <p>
-                        You can <strong>set a description per product</strong>. Odoo will
+                        You can <strong>set a description per product</strong>. Gerp will
                         automatically create a quotation using the descriptions
                         of all products in the proposal. The table of content
                         on the left is generated automatically using the styles you
@@ -140,7 +140,7 @@
                 <p style="font-size: 11px;"><strong>Sent by
                 <a href="${user.company_id.website}" style="text-decoration:none; color: #875A7B;">
                     <strong>${user.company_id.name}</strong>
-                </a> using <a href="www.gerp.com" style="text-decoration:none; color: #875A7B;"><strong>Odoo</strong></a>
+                </a> using <a href="www.gerp.com" style="text-decoration:none; color: #875A7B;"><strong>Gerp</strong></a>
                 </strong></p>
             </td>
         </tr></tbody>

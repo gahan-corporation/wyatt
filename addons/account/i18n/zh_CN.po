@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * account
 # 
@@ -10,7 +10,7 @@
 # Connie Xiao <connie.xiao@elico-corp.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 08:59+0000\n"
 "PO-Revision-Date: 2017-10-24 08:59+0000\n"
@@ -249,7 +249,7 @@ msgid ""
 "    </tr>\n"
 "    <tr>\n"
 "        <td align=\"center\">\n"
-"            Powered by <a target=\"_blank\" href=\"https://www.gerp.com\">Odoo</a>.\n"
+"            Powered by <a target=\"_blank\" href=\"https://www.gerp.com\">Gerp</a>.\n"
 "        </td>\n"
 "    </tr>\n"
 "</tbody>\n"
@@ -509,7 +509,7 @@ msgstr ""
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
-msgid "<span title=\"Balance in Odoo\">Balance in GL</span>"
+msgid "<span title=\"Balance in Gerp\">Balance in GL</span>"
 msgstr "<span title=\"系统余额\">总账中的余额</span>"
 
 #. module: account
@@ -574,7 +574,7 @@ msgstr "<span>查看</span>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
-msgid "<strong>-The Odoo Team</strong>"
+msgid "<strong>-The Gerp Team</strong>"
 msgstr "<strong>-我们的团队</strong>"
 
 #. module: account
@@ -672,7 +672,7 @@ msgstr ""
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"<strong>Create the bill in Odoo</strong><br/> with a proper due date, and "
+"<strong>Create the bill in Gerp</strong><br/> with a proper due date, and "
 "create the vendor if it doesnt' exist yet."
 msgstr "<strong>创建账单</strong><br/>有正确的付款日期，如果供应商不存在，则创建。"
 
@@ -859,7 +859,7 @@ msgstr "<strong>核销银行对账单</strong>"
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "<strong>Reconcile with existing transaction</strong><br/>\n"
-"                                        In this case, Odoo should automatically match the bank statement with the previously recorded check transaction."
+"                                        In this case, Gerp should automatically match the bank statement with the previously recorded check transaction."
 msgstr ""
 "<strong>已有交易核销</strong><br/>\n"
 "                                        这种情况下, 系统会自动匹配银行对账单和之前的支票交易记录。"
@@ -956,13 +956,13 @@ msgstr "<strong>目标凭证：</strong>"
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "<strong>Test the following three scenarios in order to assist you in "
-"familiarizing yourself with Odoo:</strong>"
+"familiarizing yourself with Gerp:</strong>"
 msgstr "<strong>为了能让你尽快的熟悉系统，请测试以下三种场景</strong>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"<strong>There are three different levels of access rights in Odoo:</strong>"
+"<strong>There are three different levels of access rights in Gerp:</strong>"
 msgstr "<strong>系统中有三种不同的登陆权限：</strong>"
 
 #. module: account
@@ -1079,7 +1079,7 @@ msgstr "客户和供应商的付款条款列表。"
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"A product in Odoo is something you sell or buy \n"
+"A product in Gerp is something you sell or buy \n"
 "                        whether or not it is goods, consumables, or services.\n"
 "                        Choose how you want to create your products:"
 msgstr "系统中的产品是用来买卖的货物，无论是否是实物，消耗品或服务。根据需要选择创建产品："
@@ -1684,8 +1684,8 @@ msgstr "合作伙伴账龄表"
 #: model:ir.ui.view,arch_db:account.account_aged_balance_view
 msgid ""
 "Aged Partner Balance is a more detailed report of your receivables by "
-"intervals. Odoo calculates a table of credit balance by start Date. So if "
-"you request an interval of 30 days Odoo generates an analysis of creditors "
+"intervals. Gerp calculates a table of credit balance by start Date. So if "
+"you request an interval of 30 days Gerp generates an analysis of creditors "
 "for the past month, past two months, and so on."
 msgstr ""
 "合作伙伴账龄表是按区间对应付款进行分析的更详细的报表。由起始日期计算贷方余额。所以，如果你要求以30天为间隔，将对过去一月，过去两月等，生成债权人分析。"
@@ -3845,9 +3845,9 @@ msgstr "公司开户凭证的过户日。"
 #. module: account
 #: model:ir.model.fields,help:account.field_account_financial_year_op_opening_date
 msgid ""
-"Date from which the accounting is managed in Odoo. It is the date of the "
+"Date from which the accounting is managed in Gerp. It is the date of the "
 "opening entry."
-msgstr "会计在Odoo中管理的日期。这是开户凭证的日期。"
+msgstr "会计在Gerp中管理的日期。这是开户凭证的日期。"
 
 #. module: account
 #. openerp-web
@@ -4408,7 +4408,7 @@ msgstr "期末现金"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
-msgid "Enjoy your Odoo experience,"
+msgid "Enjoy your Gerp experience,"
 msgstr "好好体验系统吧"
 
 #. module: account
@@ -4741,7 +4741,7 @@ msgstr "输入一个从0-100的百分率"
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"For the Odoo Team,<br/>\n"
+"For the Gerp Team,<br/>\n"
 "                            Fabien Pinckaers, Founder"
 msgstr ""
 "我们的团队<br/>\n"
@@ -5196,14 +5196,14 @@ msgstr ""
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"If you want to be able to send customer statements from Odoo, you must:"
+"If you want to be able to send customer statements from Gerp, you must:"
 msgstr "如果你需要从系统发送客户对账单，你必须"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "If you want to be able to send your customers their statements \n"
-"                        from Odoo, you first need to record all outstanding transactions \n"
+"                        from Gerp, you first need to record all outstanding transactions \n"
 "                        in the payable and receivable accounts. These would be invoices \n"
 "                        that have not been paid or payments that have not been reconciled."
 msgstr ""
@@ -5297,7 +5297,7 @@ msgstr "用支持的文件格式导入报表（QIF, OFX, CODA 或者 CSV 格式�
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
-msgid "In Odoo,"
+msgid "In Gerp,"
 msgstr "在系统中"
 
 #. module: account
@@ -5751,7 +5751,7 @@ msgid ""
 "It's common practice to change your accounting software \n"
 "                            at the end of a fiscal year. This allows you to have less \n"
 "                            data to import and balances to set. If you plan to do so, \n"
-"                            we recommend you start using Odoo for invoicing and payments \n"
+"                            we recommend you start using Gerp for invoicing and payments \n"
 "                            now, and then move all other accounting transactions at a later time."
 msgstr ""
 "在会计年度的结尾变更会计软件是一种很常见实践。这让您有更少的数据导入和平衡设置。如果你打算这么做，我们建议你开始使用开票和付款，然后将在稍后的时间做所有其他会计事务。"
@@ -6471,9 +6471,9 @@ msgstr "手动核销"
 #. module: account
 #: model:ir.model.fields,help:account.field_account_journal_inbound_payment_method_ids
 msgid ""
-"Manual: Get paid by cash, check or any other method outside of Odoo.\n"
+"Manual: Get paid by cash, check or any other method outside of Gerp.\n"
 "Electronic: Get paid automatically through a payment acquirer by requesting a transaction on a card saved by the customer when buying or subscribing online (payment token).\n"
-"Batch Deposit: Encash several customer checks at once by generating a batch deposit to submit to your bank. When encoding the bank statement in Odoo,you are suggested to reconcile the transaction with the batch deposit. Enable this option from the settings."
+"Batch Deposit: Encash several customer checks at once by generating a batch deposit to submit to your bank. When encoding the bank statement in Gerp,you are suggested to reconcile the transaction with the batch deposit. Enable this option from the settings."
 msgstr ""
 "手动：现金支付或使用系统外的方式支付。\n"
 "电汇：当客户购买或在线订阅（付款令牌）时，通过保存的卡自动由支付服务商支付交易。\n"
@@ -6484,23 +6484,23 @@ msgstr ""
 #: model:ir.model.fields,help:account.field_account_payment_payment_method_id
 #: model:ir.model.fields,help:account.field_account_register_payments_payment_method_id
 msgid ""
-"Manual: Get paid by cash, check or any other method outside of Odoo.\n"
+"Manual: Get paid by cash, check or any other method outside of Gerp.\n"
 "Electronic: Get paid automatically through a payment acquirer by requesting a transaction on a card saved by the customer when buying or subscribing online (payment token).\n"
-"Check: Pay bill by check and print it from Odoo.\n"
-"Batch Deposit: Encash several customer checks at once by generating a batch deposit to submit to your bank. When encoding the bank statement in Odoo, you are suggested to reconcile the transaction with the batch deposit.To enable batch deposit,module account_batch_deposit must be installed.\n"
+"Check: Pay bill by check and print it from Gerp.\n"
+"Batch Deposit: Encash several customer checks at once by generating a batch deposit to submit to your bank. When encoding the bank statement in Gerp, you are suggested to reconcile the transaction with the batch deposit.To enable batch deposit,module account_batch_deposit must be installed.\n"
 "SEPA Credit Transfer: Pay bill from a SEPA Credit Transfer file you submit to your bank. To enable sepa credit transfer, module account_sepa must be installed "
 msgstr ""
 "手册:用现金、支票或其他方法支付。\n"
 "电子:当购买或在线签署（支付令牌）时，通过请求在客户保存的卡片上的请求交易，自动支付。\n"
 "支票:用支票付款，并把它打印出来。\n"
-"批量存款:通过生成一批存入银行的定期存款，立即兑现几个客户的支票。Odoo会要求将交易与批次存款进行核销。从设置中启用此选项。要启用批存储，必须安装模块account_batch_deposit。\n"
+"批量存款:通过生成一批存入银行的定期存款，立即兑现几个客户的支票。Gerp会要求将交易与批次存款进行核销。从设置中启用此选项。要启用批存储，必须安装模块account_batch_deposit。\n"
 "SEPA信用转账:从你提交给银行的SEPA信用转账支付账单。要启用sepa，必须安装模块account_sepa"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_journal_outbound_payment_method_ids
 msgid ""
-"Manual:Pay bill by cash or any other method outside of Odoo.\n"
-"Check:Pay bill by check and print it from Odoo.\n"
+"Manual:Pay bill by cash or any other method outside of Gerp.\n"
+"Check:Pay bill by check and print it from Gerp.\n"
 "SEPA Credit Transfer: Pay bill from a SEPA Credit Transfer file you submit to your bank. Enable this option from the settings."
 msgstr ""
 "手动：现金支付或使用系统外的方式支付。\n"
@@ -6994,27 +6994,27 @@ msgstr "十月"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
-msgid "Odoo Accounting has many free extra-features:"
+msgid "Gerp Accounting has many free extra-features:"
 msgstr "财务有很多额外功能："
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_bank_statement_line
 msgid ""
-"Odoo allows you to reconcile a statement line directly with\n"
+"Gerp allows you to reconcile a statement line directly with\n"
 "                the related sale or puchase invoice(s)."
 msgstr "能让你直接对相应的销售或者采购发票核销对账单明细行"
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_bank_statement_tree
 msgid ""
-"Odoo allows you to reconcile a statement line directly with\n"
+"Gerp allows you to reconcile a statement line directly with\n"
 "                the related sale or puchase invoices."
 msgstr "允许核销和销售或者采购发票相关的对账单行"
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_move_journal_line
 msgid ""
-"Odoo automatically creates one journal entry per accounting\n"
+"Gerp automatically creates one journal entry per accounting\n"
 "                document: invoice, refund, vendor payment, bank statements,\n"
 "                etc. So, you should record journal entries manually only/mainly\n"
 "                for miscellaneous operations."
@@ -7023,21 +7023,21 @@ msgstr "会自动的根据日记账分录：发票，退款，供应商付款，
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"Odoo can manage multiple companies, but we suggest to setup everything for "
+"Gerp can manage multiple companies, but we suggest to setup everything for "
 "your first company before configuring the other ones."
 msgstr "可以管理多公司，但是我们建议在配置别的公司之前先配置第一个公司"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"Odoo has already preconfigured a few taxes according to your "
+"Gerp has already preconfigured a few taxes according to your "
 "country.<br/>Simply review them and check if you need more."
 msgstr "已经预先设置了一些你所在国家的税，<br/>简单的查看一下是否还需要用到他们"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"Odoo should do most of the reconciliation work automatically, so you'll only"
+"Gerp should do most of the reconciliation work automatically, so you'll only"
 " need to review a few of them when a <strong>'Reconcile Items'</strong> "
 "button appears on your Vendor Bills dash."
 msgstr "能自动的操作大部分的核销，所以’核销项目‘按钮显示在你你的客户对账单表上时，你只需查看他们中的一小部分。"
@@ -7045,7 +7045,7 @@ msgstr "能自动的操作大部分的核销，所以’核销项目‘按钮显
 #. module: account
 #: model:ir.actions.act_window,help:account.action_invoice_tree1
 msgid ""
-"Odoo's electronic invoicing allows to ease and fasten the\n"
+"Gerp's electronic invoicing allows to ease and fasten the\n"
 "                collection of customer payments. Your customer receives the\n"
 "                invoice by email and he can pay online and/or import it\n"
 "                in his own system."
@@ -8283,8 +8283,8 @@ msgstr "登记多张发票的付款"
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "Registering outstanding invoices and payments can be a huge undertaking, \n"
-"                        but you can start using Odoo without it by:"
-msgstr "登记未清的发票和付款是个很大的工作量, 但你可以这样使用Odoo:"
+"                        but you can start using Gerp without it by:"
+msgstr "登记未清的发票和付款是个很大的工作量, 但你可以这样使用Gerp:"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
@@ -10069,9 +10069,9 @@ msgstr "当第三方在你的数据库中不存在的时候（或者找不到）
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"This guide will help you get started with Odoo Accounting.\n"
+"This guide will help you get started with Gerp Accounting.\n"
 "                        Once you're done, you'll benefit from:"
-msgstr "这条向导将会帮你开启Odoo的会计，一旦你完成，你将会获益于："
+msgstr "这条向导将会帮你开启Gerp的会计，一旦你完成，你将会获益于："
 
 #. module: account
 #: model:ir.actions.act_window,help:account.open_account_journal_dashboard_kanban
@@ -10233,7 +10233,7 @@ msgstr "待付款"
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"To manage the tax applied when invoicing a Company, Odoo uses the concept of"
+"To manage the tax applied when invoicing a Company, Gerp uses the concept of"
 " Fiscal Position: they serve to automatically set the right tax and/or "
 "account according to the customer country and state."
 msgstr "当给公司开发票用到税的时候，系统用到了“替换规则”这个概念：能够根据客户所在国家和所在地区自动的设置正确的税金和科目"
@@ -10893,7 +10893,7 @@ msgstr "警告"
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "We can handle the whole import process\n"
-"                                        for you: simply send your Odoo project\n"
+"                                        for you: simply send your Gerp project\n"
 "                                        manager a CSV file containing all your\n"
 "                                        data."
 msgstr ""
@@ -10904,10 +10904,10 @@ msgstr ""
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "We can handle the whole import process\n"
-"                                        for you: simply send your Odoo project\n"
+"                                        for you: simply send your Gerp project\n"
 "                                        manager a CSV file containing all your\n"
 "                                        products."
-msgstr "我们负责所有的导入流程：给你的Odoo的项目经理一份包含你所有数据的CSV文档."
+msgstr "我们负责所有的导入流程：给你的Gerp的项目经理一份包含你所有数据的CSV文档."
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner

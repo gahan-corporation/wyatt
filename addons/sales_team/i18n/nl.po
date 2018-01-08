@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * sales_team
 # 
@@ -11,7 +11,7 @@
 # Cas Vissers <casvissers@brahoo.nl>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
@@ -379,11 +379,11 @@ msgstr "De kleur van het kanaal"
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team_reply_to
 msgid ""
-"The email address put in the 'Reply-To' of all emails sent by Odoo about "
+"The email address put in the 'Reply-To' of all emails sent by Gerp about "
 "cases in this sales channel"
 msgstr ""
 "Het e-mail adres wat in het 'antwoord-aan' veld wordt gezet van alle e-mails"
-" die door Odoo worden verstuurt over werkzaamheden van het kanaal"
+" die door Gerp worden verstuurt over werkzaamheden van het kanaal"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team_dashboard_graph_model

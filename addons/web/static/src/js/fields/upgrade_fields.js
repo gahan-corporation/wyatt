@@ -83,7 +83,7 @@ var AbstractFieldUpgrade = {
             $content: $('<div>', {
                 html: message,
             }),
-            title: _t("Odoo Enterprise"),
+            title: _t("Gerp Enterprise"),
         }).open();
     },
     /**

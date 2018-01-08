@@ -575,7 +575,7 @@ var LineRenderer = Widget.extend(FieldManagerMixin, {
     },
     /**
      * @private
-     * @param {OdooEvent} event
+     * @param {GerpEvent} event
      */
     _onFieldChanged: function (event) {
         event.stopPropagation();

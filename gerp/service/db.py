@@ -350,7 +350,7 @@ def list_dbs(force=False):
         raise gerp.exceptions.AccessDenied()
 
     if not gerp.tools.config['dbfilter'] and gerp.tools.config['db_name']:
-        # In case --db-filter is not provided and --database is passed, Odoo will not
+        # In case --db-filter is not provided and --database is passed, Gerp will not
         # fetch the list of databases available on the postgres server and instead will
         # use the value of --database as comma seperated list of exposed databases.
         res = sorted(db.strip() for db in gerp.tools.config['db_name'].split(','))
@@ -380,7 +380,7 @@ def list_dbs(force=False):
     return res
 
 def list_db_incompatible(databases):
-    """"Check a list of databases if they are compatible with this version of Odoo
+    """"Check a list of databases if they are compatible with this version of Gerp
 
         :param databases: A list of existing Postgresql databases
         :return: A list of databases that are incompatible

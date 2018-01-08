@@ -1,6 +1,6 @@
 USA, 2015-02-17
 
-EUGE Consulting agrees to the terms of the Odoo Corporate Contributor License
+EUGE Consulting agrees to the terms of the Gerp Corporate Contributor License
 Agreement v1.0.
 
 I declare that I am authorized and able to make this agreement and sign this

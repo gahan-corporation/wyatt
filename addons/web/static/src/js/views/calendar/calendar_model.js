@@ -132,7 +132,7 @@ return AbstractModel.extend({
         return true;
     },
     /**
-     * @param {OdooEvent} event
+     * @param {GerpEvent} event
      */
     createRecord: function (event) {
         var data = this.calendarEventToRecord(event.data.data);

@@ -166,7 +166,7 @@ def is_multilang_url(local_url, langs=None):
         path = url[0]
         query_string = url[1] if len(url) > 1 else None
         router = request.httprequest.app.get_db_router(request.db).bind('')
-        # Force to check method to POST. Odoo uses methods : ['POST'] and ['GET', 'POST']
+        # Force to check method to POST. Gerp uses methods : ['POST'] and ['GET', 'POST']
         func = router.match(path, method='POST', query_args=query_string)[0]
         return (func.routing.get('website', False) and
                 func.routing.get('multilang', func.routing['type'] == 'http'))

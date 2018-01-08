@@ -1,6 +1,6 @@
 India, U.A.E, Singapore, 2015-02-10
 
-Tech Receptives, Tech-Receptives Solutions Pvt. Ltd, Tech Receptives IT Solutions FZC and Tech Receptives Asia Pacific Pte Ltd agrees to the terms of the Odoo Corporate 
+Tech Receptives, Tech-Receptives Solutions Pvt. Ltd, Tech Receptives IT Solutions FZC and Tech Receptives Asia Pacific Pte Ltd agrees to the terms of the Gerp Corporate 
 Contributor License Agreement v1.0.
 
 I declare that I am authorized and able to make this agreement and sign this 

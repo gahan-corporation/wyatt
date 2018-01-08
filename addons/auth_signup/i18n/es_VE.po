@@ -1,11 +1,11 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * auth_signup
 #
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: Gerp 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-18 14:07+0000\n"
 "PO-Revision-Date: 2016-02-29 18:49+0000\n"
@@ -38,7 +38,7 @@ msgid ""
 "<div style=\"padding:0px;width:600px;margin:auto;background: #FFFFFF repeat "
 "top /100%;color:#777777\">\n"
 "    <p>Dear ${object.name},</p>\n"
-"    <p>A password reset was requested for the Odoo account linked to this "
+"    <p>A password reset was requested for the Gerp account linked to this "
 "email.</p>\n"
 "    <p>You may change your password by following this link which will remain "
 "valid during 24 hours:</p>\n"
@@ -58,7 +58,7 @@ msgid ""
 "    ${user.signature | safe}\n"
 "    <p style=\"font-size: 11px; margin-top: 10px;\">\n"
 "        <strong>Sent by ${user.company_id.name} using <a href=\"www.gerp.com"
-"\" style=\"text-decoration:none; color: #a24689;\">Odoo</a></strong>\n"
+"\" style=\"text-decoration:none; color: #a24689;\">Gerp</a></strong>\n"
 "    </p>\n"
 "</div>"
 msgstr ""
@@ -85,7 +85,7 @@ msgid ""
 "<p>Dear ${object.name},</p>\n"
 "    <p>\n"
 "        You have been invited to connect to \"${object.company_id.name}\" in "
-"order to get access to your documents in Odoo.\n"
+"order to get access to your documents in Gerp.\n"
 "    </p>\n"
 "    <p>\n"
 "        To accept the invitation, click on the following link:\n"
@@ -106,14 +106,14 @@ msgid ""
 "    ${user.signature | safe}\n"
 "    <p style=\"font-size: 11px; margin-top: 10px;\">\n"
 "        <strong>Sent by ${user.company_id.name} using <a href=\"www.gerp.com"
-"\" style=\"text-decoration:none; color: #a24689;\">Odoo</a></strong>\n"
+"\" style=\"text-decoration:none; color: #a24689;\">Gerp</a></strong>\n"
 "    </p>\n"
 "</div>"
 msgstr ""
 
 #. module: auth_signup
 #: model:mail.template,subject:auth_signup.set_password_email
-msgid "${object.company_id.name} invitation to connect on Odoo"
+msgid "${object.company_id.name} invitation to connect on Gerp"
 msgstr ""
 
 #. module: auth_signup

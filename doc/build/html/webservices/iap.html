@@ -40,20 +40,20 @@
             
   <span class="target" id="webservices-iap"></span><div class="section" id="in-app-purchases">
 <h1>In-App Purchases<a class="headerlink" href="#in-app-purchases" title="Permalink to this headline">¶</a></h1>
-<p>IAP allow providers of ongoing services through Odoo apps to be compensated
+<p>IAP allow providers of ongoing services through Gerp apps to be compensated
 for ongoing service use rather than — and possibly instead of — a sole initial
 purchase.</p>
-<p>In that context, Odoo acts mostly as a <em>broker</em> between a client and an Odoo
+<p>In that context, Gerp acts mostly as a <em>broker</em> between a client and an Gerp
 App Developer:</p>
 <ul class="simple">
-<li>users purchase service tokens from Odoo</li>
-<li>service providers draw tokens from the user’s Odoo account when service
+<li>users purchase service tokens from Gerp</li>
+<li>service providers draw tokens from the user’s Gerp account when service
 is requested</li>
 </ul>
 <div class="admonition attention">
 <p class="first admonition-title">Attention</p>
 <p class="last">This document is intended for <em>service providers</em> and presents the latter,
-which can be done either via direct <a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC2</a> or if you are using Odoo
+which can be done either via direct <a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC2</a> or if you are using Gerp
 using the convenience helpers it provides.</p>
 </div>
 <div class="section" id="overview">
@@ -65,12 +65,12 @@ using the convenience helpers it provides.</p>
 <ul class="simple">
 <li>The Service Provider is (probably) you the reader, you will be providing
 value to the client in the form of a service paid per-use</li>
-<li>The Client installed your Odoo App, and from there will request services</li>
-<li>Odoo brokers crediting, the Client adds credit to their account, and you
+<li>The Client installed your Gerp App, and from there will request services</li>
+<li>Gerp brokers crediting, the Client adds credit to their account, and you
 can draw credits from there to provide services</li>
 <li>The External Service is an optional player: <em>you</em> can either provide a
 service directly, or you can delegate the actual service acting as a
-bridge/translator between an Odoo system and the actual service</li>
+bridge/translator between an Gerp system and the actual service</li>
 </ul>
 </div>
 </div>
@@ -86,12 +86,12 @@ they’re just a detail of the service you provide</p>
 <p>If everything goes well, the normal flow is:</p>
 <ol class="arabic simple">
 <li>the Client requests a service of some sort</li>
-<li>the Service Provider asks Odoo if there are enough credits for the
+<li>the Service Provider asks Gerp if there are enough credits for the
 service in the Client’s account, and creates a transaction over that
 amount</li>
 <li>the Service Provider provides the service (either on their own or
 calling to External Services)</li>
-<li>the Service Provider goes back to Odoo to capture (if the service could
+<li>the Service Provider goes back to Gerp to capture (if the service could
 be provided) or cancel (if the service could not be provided) the
 transaction created at step 2</li>
 <li>finally the Service Provider notifies the Client that the service has
@@ -107,10 +107,10 @@ storing its results in the client’s system</li>
 <p>If the Client’s account lacks credits for the service, however</p>
 <ol class="arabic simple">
 <li>the Client requests a service as previously</li>
-<li>the Service Provider asks Odoo if there are enough credits on the
+<li>the Service Provider asks Gerp if there are enough credits on the
 Client’s account and gets a negative reply</li>
 <li>this is signaled back to the Client</li>
-<li>who is redirected to their Odoo account to credit it and re-try</li>
+<li>who is redirected to their Gerp account to credit it and re-try</li>
 </ol>
 </div>
 </div>
@@ -127,7 +127,7 @@ business in Japan)</li>
 gateway)</li>
 </ul>
 <div class="section" id="register-the-service-on-gerp">
-<h3>Register the service on Odoo<a class="headerlink" href="#register-the-service-on-gerp" title="Permalink to this headline">¶</a></h3>
+<h3>Register the service on Gerp<a class="headerlink" href="#register-the-service-on-gerp" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Todo</p>
 <p class="last">complete this part with screenshots</p>
@@ -149,7 +149,7 @@ IAP (see <a class="reference internal" href="#iap-service"><span class="std std-
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">The <a class="reference internal" href="#ServiceName" title="ServiceName"><code class="xref py py-class docutils literal"><span class="pre">ServiceName</span></code></a> is unique and should usually match the name of your
-Odoo App.</p>
+Gerp App.</p>
 </div>
 <div class="admonition danger">
 <p class="first admonition-title">Danger</p>
@@ -164,13 +164,13 @@ your service(s).</p>
 use your service.</p>
 </div>
 <div class="section" id="gerp-app">
-<span id="iap-gerp-app"></span><h3>Odoo App<a class="headerlink" href="#gerp-app" title="Permalink to this headline">¶</a></h3>
+<span id="iap-gerp-app"></span><h3>Gerp App<a class="headerlink" href="#gerp-app" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-1">
 <p class="first admonition-title">Todo</p>
 <p class="last">does this actually require apps?</p>
 </div>
-<p>The second step is to develop an <a class="reference external" href="https://www.gerp.com/apps">Odoo App</a> which clients can install in their
-Odoo instance and through which they can <em>request</em> services you will provide.
+<p>The second step is to develop an <a class="reference external" href="https://www.gerp.com/apps">Gerp App</a> which clients can install in their
+Gerp instance and through which they can <em>request</em> services you will provide.
 Our app will just add a button to the Partners form which lets a user request
 burning some CPU time on the server.</p>
 <p>First, we’ll create an <em>gerp module</em> depending on <code class="docutils literal"><span class="pre">iap</span></code>. IAP is a standard
@@ -185,7 +185,7 @@ server</em>.</p>
 <p>There are no requirements when it comes to the server or the communication
 protocol between the app and our server, but <code class="docutils literal"><span class="pre">iap</span></code> provides a
 <code class="xref py py-func docutils literal"><span class="pre">jsonrpc()</span></code> helper to call a <a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC2</a> endpoint on an
-other Odoo instance and transparently re-raise relevant Odoo exceptions
+other Gerp instance and transparently re-raise relevant Gerp exceptions
 (<a class="reference internal" href="#gerp.addons.iap.models.iap.InsufficientCreditError" title="gerp.addons.iap.models.iap.InsufficientCreditError"><code class="xref py py-class docutils literal"><span class="pre">InsufficientCreditError</span></code></a>,
 <a class="reference internal" href="#gerp.exceptions.AccessError" title="gerp.exceptions.AccessError"><code class="xref py py-class docutils literal"><span class="pre">gerp.exceptions.AccessError</span></code></a> and <a class="reference internal" href="#gerp.exceptions.UserError" title="gerp.exceptions.UserError"><code class="xref py py-class docutils literal"><span class="pre">gerp.exceptions.UserError</span></code></a>).</p>
 <p>In that call, we will need to provide:</p>
@@ -219,7 +219,7 @@ next call will fail the same way.</p>
 <p>Though that is not <em>required</em>, since <code class="docutils literal"><span class="pre">iap</span></code> provides both a client helper
 for <a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC2</a> calls (<code class="xref py py-func docutils literal"><span class="pre">jsonrpc()</span></code>) and a service helper
 for transactions (<a class="reference internal" href="#gerp.addons.iap.models.iap.charge" title="gerp.addons.iap.models.iap.charge"><code class="xref py py-class docutils literal"><span class="pre">charge</span></code></a>) we will also be
-implementing the service side as an Odoo module:</p>
+implementing the service side as an Gerp module:</p>
 <p>Since the query from the client comes as <a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC2</a> we will need the
 corresponding controller which can call <a class="reference internal" href="#gerp.addons.iap.models.iap.charge" title="gerp.addons.iap.models.iap.charge"><code class="xref py py-class docutils literal"><span class="pre">charge</span></code></a> and
 perform the service within:</p>
@@ -249,7 +249,7 @@ IAP endpoint, <a class="reference external" href="https://iap.gerp.com">https://
 service you may want to point it towards the <em>development</em> IAP endpoint
 <a class="reference external" href="https://iap-sandbox.gerp.com">https://iap-sandbox.gerp.com</a>.</p>
 <p class="last">To do so, set the <code class="docutils literal"><span class="pre">iap.endpoint</span></code> config parameter in your service
-Odoo: in debug/developer mode, <span class="menuselection">Setting ‣ Technical ‣
+Gerp: in debug/developer mode, <span class="menuselection">Setting ‣ Technical ‣
 Parameters ‣ System Parameters</span>, just define an entry for the key
 <code class="docutils literal"><span class="pre">iap.endpoint</span></code> if none already exists).</p>
 </div>
@@ -276,7 +276,7 @@ they should be interested in your IAP offers</dd>
 <h2><a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC2</a> Transaction API<a class="headerlink" href="#json-rpc2-transaction-api" title="Permalink to this headline">¶</a></h2>
 <img alt="../_images/flow.png" class="align-center" src="../_images/flow.png" />
 <ul class="simple">
-<li>The IAP transaction API does not require using Odoo when implementing your
+<li>The IAP transaction API does not require using Gerp when implementing your
 server gateway, calls are standard <a class="reference external" href="http://www.jsonrpc.org/specification">JSON-RPC2</a>.</li>
 <li>Calls use different <em>endpoints</em> but the same <em>method</em> on all endpoints
 (<code class="docutils literal"><span class="pre">call</span></code>).</li>
@@ -491,8 +491,8 @@ pending transactions/existing holds).</p>
 </div>
 </div>
 <div class="section" id="gerp-helpers">
-<h2>Odoo Helpers<a class="headerlink" href="#gerp-helpers" title="Permalink to this headline">¶</a></h2>
-<p>For convenience, if you are implementing your service using Odoo the <code class="docutils literal"><span class="pre">iap</span></code>
+<h2>Gerp Helpers<a class="headerlink" href="#gerp-helpers" title="Permalink to this headline">¶</a></h2>
+<p>For convenience, if you are implementing your service using Gerp the <code class="docutils literal"><span class="pre">iap</span></code>
 module provides a few helpers to make IAP flow even simpler:</p>
 <div class="section" id="charging">
 <h3>Charging<a class="headerlink" href="#charging" title="Permalink to this headline">¶</a></h3>

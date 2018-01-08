@@ -43,7 +43,7 @@
 <div class="section" id="recordsets">
 <h2>Recordsets<a class="headerlink" href="#recordsets" title="Permalink to this headline">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 8.0: </span>This page documents the New API added in Odoo 8.0 which should be the
+<p><span class="versionmodified">New in version 8.0: </span>This page documents the New API added in Gerp 8.0 which should be the
 primary development API going forward. It also provides information about
 porting from or bridging with the “old API” of versions 7 and earlier, but
 does not explicitly document that API. See the old documentation for that.</p>
@@ -119,14 +119,14 @@ multiple fields at the same time or setting fields on multiple records
 </div>
 <div class="section" id="record-cache-and-prefetching">
 <h3>Record cache and prefetching<a class="headerlink" href="#record-cache-and-prefetching" title="Permalink to this headline">¶</a></h3>
-<p>Odoo maintains a cache for the fields of the records, so that not every field
+<p>Gerp maintains a cache for the fields of the records, so that not every field
 access issues a database request, which would be terrible for performance. The
 following example queries the database only for the first statement:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">record</span><span class="o">.</span><span class="n">name</span>             <span class="c1"># first access reads value from database</span>
 <span class="n">record</span><span class="o">.</span><span class="n">name</span>             <span class="c1"># second access gets value from cache</span>
 </pre></div>
 </div>
-<p>To avoid reading one field on one record at a time, Odoo <em>prefetches</em> records
+<p>To avoid reading one field on one record at a time, Gerp <em>prefetches</em> records
 and fields following some heuristics to get good performance. Once a field must
 be read on a given record, the ORM actually reads that field on a larger
 recordset, and stores the returned values in cache for later use. The prefetched
@@ -331,7 +331,7 @@ recordset. Does not return anything:</p>
 </dd>
 <dt><code class="xref py py-meth docutils literal"><span class="pre">browse()</span></code></dt>
 <dd><p class="first">Takes a database id or a list of ids and returns a recordset, useful when
-record ids are obtained from outside Odoo (e.g. round-trip through
+record ids are obtained from outside Gerp (e.g. round-trip through
 external system) or <a class="reference internal" href="#reference-orm-oldapi"><span class="std std-ref">when calling methods in the old API</span></a>:</p>
 <div class="last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="bp">self</span><span class="o">.</span><span class="n">browse</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
 <span class="go">res.partner(7, 18, 12)</span>
@@ -550,7 +550,7 @@ SQL, but not <code class="docutils literal"><span class="pre">SELECT</span></cod
 </div>
 <div class="section" id="compatibility-between-new-api-and-old-api">
 <span id="reference-orm-oldapi"></span><h2>Compatibility between new API and old API<a class="headerlink" href="#compatibility-between-new-api-and-old-api" title="Permalink to this headline">¶</a></h2>
-<p>Odoo is currently transitioning from an older (less regular) API, it can be
+<p>Gerp is currently transitioning from an older (less regular) API, it can be
 necessary to manually bridge from one to the other manually:</p>
 <ul class="simple">
 <li>RPC layers (both XML-RPC and JSON-RPC) are expressed in terms of the old
@@ -654,7 +654,7 @@ recordset into a list of ids when called from the old API style:</p>
 </div>
 <div class="section" id="inheritance-and-extension">
 <span id="reference-orm-inheritance"></span><h2>Inheritance and extension<a class="headerlink" href="#inheritance-and-extension" title="Permalink to this headline">¶</a></h2>
-<p>Odoo provides three different mechanisms to extend models in a modular way:</p>
+<p>Gerp provides three different mechanisms to extend models in a modular way:</p>
 <ul class="simple">
 <li>creating a new model from an existing one, adding new information to the
 copy but leaving the original module as-is</li>
@@ -666,7 +666,7 @@ version</li>
 <div class="section" id="classical-inheritance">
 <h3>Classical inheritance<a class="headerlink" href="#classical-inheritance" title="Permalink to this headline">¶</a></h3>
 <p>When using the <code class="xref py py-attr docutils literal"><span class="pre">_inherit</span></code> and
-<code class="xref py py-attr docutils literal"><span class="pre">_name</span></code> attributes together, Odoo creates a new
+<code class="xref py py-attr docutils literal"><span class="pre">_name</span></code> attributes together, Gerp creates a new
 model using the existing one (provided via
 <code class="xref py py-attr docutils literal"><span class="pre">_inherit</span></code>) as a base. The new model gets all the
 fields, methods and meta-information (defaults &amp; al) from its base.</p>
@@ -847,7 +847,7 @@ string), this makes them overridable (removes the need for an intermediate
 “trampoline” function)</p>
 </li>
 <li><p class="first">double check that all fields and methods have different names, there is no
-warning in case of collision (because Python handles it before Odoo sees
+warning in case of collision (because Python handles it before Gerp sees
 anything)</p>
 </li>
 <li><p class="first">the normal new-api import is <code class="docutils literal"><span class="pre">from</span> <span class="pre">gerp</span> <span class="pre">import</span> <span class="pre">fields,</span> <span class="pre">models</span></code>. If

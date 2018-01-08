@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 import base64
 import datetime
@@ -42,7 +42,7 @@ class MailThread(models.AbstractModel):
         communication history. ``mail.thread`` also manages followers of
         inheriting classes. All features and expected behavior are managed
         by mail.thread. Widgets has been designed for the 7.0 and following
-        versions of Odoo.
+        versions of Gerp.
 
         Inheriting classes are not required to implement any method, as the
         default implementation will work for any model. However it is common
@@ -792,8 +792,8 @@ class MailThread(models.AbstractModel):
         self.ensure_one()
         database_uuid = self.env['ir.config_parameter'].sudo().get_param('database.uuid')
         return {'headers': repr({
-            'X-Odoo-Objects': "%s-%s" % (self._name, self.id),
-            'X-Odoo-db-uuid': database_uuid
+            'X-Gerp-Objects': "%s-%s" % (self._name, self.id),
+            'X-Gerp-db-uuid': database_uuid
         })}
 
     @api.multi

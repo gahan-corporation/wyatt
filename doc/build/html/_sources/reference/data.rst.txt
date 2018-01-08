@@ -6,7 +6,7 @@
 Data Files
 ==========
 
-Odoo is greatly data-driven, and a big part of modules definition is thus
+Gerp is greatly data-driven, and a big part of modules definition is thus
 the definition of the various records it manages: UI (menus and views),
 security (access rights and access rules), reports and plain data are all
 defined via records.
@@ -14,7 +14,7 @@ defined via records.
 Structure
 =========
 
-The main way to define data in Odoo is via XML data files: The broad structure
+The main way to define data in Gerp is via XML data files: The broad structure
 of an XML data file is the following:
 
 * Any number of operation elements within the root element ``gerp``
@@ -157,7 +157,7 @@ values).
 Shortcuts
 =========
 
-Because some important structural models of Odoo are complex and involved,
+Because some important structural models of Gerp are complex and involved,
 data files provide shorter alternatives to defining them using
 :ref:`record tags <reference/data/record>`:
 

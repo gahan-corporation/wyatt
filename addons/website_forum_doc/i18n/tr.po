@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_forum_doc
 # 
@@ -12,7 +12,7 @@
 # Saban Yildiz <sabany@projetgrup.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
@@ -175,13 +175,13 @@ msgstr "Hata! Tekrarlayan kategoriler oluşturamazsınız."
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "Explain how to configure Odoo"
-msgstr "Odoo konfigürasyonunun nasıl yapılacağını açıklayın"
+msgid "Explain how to configure Gerp"
+msgstr "Gerp konfigürasyonunun nasıl yapılacağını açıklayın"
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "Explain how to implement it in Odoo"
-msgstr "Odoo konfigürasyonunun nasıl yapılacağını açıklayın"
+msgid "Explain how to implement it in Gerp"
+msgstr "Gerp konfigürasyonunun nasıl yapılacağını açıklayın"
 
 #. module: website_forum_doc
 #: model:ir.model.fields,field_description:website_forum_doc.field_forum_documentation_toc_forum_id
@@ -392,8 +392,8 @@ msgstr "Aşama Adı"
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "The answer is understandable for someone who does not know Odoo"
-msgstr "Cevap Odoo'yu tanımayan birisi için anlaşılabilir"
+msgid "The answer is understandable for someone who does not know Gerp"
+msgstr "Cevap Gerp'yu tanımayan birisi için anlaşılabilir"
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question

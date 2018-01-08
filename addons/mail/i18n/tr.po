@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * mail
 # 
@@ -20,7 +20,7 @@
 # Fırat Kaya <firat.kaya@mechsoft.com.tr>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 08:59+0000\n"
 "PO-Revision-Date: 2017-10-24 08:59+0000\n"
@@ -118,7 +118,7 @@ msgid ""
 "    </a>\n"
 "    % endif\n"
 "    using\n"
-"    <a target=\"_blank\" href=\"https://www.gerp.com\" style=\"text-decoration:none; color: #875A7B;\">Odoo</a>.\n"
+"    <a target=\"_blank\" href=\"https://www.gerp.com\" style=\"text-decoration:none; color: #875A7B;\">Gerp</a>.\n"
 "</p>\n"
 "</div>"
 msgstr ""
@@ -2098,7 +2098,7 @@ msgstr ""
 
 #. module: mail
 #: selection:res.users,notification_type:0
-msgid "Handle in Odoo"
+msgid "Handle in Gerp"
 msgstr ""
 
 #. module: mail
@@ -2361,10 +2361,10 @@ msgstr ""
 #. module: mail
 #: model:ir.model.fields,help:mail.field_res_config_settings_alias_domain
 msgid ""
-"If you have setup a catch-all email domain redirected to the Odoo server, "
+"If you have setup a catch-all email domain redirected to the Gerp server, "
 "enter the domain name here."
 msgstr ""
-"Eğer alan adınıza gelen tüm emailleri catch-all tekniği ile Odoo'ya "
+"Eğer alan adınıza gelen tüm emailleri catch-all tekniği ile Gerp'ya "
 "yönlendirmek istiyorsanız buraya bir alan adı girin."
 
 #. module: mail
@@ -3704,30 +3704,30 @@ msgstr "Okunmamış mesaj sayısı"
 
 #. module: mail
 #: model:ir.ui.view,arch_db:mail.message_user_assigned
-msgid "Odoo"
-msgstr "Odoo"
+msgid "Gerp"
+msgstr "Gerp"
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/js/client_action.js:895
 #, python-format
 msgid ""
-"Odoo has now the permission to send you native notifications on this device."
+"Gerp has now the permission to send you native notifications on this device."
 msgstr ""
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/xml/client_action.xml:11
 #, python-format
-msgid "Odoo needs your permission to"
-msgstr "Odoo için izniniz gerekiyor"
+msgid "Gerp needs your permission to"
+msgstr "Gerp için izniniz gerekiyor"
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/js/client_action.js:892
 #, python-format
 msgid ""
-"Odoo will not have the permission to send native notifications on this "
+"Gerp will not have the permission to send native notifications on this "
 "device."
 msgstr ""
 
@@ -4125,7 +4125,7 @@ msgstr "Dosya yüklenirken bekleyin, lütfen."
 msgid ""
 "Policy on how to handle Chatter notifications:\n"
 "- Emails: notifications are sent to your email\n"
-"- Odoo: notifications appear in your Odoo Inbox"
+"- Gerp: notifications appear in your Gerp Inbox"
 msgstr ""
 
 #. module: mail
@@ -4846,11 +4846,11 @@ msgstr ""
 #: model:ir.model.fields,help:mail.field_mail_channel_alias_model_id
 #: model:ir.model.fields,help:mail.field_mail_test_alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming"
+"The model (Gerp Document Kind) to which this alias corresponds. Any incoming"
 " email that does not reply to an existing record will cause the creation of "
 "a new record of this model (e.g. a Project Task)"
 msgstr ""
-"Bu diğer ad için karşılık gelen model (Odoo belge gibi). Varolan kayda yanıt"
+"Bu diğer ad için karşılık gelen model (Gerp belge gibi). Varolan kayda yanıt"
 " değil gelen herhangi bir e-posta-ecek neden bu modelin (örneğin bir proje "
 "görevini) yeni kayıt oluşturma"
 
@@ -5661,7 +5661,7 @@ msgstr "değiştirildi"
 #. module: mail
 #: model:ir.ui.view,arch_db:mail.res_config_settings_view_form
 msgid "mycompany.gerp.com"
-msgstr "mycompany.Odoo.com"
+msgstr "mycompany.Gerp.com"
 
 #. module: mail
 #. openerp-web

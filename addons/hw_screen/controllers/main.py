@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 from gerp import http
 from gerp.tools import config
@@ -135,7 +135,7 @@ class HardwareScreen(web.Home):
             <!DOCTYPE html>
             <html>
                 <head>
-                <title class="origin">Odoo -- Point of Sale</title>
+                <title class="origin">Gerp -- Point of Sale</title>
                 <script type="text/javascript" class="origin" src="http://""" + my_ip_port + """/web/static/lib/jquery/jquery.js" >
                 </script>
                 <script type="text/javascript" class="origin">
@@ -153,7 +153,7 @@ class HardwareScreen(web.Home):
                     <div class="container">
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4">
-                            <h1>Odoo Point of Sale</h1>
+                            <h1>Gerp Point of Sale</h1>
                             <h2>POSBox Client display</h2>
                             <h3>My IPs</h3>
                                 <table id="table_ip" class="table table-condensed">
@@ -165,7 +165,7 @@ class HardwareScreen(web.Home):
                                     """ + display_ifaces + """
                                 </table>
                             <p>The customer cart will be displayed here once a Point of Sale session is started.</p>
-                            <p>Odoo version 11 or above is required.</p>
+                            <p>Gerp version 11 or above is required.</p>
                         </div>
                     </div>
                     </div>

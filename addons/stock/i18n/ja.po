@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * stock
 # 
@@ -15,7 +15,7 @@
 # Tim Siu Lai <tl@roomsfor.hk>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-10 11:34+0000\n"
 "PO-Revision-Date: 2017-10-10 11:34+0000\n"
@@ -103,8 +103,8 @@ msgstr "、会計または購買がインストールされている場合"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "- The Odoo Team"
-msgstr "- The Odoo チーム"
+msgid "- The Gerp Team"
+msgstr "- The Gerp チーム"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.stock_warn_insufficient_qty_form_view
@@ -412,8 +412,8 @@ msgstr "<strong>納入数量</strong>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "<strong>Enjoy your Inventory management with Odoo!</strong>"
-msgstr "<strong>Odooで資産管理を楽しんでね!</strong>"
+msgid "<strong>Enjoy your Inventory management with Gerp!</strong>"
+msgstr "<strong>Gerpで資産管理を楽しんでね!</strong>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
@@ -1013,15 +1013,15 @@ msgstr "シリアル番号"
 #, python-format
 msgid ""
 "By changing this quantity here, you accept the new quantity as complete: "
-"Odoo will not automatically generate a back order."
-msgstr "ここでこの数量を変更すると、新しい数量は完全なものとして受け入れられます: Odooは自動的にバックオーダを生成しません。"
+"Gerp will not automatically generate a back order."
+msgstr "ここでこの数量を変更すると、新しい数量は完全なものとして受け入れられます: Gerpは自動的にバックオーダを生成しません。"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"By default, Odoo measures products by 'units', which are generic and "
+"By default, Gerp measures products by 'units', which are generic and "
 "represent just about anything"
-msgstr "デフォルトでは、Odooは製品を「単位」で測定します。これは一般的なものであり、ただ、何かを表しています"
+msgstr "デフォルトでは、Gerpは製品を「単位」で測定します。これは一般的なものであり、ただ、何かを表しています"
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_move_procure_method
@@ -1836,14 +1836,14 @@ msgstr "品質管理、アフターサービス、サプライヤリターンな
 #: model:ir.actions.act_window,help:stock.action_location_form
 msgid ""
 "Define your locations to reflect your warehouse structure and\n"
-"            organization. Odoo is able to manage physical locations\n"
+"            organization. Gerp is able to manage physical locations\n"
 "            (warehouses, shelves, bin, etc), partner locations (customers,\n"
 "            vendors) and virtual locations which are the counterpart of\n"
 "            the stock operations like the manufacturing orders\n"
 "            consumptions, inventories, etc."
 msgstr ""
 "倉庫の構造と組織を反映するように、ロケーションを定義します。\n"
-" Odooは、製造オーダの消耗品、在庫などの在庫操作の対応する\n"
+" Gerpは、製造オーダの消耗品、在庫などの在庫操作の対応する\n"
 "物理的な場所(倉庫、棚、ビンなど)、パートナーの場所(顧客、仕入先)\n"
 "および仮想の場所を管理することができます。"
 
@@ -2177,14 +2177,14 @@ msgstr "ヨーロッパの顧客"
 #. module: stock
 #: model:ir.actions.act_window,help:stock.action_location_form
 msgid ""
-"Every stock operation in Odoo moves the products from one\n"
+"Every stock operation in Gerp moves the products from one\n"
 "            location to another one.  For instance, if you receive products\n"
-"            from a vendor, Odoo will move products from the Vendor\n"
+"            from a vendor, Gerp will move products from the Vendor\n"
 "            location to the Stock location. Each report can be performed on\n"
 "            physical, partner or virtual locations."
 msgstr ""
-"Odooのすべての在庫操作は、製品をあるロケーションから別のロケーションに移動します。\n"
-" たとえば、ベンダーから製品を受け取った場合、Odooは製品をベンダーのロケーションから在庫のロケーションに移動します。\n"
+"Gerpのすべての在庫操作は、製品をあるロケーションから別のロケーションに移動します。\n"
+" たとえば、ベンダーから製品を受け取った場合、Gerpは製品をベンダーのロケーションから在庫のロケーションに移動します。\n"
 "各レポートは、物理的、パートナーまたは仮想のロケーションにて実行できます。"
 
 #. module: stock
@@ -2273,10 +2273,10 @@ msgstr "固定調達グループ"
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"For the Odoo Team,<br/>\n"
+"For the Gerp Team,<br/>\n"
 "                            Fabien Pinckaers, Founder"
 msgstr ""
-"Odoo チーム,<br/>\n"
+"Gerp チーム,<br/>\n"
 "                            Fabien Pinckaers, Founder"
 
 #. module: stock
@@ -2640,7 +2640,7 @@ msgstr "ルートがグローバルの場合"
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type_show_reserved
 msgid ""
-"If this checkbox is ticked, Odoo will show which products are reserved "
+"If this checkbox is ticked, Gerp will show which products are reserved "
 "(lot/serial number, source location, source package)."
 msgstr ""
 
@@ -2695,12 +2695,12 @@ msgstr ""
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"If you configured automatic procurement, Odoo automatically generates\n"
+"If you configured automatic procurement, Gerp automatically generates\n"
 "                        Procurements Orders. You usually don't need to worry about them, but\n"
 "                        sometimes the system can remain blocked without generating a\n"
 "                        corresponding document, usually due to a configuration problem."
 msgstr ""
-"自動調達を設定した場合、Odooは自動的に調達発注を生成します。 \n"
+"自動調達を設定した場合、Gerpは自動的に調達発注を生成します。 \n"
 "通常、それらについて心配する必要はありませんが、通常は\n"
 "構成上の問題により、対応するドキュメントを生成せずに\n"
 "システムをブロックしたままにすることがあります。"
@@ -2762,12 +2762,12 @@ msgstr "左上のボタンを使用してインポート"
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"In Odoo, <strong>Reordering Rules</strong> are used to replenish your products.\n"
-"                        Odoo will automatically propose a procurement to buy new products if you are\n"
+"In Gerp, <strong>Reordering Rules</strong> are used to replenish your products.\n"
+"                        Gerp will automatically propose a procurement to buy new products if you are\n"
 "                        running out of stock."
 msgstr ""
-"Odooでは、商品を補充するために<strong>並べ替え規則</strong>が使用されます。\n"
-"                         あなたが在庫切れの場合、Odooは自動的に新しい製品を購入するための\n"
+"Gerpでは、商品を補充するために<strong>並べ替え規則</strong>が使用されます。\n"
+"                         あなたが在庫切れの場合、Gerpは自動的に新しい製品を購入するための\n"
 "調達を提案します。"
 
 #. module: stock
@@ -3137,10 +3137,10 @@ msgstr ""
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
 "It is also possible to import your initial inventory from an Excel or CSV file.\n"
-"                        If you want to do that, contact your Odoo project manager."
+"                        If you want to do that, contact your Gerp project manager."
 msgstr ""
 "また、最初の在庫をExcelまたはCSVファイルからインポートすることもできます。\n"
-"                         それをしたい場合は、あなたのOdooプロジェクトマネジャーに連絡してください。"
+"                         それをしたい場合は、あなたのGerpプロジェクトマネジャーに連絡してください。"
 
 #. module: stock
 #: code:addons/stock/models/stock_quant.py:244
@@ -3366,10 +3366,10 @@ msgstr "このロケーションが企業間で共有されている場合は、
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"Like with the sales flow, Odoo inventory management is\n"
+"Like with the sales flow, Gerp inventory management is\n"
 "                        fully integrated with the purchase app."
 msgstr ""
-"販売フローと同様に、Odooの在庫管理は\n"
+"販売フローと同様に、Gerpの在庫管理は\n"
 "                         購入アプリと完全に統合されています。"
 
 #. module: stock
@@ -3700,12 +3700,12 @@ msgstr "その他"
 #. module: stock
 #: model:ir.actions.act_window,help:stock.action_picking_tree
 msgid ""
-"Most operations are prepared automatically by Odoo according\n"
+"Most operations are prepared automatically by Gerp according\n"
 "                to your preconfigured logistics rules, but you can also record\n"
 "                manual stock movements."
 msgstr ""
 "ほとんどの操作は、あらかじめ設定されたロジスティクスルールに従って\n"
-"Odooによって自動的に準備されますが、手動在庫移動も記録できます。"
+"Gerpによって自動的に準備されますが、手動在庫移動も記録できます。"
 
 #. module: stock
 #: model:stock.inventory.line,product_name:stock.stock_inventory_line_5
@@ -3953,42 +3953,42 @@ msgstr "OK"
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"Odoo handles <strong>advanced push/pull routes configuration</strong>, for "
+"Gerp handles <strong>advanced push/pull routes configuration</strong>, for "
 "example:"
-msgstr "Odooは<strong>高度なプッシュ/プルルート設定</strong>を処理します。たとえば:"
+msgstr "Gerpは<strong>高度なプッシュ/プルルート設定</strong>を処理します。たとえば:"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "Odoo has preconfigured <strong>one Warehouse</strong> for you."
-msgstr "Odooでは<strong> 倉庫が一つ</strong>事前に設定されています。"
+msgid "Gerp has preconfigured <strong>one Warehouse</strong> for you."
+msgstr "Gerpでは<strong> 倉庫が一つ</strong>事前に設定されています。"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"Odoo inventory management is fully integrated with sales and\n"
+"Gerp inventory management is fully integrated with sales and\n"
 "                        invoicing process. Everything is automated from the initial\n"
 "                        quotation to the delivery and the final invoice."
 msgstr ""
-"Odoo在庫管理は、販売および請求処理と完全に統合されています。\n"
+"Gerp在庫管理は、販売および請求処理と完全に統合されています。\n"
 " 最初の見積から納品、最終請求書まですべてが自動化されています。"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"Odoo is able to run advanced traceability by using Product Lots and Serial\n"
+"Gerp is able to run advanced traceability by using Product Lots and Serial\n"
 "                        Numbers, usually identified by bar codes stuck on the products."
 msgstr ""
-"Odooは、製品ロットとシリアルナンバーを使用して高度なトレーサビリティを実行することができます。これは通常、製品に付着したバーコードによって識別されているものです。"
+"Gerpは、製品ロットとシリアルナンバーを使用して高度なトレーサビリティを実行することができます。これは通常、製品に付着したバーコードによって識別されているものです。"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"Of course, feel free to add your own. Please note that Odoo is able to "
+"Of course, feel free to add your own. Please note that Gerp is able to "
 "convert units within the same category, for example, liters to gallons in "
 "the volume category"
 msgstr ""
 "もちろん、自分で追加することも自由です。 "
-"Odooは同じカテゴリの単位を変換することができます。たとえば、リットルをボリュームカテゴリのガロンに変換することができます。"
+"Gerpは同じカテゴリの単位を変換することができます。たとえば、リットルをボリュームカテゴリのガロンに変換することができます。"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.product_form_view_procurement_button
@@ -6267,10 +6267,10 @@ msgstr "このフィールドは、梱包元とその移動の名前を記入し
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"This guide helps getting started with Odoo Inventory.\n"
+"This guide helps getting started with Gerp Inventory.\n"
 "                        Once you are done, you will benefit from:"
 msgstr ""
-"このガイドは、Odoo 在庫を使い始めるのに役立ちます。\n"
+"このガイドは、Gerp 在庫を使い始めるのに役立ちます。\n"
 "完了すると、次のメリットがあります。"
 
 #. module: stock
@@ -6936,31 +6936,31 @@ msgstr "警告"
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
 "We handle the whole import process\n"
-"                                        for you: simply send your Odoo project\n"
+"                                        for you: simply send your Gerp project\n"
 "                                        manager a CSV file containing all your\n"
 "                                        data."
 msgstr ""
 "インポートプロセス全体を処理します：\n"
 "すべてのデータを含むCSVファイルを\n"
-"Odooプロジェクトマネジャーに送信\n"
+"Gerpプロジェクトマネジャーに送信\n"
 "するだけです。"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
 "We handle the whole import process\n"
-"                                        for you: simply send your Odoo project\n"
+"                                        for you: simply send your Gerp project\n"
 "                                        manager a CSV file containing all your\n"
 "                                        products."
 msgstr ""
 "私たちはあなたのためにすべてのインポートプロセスを\n"
 "扱います：あなたのすべての製品を含むCSVファイルを\n"
-"あなたのOdooプロジェクトマネジャーに送ります。"
+"あなたのGerpプロジェクトマネジャーに送ります。"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "We hope this guide helped you implement Odoo Inventory."
-msgstr "このガイドがOdoo 在庫を実装するのに役立つことを願っています。"
+msgid "We hope this guide helped you implement Gerp Inventory."
+msgstr "このガイドがGerp 在庫を実装するのに役立つことを願っています。"
 
 #. module: stock
 #: code:addons/stock/models/barcode.py:11
@@ -7035,22 +7035,22 @@ msgstr ""
 #: model:ir.model.fields,help:stock.field_stock_warehouse_orderpoint_product_min_qty
 msgid ""
 "When the virtual stock goes below the Min Quantity specified for this field,"
-" Odoo generates a procurement to bring the forecasted quantity to the Max "
+" Gerp generates a procurement to bring the forecasted quantity to the Max "
 "Quantity."
-msgstr "仮想在庫がこのフィールドに指定された最小数量を下回ると、Odooは予測数量を最大数量にするための調達を生成します。"
+msgstr "仮想在庫がこのフィールドに指定された最小数量を下回ると、Gerpは予測数量を最大数量にするための調達を生成します。"
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_warehouse_orderpoint_product_max_qty
 msgid ""
-"When the virtual stock goes below the Min Quantity, Odoo generates a "
+"When the virtual stock goes below the Min Quantity, Gerp generates a "
 "procurement to bring the forecasted quantity to the Quantity specified as "
 "Max Quantity."
-msgstr "仮想在庫が最小数量を下回ると、Odooは、予測数量を最大数量として指定された数量にするための調達を生成します。"
+msgstr "仮想在庫が最小数量を下回ると、Gerpは、予測数量を最大数量として指定された数量にするための調達を生成します。"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.view_procurement_compute_wizard
 msgid ""
-"When you run the schedulers, Odoo tries to reserve the available stock to fulfill the existing pickings\n"
+"When you run the schedulers, Gerp tries to reserve the available stock to fulfill the existing pickings\n"
 "                and verify if some reordering rules should be triggered."
 msgstr ""
 
@@ -7111,15 +7111,15 @@ msgstr ""
 #. module: stock
 #: model:ir.actions.act_window,help:stock.action_orderpoint_form
 msgid ""
-"You can define your minimum stock rules, so that Odoo will automatically "
+"You can define your minimum stock rules, so that Gerp will automatically "
 "create draft manufacturing orders or request for quotations according to the"
 " stock level. Once the virtual stock of a product (= stock on hand minus all"
-" confirmed orders and reservations) is below the minimum quantity, Odoo will"
+" confirmed orders and reservations) is below the minimum quantity, Gerp will"
 " generate a procurement request to increase the stock up to the maximum "
 "quantity."
 msgstr ""
-"最小ストックルールを定義することで、Odooが自動的に製造納品書を作成したり、在庫レベルに応じて見積を要求させたりすることができます。 "
-"Odooは、製品の仮想在庫(=手元の在庫からすべての確認された注文と予約を引いたもの)が最小数量を下回ると、在庫を最大数まで増やすための調達要求を生成します。"
+"最小ストックルールを定義することで、Gerpが自動的に製造納品書を作成したり、在庫レベルに応じて見積を要求させたりすることができます。 "
+"Gerpは、製品の仮想在庫(=手元の在庫からすべての確認された注文と予約を引いたもの)が最小数量を下回ると、在庫を最大数まで増やすための調達要求を生成します。"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.view_inventory_form
@@ -7319,7 +7319,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:stock.view_immediate_transfer
 msgid ""
 "You haven't entered <i>done</i> quantities, by clicking on <i>apply</i>\n"
-"                        Odoo will process all the <i>reserved</i> quantities."
+"                        Gerp will process all the <i>reserved</i> quantities."
 msgstr ""
 
 #. module: stock
@@ -7450,16 +7450,16 @@ msgstr "[例] PO0032"
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
 "either by manually updating the Done quantity on the product lines, or let "
-"Odoo do it automatically while validating"
-msgstr "プロダクトラインの完了数量を手動で更新するか、またはOdooで検証中に自動的に行うようにします"
+"Gerp do it automatically while validating"
+msgstr "プロダクトラインの完了数量を手動で更新するか、またはGerpで検証中に自動的に行うようにします"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
 "either by manually updating the Done quantity on the product lines, or scan "
-"them with the Odoo Barcode app, or let Odoo do it automatically while "
+"them with the Gerp Barcode app, or let Gerp do it automatically while "
 "validating"
-msgstr "プロダクトラインの完了数量を手動で更新するか、またはOdooでｍバーコードアプリでスキャンするか、検証中に自動的に行うようにします"
+msgstr "プロダクトラインの完了数量を手動で更新するか、またはGerpでｍバーコードアプリでスキャンするか、検証中に自動的に行うようにします"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner

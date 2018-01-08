@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_blog
 # 
@@ -12,7 +12,7 @@
 # Vladimir Lukianov <lvm.mobile@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 09:00+0000\n"
 "PO-Revision-Date: 2017-10-24 09:00+0000\n"
@@ -38,7 +38,7 @@ msgstr ""
 #. module: website_blog
 #: model:blog.post,content:website_blog.blog_post_2
 msgid ""
-"\"Odoo now competes on many fronts, with no real\n"
+"\"Gerp now competes on many fronts, with no real\n"
 "                    competition out there to knock them off the top spot.\n"
 "                    With the launch of their integrated CMS and Ecommerce\n"
 "                    systems,it only elevates their position as one of the leading\n"
@@ -47,7 +47,7 @@ msgid ""
 "                    compete at this level due to the technology currently\n"
 "                    employed by most industry providers.\""
 msgstr ""
-"\"Odoo теперь конкурирует на многих фронтах, без реальной\n"
+"\"Gerp теперь конкурирует на многих фронтах, без реальной\n"
 "                     конкуренции, чтобы сбить их с первого места.\n"
 "                     С запуском их интегрированной CMS и электронной коммерции\n"
 "                     системы, она возвышает только свои позиции в качестве одного из ведущих\n"
@@ -59,18 +59,18 @@ msgstr ""
 #. module: website_blog
 #: model:blog.post,content:website_blog.blog_post_2
 msgid ""
-"\"Odoo's latest launch will allow a business to go from\n"
+"\"Gerp's latest launch will allow a business to go from\n"
 "                    zero to trading online quicker than ever before,” Stuart\n"
-"                    Mackintosh, MD of Open Source specialist and Odoo\n"
+"                    Mackintosh, MD of Open Source specialist and Gerp\n"
 "                    integration partner, OpusVL, explains. “The investment\n"
 "                    required to have a fully automated business system is\n"
 "                    dramatically reduced, enabling the small and medium\n"
 "                    enterprise to compete at a level of functionality and\n"
 "                    performance previously reserved for the big IT investors.\""
 msgstr ""
-"\"Последний запуск Odoo позволит бизнес, перейти от\n"
+"\"Последний запуск Gerp позволит бизнес, перейти от\n"
 "                     нуля до торговли онлайн быстрее, чем когда-либо прежде, \"Стюарт\n"
-"                     Макинтош, MD специалиста Open Source и Odoo\n"
+"                     Макинтош, MD специалиста Open Source и Gerp\n"
 "                     интеграция партнер OpusVL, объясняет. \"Инвестиции\n"
 "                     необходимо иметь полностью автоматизированную бизнес-систему\n"
 "                     которая резко уменьшается, что позволяет малому и среднему\n"
@@ -81,11 +81,11 @@ msgstr ""
 #: model:blog.post,content:website_blog.blog_post_2
 msgid ""
 "\"This is another clever and highly disruptive move by\n"
-"                    Odoo,which will force other technology providers to\n"
+"                    Gerp,which will force other technology providers to\n"
 "                    take another look at the value they are providing to ensure\n"
 "                    that their 'solutions' can still compete.\""
 msgstr ""
-"\"Это еще один умный и очень прорывной шаг Odoo,\n"
+"\"Это еще один умный и очень прорывной шаг Gerp,\n"
 "                     который заставит других поставщиков технологий,\n"
 "                     взглянуть на ценность, которое они предоставляют , что бы гарантировать,\n"
 "                     что их решения по-прежнему могут конкурировать.\""
@@ -160,11 +160,11 @@ msgstr ""
 msgid ""
 "A mix of push &amp; pull: Today, people\n"
 "                        are victims of what others decide to push to them.\n"
-"                        Odoo differentiates:"
+"                        Gerp differentiates:"
 msgstr ""
 "Смесь толканий &amp; толкать: Сегодня, люди\n"
 "                        являются жертвами других решили подтолкнуть к ним.\n"
-"                        Odoo дифференцирует:"
+"                        Gerp дифференцирует:"
 
 #. module: website_blog
 #: model:ir.ui.view,arch_db:website_blog.blog_post_template_new_post
@@ -221,12 +221,12 @@ msgstr ""
 #. module: website_blog
 #: model:blog.post,content:website_blog.blog_post_1
 msgid ""
-"At Odoo, we build tools to bring productivity to\n"
+"At Gerp, we build tools to bring productivity to\n"
 "                    enterprises. As emails and information flows are one of\n"
 "                    the biggest wastes of time in companies, we have to fix\n"
 "                    this."
 msgstr ""
-"На Odoo мы строим инструменты для того чтобы довести производительность\n"
+"На Gerp мы строим инструменты для того чтобы довести производительность\n"
 "                   предприятий. Так как электронные письма и информационные потоки являются одним из\n"
 "                   крупнейших отходов времени в компании мы должны исправить\n"
 "                   это."
@@ -478,13 +478,13 @@ msgstr ""
 #: model:blog.post,content:website_blog.blog_post_1
 msgid ""
 "Folders and mailing lists are great tools but too\n"
-"                        complex in traditional email clients. In Odoo, a\n"
+"                        complex in traditional email clients. In Gerp, a\n"
 "                        group of contacts that share a discussion can be\n"
 "                        created with one click. Every group should have it's\n"
 "                        own email address."
 msgstr ""
 "Папки и списки рассылки являются великолепными инструментами, но слишком\n"
-"                       сложны в традиционных почтовых клиентов. В Odoo\n"
+"                       сложны в традиционных почтовых клиентов. В Gerp\n"
 "                       группы контактов, которые разделяют обсуждение может\n"
 "                       создаваться с одним щелчком мыши. Каждая группа должна иметь\n"
 "                       собственный электронный адрес."
@@ -526,8 +526,8 @@ msgstr "Группировать по"
 
 #. module: website_blog
 #: model:blog.post,content:website_blog.blog_post_1
-msgid "Here are the ideas behind the Odoo communication tools:"
-msgstr "Вот идеи, стоящие за Odoo средствами коммуникации:"
+msgid "Here are the ideas behind the Gerp communication tools:"
+msgstr "Вот идеи, стоящие за Gerp средствами коммуникации:"
 
 #. module: website_blog
 #: model:ir.ui.view,arch_db:website_blog.website_blog
@@ -558,8 +558,8 @@ msgstr "Номер"
 
 #. module: website_blog
 #: model:blog.post,subtitle:website_blog.blog_post_1
-msgid "Ideas behind the Odoo communication tools."
-msgstr "Идеи, стоящие за инструментами связи Odoo."
+msgid "Ideas behind the Gerp communication tools."
+msgstr "Идеи, стоящие за инструментами связи Gerp."
 
 #. module: website_blog
 #: model:ir.ui.view,arch_db:website_blog.latest_blogs
@@ -618,11 +618,11 @@ msgstr "Самые свежие публикации"
 #. module: website_blog
 #: model:blog.post,content:website_blog.blog_post_2
 msgid ""
-"Like many modern website editors, with Odoo you can edit\n"
+"Like many modern website editors, with Gerp you can edit\n"
 "                    content in-line, enabling you to see exactly what you are\n"
 "                    changing and ensure your changes suit the context."
 msgstr ""
-"Как и многие современные редакторы веб-сайта, с Odoo вы можете редактировать\n"
+"Как и многие современные редакторы веб-сайта, с Gerp вы можете редактировать\n"
 "                     содержимое в линии, что позволит вам увидеть именно то, что вы \n"
 "                     меняете и убедитесь, что ваши изменения в соответствии с контекстом."
 
@@ -734,18 +734,18 @@ msgstr "Ничего"
 #. module: website_blog
 #: model:blog.post,content:website_blog.blog_post_2
 msgid ""
-"Odoo claims to be 'the Open Source software that makes\n"
+"Gerp claims to be 'the Open Source software that makes\n"
 "                    building your company's website and selling your products\n"
 "                    online easy'. So how true is this statement?"
 msgstr ""
-"Odoo утверждает, что 'Open Source программное обеспечение, которое легко делает\n"
+"Gerp утверждает, что 'Open Source программное обеспечение, которое легко делает\n"
 "                   создание сайта вашей компании и продажи ваших продуктов\n"
 "                   в Интернете'. Насколько верно это утверждение?"
 
 #. module: website_blog
 #: model:blog.post,website_meta_keywords:website_blog.blog_post_1
-msgid "Odoo, email"
-msgstr "Odoo, адрес электронной почты"
+msgid "Gerp, email"
+msgstr "Gerp, адрес электронной почты"
 
 #. module: website_blog
 #. openerp-web
@@ -959,8 +959,8 @@ msgstr "Технический"
 
 #. module: website_blog
 #: model:blog.post,content:website_blog.blog_post_1
-msgid "The Communication Mechanism of Odoo"
-msgstr "Механизм связи Odoo"
+msgid "The Communication Mechanism of Gerp"
+msgstr "Механизм связи Gerp"
 
 #. module: website_blog
 #: model:blog.post,name:website_blog.blog_post_1
@@ -1003,11 +1003,11 @@ msgstr "Заголовок"
 #. module: website_blog
 #: model:blog.post,content:website_blog.blog_post_2
 msgid ""
-"To add to an already comprehensive set of Odoo\n"
+"To add to an already comprehensive set of Gerp\n"
 "                features, a website content management system (CMS or WMS) has been developed and a beta release is\n"
 "                available from today, 31st January 2014."
 msgstr ""
-"Чтобы добавить уже полный набор функций Odoo,\n"
+"Чтобы добавить уже полный набор функций Gerp,\n"
 "                  был разработан веб-сайт системы управления контентом (CMS или служба управления рабочими Процессами) и бета-релиз\n"
 "                  доступен с сегодняшнего дня, 31 января 2014."
 

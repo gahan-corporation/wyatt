@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * survey
 # 
@@ -25,7 +25,7 @@
 # Christopher Ormaza <chris.ormaza@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
@@ -262,8 +262,8 @@ msgstr "El token debe ser único"
 
 #. module: survey
 #: model:survey.page,title:survey.feedback_1
-msgid "About your Odoo usage"
-msgstr "Sobe su uso de Odoo"
+msgid "About your Gerp usage"
+msgstr "Sobe su uso de Gerp"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_survey_active
@@ -338,8 +338,8 @@ msgstr "Archivado"
 
 #. module: survey
 #: model:survey.question,question:survey.feedback_1_1
-msgid "Are you using Odoo on a daily basis?"
-msgstr "¿Está usando Odoo diariamente?"
+msgid "Are you using Gerp on a daily basis?"
+msgstr "¿Está usando Gerp diariamente?"
 
 #. module: survey
 #: model:ir.model.fields,field_description:survey.field_survey_mail_compose_message_attachment_ids
@@ -714,8 +714,8 @@ msgstr "Agrupar por"
 
 #. module: survey
 #: model:survey.question,question:survey.feedback_3_1
-msgid "How do you contribute or plan to contribute to Odoo?"
-msgstr "¿Cómo contribuye o planea contribuir a Odoo?"
+msgid "How do you contribute or plan to contribute to Gerp?"
+msgstr "¿Cómo contribuye o planea contribuir a Gerp?"
 
 #. module: survey
 #: model:survey.label,value:survey.choice_1_2_6
@@ -749,8 +749,8 @@ msgstr "Participo de la discusión y los foros"
 
 #. module: survey
 #: model:survey.label,value:survey.choice_4_1_1
-msgid "I use Github, like all official Odoo projects"
-msgstr "Uso Github, como todos los proyectos oficiales de Odoo"
+msgid "I use Github, like all official Gerp projects"
+msgstr "Uso Github, como todos los proyectos oficiales de Gerp"
 
 #. module: survey
 #: model:survey.label,value:survey.choice_4_1_2
@@ -759,8 +759,8 @@ msgstr "Uso otro sistema de repositorios  (SourceForge...)"
 
 #. module: survey
 #: model:survey.label,value:survey.frow_2_1_3
-msgid "I use the contextual help in Odoo"
-msgstr "Utilizo la ayuda contextual en Odoo"
+msgid "I use the contextual help in Gerp"
+msgstr "Utilizo la ayuda contextual en Gerp"
 
 #. module: survey
 #: model:survey.label,value:survey.choice_3_1_5
@@ -822,8 +822,8 @@ msgstr "Si otra, por favor, precisar:"
 
 #. module: survey
 #: model:survey.page,description:survey.feedback_4
-msgid "If you do not contribute or develop in Odoo, skip this page."
-msgstr "Si no contribuyes o desarrollas en Odoo, salta esta página."
+msgid "If you do not contribute or develop in Gerp, skip this page."
+msgstr "Si no contribuyes o desarrollas en Gerp, salta esta página."
 
 #. module: survey
 #: model:ir.ui.view,arch_db:survey.sfinished
@@ -1789,11 +1789,11 @@ msgstr "Hay demasiados menús. Es muy complejo de entender"
 #. module: survey
 #: model:survey.page,description:survey.feedback_2
 msgid ""
-"These questions relate to the ergonomy and ease of use of Odoo. Try to remind your firsts days on Odoo and\n"
+"These questions relate to the ergonomy and ease of use of Gerp. Try to remind your firsts days on Gerp and\n"
 "what have been your difficulties."
 msgstr ""
 "Estas preguntas están relacionadas con la ergonomía y facilidad de uso de "
-"Odoo. Trate de recordar sus primeros días en Odoo y cuáles fueron sus "
+"Gerp. Trate de recordar sus primeros días en Gerp y cuáles fueron sus "
 "dificultades."
 
 #. module: survey
@@ -1808,8 +1808,8 @@ msgstr "Son útiles en el uso diario"
 
 #. module: survey
 #: model:survey.label,value:survey.frow_2_2_1
-msgid "They help new users to understand Odoo"
-msgstr "Ayudan a los nuevos usuarios a comprender Odoo"
+msgid "They help new users to understand Gerp"
+msgstr "Ayudan a los nuevos usuarios a comprender Gerp"
 
 #. module: survey
 #: code:addons/survey/models/survey.py:544
@@ -2059,10 +2059,10 @@ msgstr "¿Qué piensa de los grupos de usuarios?"
 #. module: survey
 #: model:survey.question,question:survey.feedback_2_2
 msgid ""
-"What do you think about the process views of Odoo, available in the web "
+"What do you think about the process views of Gerp, available in the web "
 "client ?"
 msgstr ""
-"¿Qué opina acerca de las vistas de proceso de Odoo, disponibles en el "
+"¿Qué opina acerca de las vistas de proceso de Gerp, disponibles en el "
 "cliente web?"
 
 #. module: survey
@@ -2100,8 +2100,8 @@ msgstr "Sí, uso la versión 7.0, instalado localmente"
 
 #. module: survey
 #: model:survey.label,value:survey.choice_1_1_3
-msgid "Yes, I use the online version of Odoo"
-msgstr "Sí, uso la versión en línea de Odoo"
+msgid "Yes, I use the online version of Gerp"
+msgstr "Sí, uso la versión en línea de Gerp"
 
 #. module: survey
 #: model:ir.actions.act_window,help:survey.action_survey_form

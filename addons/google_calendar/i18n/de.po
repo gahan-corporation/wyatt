@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * google_calendar
 # 
@@ -13,7 +13,7 @@
 # Niki Waibel <niki.waibel@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-10 11:35+0000\n"
 "PO-Revision-Date: 2017-10-10 11:35+0000\n"
@@ -197,10 +197,10 @@ msgstr ""
 #: model:ir.model.fields,help:google_calendar.field_res_users_google_calendar_cal_id
 msgid ""
 "Last Calendar ID who has been synchronized. If it is changed, we remove all "
-"links between GoogleID and Odoo Google Internal ID"
+"links between GoogleID and Gerp Google Internal ID"
 msgstr ""
 "Zuletzt synchronisierte Calendar ID. Wenn sich diese ändert, werden alle "
-"Verbindungen zwischen der GoogleID und der Odoo Google Internal ID entfernt."
+"Verbindungen zwischen der GoogleID und der Gerp Google Internal ID entfernt."
 
 #. module: google_calendar
 #: model:ir.model.fields,field_description:google_calendar.field_google_calendar___last_update
@@ -214,13 +214,13 @@ msgstr "Letzte Synchronisation"
 
 #. module: google_calendar
 #: model:ir.model.fields,field_description:google_calendar.field_calendar_attendee_oe_synchro_date
-msgid "Odoo Synchro Date"
-msgstr "Odoo Synchronisationsdatum"
+msgid "Gerp Synchro Date"
+msgstr "Gerp Synchronisationsdatum"
 
 #. module: google_calendar
 #: model:ir.model.fields,field_description:google_calendar.field_calendar_event_oe_update_date
-msgid "Odoo Update Date"
-msgstr "Odoo Aktualisierungsdatum"
+msgid "Gerp Update Date"
+msgstr "Gerp Aktualisierungsdatum"
 
 #. module: google_calendar
 #. openerp-web

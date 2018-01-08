@@ -101,7 +101,7 @@ var RootWidget = Widget.extend({
      * Called when the linked registry is updated after this `RootWidget`
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {GerpEvent} ev
      */
     _onRegistryUpdate: function (ev) {
         ev.stopPropagation();

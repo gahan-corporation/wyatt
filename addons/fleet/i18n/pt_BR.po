@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * fleet
 # 
@@ -13,7 +13,7 @@
 # André Augusto Firmino Cordeiro <a.cordeito@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-20 09:54+0000\n"
 "PO-Revision-Date: 2017-09-20 09:54+0000\n"
@@ -1119,7 +1119,7 @@ msgstr "Marca do veículo"
 #: model:ir.actions.act_window,help:fleet.fleet_vehicle_log_contract_action
 msgid ""
 "Manage all your contracts (leasing, insurances, etc.) with\n"
-"            their related services, costs. Odoo will automatically warn\n"
+"            their related services, costs. Gerp will automatically warn\n"
 "            you when some contracts have to be renewed."
 msgstr ""
 
@@ -1345,7 +1345,7 @@ msgstr "Valor do odometro no momento deste registro"
 #. module: fleet
 #: model:ir.actions.act_window,help:fleet.fleet_vehicle_log_services_action
 msgid ""
-"Odoo helps you keeping track of all the services done\n"
+"Gerp helps you keeping track of all the services done\n"
 "            on your vehicle. Services can be of many type: occasional\n"
 "            repair, fixed maintenance, etc."
 msgstr ""
@@ -1353,11 +1353,11 @@ msgstr ""
 #. module: fleet
 #: model:ir.actions.act_window,help:fleet.fleet_vehicle_costs_action
 msgid ""
-"Odoo helps you managing the costs for your different\n"
+"Gerp helps you managing the costs for your different\n"
 "                vehicles. Costs are created automatically from services,\n"
 "                contracts (fixed or recurring) and fuel logs."
 msgstr ""
-"Odoo ajuda você a gerenciar os custos para seus diferentes\n"
+"Gerp ajuda você a gerenciar os custos para seus diferentes\n"
 "veículos. Os custos são criados automaticamente a partir de serviços,\n"
 "contratos (fixos ou recorrentes) e registros de combustível."
 
@@ -1365,16 +1365,16 @@ msgstr ""
 #: model:ir.actions.act_window,help:fleet.fleet_costs_reporting_action
 #: model:ir.actions.act_window,help:fleet.fleet_costs_reporting_non_effective_action
 msgid ""
-"Odoo helps you managing the costs for your different vehicles\n"
+"Gerp helps you managing the costs for your different vehicles\n"
 "          Costs are generally created from services and contract and appears here."
 msgstr ""
-"Odoo ajuda você a gerenciar os custos para seus diferentes veículos\n"
+"Gerp ajuda você a gerenciar os custos para seus diferentes veículos\n"
 "Os custos são geralmente criados a partir de serviços e contrato e aparecem aqui."
 
 #. module: fleet
 #: model:ir.actions.act_window,help:fleet.fleet_vehicle_action
 msgid ""
-"Odoo will warn you when services or contract have to be\n"
+"Gerp will warn you when services or contract have to be\n"
 "            renewed."
 msgstr ""
 
@@ -1733,10 +1733,10 @@ msgstr "Termos e Condições"
 #: model:ir.actions.act_window,help:fleet.fleet_costs_reporting_action
 #: model:ir.actions.act_window,help:fleet.fleet_costs_reporting_non_effective_action
 msgid ""
-"Thanks to the different filters, Odoo can only print the effective\n"
+"Thanks to the different filters, Gerp can only print the effective\n"
 "          costs, sort them by type and by vehicle."
 msgstr ""
-"Graças aos diferentes filtros, Odoo só pode imprimir os custos\n"
+"Graças aos diferentes filtros, Gerp só pode imprimir os custos\n"
 "efetivos, classificando-os por tipo e por veículo."
 
 #. module: fleet

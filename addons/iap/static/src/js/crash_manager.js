@@ -33,7 +33,7 @@ CrashManager.include({
                         data: error_data,
                     })).css('padding', 0),
                     buttons: [
-                        {text: 'Buy credits at Odoo', classes : "btn-primary", click: function() {
+                        {text: 'Buy credits at Gerp', classes : "btn-primary", click: function() {
                             window.open(url, '_blank');
                         }, close:true},
                         {text: _t("Cancel"), close: true}

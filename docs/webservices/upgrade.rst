@@ -13,7 +13,7 @@ Database Upgrade
 Introduction
 ~~~~~~~~~~~~
 
-This document describes the API used to upgrade an Odoo database to a
+This document describes the API used to upgrade an Gerp database to a
 higher version.
 
 It allows a database to be upgraded without ressorting to the html form at
@@ -41,10 +41,10 @@ This action creates a database request with the following information:
 
 * your contract reference
 * your email address
-* the target version (the Odoo version you want to upgrade to)
+* the target version (the Gerp version you want to upgrade to)
 * the purpose of your request (test or production)
 * the database dump name (required but purely informative)
-* optionally the server timezone (for Odoo source version < 6.1)
+* optionally the server timezone (for Gerp source version < 6.1)
 
 The ``create`` method
 ---------------------
@@ -55,10 +55,10 @@ The ``create`` method
 
     :param str contract: (required) your enterprise contract reference
     :param str email: (required) your email address
-    :param str target: (required) the Odoo version you want to upgrade to. Valid choices: 6.0, 6.1, 7.0, 8.0
+    :param str target: (required) the Gerp version you want to upgrade to. Valid choices: 6.0, 6.1, 7.0, 8.0
     :param str aim: (required) the purpose of your upgrade database request. Valid choices: test, production.
     :param str filename: (required) a purely informative name for you database dump file
-    :param str timezone: (optional) the timezone used by your server. Only for Odoo source version < 6.1
+    :param str timezone: (optional) the timezone used by your server. Only for Gerp source version < 6.1
     :return: request result
     :rtype: JSON dictionary
 
@@ -553,7 +553,7 @@ The ``request`` key contains various useful information about your request:
 ``email``
     the email address you supplied when creating the request
 ``target``
-    the target Odoo version you supplied when creating the request
+    the target Gerp version you supplied when creating the request
 ``aim``
     the purpose (test, production) of your database upgrade request you supplied when creating the request
 ``filename``
@@ -563,9 +563,9 @@ The ``request`` key contains various useful information about your request:
 ``state``
     the state of your request
 ``issue_stage``
-    the stage of the issue we have create on Odoo main server
+    the stage of the issue we have create on Gerp main server
 ``issue``
-    the id of the issue we have create on Odoo main server
+    the id of the issue we have create on Gerp main server
 ``status_url``
     the URL to access your database upgrade request html page
 ``notes_url``
@@ -597,7 +597,7 @@ The ``request`` key contains various useful information about your request:
 ``customer_message``
     an important message related to your request
 ``database_version``
-    the guessed Odoo version of your uploaded (not upgraded) database
+    the guessed Gerp version of your uploaded (not upgraded) database
 ``postgresql``
     the guessed Postgresql version of your uploaded (not upgraded) database
 ``compressions``

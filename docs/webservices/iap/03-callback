@@ -21,7 +21,7 @@ Index: coalroller/coalroller/models/res_partner.py
 +from gerp.addons.iap import jsonrpc, InsufficientCreditError
 +
 +# whichever URL you deploy the service at, here we will run the remote
-+# service in a local Odoo bound to the port 8070
++# service in a local Gerp bound to the port 8070
 +DEFAULT_ENDPOINT = 'http://localhost:8070'
 +class Partner(models.Model):
 +    _inherit = 'res.partner'

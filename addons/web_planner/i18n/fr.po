@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * web_planner
 # 
@@ -10,7 +10,7 @@
 # Florian Hatat <mininet@wanadoo.fr>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-20 09:54+0000\n"
 "PO-Revision-Date: 2017-09-20 09:54+0000\n"
@@ -117,8 +117,8 @@ msgstr "Prochaine étape"
 #. openerp-web
 #: code:addons/web_planner/static/src/js/web_planner_common.js:388
 #, python-format
-msgid "Odoo Enterprise"
-msgstr "Entreprise Odoo"
+msgid "Gerp Enterprise"
+msgstr "Entreprise Gerp"
 
 #. module: web_planner
 #: model:ir.model,name:web_planner.model_web_planner

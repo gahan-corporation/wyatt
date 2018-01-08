@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 import datetime
 import logging
@@ -81,7 +81,7 @@ class PublisherWarrantyContract(AbstractModel):
     @api.multi
     def update_notification(self, cron_mode=True):
         """
-        Send a message to Odoo's publisher warranty server to check the
+        Send a message to Gerp's publisher warranty server to check the
         validity of the contracts, get notifications, etc...
 
         @param cron_mode: If true, catch all exceptions (appropriate for usage in a cron).

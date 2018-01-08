@@ -208,7 +208,7 @@ FormController.include({
      * The barcode is activate when at least one widget trigger_up 'activeBarcode' event
      * with the widget option
      *
-     * @param {OdooEvent} event
+     * @param {GerpEvent} event
      * @param {string} event.data.name: the current field name
      * @param {string} [event.data.fieldName] optional for x2many sub field
      * @param {string} [event.data.quantity] optional field to increase quantity

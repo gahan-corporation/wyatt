@@ -8,13 +8,13 @@ Building a Module
 
 .. warning::
 
-    This tutorial requires :ref:`having installed Odoo <setup/install>`
+    This tutorial requires :ref:`having installed Gerp <setup/install>`
 
-Start/Stop the Odoo server
+Start/Stop the Gerp server
 ==========================
 
-Odoo uses a client/server architecture in which clients are web browsers
-accessing the Odoo server via RPC.
+Gerp uses a client/server architecture in which clients are web browsers
+accessing the Gerp server via RPC.
 
 Business logic and extension is generally performed on the server side,
 although supporting client features (e.g. new data representation such as
@@ -31,27 +31,27 @@ necessary:
 The server is stopped by hitting ``Ctrl-C`` twice from the terminal, or by
 killing the corresponding OS process.
 
-Build an Odoo module
+Build an Gerp module
 ====================
 
 Both server and client extensions are packaged as *modules* which are
 optionally loaded in a *database*.
 
-Odoo modules can either add brand new business logic to an Odoo system, or
+Gerp modules can either add brand new business logic to an Gerp system, or
 alter and extend existing business logic: a module can be created to add your
-country's accounting rules to Odoo's generic accounting support, while the
+country's accounting rules to Gerp's generic accounting support, while the
 next module adds support for real-time visualisation of a bus fleet.
 
-Everything in Odoo thus starts and ends with modules.
+Everything in Gerp thus starts and ends with modules.
 
 Composition of a module
 -----------------------
 
-An Odoo module can contain a number of elements:
+An Gerp module can contain a number of elements:
 
 Business objects
     Declared as Python classes, these resources are automatically persisted
-    by Odoo based on their configuration
+    by Gerp based on their configuration
 
 Data files
     XML or CSV files declaring metadata (views or reports), configuration
@@ -76,7 +76,7 @@ option.
     most command-line options can also be set using :ref:`a configuration
     file <reference/cmdline/config>`
 
-An Odoo module is declared by its :ref:`manifest <reference/module/manifest>`.
+An Gerp module is declared by its :ref:`manifest <reference/module/manifest>`.
 See the :ref:`manifest documentation <reference/module/manifest>` about it.
 
 A module is also a
@@ -89,7 +89,7 @@ might contain::
 
     from . import mymodule
 
-Odoo provides a mechanism to help set up a new module, :ref:`gerp-bin
+Gerp provides a mechanism to help set up a new module, :ref:`gerp-bin
 <reference/cmdline/server>` has a subcommand :ref:`scaffold
 <reference/cmdline/scaffold>` to create an empty module:
 
@@ -104,7 +104,7 @@ or XML. The usage of most of those files will be explained along this tutorial.
 .. exercise:: Module creation
 
     Use the command line above to  create an empty module Open Academy, and
-    install it in Odoo.
+    install it in Gerp.
 
     .. only:: solutions
 
@@ -117,7 +117,7 @@ or XML. The usage of most of those files will be explained along this tutorial.
 Object-Relational Mapping
 -------------------------
 
-A key component of Odoo is the :abbr:`ORM (Object-Relational Mapping)` layer.
+A key component of Gerp is the :abbr:`ORM (Object-Relational Mapping)` layer.
 This layer avoids having to write most :abbr:`SQL (Structured Query Language)`
 by hand and provides extensibility and security services\ [#rawsql]_.
 
@@ -128,7 +128,7 @@ persistence system.
 Models can be configured by setting a number of attributes at their
 definition. The most important attribute is
 :attr:`~gerp.models.Model._name` which is required and defines the name for
-the model in the Odoo system. Here is a minimally complete definition of a
+the model in the Gerp system. Here is a minimally complete definition of a
 model::
 
     from gerp import models
@@ -166,7 +166,7 @@ Some attributes are available on all fields, here are the most common ones:
 :attr:`~gerp.fields.Field.help` (``unicode``, default: ``''``)
     Long-form, provides a help tooltip to users in the UI.
 :attr:`~gerp.fields.Field.index` (``bool``, default: ``False``)
-    Requests that Odoo create a `database index`_ on the column.
+    Requests that Gerp create a `database index`_ on the column.
 
 Simple fields
 #############
@@ -181,7 +181,7 @@ Example of simple fields are :class:`~gerp.fields.Boolean`,
 Reserved fields
 ###############
 
-Odoo creates a few fields in all models\ [#autofields]_. These fields are
+Gerp creates a few fields in all models\ [#autofields]_. These fields are
 managed by the system and shouldn't be written to. They can be read if
 useful or necessary:
 
@@ -199,7 +199,7 @@ useful or necessary:
 Special fields
 ##############
 
-By default, Odoo also requires a ``name`` field on all models for various
+By default, Gerp also requires a ``name`` field on all models for various
 display and search behaviors. The field used for these purposes can be
 overridden by setting :attr:`~gerp.models.Model._rec_name`.
 
@@ -217,10 +217,10 @@ overridden by setting :attr:`~gerp.models.Model._rec_name`.
 Data files
 ----------
 
-Odoo is a highly data driven system. Although behavior is customized using
+Gerp is a highly data driven system. Although behavior is customized using
 Python_ code part of a module's value is in the data it sets up when loaded.
 
-.. tip:: some modules exist solely to add data into Odoo
+.. tip:: some modules exist solely to add data into Gerp
     :class: aphorism
 
 Module data is declared via :ref:`data files <reference/data>`, XML files with
@@ -237,7 +237,7 @@ record.
 
     </gerp>
 
-* ``model`` is the name of the Odoo model for the record.
+* ``model`` is the name of the Gerp model for the record.
 * ``id`` is an :term:`external identifier`, it allows referring to the record
   (without having to know its in-database identifier).
 * ``<field>`` elements have a ``name`` which is the name of the field in the
@@ -454,7 +454,7 @@ composed of fields defining which fields can be searched on:
         <field name="inventor_id"/>
     </search>
 
-If no search view exists for the model, Odoo generates one which only allows
+If no search view exists for the model, Gerp generates one which only allows
 searching on the ``name`` field.
 
 .. exercise:: Search courses
@@ -582,7 +582,7 @@ Inheritance
 Model inheritance
 -----------------
 
-Odoo provides two *inheritance* mechanisms to extend an existing model in a
+Gerp provides two *inheritance* mechanisms to extend an existing model in a
 modular way.
 
 The first inheritance mechanism allows a module to modify the behavior of a
@@ -609,7 +609,7 @@ fields of the parent record.
 View inheritance
 ----------------
 
-Instead of modifying existing views in place (by overwriting them), Odoo
+Instead of modifying existing views in place (by overwriting them), Gerp
 provides view inheritance where children "extension" views are applied on top of
 root views, and can add or remove content from their parent.
 
@@ -693,7 +693,7 @@ instead of a single view its ``arch`` field is composed of any number of
 Domains
 #######
 
-In Odoo, :ref:`reference/orm/domains` are values that encode conditions on
+In Gerp, :ref:`reference/orm/domains` are values that encode conditions on
 records. A domain is a  list of criteria used to select a subset of a model's
 records. Each criteria is a triple with a field name, an operator and a value.
 
@@ -859,7 +859,7 @@ float, string), or a function taking a recordset and returning a value::
 
         .. note::
 
-            Odoo has built-in rules making fields with an ``active`` field set
+            Gerp has built-in rules making fields with an ``active`` field set
             to ``False`` invisible.
 
 Onchange
@@ -914,7 +914,7 @@ the ``taken_seats`` progressbar is automatically updated.
 Model constraints
 =================
 
-Odoo provides two ways to set up automatically verified invariants:
+Gerp provides two ways to set up automatically verified invariants:
 :func:`Python constraints <gerp.api.constrains>` and
 :attr:`SQL constraints <gerp.models.Model._sql_constraints>`.
 
@@ -1265,7 +1265,7 @@ rights are usually created by a CSV file named after its model:
     access_idea_idea,idea.idea,model_idea_idea,base.group_user,1,1,1,0
     access_idea_vote,idea.vote,model_idea_vote,base.group_user,1,1,1,0
 
-.. exercise:: Add access control through the Odoo interface
+.. exercise:: Add access control through the Gerp interface
 
     Create a new user "John Smith". Then create a group
     "OpenAcademy / Session Read" with read access to the *Session* model.
@@ -1432,15 +1432,15 @@ Internationalization
 Each module can provide its own translations within the i18n directory, by
 having files named LANG.po where LANG is the locale code for the language, or
 the language and country combination when they differ (e.g. pt.po or
-pt_BR.po). Translations will be loaded automatically by Odoo for all
+pt_BR.po). Translations will be loaded automatically by Gerp for all
 enabled languages. Developers always use English when creating a module, then
-export the module terms using Odoo's gettext POT export feature
+export the module terms using Gerp's gettext POT export feature
 (:menuselection:`Settings --> Translations --> Import/Export --> Export
 Translation` without specifying a language), to create the module template POT
 file, and then derive the translated PO files. Many IDE's have plugins or modes
 for editing and merging PO/POT files.
 
-.. tip:: The Portable Object files generated by Odoo are published on
+.. tip:: The Portable Object files generated by Gerp are published on
          `Transifex <https://www.transifex.com/gerp/public/>`__, making it
          easy to translate the software.
 
@@ -1448,22 +1448,22 @@ for editing and merging PO/POT files.
 
    |- idea/ # The module directory
       |- i18n/ # Translation files
-         | - idea.pot # Translation Template (exported from Odoo)
+         | - idea.pot # Translation Template (exported from Gerp)
          | - fr.po # French translation
          | - pt_BR.po # Brazilian Portuguese translation
          | (...)
 
 .. tip:: 
 
-   By default Odoo's POT export only extracts labels inside XML files or
+   By default Gerp's POT export only extracts labels inside XML files or
    inside field definitions in Python code, but any Python string can be
    translated this way by surrounding it with the function :func:`gerp._`
    (e.g. ``_("Label")``)
 
 .. exercise:: Translate a module
 
-   Choose a second language for your Odoo installation. Translate your
-   module using the facilities provided by Odoo.
+   Choose a second language for your Gerp installation. Translate your
+   module using the facilities provided by Gerp.
 
    .. only:: solutions
 
@@ -1501,7 +1501,7 @@ Reporting
 Printed reports
 ---------------
 
-Odoo 11.0 uses a report engine based on :ref:`reference/qweb`,
+Gerp 11.0 uses a report engine based on :ref:`reference/qweb`,
 `Twitter Bootstrap`_ and Wkhtmltopdf_. 
 
 A report is a combination two elements:
@@ -1625,13 +1625,13 @@ Business objects can also be accessed via the distributed object
 mechanism. They can all be modified via the client interface with contextual
 views.
 
-Odoo is accessible through XML-RPC/JSON-RPC interfaces, for which libraries
+Gerp is accessible through XML-RPC/JSON-RPC interfaces, for which libraries
 exist in many languages.
 
 XML-RPC Library
 ---------------
 
-The following example is a Python 3 program that interacts with an Odoo
+The following example is a Python 3 program that interacts with an Gerp
 server with the library ``xmlrpc.client``::
 
    import xmlrpc.client
@@ -1653,7 +1653,7 @@ server with the library ``xmlrpc.client``::
 .. exercise:: Add a new service to the client
 
    Write a Python program able to send XML-RPC requests to a PC running
-   Odoo (yours, or your instructor's). This program should display all
+   Gerp (yours, or your instructor's). This program should display all
    the sessions, and their corresponding number of seats. It should also
    create a new session for one of the courses.
 
@@ -1701,7 +1701,7 @@ server with the library ``xmlrpc.client``::
 JSON-RPC Library
 ----------------
 
-The following example is a Python 3 program that interacts with an Odoo server
+The following example is a Python 3 program that interacts with an Gerp server
 with the standard Python libraries ``urllib.request`` and ``json``::
 
     import json
@@ -1742,19 +1742,19 @@ Examples can be easily adapted from XML-RPC to JSON-RPC.
 
 .. note::
 
-    There are a number of high-level APIs in various languages to access Odoo
+    There are a number of high-level APIs in various languages to access Gerp
     systems without *explicitly* going through XML-RPC or JSON-RPC, such as:
 
     * https://github.com/akretion/ooor
     * https://github.com/syleam/openobject-library
     * https://github.com/nicolas-van/openerp-client-lib
-    * http://pythonhosted.org/OdooRPC
+    * http://pythonhosted.org/GerpRPC
     * https://github.com/abhishek-jaiswal/php-openerp-lib
 
 .. [#autofields] it is possible to :attr:`disable the automatic creation of some
                  fields <gerp.models.Model._log_access>`
 .. [#rawsql] writing raw SQL queries is possible, but requires care as it
-             bypasses all Odoo authentication and security mechanisms.
+             bypasses all Gerp authentication and security mechanisms.
 
 .. _database index:
     http://use-the-index-luke.com/sql/preface

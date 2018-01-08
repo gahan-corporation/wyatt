@@ -107,7 +107,7 @@ FormController.include({
 
     /**
      * @private
-     * @param {OdooEvent} event
+     * @param {GerpEvent} event
      * @param {string} event.data.id datapointID
      * @param {integer[]} event.data.msgIDs list of message ids
      */

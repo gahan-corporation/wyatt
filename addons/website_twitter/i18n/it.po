@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_twitter
 #
@@ -7,7 +7,7 @@
 # Simone Bernini <simone@aperturelabs.it>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: Gerp 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2016-02-26 17:03+0000\n"
@@ -31,13 +31,13 @@ msgstr "<strong>Callback URL: </strong> lascialo vuoto"
 
 #. module: website_twitter
 #: model:ir.ui.view,arch_db:website_twitter.view_website_config_settings
-msgid "<strong>Description: </strong> Odoo Tweet Scroller"
-msgstr "<strong>Descrizione: </strong> Odoo Tweet Scroller"
+msgid "<strong>Description: </strong> Gerp Tweet Scroller"
+msgstr "<strong>Descrizione: </strong> Gerp Tweet Scroller"
 
 #. module: website_twitter
 #: model:ir.ui.view,arch_db:website_twitter.view_website_config_settings
-msgid "<strong>Name: </strong> Odoo Tweet Scroller"
-msgstr "<strong>Nome: </strong> Odoo Tweet Scroller"
+msgid "<strong>Name: </strong> Gerp Tweet Scroller"
+msgstr "<strong>Nome: </strong> Gerp Tweet Scroller"
 
 #. module: website_twitter
 #: model:ir.ui.view,arch_db:website_twitter.view_website_config_settings
@@ -192,7 +192,7 @@ msgid ""
 "                             You can get your API credentials from"
 msgstr ""
 "Imposta il tuo accesso API a Twitter nella sezione sottostante per poter "
-"usare all'interno di Odoo un Twitter Scroller. <br/>\n"
+"usare all'interno di Gerp un Twitter Scroller. <br/>\n"
 "Puoi ottenere le tue credenziali API da"
 
 #. module: website_twitter

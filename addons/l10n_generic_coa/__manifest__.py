@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Generic - Accounting',
     'version': '1.1',
     'category': 'Localization',
     'description': """
-This is the base module to manage the generic accounting chart in Odoo.
+This is the base module to manage the generic accounting chart in Gerp.
 ==============================================================================
 
 Install some generic chart of accounts.

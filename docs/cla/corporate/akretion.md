@@ -1,6 +1,6 @@
 Brazil, France, 2015-04-14
 
-Akretion France agrees to the terms of the Odoo Corporate Contributor License
+Akretion France agrees to the terms of the Gerp Corporate Contributor License
 Agreement v1.0.
 
 I declare that I am authorized and able to make this agreement and sign this 
@@ -11,7 +11,7 @@ Signed,
 Sébastien BEAU sebastien.beau@akretion.com https://github.com/akretion
 
 
-Akretion LTDA agrees to the terms of the Odoo Corporate Contributor License
+Akretion LTDA agrees to the terms of the Gerp Corporate Contributor License
 Agreement v1.0.
 
 I declare that I am authorized and able to make this agreement and sign this 

@@ -24,7 +24,7 @@ CalendarController.include({
      * mean of a dialog.
      *
      * @private
-     * @returns {OdooEvent} event
+     * @returns {GerpEvent} event
      */
     _onSyncCalendar: function (event) {
         var self = this;

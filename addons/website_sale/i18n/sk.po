@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_sale
 #
@@ -7,7 +7,7 @@
 # Robert Kirschner <robertkirschner@yahoo.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: Gerp 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-18 14:06+0000\n"
 "PO-Revision-Date: 2016-05-14 07:03+0000\n"
@@ -1197,12 +1197,12 @@ msgstr "ID"
 msgid ""
 "If you have an eCommerce, one of your objectives is of course to grow your "
 "revenues by\n"
-"                    selling more and pricier products. Luckily for you, Odoo "
+"                    selling more and pricier products. Luckily for you, Gerp "
 "integrates three powerful\n"
 "                    customizations for that."
 msgstr ""
 "Ak máte eCommerce, jedným z vašich cieľov je samozrejme zvýšiť zisky tým že\n"
-"budete predávať viac a drahšie produkty. Na štastie pre vás, Odoo integruje "
+"budete predávať viac a drahšie produkty. Na štastie pre vás, Gerp integruje "
 "tri výkonné\n"
 "úpravy pre teno účel."
 
@@ -1407,17 +1407,17 @@ msgstr "OK"
 
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.website_planner
-msgid "Odoo offers an importation service to handle the whole process for you!"
+msgid "Gerp offers an importation service to handle the whole process for you!"
 msgstr ""
-"Odoo ponúka importovaciu službu, ktorá sa postará o celý proces za vás!"
+"Gerp ponúka importovaciu službu, ktorá sa postará o celý proces za vás!"
 
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.website_planner
 msgid ""
-"Odoo's web-services allows developers to create scripts that will load data "
+"Gerp's web-services allows developers to create scripts that will load data "
 "automatically into the system."
 msgstr ""
-"Odoo webové služby umožňujú vývojárom vytvárať skripty, ktoré automaticky "
+"Gerp webové služby umožňujú vývojárom vytvárať skripty, ktoré automaticky "
 "načítajú dáta do systému."
 
 #. module: website_sale
@@ -2277,8 +2277,8 @@ msgstr ""
 
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.website_planner
-msgid "You can setup 3 types of <strong>payment methods in Odoo:</strong>"
-msgstr "Môžete nastaviť 3 typy <strong>platobných metód v Odoo:</strong>"
+msgid "You can setup 3 types of <strong>payment methods in Gerp:</strong>"
+msgstr "Môžete nastaviť 3 typy <strong>platobných metód v Gerp:</strong>"
 
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.website_planner

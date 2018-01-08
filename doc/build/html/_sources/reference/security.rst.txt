@@ -3,10 +3,10 @@
 .. _reference/security:
 
 ================
-Security in Odoo
+Security in Gerp
 ================
 
-Aside from manually managing access using custom code, Odoo provides two main
+Aside from manually managing access using custom code, Gerp provides two main
 data-driven mechanisms to manage or restrict access to data.
 
 Both mechanisms are linked to specific users through *groups*: a user belongs

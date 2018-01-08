@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 from gerp.tests import common
 from datetime import datetime
@@ -18,7 +18,7 @@ class TestSaleMargin(common.TransactionCase):
         self.pricelist_id = self.ref('product.list0')
 
     def test_sale_margin(self):
-        """ Test the sale_margin module in Odoo. """
+        """ Test the sale_margin module in Gerp. """
         # Create a sales order for product Graphics Card.
         sale_order_so11 = self.SaleOrder.create({
             'date_order': datetime.today(),

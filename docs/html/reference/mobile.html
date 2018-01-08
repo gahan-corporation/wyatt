@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Odoo Guidelines" href="guidelines.html" />
+    <link rel="prev" title="Gerp Guidelines" href="guidelines.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -43,18 +43,18 @@
 <span id="reference-mobile"></span><h1>Mobile JavaScript<a class="headerlink" href="#mobile-javascript" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>In Odoo 10.0 we released a mobile app, allows you to access all <strong>Odoo apps</strong>
+<p>In Gerp 10.0 we released a mobile app, allows you to access all <strong>Gerp apps</strong>
 (even your customized modules).</p>
-<p>The application is a combination of <strong>Odoo Web</strong> and <strong>Native Mobile
-components</strong>, in other words it is a Odoo Web instance loaded inside native
+<p>The application is a combination of <strong>Gerp Web</strong> and <strong>Native Mobile
+components</strong>, in other words it is a Gerp Web instance loaded inside native
 WebView container of mobile.</p>
 <p>This page documents how you can access mobile native components like Camera,
-Vibration, Notification, Toast through Odoo Web (via JavaScript). For this, you
-do not need to be a mobile developer, if you know Odoo JavaScript API you can
+Vibration, Notification, Toast through Gerp Web (via JavaScript). For this, you
+do not need to be a mobile developer, if you know Gerp JavaScript API you can
 access all available mobile features.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">This features works with <strong>Odoo Enterprise 10.0+</strong> only</p>
+<p class="last">This features works with <strong>Gerp Enterprise 10.0+</strong> only</p>
 </div>
 </div>
 <div class="section" id="how-does-it-work">
@@ -64,8 +64,8 @@ access all available mobile features.</p>
 <p>Of course, it is a web page that loads on a Mobile Native Web container. But it
 is integrated in such a way that you can access native resources from your web
 JavaScript.</p>
-<p>WebPages (Odoo Web) is on the top of each layer, where second layer is a Bridge
-between Odoo Web (JS) and Native component of mobile.</p>
+<p>WebPages (Gerp Web) is on the top of each layer, where second layer is a Bridge
+between Gerp Web (JS) and Native component of mobile.</p>
 <p>When any call from JavaScript triggered it passes through Bridge and Bridge
 pass it to native invoker to perform that action.</p>
 <p>When the native component has done their work, it again is passed to Bridge and
@@ -75,7 +75,7 @@ from Native resources. Like Camera or GPS Location.</p>
 </div>
 <div class="section" id="how-to-use-it">
 <h2>How to use it?<a class="headerlink" href="#how-to-use-it" title="Permalink to this headline">¶</a></h2>
-<p>As Odoo Web Framework, Mobile api can be used anywhere by getting object of
+<p>As Gerp Web Framework, Mobile api can be used anywhere by getting object of
 <strong>web_mobile.rpc</strong></p>
 <img alt="../_images/gerp_mobile_api.png" src="../_images/gerp_mobile_api.png" />
 <p>Mobile rpc object provide list of methods available (Works only with Mobile
@@ -301,7 +301,7 @@ view at any time.</p>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../reference.html">Reference</a><ul>
-      <li>Previous: <a href="guidelines.html" title="previous chapter">Odoo Guidelines</a></li>
+      <li>Previous: <a href="guidelines.html" title="previous chapter">Gerp Guidelines</a></li>
   </ul></li>
   </ul></li>
 </ul>

@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_forum_doc
 # 
@@ -11,7 +11,7 @@
 # Phạm Lân <phamquanglan@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
@@ -172,12 +172,12 @@ msgstr "Lỗi ! Bạn không thể tạo nhóm với cấu trúc lặp đi lặp
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "Explain how to configure Odoo"
+msgid "Explain how to configure Gerp"
 msgstr ""
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "Explain how to implement it in Odoo"
+msgid "Explain how to implement it in Gerp"
 msgstr ""
 
 #. module: website_forum_doc
@@ -389,7 +389,7 @@ msgstr "Tên giai đoạn"
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "The answer is understandable for someone who does not know Odoo"
+msgid "The answer is understandable for someone who does not know Gerp"
 msgstr ""
 
 #. module: website_forum_doc

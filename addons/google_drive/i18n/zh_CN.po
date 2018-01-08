@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * google_drive
 # 
@@ -13,7 +13,7 @@
 # Jeff Yu <jeff.yu@elico-corp.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
@@ -29,14 +29,14 @@ msgstr ""
 #: model:ir.ui.view,arch_db:google_drive.view_google_drive_config_form
 msgid ""
 "<b>To create a new filter:</b><br/>\n"
-"                                - Go to the Odoo document you want to filter. For instance, go to Opportunities and search on Sales Department.<br/>\n"
+"                                - Go to the Gerp document you want to filter. For instance, go to Opportunities and search on Sales Department.<br/>\n"
 "                                - In this \"Search\" view, select the option \"Save Current Filter\", enter the name (Ex: Sales Department)<br/>\n"
 "                                - If you select \"Share with all users\", link of google document in \"More\" options will appear for all users in opportunities of Sales Department.<br/>\n"
 "                                - If you don't select \"Share with all users\", link of google document in \"More\" options will not appear for other users in opportunities of Sales Department.<br/>\n"
 "                                - If filter is not specified, link of google document will appear in \"More\" option for all users for all opportunities."
 msgstr ""
 "<b>创建一个新的筛选:</b><br/>\n"
-"                                - 去到你要过滤的Odoo文档. 比如, 比如在销售部门搜索商机.<br/>\n"
+"                                - 去到你要过滤的Gerp文档. 比如, 比如在销售部门搜索商机.<br/>\n"
 "                                -在”搜索“视图, 选择 \"保存现有筛选\", 输入名字 (比如: 销售部门)<br/>\n"
 "                                - 如果你在 \"更多\" 选项中选择 \"和所有用户共享\", 谷歌文档链接就会显示给所有销售部门的用户.<br/>\n"
 "                                - 如果你没有在 \"更多\" 选项中选择 \"和所有用户共享\", 谷歌文档链接则不会显示给所有销售部门的用户.<br/>\n"
@@ -179,14 +179,14 @@ msgstr "最后更新时间"
 #. module: google_drive
 #: model:ir.actions.act_window,help:google_drive.action_google_drive_users_config
 msgid ""
-"Link your own google drive templates to any record of Odoo. If you have "
+"Link your own google drive templates to any record of Gerp. If you have "
 "really specific documents you want your collaborator fill in, e.g. Use a "
 "spreadsheet to control the quality of your product or review the delivery "
 "checklist for each order in a foreign country, ... Its very easy to manage "
-"them, link them to Odoo and use them to collaborate with your employees."
+"them, link them to Gerp and use them to collaborate with your employees."
 msgstr ""
-"链接你的谷歌驱动模板到Odoo的记录. 如果你有特定的文档需要你的合作者填写, 比如： 使用电子表格来控制你的产品的质量或者检查每个外国订单的发货清单,"
-" ...这很容易管理他们, 把他们链接到Odoo并且和你的员工一起使用它们."
+"链接你的谷歌驱动模板到Gerp的记录. 如果你有特定的文档需要你的合作者填写, 比如： 使用电子表格来控制你的产品的质量或者检查每个外国订单的发货清单,"
+" ...这很容易管理他们, 把他们链接到Gerp并且和你的员工一起使用它们."
 
 #. module: google_drive
 #: model:ir.model.fields,field_description:google_drive.field_google_drive_config_model_id
@@ -248,13 +248,13 @@ msgstr "以从谷歌的授权码的网址"
 msgid ""
 "The name of the attached document can use fixed or variable data. To distinguish between documents in\n"
 "                                Google Drive, use fixed words and fields. For instance, in the example above, if you wrote Agrolait_%(name)s_Sales\n"
-"                                in the Google Drive name field, the document in your Google Drive and in Odoo attachment will be named\n"
+"                                in the Google Drive name field, the document in your Google Drive and in Gerp attachment will be named\n"
 "                                'Agrolait_SO0001_Sales'."
 msgstr ""
 "所附文件的名称，可以使用固定或可变数据。区分在\n"
 "                                谷歌驱动器上的文件，使用固定文字和字段。例如，在上面的例子中，\n"
 "                                如果你在谷歌驱动器名称字段中写道Agrolait_％（名称）s_Sales，在你的谷歌驱动器，\n"
-"                                并在Odoo的附件文件将被命名为“Agrolait_SO0001_Sales”"
+"                                并在Gerp的附件文件将被命名为“Agrolait_SO0001_Sales”"
 
 #. module: google_drive
 #: code:addons/google_drive/models/google_drive.py:134

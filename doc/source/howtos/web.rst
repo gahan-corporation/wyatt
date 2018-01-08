@@ -8,10 +8,10 @@ Building Interface Extensions
 
 .. default-domain:: js
 
-This guide is about creating modules for Odoo's web client.
+This guide is about creating modules for Gerp's web client.
 
-To create websites with Odoo, see :doc:`website`; to add business capabilities
-or extend existing business systems of Odoo, see :doc:`backend`.
+To create websites with Gerp, see :doc:`website`; to add business capabilities
+or extend existing business systems of Gerp, see :doc:`backend`.
 
 .. warning::
 
@@ -21,13 +21,13 @@ or extend existing business systems of Odoo, see :doc:`backend`.
     * jQuery_
     * `Underscore.js`_
 
-    It also requires :ref:`an installed Odoo <setup/install>`, and Git_.
+    It also requires :ref:`an installed Gerp <setup/install>`, and Git_.
 
 
 A Simple Module
 ===============
 
-Let's start with a simple Odoo module holding basic web component
+Let's start with a simple Gerp module holding basic web component
 configuration and letting us test the web framework.
 
 The example module is available online and can be downloaded using the
@@ -38,7 +38,7 @@ following command:
     $ git clone http://github.com/gerp/petstore
 
 This will create a ``petstore`` folder wherever you executed the command.
-You then need to add that folder to Odoo's
+You then need to add that folder to Gerp's
 :option:`addons path <gerp-bin --addons-path>`, create a new database and
 install the ``oepetstore`` module.
 
@@ -72,7 +72,7 @@ The module already holds various server customizations. We'll come back to
 these later, for now let's focus on the web-related content, in the ``static``
 folder.
 
-Files used in the "web" side of an Odoo module must be placed in a ``static``
+Files used in the "web" side of an Gerp module must be placed in a ``static``
 folder so they are available to a web browser, files outside that folder can
 not be fetched by browsers. The ``src/css``, ``src/js`` and ``src/xml``
 sub-folders are conventional and not strictly necessary.
@@ -113,9 +113,9 @@ The files in the ``static`` folder, need to be defined within the module in orde
     One of the drawback is debugging becomes more difficult as
     individual files disappear and the code is made significantly less
     readable. It is possible to disable this process by enabling the
-    "developer mode": log into your Odoo instance (user *admin* password
+    "developer mode": log into your Gerp instance (user *admin* password
     *admin* by default) open the user menu (in the top-right corner of the
-    Odoo screen) and select :guilabel:`About Odoo` then :guilabel:`Activate
+    Gerp screen) and select :guilabel:`About Gerp` then :guilabel:`Activate
     the developer mode`:
 
     .. image:: web/about_gerp.png
@@ -129,7 +129,7 @@ The files in the ``static`` folder, need to be defined within the module in orde
 
 .. todo:: qweb files hooked via __manifest__.py, but js and CSS use bundles
 
-Odoo JavaScript Module
+Gerp JavaScript Module
 ======================
 
 Javascript doesn't have built-in modules. As a result variables defined in
@@ -137,7 +137,7 @@ different files are all mashed together and may conflict. This has given rise
 to various module patterns used to build clean namespaces and limit risks of
 naming conflicts.
 
-The Odoo framework uses one such pattern to define modules within web addons,
+The Gerp framework uses one such pattern to define modules within web addons,
 in order to both namespace code and correctly order its loading.
 
 ``oepetstore/static/js/petstore.js`` contains a module declaration::
@@ -146,20 +146,20 @@ in order to both namespace code and correctly order its loading.
         local.xxx = ...;
     }
 
-In Odoo web, modules are declared as functions set on the global ``gerp``
+In Gerp web, modules are declared as functions set on the global ``gerp``
 variable. The function's name must be the same as the addon (in this case
 ``oepetstore``) so the framework can find it, and automatically initialize it.
 
 When the web client loads your module it will call the root function
 and provide two parameters:
 
-* the first parameter is the current instance of the Odoo web client, it gives
-  access to various capabilities defined by the Odoo (translations,
+* the first parameter is the current instance of the Gerp web client, it gives
+  access to various capabilities defined by the Gerp (translations,
   network services) as well as objects defined by the core or by other
   modules.
 * the second parameter is your own local namespace automatically created by
   the web client. Objects and variables which should be accessible from
-  outside your module (either because the Odoo web client needs to call them
+  outside your module (either because the Gerp web client needs to call them
   or because others may want to customize them) should be set inside that
   namespace.
 
@@ -170,7 +170,7 @@ Much as modules, and contrary to most object-oriented languages, javascript
 does not build in *classes*\ [#classes]_ although it provides roughly
 equivalent (if lower-level and more verbose) mechanisms.
 
-For simplicity and developer-friendliness Odoo web provides a class
+For simplicity and developer-friendliness Gerp web provides a class
 system based on John Resig's `Simple JavaScript Inheritance`_.
 
 New classes are defined by calling the :func:`~gerp.web.Class.extend`
@@ -277,14 +277,14 @@ call the original method::
 Widgets Basics
 ==============
 
-The Odoo web client bundles jQuery_ for easy DOM manipulation. It is useful
+The Gerp web client bundles jQuery_ for easy DOM manipulation. It is useful
 and provides a better API than standard `W3C DOM`_\ [#dombugs]_, but
 insufficient to structure complex applications leading to difficult
 maintenance.
 
 Much like object-oriented desktop UI toolkits (e.g. Qt_, Cocoa_ or GTK_),
-Odoo Web makes specific components responsible for sections of a page. In
-Odoo web, the base for such components is the :class:`~gerp.Widget`
+Gerp Web makes specific components responsible for sections of a page. In
+Gerp web, the base for such components is the :class:`~gerp.Widget`
 class, a component specialized in handling a page section and displaying
 information for the user.
 
@@ -345,7 +345,7 @@ Let's add some content to the widget's root element, using jQuery::
 
     local.HomePage = instance.Widget.extend({
         start: function() {
-            this.$el.append("<div>Hello dear Odoo user!</div>");
+            this.$el.append("<div>Hello dear Gerp user!</div>");
         },
     });
 
@@ -354,10 +354,10 @@ That message will now appear when you open :menuselection:`Pet Store
 
 .. note::
 
-    to refresh the javascript code loaded in Odoo Web, you will need to reload
-    the page. There is no need to restart the Odoo server.
+    to refresh the javascript code loaded in Gerp Web, you will need to reload
+    the page. There is no need to restart the Gerp server.
 
-The ``HomePage`` widget is used by Odoo Web and managed automatically.
+The ``HomePage`` widget is used by Gerp Web and managed automatically.
 To learn how to use a widget "from scratch" let's create a new one::
 
     local.GreetingsWidget = instance.Widget.extend({
@@ -371,7 +371,7 @@ We can now add our ``GreetingsWidget`` to the ``HomePage`` by using the
 
     local.HomePage = instance.Widget.extend({
         start: function() {
-            this.$el.append("<div>Hello dear Odoo user!</div>");
+            this.$el.append("<div>Hello dear Gerp user!</div>");
             var greeting = new local.GreetingsWidget(this);
             return greeting.appendTo(this.$el);
         },
@@ -407,7 +407,7 @@ then :guilabel:`Inspect Element`), it should look like this:
 .. code-block:: html
 
     <div class="oe_petstore_homepage">
-        <div>Hello dear Odoo user!</div>
+        <div>Hello dear Gerp user!</div>
         <div class="oe_petstore_greetings">
             <div>We are so happy to see you again in this menu!</div>
         </div>
@@ -508,14 +508,14 @@ The QWeb Template Engine
 In the previous section we added content to our widgets by directly
 manipulating (and adding to) their DOM::
 
-    this.$el.append("<div>Hello dear Odoo user!</div>");
+    this.$el.append("<div>Hello dear Gerp user!</div>");
 
 This allows generating and displaying any type of content, but gets unwieldy
 when generating significant amounts of DOM (lots of duplication, quoting
 issues, ...)
 
-As many other environments, Odoo's solution is to use a `template engine`_.
-Odoo's template engine is called :ref:`reference/qweb`.
+As many other environments, Gerp's solution is to use a `template engine`_.
+Gerp's template engine is called :ref:`reference/qweb`.
 
 QWeb is an XML-based templating language, similar to `Genshi
 <http://en.wikipedia.org/wiki/Genshi_(templating_language)>`_, `Thymeleaf
@@ -525,21 +525,21 @@ characteristics:
 
 * It's implemented fully in JavaScript and rendered in the browser
 * Each template file (XML files) contains multiple templates
-* It has special support in Odoo Web's :class:`~gerp.Widget`, though it
-  can be used outside of Odoo's web client (and it's possible to use
+* It has special support in Gerp Web's :class:`~gerp.Widget`, though it
+  can be used outside of Gerp's web client (and it's possible to use
   :class:`~gerp.Widget` without relying on QWeb)
 
 .. note::
 
     The rationale behind using QWeb instead of existing javascript template
     engines is the extensibility of pre-existing (third-party) templates, much
-    like Odoo :ref:`views <reference/views>`.
+    like Gerp :ref:`views <reference/views>`.
 
     Most javascript template engines are text-based which precludes easy
     structural extensibility where an XML-based templating engine can be
     generically altered using e.g. XPath or CSS and a tree-alteration DSL (or
     even just XSLT). This flexibility and extensibility is a core
-    characteristic of Odoo, and losing it was considered unacceptable.
+    characteristic of Gerp, and losing it was considered unacceptable.
 
 Using QWeb
 ----------
@@ -1069,7 +1069,7 @@ any. Example::
     Triggering events on an other widget is generally a bad idea. The main
     exception to that rule is ``gerp.web.bus`` which exists specifically
     to broadcasts evens in which any widget could be interested throughout
-    the Odoo web application.
+    the Gerp web application.
 
 Properties
 ----------
@@ -1188,7 +1188,7 @@ Exercise
 Modify existing widgets and classes
 ===================================
 
-The class system of the Odoo web framework allows direct modification of
+The class system of the Gerp web framework allows direct modification of
 existing classes using the :func:`~gerp.web.Class.include` method::
 
     var TestClass = instance.web.Class.extend({
@@ -1231,7 +1231,7 @@ JavaScript module. They are used thus::
 
     this.$el.text(_t("Hello user!"));
 
-In Odoo, translations files are automatically generated by scanning the source
+In Gerp, translations files are automatically generated by scanning the source
 code. All piece of code that calls a certain function are detected and their
 content is added to a translation file that will then be sent to the
 translators. In Python, the function is ``_()``. In JavaScript the function is
@@ -1263,19 +1263,19 @@ It is used to define translatable terms before the translations system is
 initialized, for class attributes for instance (as modules are loaded before
 the user's language is configured and translations are downloaded).
 
-Communication with the Odoo Server
+Communication with the Gerp Server
 ==================================
 
 Contacting Models
 -----------------
 
-Most operations with Odoo involve communicating with *models* implementing
+Most operations with Gerp involve communicating with *models* implementing
 business concern, these models will then (potentially) interact with some
 storage engine (usually PostgreSQL_).
 
 Although jQuery_ provides a `$.ajax`_ function for network interactions,
-communicating with Odoo requires additional metadata whose setup before every
-call would be verbose and error-prone. As a result, Odoo web provides
+communicating with Gerp requires additional metadata whose setup before every
+call would be verbose and error-prone. As a result, Gerp web provides
 higher-level communication primitives.
 
 To demonstrate this, the file ``petstore.py`` already contains a small model
@@ -1309,12 +1309,12 @@ Here is a sample widget that calls ``my_method()`` and displays the result::
         },
     });
 
-The class used to call Odoo models is :class:`gerp.Model`. It is
-instantiated with the Odoo model's name as first parameter
+The class used to call Gerp models is :class:`gerp.Model`. It is
+instantiated with the Gerp model's name as first parameter
 (``oepetstore.message_of_the_day`` here).
 
 :func:`~gerp.web.Model.call` can be used to call any (public) method of an
-Odoo model. It takes the following positional arguments:
+Gerp model. It takes the following positional arguments:
 
 ``name``
   The name of the method to call, ``my_method`` here
@@ -1364,7 +1364,7 @@ The context is like a "magic" argument that the web client will always give to
 the server when calling a method. The context is a dictionary containing
 multiple keys. One of the most important key is the language of the user, used
 by the server to translate all the messages of the application. Another one is
-the time zone of the user, used to compute correctly dates and times if Odoo
+the time zone of the user, used to compute correctly dates and times if Gerp
 is used by people in different countries.
 
 The ``argument`` is necessary in all methods, otherwise bad things could
@@ -1391,15 +1391,15 @@ merge all those contexts before sending them to the server.
         // will print: {'lang': 'en_US', 'new_key': 'key_value', 'tz': 'Europe/Brussels', 'uid': 1}
 
 You can see the dictionary in the argument ``context`` contains some keys that
-are related to the configuration of the current user in Odoo plus the
+are related to the configuration of the current user in Gerp plus the
 ``new_key`` key that was added when instantiating
 :class:`~gerp.web.CompoundContext`.
 
 Queries
 -------
 
-While :func:`~gerp.Model.call` is sufficient for any interaction with Odoo
-models, Odoo Web provides a helper for simpler and clearer querying of models
+While :func:`~gerp.Model.call` is sufficient for any interaction with Gerp
+models, Gerp Web provides a helper for simpler and clearer querying of models
 (fetching of records based on various conditions):
 :func:`~gerp.Model.query` which acts as a shortcut for the common
 combination of :py:meth:`~gerp.models.Model.search` and
@@ -1519,7 +1519,7 @@ Exercises
     need to explore ``product.product`` to create the right domain to
     select just pet toys.
 
-    In Odoo, images are generally stored in regular fields encoded as
+    In Gerp, images are generally stored in regular fields encoded as
     base64_, HTML supports displaying images straight from base64 with
     :samp:`<img src="data:{mime_type};base64,{base64_image_data}"/>`
 
@@ -1648,7 +1648,7 @@ Existing web components
 The Action Manager
 ------------------
 
-In Odoo, many operations start from an :ref:`action <reference/actions>`:
+In Gerp, many operations start from an :ref:`action <reference/actions>`:
 opening a menu item (to a view), printing a report, ...
 
 Actions are pieces of data describing how a client should react to the
@@ -1656,7 +1656,7 @@ activation of a piece of content. Actions can be stored (and read through a
 model) or they can be generated on-the fly (locally to the client by
 javascript code, or remotely by a method of a model).
 
-In Odoo Web, the component responsible for handling and reacting to these
+In Gerp Web, the component responsible for handling and reacting to these
 actions is the *Action Manager*.
 
 Using the Action Manager
@@ -1753,11 +1753,11 @@ Client Actions
 
 Throughout this guide, we used a simple ``HomePage`` widget which the web
 client automatically starts when we select the right menu item. But how did
-the Odoo web know to start this widget? Because the widget is registered as
+the Gerp web know to start this widget? Because the widget is registered as
 a *client action*.
 
 A client action is (as its name implies) an action type defined almost
-entirely in the client, in javascript for Odoo web. The server simply sends
+entirely in the client, in javascript for Gerp web. The server simply sends
 an action tag (an arbitrary name), and optionally adds a few parameters, but
 beyond that *everything* is handled by custom client code.
 
@@ -1770,7 +1770,7 @@ Our widget is registered as the handler for the client action through this::
 the action manager looks up client action handlers when it needs to execute
 one. The first parameter of :class:`~gerp.web.Registry.add` is the name
 (tag) of the client action, and the second parameter is the path to the widget
-from the Odoo web client root.
+from the Gerp web client root.
 
 When a client action must be executed, the action manager looks up its tag
 in the registry, walks the specified path and displays the widget it finds at
@@ -1798,7 +1798,7 @@ and a menu opening the action:
 Architecture of the Views
 -------------------------
 
-Much of Odoo web's usefulness (and complexity) resides in views. Each view
+Much of Gerp web's usefulness (and complexity) resides in views. Each view
 type is a way of displaying a model in the client.
 
 The View Manager
@@ -1816,11 +1816,11 @@ multiple views depending on the original action's requirements:
 The Views
 '''''''''
 
-Most :ref:`Odoo views <reference/views>` are implemented through a subclass
+Most :ref:`Gerp views <reference/views>` are implemented through a subclass
 of :class:`gerp.web.View` which provides a bit of generic basic structure
 for handling events and displaying model information.
 
-The *search view* is considered a view type by the main Odoo framework, but
+The *search view* is considered a view type by the main Gerp framework, but
 handled separately by the web client (as it's a more permanent fixture and
 can interact with other views, which regular views don't do).
 
@@ -1880,7 +1880,7 @@ Here are some of the responsibilities of a field class:
 
 * The field class must display and allow the user to edit the value of the field.
 * It must correctly implement the 3 field attributes available in all fields
-  of Odoo. The ``AbstractField`` class already implements an algorithm that
+  of Gerp. The ``AbstractField`` class already implements an algorithm that
   dynamically calculates the value of these attributes (they can change at any
   moment because their value change according to the value of other
   fields). Their values are stored in *Widget Properties* (the widget
@@ -1896,7 +1896,7 @@ Here are some of the responsibilities of a field class:
     ``AbstractField`` class already has a basic implementation of this
     behavior that fits most fields.
   * ``readonly``: When ``true``, the field must not be editable by the
-    user. Most fields in Odoo have a completely different behavior depending
+    user. Most fields in Gerp have a completely different behavior depending
     on the value of ``readonly``. As example, the ``FieldChar`` displays an
     HTML ``<input>`` when it is editable and simply displays the text when
     it is read-only. This also means it has much more code it would need to
@@ -1906,10 +1906,10 @@ Here are some of the responsibilities of a field class:
 * Fields have two methods, ``set_value()`` and ``get_value()``, which are
   called by the form view to give it the value to display and get back the new
   value entered by the user. These methods must be able to handle the value as
-  given by the Odoo server when a ``read()`` is performed on a model and give
+  given by the Gerp server when a ``read()`` is performed on a model and give
   back a valid value for a ``write()``.  Remember that the JavaScript/Python
   data types used to represent the values given by ``read()`` and given to
-  ``write()`` is not necessarily the same in Odoo. As example, when you read a
+  ``write()`` is not necessarily the same in Gerp. As example, when you read a
   many2one, it is always a tuple whose first value is the id of the pointed
   record and the second one is the name get (ie: ``(15, "Agrolait")``). But
   when you write a many2one it must be a single integer, not a tuple
@@ -1919,7 +1919,7 @@ Here are some of the responsibilities of a field class:
 
 Please note that, to better understand how to implement fields, you are
 strongly encouraged to look at the definition of the ``FieldInterface``
-interface and the ``AbstractField`` class directly in the code of the Odoo web
+interface and the ``AbstractField`` class directly in the code of the Gerp web
 client.
 
 Creating a New Type of Field
@@ -1973,7 +1973,7 @@ Read-Write Field
 """"""""""""""""
 
 Read-only fields, which only display content and don't allow the
-user to modify it can be useful, but most fields in Odoo also allow editing.
+user to modify it can be useful, but most fields in Gerp also allow editing.
 This makes the field classes more complicated, mostly because fields are
 supposed to handle both editable and non-editable mode, those modes are
 often completely different (for design and usability purpose) and the fields

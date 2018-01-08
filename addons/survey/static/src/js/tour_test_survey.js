@@ -44,7 +44,7 @@ tour.register('test_survey', {
             run: 'text 12',
         },
         {
-            content: "For 'I use the contextual help in Odoo' checking 'Agree'",
+            content: "For 'I use the contextual help in Gerp' checking 'Agree'",
             trigger: 'input[name="1_2_3_17"][value="13"]',
             run: 'text 13',
         },
@@ -58,9 +58,9 @@ tour.register('test_survey', {
             trigger: 'input[name="1_2_3_19"][value="12"]',
             run: 'text 12',
         },
-        // Question: What do you think about the process views of Odoo, available in the web client ?
+        // Question: What do you think about the process views of Gerp, available in the web client ?
         {
-            content: "For 'They help new users to understand Odoo' checking 'Totally disagree'",
+            content: "For 'They help new users to understand Gerp' checking 'Totally disagree'",
             trigger: 'input[name="1_2_4_24"][value="20"]',
             run: 'text 20',
         },
@@ -154,7 +154,7 @@ tour.register('test_survey', {
             trigger: 'button[value="next"]',
         },
         // Page-3
-        // Question: How do you contribute or plan to contribute to Odoo?
+        // Question: How do you contribute or plan to contribute to Gerp?
         {
             content: "Checking 'I would like to contribute but I don not know how?'",
             trigger: 'input[name="1_3_10_53"][value="53"]',

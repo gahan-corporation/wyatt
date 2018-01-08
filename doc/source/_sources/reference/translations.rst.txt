@@ -36,7 +36,7 @@ can be created. PO files can be created using msginit_, with a dedicated
 translation tool like POEdit_ or by simply copying the template to a new file
 called :file:`{language}.po`. Translation files should be put in
 :file:`{yourmodule}/i18n/`, next to :file:`{yourmodule}.pot`, and will be
-automatically loaded by Odoo when the corresponding language is installed (via
+automatically loaded by Gerp when the corresponding language is installed (via
 :menuselection:`Settings --> Translations --> Load a Translation`)
 
 .. note:: translations for all loaded languages are also installed or updated
@@ -45,7 +45,7 @@ automatically loaded by Odoo when the corresponding language is installed (via
 Implicit exports
 ================
 
-Odoo automatically exports translatable strings from "data"-type content:
+Gerp automatically exports translatable strings from "data"-type content:
 
 * in non-QWeb views, all text nodes are exported as well as the content of
   the ``string``, ``help``, ``sum``, ``confirm`` and ``placeholder``
@@ -68,7 +68,7 @@ Explicit exports
 ================
 
 When it comes to more "imperative" situations in Python code or Javascript
-code, Odoo cannot automatically export translatable terms so they
+code, Gerp cannot automatically export translatable terms so they
 must be marked explicitly for export. This is done by wrapping a literal
 string in a function call.
 

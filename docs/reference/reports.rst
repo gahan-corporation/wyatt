@@ -6,7 +6,7 @@
 QWeb Reports
 ============
 
-Reports are written in HTML/QWeb, like all regular views in Odoo. You can use
+Reports are written in HTML/QWeb, like all regular views in Gerp. You can use
 the usual :ref:`QWeb control flow tools <reference/qweb>`. The PDF rendering
 itself is performed by wkhtmltopdf_.
 

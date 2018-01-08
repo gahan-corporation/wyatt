@@ -44,12 +44,12 @@
 <h1>Building a Module<a class="headerlink" href="#building-a-module" title="Permalink to this headline">¶</a></h1>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">This tutorial requires <a class="reference internal" href="../setup/install.html#setup-install"><span class="std std-ref">having installed Odoo</span></a></p>
+<p class="last">This tutorial requires <a class="reference internal" href="../setup/install.html#setup-install"><span class="std std-ref">having installed Gerp</span></a></p>
 </div>
 <div class="section" id="start-stop-the-gerp-server">
-<h2>Start/Stop the Odoo server<a class="headerlink" href="#start-stop-the-gerp-server" title="Permalink to this headline">¶</a></h2>
-<p>Odoo uses a client/server architecture in which clients are web browsers
-accessing the Odoo server via RPC.</p>
+<h2>Start/Stop the Gerp server<a class="headerlink" href="#start-stop-the-gerp-server" title="Permalink to this headline">¶</a></h2>
+<p>Gerp uses a client/server architecture in which clients are web browsers
+accessing the Gerp server via RPC.</p>
 <p>Business logic and extension is generally performed on the server side,
 although supporting client features (e.g. new data representation such as
 interactive maps) can be added to the client.</p>
@@ -62,21 +62,21 @@ necessary:</p>
 killing the corresponding OS process.</p>
 </div>
 <div class="section" id="build-an-gerp-module">
-<h2>Build an Odoo module<a class="headerlink" href="#build-an-gerp-module" title="Permalink to this headline">¶</a></h2>
+<h2>Build an Gerp module<a class="headerlink" href="#build-an-gerp-module" title="Permalink to this headline">¶</a></h2>
 <p>Both server and client extensions are packaged as <em>modules</em> which are
 optionally loaded in a <em>database</em>.</p>
-<p>Odoo modules can either add brand new business logic to an Odoo system, or
+<p>Gerp modules can either add brand new business logic to an Gerp system, or
 alter and extend existing business logic: a module can be created to add your
-country’s accounting rules to Odoo’s generic accounting support, while the
+country’s accounting rules to Gerp’s generic accounting support, while the
 next module adds support for real-time visualisation of a bus fleet.</p>
-<p>Everything in Odoo thus starts and ends with modules.</p>
+<p>Everything in Gerp thus starts and ends with modules.</p>
 <div class="section" id="composition-of-a-module">
 <h3>Composition of a module<a class="headerlink" href="#composition-of-a-module" title="Permalink to this headline">¶</a></h3>
-<p>An Odoo module can contain a number of elements:</p>
+<p>An Gerp module can contain a number of elements:</p>
 <dl class="docutils">
 <dt>Business objects</dt>
 <dd>Declared as Python classes, these resources are automatically persisted
-by Odoo based on their configuration</dd>
+by Gerp based on their configuration</dd>
 <dt>Data files</dt>
 <dd>XML or CSV files declaring metadata (views or reports), configuration
 data (modules parameterization), demonstration data and more</dd>
@@ -96,7 +96,7 @@ option.</p>
 <p class="last">most command-line options can also be set using <a class="reference internal" href="../reference/cmdline.html#reference-cmdline-config"><span class="std std-ref">a configuration
 file</span></a></p>
 </div>
-<p>An Odoo module is declared by its <a class="reference internal" href="../reference/module.html#reference-module-manifest"><span class="std std-ref">manifest</span></a>.
+<p>An Gerp module is declared by its <a class="reference internal" href="../reference/module.html#reference-module-manifest"><span class="std std-ref">manifest</span></a>.
 See the <a class="reference internal" href="../reference/module.html#reference-module-manifest"><span class="std std-ref">manifest documentation</span></a> about it.</p>
 <p>A module is also a
 <a class="reference external" href="http://docs.python.org/2/tutorial/modules.html#packages">Python package</a>
@@ -107,7 +107,7 @@ might contain:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">mymodule</span>
 </pre></div>
 </div>
-<p>Odoo provides a mechanism to help set up a new module, <a class="reference internal" href="../reference/cmdline.html#reference-cmdline-server"><span class="std std-ref">gerp-bin</span></a> has a subcommand <a class="reference internal" href="../reference/cmdline.html#reference-cmdline-scaffold"><span class="std std-ref">scaffold</span></a> to create an empty module:</p>
+<p>Gerp provides a mechanism to help set up a new module, <a class="reference internal" href="../reference/cmdline.html#reference-cmdline-server"><span class="std std-ref">gerp-bin</span></a> has a subcommand <a class="reference internal" href="../reference/cmdline.html#reference-cmdline-scaffold"><span class="std std-ref">scaffold</span></a> to create an empty module:</p>
 <div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> gerp-bin scaffold &lt;module name&gt; &lt;where to put it&gt;
 </pre></div>
 </div>
@@ -117,7 +117,7 @@ or XML. The usage of most of those files will be explained along this tutorial.<
 </div>
 <div class="section" id="object-relational-mapping">
 <h3>Object-Relational Mapping<a class="headerlink" href="#object-relational-mapping" title="Permalink to this headline">¶</a></h3>
-<p>A key component of Odoo is the <abbr title="Object-Relational Mapping">ORM</abbr> layer.
+<p>A key component of Gerp is the <abbr title="Object-Relational Mapping">ORM</abbr> layer.
 This layer avoids having to write most <abbr title="Structured Query Language">SQL</abbr>
 by hand and provides extensibility and security services<a class="footnote-reference" href="#rawsql" id="id1">[2]</a>.</p>
 <p>Business objects are declared as Python classes extending
@@ -126,7 +126,7 @@ persistence system.</p>
 <p>Models can be configured by setting a number of attributes at their
 definition. The most important attribute is
 <code class="xref py py-attr docutils literal"><span class="pre">_name</span></code> which is required and defines the name for
-the model in the Odoo system. Here is a minimally complete definition of a
+the model in the Gerp system. Here is a minimally complete definition of a
 model:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gerp</span> <span class="k">import</span> <span class="n">models</span>
 <span class="k">class</span> <span class="nc">MinimalModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
@@ -163,7 +163,7 @@ value or always be given a value when creating a record.</dd>
 <dt><code class="xref py py-attr docutils literal"><span class="pre">help</span></code> (<code class="docutils literal"><span class="pre">unicode</span></code>, default: <code class="docutils literal"><span class="pre">''</span></code>)</dt>
 <dd>Long-form, provides a help tooltip to users in the UI.</dd>
 <dt><code class="xref py py-attr docutils literal"><span class="pre">index</span></code> (<code class="docutils literal"><span class="pre">bool</span></code>, default: <code class="docutils literal"><span class="pre">False</span></code>)</dt>
-<dd>Requests that Odoo create a <a class="reference external" href="http://use-the-index-luke.com/sql/preface">database index</a> on the column.</dd>
+<dd>Requests that Gerp create a <a class="reference external" href="http://use-the-index-luke.com/sql/preface">database index</a> on the column.</dd>
 </dl>
 </div>
 <div class="section" id="simple-fields">
@@ -176,7 +176,7 @@ records (of the same model or of different models).</p>
 </div>
 <div class="section" id="reserved-fields">
 <h4>Reserved fields<a class="headerlink" href="#reserved-fields" title="Permalink to this headline">¶</a></h4>
-<p>Odoo creates a few fields in all models<a class="footnote-reference" href="#autofields" id="id2">[1]</a>. These fields are
+<p>Gerp creates a few fields in all models<a class="footnote-reference" href="#autofields" id="id2">[1]</a>. These fields are
 managed by the system and shouldn’t be written to. They can be read if
 useful or necessary:</p>
 <dl class="docutils">
@@ -194,18 +194,18 @@ useful or necessary:</p>
 </div>
 <div class="section" id="special-fields">
 <h4>Special fields<a class="headerlink" href="#special-fields" title="Permalink to this headline">¶</a></h4>
-<p>By default, Odoo also requires a <code class="docutils literal"><span class="pre">name</span></code> field on all models for various
+<p>By default, Gerp also requires a <code class="docutils literal"><span class="pre">name</span></code> field on all models for various
 display and search behaviors. The field used for these purposes can be
 overridden by setting <code class="xref py py-attr docutils literal"><span class="pre">_rec_name</span></code>.</p>
 </div>
 </div>
 <div class="section" id="data-files">
 <h3>Data files<a class="headerlink" href="#data-files" title="Permalink to this headline">¶</a></h3>
-<p>Odoo is a highly data driven system. Although behavior is customized using
+<p>Gerp is a highly data driven system. Although behavior is customized using
 <a class="reference external" href="http://python.org">Python</a> code part of a module’s value is in the data it sets up when loaded.</p>
 <div class="aphorism admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">some modules exist solely to add data into Odoo</p>
+<p class="last">some modules exist solely to add data into Gerp</p>
 </div>
 <p>Module data is declared via <a class="reference internal" href="../reference/data.html#reference-data"><span class="std std-ref">data files</span></a>, XML files with
 <code class="docutils literal"><span class="pre">&lt;record&gt;</span></code> elements. Each <code class="docutils literal"><span class="pre">&lt;record&gt;</span></code> element creates or updates a database
@@ -220,7 +220,7 @@ record.</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">model</span></code> is the name of the Odoo model for the record.</li>
+<li><code class="docutils literal"><span class="pre">model</span></code> is the name of the Gerp model for the record.</li>
 <li><code class="docutils literal"><span class="pre">id</span></code> is an <a class="reference internal" href="../glossary.html#term-external-identifier"><span class="xref std std-term">external identifier</span></a>, it allows referring to the record
 (without having to know its in-database identifier).</li>
 <li><code class="docutils literal"><span class="pre">&lt;field&gt;</span></code> elements have a <code class="docutils literal"><span class="pre">name</span></code> which is the name of the field in the
@@ -369,7 +369,7 @@ composed of fields defining which fields can be searched on:</p>
 <span class="nt">&lt;/search&gt;</span>
 </pre></div>
 </div>
-<p>If no search view exists for the model, Odoo generates one which only allows
+<p>If no search view exists for the model, Gerp generates one which only allows
 searching on the <code class="docutils literal"><span class="pre">name</span></code> field.</p>
 </div>
 </div>
@@ -425,7 +425,7 @@ records, accessing it also results in a possibly empty set of records:</p>
 <h2>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="model-inheritance">
 <h3>Model inheritance<a class="headerlink" href="#model-inheritance" title="Permalink to this headline">¶</a></h3>
-<p>Odoo provides two <em>inheritance</em> mechanisms to extend an existing model in a
+<p>Gerp provides two <em>inheritance</em> mechanisms to extend an existing model in a
 modular way.</p>
 <p>The first inheritance mechanism allows a module to modify the behavior of a
 model defined in another module:</p>
@@ -450,7 +450,7 @@ fields of the parent record.</p>
 </div>
 <div class="section" id="view-inheritance">
 <h3>View inheritance<a class="headerlink" href="#view-inheritance" title="Permalink to this headline">¶</a></h3>
-<p>Instead of modifying existing views in place (by overwriting them), Odoo
+<p>Instead of modifying existing views in place (by overwriting them), Gerp
 provides view inheritance where children “extension” views are applied on top of
 root views, and can add or remove content from their parent.</p>
 <p>An extension view references its parent using the <code class="docutils literal"><span class="pre">inherit_id</span></code> field, and
@@ -509,7 +509,7 @@ on the element to be found. Both inheritances below will give the same result.</
 </div>
 <div class="section" id="domains">
 <h4>Domains<a class="headerlink" href="#domains" title="Permalink to this headline">¶</a></h4>
-<p>In Odoo, <a class="reference internal" href="../reference/orm.html#reference-orm-domains"><span class="std std-ref">Domains</span></a> are values that encode conditions on
+<p>In Gerp, <a class="reference internal" href="../reference/orm.html#reference-orm-domains"><span class="std std-ref">Domains</span></a> are values that encode conditions on
 records. A domain is a  list of criteria used to select a subset of a model’s
 records. Each criteria is a triple with a field name, an operator and a value.</p>
 <p>For instance, when used on the <em>Product</em> model the following domain selects
@@ -653,7 +653,7 @@ the <code class="docutils literal"><span class="pre">taken_seats</span></code> p
 </div>
 <div class="section" id="model-constraints">
 <h2>Model constraints<a class="headerlink" href="#model-constraints" title="Permalink to this headline">¶</a></h2>
-<p>Odoo provides two ways to set up automatically verified invariants:
+<p>Gerp provides two ways to set up automatically verified invariants:
 <code class="xref py py-func docutils literal"><span class="pre">Python</span> <span class="pre">constraints</span></code> and
 <code class="xref py py-attr docutils literal"><span class="pre">SQL</span> <span class="pre">constraints</span></code>.</p>
 <p>A Python constraint is defined as a method decorated with
@@ -942,22 +942,22 @@ hooks in the ORM, such an action is declared in XML with the tag <code class="do
 <p>Each module can provide its own translations within the i18n directory, by
 having files named LANG.po where LANG is the locale code for the language, or
 the language and country combination when they differ (e.g. pt.po or
-pt_BR.po). Translations will be loaded automatically by Odoo for all
+pt_BR.po). Translations will be loaded automatically by Gerp for all
 enabled languages. Developers always use English when creating a module, then
-export the module terms using Odoo’s gettext POT export feature
+export the module terms using Gerp’s gettext POT export feature
 (<span class="menuselection">Settings ‣ Translations ‣ Import/Export ‣ Export
 Translation</span> without specifying a language), to create the module template POT
 file, and then derive the translated PO files. Many IDE’s have plugins or modes
 for editing and merging PO/POT files.</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">The Portable Object files generated by Odoo are published on
+<p class="last">The Portable Object files generated by Gerp are published on
 <a class="reference external" href="https://www.transifex.com/gerp/public/">Transifex</a>, making it
 easy to translate the software.</p>
 </div>
 <div class="highlight-text"><div class="highlight"><pre><span></span>|- idea/ # The module directory
    |- i18n/ # Translation files
-      | - idea.pot # Translation Template (exported from Odoo)
+      | - idea.pot # Translation Template (exported from Gerp)
       | - fr.po # French translation
       | - pt_BR.po # Brazilian Portuguese translation
       | (...)
@@ -965,7 +965,7 @@ easy to translate the software.</p>
 </div>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">By default Odoo’s POT export only extracts labels inside XML files or
+<p class="last">By default Gerp’s POT export only extracts labels inside XML files or
 inside field definitions in Python code, but any Python string can be
 translated this way by surrounding it with the function <code class="xref py py-func docutils literal"><span class="pre">gerp._()</span></code>
 (e.g. <code class="docutils literal"><span class="pre">_(&quot;Label&quot;)</span></code>)</p>
@@ -975,7 +975,7 @@ translated this way by surrounding it with the function <code class="xref py py-
 <h2>Reporting<a class="headerlink" href="#reporting" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="printed-reports">
 <h3>Printed reports<a class="headerlink" href="#printed-reports" title="Permalink to this headline">¶</a></h3>
-<p>Odoo 11.0 uses a report engine based on <a class="reference internal" href="../reference/qweb.html#reference-qweb"><span class="std std-ref">QWeb</span></a>,
+<p>Gerp 11.0 uses a report engine based on <a class="reference internal" href="../reference/qweb.html#reference-qweb"><span class="std std-ref">QWeb</span></a>,
 <a class="reference external" href="http://getbootstrap.com">Twitter Bootstrap</a> and <a class="reference external" href="http://wkhtmltopdf.org">Wkhtmltopdf</a>.</p>
 <p>A report is a combination two elements:</p>
 <ul>
@@ -1059,11 +1059,11 @@ automatic updates to <code class="docutils literal"><span class="pre">web.base.u
 <p>Business objects can also be accessed via the distributed object
 mechanism. They can all be modified via the client interface with contextual
 views.</p>
-<p>Odoo is accessible through XML-RPC/JSON-RPC interfaces, for which libraries
+<p>Gerp is accessible through XML-RPC/JSON-RPC interfaces, for which libraries
 exist in many languages.</p>
 <div class="section" id="xml-rpc-library">
 <h3>XML-RPC Library<a class="headerlink" href="#xml-rpc-library" title="Permalink to this headline">¶</a></h3>
-<p>The following example is a Python 3 program that interacts with an Odoo
+<p>The following example is a Python 3 program that interacts with an Gerp
 server with the library <code class="docutils literal"><span class="pre">xmlrpc.client</span></code>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xmlrpc.client</span>
 
@@ -1085,7 +1085,7 @@ server with the library <code class="docutils literal"><span class="pre">xmlrpc.
 </div>
 <div class="section" id="json-rpc-library">
 <h3>JSON-RPC Library<a class="headerlink" href="#json-rpc-library" title="Permalink to this headline">¶</a></h3>
-<p>The following example is a Python 3 program that interacts with an Odoo server
+<p>The following example is a Python 3 program that interacts with an Gerp server
 with the standard Python libraries <code class="docutils literal"><span class="pre">urllib.request</span></code> and <code class="docutils literal"><span class="pre">json</span></code>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">random</span>
@@ -1125,13 +1125,13 @@ with the standard Python libraries <code class="docutils literal"><span class="p
 <p>Examples can be easily adapted from XML-RPC to JSON-RPC.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>There are a number of high-level APIs in various languages to access Odoo
+<p>There are a number of high-level APIs in various languages to access Gerp
 systems without <em>explicitly</em> going through XML-RPC or JSON-RPC, such as:</p>
 <ul class="last simple">
 <li><a class="reference external" href="https://github.com/akretion/ooor">https://github.com/akretion/ooor</a></li>
 <li><a class="reference external" href="https://github.com/syleam/openobject-library">https://github.com/syleam/openobject-library</a></li>
 <li><a class="reference external" href="https://github.com/nicolas-van/openerp-client-lib">https://github.com/nicolas-van/openerp-client-lib</a></li>
-<li><a class="reference external" href="http://pythonhosted.org/OdooRPC">http://pythonhosted.org/OdooRPC</a></li>
+<li><a class="reference external" href="http://pythonhosted.org/GerpRPC">http://pythonhosted.org/GerpRPC</a></li>
 <li><a class="reference external" href="https://github.com/abhishek-jaiswal/php-openerp-lib">https://github.com/abhishek-jaiswal/php-openerp-lib</a></li>
 </ul>
 </div>
@@ -1146,7 +1146,7 @@ systems without <em>explicitly</em> going through XML-RPC or JSON-RPC, such as:<
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[2]</a></td><td>writing raw SQL queries is possible, but requires care as it
-bypasses all Odoo authentication and security mechanisms.</td></tr>
+bypasses all Gerp authentication and security mechanisms.</td></tr>
 </tbody>
 </table>
 </div>

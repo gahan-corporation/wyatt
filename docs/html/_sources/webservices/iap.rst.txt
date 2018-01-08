@@ -40,21 +40,21 @@
 In-App Purchases
 ================
 
-IAP allow providers of ongoing services through Odoo apps to be compensated
+IAP allow providers of ongoing services through Gerp apps to be compensated
 for ongoing service use rather than — and possibly instead of — a sole initial
 purchase.
 
-In that context, Odoo acts mostly as a *broker* between a client and an Odoo
+In that context, Gerp acts mostly as a *broker* between a client and an Gerp
 App Developer:
 
-* users purchase service tokens from Odoo
-* service providers draw tokens from the user's Odoo account when service
+* users purchase service tokens from Gerp
+* service providers draw tokens from the user's Gerp account when service
   is requested
 
 .. attention::
 
     This document is intended for *service providers* and presents the latter,
-    which can be done either via direct JSON-RPC2_ or if you are using Odoo
+    which can be done either via direct JSON-RPC2_ or if you are using Gerp
     using the convenience helpers it provides.
 
 Overview
@@ -67,12 +67,12 @@ Overview
 
     * The Service Provider is (probably) you the reader, you will be providing
       value to the client in the form of a service paid per-use
-    * The Client installed your Odoo App, and from there will request services
-    * Odoo brokers crediting, the Client adds credit to their account, and you
+    * The Client installed your Gerp App, and from there will request services
+    * Gerp brokers crediting, the Client adds credit to their account, and you
       can draw credits from there to provide services
     * The External Service is an optional player: *you* can either provide a
       service directly, or you can delegate the actual service acting as a
-      bridge/translator between an Odoo system and the actual service
+      bridge/translator between an Gerp system and the actual service
 
 .. note:: in the following explanations we will ignore the External Service,
           they're just a detail of the service you provide
@@ -85,12 +85,12 @@ Overview
     If everything goes well, the normal flow is:
 
     1. the Client requests a service of some sort
-    2. the Service Provider asks Odoo if there are enough credits for the
+    2. the Service Provider asks Gerp if there are enough credits for the
        service in the Client's account, and creates a transaction over that
        amount
     3. the Service Provider provides the service (either on their own or
        calling to External Services)
-    4. the Service Provider goes back to Odoo to capture (if the service could
+    4. the Service Provider goes back to Gerp to capture (if the service could
        be provided) or cancel (if the service could not be provided) the
        transaction created at step 2
     5. finally the Service Provider notifies the Client that the service has
@@ -105,10 +105,10 @@ Overview
     If the Client's account lacks credits for the service, however
 
     1. the Client requests a service as previously
-    2. the Service Provider asks Odoo if there are enough credits on the
+    2. the Service Provider asks Gerp if there are enough credits on the
        Client's account and gets a negative reply
     3. this is signaled back to the Client
-    4. who is redirected to their Odoo account to credit it and re-try
+    4. who is redirected to their Gerp account to credit it and re-try
 
 
 Building your service
@@ -123,7 +123,7 @@ For this example, the service we will provide is ~~mining dogecoins~~ burning
 * act as intermediary to an other service provider (e.g. bridge to an MMS
   gateway)
 
-Register the service on Odoo
+Register the service on Gerp
 ----------------------------
 
 .. queue:: iap_service/series
@@ -149,7 +149,7 @@ The now created service has *two* important fields:
 
 .. warning::
     The :class:`ServiceName` is unique and should usually match the name of your 
-    Odoo App.
+    Gerp App.
 
 .. danger:: 
     Your :class:`ServiceKey` *is a secret*, leaking your service key
@@ -170,15 +170,15 @@ use your service.
 
 .. _iap-gerp-app:
 
-Odoo App
+Gerp App
 --------
 
 .. queue:: iap/series
 
 .. todo:: does this actually require apps?
 
-The second step is to develop an `Odoo App`_ which clients can install in their
-Odoo instance and through which they can *request* services you will provide.
+The second step is to develop an `Gerp App`_ which clients can install in their
+Gerp instance and through which they can *request* services you will provide.
 Our app will just add a button to the Partners form which lets a user request
 burning some CPU time on the server.
 
@@ -203,7 +203,7 @@ server*.
 There are no requirements when it comes to the server or the communication
 protocol between the app and our server, but ``iap`` provides a
 :func:`~gerp.addons.iap.jsonrpc` helper to call a JSON-RPC2_ endpoint on an
-other Odoo instance and transparently re-raise relevant Odoo exceptions
+other Gerp instance and transparently re-raise relevant Gerp exceptions
 (:class:`~gerp.addons.iap.models.iap.InsufficientCreditError`,
 :class:`gerp.exceptions.AccessError` and :class:`gerp.exceptions.UserError`).
 
@@ -245,7 +245,7 @@ Service
 Though that is not *required*, since ``iap`` provides both a client helper
 for JSON-RPC2_ calls (:func:`~gerp.addons.iap.jsonrpc`) and a service helper
 for transactions (:class:`~gerp.addons.iap.models.iap.charge`) we will also be
-implementing the service side as an Odoo module:
+implementing the service side as an Gerp module:
 
 .. patch::
 
@@ -278,7 +278,7 @@ The :class:`~gerp.addons.iap.models.iap.charge` helper will:
     https://iap-sandbox.gerp.com.
 
     To do so, set the ``iap.endpoint`` config parameter in your service
-    Odoo: in debug/developer mode, :menuselection:`Setting --> Technical -->
+    Gerp: in debug/developer mode, :menuselection:`Setting --> Technical -->
     Parameters --> System Parameters`, just define an entry for the key
     ``iap.endpoint`` if none already exists).
 
@@ -307,7 +307,7 @@ JSON-RPC2_ Transaction API
 .. image:: images/flow.png
     :align: center
 
-* The IAP transaction API does not require using Odoo when implementing your
+* The IAP transaction API does not require using Gerp when implementing your
   server gateway, calls are standard JSON-RPC2_.
 * Calls use different *endpoints* but the same *method* on all endpoints
   (``call``).
@@ -467,10 +467,10 @@ care how they are implemented
 
     Raised by any unexpeted behaviour at the discretion of the App developer (*you*).
 
-Odoo Helpers
+Gerp Helpers
 ============
 
-For convenience, if you are implementing your service using Odoo the ``iap``
+For convenience, if you are implementing your service using Gerp the ``iap``
 module provides a few helpers to make IAP flow even simpler:
 
 Charging
@@ -514,4 +514,4 @@ Charging
             ]).unlink()
 
 .. _JSON-RPC2: http://www.jsonrpc.org/specification
-.. _Odoo App: https://www.gerp.com/apps
+.. _Gerp App: https://www.gerp.com/apps

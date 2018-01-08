@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * account
 # 
@@ -17,7 +17,7 @@
 # Julia van Orsouw <julia@gerpexperts.nl>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 08:59+0000\n"
 "PO-Revision-Date: 2017-10-24 08:59+0000\n"
@@ -267,7 +267,7 @@ msgid ""
 "    </tr>\n"
 "    <tr>\n"
 "        <td align=\"center\">\n"
-"            Powered by <a target=\"_blank\" href=\"https://www.gerp.com\">Odoo</a>.\n"
+"            Powered by <a target=\"_blank\" href=\"https://www.gerp.com\">Gerp</a>.\n"
 "        </td>\n"
 "    </tr>\n"
 "</tbody>\n"
@@ -333,7 +333,7 @@ msgstr ""
 "    </tr>\n"
 "    <tr>\n"
 "        <td align=\"center\">\n"
-"            Powered by <a target=\"_blank\" href=\"https://www.gerp.com\">Odoo</a>.\n"
+"            Powered by <a target=\"_blank\" href=\"https://www.gerp.com\">Gerp</a>.\n"
 "        </td>\n"
 "    </tr>\n"
 "</tbody>\n"
@@ -636,8 +636,8 @@ msgstr ""
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
-msgid "<span title=\"Balance in Odoo\">Balance in GL</span>"
-msgstr "<span title=\"Balance in Odoo\">Saldo in GB</span>"
+msgid "<span title=\"Balance in Gerp\">Balance in GL</span>"
+msgstr "<span title=\"Balance in Gerp\">Saldo in GB</span>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
@@ -701,8 +701,8 @@ msgstr "<span>Bekijk</span>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
-msgid "<strong>-The Odoo Team</strong>"
-msgstr "<strong>- het Odoo Team</strong>"
+msgid "<strong>-The Gerp Team</strong>"
+msgstr "<strong>- het Gerp Team</strong>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
@@ -807,10 +807,10 @@ msgstr ""
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"<strong>Create the bill in Odoo</strong><br/> with a proper due date, and "
+"<strong>Create the bill in Gerp</strong><br/> with a proper due date, and "
 "create the vendor if it doesnt' exist yet."
 msgstr ""
-"<strong>Maak de factuur aan in Odoo</strong><br/> met een correcte "
+"<strong>Maak de factuur aan in Gerp</strong><br/> met een correcte "
 "vervaldatum, en maak de leverancier aan als die nog niet bestaat."
 
 #. module: account
@@ -998,10 +998,10 @@ msgstr "<strong>Punt bankafschrift af</strong>"
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "<strong>Reconcile with existing transaction</strong><br/>\n"
-"                                        In this case, Odoo should automatically match the bank statement with the previously recorded check transaction."
+"                                        In this case, Gerp should automatically match the bank statement with the previously recorded check transaction."
 msgstr ""
 "<strong>Aflpunten met bestaande transactie</strong><br/>\n"
-"                                        In dit geval punt  Odoo de voorheen ingevoerde cheque automatisch af tegen het bankafschrift."
+"                                        In dit geval punt  Gerp de voorheen ingevoerde cheque automatisch af tegen het bankafschrift."
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
@@ -1098,18 +1098,18 @@ msgstr "<strong>Doel mutaties:</strong>"
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "<strong>Test the following three scenarios in order to assist you in "
-"familiarizing yourself with Odoo:</strong>"
+"familiarizing yourself with Gerp:</strong>"
 msgstr ""
 "<strong>Test de volgende 3 scenario's om uzelf vertrouwd te maken met "
-"Odoo:</strong>"
+"Gerp:</strong>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"<strong>There are three different levels of access rights in Odoo:</strong>"
+"<strong>There are three different levels of access rights in Gerp:</strong>"
 msgstr ""
 "<strong>Er zijn drie verschillende niveau's toegangsrechten in "
-"Odoo:</strong>"
+"Gerp:</strong>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.report_overdue_document
@@ -1236,11 +1236,11 @@ msgstr "Een lijst van uw klant en leverancier hun betalingscondities."
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"A product in Odoo is something you sell or buy \n"
+"A product in Gerp is something you sell or buy \n"
 "                        whether or not it is goods, consumables, or services.\n"
 "                        Choose how you want to create your products:"
 msgstr ""
-"Een product in Odoo is iets dat u koopt of verkoopt, hetzij\n"
+"Een product in Gerp is iets dat u koopt of verkoopt, hetzij\n"
 "een goed, hetzij een verbruiksartikel of een dienst. Kies hoe u\n"
 "uw producten wenst aan te maken:"
 
@@ -1859,8 +1859,8 @@ msgstr "Ouderdom per relatie"
 #: model:ir.ui.view,arch_db:account.account_aged_balance_view
 msgid ""
 "Aged Partner Balance is a more detailed report of your receivables by "
-"intervals. Odoo calculates a table of credit balance by start Date. So if "
-"you request an interval of 30 days Odoo generates an analysis of creditors "
+"intervals. Gerp calculates a table of credit balance by start Date. So if "
+"you request an interval of 30 days Gerp generates an analysis of creditors "
 "for the past month, past two months, and so on."
 msgstr ""
 "Dit openstaande posten rapport is een meer gedetailleerd verslag van uw "
@@ -4084,10 +4084,10 @@ msgstr ""
 #. module: account
 #: model:ir.model.fields,help:account.field_account_financial_year_op_opening_date
 msgid ""
-"Date from which the accounting is managed in Odoo. It is the date of the "
+"Date from which the accounting is managed in Gerp. It is the date of the "
 "opening entry."
 msgstr ""
-"Datum vanaf de boekhouding bijgehouden is in Odoo. Het is datum van de "
+"Datum vanaf de boekhouding bijgehouden is in Gerp. Het is datum van de "
 "openingsbalans boeking."
 
 #. module: account
@@ -4658,8 +4658,8 @@ msgstr "Kassa eindsaldo"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
-msgid "Enjoy your Odoo experience,"
-msgstr "Geniet van uw Odoo ervaring,"
+msgid "Enjoy your Gerp experience,"
+msgstr "Geniet van uw Gerp ervaring,"
 
 #. module: account
 #: model:ir.actions.act_window,name:account.action_move_line_form
@@ -5001,10 +5001,10 @@ msgstr "Geef een ratio in tussen 0-100 voor percentage."
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"For the Odoo Team,<br/>\n"
+"For the Gerp Team,<br/>\n"
 "                            Fabien Pinckaers, Founder"
 msgstr ""
-"Namens het gehele Odoo Team,<br/>\n"
+"Namens het gehele Gerp Team,<br/>\n"
 "                            Fabien Pinckaers, Oprichter"
 
 #. module: account
@@ -5503,18 +5503,18 @@ msgstr ""
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"If you want to be able to send customer statements from Odoo, you must:"
-msgstr "Indien u rekeningoverzichten wil verzenden vanuit Odoo, dan moet u:"
+"If you want to be able to send customer statements from Gerp, you must:"
+msgstr "Indien u rekeningoverzichten wil verzenden vanuit Gerp, dan moet u:"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "If you want to be able to send your customers their statements \n"
-"                        from Odoo, you first need to record all outstanding transactions \n"
+"                        from Gerp, you first need to record all outstanding transactions \n"
 "                        in the payable and receivable accounts. These would be invoices \n"
 "                        that have not been paid or payments that have not been reconciled."
 msgstr ""
-"Als u uw klanten hun openstaande posten overzicht wil versturen vanuit Odoo,\n"
+"Als u uw klanten hun openstaande posten overzicht wil versturen vanuit Gerp,\n"
 "dan moet u alle openstaande posten voor debiteuren en crediteuren\n"
 "eerst invoeren, zoals uitstaande facturen of niet-afgeletterde betalingen."
 
@@ -5616,8 +5616,8 @@ msgstr ""
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
-msgid "In Odoo,"
-msgstr "In Odoo,"
+msgid "In Gerp,"
+msgstr "In Gerp,"
 
 #. module: account
 #: code:addons/account/models/account_bank_statement.py:409
@@ -6090,7 +6090,7 @@ msgid ""
 "It's common practice to change your accounting software \n"
 "                            at the end of a fiscal year. This allows you to have less \n"
 "                            data to import and balances to set. If you plan to do so, \n"
-"                            we recommend you start using Odoo for invoicing and payments \n"
+"                            we recommend you start using Gerp for invoicing and payments \n"
 "                            now, and then move all other accounting transactions at a later time."
 msgstr ""
 "Het is een veelgebruikte methode om uw boekhoudpakket op het\n"
@@ -6665,7 +6665,7 @@ msgstr "Min betalingen"
 #: code:addons/account/static/src/xml/account_reconciliation.xml:24
 #, python-format
 msgid "Let gerp try to reconcile entries for the user"
-msgstr "Laat Odoo proberen om de boekingen af te letteren voor deze gebruiker"
+msgstr "Laat Gerp proberen om de boekingen af te letteren voor deze gebruiker"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.res_config_settings_view_form
@@ -6834,40 +6834,40 @@ msgstr "Handmatig afletteren"
 #. module: account
 #: model:ir.model.fields,help:account.field_account_journal_inbound_payment_method_ids
 msgid ""
-"Manual: Get paid by cash, check or any other method outside of Odoo.\n"
+"Manual: Get paid by cash, check or any other method outside of Gerp.\n"
 "Electronic: Get paid automatically through a payment acquirer by requesting a transaction on a card saved by the customer when buying or subscribing online (payment token).\n"
-"Batch Deposit: Encash several customer checks at once by generating a batch deposit to submit to your bank. When encoding the bank statement in Odoo,you are suggested to reconcile the transaction with the batch deposit. Enable this option from the settings."
+"Batch Deposit: Encash several customer checks at once by generating a batch deposit to submit to your bank. When encoding the bank statement in Gerp,you are suggested to reconcile the transaction with the batch deposit. Enable this option from the settings."
 msgstr ""
-"Handmatig: Krijg betaald met contant geld, cheques of een andere methode buiten Odoo om\n"
+"Handmatig: Krijg betaald met contant geld, cheques of een andere methode buiten Gerp om\n"
 "Elektronisch: Betaal automatisch via een betalingsverwerver door een transactie aan te vragen op een door de klant opgeslagen kaart bij het online kopen of abonneren van (betalingstoken).\n"
-"Batch Deposito: Verzamel meerdere klantcheques tegelijk door een batch deposito te genereren om bij uw bank in te dienen. Wanneer u de bankafschrift in Odoo ingeeft, wordt u voorgesteld om de transactie af te letteren met de batchafbetaling. Schakel deze optie in bij instellingen."
+"Batch Deposito: Verzamel meerdere klantcheques tegelijk door een batch deposito te genereren om bij uw bank in te dienen. Wanneer u de bankafschrift in Gerp ingeeft, wordt u voorgesteld om de transactie af te letteren met de batchafbetaling. Schakel deze optie in bij instellingen."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_abstract_payment_payment_method_id
 #: model:ir.model.fields,help:account.field_account_payment_payment_method_id
 #: model:ir.model.fields,help:account.field_account_register_payments_payment_method_id
 msgid ""
-"Manual: Get paid by cash, check or any other method outside of Odoo.\n"
+"Manual: Get paid by cash, check or any other method outside of Gerp.\n"
 "Electronic: Get paid automatically through a payment acquirer by requesting a transaction on a card saved by the customer when buying or subscribing online (payment token).\n"
-"Check: Pay bill by check and print it from Odoo.\n"
-"Batch Deposit: Encash several customer checks at once by generating a batch deposit to submit to your bank. When encoding the bank statement in Odoo, you are suggested to reconcile the transaction with the batch deposit.To enable batch deposit,module account_batch_deposit must be installed.\n"
+"Check: Pay bill by check and print it from Gerp.\n"
+"Batch Deposit: Encash several customer checks at once by generating a batch deposit to submit to your bank. When encoding the bank statement in Gerp, you are suggested to reconcile the transaction with the batch deposit.To enable batch deposit,module account_batch_deposit must be installed.\n"
 "SEPA Credit Transfer: Pay bill from a SEPA Credit Transfer file you submit to your bank. To enable sepa credit transfer, module account_sepa must be installed "
 msgstr ""
-"Handmatig: Krijg betaald met contant geld, cheques of een andere methode buiten Odoo om\n"
+"Handmatig: Krijg betaald met contant geld, cheques of een andere methode buiten Gerp om\n"
 "Elektronisch: Betaal automatisch via een betalingsverwerker door een transactie aan te vragen op een door de klant opgeslagen kaart bij het online kopen of abonneren van (betalingstoken).\n"
-"Cheque: Betaal factuur met een cheque en druk deze af in Odoo\n"
-"Batch Deposito: Verzamel meerdere klantcheques tegelijk door een batch deposito te genereren om bij uw bank in te dienen. Wanneer u de bankafschrift in Odoo ingeeft, wordt u voorgesteld om de transactie af te letteren met de batchafbetaling. Schakel deze optie in bij instellingen.\n"
+"Cheque: Betaal factuur met een cheque en druk deze af in Gerp\n"
+"Batch Deposito: Verzamel meerdere klantcheques tegelijk door een batch deposito te genereren om bij uw bank in te dienen. Wanneer u de bankafschrift in Gerp ingeeft, wordt u voorgesteld om de transactie af te letteren met de batchafbetaling. Schakel deze optie in bij instellingen.\n"
 "SEPA overschrijving: Betaal de factuur met een SEPA verschrijvingsbestand welke je upload bij de bank. Om SEPA te activeren dient te module ccount_sepa worden geïnstalleerd."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_journal_outbound_payment_method_ids
 msgid ""
-"Manual:Pay bill by cash or any other method outside of Odoo.\n"
-"Check:Pay bill by check and print it from Odoo.\n"
+"Manual:Pay bill by cash or any other method outside of Gerp.\n"
+"Check:Pay bill by check and print it from Gerp.\n"
 "SEPA Credit Transfer: Pay bill from a SEPA Credit Transfer file you submit to your bank. Enable this option from the settings."
 msgstr ""
-"Handmatig: Betaal met contant geld of een andere methode buiten Odoo om\n"
-"Cheque: Betaal rekening per cheque en druk deze af in Odoo\n"
+"Handmatig: Betaal met contant geld of een andere methode buiten Gerp om\n"
+"Cheque: Betaal rekening per cheque en druk deze af in Gerp\n"
 "SEPA Overboeking: Betaal factuur via een SEPA-bestand dat u bij uw bank indient. Schakel deze optie in bij de instellingen."
 
 #. module: account
@@ -7367,36 +7367,36 @@ msgstr "Oktober"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
-msgid "Odoo Accounting has many free extra-features:"
-msgstr "Odoo boekhouding bevat heel wat gratis opties:"
+msgid "Gerp Accounting has many free extra-features:"
+msgstr "Gerp boekhouding bevat heel wat gratis opties:"
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_bank_statement_line
 msgid ""
-"Odoo allows you to reconcile a statement line directly with\n"
+"Gerp allows you to reconcile a statement line directly with\n"
 "                the related sale or puchase invoice(s)."
 msgstr ""
-"Odoo laat u toe om een afschriftregel direct met de gerelateerde\n"
+"Gerp laat u toe om een afschriftregel direct met de gerelateerde\n"
 "verkoop- of inkoopfactuur af te letteren. "
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_bank_statement_tree
 msgid ""
-"Odoo allows you to reconcile a statement line directly with\n"
+"Gerp allows you to reconcile a statement line directly with\n"
 "                the related sale or puchase invoices."
 msgstr ""
-"Odoo laat u toe om een afschriftregel direct met de gerelateerde\n"
+"Gerp laat u toe om een afschriftregel direct met de gerelateerde\n"
 "verkoop- of inkoopfactuur af te letteren. "
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_move_journal_line
 msgid ""
-"Odoo automatically creates one journal entry per accounting\n"
+"Gerp automatically creates one journal entry per accounting\n"
 "                document: invoice, refund, vendor payment, bank statements,\n"
 "                etc. So, you should record journal entries manually only/mainly\n"
 "                for miscellaneous operations."
 msgstr ""
-"Odoo maakt automatisch een journaalpost per financieel document:\n"
+"Gerp maakt automatisch een journaalpost per financieel document:\n"
 "factuur, creditnota, inkoopfactuur, bankafschrift, enz. U zult dus\n"
 "alleen voor alle andere een seperate journaalpost willen maken;\n"
 "denk aan openingsbalans, memoriaalboekingen"
@@ -7404,41 +7404,41 @@ msgstr ""
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"Odoo can manage multiple companies, but we suggest to setup everything for "
+"Gerp can manage multiple companies, but we suggest to setup everything for "
 "your first company before configuring the other ones."
 msgstr ""
-"In Odoo kan u meerdere bedrijven beheren, maar wij raden u aan alles eerst "
+"In Gerp kan u meerdere bedrijven beheren, maar wij raden u aan alles eerst "
 "in te stellen voor het eerste bedrijf vooraleer de andere tot te voegen."
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"Odoo has already preconfigured a few taxes according to your "
+"Gerp has already preconfigured a few taxes according to your "
 "country.<br/>Simply review them and check if you need more."
 msgstr ""
-"Odoo heeft reeds een aantal BTW tarieven ingesteld voor uw land.<br/>Kijk ze"
+"Gerp heeft reeds een aantal BTW tarieven ingesteld voor uw land.<br/>Kijk ze"
 " na en voeg er enkele toe indien nodig."
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"Odoo should do most of the reconciliation work automatically, so you'll only"
+"Gerp should do most of the reconciliation work automatically, so you'll only"
 " need to review a few of them when a <strong>'Reconcile Items'</strong> "
 "button appears on your Vendor Bills dash."
 msgstr ""
-"Odoo lettert de meeste facturen automatisch af. U moet alleen regels "
+"Gerp lettert de meeste facturen automatisch af. U moet alleen regels "
 "nakijken wanneer er een <strong>'Regels afletteren'</strong> knop op uw "
 "leveranciersoverzicht verschijnt."
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_invoice_tree1
 msgid ""
-"Odoo's electronic invoicing allows to ease and fasten the\n"
+"Gerp's electronic invoicing allows to ease and fasten the\n"
 "                collection of customer payments. Your customer receives the\n"
 "                invoice by email and he can pay online and/or import it\n"
 "                in his own system."
 msgstr ""
-"De electronisch facturatie in Odoo vergemakkelijkt en versnelt\n"
+"De electronisch facturatie in Gerp vergemakkelijkt en versnelt\n"
 "                het innen van betalingen van klanten. Uw klant ontvangt zijn factuur\n"
 "                per email, en hij kan online betalen en/of de factuur importeren\n"
 "                in zijn bedrijfssysteem.."
@@ -8703,10 +8703,10 @@ msgstr "Betalingen voor meerdere facturen registreren"
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "Registering outstanding invoices and payments can be a huge undertaking, \n"
-"                        but you can start using Odoo without it by:"
+"                        but you can start using Gerp without it by:"
 msgstr ""
 "Uitstaande facturen en betalingen invoeren kan veel moeite vergen. Maar u "
-"kan Odoo nu reeds beginnen te gebruiken. U kunt:"
+"kan Gerp nu reeds beginnen te gebruiken. U kunt:"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
@@ -10641,10 +10641,10 @@ msgstr ""
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"This guide will help you get started with Odoo Accounting.\n"
+"This guide will help you get started with Gerp Accounting.\n"
 "                        Once you're done, you'll benefit from:"
 msgstr ""
-"Deze gids helpt u bij het starten met Odoo boekhouding.\n"
+"Deze gids helpt u bij het starten met Gerp boekhouding.\n"
 "Eenmaal u klaar bent, geniet u van volgende voordelen:"
 
 #. module: account
@@ -10843,12 +10843,12 @@ msgstr "Te betalen"
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"To manage the tax applied when invoicing a Company, Odoo uses the concept of"
+"To manage the tax applied when invoicing a Company, Gerp uses the concept of"
 " Fiscal Position: they serve to automatically set the right tax and/or "
 "account according to the customer country and state."
 msgstr ""
 "Om de BTW te beheren die gebruikt wordt bij de facturatie aan een bedrijf, "
-"maakt Odoo gebruik van het concept fiscale positie: die wordt gebruikt om "
+"maakt Gerp gebruik van het concept fiscale positie: die wordt gebruikt om "
 "automatisch de juiste BTW en/of rekening te bepalen in functie van het land "
 "(en de provincie) van de klant. "
 
@@ -11528,12 +11528,12 @@ msgstr "Waarschuwingen"
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "We can handle the whole import process\n"
-"                                        for you: simply send your Odoo project\n"
+"                                        for you: simply send your Gerp project\n"
 "                                        manager a CSV file containing all your\n"
 "                                        data."
 msgstr ""
 "Wij kunnen het hele importproces voor u \n"
-"afhandelen: stuur uw Odoo project leiders\n"
+"afhandelen: stuur uw Gerp project leiders\n"
 "een CSV-bestand met al uw\n"
 "datagegevens."
 
@@ -11541,12 +11541,12 @@ msgstr ""
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "We can handle the whole import process\n"
-"                                        for you: simply send your Odoo project\n"
+"                                        for you: simply send your Gerp project\n"
 "                                        manager a CSV file containing all your\n"
 "                                        products."
 msgstr ""
 "Wij kunnen het hele importproces voor u \n"
-"afhandelen: stuur uw Odoo project leider\n"
+"afhandelen: stuur uw Gerp project leider\n"
 "eenvoudigweg een CSV-bestand met al uw\n"
 "producten."
 

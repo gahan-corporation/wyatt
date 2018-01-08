@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * crm
 # 
@@ -15,7 +15,7 @@
 # SHIMIZU Taku <shimizu.taku@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:25+0000\n"
 "PO-Revision-Date: 2017-10-02 11:25+0000\n"
@@ -52,7 +52,7 @@ msgid ""
 "                        <td style=\"padding:15px 10px;font-size:20px\">\n"
 "                            <p style=\"color:#875A7B;margin:0\" >Hooray!</p><br>\n"
 "                            <p dir=\"ltr\" style=\"font-size:15px;margin-top:0pt;margin-bottom:0pt;\">\n"
-"                                <span>Your Odoo CRM application is up and running.</span></p><br>\n"
+"                                <span>Your Gerp CRM application is up and running.</span></p><br>\n"
 "                            <p dir=\"ltr\" style=\"margin-top:0pt;margin-bottom:8pt;\">\n"
 "                                <span style=\"font-size:13px;font-weight:bold; \">What’s next?</span></p>\n"
 "                            <ul style=\"margin-top:0pt;margin-bottom:0pt;font-size:13px;list-style-type:disc;\">\n"
@@ -112,7 +112,7 @@ msgid ""
 "                            <p dir=\"ltr\" style=\"font-size:13px;margin-top:0pt;margin-bottom:8pt;\">\n"
 "                                <span>We would be delighted to assist you along the way. Contact us through our\n"
 "                                <a href=\"https://www.gerp.com/help\">support form</a> if you have any question.\n"
-"                                You can also discover how to get the best out of Odoo CRM with our </span>\n"
+"                                You can also discover how to get the best out of Gerp CRM with our </span>\n"
 "                                <a target=\"_blank\" href=\"https://www.gerp.com/documentation/user/10.0/crm.html\">\n"
 "                                <span style=\"text-decoration:underline;\">User Documentation</span></a>\n"
 "                                </span><span> or with our </span>\n"
@@ -120,13 +120,13 @@ msgid ""
 "                                <span style=\"text-decoration:underline;\">API Documentation</span></a>\n"
 "                            </p>\n"
 "                            <br>\n"
-"                            <p dir=\"ltr\" style=\"font-size:13px;margin-top:0pt;margin-bottom:8pt;\"><span>Enjoy your Odoo experience,</span></p>\n"
+"                            <p dir=\"ltr\" style=\"font-size:13px;margin-top:0pt;margin-bottom:8pt;\"><span>Enjoy your Gerp experience,</span></p>\n"
 "                        </td>\n"
 "                    </tr>\n"
 "                </tbody>\n"
 "            </table>\n"
 "            <div dir=\"ltr\" style=\"font-size:13px;margin-top:0pt;margin-bottom:8pt;color:grey\">\n"
-"                <span><br/>-- <br/>The Odoo Team<br/>PS: People love Odoo, check </span><a target=\"_blank\" href=\"https://twitter.com/gerp/favorites\"><span style=\"text-decoration:underline;\">what they say about it.</span></a></span>\n"
+"                <span><br/>-- <br/>The Gerp Team<br/>PS: People love Gerp, check </span><a target=\"_blank\" href=\"https://twitter.com/gerp/favorites\"><span style=\"text-decoration:underline;\">what they say about it.</span></a></span>\n"
 "            </div>\n"
 "        </div>"
 msgstr ""
@@ -517,14 +517,14 @@ msgstr "<strong>イベント</strong>"
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
-"<strong>Every business is different.</strong> Odoo allows to\n"
+"<strong>Every business is different.</strong> Gerp allows to\n"
 "                        customize every application and it's usually a good\n"
 "                        advice to customize screens to fit your sales process.\n"
-"                        <strong>Customizations are done by Odoo experts.</strong>"
+"                        <strong>Customizations are done by Gerp experts.</strong>"
 msgstr ""
 "<strong>すべてのビジネスは異なります。</strong>\n"
-"                     Odooではすべてのアプリケーションをカスタマイズできますが、販売プロセスのニーズに合わせて画面をカスタマイズすることをお勧めします。\n"
-"<strong>カスタマイズはOdooの専門家によって行われます.</strong>"
+"                     Gerpではすべてのアプリケーションをカスタマイズできますが、販売プロセスのニーズに合わせて画面をカスタマイズすることをお勧めします。\n"
+"<strong>カスタマイズはGerpの専門家によって行われます.</strong>"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
@@ -702,11 +702,11 @@ msgstr "<strong>リード獲得を促進するには、</strong>マーケティ�
 msgid ""
 "<strong>Trainings</strong><br/>\n"
 "                                To build a strong sales training program, you can use the following\n"
-"                                apps of Odoo:"
+"                                apps of Gerp:"
 msgstr ""
 "<strong>トレーニング</strong><br/>\n"
 "                                力なセールストレーニングプログラムを構築するには、\n"
-"                                 以下のOdooアプリを使用できます。"
+"                                 以下のGerpアプリを使用できます。"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
@@ -750,11 +750,11 @@ msgstr "良いパイプラインは5から7のステージの間であるべき�
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
-"A product in Odoo is something you sell or buy. It could\n"
+"A product in Gerp is something you sell or buy. It could\n"
 "                    be a goods, consumable or services. Choose how you want to\n"
 "                    create your products:"
 msgstr ""
-"Odooの製品は、あなたが売ったり買ったりするものです。\n"
+"Gerpの製品は、あなたが売ったり買ったりするものです。\n"
 "商品、消耗品、またはサービスになる可能性があります。\n"
 "製品の作成方法を選択します。"
 
@@ -1947,10 +1947,10 @@ msgstr "安全上の理由から、3つ以上の連絡先をマージするこ�
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
-"For the Odoo Team,<br/>\n"
+"For the Gerp Team,<br/>\n"
 "                          Fabien Pinckaers, Founder"
 msgstr ""
-"For the Odoo Team,<br/>\n"
+"For the Gerp Team,<br/>\n"
 "                          Fabien Pinckaers, Founder"
 
 #. module: crm
@@ -2071,8 +2071,8 @@ msgstr "CRMウィザードでパートナーの結合または生成を処理し
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
-msgid "Happy Selling!<br/>- The Odoo Team"
-msgstr "よき販売を！<br/>- Odooチーム"
+msgid "Happy Selling!<br/>- The Gerp Team"
+msgstr "よき販売を！<br/>- Gerpチーム"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
@@ -2205,8 +2205,8 @@ msgstr "営業担当者あたりの平均収益を向上させます"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
-msgid "In Odoo, there are 3 different ways to manage your prices.<br/>"
-msgstr "Odooでは、価格を管理する3つの方法があります。<br/>"
+msgid "In Gerp, there are 3 different ways to manage your prices.<br/>"
+msgstr "Gerpでは、価格を管理する3つの方法があります。<br/>"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_lost_reason_view_search
@@ -2862,36 +2862,36 @@ msgstr ""
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
-msgid "Odoo Default"
-msgstr "Odoo のデフォルト"
+msgid "Gerp Default"
+msgstr "Gerp のデフォルト"
 
 #. module: crm
 #: model:ir.actions.act_window,help:crm.crm_case_form_view_salesteams_opportunity
 #: model:ir.actions.act_window,help:crm.crm_lead_opportunities
 #: model:ir.actions.act_window,help:crm.crm_lead_opportunities_tree_view
 msgid ""
-"Odoo helps you keep track of your sales pipeline to follow\n"
+"Gerp helps you keep track of your sales pipeline to follow\n"
 "                    up potential sales and better forecast your future revenues."
 msgstr ""
-"Odooは、潜在的な売上を追跡し、将来の収益をより良く予測するために、\n"
+"Gerpは、潜在的な売上を追跡し、将来の収益をより良く予測するために、\n"
 "　　　　販売パイプラインを把握するのに役立ちます。"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
-"Odoo is the world's only software to have a full integration of Marketing "
+"Gerp is the world's only software to have a full integration of Marketing "
 "Apps for your sales channel: insight sales, point of sale, ecommerce."
 msgstr ""
-"Odooは、マーケティングアプリを販売チャネルに完全に統合する世界で唯一のソフトウェアです。洞察力のある販売、販売時点管理、eコマースです。"
+"Gerpは、マーケティングアプリを販売チャネルに完全に統合する世界で唯一のソフトウェアです。洞察力のある販売、販売時点管理、eコマースです。"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
-"Odoo will help you create polished, professional quotations and contracts in minutes.\n"
+"Gerp will help you create polished, professional quotations and contracts in minutes.\n"
 "                        Tell us how you sell and we will tell you what\n"
 "                        configuration will best fit your quotation process."
 msgstr ""
-"Odooは、洗練されたプロフェッショナルな見積もりや契約書を数分で作成するのに役立ちます。\n"
+"Gerpは、洗練されたプロフェッショナルな見積もりや契約書を数分で作成するのに役立ちます。\n"
 "                         あなたの販売方法を教えてください。\n"
 "                         あなたの見積もりプロセスに最適な設定が教えられます。"
 
@@ -3538,11 +3538,11 @@ msgstr "リード /案件を選択"
 msgid ""
 "Select the list of fields used to search for\n"
 "                            duplicated records. If you select several fields,\n"
-"                            Odoo will propose you to merge only those having\n"
+"                            Gerp will propose you to merge only those having\n"
 "                            all these fields in common. (not one of the fields)."
 msgstr ""
 "重複した記録の検索で使用するために、項目のリストを選択します。\n"
-"複数の項目を選択した場合、Odooはすべてに共通して含まれる(ひとつではない)項目のマージを提案します。"
+"複数の項目を選択した場合、Gerpはすべてに共通して含まれる(ひとつではない)項目のマージを提案します。"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
@@ -3609,12 +3609,12 @@ msgstr "このステージの設定は案件の受注可能性を自動的に変
 msgid ""
 "Setting up your sales funnel is just the first step. To achieve a\n"
 "                      significant boost, we will help you get the most out of\n"
-"                      Odoo CRM to transform how your salespeople work.\n"
+"                      Gerp CRM to transform how your salespeople work.\n"
 "                      That's the purpose of this guide."
 msgstr ""
 "販売ファンネルの設定は、最初のステップです。\n"
 "                       大幅な向上を実現するために、当社は、営業員の働きを変えるために、\n"
-"                        Odoo CRMを最大限に活用するのを手助けします。\n"
+"                        Gerp CRMを最大限に活用するのを手助けします。\n"
 "                       それがこのガイドの目的です。"
 
 #. module: crm
@@ -3851,8 +3851,8 @@ msgstr "電子メールのテンプレート"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
-msgid "Templates of quotations (use Odoo Online Proposals for this)"
-msgstr "見積のテンプレート(このためにOdoo オンライン提案を使用)"
+msgid "Templates of quotations (use Gerp Online Proposals for this)"
+msgstr "見積のテンプレート(このためにGerp オンライン提案を使用)"
 
 #. module: crm
 #. openerp-web
@@ -3883,11 +3883,11 @@ msgstr "最初のステージは通常「新規」で、最後のステージは
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_team_alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming"
+"The model (Gerp Document Kind) to which this alias corresponds. Any incoming"
 " email that does not reply to an existing record will cause the creation of "
 "a new record of this model (e.g. a Project Task)"
 msgstr ""
-"このエイリアスに対応した(Odooドキュメント種別)モデル。既存のレコードに返信しない任意の受信メールは、このモデルの新しいレコード(例えば、プロジェクトタスク)の作成を引き起こします"
+"このエイリアスに対応した(Gerpドキュメント種別)モデル。既存のレコードに返信しない任意の受信メールは、このモデルの新しいレコード(例えば、プロジェクトタスク)の作成を引き起こします"
 
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_team_alias_name
@@ -3949,15 +3949,15 @@ msgstr "全体のプロセスには数時間かかる場合があります。 �
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
-"There are several ways for your company to generate leads with Odoo CRM.\n"
+"There are several ways for your company to generate leads with Gerp CRM.\n"
 "                        One of them is using your company's generic email address as a trigger\n"
-"                        to create a new lead in the system. In Odoo, each one of your sales channels\n"
+"                        to create a new lead in the system. In Gerp, each one of your sales channels\n"
 "                        is linked to its own email address from which prospects can reach them.\n"
 "                        For example, if the personal email address of your Direct team is\n"
 "                        direct@mycompany.example.com, every email sent when a new prospect\n"
 "                        contacts you will automatically create a new opportunity into the sales channel.\n"
 "\n"
-"                        That's the easiest way to integrate Odoo with third party apps."
+"                        That's the easiest way to integrate Gerp with third party apps."
 msgstr ""
 
 #. module: crm
@@ -4284,13 +4284,13 @@ msgstr "ワークフローのステップを自動化することができます
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
 "We can handle the whole import process\n"
-"                                        for you: simply send your Odoo project\n"
+"                                        for you: simply send your Gerp project\n"
 "                                        manager a CSV file containing all your\n"
 "                                        data."
 msgstr ""
 "インポートプロセス全体を処理します：\n"
 "すべてのデータを含むCSVファイルを\n"
-"Odooプロジェクトマネジャーに送信\n"
+"Gerpプロジェクトマネジャーに送信\n"
 "するだけです。"
 
 #. module: crm
@@ -4303,11 +4303,11 @@ msgstr "たとえば、Wordテンプレートに基づいてカスタムレポ�
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
 msgid ""
-"We designed Odoo to help you grow your business. Odoo CRM\n"
+"We designed Gerp to help you grow your business. Gerp CRM\n"
 "                      is not just a tool, we want it to have a major impact on your\n"
 "                      sales performance. That's our mission, and we are serious about it."
 msgstr ""
-"私たちはあなたのビジネスを成長させるためにOdooを設計しました。 Odoo CRM\n"
+"私たちはあなたのビジネスを成長させるためにGerpを設計しました。 Gerp CRM\n"
 "                       これは、単なるツールではありません。\n"
 "                       販売実績 それが私たちの使命です。私たちは真剣に取り組んでいます。"
 
@@ -4367,7 +4367,7 @@ msgstr ""
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.res_config_settings_view_form
 msgid ""
-"When populating your address book, Odoo relies on Clearbit’s API to provide "
+"When populating your address book, Gerp relies on Clearbit’s API to provide "
 "you with a list of matching contacts or companies.When selecting one item, "
 "the partner name, logo and website get automatically set."
 msgstr ""
@@ -4533,8 +4533,8 @@ msgstr "あなたのLinkedInまたはソーシャルメディアのページ"
 
 #. module: crm
 #: model:mail.template,subject:crm.mail_template_data_module_install_crm
-msgid "Your Odoo CRM application is running smoothly."
-msgstr "Odoo CRMアプリケーションがスムーズに稼働しています"
+msgid "Your Gerp CRM application is running smoothly."
+msgstr "Gerp CRMアプリケーションがスムーズに稼働しています"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
@@ -4688,8 +4688,8 @@ msgstr "不明"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner
-msgid "use Odoo API to import through scripts"
-msgstr "Odoo APIを使用してスクリプトをインポートする"
+msgid "use Gerp API to import through scripts"
+msgstr "Gerp APIを使用してスクリプトをインポートする"
 
 #. module: crm
 #: model:ir.ui.view,arch_db:crm.crm_planner

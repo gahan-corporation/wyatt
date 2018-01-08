@@ -375,10 +375,10 @@ Development Guidelines
   name of the component they belong to (creating "informal" namespaces, much
   as in C or Objective-C).
 * Global selectors should be avoided. Because a component may be used several
-  times in a single page (an example in Odoo is dashboards), queries should be
+  times in a single page (an example in Gerp is dashboards), queries should be
   restricted to a given component's scope. Unfiltered selections such as
   ``$(selector)`` or ``document.querySelectorAll(selector)`` will generally
-  lead to unintended or incorrect behavior.  Odoo Web's
+  lead to unintended or incorrect behavior.  Gerp Web's
   :class:`~Widget` has an attribute providing its DOM root
   (:attr:`~Widget.$el`), and a shortcut to select nodes directly
   (:func:`~Widget.$`).
@@ -415,29 +415,29 @@ Development Guidelines
 RPC
 ===
 
-To display and interact with data, calls to the Odoo server are necessary.
+To display and interact with data, calls to the Gerp server are necessary.
 This is performed using :abbr:`RPC <Remote Procedure Call>`.
 
-Odoo Web provides two primary APIs to handle this: a low-level
-JSON-RPC based API communicating with the Python section of Odoo
+Gerp Web provides two primary APIs to handle this: a low-level
+JSON-RPC based API communicating with the Python section of Gerp
 Web (and of your module, if you have a Python part) and a high-level
-API above that allowing your code to talk directly to high-level Odoo models.
+API above that allowing your code to talk directly to high-level Gerp models.
 
 All networking APIs are :ref:`asynchronous <reference/async>`. As a result,
 all of them will return Deferred_ objects (whether they resolve those with
 values or not). Understanding how those work before before moving on is
 probably necessary.
 
-High-level API: calling into Odoo models
+High-level API: calling into Gerp models
 -------------------------------------------
 
-Access to Odoo object methods (made available through XML-RPC from the server)
-is done via :class:`Model`. It maps onto the Odoo server objects via two primary
+Access to Gerp object methods (made available through XML-RPC from the server)
+is done via :class:`Model`. It maps onto the Gerp server objects via two primary
 methods, :func:`~Model.call` (exported in ``web.Model``) and :func:`~Model.query`
 (exported in ``web.DataModel``, only available in the backend client).
 
 :func:`~Model.call` is a direct mapping to the corresponding method of
-the Odoo server object. Its usage is similar to that of the Odoo Model API,
+the Gerp server object. Its usage is similar to that of the Gerp Model API,
 with three differences:
 
 * The interface is :ref:`asynchronous <reference/async>`, so instead of
@@ -460,7 +460,7 @@ with three differences:
     });
 
 :func:`~Model.query` is a shortcut for a builder-style
-interface to searches (``search`` + ``read`` in Odoo RPC terms). It
+interface to searches (``search`` + ``read`` in Gerp RPC terms). It
 returns a :class:`~gerp.web.Query` object which is immutable but
 allows building new :class:`~gerp.web.Query` instances from the
 first one, adding new properties or modifiying the parent object's::
@@ -590,13 +590,13 @@ around and use them differently/add new specifications on them.
 Aggregation (grouping)
 ''''''''''''''''''''''
 
-Odoo has powerful grouping capacities, but they are kind-of strange
+Gerp has powerful grouping capacities, but they are kind-of strange
 in that they're recursive, and level n+1 relies on data provided
 directly by the grouping at level n. As a result, while
 :py:meth:`gerp.models.Model.read_group` works it's not a very intuitive
 API.
 
-Odoo Web eschews direct calls to :py:meth:`~gerp.models.Model.read_group`
+Gerp Web eschews direct calls to :py:meth:`~gerp.models.Model.read_group`
 in favor of calling a method of :class:`~gerp.web.Query`, :py:meth:`much
 in the way it is done in SQLAlchemy <sqlalchemy.orm.query.Query.group_by>`
 [#terminal]_::
@@ -673,7 +673,7 @@ Low-level API: RPC calls to Python side
 
 While the previous section is great for calling core OpenERP code
 (models code), it does not work if you want to call the Python side of
-Odoo Web.
+Gerp Web.
 
 For this, a lower-level API exists on on
 :class:`~Session` objects (the class is exported in ``web.Session``, but
@@ -706,7 +706,7 @@ Javascript module system overview
 ---------------------------------
 
 A new module system (inspired from requirejs) has now been deployed.
-It has many advantages over the Odoo version 8 system.
+It has many advantages over the Gerp version 8 system.
 
 * loading order: dependencies are guaranteed to be loaded first, even if
   files are not loaded in the correct order in the bundle files.
@@ -835,18 +835,18 @@ Here are some basic conventions for the javascript code:
 
 
 
-Testing in Odoo Web Client
+Testing in Gerp Web Client
 ==========================
 
 Javascript Unit Testing
 -----------------------
 
-Odoo Web includes means to unit-test both the core code of
-Odoo Web and your own javascript modules. On the javascript side,
+Gerp Web includes means to unit-test both the core code of
+Gerp Web and your own javascript modules. On the javascript side,
 unit-testing is based on QUnit_ with a number of helpers and
-extensions for better integration with Odoo.
+extensions for better integration with Gerp.
 
-To see what the runner looks like, find (or start) an Odoo server
+To see what the runner looks like, find (or start) an Gerp server
 with the web client enabled, and navigate to ``/web/tests``
 This will show the runner selector, which lists all modules with javascript
 unit tests, and allows starting any of them (or all javascript tests in all
@@ -865,7 +865,7 @@ Writing a test case
 -------------------
 
 The first step is to list the test file(s). This is done through the
-``test`` key of the Odoo manifest, by adding javascript files to it:
+``test`` key of the Gerp manifest, by adding javascript files to it:
 
 .. code-block:: python
 
@@ -899,14 +899,14 @@ The next step is to create a test case::
     });
 
 All testing helpers and structures live in the ``gerp.testing``
-module. Odoo tests live in a :func:`~gerp.testing.section`,
+module. Gerp tests live in a :func:`~gerp.testing.section`,
 which is itself part of a module. The first argument to a section is
 the name of the section, the second one is the section body.
 
 :func:`test <gerp.testing.case>`, provided by the
 :func:`~gerp.testing.section` to the callback, is used to
 register a given test case which will be run whenever the test runner
-actually does its job. Odoo Web test case use standard `QUnit
+actually does its job. Gerp Web test case use standard `QUnit
 assertions`_ within them.
 
 Launching the test runner at this point will run the test and display
@@ -925,7 +925,7 @@ will make it pass:
 Assertions
 ----------
 
-As noted above, Odoo Web's tests use `qunit assertions`_. They are
+As noted above, Gerp Web's tests use `qunit assertions`_. They are
 available globally (so they can just be called without references to
 anything). The following list is available:
 
@@ -975,10 +975,10 @@ anything). The following list is available:
 
     inverse operation to :func:`equal`
 
-Getting an Odoo instance
+Getting an Gerp instance
 ------------------------
 
-The Odoo instance is the base through which most Odoo Web
+The Gerp instance is the base through which most Gerp Web
 modules behaviors (functions, objects, …) are accessed. As a result,
 the test framework automatically builds one, and loads the module
 being tested and all of its dependencies inside it. This new instance
@@ -1164,7 +1164,7 @@ To enable mock RPC, set the :attr:`rpc option <TestOptions.rpc>` to
 
     * If it matches the pattern ``model:method`` (if it contains a
       colon, essentially) the call will set up the mocking of an RPC
-      call straight to the Odoo server (through XMLRPC) as
+      call straight to the Gerp server (through XMLRPC) as
       performed via e.g. :func:`gerp.web.Model.call`.
 
       In that case, ``handler`` should be a function taking two
@@ -1369,7 +1369,7 @@ complexities.
 
        For some tests, a source database needs to be duplicated. This
        operation requires that there be no connection to the database
-       being duplicated, but Odoo doesn't currently break
+       being duplicated, but Gerp doesn't currently break
        existing/outstanding connections, so restarting the server is
        the simplest way to ensure everything is in the right state.
 
@@ -1395,7 +1395,7 @@ the OpenERP Web test suite.
 .. note::
 
     Note that this runs all the Python tests for the ``web`` module,
-    but all the web tests for all of Odoo. This can be surprising.
+    but all the web tests for all of Gerp. This can be surprising.
 
 .. _qunit: http://qunitjs.com/
 

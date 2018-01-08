@@ -2,14 +2,14 @@ gerp.define('web.AbstractView', function (require) {
 "use strict";
 
 /**
- * This is the base class inherited by all (JS) views. Odoo JS views are the
+ * This is the base class inherited by all (JS) views. Gerp JS views are the
  * widgets used to display information in the main area of the web client
  * (note: the search view is not a "JS view" in that sense).
  *
  * The abstract view role is to take a set of fields, an arch (the xml
  * describing the view in db), and some params, and then, to create a
  * controller, a renderer and a model.  This is the classical MVC pattern, but
- * the word 'view' has historical significance in Odoo code, so we replaced the
+ * the word 'view' has historical significance in Gerp code, so we replaced the
  * V in MVC by the 'renderer' word.
  *
  * JS views are supposed to be used like this:

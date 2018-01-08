@@ -188,7 +188,7 @@ var EditorMenuBar = Widget.extend({
      * Called when an element askes to record an history undo -> records it.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {GerpEvent} ev
      */
     _onHistoryUndoRecordRequest: function (ev) {
         this.rte.historyRecordUndo(ev.data.$target, ev.data.event);
@@ -206,7 +206,7 @@ var EditorMenuBar = Widget.extend({
      * changes.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {GerpEvent} ev
      */
     _onDiscardRequest: function (ev) {
         this.cancel(ev.data.reload).then(ev.data.onSuccess, ev.data.onFailure);
@@ -215,7 +215,7 @@ var EditorMenuBar = Widget.extend({
      * Called when a save request is received -> saves the page content.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {GerpEvent} ev
      */
     _onSaveRequest: function (ev) {
         ev.stopPropagation();

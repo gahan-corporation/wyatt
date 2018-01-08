@@ -4,12 +4,12 @@
 
 {
     "name": "Web Responsive",
-    "summary": "It provides a mobile compliant interface for Odoo Community "
+    "summary": "It provides a mobile compliant interface for Gerp Community "
                "web",
     "version": "11.0.1.0.1",
     "category": "Website",
     "website": "https://laslabs.com/",
-    "author": "LasLabs, Tecnativa, Odoo Community Association (OCA)",
+    "author": "LasLabs, Tecnativa, Gerp Community Association (OCA)",
     "license": "LGPL-3",
     "installable": True,
     "depends": [

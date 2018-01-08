@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * pos_mercury
 # 
@@ -20,7 +20,7 @@
 # Mateo Tibaquirá Palacios <nestormateo@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-20 09:52+0000\n"
 "PO-Revision-Date: 2017-09-20 09:52+0000\n"
@@ -672,8 +672,8 @@ msgstr "Si respuesta del servidor (¿está conectado a la red?)"
 #: code:addons/pos_mercury/static/src/js/pos_mercury.js:414
 #: code:addons/pos_mercury/static/src/js/pos_mercury.js:567
 #, python-format
-msgid "Odoo error while processing transaction."
-msgstr "Error de Odoo al momento de procesar la transacción."
+msgid "Gerp error while processing transaction."
+msgstr "Error de Gerp al momento de procesar la transacción."
 
 #. module: pos_mercury
 #. openerp-web

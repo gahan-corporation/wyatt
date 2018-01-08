@@ -40,7 +40,7 @@
             
   <h1>Source code for gerp.models</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="c1"># Part of Odoo. See LICENSE file for full copyright and licensing details.</span>
+<span class="c1"># Part of Gerp. See LICENSE file for full copyright and licensing details.</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -232,9 +232,9 @@
 
 <span class="nd">@pycompat</span><span class="o">.</span><span class="n">implements_to_string</span>
 <span class="k">class</span> <span class="nc">BaseModel</span><span class="p">(</span><span class="n">MetaModel</span><span class="p">(</span><span class="s1">&#39;DummyModel&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">object</span><span class="p">,),</span> <span class="p">{</span><span class="s1">&#39;_register&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})):</span>
-    <span class="sd">&quot;&quot;&quot; Base class for Odoo models.</span>
+    <span class="sd">&quot;&quot;&quot; Base class for Gerp models.</span>
 
-<span class="sd">    Odoo models are created by inheriting:</span>
+<span class="sd">    Gerp models are created by inheriting:</span>
 
 <span class="sd">    *   :class:`Model` for regular database-persisted models</span>
 
@@ -5129,9 +5129,9 @@
 <span class="n">AbstractModel</span> <span class="o">=</span> <span class="n">BaseModel</span>
 
 <div class="viewcode-block" id="Model"><a class="viewcode-back" href="../../reference/orm.html#gerp.models.Model">[docs]</a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">AbstractModel</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Main super-class for regular database-persisted Odoo models.</span>
+    <span class="sd">&quot;&quot;&quot; Main super-class for regular database-persisted Gerp models.</span>
 
-<span class="sd">    Odoo models are created by inheriting from this class::</span>
+<span class="sd">    Gerp models are created by inheriting from this class::</span>
 
 <span class="sd">        class user(Model):</span>
 <span class="sd">            ...</span>

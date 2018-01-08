@@ -211,7 +211,7 @@
     <span class="k">return</span> <span class="s2">&quot;&lt;html&gt;&lt;head&gt;&lt;script&gt;window.location = &#39;</span><span class="si">%s</span><span class="s2">&#39; + location.hash;&lt;/script&gt;&lt;/head&gt;&lt;/html&gt;&quot;</span> <span class="o">%</span> <span class="n">url</span>
 
 <div class="viewcode-block" id="WebRequest"><a class="viewcode-back" href="../../reference/http.html#gerp.http.WebRequest">[docs]</a><span class="k">class</span> <span class="nc">WebRequest</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Parent class for all Odoo Web request types, mostly deals with</span>
+    <span class="sd">&quot;&quot;&quot; Parent class for all Gerp Web request types, mostly deals with</span>
 <span class="sd">    initialization and setup of the request object (the dispatching itself has</span>
 <span class="sd">    to be handled by the subclasses)</span>
 
@@ -499,7 +499,7 @@
 
 <span class="sd">        .. versionadded:: 9.0</span>
 
-<span class="sd">        Odoo implements token-based `CSRF protection</span>
+<span class="sd">        Gerp implements token-based `CSRF protection</span>
 <span class="sd">        &lt;https://en.wikipedia.org/wiki/CSRF&gt;`_.</span>
 
 <span class="sd">        CSRF protection is enabled by default and applies to *UNSAFE*</span>
@@ -532,7 +532,7 @@
 <span class="sd">              require(&#39;web.core&#39;).csrf_token</span>
 
 <span class="sd">        * if the endpoint can be called by external parties (not from</span>
-<span class="sd">          Odoo) as e.g. it is a REST API or a `webhook</span>
+<span class="sd">          Gerp) as e.g. it is a REST API or a `webhook</span>
 <span class="sd">          &lt;https://en.wikipedia.org/wiki/Webhook&gt;`_, CSRF protection</span>
 <span class="sd">          must be disabled on the endpoint. If possible, you may want</span>
 <span class="sd">          to implement other methods of request validation (to ensure</span>
@@ -690,15 +690,15 @@
                 <span class="n">_logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;Exception during JSON request handling.&quot;</span><span class="p">)</span>
             <span class="n">error</span> <span class="o">=</span> <span class="p">{</span>
                     <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-                    <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s2">&quot;Odoo Server Error&quot;</span><span class="p">,</span>
+                    <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s2">&quot;Gerp Server Error&quot;</span><span class="p">,</span>
                     <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">serialize_exception</span><span class="p">(</span><span class="n">exception</span><span class="p">)</span>
             <span class="p">}</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exception</span><span class="p">,</span> <span class="n">AuthenticationError</span><span class="p">):</span>
                 <span class="n">error</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
-                <span class="n">error</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Odoo Session Invalid&quot;</span>
+                <span class="n">error</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Gerp Session Invalid&quot;</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exception</span><span class="p">,</span> <span class="n">SessionExpiredException</span><span class="p">):</span>
                 <span class="n">error</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
-                <span class="n">error</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Odoo Session Expired&quot;</span>
+                <span class="n">error</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Gerp Session Expired&quot;</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_json_response</span><span class="p">(</span><span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">dispatch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -834,12 +834,12 @@
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">_logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;No CSRF validation token provided for path &#39;</span><span class="si">%s</span><span class="s2">&#39;</span>
 
-<span class="s2">Odoo URLs are CSRF-protected by default (when accessed with unsafe</span>
+<span class="s2">Gerp URLs are CSRF-protected by default (when accessed with unsafe</span>
 <span class="s2">HTTP methods). See</span>
 <span class="s2">https://www.gerp.com/documentation/9.0/reference/http.html#csrf for</span>
 <span class="s2">more details.</span>
 
-<span class="s2">* if this endpoint is accessed through Odoo via py-QWeb form, embed a CSRF</span>
+<span class="s2">* if this endpoint is accessed through Gerp via py-QWeb form, embed a CSRF</span>
 <span class="s2">  token in the form, Tokens are available via `request.csrf_token()`</span>
 <span class="s2">  can be provided through a hidden input and must be POST-ed named</span>
 <span class="s2">  `csrf_token` e.g. in your form add:</span>
@@ -1540,7 +1540,7 @@
         <span class="n">r</span> <span class="o">=</span> <span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;dbfilter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;%h&#39;</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
         <span class="n">dbs</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dbs</span> <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">)]</span>
     <span class="k">elif</span> <span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;db_name&#39;</span><span class="p">]:</span>
-        <span class="c1"># In case --db-filter is not provided and --database is passed, Odoo will</span>
+        <span class="c1"># In case --db-filter is not provided and --database is passed, Gerp will</span>
         <span class="c1"># use the value of --database as a comma seperated list of exposed databases.</span>
         <span class="n">exposed_dbs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">db</span> <span class="ow">in</span> <span class="n">gerp</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;db_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
         <span class="n">dbs</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">exposed_dbs</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">dbs</span><span class="p">))</span>

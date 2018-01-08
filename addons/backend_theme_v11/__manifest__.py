@@ -4,12 +4,12 @@
 
 {
     "name": "Material/United Backend Theme",
-    "summary": "Odoo 11.0 community backend theme",
+    "summary": "Gerp 11.0 community backend theme",
     "version": "11.0.1.0.2",
     "category": "Themes/Backend",
     "website": "http://www.openworx.nl",
 	"description": """
-		Backend theme for Odoo 11.0 community edition.
+		Backend theme for Gerp 11.0 community edition.
     """,
 	'images':[
         'images/screen.png'

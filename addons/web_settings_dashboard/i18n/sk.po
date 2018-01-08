@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * web_settings_dashboard
 #
@@ -6,7 +6,7 @@
 # Jaroslav Bosansky <jaro.bosansky@ekoenergo.sk>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: Gerp 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-18 14:08+0000\n"
 "PO-Revision-Date: 2016-06-17 08:57+0000\n"
@@ -81,8 +81,8 @@ msgstr "Zadajte emailové adresy (jednu na riadok)"
 #. openerp-web
 #: code:addons/web_settings_dashboard/static/src/xml/dashboard.xml:94
 #, python-format
-msgid "Follow these implementation guides to get the most out of Odoo."
-msgstr "Dodrźiavajte tieto implementačné návody pre čo najväčší úžitok z Odoo."
+msgid "Follow these implementation guides to get the most out of Gerp."
+msgstr "Dodrźiavajte tieto implementačné návody pre čo najväčší úžitok z Gerp."
 
 #. module: web_settings_dashboard
 #. openerp-web
@@ -95,8 +95,8 @@ msgstr "Získajte viac funkcií s Podnikateľskou edíciou!"
 #. openerp-web
 #: code:addons/web_settings_dashboard/static/src/xml/dashboard.xml:133
 #, python-format
-msgid "Help us spread the word: Share Odoo's awesomeness with your friends!"
-msgstr "Pomôžte nám šíriť slovo: zdielajte Odoo úžasnosť s vašimi priateľmi!"
+msgid "Help us spread the word: Share Gerp's awesomeness with your friends!"
+msgstr "Pomôžte nám šíriť slovo: zdielajte Gerp úžasnosť s vašimi priateľmi!"
 
 #. module: web_settings_dashboard
 #. openerp-web
@@ -151,8 +151,8 @@ msgstr "Žiadna aplikácia nie je nainštalovaná"
 #. openerp-web
 #: code:addons/web_settings_dashboard/static/src/xml/dashboard.xml:150
 #, python-format
-msgid "Odoo Enterprise"
-msgstr "Odoo Podnikanie"
+msgid "Gerp Enterprise"
+msgstr "Gerp Podnikanie"
 
 #. module: web_settings_dashboard
 #. openerp-web

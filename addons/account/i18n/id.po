@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * account
 # 
@@ -24,7 +24,7 @@
 # Muhammad Syarif <mhdsyarif.ms@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 08:59+0000\n"
 "PO-Revision-Date: 2017-10-24 08:59+0000\n"
@@ -274,7 +274,7 @@ msgid ""
 "    </tr>\n"
 "    <tr>\n"
 "        <td align=\"center\">\n"
-"            Powered by <a target=\"_blank\" href=\"https://www.gerp.com\">Odoo</a>.\n"
+"            Powered by <a target=\"_blank\" href=\"https://www.gerp.com\">Gerp</a>.\n"
 "        </td>\n"
 "    </tr>\n"
 "</tbody>\n"
@@ -340,7 +340,7 @@ msgstr ""
 "    </tr>\n"
 "    <tr>\n"
 "        <td align=\"center\">\n"
-"            Powered by <a target=\"_blank\" href=\"https://www.gerp.com\">Odoo</a>.\n"
+"            Powered by <a target=\"_blank\" href=\"https://www.gerp.com\">Gerp</a>.\n"
 "        </td>\n"
 "    </tr>\n"
 "</tbody>\n"
@@ -640,8 +640,8 @@ msgstr ""
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
-msgid "<span title=\"Balance in Odoo\">Balance in GL</span>"
-msgstr "<span title=\"Balance in Odoo\">Saldo dalam GL</span>"
+msgid "<span title=\"Balance in Gerp\">Balance in GL</span>"
+msgstr "<span title=\"Balance in Gerp\">Saldo dalam GL</span>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
@@ -705,8 +705,8 @@ msgstr "<span>Lihat</span>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
-msgid "<strong>-The Odoo Team</strong>"
-msgstr "<strong>-Tim Odoo</strong>"
+msgid "<strong>-The Gerp Team</strong>"
+msgstr "<strong>-Tim Gerp</strong>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
@@ -811,10 +811,10 @@ msgstr ""
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"<strong>Create the bill in Odoo</strong><br/> with a proper due date, and "
+"<strong>Create the bill in Gerp</strong><br/> with a proper due date, and "
 "create the vendor if it doesnt' exist yet."
 msgstr ""
-"<strong>Buat tagihan di Odoo</strong><br/>dengan tanggal yang tepat, dan "
+"<strong>Buat tagihan di Gerp</strong><br/>dengan tanggal yang tepat, dan "
 "buat pemasok jika belum ada."
 
 #. module: account
@@ -1003,10 +1003,10 @@ msgstr "<strong>Rekonsiliasi Rekening Koran</strong>"
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "<strong>Reconcile with existing transaction</strong><br/>\n"
-"                                        In this case, Odoo should automatically match the bank statement with the previously recorded check transaction."
+"                                        In this case, Gerp should automatically match the bank statement with the previously recorded check transaction."
 msgstr ""
 "<strong>Rekonsiliasi dengan transaksi yang ada</strong><br/>\n"
-"Dalam kasus ini, Odoo harus secara otomatis menyesuaikan rekening koran dengan transaksi cek yang direkam sebelumnya."
+"Dalam kasus ini, Gerp harus secara otomatis menyesuaikan rekening koran dengan transaksi cek yang direkam sebelumnya."
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
@@ -1102,17 +1102,17 @@ msgstr "<strong>Target Pergerakan:</strong>"
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "<strong>Test the following three scenarios in order to assist you in "
-"familiarizing yourself with Odoo:</strong>"
+"familiarizing yourself with Gerp:</strong>"
 msgstr ""
 "<strong>Tes tiga skenario berikut untuk membantu Anda dalam mengakrabkan "
-"diri dengan Odoo:</strong>"
+"diri dengan Gerp:</strong>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"<strong>There are three different levels of access rights in Odoo:</strong>"
+"<strong>There are three different levels of access rights in Gerp:</strong>"
 msgstr ""
-"<strong>Ada tiga tingkat yang berbeda dari hak akses di Odoo:</strong>"
+"<strong>Ada tiga tingkat yang berbeda dari hak akses di Gerp:</strong>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.report_overdue_document
@@ -1235,11 +1235,11 @@ msgstr "Daftar Syarat Pembayaran untuk Pelanggan dan Pemasok Anda"
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"A product in Odoo is something you sell or buy \n"
+"A product in Gerp is something you sell or buy \n"
 "                        whether or not it is goods, consumables, or services.\n"
 "                        Choose how you want to create your products:"
 msgstr ""
-"Produk dalam Odoo adalah sesuatu yang Anda jual atau beli\n"
+"Produk dalam Gerp adalah sesuatu yang Anda jual atau beli\n"
 "                        dalam rupa barang, perlengkapan, atau jasa.\n"
 "                        Pilih bagaimana Anda ingin membuat produk Anda:"
 
@@ -1858,13 +1858,13 @@ msgstr "Saldo Umur Rekanan"
 #: model:ir.ui.view,arch_db:account.account_aged_balance_view
 msgid ""
 "Aged Partner Balance is a more detailed report of your receivables by "
-"intervals. Odoo calculates a table of credit balance by start Date. So if "
-"you request an interval of 30 days Odoo generates an analysis of creditors "
+"intervals. Gerp calculates a table of credit balance by start Date. So if "
+"you request an interval of 30 days Gerp generates an analysis of creditors "
 "for the past month, past two months, and so on."
 msgstr ""
-"Saldo Umur Rekanan adalah laporan lengkap piutang Anda dengan interval. Odoo"
+"Saldo Umur Rekanan adalah laporan lengkap piutang Anda dengan interval. Gerp"
 " menghitung tabel saldo kredit menurut tanggal mulai. Jadi, jika Anda "
-"meminta selang waktu 30 hari, Odoo menghasilkan analisis kreditor selama "
+"meminta selang waktu 30 hari, Gerp menghasilkan analisis kreditor selama "
 "sebulan terakhir, dua bulan terakhir, dan seterusnya."
 
 #. module: account
@@ -4072,10 +4072,10 @@ msgstr ""
 #. module: account
 #: model:ir.model.fields,help:account.field_account_financial_year_op_opening_date
 msgid ""
-"Date from which the accounting is managed in Odoo. It is the date of the "
+"Date from which the accounting is managed in Gerp. It is the date of the "
 "opening entry."
 msgstr ""
-"Tanggal di mana akuntansi dikelola di Odoo. Ini adalah tanggal ayat "
+"Tanggal di mana akuntansi dikelola di Gerp. Ini adalah tanggal ayat "
 "pembukaan."
 
 #. module: account
@@ -4648,8 +4648,8 @@ msgstr "Tutup Kotak uang"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
-msgid "Enjoy your Odoo experience,"
-msgstr "Nikmati pengalaman Odoo Anda,"
+msgid "Enjoy your Gerp experience,"
+msgstr "Nikmati pengalaman Gerp Anda,"
 
 #. module: account
 #: model:ir.actions.act_window,name:account.action_move_line_form
@@ -4991,9 +4991,9 @@ msgstr "Untuk persen masukkan rasio antara 0-100."
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"For the Odoo Team,<br/>\n"
+"For the Gerp Team,<br/>\n"
 "                            Fabien Pinckaers, Founder"
-msgstr "Untuk tim Odoo,<br/>Fabien Pinckaers, pendiri"
+msgstr "Untuk tim Gerp,<br/>Fabien Pinckaers, pendiri"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_account_currency_id
@@ -5493,20 +5493,20 @@ msgstr ""
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"If you want to be able to send customer statements from Odoo, you must:"
+"If you want to be able to send customer statements from Gerp, you must:"
 msgstr ""
-"Jika Anda ingin dapat mengirimkan pelanggan Anda laporan dari Odoo, Anda "
+"Jika Anda ingin dapat mengirimkan pelanggan Anda laporan dari Gerp, Anda "
 "harus:"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "If you want to be able to send your customers their statements \n"
-"                        from Odoo, you first need to record all outstanding transactions \n"
+"                        from Gerp, you first need to record all outstanding transactions \n"
 "                        in the payable and receivable accounts. These would be invoices \n"
 "                        that have not been paid or payments that have not been reconciled."
 msgstr ""
-"Jika Anda ingin dapat mengirimkan pelanggan Anda laporan mereka dari Odoo, "
+"Jika Anda ingin dapat mengirimkan pelanggan Anda laporan mereka dari Gerp, "
 "pertama Anda harus merekam semua transaksi belum selesai dalam akun hutang "
 "dan piutang. Ini akan menjadi faktur yang belum dibayar atau pembayaran yang"
 " belum direkonsiliasi."
@@ -5609,8 +5609,8 @@ msgstr ""
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
-msgid "In Odoo,"
-msgstr "Di Odoo,"
+msgid "In Gerp,"
+msgstr "Di Gerp,"
 
 #. module: account
 #: code:addons/account/models/account_bank_statement.py:409
@@ -6079,13 +6079,13 @@ msgid ""
 "It's common practice to change your accounting software \n"
 "                            at the end of a fiscal year. This allows you to have less \n"
 "                            data to import and balances to set. If you plan to do so, \n"
-"                            we recommend you start using Odoo for invoicing and payments \n"
+"                            we recommend you start using Gerp for invoicing and payments \n"
 "                            now, and then move all other accounting transactions at a later time."
 msgstr ""
 "Ini adalah praktek yang umum untuk mengubah perangkat lunak akuntansi Anda "
 "pada akhir tahun pajak. Anda jadi memiliki lebih sedikit data untuk diimpor "
 "dan saldo untuk mengatur. Jika Anda berencana untuk melakukannya, kami "
-"menyarankan Anda mulai menggunakan Odoo untuk penagihan dan pembayaran "
+"menyarankan Anda mulai menggunakan Gerp untuk penagihan dan pembayaran "
 "sekarang, dan kemudian pindahkan semua transaksi akuntansi lainnya di lain "
 "waktu."
 
@@ -6652,7 +6652,7 @@ msgstr "Pembayaran kurang"
 #: code:addons/account/static/src/xml/account_reconciliation.xml:24
 #, python-format
 msgid "Let gerp try to reconcile entries for the user"
-msgstr "Biarkan Odoo untuk merekonsiliasi ayat untuk pengguna"
+msgstr "Biarkan Gerp untuk merekonsiliasi ayat untuk pengguna"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.res_config_settings_view_form
@@ -6820,40 +6820,40 @@ msgstr "Rekonsiliasi Manual"
 #. module: account
 #: model:ir.model.fields,help:account.field_account_journal_inbound_payment_method_ids
 msgid ""
-"Manual: Get paid by cash, check or any other method outside of Odoo.\n"
+"Manual: Get paid by cash, check or any other method outside of Gerp.\n"
 "Electronic: Get paid automatically through a payment acquirer by requesting a transaction on a card saved by the customer when buying or subscribing online (payment token).\n"
-"Batch Deposit: Encash several customer checks at once by generating a batch deposit to submit to your bank. When encoding the bank statement in Odoo,you are suggested to reconcile the transaction with the batch deposit. Enable this option from the settings."
+"Batch Deposit: Encash several customer checks at once by generating a batch deposit to submit to your bank. When encoding the bank statement in Gerp,you are suggested to reconcile the transaction with the batch deposit. Enable this option from the settings."
 msgstr ""
-"Manual: Dibayar dengan kas, cek atau semua cara lain di luar Odoo.\n"
+"Manual: Dibayar dengan kas, cek atau semua cara lain di luar Gerp.\n"
 "Electronik: Pembayaran otomatis melalui penerima pembayaran dengan meminta transaksi pada kartu yang disimpan oleh pelanggan ketika membeli atau subscribe daring (token pembayaran).\n"
-"Setoran Massal: Cairkan beberapa cek pelanggan sekaligus dengan membuat setoran massal untuk diserahkan pada bank Anda. Ketika merekam rekening koran di Odoo, Anda akan disarankan untuk merekonsiliasi transaksi dengan setoran massal. Aktifkan pilihan ini dari pengaturan."
+"Setoran Massal: Cairkan beberapa cek pelanggan sekaligus dengan membuat setoran massal untuk diserahkan pada bank Anda. Ketika merekam rekening koran di Gerp, Anda akan disarankan untuk merekonsiliasi transaksi dengan setoran massal. Aktifkan pilihan ini dari pengaturan."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_abstract_payment_payment_method_id
 #: model:ir.model.fields,help:account.field_account_payment_payment_method_id
 #: model:ir.model.fields,help:account.field_account_register_payments_payment_method_id
 msgid ""
-"Manual: Get paid by cash, check or any other method outside of Odoo.\n"
+"Manual: Get paid by cash, check or any other method outside of Gerp.\n"
 "Electronic: Get paid automatically through a payment acquirer by requesting a transaction on a card saved by the customer when buying or subscribing online (payment token).\n"
-"Check: Pay bill by check and print it from Odoo.\n"
-"Batch Deposit: Encash several customer checks at once by generating a batch deposit to submit to your bank. When encoding the bank statement in Odoo, you are suggested to reconcile the transaction with the batch deposit.To enable batch deposit,module account_batch_deposit must be installed.\n"
+"Check: Pay bill by check and print it from Gerp.\n"
+"Batch Deposit: Encash several customer checks at once by generating a batch deposit to submit to your bank. When encoding the bank statement in Gerp, you are suggested to reconcile the transaction with the batch deposit.To enable batch deposit,module account_batch_deposit must be installed.\n"
 "SEPA Credit Transfer: Pay bill from a SEPA Credit Transfer file you submit to your bank. To enable sepa credit transfer, module account_sepa must be installed "
 msgstr ""
-"Manual: Dibayar dengan kas, cek atau semua cara lain di luar Odoo.\n"
+"Manual: Dibayar dengan kas, cek atau semua cara lain di luar Gerp.\n"
 "Electronik: Pembayaran otomatis melalui penerima pembayaran dengan meminta transaksi pada kartu yang disimpan oleh pelanggan ketika membeli atau subscribe daring (token pembayaran).\n"
-"Cek: Bayar tagihan dengan cek dan cetak dari Odoo.\n"
-"Setoran Massal: Cairkan beberapa cek pelanggan sekaligus dengan membuat setoran massal untuk diserahkan pada bank Anda. Ketika merekam rekening koran di Odoo, Anda akan disarankan untuk merekonsiliasi transaksi dengan setoran massal. Untuk mengaktifkan setoran massal, pasang modul account_batch_deposit.\n"
+"Cek: Bayar tagihan dengan cek dan cetak dari Gerp.\n"
+"Setoran Massal: Cairkan beberapa cek pelanggan sekaligus dengan membuat setoran massal untuk diserahkan pada bank Anda. Ketika merekam rekening koran di Gerp, Anda akan disarankan untuk merekonsiliasi transaksi dengan setoran massal. Untuk mengaktifkan setoran massal, pasang modul account_batch_deposit.\n"
 "SEPA Credit Transfer: Bayar tagihan Anda dari file SEPA Credit Transfer yang Anda serahkan ke bank Anda. Untuk mengaktifkan SEPA Credit Transfer, modul account_sepa harus dipasang"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_journal_outbound_payment_method_ids
 msgid ""
-"Manual:Pay bill by cash or any other method outside of Odoo.\n"
-"Check:Pay bill by check and print it from Odoo.\n"
+"Manual:Pay bill by cash or any other method outside of Gerp.\n"
+"Check:Pay bill by check and print it from Gerp.\n"
 "SEPA Credit Transfer: Pay bill from a SEPA Credit Transfer file you submit to your bank. Enable this option from the settings."
 msgstr ""
-"Manual: Dibayar dengan kas, cek atau semua cara lain di luar Odoo.\n"
-"Cek: Bayar tagihan dengan cek dan cetak dari Odoo.\n"
+"Manual: Dibayar dengan kas, cek atau semua cara lain di luar Gerp.\n"
+"Cek: Bayar tagihan dengan cek dan cetak dari Gerp.\n"
 "SEPA Credit Transfer: Bayar tagihan Anda dari file SEPA Credit Transfer yang Anda serahkan ke bank Anda. Aktifkan pilihan ini dari pengaturan."
 
 #. module: account
@@ -7351,67 +7351,67 @@ msgstr "Oktober"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
-msgid "Odoo Accounting has many free extra-features:"
-msgstr "Akuntansi Odoo memiliki banyak fitur tambahan gratis:"
+msgid "Gerp Accounting has many free extra-features:"
+msgstr "Akuntansi Gerp memiliki banyak fitur tambahan gratis:"
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_bank_statement_line
 msgid ""
-"Odoo allows you to reconcile a statement line directly with\n"
+"Gerp allows you to reconcile a statement line directly with\n"
 "                the related sale or puchase invoice(s)."
 msgstr ""
-"Odoo memungkinkan Anda untuk merekonsiliasi baris laporan langsung dengan "
+"Gerp memungkinkan Anda untuk merekonsiliasi baris laporan langsung dengan "
 "faktur penjualan atau pembelian yang terkait."
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_bank_statement_tree
 msgid ""
-"Odoo allows you to reconcile a statement line directly with\n"
+"Gerp allows you to reconcile a statement line directly with\n"
 "                the related sale or puchase invoices."
 msgstr ""
-"Odoo memungkinkan Anda untuk merekonsiliasi baris laporan langsung dengan "
+"Gerp memungkinkan Anda untuk merekonsiliasi baris laporan langsung dengan "
 "faktur penjualan atau pembelian yang terkait."
 
 #. module: account
 #: model:ir.actions.act_window,help:account.action_move_journal_line
 msgid ""
-"Odoo automatically creates one journal entry per accounting\n"
+"Gerp automatically creates one journal entry per accounting\n"
 "                document: invoice, refund, vendor payment, bank statements,\n"
 "                etc. So, you should record journal entries manually only/mainly\n"
 "                for miscellaneous operations."
 msgstr ""
-"Odoo secara otomatis membuat satu ayat jurnal per dokumen akuntansi: faktur,"
+"Gerp secara otomatis membuat satu ayat jurnal per dokumen akuntansi: faktur,"
 " pengembalian dana, pembayaran pemasok, rekening koran, dll. Jadi, Anda "
 "harus merekam ayat jurnal secara manual hanya/terutama untuk operasi lain."
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"Odoo can manage multiple companies, but we suggest to setup everything for "
+"Gerp can manage multiple companies, but we suggest to setup everything for "
 "your first company before configuring the other ones."
 msgstr ""
-"Odoo dapat mengelola beberapa perusahaan, tetapi pertama-tama kami sarankan "
+"Gerp dapat mengelola beberapa perusahaan, tetapi pertama-tama kami sarankan "
 "untuk mengatur segalanya untuk perusahaan Anda sebelum mengkonfigurasi yang "
 "lain."
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"Odoo has already preconfigured a few taxes according to your "
+"Gerp has already preconfigured a few taxes according to your "
 "country.<br/>Simply review them and check if you need more."
 msgstr ""
-"Odoo telah sudah dikonfigurasi dengan beberapa pajak sesuai negara "
+"Gerp telah sudah dikonfigurasi dengan beberapa pajak sesuai negara "
 "Anda.<br/>Cukup periksa pajak tersebut untuk mengetahui apakah Anda "
 "membutuhkan yang lain."
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"Odoo should do most of the reconciliation work automatically, so you'll only"
+"Gerp should do most of the reconciliation work automatically, so you'll only"
 " need to review a few of them when a <strong>'Reconcile Items'</strong> "
 "button appears on your Vendor Bills dash."
 msgstr ""
-"Odoo harus melakukan sebagian besar pekerjaan rekonsiliasi secara otomatis, "
+"Gerp harus melakukan sebagian besar pekerjaan rekonsiliasi secara otomatis, "
 "sehingga Anda hanya perlu untuk meninjau beberapa dari rekonsiliasi tersebut"
 " ketika tombol <strong>' Rekonsiliasi Artikel'</strong> muncul di dasbor "
 "Tagihan Pemasok."
@@ -7419,12 +7419,12 @@ msgstr ""
 #. module: account
 #: model:ir.actions.act_window,help:account.action_invoice_tree1
 msgid ""
-"Odoo's electronic invoicing allows to ease and fasten the\n"
+"Gerp's electronic invoicing allows to ease and fasten the\n"
 "                collection of customer payments. Your customer receives the\n"
 "                invoice by email and he can pay online and/or import it\n"
 "                in his own system."
 msgstr ""
-"Faktur elektronik Odoo memudahkan dan mempercepat penerimaan pembayaran "
+"Faktur elektronik Gerp memudahkan dan mempercepat penerimaan pembayaran "
 "pelanggan. Pelanggan Anda menerima tagihan melalui email dan ia dapat "
 "melakukan pembayaran online dan/atau mengimpornya ke dalam sistem mereka "
 "sendiri."
@@ -8681,10 +8681,10 @@ msgstr "Rekam pembayaran pada beberapa faktur"
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "Registering outstanding invoices and payments can be a huge undertaking, \n"
-"                        but you can start using Odoo without it by:"
+"                        but you can start using Gerp without it by:"
 msgstr ""
 "Merekam faktur dan pembayaran belum selesai dapat menjadi pekerjaan besar, "
-"tetapi Anda dapat mulai menggunakan Odoo tanpanya dengan:"
+"tetapi Anda dapat mulai menggunakan Gerp tanpanya dengan:"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
@@ -10607,10 +10607,10 @@ msgstr ""
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"This guide will help you get started with Odoo Accounting.\n"
+"This guide will help you get started with Gerp Accounting.\n"
 "                        Once you're done, you'll benefit from:"
 msgstr ""
-"Panduan ini akan membantu Anda untuk memulai Akuntansi Odoo.\n"
+"Panduan ini akan membantu Anda untuk memulai Akuntansi Gerp.\n"
 "                        Setelah Anda selesai, Anda akan mendapatkan keuntungan dari:"
 
 #. module: account
@@ -10806,12 +10806,12 @@ msgstr "Siap Dibayar"
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
-"To manage the tax applied when invoicing a Company, Odoo uses the concept of"
+"To manage the tax applied when invoicing a Company, Gerp uses the concept of"
 " Fiscal Position: they serve to automatically set the right tax and/or "
 "account according to the customer country and state."
 msgstr ""
 "Untuk mengelola pajak yang diterapkan ketika memfakturkan sebuah perusahaan,"
-" Odoo menggunakan konsep posisi fiskal: secara otomatis pajak dan/atau akun "
+" Gerp menggunakan konsep posisi fiskal: secara otomatis pajak dan/atau akun "
 "ditetapkan sesuai dengan negara dan propinsi pelanggan."
 
 #. module: account
@@ -11490,23 +11490,23 @@ msgstr "Peringatan"
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "We can handle the whole import process\n"
-"                                        for you: simply send your Odoo project\n"
+"                                        for you: simply send your Gerp project\n"
 "                                        manager a CSV file containing all your\n"
 "                                        data."
 msgstr ""
 "Kami dapat menangani seluruh proses impor untuk Anda: cukup kirim file CSV "
-"ke proyek manager Odoo Anda yang berisi semua data Anda."
+"ke proyek manager Gerp Anda yang berisi semua data Anda."
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid ""
 "We can handle the whole import process\n"
-"                                        for you: simply send your Odoo project\n"
+"                                        for you: simply send your Gerp project\n"
 "                                        manager a CSV file containing all your\n"
 "                                        products."
 msgstr ""
 "Kami dapat menangani seluruh proses impor untuk Anda: cukup kirim file CSV "
-"ke proyek manager Odoo Anda yang berisi semua produk Anda."
+"ke proyek manager Gerp Anda yang berisi semua produk Anda."
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner

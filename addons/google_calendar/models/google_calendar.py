@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 
@@ -42,7 +42,7 @@ class Meta(type):
 
 Struct = Meta('Struct', (object,), {})
 
-class OdooEvent(Struct):
+class GerpEvent(Struct):
     event = False
     found = False
     event_id = False
@@ -65,7 +65,7 @@ class GmailEvent(Struct):
 
 class SyncEvent(object):
     def __init__(self):
-        self.OE = OdooEvent()
+        self.OE = GerpEvent()
         self.GG = GmailEvent()
         self.OP = None
 
@@ -73,7 +73,7 @@ class SyncEvent(object):
         return getattr(self, key)
 
     def compute_OP(self, modeFull=True):
-        #If event are already in Gmail and in Odoo
+        #If event are already in Gmail and in Gerp
         if self.OE.found and self.GG.found:
             is_owner = self.OE.event.env.user.id == self.OE.event.user_id.id
             #If the event has been deleted from one side, we delete on other side !
@@ -107,15 +107,15 @@ class SyncEvent(object):
             else:
                 self.OP = NothingToDo("", "Both are already deleted")
 
-        # New in Odoo...  Create on create_events of synchronize function
+        # New in Gerp...  Create on create_events of synchronize function
         elif self.OE.found and not self.GG.found:
             if self.OE.status:
                 self.OP = Delete('OE', 'Update or delete from GOOGLE')
             else:
                 if not modeFull:
-                    self.OP = Delete('GG', 'Deleted from Odoo, need to delete it from Gmail if already created')
+                    self.OP = Delete('GG', 'Deleted from Gerp, need to delete it from Gmail if already created')
                 else:
-                    self.OP = NothingToDo("", "Already Deleted in gmail and unlinked in Odoo")
+                    self.OP = NothingToDo("", "Already Deleted in gmail and unlinked in Gerp")
         elif self.GG.found and not self.OE.found:
             tmpSrc = 'GG'
             if not self.GG.status and not self.GG.isInstance:
@@ -254,7 +254,7 @@ class GoogleCalendar(models.AbstractModel):
         return data
 
     def create_an_event(self, event):
-        """ Create a new event in google calendar from the given event in Odoo.
+        """ Create a new event in google calendar from the given event in Gerp.
             :param event : record of calendar.event to export to google calendar
         """
         data = self.generate_data(event, isCreating=True)
@@ -416,7 +416,7 @@ class GoogleCalendar(models.AbstractModel):
         return event
 
     def update_from_google(self, event, single_event_dict, type):
-        """ Update an event in Odoo with information from google calendar
+        """ Update an event in Gerp with information from google calendar
             :param event : record od calendar.event to update
             :param single_event_dict : dict of google cal event data
         """
@@ -725,7 +725,7 @@ class GoogleCalendar(models.AbstractModel):
                 ('event_id.final_date', '>', fields.Datetime.to_string(self.get_minTime())),
             ]
 
-            # Select all events from Odoo which have been already synchronized in gmail
+            # Select all events from Gerp which have been already synchronized in gmail
             my_attendees = CalendarAttendee.with_context(context_novirtual).search(domain)
             all_event_from_google = self.get_event_synchro_dict(lastSync=False)
 

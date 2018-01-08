@@ -189,7 +189,7 @@
                     <ul>
                         <li>The question title is short and descriptive</li>
                         <li>The question describes a real business problem, not a software problem</li>
-                        <li>The answer is understandable for someone who does not know Odoo</li>
+                        <li>The answer is understandable for someone who does not know Gerp</li>
                     </ul>
                     <p>
                         Before submiting the question, help us improve its quality by
@@ -252,14 +252,14 @@
                             <h4>Good answer structure</h4>
                             <ol>
                                 <li>Describe the business solution</li>
-                                <li>Explain how to implement it in Odoo</li>
+                                <li>Explain how to implement it in Gerp</li>
                                 <li>Benefits of having done this setup</li>
                             </ol>
                         </div>
                         <div class="col-sm-6">
                             <h4>Bad answer structure</h4>
                             <ol>
-                                <li>Explain how to configure Odoo</li>
+                                <li>Explain how to configure Gerp</li>
                                 <li>No business benefit</li>
                             </ol>
                         </div>

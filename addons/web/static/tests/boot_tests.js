@@ -5,7 +5,7 @@ gerp.__DEBUG__.didLogInfo.then(function() {
 
     var modulesInfo = gerp.__DEBUG__.js_modules;
 
-    QUnit.module('Odoo JS Modules');
+    QUnit.module('Gerp JS Modules');
 
     QUnit.test('all modules are properly loaded', function(assert) {
         assert.expect(2);

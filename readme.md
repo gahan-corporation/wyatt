@@ -22,4 +22,4 @@ Special thanks to [Dennis Williamson](https://stackoverflow.com/users/26428/denn
 
 # We think we can do better.
 
-Originaly forked from [Odoo](https://github.com/gerp/gerp)
+Originaly forked from [Gerp](https://github.com/gerp/gerp)

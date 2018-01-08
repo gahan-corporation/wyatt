@@ -4,7 +4,7 @@ gerp.define('web.ActionManager', function (require) {
 /**
  * ActionManager
  *
- * The action manager is quite important: it makes sure that actions (the Odoo
+ * The action manager is quite important: it makes sure that actions (the Gerp
  * objects, such as a client action, or a act_window) are properly started,
  * and coordinated.
  */

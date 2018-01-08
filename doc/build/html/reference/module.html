@@ -42,7 +42,7 @@
 <h1>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="manifest">
 <span id="reference-module-manifest"></span><h2>Manifest<a class="headerlink" href="#manifest" title="Permalink to this headline">¶</a></h2>
-<p>The manifest file serves to declare a python package as an Odoo module
+<p>The manifest file serves to declare a python package as an Gerp module
 and to specify module metadata.</p>
 <p>It is a file called <code class="docutils literal"><span class="pre">__manifest__.py</span></code> and contains a single Python
 dictionary, where each key specifies module metadatum.</p>
@@ -81,7 +81,7 @@ dictionary, where each key specifies module metadatum.</p>
 <dt><code class="docutils literal"><span class="pre">license</span></code> (<code class="docutils literal"><span class="pre">str</span></code>, defaults: <code class="docutils literal"><span class="pre">LGPL-3</span></code>)</dt>
 <dd>distribution license for the module</dd>
 <dt><code class="docutils literal"><span class="pre">category</span></code> (<code class="docutils literal"><span class="pre">str</span></code>, default: <code class="docutils literal"><span class="pre">Uncategorized</span></code>)</dt>
-<dd><p class="first">classification category within Odoo, rough business domain for the module.</p>
+<dd><p class="first">classification category within Gerp, rough business domain for the module.</p>
 <p class="last">Although using <a class="reference external" href="https://github.com/gerp/gerp/blob/master/gerp/addons/base/module/module_data.xml">existing categories</a> is recommended, the field is
 freeform and unknown categories are created on-the-fly. Category
 hierarchies can be created using the separator <code class="docutils literal"><span class="pre">/</span></code> e.g. <code class="docutils literal"><span class="pre">Foo</span> <span class="pre">/</span> <span class="pre">Bar</span></code>
@@ -89,7 +89,7 @@ will create a category <code class="docutils literal"><span class="pre">Foo</spa
 <code class="docutils literal"><span class="pre">Foo</span></code>, and will set <code class="docutils literal"><span class="pre">Bar</span></code> as the module’s category.</p>
 </dd>
 <dt><code class="docutils literal"><span class="pre">depends</span></code> (<code class="docutils literal"><span class="pre">list(str)</span></code>)</dt>
-<dd><p class="first">Odoo modules which must be loaded before this one, either because this
+<dd><p class="first">Gerp modules which must be loaded before this one, either because this
 module uses features they create or because it alters resources they
 define.</p>
 <p class="last">When a module is installed, all of its dependencies are installed before

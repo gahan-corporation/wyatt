@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * hr_timesheet
 #
@@ -6,7 +6,7 @@
 # Otgonbayar Agvaan <gobi.mn@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 9.0\n"
+"Project-Id-Version: Gerp 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-18 14:06+0000\n"
 "PO-Revision-Date: 2015-11-21 09:40+0000\n"
@@ -356,11 +356,11 @@ msgstr ""
 #: model:ir.actions.act_window,help:hr_timesheet.action_define_analytic_structure
 msgid ""
 "You should create an analytic account structure depending on your needs to "
-"analyse costs and revenues. In Odoo, analytic accounts are also used to "
+"analyse costs and revenues. In Gerp, analytic accounts are also used to "
 "track customer contracts."
 msgstr ""
 "Өртөг болон орлогыг шинжлэхдээ өөрийн хэрэгцээ шаардлагад нийцсэн бүтэц "
-"бүхий шинжилгээний дансдыг үүсгэх хэрэгтэй. Odoo-д шинжилгээ нь данс нь "
+"бүхий шинжилгээний дансдыг үүсгэх хэрэгтэй. Gerp-д шинжилгээ нь данс нь "
 "захиалагчийн гэрээг хөтлөхөд мөн хэрэглэгддэг."
 
 #. module: hr_timesheet

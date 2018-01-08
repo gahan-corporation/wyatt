@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * web
 # 
@@ -13,7 +13,7 @@
 # Manami Hashi <manami@roomsfor.hk>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-24 09:00+0000\n"
 "PO-Revision-Date: 2017-10-24 09:00+0000\n"
@@ -233,8 +233,8 @@ msgstr "<span class=\"oe_logo_edit\">会社データを編集</span>"
 
 #. module: web
 #: model:ir.ui.view,arch_db:web.menu_secondary
-msgid "<span>Odoo</span>"
-msgstr "<span>Odoo</span>"
+msgid "<span>Gerp</span>"
+msgstr "<span>Gerp</span>"
 
 #. module: web
 #. openerp-web
@@ -1232,8 +1232,8 @@ msgstr "フォーム"
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:1338
 #, python-format
-msgid "Get this feature and much more with Odoo Enterprise!"
-msgstr "OdooEnterprise Edition でさらに多くの機能を利用できます！"
+msgid "Get this feature and much more with Gerp Enterprise!"
+msgstr "GerpEnterprise Edition でさらに多くの機能を利用できます！"
 
 #. module: web
 #. openerp-web
@@ -1581,8 +1581,8 @@ msgstr "上に移動"
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:1323
 #, python-format
-msgid "My Odoo.com account"
-msgstr "Odoo.comアカウント"
+msgid "My Gerp.com account"
+msgstr "Gerp.comアカウント"
 
 #. module: web
 #. openerp-web
@@ -1716,15 +1716,15 @@ msgstr "オブジェクト:"
 #. openerp-web
 #: code:addons/web/static/src/js/core/dialog.js:51
 #, python-format
-msgid "Odoo"
-msgstr "Odoo"
+msgid "Gerp"
+msgstr "Gerp"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/apps.js:148
 #, python-format
-msgid "Odoo Apps will be available soon"
-msgstr "Odooアプリがそのうち利用できるようになるかもしれません"
+msgid "Gerp Apps will be available soon"
+msgstr "Gerpアプリがそのうち利用できるようになるかもしれません"
 
 #. module: web
 #. openerp-web
@@ -1732,28 +1732,28 @@ msgstr "Odooアプリがそのうち利用できるようになるかもしれ�
 #: code:addons/web/static/src/js/chrome/abstract_web_client.js:194
 #: code:addons/web/static/src/js/services/crash_manager.js:156
 #, python-format
-msgid "Odoo Client Error"
+msgid "Gerp Client Error"
 msgstr ""
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/fields/upgrade_fields.js:86
 #, python-format
-msgid "Odoo Enterprise"
-msgstr "Odooエンタープライズ"
+msgid "Gerp Enterprise"
+msgstr "Gerpエンタープライズ"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:118
 #, python-format
-msgid "Odoo Error"
+msgid "Gerp Error"
 msgstr ""
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:58
 #, python-format
-msgid "Odoo Session Expired"
+msgid "Gerp Session Expired"
 msgstr ""
 
 #. module: web
@@ -1761,7 +1761,7 @@ msgstr ""
 #: code:addons/web/static/src/js/services/crash_manager.js:108
 #: code:addons/web/static/src/js/services/crash_manager.js:197
 #, python-format
-msgid "Odoo Warning"
+msgid "Gerp Warning"
 msgstr ""
 
 #. module: web
@@ -1972,8 +1972,8 @@ msgstr "Powered by"
 
 #. module: web
 #: model:ir.ui.view,arch_db:web.login_layout
-msgid "Powered by <span>Odoo</span>"
-msgstr "Powered by <span>Odoo</span>"
+msgid "Powered by <span>Gerp</span>"
+msgstr "Powered by <span>Gerp</span>"
 
 #. module: web
 #. openerp-web
@@ -2467,10 +2467,10 @@ msgstr ""
 #, python-format
 msgid ""
 "Timezone Mismatch : The timezone of your browser doesn't match the selected "
-"one. The time in Odoo is displayed according to your field timezone."
+"one. The time in Gerp is displayed according to your field timezone."
 msgstr ""
 "タイムゾーンの不一致：ブラウザのタイムゾーンが選択したタイムゾーンと一致しません。 "
-"Odooの時間は、あなたのフィールドタイムゾーンに従って表示されます。"
+"Gerpの時間は、あなたのフィールドタイムゾーンに従って表示されます。"
 
 #. module: web
 #. openerp-web
@@ -2829,8 +2829,8 @@ msgstr ""
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:58
 #, python-format
-msgid "Your Odoo session expired. Please refresh the current web page."
-msgstr "Odooのセッションが無効になりました。画面をリフレッシュしてください。"
+msgid "Your Gerp session expired. Please refresh the current web page."
+msgstr "Gerpのセッションが無効になりました。画面をリフレッシュしてください。"
 
 #. module: web
 #. openerp-web

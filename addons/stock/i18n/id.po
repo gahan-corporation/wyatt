@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * stock
 # 
@@ -18,7 +18,7 @@
 # dimas indra <dprahastra@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Gerp Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-10 11:34+0000\n"
 "PO-Revision-Date: 2017-10-10 11:34+0000\n"
@@ -120,8 +120,8 @@ msgstr ", jika akuntansi atau pembelian terpasang"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "- The Odoo Team"
-msgstr "- Tim Odoo"
+msgid "- The Gerp Team"
+msgstr "- Tim Gerp"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.stock_warn_insufficient_qty_form_view
@@ -479,8 +479,8 @@ msgstr "<strong>Jumlah Terkirim</strong>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "<strong>Enjoy your Inventory management with Odoo!</strong>"
-msgstr "<strong>Nikmati Manajemen persediaan Anda dengan Odoo!</strong>"
+msgid "<strong>Enjoy your Inventory management with Gerp!</strong>"
+msgstr "<strong>Nikmati Manajemen persediaan Anda dengan Gerp!</strong>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
@@ -1113,18 +1113,18 @@ msgstr "Menurut Nomor Seri Unik"
 #, python-format
 msgid ""
 "By changing this quantity here, you accept the new quantity as complete: "
-"Odoo will not automatically generate a back order."
+"Gerp will not automatically generate a back order."
 msgstr ""
 "Dengan mengubah jumlah di sini, Anda menerima bahwa jumlah tersebut lengkap:"
-" Odoo tidak akan secara otomatis membuat backorder."
+" Gerp tidak akan secara otomatis membuat backorder."
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"By default, Odoo measures products by 'units', which are generic and "
+"By default, Gerp measures products by 'units', which are generic and "
 "represent just about anything"
 msgstr ""
-"Secara standar, Odoo menghitung/mengukur produk dengan 'unit', yang generik "
+"Secara standar, Gerp menghitung/mengukur produk dengan 'unit', yang generik "
 "dan mewakili apa saja"
 
 #. module: stock
@@ -1961,14 +1961,14 @@ msgstr ""
 #: model:ir.actions.act_window,help:stock.action_location_form
 msgid ""
 "Define your locations to reflect your warehouse structure and\n"
-"            organization. Odoo is able to manage physical locations\n"
+"            organization. Gerp is able to manage physical locations\n"
 "            (warehouses, shelves, bin, etc), partner locations (customers,\n"
 "            vendors) and virtual locations which are the counterpart of\n"
 "            the stock operations like the manufacturing orders\n"
 "            consumptions, inventories, etc."
 msgstr ""
 "Tetapkan lokasi Anda untuk menggambarkan struktur dan organisasi gudang "
-"Anda. Odoo dapat mengelola lokasi fisik (gudang, rak, kotak, dll), lokasi "
+"Anda. Gerp dapat mengelola lokasi fisik (gudang, rak, kotak, dll), lokasi "
 "rekanan (pelanggan, pemasok) dan lokasi virtual yang merupakan kontra dari "
 "operasi stok seperti konsumsi order produksi, invetaris, dll."
 
@@ -2312,14 +2312,14 @@ msgstr "Pelanggan Eropa"
 #. module: stock
 #: model:ir.actions.act_window,help:stock.action_location_form
 msgid ""
-"Every stock operation in Odoo moves the products from one\n"
+"Every stock operation in Gerp moves the products from one\n"
 "            location to another one.  For instance, if you receive products\n"
-"            from a vendor, Odoo will move products from the Vendor\n"
+"            from a vendor, Gerp will move products from the Vendor\n"
 "            location to the Stock location. Each report can be performed on\n"
 "            physical, partner or virtual locations."
 msgstr ""
-"Tiap operasi stok di Odoo memindahkan produk dari satu lokasi ke lokasi "
-"lain. Misalnya, jika Anda menerima produk dari pemasok, Odoo akan "
+"Tiap operasi stok di Gerp memindahkan produk dari satu lokasi ke lokasi "
+"lain. Misalnya, jika Anda menerima produk dari pemasok, Gerp akan "
 "memindahkan produk dari lokasi pemasok ke lokasi stok. Tiap laporan dapat "
 "dilakukan pada lokasi fisik, rekanan, atau virtual."
 
@@ -2409,9 +2409,9 @@ msgstr "Grup Pengadaan Tetap"
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"For the Odoo Team,<br/>\n"
+"For the Gerp Team,<br/>\n"
 "                            Fabien Pinckaers, Founder"
-msgstr "Untuk tim Odoo,<br/>Fabien Pinckaers, pendiri"
+msgstr "Untuk tim Gerp,<br/>Fabien Pinckaers, pendiri"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_product_category_removal_strategy_id
@@ -2802,10 +2802,10 @@ msgstr "Jika rutenya global"
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_picking_type_show_reserved
 msgid ""
-"If this checkbox is ticked, Odoo will show which products are reserved "
+"If this checkbox is ticked, Gerp will show which products are reserved "
 "(lot/serial number, source location, source package)."
 msgstr ""
-"Jika kotak ini dicentang, Odoo akan menunjukkan produk mana yang direservasi"
+"Jika kotak ini dicentang, Gerp akan menunjukkan produk mana yang direservasi"
 " (nomor seri/lot, lokasi sumber, kemasan sumber)."
 
 #. module: stock
@@ -2869,12 +2869,12 @@ msgstr ""
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"If you configured automatic procurement, Odoo automatically generates\n"
+"If you configured automatic procurement, Gerp automatically generates\n"
 "                        Procurements Orders. You usually don't need to worry about them, but\n"
 "                        sometimes the system can remain blocked without generating a\n"
 "                        corresponding document, usually due to a configuration problem."
 msgstr ""
-"Jika Anda mengatur pengadaan otomatis, Odoo secara otomatis membuat\n"
+"Jika Anda mengatur pengadaan otomatis, Gerp secara otomatis membuat\n"
 "Order Pengadaan. Anda biasanya tidak perlu khawatir tentangnya, tetapi\n"
 "kadang-kadang sistem dapat terblokir tanpa membuat dokumen\n"
 "yang sesuai, biasanya karena masalah konfigurasi."
@@ -2938,12 +2938,12 @@ msgstr "Impor menggunakan tombol kiri atas di"
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"In Odoo, <strong>Reordering Rules</strong> are used to replenish your products.\n"
-"                        Odoo will automatically propose a procurement to buy new products if you are\n"
+"In Gerp, <strong>Reordering Rules</strong> are used to replenish your products.\n"
+"                        Gerp will automatically propose a procurement to buy new products if you are\n"
 "                        running out of stock."
 msgstr ""
-"Di Odoo, <strong>Aturan Order Ulang</strong> digunakan untuk mengisi stok produk Anda.\n"
-"                        Odoo secara otomatis akan menawarkan pengadaan untuk membeli produk baru jika Anda kehabisan stok."
+"Di Gerp, <strong>Aturan Order Ulang</strong> digunakan untuk mengisi stok produk Anda.\n"
+"                        Gerp secara otomatis akan menawarkan pengadaan untuk membeli produk baru jika Anda kehabisan stok."
 
 #. module: stock
 #: selection:stock.inventory,state:0
@@ -3319,10 +3319,10 @@ msgstr "Apakah kuantitas sudah selesai dapat diubah"
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
 "It is also possible to import your initial inventory from an Excel or CSV file.\n"
-"                        If you want to do that, contact your Odoo project manager."
+"                        If you want to do that, contact your Gerp project manager."
 msgstr ""
 "Anda juga dapat mengimpor persediaan awal dari file Excel atau CSV.\n"
-"                        Jika Anda ingin melakukan itu, hubungi manajer proyek Odoo Anda."
+"                        Jika Anda ingin melakukan itu, hubungi manajer proyek Gerp Anda."
 
 #. module: stock
 #: code:addons/stock/models/stock_quant.py:244
@@ -3555,10 +3555,10 @@ msgstr ""
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"Like with the sales flow, Odoo inventory management is\n"
+"Like with the sales flow, Gerp inventory management is\n"
 "                        fully integrated with the purchase app."
 msgstr ""
-"Seperti alur penjualan, manajemen persediaan Odoo sepenuhnya terintegrasi "
+"Seperti alur penjualan, manajemen persediaan Gerp sepenuhnya terintegrasi "
 "dengan aplikasi pembelian."
 
 #. module: stock
@@ -3895,11 +3895,11 @@ msgstr "Lain-Lain"
 #. module: stock
 #: model:ir.actions.act_window,help:stock.action_picking_tree
 msgid ""
-"Most operations are prepared automatically by Odoo according\n"
+"Most operations are prepared automatically by Gerp according\n"
 "                to your preconfigured logistics rules, but you can also record\n"
 "                manual stock movements."
 msgstr ""
-"Kebanyakan operasi disiapkan secara otomatis oleh Odoo sesuai peraturan "
+"Kebanyakan operasi disiapkan secara otomatis oleh Gerp sesuai peraturan "
 "logistik yang telah dikonfigurasikan, tetapi Anda juga dapat mencatat "
 "pergerakan stok manual."
 
@@ -4156,45 +4156,45 @@ msgstr "OK"
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"Odoo handles <strong>advanced push/pull routes configuration</strong>, for "
+"Gerp handles <strong>advanced push/pull routes configuration</strong>, for "
 "example:"
 msgstr ""
-"Odoo menangani <strong>konfigurasi rute dorong/tarik lanjutan</strong>, "
+"Gerp menangani <strong>konfigurasi rute dorong/tarik lanjutan</strong>, "
 "misalnya:"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "Odoo has preconfigured <strong>one Warehouse</strong> for you."
-msgstr "Odoo telah dipra-konfigurasi <strong>satu Gudang</strong> untuk Anda."
+msgid "Gerp has preconfigured <strong>one Warehouse</strong> for you."
+msgstr "Gerp telah dipra-konfigurasi <strong>satu Gudang</strong> untuk Anda."
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"Odoo inventory management is fully integrated with sales and\n"
+"Gerp inventory management is fully integrated with sales and\n"
 "                        invoicing process. Everything is automated from the initial\n"
 "                        quotation to the delivery and the final invoice."
 msgstr ""
-"Manajemen persediaan Odoo terintegrasi dengan proses penjualan dan faktur. "
+"Manajemen persediaan Gerp terintegrasi dengan proses penjualan dan faktur. "
 "Segala sesuatunya otomatis dari awal penawaran hingga pengiriman dan "
 "terakhir faktur/penagihan."
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"Odoo is able to run advanced traceability by using Product Lots and Serial\n"
+"Gerp is able to run advanced traceability by using Product Lots and Serial\n"
 "                        Numbers, usually identified by bar codes stuck on the products."
 msgstr ""
-"Odoo mampu menjalankan penelusuran lanjutan menggunakan Lot dan Nomor Seri "
+"Gerp mampu menjalankan penelusuran lanjutan menggunakan Lot dan Nomor Seri "
 "Produk, biasanya diidentifikasi dengan barcode yang tercetak pada produk."
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"Of course, feel free to add your own. Please note that Odoo is able to "
+"Of course, feel free to add your own. Please note that Gerp is able to "
 "convert units within the same category, for example, liters to gallons in "
 "the volume category"
 msgstr ""
-"Tentu saja, Anda bebas untuk menambahkan sendiri. Harap dicatat bahwa Odoo "
+"Tentu saja, Anda bebas untuk menambahkan sendiri. Harap dicatat bahwa Gerp "
 "mampu mengkonversi satuan dalam kategori yang sama, misalnya, liter ke galon"
 " dalam kategori volume"
 
@@ -4222,7 +4222,7 @@ msgid ""
 "customer. It would be great if you could send us a photo of your warehouse "
 "to"
 msgstr ""
-"Setelah Odoo sepenuhnya bekerja, berikan kami masukan: kami senang mendengar"
+"Setelah Gerp sepenuhnya bekerja, berikan kami masukan: kami senang mendengar"
 " dari pelanggan kami. Kiranya akan sangat bagus jika Anda bisa mengirim foto"
 " gudang Anda untuk"
 
@@ -6581,10 +6581,10 @@ msgstr "Kolom ini akan mengisi asal kemasan dan nama pergerakannya"
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
-"This guide helps getting started with Odoo Inventory.\n"
+"This guide helps getting started with Gerp Inventory.\n"
 "                        Once you are done, you will benefit from:"
 msgstr ""
-"Panduan ini membantu Anda memulai dengan Persediaan Odoo.\n"
+"Panduan ini membantu Anda memulai dengan Persediaan Gerp.\n"
 "                        Setelah Anda selesai, Anda akan dapat:"
 
 #. module: stock
@@ -7297,28 +7297,28 @@ msgstr "Peringatan"
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
 "We handle the whole import process\n"
-"                                        for you: simply send your Odoo project\n"
+"                                        for you: simply send your Gerp project\n"
 "                                        manager a CSV file containing all your\n"
 "                                        data."
 msgstr ""
 "Kami menangani seluruh proses impor untuk Anda: cukup kirim ke projek "
-"manager Odoo file CSV yang berisi semua data Anda."
+"manager Gerp file CSV yang berisi semua data Anda."
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
 "We handle the whole import process\n"
-"                                        for you: simply send your Odoo project\n"
+"                                        for you: simply send your Gerp project\n"
 "                                        manager a CSV file containing all your\n"
 "                                        products."
 msgstr ""
 "Kami menangani seluruh proses impor untuk Anda: cukup kirim ke projek "
-"manager Odoo file CSV yang berisi semua produk Anda."
+"manager Gerp file CSV yang berisi semua produk Anda."
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
-msgid "We hope this guide helped you implement Odoo Inventory."
-msgstr "Semoga panduan ini membantu Anda dalam penggunaan Persediaan Odoo."
+msgid "We hope this guide helped you implement Gerp Inventory."
+msgstr "Semoga panduan ini membantu Anda dalam penggunaan Persediaan Gerp."
 
 #. module: stock
 #: code:addons/stock/models/barcode.py:11
@@ -7409,30 +7409,30 @@ msgstr ""
 #: model:ir.model.fields,help:stock.field_stock_warehouse_orderpoint_product_min_qty
 msgid ""
 "When the virtual stock goes below the Min Quantity specified for this field,"
-" Odoo generates a procurement to bring the forecasted quantity to the Max "
+" Gerp generates a procurement to bring the forecasted quantity to the Max "
 "Quantity."
 msgstr ""
 "Ketika stok virtual berada di bawah Kuantitas Min yang ditentukan untuk "
-"kolom ini, Odoo membuat pengadaan untuk meningkatkan perkiraan jumlah hingga"
+"kolom ini, Gerp membuat pengadaan untuk meningkatkan perkiraan jumlah hingga"
 " Jumlah Maks."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_warehouse_orderpoint_product_max_qty
 msgid ""
-"When the virtual stock goes below the Min Quantity, Odoo generates a "
+"When the virtual stock goes below the Min Quantity, Gerp generates a "
 "procurement to bring the forecasted quantity to the Quantity specified as "
 "Max Quantity."
 msgstr ""
-"Ketika stok virtual berada di bawah Kuantitas Min, Odoo membuat pengadaan "
+"Ketika stok virtual berada di bawah Kuantitas Min, Gerp membuat pengadaan "
 "untuk meningkatkan perkiraan jumlah hingga Jumlah Maks."
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.view_procurement_compute_wizard
 msgid ""
-"When you run the schedulers, Odoo tries to reserve the available stock to fulfill the existing pickings\n"
+"When you run the schedulers, Gerp tries to reserve the available stock to fulfill the existing pickings\n"
 "                and verify if some reordering rules should be triggered."
 msgstr ""
-"Ketika Anda menjalankan penjadwal, Odoo mencoba untuk reservasi stok tersedia untuk memenuhi pengambilan yang sudah ada\n"
+"Ketika Anda menjalankan penjadwal, Gerp mencoba untuk reservasi stok tersedia untuk memenuhi pengambilan yang sudah ada\n"
 "dan meng-verifikasi jika aturan order ulang sebaiknya dijalankan."
 
 #. module: stock
@@ -7498,17 +7498,17 @@ msgstr ""
 #. module: stock
 #: model:ir.actions.act_window,help:stock.action_orderpoint_form
 msgid ""
-"You can define your minimum stock rules, so that Odoo will automatically "
+"You can define your minimum stock rules, so that Gerp will automatically "
 "create draft manufacturing orders or request for quotations according to the"
 " stock level. Once the virtual stock of a product (= stock on hand minus all"
-" confirmed orders and reservations) is below the minimum quantity, Odoo will"
+" confirmed orders and reservations) is below the minimum quantity, Gerp will"
 " generate a procurement request to increase the stock up to the maximum "
 "quantity."
 msgstr ""
-"Anda dapat menentukan aturan stok minimal Anda, sehingga Odoo akan secara "
+"Anda dapat menentukan aturan stok minimal Anda, sehingga Gerp akan secara "
 "otomatis membuat rancangan order produksi atau meminta penawaran menurut "
 "level stok. Ketika stok virtual Produk (= stok di tangan minus pesanan "
-"dikonfirmasi dan reservasi) berada di bawah kuantitas minimum, Odoo akan "
+"dikonfirmasi dan reservasi) berada di bawah kuantitas minimum, Gerp akan "
 "membuat permintaan pengadaan untuk meningkatkan stok sampai jumlah maksimum."
 
 #. module: stock
@@ -7740,10 +7740,10 @@ msgstr "Anda harus memasukkan sebuah nama untuk lokasi ini."
 #: model:ir.ui.view,arch_db:stock.view_immediate_transfer
 msgid ""
 "You haven't entered <i>done</i> quantities, by clicking on <i>apply</i>\n"
-"                        Odoo will process all the <i>reserved</i> quantities."
+"                        Gerp will process all the <i>reserved</i> quantities."
 msgstr ""
 "Anda belum memasukkan kuantitas telah<i>selesai</i>, dengan meng-klik pada <i>terapkan</i>\n"
-"Odoo akan memproses semua kuantitas yang <i>direservasi</i>."
+"Gerp akan memproses semua kuantitas yang <i>direservasi</i>."
 
 #. module: stock
 #: code:addons/stock/wizard/stock_picking_return.py:44
@@ -7878,21 +7878,21 @@ msgstr "mis. PO0032"
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
 "either by manually updating the Done quantity on the product lines, or let "
-"Odoo do it automatically while validating"
+"Gerp do it automatically while validating"
 msgstr ""
 "baik secara manual memperbaharui kuantitas selesai pada baris produk, atau "
-"biarkan Odoo melakukannya secara otomatis ketika validasi"
+"biarkan Gerp melakukannya secara otomatis ketika validasi"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid ""
 "either by manually updating the Done quantity on the product lines, or scan "
-"them with the Odoo Barcode app, or let Odoo do it automatically while "
+"them with the Gerp Barcode app, or let Gerp do it automatically while "
 "validating"
 msgstr ""
 "baik secara manual memperbaharui kuantitas selesai pada baris produk, baik "
 "dengan manual memperbarui kuantitas dilakukan pada lini produk, atau scan "
-"mereka dengan aplikasi Odoo Barcode, atau biarkan Odoo melakukannya secara "
+"mereka dengan aplikasi Gerp Barcode, atau biarkan Gerp melakukannya secara "
 "otomatis ketika validasi"
 
 #. module: stock

@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Gerp Server.
 # This file contains the translation of the following modules:
 # * website_forum_doc
 # 
@@ -13,7 +13,7 @@
 # Gennady Marchenko <gennadym@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Gerp Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
@@ -176,13 +176,13 @@ msgstr "Ошибка! Нельзя создавать рекурсивные к�
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "Explain how to configure Odoo"
-msgstr "Объясняет как конфигурировать Odoo"
+msgid "Explain how to configure Gerp"
+msgstr "Объясняет как конфигурировать Gerp"
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "Explain how to implement it in Odoo"
-msgstr "Объясняет как использовать в Odoo"
+msgid "Explain how to implement it in Gerp"
+msgstr "Объясняет как использовать в Gerp"
 
 #. module: website_forum_doc
 #: model:ir.model.fields,field_description:website_forum_doc.field_forum_documentation_toc_forum_id
@@ -393,8 +393,8 @@ msgstr "Название этапа"
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question
-msgid "The answer is understandable for someone who does not know Odoo"
-msgstr "Ответ понятен для тех, кто не знает Odoo"
+msgid "The answer is understandable for someone who does not know Gerp"
+msgstr "Ответ понятен для тех, кто не знает Gerp"
 
 #. module: website_forum_doc
 #: model:ir.ui.view,arch_db:website_forum_doc.promote_question

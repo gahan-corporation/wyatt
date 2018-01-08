@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Gerp. See LICENSE file for full copyright and licensing details.
 
 import ast
 import functools
@@ -67,7 +67,7 @@ class AddonsHook(object):
         new_mod.__loader__ = self
 
         # module top-level can only be a package
-        assert type_ == imp.PKG_DIRECTORY, "Odoo addon top-level must be a package"
+        assert type_ == imp.PKG_DIRECTORY, "Gerp addon top-level must be a package"
         modfile = opj(path, '__init__.py')
         new_mod.__file__ = modfile
         new_mod.__path__ = [path]
@@ -89,7 +89,7 @@ class AddonsHook(object):
 # PackageLoader
 pkg_resources.register_loader_type(AddonsHook, pkg_resources.DefaultProvider)
 
-class OdooHook(object):
+class GerpHook(object):
     """ Makes gerp package also available as openerp """
 
     def find_module(self, name, path=None):
@@ -149,7 +149,7 @@ def initialize_sys_path():
             ad_paths.append(ad)
 
     if not hooked:
-        sys.meta_path.insert(0, OdooHook())
+        sys.meta_path.insert(0, GerpHook())
         sys.meta_path.insert(0, AddonsHook())
         hooked = True
 
@@ -309,7 +309,7 @@ def load_information_from_description_file(module, mod_path=None):
         # default values for descriptor
         info = {
             'application': False,
-            'author': 'Odoo S.A.',
+            'author': 'Gerp S.A.',
             'auto_install': False,
             'category': 'Uncategorized',
             'depends': [],

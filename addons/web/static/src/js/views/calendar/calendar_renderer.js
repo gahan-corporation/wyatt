@@ -96,7 +96,7 @@ var SidebarFilter = Widget.extend(FieldManagerMixin, {
     //--------------------------------------------------------------------------
 
     /**
-     * @param {OdooEvent} event
+     * @param {GerpEvent} event
      */
     _onFieldChanged: function (event) {
         var self = this;

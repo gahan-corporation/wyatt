@@ -517,7 +517,7 @@ QUnit.module('Views', {
                     return $.Deferred().reject({
                         code: 200,
                         data: {},
-                        message: "Odoo server error",
+                        message: "Gerp server error",
                     }, $.Event());
                 }
                 return this._super.apply(this, arguments);
