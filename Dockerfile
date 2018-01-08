@@ -17,5 +17,4 @@ RUN wget https://bootstrap.pypa.io/get-pip.py -O /tmp/get-pip.py; /usr/bin/pytho
 RUN wget https://github.com/gahan-corporation/gerp/archive/v0.0.1.tar.gz -O /srv/gerp.tar.gz
 WORKDIR /srv
 RUN tar xvf gerp.tar.gz
-WORKDIR /srv/gerp
-RUN pip install .
+RUN pip install /srv/gerp-0.0.1 
