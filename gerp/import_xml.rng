@@ -301,6 +301,8 @@
                 <rng:name>odoo</rng:name>
                 <rng:name>openerp</rng:name>
                 <rng:name>data</rng:name>
+                <rng:name>gcorp</rng:name>
+                <rng:name>gcorp</rng:name>
             </rng:choice>
             <rng:optional><rng:attribute name="noupdate" /></rng:optional>
             <rng:optional><rng:attribute name="context" /></rng:optional>

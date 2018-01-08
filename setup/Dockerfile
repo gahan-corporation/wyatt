@@ -21,7 +21,7 @@ WORKDIR /srv/gerp
 RUN /srv/.py3/bin/python setup.py build
 RUN /srv/.py3/bin/python setup.py install
 RUN apk add nodejs; npm install -g less
-ADD rc /root/.gerprc
 ADD gerp /srv/.py3/bin/gerp
+ADD rc /root/.gerprc
 RUN chmod +x /srv/.py3/bin/gerp
 CMD /srv/.py3/bin/gerp
