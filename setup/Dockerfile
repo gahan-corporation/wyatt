@@ -18,5 +18,5 @@ RUN wget https://github.com/gahan-corporation/gerp/archive/v0.0.1.tar.gz -O /srv
 WORKDIR /srv
 RUN tar xf gerp.tar.gz; mv /srv/gerp-0.0.1 /srv/gerp;
 WORKDIR /srv/gerp
-RUN python setup.py build
-RUN python setup.py install
+RUN /srv/.py3/bin/python setup.py build
+RUN /srv/.py3/bin/python setup.py install

@@ -18,7 +18,7 @@ before_script:
   - virtualenv -p /usr/bin/python3 .py
   - source .py/bin/activate
   - ".py/bin/pip install requests pyyaml pytest coverage sqlalchemy psycopg2 codacy-coverage"
-  - docker build .
+  - cd setup; docker build .; cd ..
 script:
   - "pytest || true"
   - "coverage run setup.py test || true"
