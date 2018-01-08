@@ -11,6 +11,7 @@ ENV LOCAL_USERNAME=`whoami`
 ENV REVISION=`v0.0.1`
 RUN curl https://api.rollbar.com/api/1/deploy/ -F access_token=$ACCESS_TOKEN -F environment=$ENVIRONMENT -F revision=$REVISION -F local_username=$LOCAL_USERNAME
 RUN pip3 install virtualenv
+RUN virtualenv -p /usr/bin/python3 /srv/.py3
 RUN /srv/.py3/bin/pip install lxml==4.1.1
 RUN wget https://github.com/gahan-corporation/gerp/archive/v0.0.1.tar.gz -O /srv/gerp.tar.gz
 WORKDIR /srv
