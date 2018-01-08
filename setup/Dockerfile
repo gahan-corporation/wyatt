@@ -2,7 +2,7 @@ FROM alpine:3.7
 RUN apk update
 RUN apk add wget git python3-dev postgresql postgresql-dev python3 make g++ libxslt-dev libxml2-dev zlib
 RUN apk add freetype-dev libjpeg-turbo-dev libpng-dev
-RUN apk add linux-headers openldap-dev bash curl
+RUN apk add linux-headers openldap-dev bash curl yaml-dev file
 EXPOSE 8072
 EXPOSE 8069
 ENV ACCESS_TOKEN=02938974c7dd4aec835dcd86d427f93a
