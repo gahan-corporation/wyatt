@@ -16,7 +16,7 @@ try:
     from xmlrpc.client import MAXINT
 except ImportError:
     #pylint: disable=bad-python3-import
-    from xmlrpc.client import MAXINT
+    from xmlrpclib import MAXINT
 
 import psycopg2
 
@@ -327,7 +327,7 @@ class Field(MetaField('DummyField', (object,), {})):
     def __init__(self, string=Default, **kwargs):
         kwargs['string'] = string
         self._sequence = kwargs['_sequence'] = next(_global_seq)
-        args = {key: val for key, val in list(kwargs.items()) if val is not Default}
+        args = {key: val for key, val in kwargs.items() if val is not Default}
         self.args = args or EMPTY_DICT
         self._setup_done = None
 
@@ -356,7 +356,7 @@ class Field(MetaField('DummyField', (object,), {})):
         """ Set all field attributes at once (with slot defaults). """
         # optimization: we assign slots only
         assign = object.__setattr__
-        for key, val in list(self._slots.items()):
+        for key, val in self._slots.items():
             assign(self, key, attrs.pop(key, val))
         if attrs:
             assign(self, '_attrs', attrs)
@@ -539,7 +539,7 @@ class Field(MetaField('DummyField', (object,), {})):
             if not getattr(self, attr):
                 setattr(self, attr, getattr(field, prop))
 
-        for attr, value in list(field._attrs.items()):
+        for attr, value in field._attrs.items():
             if attr not in self._attrs:
                 setattr(self, attr, value)
 
@@ -676,7 +676,7 @@ class Field(MetaField('DummyField', (object,), {})):
                 model = model0.env.get(field.comodel_name)
 
         # add self's model dependencies
-        for mname, fnames in list(model0._depends.items()):
+        for mname, fnames in model0._depends.items():
             model = model0.env[mname]
             for fname in fnames:
                 field = model._fields[fname]
@@ -1928,7 +1928,7 @@ class Many2one(_Relational):
         super(Many2one, self)._setup_attrs(model, name)
         # determine self.delegate
         if not self.delegate:
-            self.delegate = name in list(model._inherits.values())
+            self.delegate = name in model._inherits.values()
 
     def update_db(self, model, columns):
         comodel = model.env[self.comodel_name]
@@ -2116,7 +2116,7 @@ class _RelationalMulti(_Relational):
         for record in value:
             vals = {
                 name: value._fields[name].convert_to_onchange(record[name], record, subnames)
-                for name, subnames in list(names.items())
+                for name, subnames in names.items()
                 if name != 'id'
             }
             if not record.id:
@@ -2483,7 +2483,7 @@ class Many2many(_RelationalMulti):
                         (SELECT a, b FROM unnest(%s) AS a, unnest(%s) AS b)
                         EXCEPT (SELECT {id1}, {id2} FROM {rel} WHERE {id1} IN %s)
                     """.format(**parts)
-            ids = [id for id, flag in list(links.items()) if flag]
+            ids = [id for id, flag in links.items() if flag]
             for sub_ids in cr.split_for_in_conditions(ids):
                 cr.execute(query, (records.ids, list(sub_ids), tuple(records.ids)))
 
@@ -2492,7 +2492,7 @@ class Many2many(_RelationalMulti):
             query = """ DELETE FROM {rel}
                         WHERE {id1} IN %s AND {id2} IN %s
                     """.format(**parts)
-            ids = [id for id, flag in list(links.items()) if not flag]
+            ids = [id for id, flag in links.items() if not flag]
             for sub_ids in cr.split_for_in_conditions(ids):
                 cr.execute(query, (tuple(records.ids), sub_ids))
 
